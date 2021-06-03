@@ -1,6 +1,8 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/dbus.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>dbus.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gio/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gio/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
                 <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -387,14 +389,14 @@
     })
 }
 
-<span class="doccomment">/// Like `g_bus_own_name()` but takes a [`crate::DBusConnection`] instead of a</span>
-<span class="doccomment">/// [`crate::BusType`].</span>
+<span class="doccomment">/// Like [`bus_own_name()`][crate::bus_own_name()] but takes a [`DBusConnection`][crate::DBusConnection] instead of a</span>
+<span class="doccomment">/// [`BusType`][crate::BusType].</span>
 <span class="doccomment">/// ## `connection`</span>
-<span class="doccomment">/// a [`crate::DBusConnection`]</span>
+<span class="doccomment">/// a [`DBusConnection`][crate::DBusConnection]</span>
 <span class="doccomment">/// ## `name`</span>
 <span class="doccomment">/// the well-known name to own</span>
 <span class="doccomment">/// ## `flags`</span>
-<span class="doccomment">/// a set of flags from the [`crate::BusNameOwnerFlags`] enumeration</span>
+<span class="doccomment">/// a set of flags from the [`BusNameOwnerFlags`][crate::BusNameOwnerFlags] enumeration</span>
 <span class="doccomment">/// ## `name_acquired_handler`</span>
 <span class="doccomment">/// handler to invoke when `name` is acquired or [`None`]</span>
 <span class="doccomment">/// ## `name_lost_handler`</span>
@@ -453,11 +455,11 @@
 <span class="doccomment">/// If the name is acquired or lost (for example another application</span>
 <span class="doccomment">/// could acquire the name if you allow replacement or the application</span>
 <span class="doccomment">/// currently owning the name exits), the handlers are also invoked.</span>
-<span class="doccomment">/// If the [`crate::DBusConnection`] that is used for attempting to own the name</span>
+<span class="doccomment">/// If the [`DBusConnection`][crate::DBusConnection] that is used for attempting to own the name</span>
 <span class="doccomment">/// closes, then `name_lost_handler` is invoked since it is no longer</span>
 <span class="doccomment">/// possible for other processes to access the process.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// You cannot use `g_bus_own_name()` several times for the same name (unless</span>
+<span class="doccomment">/// You cannot use [`bus_own_name()`][crate::bus_own_name()] several times for the same name (unless</span>
 <span class="doccomment">/// interleaved with calls to `g_bus_unown_name()`) - only the first call</span>
 <span class="doccomment">/// will work.</span>
 <span class="doccomment">///</span>
@@ -468,7 +470,7 @@
 <span class="doccomment">/// will be `name_lost_handler`. The reverse is also true.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// If you plan on exporting objects (using e.g.</span>
-<span class="doccomment">/// [`crate::DBusConnection::register_object()`]), note that it is generally too late</span>
+<span class="doccomment">/// [`DBusConnection::register_object()`][crate::DBusConnection::register_object()]), note that it is generally too late</span>
 <span class="doccomment">/// to export the objects in `name_acquired_handler`. Instead, you can do this</span>
 <span class="doccomment">/// in `bus_acquired_handler` since you are guaranteed that this will run</span>
 <span class="doccomment">/// before `name` is requested from the bus.</span>
@@ -482,7 +484,7 @@
 <span class="doccomment">/// ## `name`</span>
 <span class="doccomment">/// the well-known name to own</span>
 <span class="doccomment">/// ## `flags`</span>
-<span class="doccomment">/// a set of flags from the [`crate::BusNameOwnerFlags`] enumeration</span>
+<span class="doccomment">/// a set of flags from the [`BusNameOwnerFlags`][crate::BusNameOwnerFlags] enumeration</span>
 <span class="doccomment">/// ## `bus_acquired_handler`</span>
 <span class="doccomment">/// handler to invoke when connected to the bus of type `bus_type` or [`None`]</span>
 <span class="doccomment">/// ## `name_acquired_handler`</span>
@@ -531,13 +533,13 @@
 <span class="doccomment">/// Stops owning a name.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Note that there may still be D-Bus traffic to process (relating to owning</span>
-<span class="doccomment">/// and unowning the name) in the current thread-default [`crate::glib::MainContext`] after</span>
-<span class="doccomment">/// this function has returned. You should continue to iterate the [`crate::glib::MainContext`]</span>
-<span class="doccomment">/// until the `GDestroyNotify` function passed to `g_bus_own_name()` is called, in</span>
-<span class="doccomment">/// order to avoid memory leaks through callbacks queued on the [`crate::glib::MainContext`]</span>
+<span class="doccomment">/// and unowning the name) in the current thread-default [`glib::MainContext`][crate::glib::MainContext] after</span>
+<span class="doccomment">/// this function has returned. You should continue to iterate the [`glib::MainContext`][crate::glib::MainContext]</span>
+<span class="doccomment">/// until the `GDestroyNotify` function passed to [`bus_own_name()`][crate::bus_own_name()] is called, in</span>
+<span class="doccomment">/// order to avoid memory leaks through callbacks queued on the [`glib::MainContext`][crate::glib::MainContext]</span>
 <span class="doccomment">/// after it’s stopped being iterated.</span>
 <span class="doccomment">/// ## `owner_id`</span>
-<span class="doccomment">/// an identifier obtained from `g_bus_own_name()`</span>
+<span class="doccomment">/// an identifier obtained from [`bus_own_name()`][crate::bus_own_name()]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_bus_unown_name&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bus_unown_name</span>(<span class="ident">owner_id</span>: <span class="ident">OwnerId</span>) {
     <span class="kw">unsafe</span> {
@@ -545,14 +547,14 @@
     }
 }
 
-<span class="doccomment">/// Like `g_bus_watch_name()` but takes a [`crate::DBusConnection`] instead of a</span>
-<span class="doccomment">/// [`crate::BusType`].</span>
+<span class="doccomment">/// Like [`bus_watch_name()`][crate::bus_watch_name()] but takes a [`DBusConnection`][crate::DBusConnection] instead of a</span>
+<span class="doccomment">/// [`BusType`][crate::BusType].</span>
 <span class="doccomment">/// ## `connection`</span>
-<span class="doccomment">/// A [`crate::DBusConnection`].</span>
+<span class="doccomment">/// A [`DBusConnection`][crate::DBusConnection].</span>
 <span class="doccomment">/// ## `name`</span>
 <span class="doccomment">/// The name (well-known or unique) to watch.</span>
 <span class="doccomment">/// ## `flags`</span>
-<span class="doccomment">/// Flags from the [`crate::BusNameWatcherFlags`] enumeration.</span>
+<span class="doccomment">/// Flags from the [`BusNameWatcherFlags`][crate::BusNameWatcherFlags] enumeration.</span>
 <span class="doccomment">/// ## `name_appeared_handler`</span>
 <span class="doccomment">/// Handler to invoke when `name` is known to exist or [`None`].</span>
 <span class="doccomment">/// ## `name_vanished_handler`</span>
@@ -600,7 +602,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// If the name vanishes or appears (for example the application owning</span>
 <span class="doccomment">/// the name could restart), the handlers are also invoked. If the</span>
-<span class="doccomment">/// [`crate::DBusConnection`] that is used for watching the name disconnects, then</span>
+<span class="doccomment">/// [`DBusConnection`][crate::DBusConnection] that is used for watching the name disconnects, then</span>
 <span class="doccomment">/// `name_vanished_handler` is invoked since it is no longer</span>
 <span class="doccomment">/// possible to access the name.</span>
 <span class="doccomment">///</span>
@@ -620,7 +622,7 @@
 <span class="doccomment">/// ## `name`</span>
 <span class="doccomment">/// The name (well-known or unique) to watch.</span>
 <span class="doccomment">/// ## `flags`</span>
-<span class="doccomment">/// Flags from the [`crate::BusNameWatcherFlags`] enumeration.</span>
+<span class="doccomment">/// Flags from the [`BusNameWatcherFlags`][crate::BusNameWatcherFlags] enumeration.</span>
 <span class="doccomment">/// ## `name_appeared_handler`</span>
 <span class="doccomment">/// Handler to invoke when `name` is known to exist or [`None`].</span>
 <span class="doccomment">/// ## `name_vanished_handler`</span>
@@ -657,13 +659,13 @@
 <span class="doccomment">/// Stops watching a name.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Note that there may still be D-Bus traffic to process (relating to watching</span>
-<span class="doccomment">/// and unwatching the name) in the current thread-default [`crate::glib::MainContext`] after</span>
-<span class="doccomment">/// this function has returned. You should continue to iterate the [`crate::glib::MainContext`]</span>
-<span class="doccomment">/// until the `GDestroyNotify` function passed to `g_bus_watch_name()` is called, in</span>
-<span class="doccomment">/// order to avoid memory leaks through callbacks queued on the [`crate::glib::MainContext`]</span>
+<span class="doccomment">/// and unwatching the name) in the current thread-default [`glib::MainContext`][crate::glib::MainContext] after</span>
+<span class="doccomment">/// this function has returned. You should continue to iterate the [`glib::MainContext`][crate::glib::MainContext]</span>
+<span class="doccomment">/// until the `GDestroyNotify` function passed to [`bus_watch_name()`][crate::bus_watch_name()] is called, in</span>
+<span class="doccomment">/// order to avoid memory leaks through callbacks queued on the [`glib::MainContext`][crate::glib::MainContext]</span>
 <span class="doccomment">/// after it’s stopped being iterated.</span>
 <span class="doccomment">/// ## `watcher_id`</span>
-<span class="doccomment">/// An identifier obtained from `g_bus_watch_name()`</span>
+<span class="doccomment">/// An identifier obtained from [`bus_watch_name()`][crate::bus_watch_name()]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_bus_unwatch_name&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bus_unwatch_name</span>(<span class="ident">watcher_id</span>: <span class="ident">WatcherId</span>) {
     <span class="kw">unsafe</span> {

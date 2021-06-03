@@ -1,6 +1,8 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/converter.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>converter.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gio/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gio/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
                 <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -193,31 +195,31 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// A full conversion loop involves calling this method repeatedly, each time</span>
     <span class="doccomment">/// giving it new input and space output space. When there is no more input</span>
-    <span class="doccomment">/// data after the data in `inbuf`, the flag [`crate::ConverterFlags::InputAtEnd`] must be set.</span>
-    <span class="doccomment">/// The loop will be (unless some error happens) returning [`crate::ConverterResult::Converted`]</span>
+    <span class="doccomment">/// data after the data in `inbuf`, the flag [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] must be set.</span>
+    <span class="doccomment">/// The loop will be (unless some error happens) returning [`ConverterResult::Converted`][crate::ConverterResult::Converted]</span>
     <span class="doccomment">/// each time until all data is consumed and all output is produced, then</span>
-    <span class="doccomment">/// [`crate::ConverterResult::Finished`] is returned instead. Note, that [`crate::ConverterResult::Finished`]</span>
-    <span class="doccomment">/// may be returned even if [`crate::ConverterFlags::InputAtEnd`] is not set, for instance</span>
+    <span class="doccomment">/// [`ConverterResult::Finished`][crate::ConverterResult::Finished] is returned instead. Note, that [`ConverterResult::Finished`][crate::ConverterResult::Finished]</span>
+    <span class="doccomment">/// may be returned even if [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] is not set, for instance</span>
     <span class="doccomment">/// in a decompression converter where the end of data is detectable from the</span>
     <span class="doccomment">/// data (and there might even be other data after the end of the compressed data).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// When some data has successfully been converted `bytes_read` and is set to</span>
     <span class="doccomment">/// the number of bytes read from `inbuf`, and `bytes_written` is set to indicate</span>
     <span class="doccomment">/// how many bytes was written to `outbuf`. If there are more data to output</span>
-    <span class="doccomment">/// or consume (i.e. unless the [`crate::ConverterFlags::InputAtEnd`] is specified) then</span>
-    <span class="doccomment">/// [`crate::ConverterResult::Converted`] is returned, and if no more data is to be output</span>
-    <span class="doccomment">/// then [`crate::ConverterResult::Finished`] is returned.</span>
+    <span class="doccomment">/// or consume (i.e. unless the [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] is specified) then</span>
+    <span class="doccomment">/// [`ConverterResult::Converted`][crate::ConverterResult::Converted] is returned, and if no more data is to be output</span>
+    <span class="doccomment">/// then [`ConverterResult::Finished`][crate::ConverterResult::Finished] is returned.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// On error [`crate::ConverterResult::Error`] is returned and `error` is set accordingly.</span>
+    <span class="doccomment">/// On error [`ConverterResult::Error`][crate::ConverterResult::Error] is returned and `error` is set accordingly.</span>
     <span class="doccomment">/// Some errors need special handling:</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`crate::IOErrorEnum::NoSpace`] is returned if there is not enough space</span>
+    <span class="doccomment">/// [`IOErrorEnum::NoSpace`][crate::IOErrorEnum::NoSpace] is returned if there is not enough space</span>
     <span class="doccomment">/// to write the resulting converted data, the application should</span>
     <span class="doccomment">/// call the function again with a larger `outbuf` to continue.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`crate::IOErrorEnum::PartialInput`] is returned if there is not enough</span>
+    <span class="doccomment">/// [`IOErrorEnum::PartialInput`][crate::IOErrorEnum::PartialInput] is returned if there is not enough</span>
     <span class="doccomment">/// input to fully determine what the conversion should produce,</span>
-    <span class="doccomment">/// and the [`crate::ConverterFlags::InputAtEnd`] flag is not set. This happens for</span>
+    <span class="doccomment">/// and the [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] flag is not set. This happens for</span>
     <span class="doccomment">/// example with an incomplete multibyte sequence when converting text,</span>
     <span class="doccomment">/// or when a regexp matches up to the end of the input (and may match</span>
     <span class="doccomment">/// further input). It may also happen when `inbuf_size` is zero and</span>
@@ -226,23 +228,23 @@
     <span class="doccomment">/// When this happens the application should read more input and then</span>
     <span class="doccomment">/// call the function again. If further input shows that there is no</span>
     <span class="doccomment">/// more data call the function again with the same data but with</span>
-    <span class="doccomment">/// the [`crate::ConverterFlags::InputAtEnd`] flag set. This may cause the conversion</span>
+    <span class="doccomment">/// the [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] flag set. This may cause the conversion</span>
     <span class="doccomment">/// to finish as e.g. in the regexp match case (or, to fail again with</span>
-    <span class="doccomment">/// [`crate::IOErrorEnum::PartialInput`] in e.g. a charset conversion where the</span>
+    <span class="doccomment">/// [`IOErrorEnum::PartialInput`][crate::IOErrorEnum::PartialInput] in e.g. a charset conversion where the</span>
     <span class="doccomment">/// input is actually partial).</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// After [`crate::Converter::convert()`] has returned [`crate::ConverterResult::Finished`] the</span>
+    <span class="doccomment">/// After [`ConverterExtManual::convert()`][crate::prelude::ConverterExtManual::convert()] has returned [`ConverterResult::Finished`][crate::ConverterResult::Finished] the</span>
     <span class="doccomment">/// converter object is in an invalid state where its not allowed</span>
-    <span class="doccomment">/// to call [`crate::Converter::convert()`] anymore. At this time you can only</span>
-    <span class="doccomment">/// free the object or call [`crate::Converter::reset()`] to reset it to the</span>
+    <span class="doccomment">/// to call [`ConverterExtManual::convert()`][crate::prelude::ConverterExtManual::convert()] anymore. At this time you can only</span>
+    <span class="doccomment">/// free the object or call [`ConverterExt::reset()`][crate::prelude::ConverterExt::reset()] to reset it to the</span>
     <span class="doccomment">/// initial state.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If the flag [`crate::ConverterFlags::Flush`] is set then conversion is modified</span>
+    <span class="doccomment">/// If the flag [`ConverterFlags::FLUSH`][crate::ConverterFlags::FLUSH] is set then conversion is modified</span>
     <span class="doccomment">/// to try to write out all internal state to the output. The application</span>
     <span class="doccomment">/// has to call the function multiple times with the flag set, and when</span>
     <span class="doccomment">/// the available input has been consumed and all internal state has</span>
-    <span class="doccomment">/// been produced then [`crate::ConverterResult::Flushed`] (or [`crate::ConverterResult::Finished`] if</span>
-    <span class="doccomment">/// really at the end) is returned instead of [`crate::ConverterResult::Converted`].</span>
+    <span class="doccomment">/// been produced then [`ConverterResult::Flushed`][crate::ConverterResult::Flushed] (or [`ConverterResult::Finished`][crate::ConverterResult::Finished] if</span>
+    <span class="doccomment">/// really at the end) is returned instead of [`ConverterResult::Converted`][crate::ConverterResult::Converted].</span>
     <span class="doccomment">/// This is somewhat similar to what happens at the end of the input stream,</span>
     <span class="doccomment">/// but done in the middle of the data.</span>
     <span class="doccomment">///</span>
@@ -259,7 +261,7 @@
     <span class="doccomment">/// Flushing is not always possible (like if a charset converter flushes</span>
     <span class="doccomment">/// at a partial multibyte sequence). Converters are supposed to try</span>
     <span class="doccomment">/// to produce as much output as possible and then return an error</span>
-    <span class="doccomment">/// (typically [`crate::IOErrorEnum::PartialInput`]).</span>
+    <span class="doccomment">/// (typically [`IOErrorEnum::PartialInput`][crate::IOErrorEnum::PartialInput]).</span>
     <span class="doccomment">/// ## `inbuf`</span>
     <span class="doccomment">/// the buffer</span>
     <span class="doccomment">///  containing the data to convert.</span>
@@ -267,11 +269,11 @@
     <span class="doccomment">/// a buffer to write</span>
     <span class="doccomment">///  converted data in.</span>
     <span class="doccomment">/// ## `flags`</span>
-    <span class="doccomment">/// a [`crate::ConverterFlags`] controlling the conversion details</span>
+    <span class="doccomment">/// a [`ConverterFlags`][crate::ConverterFlags] controlling the conversion details</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`crate::ConverterResult`], [`crate::ConverterResult::Error`] on error.</span>
+    <span class="doccomment">/// a [`ConverterResult`][crate::ConverterResult], [`ConverterResult::Error`][crate::ConverterResult::Error] on error.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `bytes_read`</span>
     <span class="doccomment">/// will be set to the number of bytes read from `inbuf` on success</span>
