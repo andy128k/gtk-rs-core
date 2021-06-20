@@ -414,7 +414,7 @@
     <span class="doccomment">/// implement the org.freedesktop.DBus interface.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// To just export an object on a well-known name on a message bus, such as the</span>
-    <span class="doccomment">/// session or system bus, you should instead use [`bus_own_name()`][crate::bus_own_name()].</span>
+    <span class="doccomment">/// session or system bus, you should instead use `g_bus_own_name()`.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// An example of peer-to-peer communication with GDBus can be found</span>
     <span class="doccomment">/// in [gdbus-example-peer.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-peer.c).</span>
@@ -611,7 +611,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// You are guaranteed that signal handlers for this signal runs</span>
     <span class="doccomment">/// before incoming messages on `connection` are processed. This means</span>
-    <span class="doccomment">/// that it&#39;s suitable to call [`DBusConnection::register_object()`][crate::DBusConnection::register_object()] or</span>
+    <span class="doccomment">/// that it&#39;s suitable to call `g_dbus_connection_register_object()` or</span>
     <span class="doccomment">/// similar from the signal handler.</span>
     <span class="doccomment">/// ## `connection`</span>
     <span class="doccomment">/// A [`DBusConnection`][crate::DBusConnection] for the new connection.</span>

@@ -916,7 +916,7 @@
     <span class="doccomment">/// The most common usage of [`Task`][crate::Task] is as a [`AsyncResult`][crate::AsyncResult], to</span>
     <span class="doccomment">/// manage data during an asynchronous operation. You call</span>
     <span class="doccomment">/// [`new()`][Self::new()] in the &quot;start&quot; method, followed by</span>
-    <span class="doccomment">/// [`set_task_data()`][Self::set_task_data()] and the like if you need to keep some</span>
+    <span class="doccomment">/// `g_task_set_task_data()` and the like if you need to keep some</span>
     <span class="doccomment">/// additional data associated with the task, and then pass the</span>
     <span class="doccomment">/// task object around through your asynchronous operation.</span>
     <span class="doccomment">/// Eventually, you will call a method such as</span>
@@ -1034,7 +1034,7 @@
     <span class="doccomment">/// and [`priority()`][Self::priority()] allow you to get back the task&#39;s</span>
     <span class="doccomment">/// [`Cancellable`][crate::Cancellable], [`glib::MainContext`][crate::glib::MainContext], and [I/O priority][io-priority]</span>
     <span class="doccomment">/// when starting a new subtask, so you don&#39;t have to keep track</span>
-    <span class="doccomment">/// of them yourself. [`attach_source()`][Self::attach_source()] simplifies the case</span>
+    <span class="doccomment">/// of them yourself. `g_task_attach_source()` simplifies the case</span>
     <span class="doccomment">/// of waiting for a source to fire (automatically using the correct</span>
     <span class="doccomment">/// [`glib::MainContext`][crate::glib::MainContext] and priority).</span>
     <span class="doccomment">///</span>
@@ -1168,7 +1168,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## Asynchronous operations from synchronous ones</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// You can use [`run_in_thread()`][Self::run_in_thread()] to turn a synchronous</span>
+    <span class="doccomment">/// You can use `g_task_run_in_thread()` to turn a synchronous</span>
     <span class="doccomment">/// operation into an asynchronous one, by running it in a thread.</span>
     <span class="doccomment">/// When it completes, the result will be dispatched to the</span>
     <span class="doccomment">/// [thread-default main context][g-main-context-push-thread-default]</span>
@@ -1248,7 +1248,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## Adding cancellability to uncancellable tasks</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Finally, [`run_in_thread()`][Self::run_in_thread()] and [`run_in_thread_sync()`][Self::run_in_thread_sync()]</span>
+    <span class="doccomment">/// Finally, `g_task_run_in_thread()` and `g_task_run_in_thread_sync()`</span>
     <span class="doccomment">/// can be used to turn an uncancellable operation into a</span>
     <span class="doccomment">/// cancellable one. If you call [`set_return_on_cancel()`][Self::set_return_on_cancel()],</span>
     <span class="doccomment">/// passing [`true`], then if the task&#39;s [`Cancellable`][crate::Cancellable] is cancelled,</span>
@@ -1357,8 +1357,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`Task`][crate::Task]&#39;s API attempts to be simpler than `GSimpleAsyncResult`&#39;s</span>
     <span class="doccomment">/// in several ways:</span>
-    <span class="doccomment">/// - You can save task-specific data with [`set_task_data()`][Self::set_task_data()], and</span>
-    <span class="doccomment">///  retrieve it later with [`task_data()`][Self::task_data()]. This replaces the</span>
+    <span class="doccomment">/// - You can save task-specific data with `g_task_set_task_data()`, and</span>
+    <span class="doccomment">///  retrieve it later with `g_task_get_task_data()`. This replaces the</span>
     <span class="doccomment">///  abuse of `g_simple_async_result_set_op_res_gpointer()` for the same</span>
     <span class="doccomment">///  purpose with `GSimpleAsyncResult`.</span>
     <span class="doccomment">/// - In addition to the task data, [`Task`][crate::Task] also keeps track of the</span>
@@ -1372,7 +1372,7 @@
     <span class="doccomment">///  `GSimpleAsyncResult` does when</span>
     <span class="doccomment">///  `g_simple_async_result_set_check_cancellable()` is called.</span>
     <span class="doccomment">///  (You can use [`set_check_cancellable()`][Self::set_check_cancellable()] to turn off that</span>
-    <span class="doccomment">///  behavior.) On the other hand, [`run_in_thread()`][Self::run_in_thread()]</span>
+    <span class="doccomment">///  behavior.) On the other hand, `g_task_run_in_thread()`</span>
     <span class="doccomment">///  guarantees that it will always run your</span>
     <span class="doccomment">///  `task_func`, even if the task&#39;s [`Cancellable`][crate::Cancellable]</span>
     <span class="doccomment">///  is already cancelled before the task gets a chance to run;</span>
@@ -1404,7 +1404,7 @@
     <span class="doccomment">///  Note that wrapper methods can now use</span>
     <span class="doccomment">///  [`AsyncResultExt::legacy_propagate_error()`][crate::prelude::AsyncResultExt::legacy_propagate_error()] to do old-style</span>
     <span class="doccomment">///  `GSimpleAsyncResult` error-returning behavior, and</span>
-    <span class="doccomment">///  [`AsyncResultExt::is_tagged()`][crate::prelude::AsyncResultExt::is_tagged()] to check if a result is tagged as</span>
+    <span class="doccomment">///  `g_async_result_is_tagged()` to check if a result is tagged as</span>
     <span class="doccomment">///  having come from the ``_async()`` wrapper</span>
     <span class="doccomment">///  function (for &quot;short-circuit&quot; results, such as when passing</span>
     <span class="doccomment">///  0 to [`InputStreamExtManual::read_async()`][crate::prelude::InputStreamExtManual::read_async()]).</span>
@@ -1591,8 +1591,8 @@
     }
 
     <span class="doccomment">/// Sets or clears `self`&#39;s return-on-cancel flag. This is only</span>
-    <span class="doccomment">/// meaningful for tasks run via [`run_in_thread()`][Self::run_in_thread()] or</span>
-    <span class="doccomment">/// [`run_in_thread_sync()`][Self::run_in_thread_sync()].</span>
+    <span class="doccomment">/// meaningful for tasks run via `g_task_run_in_thread()` or</span>
+    <span class="doccomment">/// `g_task_run_in_thread_sync()`.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If `return_on_cancel` is [`true`], then cancelling `self`&#39;s</span>
     <span class="doccomment">/// [`Cancellable`][crate::Cancellable] will immediately cause it to return, as though the</span>
@@ -1615,7 +1615,7 @@
     <span class="doccomment">/// again will cause the task to be cancelled at that point.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the task&#39;s [`Cancellable`][crate::Cancellable] is already cancelled before you call</span>
-    <span class="doccomment">/// [`run_in_thread()`][Self::run_in_thread()]/[`run_in_thread_sync()`][Self::run_in_thread_sync()], then the</span>
+    <span class="doccomment">/// `g_task_run_in_thread()`/`g_task_run_in_thread_sync()`, then the</span>
     <span class="doccomment">/// `GTaskThreadFunc` will still be run (for consistency), but the task</span>
     <span class="doccomment">/// will also be completed right away.</span>
     <span class="doccomment">/// ## `return_on_cancel`</span>

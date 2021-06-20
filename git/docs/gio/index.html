@@ -123,8 +123,8 @@ for buffered reads.</p>
 </td></tr><tr class="module-item"><td><a class="struct" href="struct.BufferedOutputStream.html" title="gio::BufferedOutputStream struct">BufferedOutputStream</a></td><td class="docblock-short"><p>Buffered output stream implements <a href="struct.FilterOutputStream.html" title="crate::FilterOutputStream"><code>FilterOutputStream</code></a> and provides
 for buffered writes.</p>
 </td></tr><tr class="module-item"><td><a class="struct" href="struct.BufferedOutputStreamBuilder.html" title="gio::BufferedOutputStreamBuilder struct">BufferedOutputStreamBuilder</a></td><td class="docblock-short"><p>A builder for generating a <a href="struct.BufferedOutputStream.html" title="BufferedOutputStream"><code>BufferedOutputStream</code></a>.</p>
-</td></tr><tr class="module-item"><td><a class="struct" href="struct.BusNameOwnerFlags.html" title="gio::BusNameOwnerFlags struct">BusNameOwnerFlags</a></td><td class="docblock-short"><p>Flags used in <a href="fn.bus_own_name.html" title="crate::bus_own_name()"><code>bus_own_name()</code></a>.</p>
-</td></tr><tr class="module-item"><td><a class="struct" href="struct.BusNameWatcherFlags.html" title="gio::BusNameWatcherFlags struct">BusNameWatcherFlags</a></td><td class="docblock-short"><p>Flags used in <a href="fn.bus_watch_name.html" title="crate::bus_watch_name()"><code>bus_watch_name()</code></a>.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.BusNameOwnerFlags.html" title="gio::BusNameOwnerFlags struct">BusNameOwnerFlags</a></td><td class="docblock-short"><p>Flags used in <code>g_bus_own_name()</code>.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.BusNameWatcherFlags.html" title="gio::BusNameWatcherFlags struct">BusNameWatcherFlags</a></td><td class="docblock-short"><p>Flags used in <code>g_bus_watch_name()</code>.</p>
 </td></tr><tr class="module-item"><td><a class="struct" href="struct.BytesIcon.html" title="gio::BytesIcon struct">BytesIcon</a></td><td class="docblock-short"><p><a href="struct.BytesIcon.html" title="crate::BytesIcon"><code>BytesIcon</code></a> specifies an image held in memory in a common format (usually
 png) to be used as icon.</p>
 </td></tr><tr class="module-item"><td><a class="struct" href="struct.Cancellable.html" title="gio::Cancellable struct">Cancellable</a></td><td class="docblock-short"><p>GCancellable is a thread-safe operation cancellation stack used
@@ -572,7 +572,7 @@ and <a href="prelude/trait.TlsDatabaseExt.html#tymethod.lookup_certificates_issu
 when finishing an interaction request.</p>
 </td></tr><tr class="module-item"><td><a class="enum" href="enum.TlsRehandshakeMode.html" title="gio::TlsRehandshakeMode enum">TlsRehandshakeMode</a></td><td class="docblock-short"><p>When to allow rehandshaking. See
 <a href="prelude/trait.TlsConnectionExt.html#tymethod.set_rehandshake_mode" title="crate::prelude::TlsConnectionExt::set_rehandshake_mode()"><code>TlsConnectionExt::set_rehandshake_mode()</code></a>.</p>
-</td></tr><tr class="module-item"><td><a class="enum" href="enum.UnixSocketAddressType.html" title="gio::UnixSocketAddressType enum">UnixSocketAddressType</a></td><td class="docblock-short"><p>The type of name used by a <a href="struct.UnixSocketAddress.html" title="crate::UnixSocketAddress"><code>UnixSocketAddress</code></a>.
+</td></tr><tr class="module-item"><td><a class="enum" href="enum.UnixSocketAddressType.html" title="gio::UnixSocketAddressType enum">UnixSocketAddressType</a></td><td class="docblock-short"><span class="stab portability" title="This is supported on Unix only">Unix</span><p>The type of name used by a <a href="struct.UnixSocketAddress.html" title="crate::UnixSocketAddress"><code>UnixSocketAddress</code></a>.
 <a href="enum.UnixSocketAddressType.html#variant.Path" title="Self::Path"><code>Path</code></a> indicates a traditional unix domain
 socket bound to a filesystem path. <a href="enum.UnixSocketAddressType.html#variant.Anonymous" title="Self::Anonymous"><code>Anonymous</code></a>
 indicates a socket not bound to any name (eg, a client-side socket,
@@ -921,7 +921,7 @@ the same <code>bus_type</code>, they will share the same object.</p>
 acquired respectively lost. Callbacks will be invoked in the
 [thread-default main context][g-main-context-push-thread-default]
 of the thread you are calling this function from.</p>
-</td></tr><tr class="module-item"><td><a class="fn" href="fn.bus_own_name_on_connection.html" title="gio::bus_own_name_on_connection fn">bus_own_name_on_connection</a></td><td class="docblock-short"><p>Like <a href="fn.bus_own_name.html" title="crate::bus_own_name()"><code>bus_own_name()</code></a> but takes a <a href="struct.DBusConnection.html" title="crate::DBusConnection"><code>DBusConnection</code></a> instead of a
+</td></tr><tr class="module-item"><td><a class="fn" href="fn.bus_own_name_on_connection.html" title="gio::bus_own_name_on_connection fn">bus_own_name_on_connection</a></td><td class="docblock-short"><p>Like <code>g_bus_own_name()</code> but takes a <a href="struct.DBusConnection.html" title="crate::DBusConnection"><code>DBusConnection</code></a> instead of a
 <a href="enum.BusType.html" title="crate::BusType"><code>BusType</code></a>.</p>
 </td></tr><tr class="module-item"><td><a class="fn" href="fn.bus_unown_name.html" title="gio::bus_unown_name fn">bus_unown_name</a></td><td class="docblock-short"><p>Stops owning a name.</p>
 </td></tr><tr class="module-item"><td><a class="fn" href="fn.bus_unwatch_name.html" title="gio::bus_unwatch_name fn">bus_unwatch_name</a></td><td class="docblock-short"><p>Stops watching a name.</p>
@@ -931,7 +931,7 @@ known to have an owner respectively known to lose its
 owner. Callbacks will be invoked in the
 [thread-default main context][g-main-context-push-thread-default]
 of the thread you are calling this function from.</p>
-</td></tr><tr class="module-item"><td><a class="fn" href="fn.bus_watch_name_on_connection.html" title="gio::bus_watch_name_on_connection fn">bus_watch_name_on_connection</a></td><td class="docblock-short"><p>Like <a href="fn.bus_watch_name.html" title="crate::bus_watch_name()"><code>bus_watch_name()</code></a> but takes a <a href="struct.DBusConnection.html" title="crate::DBusConnection"><code>DBusConnection</code></a> instead of a
+</td></tr><tr class="module-item"><td><a class="fn" href="fn.bus_watch_name_on_connection.html" title="gio::bus_watch_name_on_connection fn">bus_watch_name_on_connection</a></td><td class="docblock-short"><p>Like <code>g_bus_watch_name()</code> but takes a <a href="struct.DBusConnection.html" title="crate::DBusConnection"><code>DBusConnection</code></a> instead of a
 <a href="enum.BusType.html" title="crate::BusType"><code>BusType</code></a>.</p>
 </td></tr><tr class="module-item"><td><a class="fn" href="fn.compile_resources.html" title="gio::compile_resources fn">compile_resources</a></td><td class="docblock-short"><p>Call from build script to run <code>glib-compile-resources</code> to generate compiled gresources to embed
 in binary with <a href="macro.resources_register_include.html" title="resources_register_include">resources_register_include</a>. <code>target</code> is relative to <code>OUT_DIR</code>.</p>

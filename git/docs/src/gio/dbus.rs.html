@@ -459,7 +459,7 @@
     })
 }
 
-<span class="doccomment">/// Like [`bus_own_name()`][crate::bus_own_name()] but takes a [`DBusConnection`][crate::DBusConnection] instead of a</span>
+<span class="doccomment">/// Like `g_bus_own_name()` but takes a [`DBusConnection`][crate::DBusConnection] instead of a</span>
 <span class="doccomment">/// [`BusType`][crate::BusType].</span>
 <span class="doccomment">/// ## `connection`</span>
 <span class="doccomment">/// a [`DBusConnection`][crate::DBusConnection]</span>
@@ -529,7 +529,7 @@
 <span class="doccomment">/// closes, then `name_lost_handler` is invoked since it is no longer</span>
 <span class="doccomment">/// possible for other processes to access the process.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// You cannot use [`bus_own_name()`][crate::bus_own_name()] several times for the same name (unless</span>
+<span class="doccomment">/// You cannot use `g_bus_own_name()` several times for the same name (unless</span>
 <span class="doccomment">/// interleaved with calls to `g_bus_unown_name()`) - only the first call</span>
 <span class="doccomment">/// will work.</span>
 <span class="doccomment">///</span>
@@ -540,7 +540,7 @@
 <span class="doccomment">/// will be `name_lost_handler`. The reverse is also true.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// If you plan on exporting objects (using e.g.</span>
-<span class="doccomment">/// [`DBusConnection::register_object()`][crate::DBusConnection::register_object()]), note that it is generally too late</span>
+<span class="doccomment">/// `g_dbus_connection_register_object()`), note that it is generally too late</span>
 <span class="doccomment">/// to export the objects in `name_acquired_handler`. Instead, you can do this</span>
 <span class="doccomment">/// in `bus_acquired_handler` since you are guaranteed that this will run</span>
 <span class="doccomment">/// before `name` is requested from the bus.</span>
@@ -605,11 +605,11 @@
 <span class="doccomment">/// Note that there may still be D-Bus traffic to process (relating to owning</span>
 <span class="doccomment">/// and unowning the name) in the current thread-default [`glib::MainContext`][crate::glib::MainContext] after</span>
 <span class="doccomment">/// this function has returned. You should continue to iterate the [`glib::MainContext`][crate::glib::MainContext]</span>
-<span class="doccomment">/// until the `GDestroyNotify` function passed to [`bus_own_name()`][crate::bus_own_name()] is called, in</span>
+<span class="doccomment">/// until the `GDestroyNotify` function passed to `g_bus_own_name()` is called, in</span>
 <span class="doccomment">/// order to avoid memory leaks through callbacks queued on the [`glib::MainContext`][crate::glib::MainContext]</span>
 <span class="doccomment">/// after it’s stopped being iterated.</span>
 <span class="doccomment">/// ## `owner_id`</span>
-<span class="doccomment">/// an identifier obtained from [`bus_own_name()`][crate::bus_own_name()]</span>
+<span class="doccomment">/// an identifier obtained from `g_bus_own_name()`</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_bus_unown_name&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bus_unown_name</span>(<span class="ident">owner_id</span>: <span class="ident">OwnerId</span>) {
     <span class="kw">unsafe</span> {
@@ -617,7 +617,7 @@
     }
 }
 
-<span class="doccomment">/// Like [`bus_watch_name()`][crate::bus_watch_name()] but takes a [`DBusConnection`][crate::DBusConnection] instead of a</span>
+<span class="doccomment">/// Like `g_bus_watch_name()` but takes a [`DBusConnection`][crate::DBusConnection] instead of a</span>
 <span class="doccomment">/// [`BusType`][crate::BusType].</span>
 <span class="doccomment">/// ## `connection`</span>
 <span class="doccomment">/// A [`DBusConnection`][crate::DBusConnection].</span>
@@ -731,11 +731,11 @@
 <span class="doccomment">/// Note that there may still be D-Bus traffic to process (relating to watching</span>
 <span class="doccomment">/// and unwatching the name) in the current thread-default [`glib::MainContext`][crate::glib::MainContext] after</span>
 <span class="doccomment">/// this function has returned. You should continue to iterate the [`glib::MainContext`][crate::glib::MainContext]</span>
-<span class="doccomment">/// until the `GDestroyNotify` function passed to [`bus_watch_name()`][crate::bus_watch_name()] is called, in</span>
+<span class="doccomment">/// until the `GDestroyNotify` function passed to `g_bus_watch_name()` is called, in</span>
 <span class="doccomment">/// order to avoid memory leaks through callbacks queued on the [`glib::MainContext`][crate::glib::MainContext]</span>
 <span class="doccomment">/// after it’s stopped being iterated.</span>
 <span class="doccomment">/// ## `watcher_id`</span>
-<span class="doccomment">/// An identifier obtained from [`bus_watch_name()`][crate::bus_watch_name()]</span>
+<span class="doccomment">/// An identifier obtained from `g_bus_watch_name()`</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_bus_unwatch_name&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bus_unwatch_name</span>(<span class="ident">watcher_id</span>: <span class="ident">WatcherId</span>) {
     <span class="kw">unsafe</span> {

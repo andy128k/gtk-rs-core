@@ -837,13 +837,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`Subprocess`][crate::Subprocess] attempts to have a very simple API for most uses (ie:</span>
     <span class="doccomment">/// spawning a subprocess with arguments and support for most typical</span>
-    <span class="doccomment">/// kinds of input and output redirection). See [`new()`][Self::new()]. The</span>
+    <span class="doccomment">/// kinds of input and output redirection). See `g_subprocess_new()`. The</span>
     <span class="doccomment">/// [`SubprocessLauncher`][crate::SubprocessLauncher] API is provided for more complicated cases</span>
     <span class="doccomment">/// (advanced types of redirection, environment variable manipulation,</span>
     <span class="doccomment">/// change of working directory, child setup functions, etc).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// A typical use of [`Subprocess`][crate::Subprocess] will involve calling</span>
-    <span class="doccomment">/// [`new()`][Self::new()], followed by [`wait_async()`][Self::wait_async()] or</span>
+    <span class="doccomment">/// `g_subprocess_new()`, followed by [`wait_async()`][Self::wait_async()] or</span>
     <span class="doccomment">/// [`wait()`][Self::wait()]. After the process exits, the status can be</span>
     <span class="doccomment">/// checked using functions such as [`has_exited()`][Self::has_exited()] (which</span>
     <span class="doccomment">/// are similar to the familiar WIFEXITED-style POSIX macros).</span>
@@ -1043,18 +1043,18 @@
         <span class="op">&gt;</span>,
     <span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">stdin_buf</span> <span class="op">=</span> <span class="ident">stdin_buf</span>.<span class="ident">map</span>(<span class="ident">ToOwned::to_owned</span>);
-        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident">Cancellable::new</span>();
-            <span class="ident">obj</span>.<span class="ident">communicate_async</span>(
-                <span class="ident">stdin_buf</span>.<span class="ident">as_ref</span>().<span class="ident">map</span>(<span class="ident">::std::borrow::Borrow::borrow</span>),
-                <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>),
-                <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                    <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
-                },
-            );
-
-            <span class="ident">cancellable</span>
-        }))
+        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(
+            <span class="self">self</span>,
+            <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
+                <span class="ident">obj</span>.<span class="ident">communicate_async</span>(
+                    <span class="ident">stdin_buf</span>.<span class="ident">as_ref</span>().<span class="ident">map</span>(<span class="ident">::std::borrow::Borrow::borrow</span>),
+                    <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>),
+                    <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
+                        <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+                    },
+                );
+            },
+        ))
     }
 
     <span class="doccomment">/// Like [`communicate()`][Self::communicate()], but validates the output of the</span>
@@ -1376,14 +1376,14 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wait_async_future</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident">Cancellable::new</span>();
-            <span class="ident">obj</span>.<span class="ident">wait_async</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
-            });
-
-            <span class="ident">cancellable</span>
-        }))
+        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(
+            <span class="self">self</span>,
+            <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
+                <span class="ident">obj</span>.<span class="ident">wait_async</span>(<span class="prelude-val">Some</span>(<span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
+                    <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+                });
+            },
+        ))
     }
 
     <span class="doccomment">/// Combines [`wait()`][Self::wait()] with `g_spawn_check_exit_status()`.</span>
@@ -1462,14 +1462,14 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wait_check_async_future</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident">Cancellable::new</span>();
-            <span class="ident">obj</span>.<span class="ident">wait_check_async</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
-            });
-
-            <span class="ident">cancellable</span>
-        }))
+        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(
+            <span class="self">self</span>,
+            <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
+                <span class="ident">obj</span>.<span class="ident">wait_check_async</span>(<span class="prelude-val">Some</span>(<span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
+                    <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+                });
+            },
+        ))
     }
 }
 

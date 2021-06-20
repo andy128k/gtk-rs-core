@@ -907,14 +907,14 @@
         <span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">TlsInteractionResult</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>,
     <span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">password</span> <span class="op">=</span> <span class="ident">password</span>.<span class="ident">clone</span>();
-        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident">Cancellable::new</span>();
-            <span class="ident">obj</span>.<span class="ident">ask_password_async</span>(<span class="kw-2">&amp;</span><span class="ident">password</span>, <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
-            });
-
-            <span class="ident">cancellable</span>
-        }))
+        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(
+            <span class="self">self</span>,
+            <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
+                <span class="ident">obj</span>.<span class="ident">ask_password_async</span>(<span class="kw-2">&amp;</span><span class="ident">password</span>, <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
+                    <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+                });
+            },
+        ))
     }
 
     <span class="kw">fn</span> <span class="ident">invoke_ask_password</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">TlsPassword</span><span class="op">&gt;</span>, <span class="ident">Q</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>(
@@ -1038,14 +1038,14 @@
         <span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">TlsInteractionResult</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>,
     <span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">connection</span> <span class="op">=</span> <span class="ident">connection</span>.<span class="ident">clone</span>();
-        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident">Cancellable::new</span>();
-            <span class="ident">obj</span>.<span class="ident">request_certificate_async</span>(<span class="kw-2">&amp;</span><span class="ident">connection</span>, <span class="ident">flags</span>, <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
-            });
-
-            <span class="ident">cancellable</span>
-        }))
+        <span class="ident">Box_::pin</span>(<span class="kw">crate</span><span class="ident">::GioFuture::new</span>(
+            <span class="self">self</span>,
+            <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
+                <span class="ident">obj</span>.<span class="ident">request_certificate_async</span>(<span class="kw-2">&amp;</span><span class="ident">connection</span>, <span class="ident">flags</span>, <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
+                    <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+                });
+            },
+        ))
     }
 }
 

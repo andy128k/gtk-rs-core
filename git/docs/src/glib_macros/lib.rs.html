@@ -585,6 +585,14 @@
 <span id="510">510</span>
 <span id="511">511</span>
 <span id="512">512</span>
+<span id="513">513</span>
+<span id="514">514</span>
+<span id="515">515</span>
+<span id="516">516</span>
+<span id="517">517</span>
+<span id="518">518</span>
+<span id="519">519</span>
+<span id="520">520</span>
 </pre><pre class="rust">
 <span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
@@ -612,6 +620,15 @@
 <span class="doccomment">/// If upgrading the weak reference to a strong reference inside the closure is failing, the</span>
 <span class="doccomment">/// closure is immediately returning an optional default return value. If none is provided, `()` is</span>
 <span class="doccomment">/// returned.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// **⚠️ IMPORTANT ⚠️**</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `glib` needs to be in scope, so unless it&#39;s one of the direct crate dependencies, you need to</span>
+<span class="doccomment">/// import it because `clone!` is using it. For example:</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```rust,ignore</span>
+<span class="doccomment">/// use gtk::glib;</span>
+<span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ### Debugging</span>
 <span class="doccomment">///</span>
@@ -735,7 +752,6 @@
 <span class="doccomment">/// # use glib;</span>
 <span class="doccomment">/// # use glib_macros::clone;</span>
 <span class="doccomment">/// # use std::rc::Rc;</span>
-<span class="doccomment">///</span>
 <span class="doccomment">/// # let v = Rc::new(1);</span>
 <span class="doccomment">/// let closure = clone!(@weak v =&gt; @default-panic, move |x| {</span>
 <span class="doccomment">///     println!(&quot;v: {}, x: {}&quot;, v, x);</span>
