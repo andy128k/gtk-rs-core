@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/dbus_connection.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>dbus_connection.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/dbus_connection.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>dbus_connection.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gio/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -645,16 +646,18 @@
 <span id="570">570</span>
 <span id="571">571</span>
 <span id="572">572</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+<span id="573">573</span>
+<span id="574">574</span>
+<span id="575">575</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::ActionGroup</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::DBusConnection</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::DBusInterfaceInfo</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::DBusMessage</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::DBusMethodInvocation</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::DBusSignalFlags</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::MenuModel</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ActionGroup</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::DBusConnection</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::DBusInterfaceInfo</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::DBusMessage</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::DBusMethodInvocation</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::DBusSignalFlags</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::MenuModel</span>;
 <span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
 <span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
@@ -682,7 +685,7 @@
     <span class="doccomment">/// [thread-default main context][g-main-context-push-thread-default]</span>
     <span class="doccomment">/// of the thread you are calling this method from.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that all [`glib::Variant`][crate::glib::Variant] values passed to functions in `vtable` will match</span>
+    <span class="doccomment">/// Note that all [`glib::Variant`][struct@crate::glib::Variant] values passed to functions in `vtable` will match</span>
     <span class="doccomment">/// the signature given in `interface_info` - if a remote caller passes</span>
     <span class="doccomment">/// incorrect values, the `org.freedesktop.DBus.Error.InvalidArgs`</span>
     <span class="doccomment">/// is returned to the remote caller.</span>
@@ -695,7 +698,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// It is considered a programming error if the</span>
     <span class="doccomment">/// `GDBusInterfaceGetPropertyFunc` function in `vtable` returns a</span>
-    <span class="doccomment">/// [`glib::Variant`][crate::glib::Variant] of incorrect type.</span>
+    <span class="doccomment">/// [`glib::Variant`][struct@crate::glib::Variant] of incorrect type.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If an existing callback is already registered at `object_path` and</span>
     <span class="doccomment">/// `interface_name`, then `error` is set to [`IOErrorEnum::Exists`][crate::IOErrorEnum::Exists].</span>
@@ -731,15 +734,15 @@
         <span class="ident">method_call</span>: <span class="ident">MethodCall</span>,
         <span class="ident">get_property</span>: <span class="ident">GetProperty</span>,
         <span class="ident">set_property</span>: <span class="ident">SetProperty</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">RegistrationId</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">RegistrationId</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">MethodCall</span>: <span class="ident">Fn</span>(<span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">glib::Variant</span>, <span class="ident">DBusMethodInvocation</span>)
             <span class="op">+</span> <span class="ident">Send</span>
             <span class="op">+</span> <span class="ident">Sync</span>
             <span class="op">+</span> <span class="lifetime">&#39;static</span>,
         <span class="ident">GetProperty</span>:
-            <span class="ident">Fn</span>(<span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Variant</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="ident">SetProperty</span>: <span class="ident">Fn</span>(<span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">glib::Variant</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>
+            <span class="ident">Fn</span>(<span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">glib::Variant</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+        <span class="ident">SetProperty</span>: <span class="ident">Fn</span>(<span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">glib::Variant</span>) -&gt; <span class="ident">bool</span>
             <span class="op">+</span> <span class="ident">Send</span>
             <span class="op">+</span> <span class="ident">Sync</span>
             <span class="op">+</span> <span class="lifetime">&#39;static</span>,
@@ -803,7 +806,7 @@
                 })
                 .<span class="ident">to_glib_none</span>()
                 .<span class="number">0</span>,
-                <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">error</span>,
+                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
             );
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(<span class="ident">RegistrationId</span>(<span class="ident">NonZeroU32::new_unchecked</span>(<span class="ident">id</span>)))
@@ -825,7 +828,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unregister_object</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">registration_id</span>: <span class="ident">RegistrationId</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::error::BoolError</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::error::BoolError</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="macro">glib::result_from_gboolean!</span>(
                 <span class="ident">ffi::g_dbus_connection_unregister_object</span>(
@@ -871,14 +874,14 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">object_path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
         <span class="ident">action_group</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ActionGroupExportId</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ActionGroupExportId</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">std::ptr::null_mut</span>();
             <span class="kw">let</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">ffi::g_dbus_connection_export_action_group</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
                 <span class="ident">object_path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
                 <span class="ident">action_group</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">error</span>,
+                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
             );
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(<span class="ident">ActionGroupExportId</span>(<span class="ident">NonZeroU32::new_unchecked</span>(<span class="ident">id</span>)))
@@ -928,14 +931,14 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">object_path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
         <span class="ident">menu</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">MenuModelExportId</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">MenuModelExportId</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">std::ptr::null_mut</span>();
             <span class="kw">let</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">ffi::g_dbus_connection_export_menu_model</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
                 <span class="ident">object_path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
                 <span class="ident">menu</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">error</span>,
+                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
             );
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(<span class="ident">MenuModelExportId</span>(<span class="ident">NonZeroU32::new_unchecked</span>(<span class="ident">id</span>)))
@@ -996,34 +999,34 @@
     <span class="doccomment">///  [`remove_filter()`][Self::remove_filter()]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_dbus_connection_add_filter&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">add_filter</span><span class="op">&lt;</span>
-        <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">DBusMessage</span>, <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DBusMessage</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+        <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">DBusMessage</span>, <span class="ident">bool</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DBusMessage</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
     <span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">filter_function</span>: <span class="ident">P</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FilterId</span> {
+    ) -&gt; <span class="ident">FilterId</span> {
         <span class="kw">let</span> <span class="ident">filter_function_data</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">filter_function</span>);
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">filter_function_func</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">DBusMessage</span>, <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DBusMessage</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+            <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">DBusMessage</span>, <span class="ident">bool</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DBusMessage</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
         <span class="op">&gt;</span>(
-            <span class="ident">connection</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GDBusConnection</span>,
-            <span class="ident">message</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GDBusMessage</span>,
+            <span class="ident">connection</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GDBusConnection</span>,
+            <span class="ident">message</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GDBusMessage</span>,
             <span class="ident">incoming</span>: <span class="ident">glib::ffi::gboolean</span>,
             <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GDBusMessage</span> {
+        ) -&gt; <span class="kw-2">*mut</span> <span class="ident">ffi::GDBusMessage</span> {
             <span class="kw">let</span> <span class="ident">connection</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">connection</span>);
             <span class="kw">let</span> <span class="ident">message</span> <span class="op">=</span> <span class="ident">from_glib_full</span>(<span class="ident">message</span>);
             <span class="kw">let</span> <span class="ident">incoming</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">incoming</span>);
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="ident">P</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+            <span class="kw">let</span> <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="ident">P</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
             <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">callback</span>)(<span class="kw-2">&amp;</span><span class="ident">connection</span>, <span class="kw-2">&amp;</span><span class="ident">message</span>, <span class="ident">incoming</span>);
             <span class="ident">res</span>.<span class="ident">to_glib_full</span>()
         }
         <span class="kw">let</span> <span class="ident">filter_function</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">filter_function_func</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw">_</span>);
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">user_data_free_func_func</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">DBusMessage</span>, <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DBusMessage</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+            <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">DBusMessage</span>, <span class="ident">bool</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DBusMessage</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
         <span class="op">&gt;</span>(
             <span class="ident">data</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
-            <span class="kw">let</span> <span class="ident">_callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::from_raw</span>(<span class="ident">data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+            <span class="kw">let</span> <span class="ident">_callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::from_raw</span>(<span class="ident">data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
         }
         <span class="kw">let</span> <span class="ident">destroy_call3</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">user_data_free_func_func</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw">_</span>);
         <span class="kw">let</span> <span class="ident">super_callback0</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">filter_function_data</span>;
@@ -1031,7 +1034,7 @@
             <span class="kw">let</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">ffi::g_dbus_connection_add_filter</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
                 <span class="ident">filter_function</span>,
-                <span class="ident">Box_::into_raw</span>(<span class="ident">super_callback0</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
+                <span class="ident">Box_::into_raw</span>(<span class="ident">super_callback0</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
                 <span class="ident">destroy_call3</span>,
             );
             <span class="ident">FilterId</span>(<span class="ident">NonZeroU32::new_unchecked</span>(<span class="ident">id</span>))
@@ -1140,17 +1143,17 @@
         <span class="ident">arg0</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
         <span class="ident">flags</span>: <span class="ident">DBusSignalFlags</span>,
         <span class="ident">callback</span>: <span class="ident">P</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalSubscriptionId</span> {
+    ) -&gt; <span class="ident">SignalSubscriptionId</span> {
         <span class="kw">let</span> <span class="ident">callback_data</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">callback</span>);
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">callback_func</span><span class="op">&lt;</span>
             <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">DBusConnection</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">glib::Variant</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
         <span class="op">&gt;</span>(
-            <span class="ident">connection</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GDBusConnection</span>,
-            <span class="ident">sender_name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">libc::c_char</span>,
-            <span class="ident">object_path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">libc::c_char</span>,
-            <span class="ident">interface_name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">libc::c_char</span>,
-            <span class="ident">signal_name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">libc::c_char</span>,
-            <span class="ident">parameters</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">glib::ffi::GVariant</span>,
+            <span class="ident">connection</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GDBusConnection</span>,
+            <span class="ident">sender_name</span>: <span class="kw-2">*const</span> <span class="ident">libc::c_char</span>,
+            <span class="ident">object_path</span>: <span class="kw-2">*const</span> <span class="ident">libc::c_char</span>,
+            <span class="ident">interface_name</span>: <span class="kw-2">*const</span> <span class="ident">libc::c_char</span>,
+            <span class="ident">signal_name</span>: <span class="kw-2">*const</span> <span class="ident">libc::c_char</span>,
+            <span class="ident">parameters</span>: <span class="kw-2">*mut</span> <span class="ident">glib::ffi::GVariant</span>,
             <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">connection</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">connection</span>);
@@ -1159,7 +1162,7 @@
             <span class="kw">let</span> <span class="ident">interface_name</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">interface_name</span>);
             <span class="kw">let</span> <span class="ident">signal_name</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">signal_name</span>);
             <span class="kw">let</span> <span class="ident">parameters</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">parameters</span>);
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="ident">P</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+            <span class="kw">let</span> <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="ident">P</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
             (<span class="kw-2">*</span><span class="ident">callback</span>)(
                 <span class="kw-2">&amp;</span><span class="ident">connection</span>,
                 <span class="ident">sender_name</span>.<span class="ident">as_str</span>(),
@@ -1175,7 +1178,7 @@
         <span class="op">&gt;</span>(
             <span class="ident">data</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
-            <span class="kw">let</span> <span class="ident">_callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::from_raw</span>(<span class="ident">data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+            <span class="kw">let</span> <span class="ident">_callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::from_raw</span>(<span class="ident">data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
         }
         <span class="kw">let</span> <span class="ident">destroy_call9</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">user_data_free_func_func</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw">_</span>);
         <span class="kw">let</span> <span class="ident">super_callback0</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">callback_data</span>;
@@ -1189,7 +1192,7 @@
                 <span class="ident">arg0</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
                 <span class="ident">flags</span>.<span class="ident">into_glib</span>(),
                 <span class="ident">callback</span>,
-                <span class="ident">Box_::into_raw</span>(<span class="ident">super_callback0</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
+                <span class="ident">Box_::into_raw</span>(<span class="ident">super_callback0</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
                 <span class="ident">destroy_call9</span>,
             );
             <span class="ident">SignalSubscriptionId</span>(<span class="ident">NonZeroU32::new_unchecked</span>(<span class="ident">id</span>))
@@ -1205,6 +1208,9 @@
     <span class="doccomment">/// [`signal_subscribe()`][Self::signal_subscribe()] is called, in order to avoid memory</span>
     <span class="doccomment">/// leaks through callbacks queued on the [`glib::MainContext`][crate::glib::MainContext] after it’s stopped being</span>
     <span class="doccomment">/// iterated.</span>
+    <span class="doccomment">/// Alternatively, any idle source with a priority lower than `G_PRIORITY_DEFAULT`</span>
+    <span class="doccomment">/// that was scheduled after unsubscription, also indicates that all resources</span>
+    <span class="doccomment">/// of this subscription are released.</span>
     <span class="doccomment">/// ## `subscription_id`</span>
     <span class="doccomment">/// a subscription id obtained from</span>
     <span class="doccomment">///  [`signal_subscribe()`][Self::signal_subscribe()]</span>
@@ -1218,5 +1224,6 @@
         }
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

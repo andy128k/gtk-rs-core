@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango/src/language.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>language.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango/src/language.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>language.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../pango/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../pango/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../pango/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -317,10 +318,38 @@
 <span id="242">242</span>
 <span id="243">243</span>
 <span id="244">244</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+<span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
+<span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Script</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Script</span>;
 <span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">glib::GString</span>;
 
@@ -330,119 +359,112 @@
 <span class="doccomment">/// [`Language`][crate::Language] pointers can be efficiently</span>
 <span class="doccomment">/// copied and compared with each other.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;PangoLanguage&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Language</span>(<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span>);
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Language</span>(<span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span>);
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ToGlibPtr</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">Language</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ToGlibPtr</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">Language</span> {
     <span class="kw">type</span> <span class="ident">Storage</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">Language</span>;
 
-    <span class="kw">fn</span> <span class="ident">to_glib_none</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Stash</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span>, <span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">to_glib_none</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Stash</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span>, <span class="self">Self</span><span class="op">&gt;</span> {
         <span class="ident">Stash</span>(<span class="self">self</span>.<span class="number">0</span>, <span class="kw-2">*</span><span class="self">self</span>)
     }
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ToGlibPtrMut</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ToGlibPtrMut</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
     <span class="kw">type</span> <span class="ident">Storage</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="self">Self</span>;
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">to_glib_none_mut</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">StashMut</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span>, <span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">to_glib_none_mut</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="ident">StashMut</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span>, <span class="self">Self</span><span class="op">&gt;</span> {
         <span class="ident">StashMut</span>(<span class="self">self</span>.<span class="number">0</span>, <span class="self">self</span>)
     }
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">FromGlibPtrNone</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+<span class="kw">impl</span> <span class="ident">FromGlibPtrNone</span><span class="op">&lt;</span><span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span>) -&gt; <span class="self">Self</span> {
         <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">ptr</span>.<span class="ident">is_null</span>());
         <span class="self">Self</span>(<span class="ident">ptr</span>)
     }
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">FromGlibPtrFull</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::PangoLanguage</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+<span class="kw">impl</span> <span class="ident">FromGlibPtrFull</span><span class="op">&lt;</span><span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::PangoLanguage</span>) -&gt; <span class="self">Self</span> {
         <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">ptr</span>.<span class="ident">is_null</span>());
         <span class="self">Self</span>(<span class="ident">ptr</span>)
     }
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">FromGlibPtrNone</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::PangoLanguage</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+<span class="kw">impl</span> <span class="ident">FromGlibPtrNone</span><span class="op">&lt;</span><span class="kw-2">*const</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none</span>(<span class="ident">ptr</span>: <span class="kw-2">*const</span> <span class="ident">ffi::PangoLanguage</span>) -&gt; <span class="self">Self</span> {
         <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">ptr</span>.<span class="ident">is_null</span>());
-        <span class="self">Self</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>)
+        <span class="self">Self</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>)
     }
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">FromGlibPtrFull</span><span class="op">&lt;</span><span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::PangoLanguage</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+<span class="kw">impl</span> <span class="ident">FromGlibPtrFull</span><span class="op">&lt;</span><span class="kw-2">*const</span> <span class="ident">ffi::PangoLanguage</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Language</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full</span>(<span class="ident">ptr</span>: <span class="kw-2">*const</span> <span class="ident">ffi::PangoLanguage</span>) -&gt; <span class="self">Self</span> {
         <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">ptr</span>.<span class="ident">is_null</span>());
-        <span class="self">Self</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>)
+        <span class="self">Self</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">Language</span> {
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_language_get_default&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::pango_language_get_default</span>()) }
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Language</span> {
-    <span class="doccomment">/// Take a RFC-3066 format language tag as a string and convert it to a</span>
-    <span class="doccomment">/// [`Language`][crate::Language] pointer that can be efficiently copied (copy the</span>
-    <span class="doccomment">/// pointer) and compared with other language tags (compare the</span>
-    <span class="doccomment">/// pointer.)</span>
+    <span class="doccomment">/// Convert a language tag to a [`Language`][crate::Language].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The language tag must be in a RFC-3066 format. [`Language`][crate::Language] pointers</span>
+    <span class="doccomment">/// can be efficiently copied (copy the pointer) and compared with other</span>
+    <span class="doccomment">/// language tags (compare the pointer.)</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function first canonicalizes the string by converting it to</span>
     <span class="doccomment">/// lowercase, mapping &#39;_&#39; to &#39;-&#39;, and stripping all characters other</span>
     <span class="doccomment">/// than letters and &#39;-&#39;.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Use [`default()`][Self::default()] if you want to get the [`Language`][crate::Language] for</span>
-    <span class="doccomment">/// the current locale of the process.</span>
+    <span class="doccomment">/// Use [`default()`][Self::default()] if you want to get the</span>
+    <span class="doccomment">/// [`Language`][crate::Language] for the current locale of the process.</span>
     <span class="doccomment">/// ## `language`</span>
-    <span class="doccomment">/// a string representing a language tag, or [`None`]</span>
+    <span class="doccomment">/// a string representing a language tag</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// an opaque pointer to a</span>
-    <span class="doccomment">///  [`Language`][crate::Language] structure, or [`None`] if `language` was</span>
-    <span class="doccomment">///  [`None`]. The returned pointer will be valid forever</span>
-    <span class="doccomment">///  after, and should not be freed.</span>
+    <span class="doccomment">/// a [`Language`][crate::Language]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_language_from_string&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_string</span>(<span class="ident">language</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_string</span>(<span class="ident">language</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::pango_language_from_string</span>(<span class="ident">language</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the RFC-3066 format string representing the given language tag.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a string representing the language tag. This is owned by</span>
-    <span class="doccomment">///  Pango and should not be freed.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_language_to_string&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">GString</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">GString</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_language_to_string</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Checks if a language tag matches one of the elements in a list of</span>
-    <span class="doccomment">/// language ranges. A language tag is considered to match a range</span>
-    <span class="doccomment">/// in the list if the range is &#39;*&#39;, the range is exactly the tag,</span>
-    <span class="doccomment">/// or the range is a prefix of the tag, and the character after it</span>
-    <span class="doccomment">/// in the tag is &#39;-&#39;.</span>
+    <span class="doccomment">/// language ranges.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// A language tag is considered to match a range in the list if the</span>
+    <span class="doccomment">/// range is &#39;*&#39;, the range is exactly the tag, or the range is a prefix</span>
+    <span class="doccomment">/// of the tag, and the character after it in the tag is &#39;-&#39;.</span>
     <span class="doccomment">/// ## `range_list`</span>
     <span class="doccomment">/// a list of language ranges, separated by &#39;;&#39;, &#39;:&#39;,</span>
-    <span class="doccomment">///  &#39;,&#39;, or space characters.</span>
-    <span class="doccomment">///  Each element must either be &#39;*&#39;, or a RFC 3066 language range</span>
-    <span class="doccomment">///  canonicalized as by [`from_string()`][Self::from_string()]</span>
+    <span class="doccomment">///   &#39;,&#39;, or space characters.</span>
+    <span class="doccomment">///   Each element must either be &#39;*&#39;, or a RFC 3066 language range</span>
+    <span class="doccomment">///   canonicalized as by [`from_string()`][Self::from_string()]</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if a match was found.</span>
+    <span class="doccomment">/// [`true`] if a match was found</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_language_matches&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">matches</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">range_list</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">matches</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">range_list</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::pango_language_matches</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -451,16 +473,17 @@
         }
     }
 
-    <span class="doccomment">/// Determines if `script` is one of the scripts used to</span>
-    <span class="doccomment">/// write `self`. The returned value is conservative;</span>
-    <span class="doccomment">/// if nothing is known about the language tag `self`,</span>
-    <span class="doccomment">/// [`true`] will be returned, since, as far as Pango knows,</span>
-    <span class="doccomment">/// `script` might be used to write `self`.</span>
+    <span class="doccomment">/// Determines if @script is one of the scripts used to</span>
+    <span class="doccomment">/// write @self.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The returned value is conservative; if nothing is known about</span>
+    <span class="doccomment">/// the language tag @self, [`true`] will be returned, since, as</span>
+    <span class="doccomment">/// far as Pango knows, @script might be used to write @self.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This routine is used in Pango&#39;s itemization process when</span>
     <span class="doccomment">/// determining if a supplied language tag is relevant to</span>
-    <span class="doccomment">/// a particular section of text. It probably is not useful for</span>
-    <span class="doccomment">/// applications in most circumstances.</span>
+    <span class="doccomment">/// a particular section of text. It probably is not useful</span>
+    <span class="doccomment">/// for applications in most circumstances.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function uses [`scripts()`][Self::scripts()] internally.</span>
     <span class="doccomment">/// ## `script`</span>
@@ -468,12 +491,11 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if `script` is one of the scripts used</span>
-    <span class="doccomment">/// to write `self` or if nothing is known about `self`</span>
-    <span class="doccomment">/// (including the case that `self` is [`None`]),</span>
-    <span class="doccomment">/// [`false`] otherwise.</span>
+    <span class="doccomment">/// [`true`] if @script is one of the scripts used</span>
+    <span class="doccomment">///   to write @self or if nothing is known about @self</span>
+    <span class="doccomment">///   (including the case that @self is [`None`]), [`false`] otherwise.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_language_includes_script&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">includes_script</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">script</span>: <span class="ident">Script</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">includes_script</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">script</span>: <span class="ident">Script</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::pango_language_includes_script</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -482,13 +504,14 @@
         }
     }
 
-    <span class="doccomment">/// Determines the scripts used to to write `self`.</span>
-    <span class="doccomment">/// If nothing is known about the language tag `self`,</span>
-    <span class="doccomment">/// or if `self` is [`None`], then [`None`] is returned.</span>
+    <span class="doccomment">/// Determines the scripts used to to write @self.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If nothing is known about the language tag @self,</span>
+    <span class="doccomment">/// or if @self is [`None`], then [`None`] is returned.</span>
     <span class="doccomment">/// The list of scripts returned starts with the script that the</span>
     <span class="doccomment">/// language uses most and continues to the one it uses least.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The value `num_script` points at will be set to the number</span>
+    <span class="doccomment">/// The value @num_script points at will be set to the number</span>
     <span class="doccomment">/// of scripts in the returned array (or zero if [`None`] is returned).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Most languages use only one script for writing, but there are</span>
@@ -498,34 +521,33 @@
     <span class="doccomment">/// though, except that it is positive if the return value is not</span>
     <span class="doccomment">/// [`None`], and it is a small number.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The [`includes_script()`][Self::includes_script()] function uses this function</span>
-    <span class="doccomment">/// internally.</span>
+    <span class="doccomment">/// The [`includes_script()`][Self::includes_script()] function uses this</span>
+    <span class="doccomment">/// function internally.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Note: while the return value is declared as PangoScript, the</span>
-    <span class="doccomment">/// returned values are from the GUnicodeScript enumeration, which</span>
+    <span class="doccomment">/// Note: while the return value is declared as [`Script`][crate::Script], the</span>
+    <span class="doccomment">/// returned values are from the `GUnicodeScript` enumeration, which</span>
     <span class="doccomment">/// may have more values. Callers need to handle unknown values.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// An array of</span>
-    <span class="doccomment">/// [`Script`][crate::Script] values, with the number of entries in the array stored</span>
-    <span class="doccomment">/// in `num_scripts`, or [`None`] if Pango does not have any information</span>
-    <span class="doccomment">/// about this particular language tag (also the case if `self` is</span>
-    <span class="doccomment">/// [`None`]). The returned array is owned by Pango and should not be</span>
-    <span class="doccomment">/// modified or freed.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   An array of [`Script`][crate::Script] values, with the number of entries in</span>
+    <span class="doccomment">///   the array stored in @num_scripts, or [`None`] if Pango does not have</span>
+    <span class="doccomment">///   any information about this particular language tag (also the case</span>
+    <span class="doccomment">///   if @self is [`None`]).</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_scripts&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_language_get_scripts&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">scripts</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Script</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">scripts</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Script</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">num_scripts</span> <span class="op">=</span> <span class="number">0</span>;
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
 
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">scripts</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::PangoScript</span> <span class="op">=</span>
-                <span class="ident">ffi::pango_language_get_scripts</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">num_scripts</span>);
+            <span class="kw">let</span> <span class="ident">scripts</span>: <span class="kw-2">*const</span> <span class="ident">ffi::PangoScript</span> <span class="op">=</span>
+                <span class="ident">ffi::pango_language_get_scripts</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;mut</span> <span class="ident">num_scripts</span>);
             <span class="kw">if</span> <span class="ident">num_scripts</span> <span class="op">&gt;</span> <span class="number">0</span> {
                 <span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">num_scripts</span> {
                     <span class="ident">ret</span>.<span class="ident">push</span>(<span class="ident">from_glib</span>(
-                        <span class="kw-2">*</span>(<span class="ident">scripts</span>.<span class="ident">offset</span>(<span class="ident">x</span> <span class="kw">as</span> <span class="ident">isize</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::PangoScript</span>),
+                        <span class="kw-2">*</span>(<span class="ident">scripts</span>.<span class="ident">offset</span>(<span class="ident">x</span> <span class="kw">as</span> <span class="ident">isize</span>) <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::PangoScript</span>),
                     ));
                 }
             }
@@ -536,31 +558,68 @@
     <span class="doccomment">/// Get a string that is representative of the characters needed to</span>
     <span class="doccomment">/// render a particular language.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The sample text may be a pangram, but is not necessarily. It is chosen to</span>
-    <span class="doccomment">/// be demonstrative of normal text in the language, as well as exposing font</span>
-    <span class="doccomment">/// feature requirements unique to the language. It is suitable for use</span>
+    <span class="doccomment">/// The sample text may be a pangram, but is not necessarily. It is chosen</span>
+    <span class="doccomment">/// to be demonstrative of normal text in the language, as well as exposing</span>
+    <span class="doccomment">/// font feature requirements unique to the language. It is suitable for use</span>
     <span class="doccomment">/// as sample text in a font selection dialog.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `self` is [`None`], the default language as found by</span>
+    <span class="doccomment">/// If @self is [`None`], the default language as found by</span>
     <span class="doccomment">/// [`default()`][Self::default()] is used.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If Pango does not have a sample string for `self`, the classic</span>
-    <span class="doccomment">/// &quot;The quick brown fox...&quot; is returned. This can be detected by</span>
+    <span class="doccomment">/// If Pango does not have a sample string for @self, the classic</span>
+    <span class="doccomment">/// &quot;The quick brown fox...&quot; is returned.  This can be detected by</span>
     <span class="doccomment">/// comparing the returned pointer value to that returned for (non-existent)</span>
-    <span class="doccomment">/// language code &quot;xx&quot;. That is, compare to:</span>
-    <span class="doccomment">/// `&lt;informalexample&gt;``&lt;programlisting&gt;`</span>
+    <span class="doccomment">/// language code &quot;xx&quot;.  That is, compare to:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```text</span>
     <span class="doccomment">/// pango_language_get_sample_string (pango_language_from_string (&quot;xx&quot;))</span>
-    <span class="doccomment">/// `&lt;/programlisting&gt;``&lt;/informalexample&gt;`</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the sample string. This value is owned by Pango</span>
-    <span class="doccomment">///  and should not be freed.</span>
+    <span class="doccomment">/// the sample string</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_sample_string&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_language_get_sample_string&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sample_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">GString</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sample_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">GString</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_language_get_sample_string</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
+
+    <span class="doccomment">/// Returns the list of languages that the user prefers.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The list is specified by the `PANGO_LANGUAGE` or `LANGUAGE`</span>
+    <span class="doccomment">/// environment variables, in order of preference. Note that this</span>
+    <span class="doccomment">/// list does not necessarily include the language returned by</span>
+    <span class="doccomment">/// [`default()`][Self::default()].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// When choosing language-specific resources, such as the sample</span>
+    <span class="doccomment">/// text returned by [`sample_string()`][Self::sample_string()],</span>
+    <span class="doccomment">/// you should first try the default language, followed by the</span>
+    <span class="doccomment">/// languages returned by this function.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// a [`None`]-terminated array</span>
+    <span class="doccomment">///   of [`Language`][crate::Language]*</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_48&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_48&quot;</span>)))]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_preferred&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_language_get_preferred&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">preferred</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Language</span><span class="op">&gt;</span> {
+        <span class="kw">unsafe</span> {
+            <span class="kw">let</span> <span class="ident">langs</span> <span class="op">=</span> <span class="ident">ffi::pango_language_get_preferred</span>();
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">langs</span>;
+
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ret</span> <span class="op">=</span> <span class="macro">vec!</span>[];
+
+            <span class="kw">while</span> <span class="op">!</span>(<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">is_null</span>() {
+                <span class="ident">ret</span>.<span class="ident">push</span>(<span class="ident">Language</span>(<span class="kw-2">*</span><span class="ident">ptr</span>));
+                <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">ptr</span>.<span class="ident">add</span>(<span class="number">1</span>);
+            }
+
+            <span class="ident">ret</span>
+        }
+    }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="pango" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

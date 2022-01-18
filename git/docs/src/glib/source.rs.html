@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/source.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>source.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/source.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>source.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1164,127 +1165,11 @@
 <span id="1089">1089</span>
 <span id="1090">1090</span>
 <span id="1091">1091</span>
-<span id="1092">1092</span>
-<span id="1093">1093</span>
-<span id="1094">1094</span>
-<span id="1095">1095</span>
-<span id="1096">1096</span>
-<span id="1097">1097</span>
-<span id="1098">1098</span>
-<span id="1099">1099</span>
-<span id="1100">1100</span>
-<span id="1101">1101</span>
-<span id="1102">1102</span>
-<span id="1103">1103</span>
-<span id="1104">1104</span>
-<span id="1105">1105</span>
-<span id="1106">1106</span>
-<span id="1107">1107</span>
-<span id="1108">1108</span>
-<span id="1109">1109</span>
-<span id="1110">1110</span>
-<span id="1111">1111</span>
-<span id="1112">1112</span>
-<span id="1113">1113</span>
-<span id="1114">1114</span>
-<span id="1115">1115</span>
-<span id="1116">1116</span>
-<span id="1117">1117</span>
-<span id="1118">1118</span>
-<span id="1119">1119</span>
-<span id="1120">1120</span>
-<span id="1121">1121</span>
-<span id="1122">1122</span>
-<span id="1123">1123</span>
-<span id="1124">1124</span>
-<span id="1125">1125</span>
-<span id="1126">1126</span>
-<span id="1127">1127</span>
-<span id="1128">1128</span>
-<span id="1129">1129</span>
-<span id="1130">1130</span>
-<span id="1131">1131</span>
-<span id="1132">1132</span>
-<span id="1133">1133</span>
-<span id="1134">1134</span>
-<span id="1135">1135</span>
-<span id="1136">1136</span>
-<span id="1137">1137</span>
-<span id="1138">1138</span>
-<span id="1139">1139</span>
-<span id="1140">1140</span>
-<span id="1141">1141</span>
-<span id="1142">1142</span>
-<span id="1143">1143</span>
-<span id="1144">1144</span>
-<span id="1145">1145</span>
-<span id="1146">1146</span>
-<span id="1147">1147</span>
-<span id="1148">1148</span>
-<span id="1149">1149</span>
-<span id="1150">1150</span>
-<span id="1151">1151</span>
-<span id="1152">1152</span>
-<span id="1153">1153</span>
-<span id="1154">1154</span>
-<span id="1155">1155</span>
-<span id="1156">1156</span>
-<span id="1157">1157</span>
-<span id="1158">1158</span>
-<span id="1159">1159</span>
-<span id="1160">1160</span>
-<span id="1161">1161</span>
-<span id="1162">1162</span>
-<span id="1163">1163</span>
-<span id="1164">1164</span>
-<span id="1165">1165</span>
-<span id="1166">1166</span>
-<span id="1167">1167</span>
-<span id="1168">1168</span>
-<span id="1169">1169</span>
-<span id="1170">1170</span>
-<span id="1171">1171</span>
-<span id="1172">1172</span>
-<span id="1173">1173</span>
-<span id="1174">1174</span>
-<span id="1175">1175</span>
-<span id="1176">1176</span>
-<span id="1177">1177</span>
-<span id="1178">1178</span>
-<span id="1179">1179</span>
-<span id="1180">1180</span>
-<span id="1181">1181</span>
-<span id="1182">1182</span>
-<span id="1183">1183</span>
-<span id="1184">1184</span>
-<span id="1185">1185</span>
-<span id="1186">1186</span>
-<span id="1187">1187</span>
-<span id="1188">1188</span>
-<span id="1189">1189</span>
-<span id="1190">1190</span>
-<span id="1191">1191</span>
-<span id="1192">1192</span>
-<span id="1193">1193</span>
-<span id="1194">1194</span>
-<span id="1195">1195</span>
-<span id="1196">1196</span>
-<span id="1197">1197</span>
-<span id="1198">1198</span>
-<span id="1199">1199</span>
-<span id="1200">1200</span>
-<span id="1201">1201</span>
-<span id="1202">1202</span>
-<span id="1203">1203</span>
-<span id="1204">1204</span>
-<span id="1205">1205</span>
-<span id="1206">1206</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::translate</span>::{<span class="ident">from_glib</span>, <span class="ident">from_glib_full</span>, <span class="ident">FromGlib</span>, <span class="ident">IntoGlib</span>, <span class="ident">ToGlibPtr</span>};
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::translate</span>::{<span class="ident">from_glib</span>, <span class="ident">from_glib_full</span>, <span class="ident">FromGlib</span>, <span class="ident">IntoGlib</span>, <span class="ident">ToGlibPtr</span>};
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::IOCondition</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::IOCondition</span>;
 <span class="kw">use</span> <span class="ident">ffi</span>::{<span class="self">self</span>, <span class="ident">gboolean</span>, <span class="ident">gpointer</span>};
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">not</span>(<span class="ident">unix</span>), <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="kw">use</span> <span class="ident">libc::c_int</span> <span class="kw">as</span> <span class="ident">RawFd</span>;
@@ -1295,29 +1180,51 @@
 <span class="kw">use</span> <span class="ident">std::os::unix::io::RawFd</span>;
 <span class="kw">use</span> <span class="ident">std::time::Duration</span>;
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::MainContext</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Source</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::MainContext</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Source</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ThreadGuard</span>;
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// The id of a source that is returned by `idle_add` and `timeout_add`.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This type does not implement `Clone` to prevent calling [`SourceId::remove`]</span>
+<span class="doccomment">/// multiple times on the same source.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SourceId</span>(<span class="ident">NonZeroU32</span>);
 
 <span class="kw">impl</span> <span class="ident">SourceId</span> {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Returns the internal source ID.</span>
-    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">as_raw</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">as_raw</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">get</span>()
+    }
+
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
+    <span class="doccomment">/// Removes the source with the given id `source_id` from the default main context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// It is a programmer error to attempt to remove a non-existent source.</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_source_remove&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove</span>(<span class="self">self</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="macro">result_from_gboolean!</span>(
+                <span class="ident">ffi::g_source_remove</span>(<span class="self">self</span>.<span class="ident">as_raw</span>()),
+                <span class="string">&quot;Failed to remove source&quot;</span>
+            )
+            .<span class="ident">unwrap</span>()
+        }
     }
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">SourceId</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">val</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">val</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
         <span class="macro">assert_ne!</span>(<span class="ident">val</span>, <span class="number">0</span>);
         <span class="self">Self</span>(<span class="ident">NonZeroU32::new_unchecked</span>(<span class="ident">val</span>))
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Process identificator</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>)]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GPid&quot;</span>)]</span>
@@ -1331,7 +1238,7 @@
     <span class="kw">type</span> <span class="ident">GlibType</span> <span class="op">=</span> <span class="ident">ffi::GPid</span>;
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">into_glib</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ffi::GPid</span> {
+    <span class="kw">fn</span> <span class="ident">into_glib</span>(<span class="self">self</span>) -&gt; <span class="ident">ffi::GPid</span> {
         <span class="self">self</span>.<span class="number">0</span>
     }
 }
@@ -1339,11 +1246,12 @@
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GPid</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Pid</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">val</span>: <span class="ident">ffi::GPid</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">val</span>: <span class="ident">ffi::GPid</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span>(<span class="ident">val</span>)
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Continue calling the closure in the future iterations or drop it.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This is the return type of `idle_add` and `timeout_add` closures.</span>
@@ -1359,69 +1267,146 @@
     <span class="kw">type</span> <span class="ident">GlibType</span> <span class="op">=</span> <span class="ident">gboolean</span>;
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">into_glib</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gboolean</span> {
+    <span class="kw">fn</span> <span class="ident">into_glib</span>(<span class="self">self</span>) -&gt; <span class="ident">gboolean</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">into_glib</span>()
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">gpointer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gboolean</span> {
-    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>);
-    (<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">borrow_mut</span>())().<span class="ident">into_glib</span>()
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="ident">func</span>: <span class="ident">gpointer</span>,
+) -&gt; <span class="ident">gboolean</span> {
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>);
+    (<span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">borrow_mut</span>())().<span class="ident">into_glib</span>()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">ptr</span>: <span class="ident">gpointer</span>) {
-    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline_local</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="ident">func</span>: <span class="ident">gpointer</span>,
+) -&gt; <span class="ident">gboolean</span> {
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>);
+    (<span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">get_ref</span>().<span class="ident">borrow_mut</span>())().<span class="ident">into_glib</span>()
 }
 
-<span class="kw">fn</span> <span class="ident">into_raw</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gpointer</span> {
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">ptr</span>: <span class="ident">gpointer</span>) {
+    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
+}
+
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure_local</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">ptr</span>: <span class="ident">gpointer</span>) {
+    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
+}
+
+<span class="kw">fn</span> <span class="ident">into_raw</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">gpointer</span> {
     <span class="kw">let</span> <span class="ident">func</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">RefCell::new</span>(<span class="ident">func</span>));
     <span class="ident">Box::into_raw</span>(<span class="ident">func</span>) <span class="kw">as</span> <span class="ident">gpointer</span>
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline_child_watch</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+<span class="kw">fn</span> <span class="ident">into_raw_local</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">gpointer</span> {
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">ThreadGuard::new</span>(<span class="ident">RefCell::new</span>(<span class="ident">func</span>)));
+    <span class="ident">Box::into_raw</span>(<span class="ident">func</span>) <span class="kw">as</span> <span class="ident">gpointer</span>
+}
+
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline_child_watch</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
     <span class="ident">pid</span>: <span class="ident">ffi::GPid</span>,
     <span class="ident">status</span>: <span class="ident">i32</span>,
     <span class="ident">func</span>: <span class="ident">gpointer</span>,
 ) {
-    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>);
-    (<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">borrow_mut</span>())(<span class="ident">Pid</span>(<span class="ident">pid</span>), <span class="ident">status</span>)
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>);
+    (<span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">borrow_mut</span>())(<span class="ident">Pid</span>(<span class="ident">pid</span>), <span class="ident">status</span>)
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure_child_watch</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">ptr</span>: <span class="ident">gpointer</span>) {
-    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline_child_watch_local</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="ident">pid</span>: <span class="ident">ffi::GPid</span>,
+    <span class="ident">status</span>: <span class="ident">i32</span>,
+    <span class="ident">func</span>: <span class="ident">gpointer</span>,
+) {
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>);
+    (<span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">get_ref</span>().<span class="ident">borrow_mut</span>())(<span class="ident">Pid</span>(<span class="ident">pid</span>), <span class="ident">status</span>)
 }
 
-<span class="kw">fn</span> <span class="ident">into_raw_child_watch</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gpointer</span> {
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure_child_watch</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="ident">ptr</span>: <span class="ident">gpointer</span>,
+) {
+    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
+}
+
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure_child_watch_local</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="ident">ptr</span>: <span class="ident">gpointer</span>,
+) {
+    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
+}
+
+<span class="kw">fn</span> <span class="ident">into_raw_child_watch</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">gpointer</span> {
     <span class="kw">let</span> <span class="ident">func</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">RefCell::new</span>(<span class="ident">func</span>));
+    <span class="ident">Box::into_raw</span>(<span class="ident">func</span>) <span class="kw">as</span> <span class="ident">gpointer</span>
+}
+
+<span class="kw">fn</span> <span class="ident">into_raw_child_watch_local</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">gpointer</span> {
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">ThreadGuard::new</span>(<span class="ident">RefCell::new</span>(<span class="ident">func</span>)));
     <span class="ident">Box::into_raw</span>(<span class="ident">func</span>) <span class="kw">as</span> <span class="ident">gpointer</span>
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline_unix_fd</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline_unix_fd</span><span class="op">&lt;</span>
+    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+<span class="op">&gt;</span>(
     <span class="ident">fd</span>: <span class="ident">i32</span>,
     <span class="ident">condition</span>: <span class="ident">ffi::GIOCondition</span>,
     <span class="ident">func</span>: <span class="ident">gpointer</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gboolean</span> {
-    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>);
-    (<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">borrow_mut</span>())(<span class="ident">fd</span>, <span class="ident">from_glib</span>(<span class="ident">condition</span>)).<span class="ident">into_glib</span>()
+) -&gt; <span class="ident">gboolean</span> {
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>);
+    (<span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">borrow_mut</span>())(<span class="ident">fd</span>, <span class="ident">from_glib</span>(<span class="ident">condition</span>)).<span class="ident">into_glib</span>()
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure_unix_fd</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline_unix_fd_local</span><span class="op">&lt;</span>
+    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+<span class="op">&gt;</span>(
+    <span class="ident">fd</span>: <span class="ident">i32</span>,
+    <span class="ident">condition</span>: <span class="ident">ffi::GIOCondition</span>,
+    <span class="ident">func</span>: <span class="ident">gpointer</span>,
+) -&gt; <span class="ident">gboolean</span> {
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="kw-2">&amp;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>);
+    (<span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">func</span>.<span class="ident">get_ref</span>().<span class="ident">borrow_mut</span>())(<span class="ident">fd</span>, <span class="ident">from_glib</span>(<span class="ident">condition</span>)).<span class="ident">into_glib</span>()
+}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure_unix_fd</span><span class="op">&lt;</span>
+    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+<span class="op">&gt;</span>(
     <span class="ident">ptr</span>: <span class="ident">gpointer</span>,
 ) {
-    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
-<span class="kw">fn</span> <span class="ident">into_raw_unix_fd</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">gpointer</span> {
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_closure_unix_fd_local</span><span class="op">&lt;</span>
+    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+<span class="op">&gt;</span>(
+    <span class="ident">ptr</span>: <span class="ident">gpointer</span>,
+) {
+    <span class="ident">Box</span>::<span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="ident">::from_raw</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
+}
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="kw">fn</span> <span class="ident">into_raw_unix_fd</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="ident">func</span>: <span class="ident">F</span>,
+) -&gt; <span class="ident">gpointer</span> {
     <span class="kw">let</span> <span class="ident">func</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">RefCell::new</span>(<span class="ident">func</span>));
     <span class="ident">Box::into_raw</span>(<span class="ident">func</span>) <span class="kw">as</span> <span class="ident">gpointer</span>
 }
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="kw">fn</span> <span class="ident">into_raw_unix_fd_local</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">gpointer</span> {
+    <span class="kw">let</span> <span class="ident">func</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">ThreadGuard::new</span>(<span class="ident">RefCell::new</span>(<span class="ident">func</span>)));
+    <span class="ident">Box::into_raw</span>(<span class="ident">func</span>) <span class="kw">as</span> <span class="ident">gpointer</span>
+}
+
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Transform a generic FnOnce into a closure that can be used as callback in various glib methods</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The resulting function can only be called once and will panic otherwise. It will return `Continue(false)`</span>
@@ -1429,7 +1414,7 @@
 <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
 <span class="kw">fn</span> <span class="ident">fnmut_callback_wrapper</span>(
     <span class="ident">func</span>: <span class="kw">impl</span> <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">impl</span> <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span> {
+) -&gt; <span class="kw">impl</span> <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">func</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">func</span>);
     <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
         <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> <span class="ident">func</span>
@@ -1440,6 +1425,7 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Transform a generic FnOnce into a closure that can be used as callback in various glib methods</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The resulting function can only be called once and will panic otherwise. It will return `Continue(false)`</span>
@@ -1450,7 +1436,7 @@
 <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
 <span class="kw">fn</span> <span class="ident">fnmut_callback_wrapper_local</span>(
     <span class="ident">func</span>: <span class="kw">impl</span> <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">impl</span> <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span> {
+) -&gt; <span class="kw">impl</span> <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">func</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">func</span>);
     <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
         <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> <span class="ident">func</span>
@@ -1461,16 +1447,17 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop when it&#39;s idle.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly until it returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_idle_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_idle_add_full</span>(
@@ -1482,57 +1469,63 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop when it&#39;s idle.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly until it returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// In comparison to `idle_add()`, this only requires `func` to be</span>
 <span class="doccomment">/// `FnOnce`, and will automatically return `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_idle_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_add_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_add_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="ident">idle_add</span>(<span class="ident">fnmut_callback_wrapper</span>(<span class="ident">func</span>))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop when it&#39;s idle.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly until it returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `idle_add()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This function panics if called from a different thread than the one that</span>
-<span class="doccomment">/// owns the main context.</span>
+<span class="doccomment">/// owns the default main context.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_idle_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
-        <span class="macro">assert!</span>(<span class="ident">MainContext::default</span>().<span class="ident">is_owner</span>());
+        <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="ident">MainContext::default</span>();
+        <span class="kw">let</span> <span class="ident">_acquire</span> <span class="op">=</span> <span class="ident">context</span>
+            .<span class="ident">acquire</span>()
+            .<span class="ident">expect</span>(<span class="string">&quot;default main context already acquired by another thread&quot;</span>);
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_idle_add_full</span>(
             <span class="ident">ffi::G_PRIORITY_DEFAULT_IDLE</span>,
-            <span class="prelude-val">Some</span>(<span class="ident">trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
-            <span class="ident">into_raw</span>(<span class="ident">func</span>),
-            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">trampoline_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="ident">into_raw_local</span>(<span class="ident">func</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
         ))
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop when it&#39;s idle.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly until it returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `idle_add()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
@@ -1543,13 +1536,14 @@
 <span class="doccomment">/// In comparison to `idle_add_local()`, this only requires `func` to be</span>
 <span class="doccomment">/// `FnOnce`, and will automatically return `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_idle_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_add_local_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_add_local_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="ident">idle_add_local</span>(<span class="ident">fnmut_callback_wrapper_local</span>(<span class="ident">func</span>))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop at regular intervals</span>
 <span class="doccomment">/// with millisecond granularity.</span>
 <span class="doccomment">///</span>
@@ -1559,51 +1553,11 @@
 <span class="doccomment">/// precision is not necessary.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
-<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-<span class="doccomment">/// Sets a function to be called at regular intervals, with the default</span>
-<span class="doccomment">/// priority, `G_PRIORITY_DEFAULT`. The function is called repeatedly</span>
-<span class="doccomment">/// until it returns [`false`], at which point the timeout is automatically</span>
-<span class="doccomment">/// destroyed and the function will not be called again. The first call</span>
-<span class="doccomment">/// to the function will be at the end of the first `interval`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Note that timeout functions may be delayed, due to the processing of other</span>
-<span class="doccomment">/// event sources. Thus they should not be relied on for precise timing.</span>
-<span class="doccomment">/// After each call to the timeout function, the time of the next</span>
-<span class="doccomment">/// timeout is recalculated based on the current time and the given interval</span>
-<span class="doccomment">/// (it does not try to &#39;catch up&#39; time lost in delays).</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See [memory management of sources][mainloop-memory-management] for details</span>
-<span class="doccomment">/// on how to handle the return value and memory management of `data`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// If you want to have a timer in the &quot;seconds&quot; range and do not care</span>
-<span class="doccomment">/// about the exact time of the first call of the timer, use the</span>
-<span class="doccomment">/// `g_timeout_add_seconds()` function; this function allows for more</span>
-<span class="doccomment">/// optimizations and more efficient system power usage.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This internally creates a main loop source using `g_timeout_source_new()`</span>
-<span class="doccomment">/// and attaches it to the global [`MainContext`][crate::MainContext] using `g_source_attach()`, so</span>
-<span class="doccomment">/// the callback will be invoked in whichever thread is running that main</span>
-<span class="doccomment">/// context. You can do these steps manually if you need greater control or to</span>
-<span class="doccomment">/// use a custom main context.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// It is safe to call this function from any thread.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The interval given is in terms of monotonic time, not wall clock</span>
-<span class="doccomment">/// time. See [`monotonic_time()`][crate::monotonic_time()].</span>
-<span class="doccomment">/// ## `interval`</span>
-<span class="doccomment">/// the time between calls to the function, in milliseconds</span>
-<span class="doccomment">///  (1/1000ths of a second)</span>
-<span class="doccomment">/// ## `function`</span>
-<span class="doccomment">/// function to call</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the ID (greater than 0) of the event source.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">Duration</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">Duration</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_timeout_add_full</span>(
@@ -1616,6 +1570,7 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop at regular intervals</span>
 <span class="doccomment">/// with millisecond granularity.</span>
 <span class="doccomment">///</span>
@@ -1625,18 +1580,19 @@
 <span class="doccomment">/// precision is not necessary.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// In comparison to `timeout_add()`, this only requires `func` to be</span>
 <span class="doccomment">/// `FnOnce`, and will automatically return `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">Duration</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">Duration</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="ident">timeout_add</span>(<span class="ident">interval</span>, <span class="ident">fnmut_callback_wrapper</span>(<span class="ident">func</span>))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop at regular intervals</span>
 <span class="doccomment">/// with millisecond granularity.</span>
 <span class="doccomment">///</span>
@@ -1646,7 +1602,7 @@
 <span class="doccomment">/// precision is not necessary.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `timeout_add()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
@@ -1654,22 +1610,26 @@
 <span class="doccomment">/// This function panics if called from a different thread than the one that</span>
 <span class="doccomment">/// owns the main context.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">Duration</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">Duration</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
-        <span class="macro">assert!</span>(<span class="ident">MainContext::default</span>().<span class="ident">is_owner</span>());
+        <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="ident">MainContext::default</span>();
+        <span class="kw">let</span> <span class="ident">_acquire</span> <span class="op">=</span> <span class="ident">context</span>
+            .<span class="ident">acquire</span>()
+            .<span class="ident">expect</span>(<span class="string">&quot;default main context already acquired by another thread&quot;</span>);
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_timeout_add_full</span>(
             <span class="ident">ffi::G_PRIORITY_DEFAULT</span>,
             <span class="ident">interval</span>.<span class="ident">as_millis</span>() <span class="kw">as</span> <span class="kw">_</span>,
-            <span class="prelude-val">Some</span>(<span class="ident">trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
-            <span class="ident">into_raw</span>(<span class="ident">func</span>),
-            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">trampoline_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="ident">into_raw_local</span>(<span class="ident">func</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
         ))
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop at regular intervals</span>
 <span class="doccomment">/// with millisecond granularity.</span>
 <span class="doccomment">///</span>
@@ -1679,7 +1639,7 @@
 <span class="doccomment">/// precision is not necessary.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `timeout_add()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
@@ -1690,13 +1650,14 @@
 <span class="doccomment">/// In comparison to `timeout_add_local()`, this only requires `func` to be</span>
 <span class="doccomment">/// `FnOnce`, and will automatically return `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_local_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">Duration</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_local_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">Duration</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="ident">timeout_add_local</span>(<span class="ident">interval</span>, <span class="ident">fnmut_callback_wrapper_local</span>(<span class="ident">func</span>))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop at regular intervals</span>
 <span class="doccomment">/// with second granularity.</span>
 <span class="doccomment">///</span>
@@ -1705,41 +1666,11 @@
 <span class="doccomment">/// be delayed by other events.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
-<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-<span class="doccomment">/// Sets a function to be called at regular intervals with the default</span>
-<span class="doccomment">/// priority, `G_PRIORITY_DEFAULT`. The function is called repeatedly until</span>
-<span class="doccomment">/// it returns [`false`], at which point the timeout is automatically destroyed</span>
-<span class="doccomment">/// and the function will not be called again.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This internally creates a main loop source using</span>
-<span class="doccomment">/// `g_timeout_source_new_seconds()` and attaches it to the main loop context</span>
-<span class="doccomment">/// using `g_source_attach()`. You can do these steps manually if you need</span>
-<span class="doccomment">/// greater control. Also see `g_timeout_add_seconds_full()`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// It is safe to call this function from any thread.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Note that the first call of the timer may not be precise for timeouts</span>
-<span class="doccomment">/// of one second. If you need finer precision and have such a timeout,</span>
-<span class="doccomment">/// you may want to use `g_timeout_add()` instead.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See [memory management of sources][mainloop-memory-management] for details</span>
-<span class="doccomment">/// on how to handle the return value and memory management of `data`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The interval given is in terms of monotonic time, not wall clock</span>
-<span class="doccomment">/// time. See [`monotonic_time()`][crate::monotonic_time()].</span>
-<span class="doccomment">/// ## `interval`</span>
-<span class="doccomment">/// the time between calls to the function, in seconds</span>
-<span class="doccomment">/// ## `function`</span>
-<span class="doccomment">/// function to call</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the ID (greater than 0) of the event source.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_add_seconds_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_seconds</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">u32</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_seconds</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">u32</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_timeout_add_seconds_full</span>(
@@ -1752,6 +1683,7 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop at regular intervals</span>
 <span class="doccomment">/// with second granularity.</span>
 <span class="doccomment">///</span>
@@ -1760,18 +1692,19 @@
 <span class="doccomment">/// be delayed by other events.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// In comparison to `timeout_add_seconds()`, this only requires `func` to be</span>
 <span class="doccomment">/// `FnOnce`, and will automatically return `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_add_seconds_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_seconds_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">u32</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_seconds_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">u32</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="ident">timeout_add_seconds</span>(<span class="ident">interval</span>, <span class="ident">fnmut_callback_wrapper</span>(<span class="ident">func</span>))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop at regular intervals</span>
 <span class="doccomment">/// with second granularity.</span>
 <span class="doccomment">///</span>
@@ -1780,7 +1713,7 @@
 <span class="doccomment">/// be delayed by other events.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `timeout_add_seconds()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
@@ -1788,22 +1721,26 @@
 <span class="doccomment">/// This function panics if called from a different thread than the one that</span>
 <span class="doccomment">/// owns the main context.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_add_seconds_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_seconds_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">u32</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_seconds_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">u32</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
-        <span class="macro">assert!</span>(<span class="ident">MainContext::default</span>().<span class="ident">is_owner</span>());
+        <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="ident">MainContext::default</span>();
+        <span class="kw">let</span> <span class="ident">_acquire</span> <span class="op">=</span> <span class="ident">context</span>
+            .<span class="ident">acquire</span>()
+            .<span class="ident">expect</span>(<span class="string">&quot;default main context already acquired by another thread&quot;</span>);
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_timeout_add_seconds_full</span>(
             <span class="ident">ffi::G_PRIORITY_DEFAULT</span>,
             <span class="ident">interval</span>,
-            <span class="prelude-val">Some</span>(<span class="ident">trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
-            <span class="ident">into_raw</span>(<span class="ident">func</span>),
-            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">trampoline_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="ident">into_raw_local</span>(<span class="ident">func</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
         ))
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop at regular intervals</span>
 <span class="doccomment">/// with second granularity.</span>
 <span class="doccomment">///</span>
@@ -1812,7 +1749,7 @@
 <span class="doccomment">/// be delayed by other events.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `timeout_add_seconds()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
@@ -1823,19 +1760,20 @@
 <span class="doccomment">/// In comparison to `timeout_add_seconds_local()`, this only requires `func` to be</span>
 <span class="doccomment">/// `FnOnce`, and will automatically return `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_add_seconds_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_seconds_local_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">u32</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_add_seconds_local_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">interval</span>: <span class="ident">u32</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="ident">timeout_add_seconds_local</span>(<span class="ident">interval</span>, <span class="ident">fnmut_callback_wrapper_local</span>(<span class="ident">func</span>))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to when a child</span>
 <span class="doccomment">/// process exits.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called when `pid` exits</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_child_watch_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">child_watch_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">pid</span>: <span class="ident">Pid</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">child_watch_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">pid</span>: <span class="ident">Pid</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
@@ -1850,6 +1788,7 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to when a child</span>
 <span class="doccomment">/// process exits.</span>
 <span class="doccomment">///</span>
@@ -1861,47 +1800,39 @@
 <span class="doccomment">/// This function panics if called from a different thread than the one that</span>
 <span class="doccomment">/// owns the main context.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_child_watch_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">child_watch_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">pid</span>: <span class="ident">Pid</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">child_watch_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">pid</span>: <span class="ident">Pid</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
-        <span class="macro">assert!</span>(<span class="ident">MainContext::default</span>().<span class="ident">is_owner</span>());
+        <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="ident">MainContext::default</span>();
+        <span class="kw">let</span> <span class="ident">_acquire</span> <span class="op">=</span> <span class="ident">context</span>
+            .<span class="ident">acquire</span>()
+            .<span class="ident">expect</span>(<span class="string">&quot;default main context already acquired by another thread&quot;</span>);
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_child_watch_add_full</span>(
             <span class="ident">ffi::G_PRIORITY_DEFAULT</span>,
             <span class="ident">pid</span>.<span class="number">0</span>,
-            <span class="prelude-val">Some</span>(<span class="ident">trampoline_child_watch</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
-            <span class="ident">into_raw_child_watch</span>(<span class="ident">func</span>),
-            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_child_watch</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">trampoline_child_watch_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="ident">into_raw_child_watch_local</span>(<span class="ident">func</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_child_watch_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
         ))
     }
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop whenever a UNIX signal is raised.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly every time `signum` is raised until it</span>
 <span class="doccomment">/// returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
-<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-<span class="doccomment">/// A convenience function for `g_unix_signal_source_new()`, which</span>
-<span class="doccomment">/// attaches to the default [`MainContext`][crate::MainContext]. You can remove the watch</span>
-<span class="doccomment">/// using `g_source_remove()`.</span>
-<span class="doccomment">/// ## `signum`</span>
-<span class="doccomment">/// Signal number</span>
-<span class="doccomment">/// ## `handler`</span>
-<span class="doccomment">/// Callback</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// An ID (greater than 0) for the event source</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_unix_signal_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">signum</span>: <span class="ident">i32</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">signum</span>: <span class="ident">i32</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_unix_signal_add_full</span>(
@@ -1916,18 +1847,19 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop whenever a UNIX signal is raised.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly every time `signum` is raised until it</span>
 <span class="doccomment">/// returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// In comparison to `unix_signal_add()`, this only requires `func` to be</span>
 <span class="doccomment">/// `FnOnce`, and will automatically return `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_unix_signal_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_add_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">signum</span>: <span class="ident">i32</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_add_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">signum</span>: <span class="ident">i32</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
@@ -1936,13 +1868,14 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop whenever a UNIX signal is raised.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly every time `signum` is raised until it</span>
 <span class="doccomment">/// returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `unix_signal_add()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
@@ -1950,31 +1883,35 @@
 <span class="doccomment">/// This function panics if called from a different thread than the one that</span>
 <span class="doccomment">/// owns the main context.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_unix_signal_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">signum</span>: <span class="ident">i32</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">signum</span>: <span class="ident">i32</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
-        <span class="macro">assert!</span>(<span class="ident">MainContext::default</span>().<span class="ident">is_owner</span>());
+        <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="ident">MainContext::default</span>();
+        <span class="kw">let</span> <span class="ident">_acquire</span> <span class="op">=</span> <span class="ident">context</span>
+            .<span class="ident">acquire</span>()
+            .<span class="ident">expect</span>(<span class="string">&quot;default main context already acquired by another thread&quot;</span>);
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_unix_signal_add_full</span>(
             <span class="ident">ffi::G_PRIORITY_DEFAULT</span>,
             <span class="ident">signum</span>,
-            <span class="prelude-val">Some</span>(<span class="ident">trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
-            <span class="ident">into_raw</span>(<span class="ident">func</span>),
-            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">trampoline_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="ident">into_raw_local</span>(<span class="ident">func</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
         ))
     }
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the default main loop whenever a UNIX signal is raised.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly every time `signum` is raised until it</span>
 <span class="doccomment">/// returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `unix_signal_add()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
@@ -1985,7 +1922,7 @@
 <span class="doccomment">/// In comparison to `unix_signal_add_local()`, this only requires `func` to be</span>
 <span class="doccomment">/// `FnOnce`, and will automatically return `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_unix_signal_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_add_local_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">signum</span>: <span class="ident">i32</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_add_local_once</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">signum</span>: <span class="ident">i32</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnOnce</span>() <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
@@ -1994,6 +1931,7 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to whenever a</span>
 <span class="doccomment">/// UNIX file descriptor reaches the given IO condition.</span>
 <span class="doccomment">///</span>
@@ -2001,35 +1939,11 @@
 <span class="doccomment">/// until it returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
-<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-<span class="doccomment">/// Sets a function to be called when the IO condition, as specified by</span>
-<span class="doccomment">/// `condition` becomes true for `fd`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `function` will be called when the specified IO condition becomes</span>
-<span class="doccomment">/// [`true`]. The function is expected to clear whatever event caused the</span>
-<span class="doccomment">/// IO condition to become true and return [`true`] in order to be notified</span>
-<span class="doccomment">/// when it happens again. If `function` returns [`false`] then the watch</span>
-<span class="doccomment">/// will be cancelled.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The return value of this function can be passed to `g_source_remove()`</span>
-<span class="doccomment">/// to cancel the watch at any time that it exists.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The source will never close the fd -- you must do it yourself.</span>
-<span class="doccomment">/// ## `fd`</span>
-<span class="doccomment">/// a file descriptor</span>
-<span class="doccomment">/// ## `condition`</span>
-<span class="doccomment">/// IO conditions to watch for on `fd`</span>
-<span class="doccomment">/// ## `function`</span>
-<span class="doccomment">/// a `GUnixFDSourceFunc`</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the ID (greater than 0) of the event source</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_unix_fd_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_fd_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">fd</span>: <span class="ident">RawFd</span>, <span class="ident">condition</span>: <span class="ident">IOCondition</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_fd_add</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">fd</span>: <span class="ident">RawFd</span>, <span class="ident">condition</span>: <span class="ident">IOCondition</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_unix_fd_add_full</span>(
@@ -2045,6 +1959,7 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to whenever a</span>
 <span class="doccomment">/// UNIX file descriptor reaches the given IO condition.</span>
 <span class="doccomment">///</span>
@@ -2052,7 +1967,7 @@
 <span class="doccomment">/// until it returns `Continue(false)`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The default main loop almost always is the main loop of the main thread.</span>
-<span class="doccomment">/// Thus the closure is called on the main thread.</span>
+<span class="doccomment">/// Thus, the closure is called on the main thread.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Different to `unix_fd_add()`, this does not require `func` to be</span>
 <span class="doccomment">/// `Send` but can only be called from the thread that owns the main context.</span>
@@ -2060,40 +1975,28 @@
 <span class="doccomment">/// This function panics if called from a different thread than the one that</span>
 <span class="doccomment">/// owns the main context.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_unix_fd_add_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_fd_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">fd</span>: <span class="ident">RawFd</span>, <span class="ident">condition</span>: <span class="ident">IOCondition</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_fd_add_local</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">fd</span>: <span class="ident">RawFd</span>, <span class="ident">condition</span>: <span class="ident">IOCondition</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceId</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
-        <span class="macro">assert!</span>(<span class="ident">MainContext::default</span>().<span class="ident">is_owner</span>());
+        <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="ident">MainContext::default</span>();
+        <span class="kw">let</span> <span class="ident">_acquire</span> <span class="op">=</span> <span class="ident">context</span>
+            .<span class="ident">acquire</span>()
+            .<span class="ident">expect</span>(<span class="string">&quot;default main context already acquired by another thread&quot;</span>);
         <span class="ident">from_glib</span>(<span class="ident">ffi::g_unix_fd_add_full</span>(
             <span class="ident">ffi::G_PRIORITY_DEFAULT</span>,
             <span class="ident">fd</span>,
             <span class="ident">condition</span>.<span class="ident">into_glib</span>(),
-            <span class="prelude-val">Some</span>(<span class="ident">trampoline_unix_fd</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
-            <span class="ident">into_raw_unix_fd</span>(<span class="ident">func</span>),
-            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_unix_fd</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">trampoline_unix_fd_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
+            <span class="ident">into_raw_unix_fd_local</span>(<span class="ident">func</span>),
+            <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_unix_fd_local</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
         ))
     }
 }
 
-<span class="doccomment">/// Removes the source with the given id `source_id` from the default main context.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// It is a programmer error to attempt to remove a non-existent source.</span>
-<span class="doccomment">/// Note: source id are reused.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// For historical reasons, the native function always returns true, so we</span>
-<span class="doccomment">/// ignore it here.</span>
-<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::needless_pass_by_value</span>)]</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_source_remove&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">source_remove</span>(<span class="ident">source_id</span>: <span class="ident">SourceId</span>) {
-    <span class="kw">unsafe</span> {
-        <span class="ident">ffi::g_source_remove</span>(<span class="ident">source_id</span>.<span class="ident">as_raw</span>());
-    }
-}
-
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// The priority of sources</span>
-<span class="doccomment">///</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Priority</span>(<span class="ident">i32</span>);
 
@@ -2102,7 +2005,7 @@
     <span class="kw">type</span> <span class="ident">GlibType</span> <span class="op">=</span> <span class="ident">i32</span>;
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">into_glib</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">fn</span> <span class="ident">into_glib</span>(<span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="self">self</span>.<span class="number">0</span>
     }
 }
@@ -2110,51 +2013,36 @@
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Priority</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">val</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">val</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span>(<span class="ident">val</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">Priority</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
         <span class="ident">PRIORITY_DEFAULT</span>
     }
 }
 
-<span class="doccomment">/// Use this for high priority event sources.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// It is not used within GLib or GTK+.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_HIGH&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_HIGH</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_HIGH</span>);
-<span class="doccomment">/// Use this for default priority event sources.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// In GLib this priority is used when adding timeout functions</span>
-<span class="doccomment">/// with `g_timeout_add()`. In GDK this priority is used for events</span>
-<span class="doccomment">/// from the X server.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_DEFAULT&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_DEFAULT</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_DEFAULT</span>);
-<span class="doccomment">/// Use this for high priority idle functions.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// GTK+ uses `G_PRIORITY_HIGH_IDLE` + 10 for resizing operations,</span>
-<span class="doccomment">/// and `G_PRIORITY_HIGH_IDLE` + 20 for redrawing operations. (This is</span>
-<span class="doccomment">/// done to ensure that any pending resizes are processed before any</span>
-<span class="doccomment">/// pending redraws, so that widgets are not redrawn twice unnecessarily.)</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_HIGH_IDLE&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_HIGH_IDLE</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_HIGH_IDLE</span>);
-<span class="doccomment">/// Use this for default priority idle functions.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// In GLib this priority is used when adding idle functions with</span>
-<span class="doccomment">/// `g_idle_add()`.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_DEFAULT_IDLE&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_DEFAULT_IDLE</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_DEFAULT_IDLE</span>);
-<span class="doccomment">/// Use this for very low priority background tasks.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// It is not used within GLib or GTK+.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_LOW&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_LOW</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_LOW</span>);
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the return `Source` is attached to when it&#39;s idle.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly until it returns `Continue(false)`.</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_idle_source_new&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_source_new</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>, <span class="ident">priority</span>: <span class="ident">Priority</span>, <span class="ident">func</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">idle_source_new</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>, <span class="ident">priority</span>: <span class="ident">Priority</span>, <span class="ident">func</span>: <span class="ident">F</span>) -&gt; <span class="ident">Source</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">ffi::g_idle_source_new</span>();
@@ -2174,6 +2062,7 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to at regular</span>
 <span class="doccomment">/// intervals with millisecond granularity.</span>
 <span class="doccomment">///</span>
@@ -2181,30 +2070,15 @@
 <span class="doccomment">/// returns `Continue(false)`. Precise timing is not guaranteed, the timeout may</span>
 <span class="doccomment">/// be delayed by other events. Prefer `timeout_add_seconds` when millisecond</span>
 <span class="doccomment">/// precision is not necessary.</span>
-<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-<span class="doccomment">/// Creates a new timeout source.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The source will not initially be associated with any [`MainContext`][crate::MainContext]</span>
-<span class="doccomment">/// and must be added to one with `g_source_attach()` before it will be</span>
-<span class="doccomment">/// executed.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The interval given is in terms of monotonic time, not wall clock</span>
-<span class="doccomment">/// time. See [`monotonic_time()`][crate::monotonic_time()].</span>
-<span class="doccomment">/// ## `interval`</span>
-<span class="doccomment">/// the timeout interval in milliseconds.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the newly-created timeout source</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_source_new&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_source_new</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(
     <span class="ident">interval</span>: <span class="ident">Duration</span>,
     <span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">func</span>: <span class="ident">F</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span>
+) -&gt; <span class="ident">Source</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">ffi::g_timeout_source_new</span>(<span class="ident">interval</span>.<span class="ident">as_millis</span>() <span class="kw">as</span> <span class="kw">_</span>);
@@ -2224,39 +2098,22 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to at regular</span>
 <span class="doccomment">/// intervals with second granularity.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly every `interval` seconds until it</span>
 <span class="doccomment">/// returns `Continue(false)`. Precise timing is not guaranteed, the timeout may</span>
 <span class="doccomment">/// be delayed by other events.</span>
-<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-<span class="doccomment">/// Creates a new timeout source.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The source will not initially be associated with any [`MainContext`][crate::MainContext]</span>
-<span class="doccomment">/// and must be added to one with `g_source_attach()` before it will be</span>
-<span class="doccomment">/// executed.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The scheduling granularity/accuracy of this timeout source will be</span>
-<span class="doccomment">/// in seconds.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The interval given is in terms of monotonic time, not wall clock time.</span>
-<span class="doccomment">/// See [`monotonic_time()`][crate::monotonic_time()].</span>
-<span class="doccomment">/// ## `interval`</span>
-<span class="doccomment">/// the timeout interval in seconds</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the newly-created timeout source</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_timeout_source_new_seconds&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_source_new_seconds</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(
     <span class="ident">interval</span>: <span class="ident">u32</span>,
     <span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">func</span>: <span class="ident">F</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span>
+) -&gt; <span class="ident">Source</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">ffi::g_timeout_source_new_seconds</span>(<span class="ident">interval</span>);
@@ -2276,6 +2133,7 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to when a child</span>
 <span class="doccomment">/// process exits.</span>
 <span class="doccomment">///</span>
@@ -2286,7 +2144,7 @@
     <span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">func</span>: <span class="ident">F</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span>
+) -&gt; <span class="ident">Source</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">Pid</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
@@ -2296,8 +2154,8 @@
             <span class="ident">source</span>,
             <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span>
                 <span class="kw">_</span>,
-                <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">ffi::gpointer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ffi::gboolean</span>,
-            <span class="op">&gt;</span>(<span class="ident">trampoline_child_watch</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> ())),
+                <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">ffi::gpointer</span>) -&gt; <span class="ident">ffi::gboolean</span>,
+            <span class="op">&gt;</span>(<span class="ident">trampoline_child_watch</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> ())),
             <span class="ident">into_raw_child_watch</span>(<span class="ident">func</span>),
             <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_child_watch</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
         );
@@ -2313,50 +2171,21 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to whenever a</span>
 <span class="doccomment">/// UNIX signal is raised.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly every time `signum` is raised until it</span>
 <span class="doccomment">/// returns `Continue(false)`.</span>
-<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-<span class="doccomment">/// Create a [`Source`][crate::Source] that will be dispatched upon delivery of the UNIX</span>
-<span class="doccomment">/// signal `signum`. In GLib versions before 2.36, only `SIGHUP`, `SIGINT`,</span>
-<span class="doccomment">/// `SIGTERM` can be monitored. In GLib 2.36, `SIGUSR1` and `SIGUSR2`</span>
-<span class="doccomment">/// were added. In GLib 2.54, `SIGWINCH` was added.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Note that unlike the UNIX default, all sources which have created a</span>
-<span class="doccomment">/// watch will be dispatched, regardless of which underlying thread</span>
-<span class="doccomment">/// invoked `g_unix_signal_source_new()`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// For example, an effective use of this function is to handle `SIGTERM`</span>
-<span class="doccomment">/// cleanly; flushing any outstanding files, and then calling</span>
-<span class="doccomment">/// g_main_loop_quit (). It is not safe to do any of this a regular</span>
-<span class="doccomment">/// UNIX signal handler; your handler may be invoked while `malloc()` or</span>
-<span class="doccomment">/// another library function is running, causing reentrancy if you</span>
-<span class="doccomment">/// attempt to use it from the handler. None of the GLib/GObject API</span>
-<span class="doccomment">/// is safe against this kind of reentrancy.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The interaction of this source when combined with native UNIX</span>
-<span class="doccomment">/// functions like `sigprocmask()` is not defined.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The source will not initially be associated with any [`MainContext`][crate::MainContext]</span>
-<span class="doccomment">/// and must be added to one with `g_source_attach()` before it will be</span>
-<span class="doccomment">/// executed.</span>
-<span class="doccomment">/// ## `signum`</span>
-<span class="doccomment">/// A signal number</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// A newly created [`Source`][crate::Source]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_unix_signal_source_new&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_source_new</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(
     <span class="ident">signum</span>: <span class="ident">i32</span>,
     <span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">func</span>: <span class="ident">F</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span>
+) -&gt; <span class="ident">Source</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>() -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">ffi::g_unix_signal_source_new</span>(<span class="ident">signum</span>);
@@ -2378,24 +2207,12 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Adds a closure to be called by the main loop the returned `Source` is attached to whenever a</span>
 <span class="doccomment">/// UNIX file descriptor reaches the given IO condition.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called repeatedly while the file descriptor matches the given IO condition</span>
 <span class="doccomment">/// until it returns `Continue(false)`.</span>
-<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-<span class="doccomment">/// Creates a [`Source`][crate::Source] to watch for a particular IO condition on a file</span>
-<span class="doccomment">/// descriptor.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The source will never close the fd -- you must do it yourself.</span>
-<span class="doccomment">/// ## `fd`</span>
-<span class="doccomment">/// a file descriptor</span>
-<span class="doccomment">/// ## `condition`</span>
-<span class="doccomment">/// IO conditions to watch for on `fd`</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the newly created [`Source`][crate::Source]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_unix_fd_source_new&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_fd_source_new</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(
     <span class="ident">fd</span>: <span class="ident">RawFd</span>,
@@ -2403,9 +2220,9 @@
     <span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">func</span>: <span class="ident">F</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span>
+) -&gt; <span class="ident">Source</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">RawFd</span>, <span class="ident">IOCondition</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">unsafe</span> {
         <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">ffi::g_unix_fd_source_new</span>(<span class="ident">fd</span>, <span class="ident">condition</span>.<span class="ident">into_glib</span>());
@@ -2413,8 +2230,8 @@
             <span class="ident">source</span>,
             <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span>
                 <span class="kw">_</span>,
-                <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">ffi::gpointer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ffi::gboolean</span>,
-            <span class="op">&gt;</span>(<span class="ident">trampoline_unix_fd</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> ())),
+                <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">ffi::gpointer</span>) -&gt; <span class="ident">ffi::gboolean</span>,
+            <span class="op">&gt;</span>(<span class="ident">trampoline_unix_fd</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> ())),
             <span class="ident">into_raw_unix_fd</span>(<span class="ident">func</span>),
             <span class="prelude-val">Some</span>(<span class="ident">destroy_closure_unix_fd</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>),
         );
@@ -2429,20 +2246,8 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Source</span> {
-    <span class="doccomment">/// Adds a [`Source`][crate::Source] to a `context` so that it will be executed within</span>
-    <span class="doccomment">/// that context. Remove it by calling `g_source_destroy()`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function is safe to call from any thread, regardless of which thread</span>
-    <span class="doccomment">/// the `context` is running in.</span>
-    <span class="doccomment">/// ## `context`</span>
-    <span class="doccomment">/// a [`MainContext`][crate::MainContext] (if [`None`], the default context will be used)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the ID (greater than 0) for the source within the</span>
-    <span class="doccomment">///  [`MainContext`][crate::MainContext].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_source_attach&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">attach</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">context</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">MainContext</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">attach</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">context</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">MainContext</span><span class="op">&gt;</span>) -&gt; <span class="ident">SourceId</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::g_source_attach</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -2450,41 +2255,7 @@
             ))
         }
     }
-
-    <span class="doccomment">/// Removes the source with the given ID from the default main context. You must</span>
-    <span class="doccomment">/// use `g_source_destroy()` for sources added to a non-default main context.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The ID of a [`Source`][crate::Source] is given by `g_source_get_id()`, or will be</span>
-    <span class="doccomment">/// returned by the functions `g_source_attach()`, `g_idle_add()`,</span>
-    <span class="doccomment">/// `g_idle_add_full()`, `g_timeout_add()`, `g_timeout_add_full()`,</span>
-    <span class="doccomment">/// `g_child_watch_add()`, `g_child_watch_add_full()`, `g_io_add_watch()`, and</span>
-    <span class="doccomment">/// `g_io_add_watch_full()`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// It is a programmer error to attempt to remove a non-existent source.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// More specifically: source IDs can be reissued after a source has been</span>
-    <span class="doccomment">/// destroyed and therefore it is never valid to use this function with a</span>
-    <span class="doccomment">/// source ID which may have already been removed. An example is when</span>
-    <span class="doccomment">/// scheduling an idle to run in another thread with `g_idle_add()`: the</span>
-    <span class="doccomment">/// idle may already have run and been removed by the time this function</span>
-    <span class="doccomment">/// is called on its (now invalid) source ID. This source ID may have</span>
-    <span class="doccomment">/// been reissued, leading to the operation being performed against the</span>
-    <span class="doccomment">/// wrong source.</span>
-    <span class="doccomment">/// ## `tag`</span>
-    <span class="doccomment">/// the ID of the source to remove.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// For historical reasons, this function always returns [`true`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_source_remove&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove</span>(<span class="ident">tag</span>: <span class="ident">SourceId</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="kw">crate</span><span class="ident">::BoolError</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="macro">result_from_gboolean!</span>(
-                <span class="ident">ffi::g_source_remove</span>(<span class="ident">tag</span>.<span class="ident">as_raw</span>()),
-                <span class="string">&quot;Failed to remove source&quot;</span>
-            )
-        }
-    }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

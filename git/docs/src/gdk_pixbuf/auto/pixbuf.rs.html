@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk-pixbuf/src/auto/pixbuf.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>pixbuf.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk-pixbuf/src/auto/pixbuf.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>pixbuf.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gdk_pixbuf/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../../gdk_pixbuf/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk_pixbuf/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1289,15 +1290,154 @@
 <span id="1214">1214</span>
 <span id="1215">1215</span>
 <span id="1216">1216</span>
-</pre><pre class="rust">
-<span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
+<span id="1217">1217</span>
+<span id="1218">1218</span>
+<span id="1219">1219</span>
+<span id="1220">1220</span>
+<span id="1221">1221</span>
+<span id="1222">1222</span>
+<span id="1223">1223</span>
+<span id="1224">1224</span>
+<span id="1225">1225</span>
+<span id="1226">1226</span>
+<span id="1227">1227</span>
+<span id="1228">1228</span>
+<span id="1229">1229</span>
+<span id="1230">1230</span>
+<span id="1231">1231</span>
+<span id="1232">1232</span>
+<span id="1233">1233</span>
+<span id="1234">1234</span>
+<span id="1235">1235</span>
+<span id="1236">1236</span>
+<span id="1237">1237</span>
+<span id="1238">1238</span>
+<span id="1239">1239</span>
+<span id="1240">1240</span>
+<span id="1241">1241</span>
+<span id="1242">1242</span>
+<span id="1243">1243</span>
+<span id="1244">1244</span>
+<span id="1245">1245</span>
+<span id="1246">1246</span>
+<span id="1247">1247</span>
+<span id="1248">1248</span>
+<span id="1249">1249</span>
+<span id="1250">1250</span>
+<span id="1251">1251</span>
+<span id="1252">1252</span>
+<span id="1253">1253</span>
+<span id="1254">1254</span>
+<span id="1255">1255</span>
+<span id="1256">1256</span>
+<span id="1257">1257</span>
+<span id="1258">1258</span>
+<span id="1259">1259</span>
+<span id="1260">1260</span>
+<span id="1261">1261</span>
+<span id="1262">1262</span>
+<span id="1263">1263</span>
+<span id="1264">1264</span>
+<span id="1265">1265</span>
+<span id="1266">1266</span>
+<span id="1267">1267</span>
+<span id="1268">1268</span>
+<span id="1269">1269</span>
+<span id="1270">1270</span>
+<span id="1271">1271</span>
+<span id="1272">1272</span>
+<span id="1273">1273</span>
+<span id="1274">1274</span>
+<span id="1275">1275</span>
+<span id="1276">1276</span>
+<span id="1277">1277</span>
+<span id="1278">1278</span>
+<span id="1279">1279</span>
+<span id="1280">1280</span>
+<span id="1281">1281</span>
+<span id="1282">1282</span>
+<span id="1283">1283</span>
+<span id="1284">1284</span>
+<span id="1285">1285</span>
+<span id="1286">1286</span>
+<span id="1287">1287</span>
+<span id="1288">1288</span>
+<span id="1289">1289</span>
+<span id="1290">1290</span>
+<span id="1291">1291</span>
+<span id="1292">1292</span>
+<span id="1293">1293</span>
+<span id="1294">1294</span>
+<span id="1295">1295</span>
+<span id="1296">1296</span>
+<span id="1297">1297</span>
+<span id="1298">1298</span>
+<span id="1299">1299</span>
+<span id="1300">1300</span>
+<span id="1301">1301</span>
+<span id="1302">1302</span>
+<span id="1303">1303</span>
+<span id="1304">1304</span>
+<span id="1305">1305</span>
+<span id="1306">1306</span>
+<span id="1307">1307</span>
+<span id="1308">1308</span>
+<span id="1309">1309</span>
+<span id="1310">1310</span>
+<span id="1311">1311</span>
+<span id="1312">1312</span>
+<span id="1313">1313</span>
+<span id="1314">1314</span>
+<span id="1315">1315</span>
+<span id="1316">1316</span>
+<span id="1317">1317</span>
+<span id="1318">1318</span>
+<span id="1319">1319</span>
+<span id="1320">1320</span>
+<span id="1321">1321</span>
+<span id="1322">1322</span>
+<span id="1323">1323</span>
+<span id="1324">1324</span>
+<span id="1325">1325</span>
+<span id="1326">1326</span>
+<span id="1327">1327</span>
+<span id="1328">1328</span>
+<span id="1329">1329</span>
+<span id="1330">1330</span>
+<span id="1331">1331</span>
+<span id="1332">1332</span>
+<span id="1333">1333</span>
+<span id="1334">1334</span>
+<span id="1335">1335</span>
+<span id="1336">1336</span>
+<span id="1337">1337</span>
+<span id="1338">1338</span>
+<span id="1339">1339</span>
+<span id="1340">1340</span>
+<span id="1341">1341</span>
+<span id="1342">1342</span>
+<span id="1343">1343</span>
+<span id="1344">1344</span>
+<span id="1345">1345</span>
+<span id="1346">1346</span>
+<span id="1347">1347</span>
+<span id="1348">1348</span>
+<span id="1349">1349</span>
+<span id="1350">1350</span>
+<span id="1351">1351</span>
+<span id="1352">1352</span>
+<span id="1353">1353</span>
+<span id="1354">1354</span>
+<span id="1355">1355</span>
+<span id="1356">1356</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
 <span class="comment">// DO NOT EDIT</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Colorspace</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::InterpType</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::PixbufFormat</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::PixbufRotation</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Colorspace</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::InterpType</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::PixbufFormat</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::PixbufRotation</span>;
 <span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
 <span class="kw">use</span> <span class="ident">glib::object::ObjectType</span> <span class="kw">as</span> <span class="ident">ObjectType_</span>;
 <span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
@@ -1306,11 +1446,145 @@
 <span class="kw">use</span> <span class="ident">std::ptr</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// This is the main structure in the gdk-pixbuf library. It is</span>
-    <span class="doccomment">/// used to represent images. It contains information about the</span>
-    <span class="doccomment">/// image&#39;s pixel data, its color space, bits per sample, width and</span>
-    <span class="doccomment">/// height, and the rowstride (the number of bytes between the start of</span>
-    <span class="doccomment">/// one row and the start of the next).</span>
+    <span class="doccomment">/// A pixel buffer.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// [`Pixbuf`][crate::Pixbuf] contains information about an image&#39;s pixel data,</span>
+    <span class="doccomment">/// its color space, bits per sample, width and height, and the</span>
+    <span class="doccomment">/// rowstride (the number of bytes between the start of one row</span>
+    <span class="doccomment">/// and the start of the next).</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ## Creating new [`Pixbuf`][crate::Pixbuf]</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The most basic way to create a pixbuf is to wrap an existing pixel</span>
+    <span class="doccomment">/// buffer with a [class[`Pixbuf`][crate::Pixbuf]] instance. You can use the</span>
+    <span class="doccomment">/// [`ctor[`Pixbuf`][crate::Pixbuf].new_from_data`] function to do this.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Every time you create a new [`Pixbuf`][crate::Pixbuf] instance for some data, you</span>
+    <span class="doccomment">/// will need to specify the destroy notification function that will be</span>
+    <span class="doccomment">/// called when the data buffer needs to be freed; this will happen when</span>
+    <span class="doccomment">/// a [`Pixbuf`][crate::Pixbuf] is finalized by the reference counting functions. If</span>
+    <span class="doccomment">/// you have a chunk of static data compiled into your application, you</span>
+    <span class="doccomment">/// can pass in `NULL` as the destroy notification function so that the</span>
+    <span class="doccomment">/// data will not be freed.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The [`ctor[`Pixbuf`][crate::Pixbuf].new`] constructor function can be used</span>
+    <span class="doccomment">/// as a convenience to create a pixbuf with an empty buffer; this is</span>
+    <span class="doccomment">/// equivalent to allocating a data buffer using ``malloc()`` and then</span>
+    <span class="doccomment">/// wrapping it with ``gdk_pixbuf_new_from_data()``. The `[`new()`][Self::new()]`</span>
+    <span class="doccomment">/// function will compute an optimal rowstride so that rendering can be</span>
+    <span class="doccomment">/// performed with an efficient algorithm.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// As a special case, you can use the [`ctor[`Pixbuf`][crate::Pixbuf].new_from_xpm_data`]</span>
+    <span class="doccomment">/// function to create a pixbuf from inline XPM image data.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// You can also copy an existing pixbuf with the [method`Pixbuf`]</span>
+    <span class="doccomment">/// function. This is not the same as just acquiring a reference to</span>
+    <span class="doccomment">/// the old pixbuf instance: the copy function will actually duplicate</span>
+    <span class="doccomment">/// the pixel data in memory and create a new [class`Pixbuf`] instance</span>
+    <span class="doccomment">/// for it.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ## Reference counting</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// [`Pixbuf`][crate::Pixbuf] structures are reference counted. This means that an</span>
+    <span class="doccomment">/// application can share a single pixbuf among many parts of the</span>
+    <span class="doccomment">/// code. When a piece of the program needs to use a pixbuf, it should</span>
+    <span class="doccomment">/// acquire a reference to it by calling ``g_object_ref()``; when it no</span>
+    <span class="doccomment">/// longer needs the pixbuf, it should release the reference it acquired</span>
+    <span class="doccomment">/// by calling ``g_object_unref()``. The resources associated with a</span>
+    <span class="doccomment">/// [`Pixbuf`][crate::Pixbuf] will be freed when its reference count drops to zero.</span>
+    <span class="doccomment">/// Newly-created [`Pixbuf`][crate::Pixbuf] instances start with a reference count</span>
+    <span class="doccomment">/// of one.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ## Image Data</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Image data in a pixbuf is stored in memory in an uncompressed,</span>
+    <span class="doccomment">/// packed format. Rows in the image are stored top to bottom, and</span>
+    <span class="doccomment">/// in each row pixels are stored from left to right.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// There may be padding at the end of a row.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The &quot;rowstride&quot; value of a pixbuf, as returned by [`method[`Pixbuf`][crate::Pixbuf].get_rowstride`],</span>
+    <span class="doccomment">/// indicates the number of bytes between rows.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// **NOTE**: If you are copying raw pixbuf data with ``memcpy()`` note that the</span>
+    <span class="doccomment">/// last row in the pixbuf may not be as wide as the full rowstride, but rather</span>
+    <span class="doccomment">/// just as wide as the pixel data needs to be; that is: it is unsafe to do</span>
+    <span class="doccomment">/// `memcpy (dest, pixels, rowstride * height)` to copy a whole pixbuf. Use</span>
+    <span class="doccomment">/// [method[`Pixbuf`][crate::Pixbuf].copy] instead, or compute the width in bytes of the</span>
+    <span class="doccomment">/// last row as:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// **⚠️ The following code is in c ⚠️**</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```c</span>
+    <span class="doccomment">/// last_row = width * ((n_channels * bits_per_sample + 7) / 8);</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The same rule applies when iterating over each row of a [`Pixbuf`][crate::Pixbuf] pixels</span>
+    <span class="doccomment">/// array.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The following code illustrates a simple ``put_pixel()``</span>
+    <span class="doccomment">/// function for RGB pixbufs with 8 bits per channel with an alpha</span>
+    <span class="doccomment">/// channel.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// **⚠️ The following code is in c ⚠️**</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```c</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// put_pixel (GdkPixbuf *pixbuf,</span>
+    <span class="doccomment">///            int x,</span>
+    <span class="doccomment">///        int y,</span>
+    <span class="doccomment">///        guchar red,</span>
+    <span class="doccomment">///        guchar green,</span>
+    <span class="doccomment">///        guchar blue,</span>
+    <span class="doccomment">///        guchar alpha)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   int n_channels = gdk_pixbuf_get_n_channels (pixbuf);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   // Ensure that the pixbuf is valid</span>
+    <span class="doccomment">///   g_assert (gdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);</span>
+    <span class="doccomment">///   g_assert (gdk_pixbuf_get_bits_per_sample (pixbuf) == 8);</span>
+    <span class="doccomment">///   g_assert (gdk_pixbuf_get_has_alpha (pixbuf));</span>
+    <span class="doccomment">///   g_assert (n_channels == 4);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   int width = gdk_pixbuf_get_width (pixbuf);</span>
+    <span class="doccomment">///   int height = gdk_pixbuf_get_height (pixbuf);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   // Ensure that the coordinates are in a valid range</span>
+    <span class="doccomment">///   g_assert (x &gt;= 0 &amp;&amp; x &lt; width);</span>
+    <span class="doccomment">///   g_assert (y &gt;= 0 &amp;&amp; y &lt; height);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   int rowstride = gdk_pixbuf_get_rowstride (pixbuf);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   // The pixel buffer in the GdkPixbuf instance</span>
+    <span class="doccomment">///   guchar *pixels = gdk_pixbuf_get_pixels (pixbuf);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   // The pixel we wish to modify</span>
+    <span class="doccomment">///   guchar *p = pixels + y * rowstride + x * n_channels;</span>
+    <span class="doccomment">///   p[0] = red;</span>
+    <span class="doccomment">///   p[1] = green;</span>
+    <span class="doccomment">///   p[2] = blue;</span>
+    <span class="doccomment">///   p[3] = alpha;</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ## Loading images</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `GdkPixBuf` class provides a simple mechanism for loading</span>
+    <span class="doccomment">/// an image from a file in synchronous and asynchronous fashion.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// For GUI applications, it is recommended to use the asynchronous</span>
+    <span class="doccomment">/// stream API to avoid blocking the control flow of the application.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Additionally, [`Pixbuf`][crate::Pixbuf] provides the [class[`Pixbuf`][crate::Pixbuf]`]</span>
+    <span class="doccomment">/// API for progressive image loading.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ## Saving images</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The [`Pixbuf`][crate::Pixbuf] class provides methods for saving image data in</span>
+    <span class="doccomment">/// a number of file formats. The formatted data can be written to a</span>
+    <span class="doccomment">/// file or to a memory buffer. [`Pixbuf`][crate::Pixbuf] can also call a user-defined</span>
+    <span class="doccomment">/// callback on the data, which allows to e.g. write the image</span>
+    <span class="doccomment">/// to a socket or store it in a database.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Implements</span>
     <span class="doccomment">///</span>
@@ -1319,13 +1593,16 @@
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Pixbuf</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GdkPixbuf</span><span class="op">&gt;</span>) @<span class="ident">implements</span> <span class="ident">gio::Icon</span>, <span class="ident">gio::LoadableIcon</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gdk_pixbuf_get_type</span>(),
+        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gdk_pixbuf_get_type</span>(),
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Pixbuf</span> {
-    <span class="doccomment">/// Creates a new [`Pixbuf`][crate::Pixbuf] structure and allocates a buffer for it. The</span>
-    <span class="doccomment">/// buffer has an optimal rowstride. Note that the buffer is not cleared;</span>
+    <span class="doccomment">/// Creates a new [`Pixbuf`][crate::Pixbuf] structure and allocates a buffer for it.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If the allocation of the buffer failed, this function will return `NULL`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The buffer has an optimal rowstride. Note that the buffer is not cleared;</span>
     <span class="doccomment">/// you will have to fill it completely yourself.</span>
     <span class="doccomment">/// ## `colorspace`</span>
     <span class="doccomment">/// Color space for image</span>
@@ -1340,8 +1617,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created [`Pixbuf`][crate::Pixbuf] with a reference count of 1, or</span>
-    <span class="doccomment">/// [`None`] if not enough memory could be allocated for the image buffer.</span>
+    <span class="doccomment">/// A newly-created pixel buffer</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_new&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(
         <span class="ident">colorspace</span>: <span class="ident">Colorspace</span>,
@@ -1349,7 +1625,7 @@
         <span class="ident">bits_per_sample</span>: <span class="ident">i32</span>,
         <span class="ident">width</span>: <span class="ident">i32</span>,
         <span class="ident">height</span>: <span class="ident">i32</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_new</span>(
                 <span class="ident">colorspace</span>.<span class="ident">into_glib</span>(),
@@ -1362,8 +1638,11 @@
     }
 
     <span class="doccomment">/// Creates a new [`Pixbuf`][crate::Pixbuf] out of in-memory readonly image data.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// Currently only RGB images with 8 bits per sample are supported.</span>
-    <span class="doccomment">/// This is the [`glib::Bytes`][crate::glib::Bytes] variant of `gdk_pixbuf_new_from_data()`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is the `GBytes` variant of `gdk_pixbuf_new_from_data()`, useful</span>
+    <span class="doccomment">/// for language bindings.</span>
     <span class="doccomment">/// ## `data`</span>
     <span class="doccomment">/// Image data in 8-bit/sample packed format inside a [`glib::Bytes`][crate::glib::Bytes]</span>
     <span class="doccomment">/// ## `colorspace`</span>
@@ -1381,7 +1660,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created [`Pixbuf`][crate::Pixbuf] structure with a reference count of 1.</span>
+    <span class="doccomment">/// A newly-created pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_new_from_bytes&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_bytes&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_bytes</span>(
@@ -1392,7 +1671,7 @@
         <span class="ident">width</span>: <span class="ident">i32</span>,
         <span class="ident">height</span>: <span class="ident">i32</span>,
         <span class="ident">rowstride</span>: <span class="ident">i32</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pixbuf</span> {
+    ) -&gt; <span class="ident">Pixbuf</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_new_from_bytes</span>(
                 <span class="ident">data</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -1414,23 +1693,20 @@
 
     <span class="doccomment">/// Creates a new pixbuf by loading an image from an resource.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The file format is detected automatically. If [`None`] is returned, then</span>
+    <span class="doccomment">/// The file format is detected automatically. If `NULL` is returned, then</span>
     <span class="doccomment">/// `error` will be set.</span>
     <span class="doccomment">/// ## `resource_path`</span>
     <span class="doccomment">/// the path of the resource file</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created pixbuf, or [`None`] if any of several error</span>
-    <span class="doccomment">/// conditions occurred: the file could not be opened, the image format is</span>
-    <span class="doccomment">/// not supported, there was not enough memory to allocate the image buffer,</span>
-    <span class="doccomment">/// the stream contained invalid data, or the operation was cancelled.</span>
+    <span class="doccomment">/// A newly-created pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_new_from_resource&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_resource&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_resource</span>(<span class="ident">resource_path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Pixbuf</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_resource</span>(<span class="ident">resource_path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Pixbuf</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gdk_pixbuf_new_from_resource</span>(<span class="ident">resource_path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">error</span>);
+            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gdk_pixbuf_new_from_resource</span>(<span class="ident">resource_path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
             } <span class="kw">else</span> {
@@ -1441,7 +1717,7 @@
 
     <span class="doccomment">/// Creates a new pixbuf by loading an image from an resource.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The file format is detected automatically. If [`None`] is returned, then</span>
+    <span class="doccomment">/// The file format is detected automatically. If `NULL` is returned, then</span>
     <span class="doccomment">/// `error` will be set.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The image will be scaled to fit in the requested size, optionally</span>
@@ -1459,14 +1735,11 @@
     <span class="doccomment">/// ## `height`</span>
     <span class="doccomment">/// The height the image should have or -1 to not constrain the height</span>
     <span class="doccomment">/// ## `preserve_aspect_ratio`</span>
-    <span class="doccomment">/// [`true`] to preserve the image&#39;s aspect ratio</span>
+    <span class="doccomment">/// `TRUE` to preserve the image&#39;s aspect ratio</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created pixbuf, or [`None`] if any of several error</span>
-    <span class="doccomment">/// conditions occurred: the file could not be opened, the image format is</span>
-    <span class="doccomment">/// not supported, there was not enough memory to allocate the image buffer,</span>
-    <span class="doccomment">/// the stream contained invalid data, or the operation was cancelled.</span>
+    <span class="doccomment">/// A newly-created pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_new_from_resource_at_scale&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_resource_at_scale&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_resource_at_scale</span>(
@@ -1474,7 +1747,7 @@
         <span class="ident">width</span>: <span class="ident">i32</span>,
         <span class="ident">height</span>: <span class="ident">i32</span>,
         <span class="ident">preserve_aspect_ratio</span>: <span class="ident">bool</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Pixbuf</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Pixbuf</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
             <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gdk_pixbuf_new_from_resource_at_scale</span>(
@@ -1482,7 +1755,7 @@
                 <span class="ident">width</span>,
                 <span class="ident">height</span>,
                 <span class="ident">preserve_aspect_ratio</span>.<span class="ident">into_glib</span>(),
-                <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">error</span>,
+                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
             );
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
@@ -1494,36 +1767,36 @@
 
     <span class="doccomment">/// Creates a new pixbuf by loading an image from an input stream.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The file format is detected automatically. If [`None`] is returned, then</span>
-    <span class="doccomment">/// `error` will be set. The `cancellable` can be used to abort the operation</span>
-    <span class="doccomment">/// from another thread. If the operation was cancelled, the error</span>
-    <span class="doccomment">/// `G_IO_ERROR_CANCELLED` will be returned. Other possible errors are in</span>
-    <span class="doccomment">/// the `GDK_PIXBUF_ERROR` and `G_IO_ERROR` domains.</span>
+    <span class="doccomment">/// The file format is detected automatically.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If `NULL` is returned, then `error` will be set.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `cancellable` can be used to abort the operation from another thread.</span>
+    <span class="doccomment">/// If the operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be</span>
+    <span class="doccomment">/// returned. Other possible errors are in the `GDK_PIXBUF_ERROR` and</span>
+    <span class="doccomment">/// `G_IO_ERROR` domains.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The stream is not closed.</span>
     <span class="doccomment">/// ## `stream`</span>
-    <span class="doccomment">/// a [`gio::InputStream`][crate::gio::InputStream] to load the pixbuf from</span>
+    <span class="doccomment">/// a `GInputStream` to load the pixbuf from</span>
     <span class="doccomment">/// ## `cancellable`</span>
-    <span class="doccomment">/// optional [`gio::Cancellable`][crate::gio::Cancellable] object, [`None`] to ignore</span>
+    <span class="doccomment">/// optional `GCancellable` object, `NULL` to ignore</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created pixbuf, or [`None`] if any of several error</span>
-    <span class="doccomment">/// conditions occurred: the file could not be opened, the image format is</span>
-    <span class="doccomment">/// not supported, there was not enough memory to allocate the image buffer,</span>
-    <span class="doccomment">/// the stream contained invalid data, or the operation was cancelled.</span>
+    <span class="doccomment">/// A newly-created pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_new_from_stream&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_stream&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_stream</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::InputStream</span><span class="op">&gt;</span>, <span class="ident">Q</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>(
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Q</span><span class="op">&gt;</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Pixbuf</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_stream</span>(
+        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::InputStream</span><span class="op">&gt;</span>,
+        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Pixbuf</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
             <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gdk_pixbuf_new_from_stream</span>(
                 <span class="ident">stream</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
                 <span class="ident">cancellable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">error</span>,
+                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
             );
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
@@ -1535,7 +1808,7 @@
 
     <span class="doccomment">/// Creates a new pixbuf by loading an image from an input stream.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The file format is detected automatically. If [`None`] is returned, then</span>
+    <span class="doccomment">/// The file format is detected automatically. If `NULL` is returned, then</span>
     <span class="doccomment">/// `error` will be set. The `cancellable` can be used to abort the operation</span>
     <span class="doccomment">/// from another thread. If the operation was cancelled, the error</span>
     <span class="doccomment">/// `G_IO_ERROR_CANCELLED` will be returned. Other possible errors are in</span>
@@ -1555,31 +1828,28 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The stream is not closed.</span>
     <span class="doccomment">/// ## `stream`</span>
-    <span class="doccomment">/// a [`gio::InputStream`][crate::gio::InputStream] to load the pixbuf from</span>
+    <span class="doccomment">/// a `GInputStream` to load the pixbuf from</span>
     <span class="doccomment">/// ## `width`</span>
     <span class="doccomment">/// The width the image should have or -1 to not constrain the width</span>
     <span class="doccomment">/// ## `height`</span>
     <span class="doccomment">/// The height the image should have or -1 to not constrain the height</span>
     <span class="doccomment">/// ## `preserve_aspect_ratio`</span>
-    <span class="doccomment">/// [`true`] to preserve the image&#39;s aspect ratio</span>
+    <span class="doccomment">/// `TRUE` to preserve the image&#39;s aspect ratio</span>
     <span class="doccomment">/// ## `cancellable`</span>
-    <span class="doccomment">/// optional [`gio::Cancellable`][crate::gio::Cancellable] object, [`None`] to ignore</span>
+    <span class="doccomment">/// optional `GCancellable` object, `NULL` to ignore</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created pixbuf, or [`None`] if any of several error</span>
-    <span class="doccomment">/// conditions occurred: the file could not be opened, the image format is</span>
-    <span class="doccomment">/// not supported, there was not enough memory to allocate the image buffer,</span>
-    <span class="doccomment">/// the stream contained invalid data, or the operation was cancelled.</span>
+    <span class="doccomment">/// A newly-created pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_new_from_stream_at_scale&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_stream_at_scale&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_stream_at_scale</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::InputStream</span><span class="op">&gt;</span>, <span class="ident">Q</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>(
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>,
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_stream_at_scale</span>(
+        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::InputStream</span><span class="op">&gt;</span>,
         <span class="ident">width</span>: <span class="ident">i32</span>,
         <span class="ident">height</span>: <span class="ident">i32</span>,
         <span class="ident">preserve_aspect_ratio</span>: <span class="ident">bool</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Q</span><span class="op">&gt;</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Pixbuf</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
+        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Pixbuf</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
             <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gdk_pixbuf_new_from_stream_at_scale</span>(
@@ -1588,7 +1858,7 @@
                 <span class="ident">height</span>,
                 <span class="ident">preserve_aspect_ratio</span>.<span class="ident">into_glib</span>(),
                 <span class="ident">cancellable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">error</span>,
+                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
             );
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
@@ -1598,31 +1868,37 @@
         }
     }
 
-    <span class="doccomment">/// Creates a new pixbuf by parsing XPM data in memory. This data is commonly</span>
-    <span class="doccomment">/// the result of including an XPM file into a program&#39;s C source.</span>
+    <span class="doccomment">/// Creates a new pixbuf by parsing XPM data in memory.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This data is commonly the result of including an XPM file into a</span>
+    <span class="doccomment">/// program&#39;s C source.</span>
     <span class="doccomment">/// ## `data`</span>
     <span class="doccomment">/// Pointer to inline XPM data.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created pixbuf with a reference count of 1.</span>
+    <span class="doccomment">/// A newly-created pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_new_from_xpm_data&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_xpm_data&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_xpm_data</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pixbuf</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_xpm_data</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) -&gt; <span class="ident">Pixbuf</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_new_from_xpm_data</span>(<span class="ident">data</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Takes an existing pixbuf and adds an alpha channel to it.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// If the existing pixbuf already had an alpha channel, the channel</span>
     <span class="doccomment">/// values are copied from the original; otherwise, the alpha channel</span>
     <span class="doccomment">/// is initialized to 255 (full opacity).</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `substitute_color` is [`true`], then the color specified by (`r`, `g`, `b`) will be</span>
-    <span class="doccomment">/// assigned zero opacity. That is, if you pass (255, 255, 255) for the</span>
-    <span class="doccomment">/// substitute color, all white pixels will become fully transparent.</span>
+    <span class="doccomment">/// If `substitute_color` is `TRUE`, then the color specified by the</span>
+    <span class="doccomment">/// (`r`, `g`, `b`) arguments will be assigned zero opacity. That is,</span>
+    <span class="doccomment">/// if you pass `(255, 255, 255)` for the substitute color, all white</span>
+    <span class="doccomment">/// pixels will become fully transparent.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If `substitute_color` is `FALSE`, then the (`r`, `g`, `b`) arguments</span>
+    <span class="doccomment">/// will be ignored.</span>
     <span class="doccomment">/// ## `substitute_color`</span>
-    <span class="doccomment">/// Whether to set a color to zero opacity. If this</span>
-    <span class="doccomment">/// is [`false`], then the (`r`, `g`, `b`) arguments will be ignored.</span>
+    <span class="doccomment">/// Whether to set a color to zero opacity.</span>
     <span class="doccomment">/// ## `r`</span>
     <span class="doccomment">/// Red value to substitute.</span>
     <span class="doccomment">/// ## `g`</span>
@@ -1632,9 +1908,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created pixbuf with a reference count of 1.</span>
+    <span class="doccomment">/// A newly-created pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_add_alpha&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">add_alpha</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">substitute_color</span>: <span class="ident">bool</span>, <span class="ident">r</span>: <span class="ident">u8</span>, <span class="ident">g</span>: <span class="ident">u8</span>, <span class="ident">b</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">must_use</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">add_alpha</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">substitute_color</span>: <span class="ident">bool</span>, <span class="ident">r</span>: <span class="ident">u8</span>, <span class="ident">g</span>: <span class="ident">u8</span>, <span class="ident">b</span>: <span class="ident">u8</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_add_alpha</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -1647,21 +1924,22 @@
     }
 
     <span class="doccomment">/// Takes an existing pixbuf and checks for the presence of an</span>
-    <span class="doccomment">/// associated &quot;orientation&quot; option, which may be provided by the</span>
-    <span class="doccomment">/// jpeg loader (which reads the exif orientation tag) or the</span>
-    <span class="doccomment">/// tiff loader (which reads the tiff orientation tag, and</span>
-    <span class="doccomment">/// compensates it for the partial transforms performed by</span>
-    <span class="doccomment">/// libtiff). If an orientation option/tag is present, the</span>
-    <span class="doccomment">/// appropriate transform will be performed so that the pixbuf</span>
-    <span class="doccomment">/// is oriented correctly.</span>
+    <span class="doccomment">/// associated &quot;orientation&quot; option.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The orientation option may be provided by the JPEG loader (which</span>
+    <span class="doccomment">/// reads the exif orientation tag) or the TIFF loader (which reads</span>
+    <span class="doccomment">/// the TIFF orientation tag, and compensates it for the partial</span>
+    <span class="doccomment">/// transforms performed by libtiff).</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If an orientation option/tag is present, the appropriate transform</span>
+    <span class="doccomment">/// will be performed so that the pixbuf is oriented correctly.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created pixbuf, [`None`] if</span>
-    <span class="doccomment">/// not enough memory could be allocated for it, or a reference to the</span>
-    <span class="doccomment">/// input pixbuf (with an increased reference count).</span>
+    <span class="doccomment">/// A newly-created pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_apply_embedded_orientation&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">apply_embedded_orientation</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">must_use</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">apply_embedded_orientation</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_apply_embedded_orientation</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -1671,6 +1949,7 @@
 
     <span class="doccomment">/// Creates a transformation of the source image `self` by scaling by</span>
     <span class="doccomment">/// `scale_x` and `scale_y` then translating by `offset_x` and `offset_y`.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// This gives an image in the coordinates of the destination pixbuf.</span>
     <span class="doccomment">/// The rectangle (`dest_x`, `dest_y`, `dest_width`, `dest_height`)</span>
     <span class="doccomment">/// is then alpha blended onto the corresponding rectangle of the</span>
@@ -1823,9 +2102,9 @@
         }
     }
 
-    <span class="doccomment">/// Creates a new [`Pixbuf`][crate::Pixbuf] by scaling `self` to `dest_width` x</span>
-    <span class="doccomment">/// `dest_height` and alpha blending the result with a checkboard of colors</span>
-    <span class="doccomment">/// `color1` and `color2`.</span>
+    <span class="doccomment">/// Creates a new pixbuf by scaling `src` to `dest_width` x `dest_height`</span>
+    <span class="doccomment">/// and alpha blending the result with a checkboard of colors `color1`</span>
+    <span class="doccomment">/// and `color2`.</span>
     <span class="doccomment">/// ## `dest_width`</span>
     <span class="doccomment">/// the width of destination image</span>
     <span class="doccomment">/// ## `dest_height`</span>
@@ -1843,9 +2122,9 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the new [`Pixbuf`][crate::Pixbuf], or [`None`] if not enough memory could be</span>
-    <span class="doccomment">/// allocated for it.</span>
+    <span class="doccomment">/// the new pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_composite_color_simple&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">must_use</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">composite_color_simple</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">dest_width</span>: <span class="ident">i32</span>,
@@ -1855,7 +2134,7 @@
         <span class="ident">check_size</span>: <span class="ident">i32</span>,
         <span class="ident">color1</span>: <span class="ident">u32</span>,
         <span class="ident">color2</span>: <span class="ident">u32</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_composite_color_simple</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -1870,21 +2149,15 @@
         }
     }
 
-    <span class="doccomment">/// Creates a new [`Pixbuf`][crate::Pixbuf] with a copy of the information in the specified</span>
-    <span class="doccomment">/// `self`. Note that this does not copy the options set on the original [`Pixbuf`][crate::Pixbuf],</span>
-    <span class="doccomment">/// use [`copy_options()`][Self::copy_options()] for this.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A newly-created pixbuf with a reference count of 1, or [`None`] if</span>
-    <span class="doccomment">/// not enough memory could be allocated.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_copy&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">copy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">must_use</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">copy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_copy</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Copies a rectangular area from `self` to `dest_pixbuf`. Conversion of</span>
-    <span class="doccomment">/// pixbuf formats is done automatically.</span>
+    <span class="doccomment">/// Copies a rectangular area from `src_pixbuf` to `dest_pixbuf`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Conversion of pixbuf formats is done automatically.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the source rectangle overlaps the destination rectangle on the</span>
     <span class="doccomment">/// same pixbuf, it will be overwritten during the copy operation.</span>
@@ -1928,20 +2201,22 @@
         }
     }
 
-    <span class="doccomment">/// Copy the key/value pair options attached to a [`Pixbuf`][crate::Pixbuf] to another.</span>
+    <span class="doccomment">/// Copies the key/value pair options attached to a [`Pixbuf`][crate::Pixbuf] to another</span>
+    <span class="doccomment">/// [`Pixbuf`][crate::Pixbuf].</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// This is useful to keep original metadata after having manipulated</span>
     <span class="doccomment">/// a file. However be careful to remove metadata which you&#39;ve already</span>
     <span class="doccomment">/// applied, such as the &quot;orientation&quot; option after rotating the image.</span>
     <span class="doccomment">/// ## `dest_pixbuf`</span>
-    <span class="doccomment">/// the [`Pixbuf`][crate::Pixbuf] to copy options to</span>
+    <span class="doccomment">/// the destination pixbuf</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] on success.</span>
+    <span class="doccomment">/// `TRUE` on success.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_36&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_36&quot;</span>)))]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_copy_options&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">copy_options</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">dest_pixbuf</span>: <span class="kw-2">&amp;</span><span class="ident">Pixbuf</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">copy_options</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">dest_pixbuf</span>: <span class="kw-2">&amp;</span><span class="ident">Pixbuf</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_pixbuf_copy_options</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -1951,11 +2226,13 @@
     }
 
     <span class="doccomment">/// Clears a pixbuf to the given RGBA value, converting the RGBA value into</span>
-    <span class="doccomment">/// the pixbuf&#39;s pixel format. The alpha will be ignored if the pixbuf</span>
-    <span class="doccomment">/// doesn&#39;t have an alpha channel.</span>
+    <span class="doccomment">/// the pixbuf&#39;s pixel format.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The alpha component will be ignored if the pixbuf doesn&#39;t have an alpha</span>
+    <span class="doccomment">/// channel.</span>
     <span class="doccomment">/// ## `pixel`</span>
-    <span class="doccomment">/// RGBA pixel to clear to</span>
-    <span class="doccomment">///  (0xffffffff is opaque white, 0x00000000 transparent black)</span>
+    <span class="doccomment">/// RGBA pixel to used to clear (`0xffffffff` is opaque white,</span>
+    <span class="doccomment">///  `0x00000000` transparent black)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_fill&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fill</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">pixel</span>: <span class="ident">u32</span>) {
         <span class="kw">unsafe</span> {
@@ -1966,14 +2243,14 @@
     <span class="doccomment">/// Flips a pixbuf horizontally or vertically and returns the</span>
     <span class="doccomment">/// result in a new pixbuf.</span>
     <span class="doccomment">/// ## `horizontal`</span>
-    <span class="doccomment">/// [`true`] to flip horizontally, [`false`] to flip vertically</span>
+    <span class="doccomment">/// `TRUE` to flip horizontally, `FALSE` to flip vertically</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the new [`Pixbuf`][crate::Pixbuf], or [`None`]</span>
-    <span class="doccomment">/// if not enough memory could be allocated for it.</span>
+    <span class="doccomment">/// the new pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_flip&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">flip</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">horizontal</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">must_use</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">flip</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">horizontal</span>: <span class="ident">bool</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_flip</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -1989,7 +2266,7 @@
     <span class="doccomment">/// Number of bits per color sample.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_bits_per_sample&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_bits_per_sample&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bits_per_sample</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bits_per_sample</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_pixbuf_get_bits_per_sample</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -2000,7 +2277,7 @@
     <span class="doccomment">/// The length of the pixel data.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_byte_length&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_byte_length&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">byte_length</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">byte_length</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">usize</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_pixbuf_get_byte_length</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -2011,7 +2288,7 @@
     <span class="doccomment">/// Color space.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_colorspace&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_colorspace&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">colorspace</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Colorspace</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">colorspace</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Colorspace</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_pixbuf_get_colorspace</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -2019,10 +2296,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if it has an alpha channel, [`false`] otherwise.</span>
+    <span class="doccomment">/// `TRUE` if it has an alpha channel, `FALSE` otherwise.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_has_alpha&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_has_alpha&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">has_alpha</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">has_alpha</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_pixbuf_get_has_alpha</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -2033,7 +2310,7 @@
     <span class="doccomment">/// Height in pixels.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_height&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_height&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_pixbuf_get_height</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -2044,7 +2321,7 @@
     <span class="doccomment">/// Number of channels.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_n_channels&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_n_channels&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">n_channels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">n_channels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_pixbuf_get_n_channels</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -2068,11 +2345,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the value associated with `key`. This is a nul-terminated</span>
-    <span class="doccomment">/// string that should not be freed or [`None`] if `key` was not found.</span>
+    <span class="doccomment">/// the value associated with `key`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_option&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_option&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">option</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">option</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_pixbuf_get_option</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -2095,7 +2371,7 @@
     <span class="doccomment">/// Distance between row starts.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_rowstride&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_rowstride&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rowstride</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rowstride</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_pixbuf_get_rowstride</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -2106,17 +2382,18 @@
     <span class="doccomment">/// Width in pixels.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_width&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_width&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_pixbuf_get_width</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Creates a new pixbuf which represents a sub-region of `self`.</span>
+    <span class="doccomment">/// Creates a new pixbuf which represents a sub-region of `src_pixbuf`.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// The new pixbuf shares its pixels with the original pixbuf, so</span>
     <span class="doccomment">/// writing to one affects both. The new pixbuf holds a reference to</span>
-    <span class="doccomment">/// `self`, so `self` will not be finalized until the new</span>
+    <span class="doccomment">/// `src_pixbuf`, so `src_pixbuf` will not be finalized until the new</span>
     <span class="doccomment">/// pixbuf is finalized.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that if `self` is read-only, this function will force it</span>
+    <span class="doccomment">/// Note that if `src_pixbuf` is read-only, this function will force it</span>
     <span class="doccomment">/// to be mutable.</span>
     <span class="doccomment">/// ## `src_x`</span>
     <span class="doccomment">/// X coord in `self`</span>
@@ -2131,7 +2408,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// a new pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_new_subpixbuf&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_subpixbuf</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">src_x</span>: <span class="ident">i32</span>, <span class="ident">src_y</span>: <span class="ident">i32</span>, <span class="ident">width</span>: <span class="ident">i32</span>, <span class="ident">height</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">must_use</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_subpixbuf</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">src_x</span>: <span class="ident">i32</span>, <span class="ident">src_y</span>: <span class="ident">i32</span>, <span class="ident">width</span>: <span class="ident">i32</span>, <span class="ident">height</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_new_subpixbuf</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -2144,9 +2422,10 @@
     }
 
     <span class="doccomment">/// Provides a [`glib::Bytes`][crate::glib::Bytes] buffer containing the raw pixel data; the data</span>
-    <span class="doccomment">/// must not be modified. This function allows skipping the implicit</span>
-    <span class="doccomment">/// copy that must be made if [`pixels()`][Self::pixels()] is called on a</span>
-    <span class="doccomment">/// read-only pixbuf.</span>
+    <span class="doccomment">/// must not be modified.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This function allows skipping the implicit copy that must be made</span>
+    <span class="doccomment">/// if [`pixels()`][Self::pixels()] is called on a read-only pixbuf.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -2155,21 +2434,21 @@
     <span class="doccomment">///  incur a one-time copy of the pixel data for conversion into the</span>
     <span class="doccomment">///  returned [`glib::Bytes`][crate::glib::Bytes].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_read_pixel_bytes&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_pixel_bytes</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Bytes</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_pixel_bytes</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Bytes</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_read_pixel_bytes</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Remove the key/value pair option attached to a [`Pixbuf`][crate::Pixbuf].</span>
+    <span class="doccomment">/// Removes the key/value pair option attached to a [`Pixbuf`][crate::Pixbuf].</span>
     <span class="doccomment">/// ## `key`</span>
     <span class="doccomment">/// a nul-terminated string representing the key to remove.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if an option was removed, [`false`] if not.</span>
+    <span class="doccomment">/// `TRUE` if an option was removed, `FALSE` if not.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_36&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_36&quot;</span>)))]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_remove_option&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove_option</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove_option</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_pixbuf_remove_option</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -2181,16 +2460,16 @@
     <span class="doccomment">/// Rotates a pixbuf by a multiple of 90 degrees, and returns the</span>
     <span class="doccomment">/// result in a new pixbuf.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `angle` is 0, a copy of `self` is returned, avoiding any rotation.</span>
+    <span class="doccomment">/// If `angle` is 0, this function will return a copy of `src`.</span>
     <span class="doccomment">/// ## `angle`</span>
     <span class="doccomment">/// the angle to rotate by</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the new [`Pixbuf`][crate::Pixbuf], or [`None`]</span>
-    <span class="doccomment">/// if not enough memory could be allocated for it.</span>
+    <span class="doccomment">/// the new pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_rotate_simple&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rotate_simple</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">angle</span>: <span class="ident">PixbufRotation</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">must_use</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rotate_simple</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">angle</span>: <span class="ident">PixbufRotation</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_rotate_simple</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -2199,14 +2478,20 @@
         }
     }
 
-    <span class="doccomment">/// Modifies saturation and optionally pixelates `self`, placing the result in</span>
-    <span class="doccomment">/// `dest`. `self` and `dest` may be the same pixbuf with no ill effects. If</span>
-    <span class="doccomment">/// `saturation` is 1.0 then saturation is not changed. If it&#39;s less than 1.0,</span>
-    <span class="doccomment">/// saturation is reduced (the image turns toward grayscale); if greater than</span>
-    <span class="doccomment">/// 1.0, saturation is increased (the image gets more vivid colors). If `pixelate`</span>
-    <span class="doccomment">/// is [`true`], then pixels are faded in a checkerboard pattern to create a</span>
-    <span class="doccomment">/// pixelated image. `self` and `dest` must have the same image format, size, and</span>
+    <span class="doccomment">/// Modifies saturation and optionally pixelates `src`, placing the result in</span>
+    <span class="doccomment">/// `dest`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `src` and `dest` pixbufs must have the same image format, size, and</span>
     <span class="doccomment">/// rowstride.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `src` and `dest` arguments may be the same pixbuf with no ill effects.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If `saturation` is 1.0 then saturation is not changed. If it&#39;s less than 1.0,</span>
+    <span class="doccomment">/// saturation is reduced (the image turns toward grayscale); if greater than</span>
+    <span class="doccomment">/// 1.0, saturation is increased (the image gets more vivid colors).</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If `pixelate` is `TRUE`, then pixels are faded in a checkerboard pattern to</span>
+    <span class="doccomment">/// create a pixelated image.</span>
     <span class="doccomment">/// ## `dest`</span>
     <span class="doccomment">/// place to write modified version of `self`</span>
     <span class="doccomment">/// ## `saturation`</span>
@@ -2226,7 +2511,7 @@
     }
 
     <span class="comment">//#[doc(alias = &quot;gdk_pixbuf_save&quot;)]</span>
-    <span class="comment">//pub fn save&lt;P: AsRef&lt;std::path::Path&gt;&gt;(&amp;self, filename: P, type_: &amp;str, error: Option&lt;&amp;mut glib::Error&gt;, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -&gt; bool {</span>
+    <span class="comment">//pub fn save(&amp;self, filename: impl AsRef&lt;std::path::Path&gt;, type_: &amp;str, error: Option&lt;&amp;mut glib::Error&gt;, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -&gt; bool {</span>
     <span class="comment">//    unsafe { TODO: call ffi:gdk_pixbuf_save() }</span>
     <span class="comment">//}</span>
 
@@ -2246,17 +2531,17 @@
     <span class="comment">//}</span>
 
     <span class="comment">//#[doc(alias = &quot;gdk_pixbuf_save_to_stream&quot;)]</span>
-    <span class="comment">//pub fn save_to_stream&lt;P: IsA&lt;gio::OutputStream&gt;, Q: IsA&lt;gio::Cancellable&gt;&gt;(&amp;self, stream: &amp;P, type_: &amp;str, cancellable: Option&lt;&amp;Q&gt;, error: Option&lt;&amp;mut glib::Error&gt;, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -&gt; bool {</span>
+    <span class="comment">//pub fn save_to_stream(&amp;self, stream: &amp;impl IsA&lt;gio::OutputStream&gt;, type_: &amp;str, cancellable: Option&lt;&amp;impl IsA&lt;gio::Cancellable&gt;&gt;, error: Option&lt;&amp;mut glib::Error&gt;, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -&gt; bool {</span>
     <span class="comment">//    unsafe { TODO: call ffi:gdk_pixbuf_save_to_stream() }</span>
     <span class="comment">//}</span>
 
     <span class="comment">//#[doc(alias = &quot;gdk_pixbuf_save_to_stream_async&quot;)]</span>
-    <span class="comment">//pub fn save_to_stream_async&lt;P: IsA&lt;gio::OutputStream&gt;, Q: IsA&lt;gio::Cancellable&gt;, R: FnOnce(Result&lt;(), glib::Error&gt;) + Send + &#39;static&gt;(&amp;self, stream: &amp;P, type_: &amp;str, cancellable: Option&lt;&amp;Q&gt;, callback: R, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {</span>
+    <span class="comment">//pub fn save_to_stream_async&lt;P: FnOnce(Result&lt;(), glib::Error&gt;) + Send + &#39;static&gt;(&amp;self, stream: &amp;impl IsA&lt;gio::OutputStream&gt;, type_: &amp;str, cancellable: Option&lt;&amp;impl IsA&lt;gio::Cancellable&gt;&gt;, callback: P, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {</span>
     <span class="comment">//    unsafe { TODO: call ffi:gdk_pixbuf_save_to_stream_async() }</span>
     <span class="comment">//}</span>
 
     <span class="comment">//</span>
-    <span class="comment">//pub fn save_to_stream_async_future&lt;P: IsA&lt;gio::OutputStream&gt; + Clone + &#39;static&gt;(&amp;self, stream: &amp;P, type_: &amp;str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -&gt; Pin&lt;Box_&lt;dyn std::future::Future&lt;Output = Result&lt;(), glib::Error&gt;&gt; + &#39;static&gt;&gt; {</span>
+    <span class="comment">//pub fn save_to_stream_future(&amp;self, stream: &amp;(impl IsA&lt;gio::OutputStream&gt; + Clone + &#39;static), type_: &amp;str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -&gt; Pin&lt;Box_&lt;dyn std::future::Future&lt;Output = Result&lt;(), glib::Error&gt;&gt; + &#39;static&gt;&gt; {</span>
 
     <span class="comment">//let stream = stream.clone();</span>
     <span class="comment">//let type_ = String::from(type_);</span>
@@ -2279,8 +2564,8 @@
     <span class="doccomment">/// `dest_height`) of the resulting image onto the destination image</span>
     <span class="doccomment">/// replacing the previous contents.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Try to use [`scale_simple()`][Self::scale_simple()] first, this function is</span>
-    <span class="doccomment">/// the industrial-strength power tool you can fall back to if</span>
+    <span class="doccomment">/// Try to use [`scale_simple()`][Self::scale_simple()] first; this function is</span>
+    <span class="doccomment">/// the industrial-strength power tool you can fall back to, if</span>
     <span class="doccomment">/// [`scale_simple()`][Self::scale_simple()] isn&#39;t powerful enough.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the source rectangle overlaps the destination rectangle on the</span>
@@ -2337,21 +2622,24 @@
         }
     }
 
-    <span class="doccomment">/// Create a new [`Pixbuf`][crate::Pixbuf] containing a copy of `self` scaled to</span>
-    <span class="doccomment">/// `dest_width` x `dest_height`. Leaves `self` unaffected. `interp_type`</span>
-    <span class="doccomment">/// should be [`InterpType::Nearest`][crate::InterpType::Nearest] if you want maximum speed (but when</span>
-    <span class="doccomment">/// scaling down [`InterpType::Nearest`][crate::InterpType::Nearest] is usually unusably ugly). The</span>
-    <span class="doccomment">/// default `interp_type` should be [`InterpType::Bilinear`][crate::InterpType::Bilinear] which offers</span>
-    <span class="doccomment">/// reasonable quality and speed.</span>
+    <span class="doccomment">/// Create a new pixbuf containing a copy of `src` scaled to</span>
+    <span class="doccomment">/// `dest_width` x `dest_height`.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// You can scale a sub-portion of `self` by creating a sub-pixbuf</span>
-    <span class="doccomment">/// pointing into `self`; see [`new_subpixbuf()`][Self::new_subpixbuf()].</span>
+    <span class="doccomment">/// This function leaves `src` unaffected.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `dest_width` and `dest_height` are equal to the `self` width and height, a</span>
-    <span class="doccomment">/// copy of `self` is returned, avoiding any scaling.</span>
+    <span class="doccomment">/// The `interp_type` should be `GDK_INTERP_NEAREST` if you want maximum</span>
+    <span class="doccomment">/// speed (but when scaling down `GDK_INTERP_NEAREST` is usually unusably</span>
+    <span class="doccomment">/// ugly). The default `interp_type` should be `GDK_INTERP_BILINEAR` which</span>
+    <span class="doccomment">/// offers reasonable quality and speed.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// For more complicated scaling/alpha blending see [`scale()`][Self::scale()]</span>
-    <span class="doccomment">/// and [`composite()`][Self::composite()].</span>
+    <span class="doccomment">/// You can scale a sub-portion of `src` by creating a sub-pixbuf</span>
+    <span class="doccomment">/// pointing into `src`; see [method[`Pixbuf`][crate::Pixbuf].new_subpixbuf].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If `dest_width` and `dest_height` are equal to the width and height of</span>
+    <span class="doccomment">/// `src`, this function will return an unscaled copy of `src`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// For more complicated scaling/alpha blending see [method[`Pixbuf`][crate::Pixbuf].scale]</span>
+    <span class="doccomment">/// and [method[`Pixbuf`][crate::Pixbuf].composite].</span>
     <span class="doccomment">/// ## `dest_width`</span>
     <span class="doccomment">/// the width of destination image</span>
     <span class="doccomment">/// ## `dest_height`</span>
@@ -2361,15 +2649,15 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the new [`Pixbuf`][crate::Pixbuf], or [`None`] if not enough memory could be</span>
-    <span class="doccomment">/// allocated for it.</span>
+    <span class="doccomment">/// the new pixbuf</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_scale_simple&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">must_use</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">scale_simple</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">dest_width</span>: <span class="ident">i32</span>,
         <span class="ident">dest_height</span>: <span class="ident">i32</span>,
         <span class="ident">interp_type</span>: <span class="ident">InterpType</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixbuf</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_pixbuf_scale_simple</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -2380,9 +2668,10 @@
         }
     }
 
-    <span class="doccomment">/// Attaches a key/value pair as an option to a [`Pixbuf`][crate::Pixbuf]. If `key` already</span>
-    <span class="doccomment">/// exists in the list of options attached to `self`, the new value is</span>
-    <span class="doccomment">/// ignored and [`false`] is returned.</span>
+    <span class="doccomment">/// Attaches a key/value pair as an option to a [`Pixbuf`][crate::Pixbuf].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If `key` already exists in the list of options attached to the `pixbuf`,</span>
+    <span class="doccomment">/// the new value is ignored and `FALSE` is returned.</span>
     <span class="doccomment">/// ## `key`</span>
     <span class="doccomment">/// a nul-terminated string.</span>
     <span class="doccomment">/// ## `value`</span>
@@ -2390,9 +2679,9 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] on success.</span>
+    <span class="doccomment">/// `TRUE` on success</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_set_option&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_option</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_option</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_pixbuf_set_option</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -2403,23 +2692,15 @@
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pixel-bytes&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixel_bytes</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Bytes</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from_type</span>(<span class="op">&lt;</span><span class="ident">glib::Bytes</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>());
-            <span class="ident">glib::gobject_ffi::g_object_get_property</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-                <span class="string">b&quot;pixel-bytes\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
-                <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
-            );
-            <span class="ident">value</span>
-                .<span class="ident">get</span>()
-                .<span class="ident">expect</span>(<span class="string">&quot;Return Value for property `pixel-bytes` getter&quot;</span>)
-        }
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixel_bytes</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Bytes</span><span class="op">&gt;</span> {
+        <span class="ident">glib::ObjectExt::property</span>(<span class="self">self</span>, <span class="string">&quot;pixel-bytes&quot;</span>)
     }
 
     <span class="doccomment">/// Calculates the rowstride that an image created with those values would</span>
-    <span class="doccomment">/// have. This is useful for front-ends and backends that want to sanity</span>
-    <span class="doccomment">/// check image values without needing to create them.</span>
+    <span class="doccomment">/// have.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This function is useful for front-ends and backends that want to check</span>
+    <span class="doccomment">/// image values without needing to create a [`Pixbuf`][crate::Pixbuf].</span>
     <span class="doccomment">/// ## `colorspace`</span>
     <span class="doccomment">/// Color space for image</span>
     <span class="doccomment">/// ## `has_alpha`</span>
@@ -2443,7 +2724,7 @@
         <span class="ident">bits_per_sample</span>: <span class="ident">i32</span>,
         <span class="ident">width</span>: <span class="ident">i32</span>,
         <span class="ident">height</span>: <span class="ident">i32</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    ) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gdk_pixbuf_calculate_rowstride</span>(
                 <span class="ident">colorspace</span>.<span class="ident">into_glib</span>(),
@@ -2461,16 +2742,14 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// A list of</span>
-    <span class="doccomment">/// `GdkPixbufFormats` describing the supported image formats. The list should</span>
-    <span class="doccomment">/// be freed when it is no longer needed, but the structures themselves are</span>
-    <span class="doccomment">/// owned by [`Pixbuf`][crate::Pixbuf] and should not be freed.</span>
+    <span class="doccomment">///  support image formats.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_get_formats&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_formats&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">formats</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">PixbufFormat</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">formats</span>() -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">PixbufFormat</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">FromGlibPtrContainer::from_glib_container</span>(<span class="ident">ffi::gdk_pixbuf_get_formats</span>()) }
     }
 
-    <span class="doccomment">/// Initalizes the gdk-pixbuf loader modules referenced by the loaders.cache</span>
+    <span class="doccomment">/// Initalizes the gdk-pixbuf loader modules referenced by the `loaders.cache`</span>
     <span class="doccomment">/// file present inside that directory.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is to be used by applications that want to ship certain loaders</span>
@@ -2484,14 +2763,15 @@
     <span class="doccomment">/// with the application in a separate directory from the OS or runtime-</span>
     <span class="doccomment">/// provided modules.</span>
     <span class="doccomment">/// ## `path`</span>
-    <span class="doccomment">/// Path to directory where the loaders.cache is installed</span>
+    <span class="doccomment">/// Path to directory where the `loaders.cache` is installed</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_40&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_40&quot;</span>)))]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_init_modules&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">init_modules</span>(<span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">init_modules</span>(<span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">ffi::gdk_pixbuf_init_modules</span>(<span class="ident">path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">error</span>);
+            <span class="kw">let</span> <span class="ident">is_ok</span> <span class="op">=</span> <span class="ident">ffi::gdk_pixbuf_init_modules</span>(<span class="ident">path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
+            <span class="macro">assert_eq!</span>(<span class="ident">is_ok</span> <span class="op">==</span> <span class="ident">glib::ffi::GFALSE</span>, <span class="op">!</span><span class="ident">error</span>.<span class="ident">is_null</span>());
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(())
             } <span class="kw">else</span> {
@@ -2502,9 +2782,10 @@
 }
 
 <span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Pixbuf</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Pixbuf&quot;</span>)
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk_pixbuf" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk_pixbuf" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk-pixbuf/src/pixbuf_animation_iter.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>pixbuf_animation_iter.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk-pixbuf/src/pixbuf_animation_iter.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>pixbuf_animation_iter.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gdk_pixbuf/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../gdk_pixbuf/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gdk_pixbuf/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -195,28 +196,37 @@
 <span id="120">120</span>
 <span id="121">121</span>
 <span id="122">122</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
-<span class="kw">use</span> <span class="kw">super</span><span class="ident">::Pixbuf</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::Pixbuf</span>;
 <span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
 
 <span class="kw">use</span> <span class="ident">std::time::SystemTime</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// An opaque struct representing an iterator which points to a</span>
+    <span class="doccomment">/// An opaque object representing an iterator which points to a</span>
     <span class="doccomment">/// certain position in an animation.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GdkPixbufAnimationIter&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">PixbufAnimationIter</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GdkPixbufAnimationIter</span><span class="op">&gt;</span>);
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gdk_pixbuf_animation_iter_get_type</span>(),
+        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gdk_pixbuf_animation_iter_get_type</span>(),
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PixbufAnimationIter</span> {
-    <span class="doccomment">/// Possibly advances an animation to a new frame. Chooses the frame based</span>
-    <span class="doccomment">/// on the start time passed to [`PixbufAnimationExtManual::iter()`][crate::prelude::PixbufAnimationExtManual::iter()].</span>
+    <span class="doccomment">/// Possibly advances an animation to a new frame.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Chooses the frame based on the start time passed to</span>
+    <span class="doccomment">/// [`PixbufAnimationExtManual::iter()`][crate::prelude::PixbufAnimationExtManual::iter()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// `current_time` would normally come from `g_get_current_time()`, and</span>
     <span class="doccomment">/// must be greater than or equal to the time passed to</span>
@@ -225,23 +235,23 @@
     <span class="doccomment">/// called. That is, you can&#39;t go backward in time; animations only</span>
     <span class="doccomment">/// play forward.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// As a shortcut, pass [`None`] for the current time and `g_get_current_time()`</span>
+    <span class="doccomment">/// As a shortcut, pass `NULL` for the current time and `g_get_current_time()`</span>
     <span class="doccomment">/// will be invoked on your behalf. So you only need to explicitly pass</span>
     <span class="doccomment">/// `current_time` if you&#39;re doing something odd like playing the animation</span>
     <span class="doccomment">/// at double speed.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If this function returns [`false`], there&#39;s no need to update the animation</span>
+    <span class="doccomment">/// If this function returns `FALSE`, there&#39;s no need to update the animation</span>
     <span class="doccomment">/// display, assuming the display had been rendered prior to advancing;</span>
-    <span class="doccomment">/// if [`true`], you need to call [`PixbufAnimationIterExtManual::pixbuf()`][crate::prelude::PixbufAnimationIterExtManual::pixbuf()]</span>
+    <span class="doccomment">/// if `TRUE`, you need to call [`PixbufAnimationIterExtManual::pixbuf()`][crate::prelude::PixbufAnimationIterExtManual::pixbuf()]</span>
     <span class="doccomment">/// and update the display with the new pixbuf.</span>
     <span class="doccomment">/// ## `current_time`</span>
     <span class="doccomment">/// current time</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the image may need updating</span>
+    <span class="doccomment">/// `TRUE` if the image may need updating</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_animation_iter_advance&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">advance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_time</span>: <span class="ident">SystemTime</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">advance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_time</span>: <span class="ident">SystemTime</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">let</span> <span class="ident">diff</span> <span class="op">=</span> <span class="ident">start_time</span>
             .<span class="ident">duration_since</span>(<span class="ident">SystemTime::UNIX_EPOCH</span>)
             .<span class="ident">expect</span>(<span class="string">&quot;failed to convert time&quot;</span>);
@@ -257,24 +267,28 @@
         }
     }
 
-    <span class="doccomment">/// Gets the current pixbuf which should be displayed; the pixbuf might not</span>
-    <span class="doccomment">/// be the same size as the animation itself</span>
+    <span class="doccomment">/// Gets the current pixbuf which should be displayed.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The pixbuf might not be the same size as the animation itself</span>
     <span class="doccomment">/// ([`PixbufAnimationExt::width()`][crate::prelude::PixbufAnimationExt::width()], [`PixbufAnimationExt::height()`][crate::prelude::PixbufAnimationExt::height()]).</span>
-    <span class="doccomment">/// This pixbuf should be displayed for</span>
-    <span class="doccomment">/// [`PixbufAnimationIterExtManual::delay_time()`][crate::prelude::PixbufAnimationIterExtManual::delay_time()] milliseconds. The caller</span>
-    <span class="doccomment">/// of this function does not own a reference to the returned pixbuf;</span>
-    <span class="doccomment">/// the returned pixbuf will become invalid when the iterator advances</span>
-    <span class="doccomment">/// to the next frame, which may happen anytime you call</span>
-    <span class="doccomment">/// [`PixbufAnimationIterExtManual::advance()`][crate::prelude::PixbufAnimationIterExtManual::advance()]. Copy the pixbuf to keep it</span>
-    <span class="doccomment">/// (don&#39;t just add a reference), as it may get recycled as you advance</span>
-    <span class="doccomment">/// the iterator.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This pixbuf should be displayed for [`PixbufAnimationIterExtManual::delay_time()`][crate::prelude::PixbufAnimationIterExtManual::delay_time()]</span>
+    <span class="doccomment">/// milliseconds.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The caller of this function does not own a reference to the returned</span>
+    <span class="doccomment">/// pixbuf; the returned pixbuf will become invalid when the iterator</span>
+    <span class="doccomment">/// advances to the next frame, which may happen anytime you call</span>
+    <span class="doccomment">/// [`PixbufAnimationIterExtManual::advance()`][crate::prelude::PixbufAnimationIterExtManual::advance()].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Copy the pixbuf to keep it (don&#39;t just add a reference), as it may get</span>
+    <span class="doccomment">/// recycled as you advance the iterator.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the pixbuf to be displayed</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_animation_iter_get_pixbuf&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_pixbuf&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixbuf</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pixbuf</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixbuf</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Pixbuf</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_pixbuf_animation_iter_get_pixbuf</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -283,9 +297,10 @@
     }
 
     <span class="doccomment">/// Gets the number of milliseconds the current pixbuf should be displayed,</span>
-    <span class="doccomment">/// or -1 if the current pixbuf should be displayed forever. `g_timeout_add()`</span>
-    <span class="doccomment">/// conveniently takes a timeout in milliseconds, so you can use a timeout</span>
-    <span class="doccomment">/// to schedule the next update.</span>
+    <span class="doccomment">/// or -1 if the current pixbuf should be displayed forever.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The ``g_timeout_add()`` function conveniently takes a timeout in milliseconds,</span>
+    <span class="doccomment">/// so you can use a timeout to schedule the next update.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note that some formats, like GIF, might clamp the timeout values in the</span>
     <span class="doccomment">/// image file to avoid updates that are just too quick. The minimum timeout</span>
@@ -296,21 +311,22 @@
     <span class="doccomment">/// delay time in milliseconds (thousandths of a second)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_animation_iter_get_delay_time&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_delay_time&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">delay_time</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">delay_time</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_pixbuf_animation_iter_get_delay_time</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Used to determine how to respond to the area_updated signal on</span>
-    <span class="doccomment">/// [`PixbufLoader`][crate::PixbufLoader] when loading an animation. area_updated is emitted</span>
-    <span class="doccomment">/// for an area of the frame currently streaming in to the loader. So if</span>
-    <span class="doccomment">/// you&#39;re on the currently loading frame, you need to redraw the screen for</span>
-    <span class="doccomment">/// the updated area.</span>
+    <span class="doccomment">/// [`PixbufLoader`][crate::PixbufLoader] when loading an animation.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `::area_updated` signal is emitted for an area of the frame currently</span>
+    <span class="doccomment">/// streaming in to the loader. So if you&#39;re on the currently loading frame,</span>
+    <span class="doccomment">/// you will need to redraw the screen for the updated area.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the frame we&#39;re on is partially loaded, or the last frame</span>
+    <span class="doccomment">/// `TRUE` if the frame we&#39;re on is partially loaded, or the last frame</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_pixbuf_animation_iter_on_currently_loading_frame&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">on_currently_loading_frame</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">on_currently_loading_frame</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_pixbuf_animation_iter_on_currently_loading_frame</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -318,5 +334,6 @@
         }
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gdk_pixbuf" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gdk_pixbuf" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

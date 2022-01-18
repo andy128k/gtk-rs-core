@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -310,111 +311,14 @@
 <span id="235">235</span>
 <span id="236">236</span>
 <span id="237">237</span>
-<span id="238">238</span>
-<span id="239">239</span>
-<span id="240">240</span>
-<span id="241">241</span>
-<span id="242">242</span>
-<span id="243">243</span>
-<span id="244">244</span>
-<span id="245">245</span>
-<span id="246">246</span>
-<span id="247">247</span>
-<span id="248">248</span>
-<span id="249">249</span>
-<span id="250">250</span>
-<span id="251">251</span>
-<span id="252">252</span>
-<span id="253">253</span>
-<span id="254">254</span>
-<span id="255">255</span>
-<span id="256">256</span>
-<span id="257">257</span>
-<span id="258">258</span>
-<span id="259">259</span>
-<span id="260">260</span>
-<span id="261">261</span>
-<span id="262">262</span>
-<span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
-
-<span class="doccomment">//! # Rust GLib and GObject bindings</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This library contains bindings to GLib and GObject types and APIs as well as</span>
-<span class="doccomment">//! common building blocks used in both handmade and machine generated</span>
-<span class="doccomment">//! bindings to GTK and other GLib-based libraries.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! It is the foundation for higher level libraries with uniform Rusty (safe and</span>
-<span class="doccomment">//! strongly typed) APIs. It avoids exposing GLib-specific data types where</span>
-<span class="doccomment">//! possible and is not meant to provide comprehensive GLib bindings, which</span>
-<span class="doccomment">//! would often amount to duplicating the Rust Standard Library or other utility</span>
-<span class="doccomment">//! crates.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! GLib 2.48 is the lowest supported version for the underlying library.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Dynamic typing</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Most types in the GLib family have [`Type`] identifiers.</span>
-<span class="doccomment">//! Their corresponding Rust types implement the [`StaticType`] trait.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! A dynamically typed [`Value`] can carry values of any [`StaticType`].</span>
-<span class="doccomment">//! [`Variant`]s can carry values of [`StaticVariantType`].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Errors</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Errors are represented by [`Error`], which can</span>
-<span class="doccomment">//! carry values from various [error domains](error::ErrorDomain) such as</span>
-<span class="doccomment">//! [`FileError`].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Objects</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Each class and interface has a corresponding smart pointer struct</span>
-<span class="doccomment">//! representing an instance of that type (e.g. [`Object`] for `GObject` or</span>
-<span class="doccomment">//! `gtk::Widget` for `GtkWidget`). They are reference counted and feature</span>
-<span class="doccomment">//! interior mutability similarly to Rust&#39;s `Rc&lt;RefCell&lt;T&gt;&gt;` idiom.</span>
-<span class="doccomment">//! Consequently, cloning objects is cheap and their methods never require</span>
-<span class="doccomment">//! mutable borrows. Two smart pointers are equal if they point to the same</span>
-<span class="doccomment">//! object.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The root of the object hierarchy is [`Object`].</span>
-<span class="doccomment">//! Inheritance and subtyping is denoted with the [`IsA`]</span>
-<span class="doccomment">//! marker trait. The [`Cast`] trait enables upcasting</span>
-<span class="doccomment">//! and downcasting.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Interfaces and non-leaf classes also have corresponding traits (e.g.</span>
-<span class="doccomment">//! [`ObjectExt`] or `gtk::WidgetExt`), which are blanketly implemented for all</span>
-<span class="doccomment">//! their subtypes.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! You can create new subclasses of [`Object`] or other object types. Look at</span>
-<span class="doccomment">//! the module&#39;s documentation for further details and a code example.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Under the hood</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! GLib-based libraries largely operate on pointers to various boxed or</span>
-<span class="doccomment">//! reference counted structures so the bindings have to implement corresponding</span>
-<span class="doccomment">//! smart pointers (wrappers), which encapsulate resource management and safety</span>
-<span class="doccomment">//! checks. Such wrappers are defined via the</span>
-<span class="doccomment">//! [`macro@wrapper`] macro, which uses abstractions</span>
-<span class="doccomment">//! defined in the [`mod@wrapper`], [`mod@boxed`],</span>
-<span class="doccomment">//! [`mod@shared`] and [`mod@object`] modules.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`mod@translate`] module defines and partly implements</span>
-<span class="doccomment">//! conversions between high level Rust types (including the aforementioned</span>
-<span class="doccomment">//! wrappers) and their FFI counterparts.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">feature</span>(<span class="ident">doc_cfg</span>))]</span>
+<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">unknown_lints</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy::missing_safety_doc</span>)]</span>
+<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy::wrong_self_convention</span>)]</span>
+<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy::non_send_fields_in_send_ty</span>)]</span>
+<span class="attribute">#![<span class="ident">doc</span> <span class="op">=</span> <span class="macro">include_str!</span>(<span class="string">&quot;../README.md&quot;</span>)]</span>
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">ffi</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">gobject_ffi</span>;
@@ -426,34 +330,33 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">once_cell</span>;
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">glib_macros</span>::{
-    <span class="ident">clone</span>, <span class="ident">gflags</span>, <span class="ident">object_interface</span>, <span class="ident">object_subclass</span>, <span class="ident">Downgrade</span>, <span class="ident">GBoxed</span>, <span class="ident">GEnum</span>, <span class="ident">GErrorDomain</span>,
-    <span class="ident">GSharedBoxed</span>,
+    <span class="ident">clone</span>, <span class="ident">closure</span>, <span class="ident">closure_local</span>, <span class="ident">flags</span>, <span class="ident">object_interface</span>, <span class="ident">object_subclass</span>, <span class="ident">Boxed</span>, <span class="ident">Downgrade</span>,
+    <span class="ident">Enum</span>, <span class="ident">ErrorDomain</span>, <span class="ident">SharedBoxed</span>, <span class="ident">Variant</span>,
 };
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::array::Array</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::byte_array::ByteArray</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::bytes::Bytes</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::closure::Closure</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::error</span>::{<span class="ident">BoolError</span>, <span class="ident">Error</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::file_error::FileError</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::object</span>::{
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::byte_array::ByteArray</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::bytes::Bytes</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::closure</span>::{<span class="ident">Closure</span>, <span class="ident">RustClosure</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::error</span>::{<span class="ident">BoolError</span>, <span class="ident">Error</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::file_error::FileError</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::object</span>::{
     <span class="ident">Cast</span>, <span class="ident">Class</span>, <span class="ident">InitiallyUnowned</span>, <span class="ident">Interface</span>, <span class="ident">IsA</span>, <span class="ident">Object</span>, <span class="ident">ObjectExt</span>, <span class="ident">ObjectType</span>, <span class="ident">SendWeakRef</span>,
     <span class="ident">WeakRef</span>,
 };
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::signal</span>::{
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::signal</span>::{
     <span class="ident">signal_handler_block</span>, <span class="ident">signal_handler_disconnect</span>, <span class="ident">signal_handler_unblock</span>,
     <span class="ident">signal_stop_emission_by_name</span>, <span class="ident">SignalHandlerId</span>,
 };
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::string::String</span>;
-<span class="kw">use</span> <span class="ident">std::ffi::CStr</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::enums</span>::{<span class="ident">EnumClass</span>, <span class="ident">EnumValue</span>, <span class="ident">FlagsBuilder</span>, <span class="ident">FlagsClass</span>, <span class="ident">FlagsValue</span>, <span class="ident">UserDirectory</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::types</span>::{<span class="ident">ILong</span>, <span class="ident">StaticType</span>, <span class="ident">Type</span>, <span class="ident">ULong</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::value</span>::{<span class="ident">BoxedValue</span>, <span class="ident">SendValue</span>, <span class="ident">ToSendValue</span>, <span class="ident">ToValue</span>, <span class="ident">Value</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::variant</span>::{<span class="ident">FromVariant</span>, <span class="ident">StaticVariantType</span>, <span class="ident">ToVariant</span>, <span class="ident">Variant</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::variant_dict::VariantDict</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::variant_iter::VariantIter</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::variant_type</span>::{<span class="ident">VariantTy</span>, <span class="ident">VariantType</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums</span>::{<span class="ident">EnumClass</span>, <span class="ident">EnumValue</span>, <span class="ident">FlagsBuilder</span>, <span class="ident">FlagsClass</span>, <span class="ident">FlagsValue</span>, <span class="ident">UserDirectory</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::types</span>::{<span class="ident">ILong</span>, <span class="ident">StaticType</span>, <span class="ident">Type</span>, <span class="ident">ULong</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::value</span>::{<span class="ident">BoxedValue</span>, <span class="ident">SendValue</span>, <span class="ident">ToSendValue</span>, <span class="ident">ToValue</span>, <span class="ident">Value</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant</span>::{
+    <span class="ident">FixedSizeVariantArray</span>, <span class="ident">FixedSizeVariantType</span>, <span class="ident">FromVariant</span>, <span class="ident">StaticVariantType</span>, <span class="ident">ToVariant</span>, <span class="ident">Variant</span>,
+};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_dict::VariantDict</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_iter</span>::{<span class="ident">VariantIter</span>, <span class="ident">VariantStrIter</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_type</span>::{<span class="ident">VariantTy</span>, <span class="ident">VariantType</span>};
 
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">clone</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
@@ -461,70 +364,84 @@
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">boxed</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">boxed_inline</span>;
+<span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">shared</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">error</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">object</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::auto::functions</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::auto</span>::<span class="kw-2">*</span>;
+<span class="kw">mod</span> <span class="ident">boxed_any_object</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">boxed_any_object::BoxedAnyObject</span>;
+
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">collections</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">collections</span>::{<span class="ident">List</span>, <span class="ident">PtrSlice</span>, <span class="ident">SList</span>, <span class="ident">Slice</span>};
+
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::auto::functions</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::auto</span>::<span class="kw-2">*</span>;
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::too_many_arguments</span>)]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::type_complexity</span>)]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
 <span class="kw">mod</span> <span class="ident">auto</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::gobject</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::gobject</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">gobject</span>;
 
-<span class="kw">mod</span> <span class="ident">array</span>;
 <span class="kw">mod</span> <span class="ident">byte_array</span>;
 <span class="kw">mod</span> <span class="ident">bytes</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">char</span>;
-<span class="kw">mod</span> <span class="ident">string</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::char</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::char</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">checksum</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">closure</span>;
 <span class="kw">mod</span> <span class="ident">enums</span>;
 <span class="kw">mod</span> <span class="ident">file_error</span>;
 <span class="kw">mod</span> <span class="ident">functions</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::functions</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::functions</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">key_file</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">prelude</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">signal</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">source</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::source</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::source</span>::<span class="kw-2">*</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">translate</span>;
 <span class="kw">mod</span> <span class="ident">gstring</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::gstring::GString</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::gstring::GString</span>;
+<span class="kw">mod</span> <span class="ident">gstring_builder</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::gstring_builder::GStringBuilder</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">types</span>;
+<span class="kw">mod</span> <span class="ident">unicollate</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::unicollate</span>::{<span class="ident">CollationKey</span>, <span class="ident">FilenameCollationKey</span>};
 <span class="kw">mod</span> <span class="ident">utils</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::utils</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::utils</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">main_context</span>;
 <span class="kw">mod</span> <span class="ident">main_context_channel</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::main_context::MainContextAcquireGuard</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::main_context_channel</span>::{<span class="ident">Receiver</span>, <span class="ident">Sender</span>, <span class="ident">SyncSender</span>};
+<span class="kw">mod</span> <span class="ident">date</span>;
+<span class="kw">mod</span> <span class="ident">date_time</span>;
+<span class="kw">mod</span> <span class="ident">time_span</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::time_span</span>::<span class="kw-2">*</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">value</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">variant</span>;
 <span class="kw">mod</span> <span class="ident">variant_dict</span>;
 <span class="kw">mod</span> <span class="ident">variant_iter</span>;
 <span class="kw">mod</span> <span class="ident">variant_type</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::main_context_channel</span>::{<span class="ident">Receiver</span>, <span class="ident">Sender</span>, <span class="ident">SyncSender</span>};
-<span class="kw">mod</span> <span class="ident">date</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::date::Date</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::date::Date</span>;
 <span class="kw">mod</span> <span class="ident">value_array</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::value_array::ValueArray</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::value_array::ValueArray</span>;
 <span class="kw">mod</span> <span class="ident">param_spec</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::param_spec</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::param_spec</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">quark</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::quark::Quark</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::quark::Quark</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">mod</span> <span class="ident">log</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::log::log_set_handler</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::log::log_set_handler</span>;
 
 <span class="comment">// #[cfg(any(feature = &quot;v2_50&quot;, feature = &quot;dox&quot;))]</span>
 <span class="comment">// pub use log::log_variant;</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::log</span>::{
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::log</span>::{
     <span class="ident">log_default_handler</span>, <span class="ident">log_remove_handler</span>, <span class="ident">log_set_always_fatal</span>, <span class="ident">log_set_default_handler</span>,
     <span class="ident">log_set_fatal_mask</span>, <span class="ident">log_unset_default_handler</span>, <span class="ident">set_print_handler</span>, <span class="ident">set_printerr_handler</span>,
     <span class="ident">unset_print_handler</span>, <span class="ident">unset_printerr_handler</span>, <span class="ident">LogHandlerId</span>, <span class="ident">LogLevel</span>, <span class="ident">LogLevels</span>,
@@ -539,38 +456,40 @@
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">mod</span> <span class="ident">bridged_logging</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;log&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::bridged_logging</span>::{<span class="ident">rust_log_handler</span>, <span class="ident">GlibLogger</span>, <span class="ident">GlibLoggerDomain</span>, <span class="ident">GlibLoggerFormat</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::bridged_logging</span>::{<span class="ident">rust_log_handler</span>, <span class="ident">GlibLogger</span>, <span class="ident">GlibLoggerDomain</span>, <span class="ident">GlibLoggerFormat</span>};
 
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">send_unique</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::send_unique</span>::{<span class="ident">SendUnique</span>, <span class="ident">SendUniqueCell</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::send_unique</span>::{<span class="ident">SendUnique</span>, <span class="ident">SendUniqueCell</span>};
 
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">subclass</span>;
 
 <span class="kw">mod</span> <span class="ident">main_context_futures</span>;
 <span class="kw">mod</span> <span class="ident">source_futures</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::source_futures</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::source_futures</span>::<span class="kw-2">*</span>;
 
 <span class="kw">mod</span> <span class="ident">thread_pool</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::thread_pool::ThreadPool</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::thread_pool::ThreadPool</span>;
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// This is the log domain used by the [`clone!`][crate::clone!] macro. If you want to use a custom</span>
 <span class="doccomment">/// logger (it prints to stdout by default), you can set your own logger using the corresponding</span>
 <span class="doccomment">/// `log` functions.</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CLONE_MACRO_LOG_DOMAIN</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;glib-rs-clone&quot;</span>;
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="comment">// Actual thread IDs can be reused by the OS once the old thread finished.</span>
 <span class="comment">// This works around it by using our own counter for threads.</span>
 <span class="comment">//</span>
 <span class="comment">// Taken from the fragile crate</span>
 <span class="kw">use</span> <span class="ident">std::sync::atomic</span>::{<span class="ident">AtomicUsize</span>, <span class="ident">Ordering</span>};
-<span class="kw">fn</span> <span class="ident">next_thread_id</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
-    <span class="kw">static</span> <span class="kw-2">mut</span> <span class="ident">COUNTER</span>: <span class="ident">AtomicUsize</span> <span class="op">=</span> <span class="ident">AtomicUsize::new</span>(<span class="number">0</span>);
-    <span class="kw">unsafe</span> { <span class="ident">COUNTER</span>.<span class="ident">fetch_add</span>(<span class="number">1</span>, <span class="ident">Ordering::SeqCst</span>) }
+<span class="kw">fn</span> <span class="ident">next_thread_id</span>() -&gt; <span class="ident">usize</span> {
+    <span class="kw">static</span> <span class="ident">COUNTER</span>: <span class="ident">AtomicUsize</span> <span class="op">=</span> <span class="ident">AtomicUsize::new</span>(<span class="number">0</span>);
+    <span class="ident">COUNTER</span>.<span class="ident">fetch_add</span>(<span class="number">1</span>, <span class="ident">Ordering::SeqCst</span>)
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_thread_id&quot;</span>)]</span>
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">thread_id</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">thread_id</span>() -&gt; <span class="ident">usize</span> {
     <span class="macro">thread_local!</span>(<span class="kw">static</span> <span class="ident">THREAD_ID</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="ident">next_thread_id</span>());
     <span class="ident">THREAD_ID</span>.<span class="ident">with</span>(<span class="op">|</span><span class="kw-2">&amp;</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>)
 }
@@ -581,35 +500,44 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">value</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">value</span>: <span class="ident">T</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">thread_id</span>: <span class="ident">thread_id</span>(),
             <span class="ident">value</span>,
         }
     }
 
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">get_ref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">T</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">thread_id</span> <span class="op">!</span><span class="op">=</span> <span class="ident">thread_id</span>() {
-            <span class="macro">panic!</span>(<span class="string">&quot;Value accessed from different thread than where it was created&quot;</span>);
-        }
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">get_ref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">T</span> {
+        <span class="macro">assert!</span>(
+            <span class="self">self</span>.<span class="ident">thread_id</span> <span class="op">==</span> <span class="ident">thread_id</span>(),
+            <span class="string">&quot;Value accessed from different thread than where it was created&quot;</span>
+        );
 
         <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">value</span>
     }
 
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">get_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">T</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">thread_id</span> <span class="op">!</span><span class="op">=</span> <span class="ident">thread_id</span>() {
-            <span class="macro">panic!</span>(<span class="string">&quot;Value accessed from different thread than where it was created&quot;</span>);
-        }
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">get_mut</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;mut</span> <span class="ident">T</span> {
+        <span class="macro">assert!</span>(
+            <span class="self">self</span>.<span class="ident">thread_id</span> <span class="op">==</span> <span class="ident">thread_id</span>(),
+            <span class="string">&quot;Value accessed from different thread than where it was created&quot;</span>
+        );
 
-        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">value</span>
+        <span class="kw-2">&amp;mut</span> <span class="self">self</span>.<span class="ident">value</span>
+    }
+
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
+    <span class="doccomment">/// Returns `true` if the current thread owns the value, i.e. it can be accessed safely.</span>
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">is_owner</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">thread_id</span> <span class="op">==</span> <span class="ident">thread_id</span>()
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">thread_id</span> <span class="op">!</span><span class="op">=</span> <span class="ident">thread_id</span>() {
-            <span class="macro">panic!</span>(<span class="string">&quot;Value dropped on a different thread than where it was created&quot;</span>);
-        }
+    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
+        <span class="macro">assert!</span>(
+            <span class="self">self</span>.<span class="ident">thread_id</span> <span class="op">==</span> <span class="ident">thread_id</span>(),
+            <span class="string">&quot;Value dropped on a different thread than where it was created&quot;</span>
+        );
     }
 }
 
@@ -619,6 +547,7 @@
 <span class="kw">mod</span> <span class="ident">win32</span>;
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_family</span> <span class="op">=</span> <span class="string">&quot;windows&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::win32</span>::<span class="kw-2">*</span>;
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::win32</span>::<span class="kw-2">*</span>;
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

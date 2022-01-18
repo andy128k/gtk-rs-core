@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/main_context_channel.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>main_context_channel.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/main_context_channel.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>main_context_channel.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -950,16 +951,51 @@
 <span id="875">875</span>
 <span id="876">876</span>
 <span id="877">877</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+<span id="878">878</span>
+<span id="879">879</span>
+<span id="880">880</span>
+<span id="881">881</span>
+<span id="882">882</span>
+<span id="883">883</span>
+<span id="884">884</span>
+<span id="885">885</span>
+<span id="886">886</span>
+<span id="887">887</span>
+<span id="888">888</span>
+<span id="889">889</span>
+<span id="890">890</span>
+<span id="891">891</span>
+<span id="892">892</span>
+<span id="893">893</span>
+<span id="894">894</span>
+<span id="895">895</span>
+<span id="896">896</span>
+<span id="897">897</span>
+<span id="898">898</span>
+<span id="899">899</span>
+<span id="900">900</span>
+<span id="901">901</span>
+<span id="902">902</span>
+<span id="903">903</span>
+<span id="904">904</span>
+<span id="905">905</span>
+<span id="906">906</span>
+<span id="907">907</span>
+<span id="908">908</span>
+<span id="909">909</span>
+<span id="910">910</span>
+<span id="911">911</span>
+<span id="912">912</span>
+<span id="913">913</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::translate</span>::{<span class="ident">mut_override</span>, <span class="ident">FromGlibPtrFull</span>, <span class="ident">IntoGlib</span>};
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Continue</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::MainContext</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Priority</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Source</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::SourceId</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::ThreadGuard</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::translate</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Continue</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::MainContext</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Priority</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Source</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::SourceId</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ThreadGuard</span>;
 <span class="kw">use</span> <span class="ident">std::collections::VecDeque</span>;
 <span class="kw">use</span> <span class="ident">std::fmt</span>;
 <span class="kw">use</span> <span class="ident">std::mem</span>;
@@ -969,7 +1005,7 @@
 
 <span class="kw">enum</span> <span class="ident">ChannelSourceState</span> {
     <span class="ident">NotAttached</span>,
-    <span class="ident">Attached</span>(<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GSource</span>),
+    <span class="ident">Attached</span>(<span class="kw-2">*mut</span> <span class="ident">ffi::GSource</span>),
     <span class="ident">Destroyed</span>,
 }
 
@@ -983,24 +1019,24 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">ChannelInner</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">receiver_disconnected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">receiver_disconnected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">source</span> {
-            <span class="ident">ChannelSourceState::Destroyed</span> <span class="op">=</span><span class="op">&gt;</span> <span class="bool-val">true</span>,
+            <span class="ident">ChannelSourceState::Destroyed</span> =&gt; <span class="bool-val">true</span>,
             <span class="comment">// Receiver exists but is already destroyed</span>
             <span class="ident">ChannelSourceState::Attached</span>(<span class="ident">source</span>)
-                <span class="kw">if</span> <span class="kw">unsafe</span> { <span class="ident">ffi::g_source_is_destroyed</span>(<span class="ident">source</span>) } <span class="op">!</span><span class="op">=</span> <span class="ident">ffi::GFALSE</span> <span class="op">=</span><span class="op">&gt;</span>
+                <span class="kw">if</span> <span class="kw">unsafe</span> { <span class="ident">ffi::g_source_is_destroyed</span>(<span class="ident">source</span>) } <span class="op">!</span><span class="op">=</span> <span class="ident">ffi::GFALSE</span> =&gt;
             {
                 <span class="bool-val">true</span>
             }
             <span class="comment">// Not attached yet so the Receiver still exists</span>
-            <span class="ident">ChannelSourceState::NotAttached</span> <span class="op">=</span><span class="op">&gt;</span> <span class="bool-val">false</span>,
+            <span class="ident">ChannelSourceState::NotAttached</span> =&gt; <span class="bool-val">false</span>,
             <span class="comment">// Receiver still running</span>
-            <span class="ident">ChannelSourceState::Attached</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="bool-val">false</span>,
+            <span class="ident">ChannelSourceState::Attached</span>(<span class="kw">_</span>) =&gt; <span class="bool-val">false</span>,
         }
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_source_set_ready_time&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_ready_time</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ready_time</span>: <span class="ident">i64</span>) {
+    <span class="kw">fn</span> <span class="ident">set_ready_time</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">ready_time</span>: <span class="ident">i64</span>) {
         <span class="kw">if</span> <span class="kw">let</span> <span class="ident">ChannelSourceState::Attached</span>(<span class="ident">source</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">source</span> {
             <span class="kw">unsafe</span> {
                 <span class="ident">ffi::g_source_set_ready_time</span>(<span class="ident">source</span>, <span class="ident">ready_time</span>);
@@ -1017,13 +1053,13 @@
 <span class="kw">struct</span> <span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">Arc</span><span class="op">&lt;</span>(<span class="ident">Mutex</span><span class="op">&lt;</span><span class="ident">ChannelInner</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ChannelBound</span><span class="op">&gt;</span>)<span class="op">&gt;</span>);
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Clone</span> <span class="kw">for</span> <span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">clone</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">clone</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
         <span class="ident">Channel</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">clone</span>())
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">bound</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">bound</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) -&gt; <span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
         <span class="ident">Channel</span>(<span class="ident">Arc::new</span>((
             <span class="ident">Mutex::new</span>(<span class="ident">ChannelInner</span> {
                 <span class="ident">queue</span>: <span class="ident">VecDeque::new</span>(),
@@ -1037,7 +1073,7 @@
         )))
     }
 
-    <span class="kw">fn</span> <span class="ident">send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::SendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::SendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> (<span class="self">self</span>.<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
 
         <span class="comment">// If we have a bounded channel then we need to wait here until enough free space is</span>
@@ -1086,7 +1122,7 @@
         <span class="prelude-val">Ok</span>(())
     }
 
-    <span class="kw">fn</span> <span class="ident">try_send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::TrySendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">try_send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::TrySendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> (<span class="self">self</span>.<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
 
         <span class="kw">let</span> <span class="ident">ChannelBound</span> { <span class="ident">bound</span>, <span class="kw-2">ref</span> <span class="ident">cond</span> } <span class="op">=</span> (<span class="self">self</span>.<span class="number">0</span>)
@@ -1112,7 +1148,7 @@
 
         <span class="comment">// If we have a bound of 0 we need to wait until the receiver actually</span>
         <span class="comment">// handled the data</span>
-        <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">bound</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+        <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">bound</span> <span class="op">==</span> <span class="number">0</span> {
             <span class="kw">while</span> <span class="op">!</span><span class="ident">inner</span>.<span class="ident">queue</span>.<span class="ident">is_empty</span>() <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="ident">inner</span>.<span class="ident">receiver_disconnected</span>() {
                 <span class="ident">inner</span> <span class="op">=</span> <span class="ident">cond</span>.<span class="ident">wait</span>(<span class="ident">inner</span>).<span class="ident">unwrap</span>();
             }
@@ -1130,7 +1166,8 @@
         <span class="prelude-val">Ok</span>(())
     }
 
-    <span class="kw">fn</span> <span class="ident">try_recv</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">mpsc::TryRecvError</span><span class="op">&gt;</span> {
+    <span class="comment">// SAFETY: Must be called from the main context the channel was attached to.</span>
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">try_recv</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">mpsc::TryRecvError</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> (<span class="self">self</span>.<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
 
         <span class="comment">// Pop item if we have any</span>
@@ -1144,7 +1181,7 @@
 
         <span class="comment">// If there are no senders left we are disconnected or otherwise empty. That&#39;s the case if</span>
         <span class="comment">// the only remaining strong reference is the one of the receiver</span>
-        <span class="kw">if</span> <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+        <span class="kw">if</span> <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">==</span> <span class="number">0</span> {
             <span class="prelude-val">Err</span>(<span class="ident">mpsc::TryRecvError::Disconnected</span>)
         } <span class="kw">else</span> {
             <span class="prelude-val">Err</span>(<span class="ident">mpsc::TryRecvError::Empty</span>)
@@ -1153,24 +1190,24 @@
 }
 
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
-<span class="kw">struct</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span> {
+<span class="kw">struct</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span> {
     <span class="ident">source</span>: <span class="ident">ffi::GSource</span>,
     <span class="ident">source_funcs</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ffi::GSourceFuncs</span><span class="op">&gt;</span><span class="op">&gt;</span>,
     <span class="ident">channel</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>,
     <span class="ident">callback</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>,
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">dispatch</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-    <span class="ident">source</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GSource</span>,
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">dispatch</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="ident">source</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GSource</span>,
     <span class="ident">callback</span>: <span class="ident">ffi::GSourceFunc</span>,
     <span class="ident">_user_data</span>: <span class="ident">ffi::gpointer</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span>(<span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>);
+) -&gt; <span class="ident">ffi::gboolean</span> {
+    <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="kw-2">*</span>(<span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>);
     <span class="macro">assert!</span>(<span class="ident">callback</span>.<span class="ident">is_none</span>());
 
     <span class="comment">// Set ready-time to -1 so that we won&#39;t get called again before a new item is added</span>
     <span class="comment">// to the channel queue.</span>
-    <span class="ident">ffi::g_source_set_ready_time</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">source</span>.<span class="ident">source</span>, <span class="op">-</span><span class="number">1</span>);
+    <span class="ident">ffi::g_source_set_ready_time</span>(<span class="kw-2">&amp;mut</span> <span class="ident">source</span>.<span class="ident">source</span>, <span class="op">-</span><span class="number">1</span>);
 
     <span class="comment">// Get a reference to the callback. This will panic if we&#39;re called from a different</span>
     <span class="comment">// thread than where the source was attached to the main context.</span>
@@ -1189,10 +1226,10 @@
         .<span class="ident">expect</span>(<span class="string">&quot;ChannelSource without Channel&quot;</span>);
     <span class="kw">loop</span> {
         <span class="kw">match</span> <span class="ident">channel</span>.<span class="ident">try_recv</span>() {
-            <span class="prelude-val">Err</span>(<span class="ident">mpsc::TryRecvError::Empty</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="kw">break</span>,
-            <span class="prelude-val">Err</span>(<span class="ident">mpsc::TryRecvError::Disconnected</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="kw">return</span> <span class="ident">ffi::G_SOURCE_REMOVE</span>,
-            <span class="prelude-val">Ok</span>(<span class="ident">item</span>) <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="kw">if</span> <span class="ident">callback</span>(<span class="ident">item</span>) <span class="op">=</span><span class="op">=</span> <span class="ident">Continue</span>(<span class="bool-val">false</span>) {
+            <span class="prelude-val">Err</span>(<span class="ident">mpsc::TryRecvError::Empty</span>) =&gt; <span class="kw">break</span>,
+            <span class="prelude-val">Err</span>(<span class="ident">mpsc::TryRecvError::Disconnected</span>) =&gt; <span class="kw">return</span> <span class="ident">ffi::G_SOURCE_REMOVE</span>,
+            <span class="prelude-val">Ok</span>(<span class="ident">item</span>) =&gt; {
+                <span class="kw">if</span> <span class="ident">callback</span>(<span class="ident">item</span>) <span class="op">==</span> <span class="ident">Continue</span>(<span class="bool-val">false</span>) {
                     <span class="kw">return</span> <span class="ident">ffi::G_SOURCE_REMOVE</span>;
                 }
             }
@@ -1203,8 +1240,8 @@
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_64&quot;</span>)]</span>
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">dispose</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">source</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GSource</span>) {
-    <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span>(<span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>);
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">dispose</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">source</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GSource</span>) {
+    <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="kw-2">*</span>(<span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>);
 
     <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">channel</span>) <span class="op">=</span> <span class="ident">source</span>.<span class="ident">channel</span> {
         <span class="comment">// Set the source inside the channel to None so that all senders know that there</span>
@@ -1217,8 +1254,8 @@
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">finalize</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">source</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GSource</span>) {
-    <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span>(<span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>);
+<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">finalize</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="ident">source</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GSource</span>) {
+    <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="kw-2">*</span>(<span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>);
 
     <span class="comment">// Drop all memory we own by taking it out of the Options</span>
 
@@ -1249,10 +1286,29 @@
     <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">source</span>.<span class="ident">source_funcs</span>.<span class="ident">take</span>();
 
     <span class="comment">// Take the callback out of the source. This will panic if the value is dropped</span>
-    <span class="comment">// from a different thread than where the callback was created</span>
-    <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">source</span>.<span class="ident">callback</span>.<span class="ident">take</span>();
+    <span class="comment">// from a different thread than where the callback was created so try to drop it</span>
+    <span class="comment">// from the main context if we&#39;re on another thread and the main context still exists.</span>
+    <span class="comment">//</span>
+    <span class="comment">// This can only really happen if the caller to `attach()` gets the `Source` from the returned</span>
+    <span class="comment">// `SourceId` and sends it to another thread or otherwise retrieves it from the main context,</span>
+    <span class="comment">// but better safe than sorry.</span>
+    <span class="kw">let</span> <span class="ident">callback</span> <span class="op">=</span> <span class="ident">source</span>
+        .<span class="ident">callback</span>
+        .<span class="ident">take</span>()
+        .<span class="ident">expect</span>(<span class="string">&quot;channel source finalized twice&quot;</span>);
+    <span class="kw">if</span> <span class="op">!</span><span class="ident">callback</span>.<span class="ident">is_owner</span>() {
+        <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span>
+            <span class="ident">ffi::g_source_get_context</span>(<span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ffi::GSource</span>);
+        <span class="kw">if</span> <span class="op">!</span><span class="ident">context</span>.<span class="ident">is_null</span>() {
+            <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="ident">MainContext::from_glib_none</span>(<span class="ident">context</span>);
+            <span class="ident">context</span>.<span class="ident">invoke</span>(<span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
+                <span class="ident">drop</span>(<span class="ident">callback</span>);
+            });
+        }
+    }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// A `Sender` that can be used to send items to the corresponding main context receiver.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This `Sender` behaves the same as `std::sync::mpsc::Sender`.</span>
@@ -1262,43 +1318,49 @@
 <span class="doccomment">/// [`MainContext::channel()`]: struct.MainContext.html#method.channel</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
 
+<span class="comment">// It&#39;s safe to send the Sender to other threads for attaching it as</span>
+<span class="comment">// long as the items to be sent can also be sent between threads.</span>
+<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Send</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {}
+
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="ident">f</span>.<span class="ident">debug_struct</span>(<span class="string">&quot;Sender&quot;</span>).<span class="ident">finish</span>()
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Clone</span> <span class="kw">for</span> <span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">clone</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="self">Self</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>)
+    <span class="kw">fn</span> <span class="ident">clone</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+        <span class="ident"><span class="self">Self</span>::new</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>)
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">channel</span>: <span class="kw-2">&amp;</span><span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">channel</span>: <span class="kw-2">&amp;</span><span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> (<span class="ident">channel</span>.<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
         <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
         <span class="self">Self</span>(<span class="ident">channel</span>.<span class="ident">clone</span>())
     }
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Sends a value to the channel.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::SendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::SendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">send</span>(<span class="ident">t</span>)
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
         <span class="comment">// Decrease the number of senders and wake up the channel if this</span>
         <span class="comment">// was the last sender that was dropped.</span>
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> ((<span class="self">self</span>.<span class="number">0</span>).<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
         <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
-        <span class="kw">if</span> <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+        <span class="kw">if</span> <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">==</span> <span class="number">0</span> {
             <span class="ident">inner</span>.<span class="ident">set_ready_time</span>(<span class="number">0</span>);
         }
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// A `SyncSender` that can be used to send items to the corresponding main context receiver.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This `SyncSender` behaves the same as `std::sync::mpsc::SyncSender`.</span>
@@ -1308,48 +1370,55 @@
 <span class="doccomment">/// [`MainContext::sync_channel()`]: struct.MainContext.html#method.sync_channel</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
 
+<span class="comment">// It&#39;s safe to send the SyncSender to other threads for attaching it as</span>
+<span class="comment">// long as the items to be sent can also be sent between threads.</span>
+<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Send</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {}
+
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="ident">f</span>.<span class="ident">debug_struct</span>(<span class="string">&quot;SyncSender&quot;</span>).<span class="ident">finish</span>()
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Clone</span> <span class="kw">for</span> <span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">clone</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="self">Self</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>)
+    <span class="kw">fn</span> <span class="ident">clone</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+        <span class="ident"><span class="self">Self</span>::new</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>)
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">channel</span>: <span class="kw-2">&amp;</span><span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">channel</span>: <span class="kw-2">&amp;</span><span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> (<span class="ident">channel</span>.<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
         <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
         <span class="self">Self</span>(<span class="ident">channel</span>.<span class="ident">clone</span>())
     }
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Sends a value to the channel and blocks if the channel is full.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::SendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::SendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">send</span>(<span class="ident">t</span>)
     }
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Sends a value to the channel.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">try_send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::TrySendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">try_send</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">t</span>: <span class="ident">T</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">mpsc::TrySendError</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">try_send</span>(<span class="ident">t</span>)
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
         <span class="comment">// Decrease the number of senders and wake up the channel if this</span>
         <span class="comment">// was the last sender that was dropped.</span>
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> ((<span class="self">self</span>.<span class="number">0</span>).<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
         <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
-        <span class="kw">if</span> <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+        <span class="kw">if</span> <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">==</span> <span class="number">0</span> {
             <span class="ident">inner</span>.<span class="ident">set_ready_time</span>(<span class="number">0</span>);
         }
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// A `Receiver` that can be attached to a main context to receive items from its corresponding</span>
 <span class="doccomment">/// `Sender` or `SyncSender`.</span>
 <span class="doccomment">///</span>
@@ -1361,7 +1430,7 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>, <span class="ident">Priority</span>);
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="ident">f</span>.<span class="ident">debug_struct</span>(<span class="string">&quot;Receiver&quot;</span>).<span class="ident">finish</span>()
     }
 }
@@ -1371,7 +1440,7 @@
 <span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Send</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {}
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
         <span class="comment">// If the receiver was never attached to a main context we need to let all the senders know</span>
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">channel</span>) <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">take</span>() {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> (<span class="ident">channel</span>.<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
@@ -1384,6 +1453,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Attaches the receiver to the given `context` and calls `func` whenever an item is</span>
     <span class="doccomment">/// available on the channel.</span>
     <span class="doccomment">///</span>
@@ -1393,11 +1463,11 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function panics if called from a thread that is not the owner of the provided</span>
     <span class="doccomment">/// `context`, or, if `None` is provided, of the thread default main context.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">attach</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">attach</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">T</span>) -&gt; <span class="ident">Continue</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">context</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">MainContext</span><span class="op">&gt;</span>,
         <span class="ident">func</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceId</span> {
+    ) -&gt; <span class="ident">SourceId</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">channel</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">take</span>().<span class="ident">expect</span>(<span class="string">&quot;Receiver without channel&quot;</span>);
 
@@ -1413,20 +1483,20 @@
             <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">ffi::g_source_new</span>(
                 <span class="ident">mut_override</span>(<span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">source_funcs</span>),
                 <span class="ident">mem::size_of</span>::<span class="op">&lt;</span><span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>() <span class="kw">as</span> <span class="ident">u32</span>,
-            ) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>;
+            ) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ChannelSource</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>;
             <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">source</span>.<span class="ident">is_null</span>());
 
             <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_64&quot;</span>)]</span>
             {
                 <span class="ident">ffi::g_source_set_dispose_function</span>(
-                    <span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GSource</span>,
+                    <span class="ident">source</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ffi::GSource</span>,
                     <span class="prelude-val">Some</span>(<span class="ident">dispose</span>::<span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span>),
                 );
             }
 
             <span class="comment">// Set up the GSource</span>
             {
-                <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="ident">source</span>;
+                <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">source</span>;
                 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">inner</span> <span class="op">=</span> (<span class="ident">channel</span>.<span class="number">0</span>).<span class="number">0</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
 
                 <span class="ident">ffi::g_source_set_priority</span>(<span class="ident">mut_override</span>(<span class="kw-2">&amp;</span><span class="ident">source</span>.<span class="ident">source</span>), <span class="self">self</span>.<span class="number">1</span>.<span class="ident">into_glib</span>());
@@ -1434,37 +1504,39 @@
                 <span class="comment">// We&#39;re immediately ready if the queue is not empty or if no sender is left at this point</span>
                 <span class="ident">ffi::g_source_set_ready_time</span>(
                     <span class="ident">mut_override</span>(<span class="kw-2">&amp;</span><span class="ident">source</span>.<span class="ident">source</span>),
-                    <span class="kw">if</span> <span class="op">!</span><span class="ident">inner</span>.<span class="ident">queue</span>.<span class="ident">is_empty</span>() <span class="op">|</span><span class="op">|</span> <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+                    <span class="kw">if</span> <span class="op">!</span><span class="ident">inner</span>.<span class="ident">queue</span>.<span class="ident">is_empty</span>() <span class="op">|</span><span class="op">|</span> <span class="ident">inner</span>.<span class="ident">num_senders</span> <span class="op">==</span> <span class="number">0</span> {
                         <span class="number">0</span>
                     } <span class="kw">else</span> {
                         <span class="op">-</span><span class="number">1</span>
                     },
                 );
-                <span class="ident">inner</span>.<span class="ident">source</span> <span class="op">=</span> <span class="ident">ChannelSourceState::Attached</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">source</span>.<span class="ident">source</span>);
+                <span class="ident">inner</span>.<span class="ident">source</span> <span class="op">=</span> <span class="ident">ChannelSourceState::Attached</span>(<span class="kw-2">&amp;mut</span> <span class="ident">source</span>.<span class="ident">source</span>);
             }
 
             <span class="comment">// Store all our data inside our part of the GSource</span>
             {
-                <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="ident">source</span>;
-                <span class="ident">ptr::write</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">source</span>.<span class="ident">channel</span>, <span class="prelude-val">Some</span>(<span class="ident">channel</span>));
-                <span class="ident">ptr::write</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">source</span>.<span class="ident">callback</span>, <span class="prelude-val">Some</span>(<span class="ident">ThreadGuard::new</span>(<span class="ident">func</span>)));
-                <span class="ident">ptr::write</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">source</span>.<span class="ident">source_funcs</span>, <span class="prelude-val">Some</span>(<span class="ident">source_funcs</span>));
+                <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">source</span>;
+                <span class="ident">ptr::write</span>(<span class="kw-2">&amp;mut</span> <span class="ident">source</span>.<span class="ident">channel</span>, <span class="prelude-val">Some</span>(<span class="ident">channel</span>));
+                <span class="ident">ptr::write</span>(<span class="kw-2">&amp;mut</span> <span class="ident">source</span>.<span class="ident">callback</span>, <span class="prelude-val">Some</span>(<span class="ident">ThreadGuard::new</span>(<span class="ident">func</span>)));
+                <span class="ident">ptr::write</span>(<span class="kw-2">&amp;mut</span> <span class="ident">source</span>.<span class="ident">source_funcs</span>, <span class="prelude-val">Some</span>(<span class="ident">source_funcs</span>));
             }
 
             <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">Source::from_glib_full</span>(<span class="ident">mut_override</span>(<span class="kw-2">&amp;</span>(<span class="kw-2">*</span><span class="ident">source</span>).<span class="ident">source</span>));
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">context</span>) <span class="op">=</span> <span class="ident">context</span> {
-                <span class="macro">assert!</span>(<span class="ident">context</span>.<span class="ident">is_owner</span>());
-                <span class="ident">source</span>.<span class="ident">attach</span>(<span class="prelude-val">Some</span>(<span class="ident">context</span>))
-            } <span class="kw">else</span> {
-                <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="ident">MainContext::ref_thread_default</span>();
-                <span class="macro">assert!</span>(<span class="ident">context</span>.<span class="ident">is_owner</span>());
-                <span class="ident">source</span>.<span class="ident">attach</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">context</span>))
-            }
+            <span class="kw">let</span> <span class="ident">context</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">context</span> {
+                <span class="prelude-val">Some</span>(<span class="ident">context</span>) =&gt; <span class="ident">context</span>.<span class="ident">clone</span>(),
+                <span class="prelude-val">None</span> =&gt; <span class="ident">MainContext::ref_thread_default</span>(),
+            };
+
+            <span class="kw">let</span> <span class="ident">_acquire</span> <span class="op">=</span> <span class="ident">context</span>
+                .<span class="ident">acquire</span>()
+                .<span class="ident">expect</span>(<span class="string">&quot;main context already acquired by another thread&quot;</span>);
+            <span class="ident">source</span>.<span class="ident">attach</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">context</span>))
         }
     }
 }
 
 <span class="kw">impl</span> <span class="ident">MainContext</span> {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Creates a channel for a main context.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The `Receiver` has to be attached to a main context at a later time, together with a</span>
@@ -1478,7 +1550,7 @@
     <span class="doccomment">/// will fail.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The returned `Sender` behaves the same as `std::sync::mpsc::Sender`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">priority</span>: <span class="ident">Priority</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">priority</span>: <span class="ident">Priority</span>) -&gt; (<span class="ident">Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) {
         <span class="kw">let</span> <span class="ident">channel</span> <span class="op">=</span> <span class="ident">Channel::new</span>(<span class="prelude-val">None</span>);
         <span class="kw">let</span> <span class="ident">receiver</span> <span class="op">=</span> <span class="ident">Receiver</span>(<span class="prelude-val">Some</span>(<span class="ident">channel</span>.<span class="ident">clone</span>()), <span class="ident">priority</span>);
         <span class="kw">let</span> <span class="ident">sender</span> <span class="op">=</span> <span class="ident">Sender::new</span>(<span class="kw-2">&amp;</span><span class="ident">channel</span>);
@@ -1486,6 +1558,7 @@
         (<span class="ident">sender</span>, <span class="ident">receiver</span>)
     }
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Creates a synchronous channel for a main context with a given bound on the capacity of the</span>
     <span class="doccomment">/// channel.</span>
     <span class="doccomment">///</span>
@@ -1500,7 +1573,7 @@
     <span class="doccomment">/// will fail.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The returned `SyncSender` behaves the same as `std::sync::mpsc::SyncSender`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sync_channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">priority</span>: <span class="ident">Priority</span>, <span class="ident">bound</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sync_channel</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">priority</span>: <span class="ident">Priority</span>, <span class="ident">bound</span>: <span class="ident">usize</span>) -&gt; (<span class="ident">SyncSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">Receiver</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) {
         <span class="kw">let</span> <span class="ident">channel</span> <span class="op">=</span> <span class="ident">Channel::new</span>(<span class="prelude-val">Some</span>(<span class="ident">bound</span>));
         <span class="kw">let</span> <span class="ident">receiver</span> <span class="op">=</span> <span class="ident">Receiver</span>(<span class="prelude-val">Some</span>(<span class="ident">channel</span>.<span class="ident">clone</span>()), <span class="ident">priority</span>);
         <span class="kw">let</span> <span class="ident">sender</span> <span class="op">=</span> <span class="ident">SyncSender::new</span>(<span class="kw-2">&amp;</span><span class="ident">channel</span>);
@@ -1512,7 +1585,7 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span><span class="ident">::MainLoop</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::MainLoop</span>;
     <span class="kw">use</span> <span class="ident">std::cell::RefCell</span>;
     <span class="kw">use</span> <span class="ident">std::rc::Rc</span>;
     <span class="kw">use</span> <span class="ident">std::sync::atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
@@ -1533,7 +1606,7 @@
         <span class="kw">let</span> <span class="ident">l_clone</span> <span class="op">=</span> <span class="ident">l</span>.<span class="ident">clone</span>();
         <span class="ident">receiver</span>.<span class="ident">attach</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">c</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">item</span><span class="op">|</span> {
             <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow_mut</span>() <span class="op">+</span><span class="op">=</span> <span class="ident">item</span>;
-            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow</span>() <span class="op">=</span><span class="op">=</span> <span class="number">6</span> {
+            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow</span>() <span class="op">==</span> <span class="number">6</span> {
                 <span class="ident">l_clone</span>.<span class="ident">quit</span>();
                 <span class="ident">Continue</span>(<span class="bool-val">false</span>)
             } <span class="kw">else</span> {
@@ -1561,15 +1634,14 @@
 
         <span class="kw">struct</span> <span class="ident">Helper</span>(<span class="ident">MainLoop</span>);
         <span class="kw">impl</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">Helper</span> {
-            <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+            <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
                 <span class="self">self</span>.<span class="number">0</span>.<span class="ident">quit</span>();
             }
         }
 
         <span class="kw">let</span> <span class="ident">helper</span> <span class="op">=</span> <span class="ident">Helper</span>(<span class="ident">l</span>.<span class="ident">clone</span>());
         <span class="ident">receiver</span>.<span class="ident">attach</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">c</span>), <span class="kw">move</span> <span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">helper</span>;
-
+            <span class="kw">let</span> <span class="ident">_helper</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">helper</span>;
             <span class="ident">Continue</span>(<span class="bool-val">true</span>)
         });
 
@@ -1612,7 +1684,7 @@
 
         <span class="kw">struct</span> <span class="ident">Helper</span>(<span class="ident">Arc</span><span class="op">&lt;</span><span class="ident">AtomicBool</span><span class="op">&gt;</span>);
         <span class="kw">impl</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">Helper</span> {
-            <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+            <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
                 <span class="self">self</span>.<span class="number">0</span>.<span class="ident">store</span>(<span class="bool-val">true</span>, <span class="ident">Ordering::Relaxed</span>);
             }
         }
@@ -1648,7 +1720,7 @@
         <span class="kw">let</span> <span class="ident">l_clone</span> <span class="op">=</span> <span class="ident">l</span>.<span class="ident">clone</span>();
         <span class="ident">receiver</span>.<span class="ident">attach</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">c</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">item</span><span class="op">|</span> {
             <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow_mut</span>() <span class="op">+</span><span class="op">=</span> <span class="ident">item</span>;
-            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow</span>() <span class="op">=</span><span class="op">=</span> <span class="number">6</span> {
+            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow</span>() <span class="op">==</span> <span class="number">6</span> {
                 <span class="ident">l_clone</span>.<span class="ident">quit</span>();
                 <span class="ident">Continue</span>(<span class="bool-val">false</span>)
             } <span class="kw">else</span> {
@@ -1663,7 +1735,7 @@
             <span class="ident">sender</span>.<span class="ident">try_send</span>(<span class="number">1</span>).<span class="ident">unwrap</span>();
             <span class="ident">sender</span>.<span class="ident">try_send</span>(<span class="number">2</span>).<span class="ident">unwrap</span>();
 
-            <span class="comment">// This fills up the channel</span>
+            <span class="comment">// This fill up the channel</span>
             <span class="macro">assert!</span>(<span class="ident">sender</span>.<span class="ident">try_send</span>(<span class="number">3</span>).<span class="ident">is_err</span>());
             <span class="ident">wait_sender</span>.<span class="ident">send</span>(()).<span class="ident">unwrap</span>();
 
@@ -1697,7 +1769,7 @@
         <span class="kw">let</span> <span class="ident">l_clone</span> <span class="op">=</span> <span class="ident">l</span>.<span class="ident">clone</span>();
         <span class="ident">receiver</span>.<span class="ident">attach</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">c</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">item</span><span class="op">|</span> {
             <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow_mut</span>() <span class="op">+</span><span class="op">=</span> <span class="ident">item</span>;
-            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow</span>() <span class="op">=</span><span class="op">=</span> <span class="number">6</span> {
+            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow</span>() <span class="op">==</span> <span class="number">6</span> {
                 <span class="ident">l_clone</span>.<span class="ident">quit</span>();
                 <span class="ident">Continue</span>(<span class="bool-val">false</span>)
             } <span class="kw">else</span> {
@@ -1802,7 +1874,7 @@
             <span class="comment">// the other receiver now.</span>
             <span class="macro">assert!</span>(<span class="ident">wait_receiver</span>.<span class="ident">recv</span>().<span class="ident">is_ok</span>());
             <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow_mut</span>() <span class="op">+</span><span class="op">=</span> <span class="ident">item</span>;
-            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow</span>() <span class="op">=</span><span class="op">=</span> <span class="number">6</span> {
+            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">sum_clone</span>.<span class="ident">borrow</span>() <span class="op">==</span> <span class="number">6</span> {
                 <span class="comment">// But as we didn&#39;t consume the next one yet, there must be no</span>
                 <span class="comment">// other item available yet</span>
                 <span class="macro">assert_eq!</span>(
@@ -1828,5 +1900,6 @@
         <span class="macro">assert_eq!</span>(<span class="kw-2">*</span><span class="ident">sum</span>.<span class="ident">borrow</span>(), <span class="number">6</span>);
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

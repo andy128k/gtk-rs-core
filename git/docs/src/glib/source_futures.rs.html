@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/source_futures.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>source_futures.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/source_futures.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>source_futures.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -514,8 +515,25 @@
 <span id="439">439</span>
 <span id="440">440</span>
 <span id="441">441</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+<span id="442">442</span>
+<span id="443">443</span>
+<span id="444">444</span>
+<span id="445">445</span>
+<span id="446">446</span>
+<span id="447">447</span>
+<span id="448">448</span>
+<span id="449">449</span>
+<span id="450">450</span>
+<span id="451">451</span>
+<span id="452">452</span>
+<span id="453">453</span>
+<span id="454">454</span>
+<span id="455">455</span>
+<span id="456">456</span>
+<span id="457">457</span>
+<span id="458">458</span>
+<span id="459">459</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="kw">use</span> <span class="ident">futures_channel</span>::{<span class="ident">mpsc</span>, <span class="ident">oneshot</span>};
 <span class="kw">use</span> <span class="ident">futures_core::future::Future</span>;
@@ -527,11 +545,12 @@
 <span class="kw">use</span> <span class="ident">std::pin::Pin</span>;
 <span class="kw">use</span> <span class="ident">std::time::Duration</span>;
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Continue</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::MainContext</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Priority</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Source</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Continue</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::MainContext</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Priority</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Source</span>;
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Represents a `Future` around a `glib::Source`. The future will</span>
 <span class="doccomment">/// be resolved once the source has provided a value</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SourceFuture</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span> {
@@ -541,14 +560,15 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span>: <span class="lifetime">&#39;static</span><span class="op">&gt;</span> <span class="ident">SourceFuture</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">oneshot::Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">oneshot::Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) -&gt; <span class="ident">Source</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Create a new `SourceFuture`</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The provided closure should return a newly created `glib::Source` when called</span>
     <span class="doccomment">/// and pass the value provided by the source to the oneshot sender that is passed</span>
     <span class="doccomment">/// to the closure.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">create_source</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceFuture</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">create_source</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceFuture</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span> {
         <span class="ident">SourceFuture</span> {
             <span class="ident">create_source</span>: <span class="prelude-val">Some</span>(<span class="ident">create_source</span>),
             <span class="ident">source</span>: <span class="prelude-val">None</span>,
@@ -560,11 +580,11 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Future</span> <span class="kw">for</span> <span class="ident">SourceFuture</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">oneshot::Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">oneshot::Sender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) -&gt; <span class="ident">Source</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">T</span>;
 
-    <span class="kw">fn</span> <span class="ident">poll</span>(<span class="kw-2">mut</span> <span class="self">self</span>: <span class="ident">pin::Pin</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span><span class="op">&gt;</span>, <span class="ident">ctx</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">task::Context</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Poll</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">poll</span>(<span class="kw-2">mut</span> <span class="self">self</span>: <span class="ident">pin::Pin</span><span class="op">&lt;</span><span class="kw-2">&amp;mut</span> <span class="self">Self</span><span class="op">&gt;</span>, <span class="ident">ctx</span>: <span class="kw-2">&amp;mut</span> <span class="ident">task::Context</span>) -&gt; <span class="ident">Poll</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">SourceFuture</span> {
             <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">create_source</span>,
             <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">source</span>,
@@ -580,7 +600,7 @@
 
             <span class="comment">// Channel for sending back the Source result to our future here.</span>
             <span class="comment">//</span>
-            <span class="comment">// In theory we could directly continue polling the</span>
+            <span class="comment">// In theory, we could directly continue polling the</span>
             <span class="comment">// corresponding task from the Source callback,</span>
             <span class="comment">// however this would break at the very least</span>
             <span class="comment">// the g_main_current_source() API.</span>
@@ -594,24 +614,24 @@
 
         <span class="comment">// At this point we must have a receiver</span>
         <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> {
-            <span class="kw">let</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> (<span class="kw">_</span>, <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">receiver</span>) <span class="op">=</span> <span class="ident">source</span>.<span class="ident">as_mut</span>().<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="kw-2">&amp;mut</span> (<span class="kw">_</span>, <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">receiver</span>) <span class="op">=</span> <span class="ident">source</span>.<span class="ident">as_mut</span>().<span class="ident">unwrap</span>();
             <span class="ident">Pin::new</span>(<span class="ident">receiver</span>).<span class="ident">poll</span>(<span class="ident">ctx</span>)
         };
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::match_wild_err_arm</span>)]</span>
         <span class="kw">match</span> <span class="ident">res</span> {
-            <span class="ident">Poll::Ready</span>(<span class="prelude-val">Err</span>(<span class="kw">_</span>)) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic!</span>(<span class="string">&quot;Source sender was unexpectedly closed&quot;</span>),
-            <span class="ident">Poll::Ready</span>(<span class="prelude-val">Ok</span>(<span class="ident">v</span>)) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">Poll::Ready</span>(<span class="prelude-val">Err</span>(<span class="kw">_</span>)) =&gt; <span class="macro">panic!</span>(<span class="string">&quot;Source sender was unexpectedly closed&quot;</span>),
+            <span class="ident">Poll::Ready</span>(<span class="prelude-val">Ok</span>(<span class="ident">v</span>)) =&gt; {
                 <span class="comment">// Get rid of the reference to the source, it triggered</span>
                 <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">source</span>.<span class="ident">take</span>();
                 <span class="ident">Poll::Ready</span>(<span class="ident">v</span>)
             }
-            <span class="ident">Poll::Pending</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Poll::Pending</span>,
+            <span class="ident">Poll::Pending</span> =&gt; <span class="ident">Poll::Pending</span>,
         }
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">SourceFuture</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
         <span class="comment">// Get rid of the source, we don&#39;t care anymore if it still triggers</span>
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">source</span>, <span class="kw">_</span>)) <span class="op">=</span> <span class="self">self</span>.<span class="ident">source</span>.<span class="ident">take</span>() {
             <span class="ident">source</span>.<span class="ident">destroy</span>();
@@ -619,63 +639,69 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Future` that will resolve after the given number of milliseconds.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_future</span>(<span class="ident">value</span>: <span class="ident">Duration</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="ident">timeout_future_with_priority</span>(<span class="kw">crate</span><span class="ident">::PRIORITY_DEFAULT</span>, <span class="ident">value</span>)
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_future</span>(<span class="ident">value</span>: <span class="ident">Duration</span>) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="ident">timeout_future_with_priority</span>(<span class="ident"><span class="kw">crate</span>::PRIORITY_DEFAULT</span>, <span class="ident">value</span>)
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Future` that will resolve after the given number of milliseconds.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_future_with_priority</span>(
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">value</span>: <span class="ident">Duration</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="ident">Box::pin</span>(<span class="ident">SourceFuture::new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">send</span><span class="op">|</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">send</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">send</span>);
-        <span class="kw">crate</span><span class="ident">::timeout_source_new</span>(<span class="ident">value</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
+        <span class="ident"><span class="kw">crate</span>::timeout_source_new</span>(<span class="ident">value</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
             <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">send</span>.<span class="ident">take</span>().<span class="ident">unwrap</span>().<span class="ident">send</span>(());
             <span class="ident">Continue</span>(<span class="bool-val">false</span>)
         })
     }))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Future` that will resolve after the given number of seconds.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_future_seconds</span>(<span class="ident">value</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="ident">timeout_future_seconds_with_priority</span>(<span class="kw">crate</span><span class="ident">::PRIORITY_DEFAULT</span>, <span class="ident">value</span>)
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_future_seconds</span>(<span class="ident">value</span>: <span class="ident">u32</span>) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="ident">timeout_future_seconds_with_priority</span>(<span class="ident"><span class="kw">crate</span>::PRIORITY_DEFAULT</span>, <span class="ident">value</span>)
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Future` that will resolve after the given number of seconds.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeout_future_seconds_with_priority</span>(
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">value</span>: <span class="ident">u32</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="ident">Box::pin</span>(<span class="ident">SourceFuture::new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">send</span><span class="op">|</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">send</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">send</span>);
-        <span class="kw">crate</span><span class="ident">::timeout_source_new_seconds</span>(<span class="ident">value</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
+        <span class="ident"><span class="kw">crate</span>::timeout_source_new_seconds</span>(<span class="ident">value</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
             <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">send</span>.<span class="ident">take</span>().<span class="ident">unwrap</span>().<span class="ident">send</span>(());
             <span class="ident">Continue</span>(<span class="bool-val">false</span>)
         })
     }))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Future` that will resolve once the child process with the given pid exits</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` will resolve to the pid of the child process and the exit code.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">child_watch_future</span>(
-    <span class="ident">pid</span>: <span class="kw">crate</span><span class="ident">::Pid</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> (<span class="kw">crate</span><span class="ident">::Pid</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="ident">child_watch_future_with_priority</span>(<span class="kw">crate</span><span class="ident">::PRIORITY_DEFAULT</span>, <span class="ident">pid</span>)
+    <span class="ident">pid</span>: <span class="ident"><span class="kw">crate</span>::Pid</span>,
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> (<span class="ident"><span class="kw">crate</span>::Pid</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="ident">child_watch_future_with_priority</span>(<span class="ident"><span class="kw">crate</span>::PRIORITY_DEFAULT</span>, <span class="ident">pid</span>)
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Future` that will resolve once the child process with the given pid exits</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` will resolve to the pid of the child process and the exit code.</span>
@@ -683,11 +709,11 @@
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">child_watch_future_with_priority</span>(
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
-    <span class="ident">pid</span>: <span class="kw">crate</span><span class="ident">::Pid</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> (<span class="kw">crate</span><span class="ident">::Pid</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="ident">pid</span>: <span class="ident"><span class="kw">crate</span>::Pid</span>,
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> (<span class="ident"><span class="kw">crate</span>::Pid</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="ident">Box::pin</span>(<span class="ident">SourceFuture::new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">send</span><span class="op">|</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">send</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">send</span>);
-        <span class="kw">crate</span><span class="ident">::child_watch_source_new</span>(<span class="ident">pid</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">pid</span>, <span class="ident">code</span><span class="op">|</span> {
+        <span class="ident"><span class="kw">crate</span>::child_watch_source_new</span>(<span class="ident">pid</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">pid</span>, <span class="ident">code</span><span class="op">|</span> {
             <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">send</span>.<span class="ident">take</span>().<span class="ident">unwrap</span>().<span class="ident">send</span>((<span class="ident">pid</span>, <span class="ident">code</span>));
         })
     }))
@@ -695,31 +721,34 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Future` that will resolve once the given UNIX signal is raised</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_future</span>(<span class="ident">signum</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="ident">unix_signal_future_with_priority</span>(<span class="kw">crate</span><span class="ident">::PRIORITY_DEFAULT</span>, <span class="ident">signum</span>)
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_future</span>(<span class="ident">signum</span>: <span class="ident">i32</span>) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="ident">unix_signal_future_with_priority</span>(<span class="ident"><span class="kw">crate</span>::PRIORITY_DEFAULT</span>, <span class="ident">signum</span>)
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Future` that will resolve once the given UNIX signal is raised</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_future_with_priority</span>(
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">signum</span>: <span class="ident">i32</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="ident">Box::pin</span>(<span class="ident">SourceFuture::new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">send</span><span class="op">|</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">send</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">send</span>);
-        <span class="kw">crate</span><span class="ident">::unix_signal_source_new</span>(<span class="ident">signum</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
+        <span class="ident"><span class="kw">crate</span>::unix_signal_source_new</span>(<span class="ident">signum</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
             <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">send</span>.<span class="ident">take</span>().<span class="ident">unwrap</span>().<span class="ident">send</span>(());
             <span class="ident">Continue</span>(<span class="bool-val">false</span>)
         })
     }))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Represents a `Stream` around a `glib::Source`. The stream will</span>
 <span class="doccomment">/// be provide all values that are provided by the source</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SourceStream</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span> {
@@ -731,14 +760,15 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span>: <span class="lifetime">&#39;static</span><span class="op">&gt;</span> <span class="ident">SourceStream</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">mpsc::UnboundedSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">mpsc::UnboundedSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) -&gt; <span class="ident">Source</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Create a new `SourceStream`</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The provided closure should return a newly created `glib::Source` when called</span>
     <span class="doccomment">/// and pass the values provided by the source to the sender that is passed</span>
     <span class="doccomment">/// to the closure.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">create_source</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SourceStream</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">create_source</span>: <span class="ident">F</span>) -&gt; <span class="ident">SourceStream</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span> {
         <span class="ident">SourceStream</span> {
             <span class="ident">create_source</span>: <span class="prelude-val">Some</span>(<span class="ident">create_source</span>),
             <span class="ident">source</span>: <span class="prelude-val">None</span>,
@@ -748,11 +778,11 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Stream</span> <span class="kw">for</span> <span class="ident">SourceStream</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">T</span><span class="op">&gt;</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">mpsc::UnboundedSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Source</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+    <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">mpsc::UnboundedSender</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) -&gt; <span class="ident">Source</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 {
     <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">T</span>;
 
-    <span class="kw">fn</span> <span class="ident">poll_next</span>(<span class="kw-2">mut</span> <span class="self">self</span>: <span class="ident">pin::Pin</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span><span class="op">&gt;</span>, <span class="ident">ctx</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">task::Context</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Poll</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">poll_next</span>(<span class="kw-2">mut</span> <span class="self">self</span>: <span class="ident">pin::Pin</span><span class="op">&lt;</span><span class="kw-2">&amp;mut</span> <span class="self">Self</span><span class="op">&gt;</span>, <span class="ident">ctx</span>: <span class="kw-2">&amp;mut</span> <span class="ident">task::Context</span>) -&gt; <span class="ident">Poll</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">SourceStream</span> {
             <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">create_source</span>,
             <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">source</span>,
@@ -782,25 +812,25 @@
 
         <span class="comment">// At this point we must have a receiver</span>
         <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> {
-            <span class="kw">let</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> (<span class="kw">_</span>, <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">receiver</span>) <span class="op">=</span> <span class="ident">source</span>.<span class="ident">as_mut</span>().<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="kw-2">&amp;mut</span> (<span class="kw">_</span>, <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">receiver</span>) <span class="op">=</span> <span class="ident">source</span>.<span class="ident">as_mut</span>().<span class="ident">unwrap</span>();
             <span class="ident">Pin::new</span>(<span class="ident">receiver</span>).<span class="ident">poll_next</span>(<span class="ident">ctx</span>)
         };
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::match_wild_err_arm</span>)]</span>
         <span class="kw">match</span> <span class="ident">res</span> {
-            <span class="ident">Poll::Ready</span>(<span class="ident">v</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">Poll::Ready</span>(<span class="ident">v</span>) =&gt; {
                 <span class="kw">if</span> <span class="ident">v</span>.<span class="ident">is_none</span>() {
                     <span class="comment">// Get rid of the reference to the source, it triggered</span>
                     <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">source</span>.<span class="ident">take</span>();
                 }
                 <span class="ident">Poll::Ready</span>(<span class="ident">v</span>)
             }
-            <span class="ident">Poll::Pending</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Poll::Pending</span>,
+            <span class="ident">Poll::Pending</span> =&gt; <span class="ident">Poll::Pending</span>,
         }
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">SourceStream</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">F</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
+    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
         <span class="comment">// Get rid of the source, we don&#39;t care anymore if it still triggers</span>
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">source</span>, <span class="kw">_</span>)) <span class="op">=</span> <span class="self">self</span>.<span class="ident">source</span>.<span class="ident">take</span>() {
             <span class="ident">source</span>.<span class="ident">destroy</span>();
@@ -808,22 +838,24 @@
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Stream` that will provide a value every given number of milliseconds.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interval_stream</span>(<span class="ident">value</span>: <span class="ident">Duration</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="ident">interval_stream_with_priority</span>(<span class="kw">crate</span><span class="ident">::PRIORITY_DEFAULT</span>, <span class="ident">value</span>)
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interval_stream</span>(<span class="ident">value</span>: <span class="ident">Duration</span>) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="ident">interval_stream_with_priority</span>(<span class="ident"><span class="kw">crate</span>::PRIORITY_DEFAULT</span>, <span class="ident">value</span>)
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Stream` that will provide a value every given number of milliseconds.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interval_stream_with_priority</span>(
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">value</span>: <span class="ident">Duration</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="ident">Box::pin</span>(<span class="ident">SourceStream::new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">send</span><span class="op">|</span> {
-        <span class="kw">crate</span><span class="ident">::timeout_source_new</span>(<span class="ident">value</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
+        <span class="ident"><span class="kw">crate</span>::timeout_source_new</span>(<span class="ident">value</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
             <span class="kw">if</span> <span class="ident">send</span>.<span class="ident">unbounded_send</span>(()).<span class="ident">is_err</span>() {
                 <span class="ident">Continue</span>(<span class="bool-val">false</span>)
             } <span class="kw">else</span> {
@@ -833,22 +865,24 @@
     }))
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Stream` that will provide a value every given number of seconds.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Stream` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interval_stream_seconds</span>(<span class="ident">value</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="ident">interval_stream_seconds_with_priority</span>(<span class="kw">crate</span><span class="ident">::PRIORITY_DEFAULT</span>, <span class="ident">value</span>)
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interval_stream_seconds</span>(<span class="ident">value</span>: <span class="ident">u32</span>) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="ident">interval_stream_seconds_with_priority</span>(<span class="ident"><span class="kw">crate</span>::PRIORITY_DEFAULT</span>, <span class="ident">value</span>)
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Stream` that will provide a value every given number of seconds.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Stream` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interval_stream_seconds_with_priority</span>(
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">value</span>: <span class="ident">u32</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="ident">Box::pin</span>(<span class="ident">SourceStream::new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">send</span><span class="op">|</span> {
-        <span class="kw">crate</span><span class="ident">::timeout_source_new_seconds</span>(<span class="ident">value</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
+        <span class="ident"><span class="kw">crate</span>::timeout_source_new_seconds</span>(<span class="ident">value</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
             <span class="kw">if</span> <span class="ident">send</span>.<span class="ident">unbounded_send</span>(()).<span class="ident">is_err</span>() {
                 <span class="ident">Continue</span>(<span class="bool-val">false</span>)
             } <span class="kw">else</span> {
@@ -860,24 +894,26 @@
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Stream` that will provide a value whenever the given UNIX signal is raised</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Stream` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_stream</span>(<span class="ident">signum</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="ident">unix_signal_stream_with_priority</span>(<span class="kw">crate</span><span class="ident">::PRIORITY_DEFAULT</span>, <span class="ident">signum</span>)
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_stream</span>(<span class="ident">signum</span>: <span class="ident">i32</span>) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="ident">unix_signal_stream_with_priority</span>(<span class="ident"><span class="kw">crate</span>::PRIORITY_DEFAULT</span>, <span class="ident">signum</span>)
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">unix</span>)))]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Create a `Stream` that will provide a value whenever the given UNIX signal is raised</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The `Stream` must be spawned on an `Executor` backed by a `glib::MainContext`.</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unix_signal_stream_with_priority</span>(
     <span class="ident">priority</span>: <span class="ident">Priority</span>,
     <span class="ident">signum</span>: <span class="ident">i32</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Stream</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="ident">Box::pin</span>(<span class="ident">SourceStream::new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">send</span><span class="op">|</span> {
-        <span class="kw">crate</span><span class="ident">::unix_signal_source_new</span>(<span class="ident">signum</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
+        <span class="ident"><span class="kw">crate</span>::unix_signal_source_new</span>(<span class="ident">signum</span>, <span class="prelude-val">None</span>, <span class="ident">priority</span>, <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
             <span class="kw">if</span> <span class="ident">send</span>.<span class="ident">unbounded_send</span>(()).<span class="ident">is_err</span>() {
                 <span class="ident">Continue</span>(<span class="bool-val">false</span>)
             } <span class="kw">else</span> {
@@ -905,7 +941,7 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_timeout_send</span>() {
         <span class="kw">let</span> <span class="ident">c</span> <span class="op">=</span> <span class="ident">MainContext::new</span>();
-        <span class="kw">let</span> <span class="ident">l</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::MainLoop::new</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">c</span>), <span class="bool-val">false</span>);
+        <span class="kw">let</span> <span class="ident">l</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::MainLoop::new</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">c</span>), <span class="bool-val">false</span>);
 
         <span class="kw">let</span> <span class="ident">l_clone</span> <span class="op">=</span> <span class="ident">l</span>.<span class="ident">clone</span>();
         <span class="ident">c</span>.<span class="ident">spawn</span>(<span class="ident">timeout_future</span>(<span class="ident">Duration::from_millis</span>(<span class="number">20</span>)).<span class="ident">then</span>(<span class="kw">move</span> <span class="op">|</span>()<span class="op">|</span> {
@@ -923,7 +959,7 @@
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">count</span> <span class="op">=</span> <span class="number">0</span>;
 
         {
-            <span class="kw">let</span> <span class="ident">count</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">count</span>;
+            <span class="kw">let</span> <span class="ident">count</span> <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="ident">count</span>;
             <span class="ident">c</span>.<span class="ident">block_on</span>(
                 <span class="ident">interval_stream</span>(<span class="ident">Duration::from_millis</span>(<span class="number">20</span>))
                     .<span class="ident">take</span>(<span class="number">2</span>)
@@ -956,5 +992,6 @@
         <span class="macro">assert_eq!</span>(<span class="ident">res</span>, <span class="number">1</span>);
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

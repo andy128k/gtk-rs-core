@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango/src/auto/context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>context.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango/src/auto/context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../../pango/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../pango/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -519,22 +520,41 @@
 <span id="444">444</span>
 <span id="445">445</span>
 <span id="446">446</span>
-</pre><pre class="rust">
-<span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
+<span id="447">447</span>
+<span id="448">448</span>
+<span id="449">449</span>
+<span id="450">450</span>
+<span id="451">451</span>
+<span id="452">452</span>
+<span id="453">453</span>
+<span id="454">454</span>
+<span id="455">455</span>
+<span id="456">456</span>
+<span id="457">457</span>
+<span id="458">458</span>
+<span id="459">459</span>
+<span id="460">460</span>
+<span id="461">461</span>
+<span id="462">462</span>
+<span id="463">463</span>
+<span id="464">464</span>
+<span id="465">465</span>
+<span id="466">466</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
 <span class="comment">// DO NOT EDIT</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Direction</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Font</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::FontDescription</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::FontFamily</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::FontMap</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::FontMetrics</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Fontset</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Gravity</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::GravityHint</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Language</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Matrix</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Direction</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Font</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::FontDescription</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::FontFamily</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::FontMap</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::FontMetrics</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Fontset</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Gravity</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::GravityHint</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Language</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Matrix</span>;
 <span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
 <span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std::fmt</span>;
@@ -542,13 +562,19 @@
 <span class="kw">use</span> <span class="ident">std::ptr</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// The [`Context`][crate::Context] structure stores global information</span>
-    <span class="doccomment">/// used to control the itemization process.</span>
+    <span class="doccomment">/// A [`Context`][crate::Context] stores global information used to control the</span>
+    <span class="doccomment">/// itemization process.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The information stored by [`Context`][crate::Context] includes the fontmap used</span>
+    <span class="doccomment">/// to look up fonts, and default values such as the default language,</span>
+    <span class="doccomment">/// default gravity, or default font.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// To obtain a [`Context`][crate::Context], use [`FontMapExt::create_context()`][crate::prelude::FontMapExt::create_context()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;PangoContext&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Context</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::PangoContext</span>, <span class="ident">ffi::PangoContextClass</span><span class="op">&gt;</span>);
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::pango_context_get_type</span>(),
+        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::pango_context_get_type</span>(),
     }
 }
 
@@ -562,16 +588,15 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// If you are using Pango as part of a higher-level system,</span>
     <span class="doccomment">/// that system may have it&#39;s own way of create a [`Context`][crate::Context].</span>
-    <span class="doccomment">/// For instance, the GTK+ toolkit has, among others,</span>
-    <span class="doccomment">/// `gdk_pango_context_get_for_screen()`, and</span>
+    <span class="doccomment">/// For instance, the GTK toolkit has, among others,</span>
     <span class="doccomment">/// `gtk_widget_get_pango_context()`. Use those instead.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the newly allocated [`Context`][crate::Context], which should</span>
-    <span class="doccomment">///  be freed with `g_object_unref()`.</span>
+    <span class="doccomment">///   be freed with g_object_unref().</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_new&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Context</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="ident">Context</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::pango_context_new</span>()) }
     }
 
@@ -589,27 +614,29 @@
         }
     }
 
-    <span class="doccomment">/// Retrieves the base direction for the context. See</span>
-    <span class="doccomment">/// [`set_base_dir()`][Self::set_base_dir()].</span>
+    <span class="doccomment">/// Retrieves the base direction for the context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See [`set_base_dir()`][Self::set_base_dir()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the base direction for the context.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_base_dir&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_base_dir&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">base_dir</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Direction</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">base_dir</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Direction</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::pango_context_get_base_dir</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Retrieves the base gravity for the context. See</span>
-    <span class="doccomment">/// [`set_base_gravity()`][Self::set_base_gravity()].</span>
+    <span class="doccomment">/// Retrieves the base gravity for the context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See [`set_base_gravity()`][Self::set_base_gravity()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the base gravity for the context.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_base_gravity&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_base_gravity&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">base_gravity</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Gravity</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">base_gravity</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Gravity</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::pango_context_get_base_gravity</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -618,10 +645,10 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// a pointer to the context&#39;s default font</span>
-    <span class="doccomment">///  description. This value must not be modified or freed.</span>
+    <span class="doccomment">///   description. This value must not be modified or freed.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_font_description&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_font_description&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">font_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">FontDescription</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">font_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">FontDescription</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_context_get_font_description</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -634,36 +661,39 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the font map for the [`Context`][crate::Context].</span>
-    <span class="doccomment">///  This value is owned by Pango and should not be unreferenced.</span>
+    <span class="doccomment">///   This value is owned by Pango and should not be unreferenced.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_font_map&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_font_map&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">font_map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">FontMap</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">font_map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">FontMap</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_context_get_font_map</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Retrieves the gravity for the context. This is similar to</span>
-    <span class="doccomment">/// [`base_gravity()`][Self::base_gravity()], except for when the base gravity</span>
-    <span class="doccomment">/// is [`Gravity::Auto`][crate::Gravity::Auto] for which [`Gravity::for_matrix()`][crate::Gravity::for_matrix()] is used</span>
-    <span class="doccomment">/// to return the gravity from the current context matrix.</span>
+    <span class="doccomment">/// Retrieves the gravity for the context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is similar to [`base_gravity()`][Self::base_gravity()],</span>
+    <span class="doccomment">/// except for when the base gravity is [`Gravity::Auto`][crate::Gravity::Auto] for</span>
+    <span class="doccomment">/// which [`Gravity::for_matrix()`][crate::Gravity::for_matrix()] is used to return the</span>
+    <span class="doccomment">/// gravity from the current context matrix.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the resolved gravity for the context.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_gravity&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_gravity&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gravity</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Gravity</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gravity</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Gravity</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::pango_context_get_gravity</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Retrieves the gravity hint for the context. See</span>
-    <span class="doccomment">/// [`set_gravity_hint()`][Self::set_gravity_hint()] for details.</span>
+    <span class="doccomment">/// Retrieves the gravity hint for the context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See [`set_gravity_hint()`][Self::set_gravity_hint()] for details.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the gravity hint for the context.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_gravity_hint&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_gravity_hint&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gravity_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">GravityHint</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gravity_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">GravityHint</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::pango_context_get_gravity_hint</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -674,57 +704,58 @@
     <span class="doccomment">/// the global language tag.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_language&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_language&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">language</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Language</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">language</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Language</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::pango_context_get_language</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the transformation matrix that will be applied when</span>
-    <span class="doccomment">/// rendering with this context. See [`set_matrix()`][Self::set_matrix()].</span>
+    <span class="doccomment">/// rendering with this context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See [`set_matrix()`][Self::set_matrix()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the matrix, or [`None`] if no matrix has</span>
-    <span class="doccomment">///  been set (which is the same as the identity matrix). The returned</span>
-    <span class="doccomment">///  matrix is owned by Pango and must not be modified or freed.</span>
+    <span class="doccomment">///   been set (which is the same as the identity matrix). The returned</span>
+    <span class="doccomment">///   matrix is owned by Pango and must not be modified or freed.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_matrix&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_matrix&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">matrix</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Matrix</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">matrix</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Matrix</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_context_get_matrix</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Get overall metric information for a particular font</span>
-    <span class="doccomment">/// description. Since the metrics may be substantially different for</span>
-    <span class="doccomment">/// different scripts, a language tag can be provided to indicate that</span>
-    <span class="doccomment">/// the metrics should be retrieved that correspond to the script(s)</span>
-    <span class="doccomment">/// used by that language.</span>
+    <span class="doccomment">/// Get overall metric information for a particular font description.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The [`FontDescription`][crate::FontDescription] is interpreted in the same way as</span>
-    <span class="doccomment">/// by [`itemize()`][crate::itemize()], and the family name may be a comma separated</span>
-    <span class="doccomment">/// list of figures. If characters from multiple of these families</span>
-    <span class="doccomment">/// would be used to render the string, then the returned fonts would</span>
-    <span class="doccomment">/// be a composite of the metrics for the fonts loaded for the</span>
-    <span class="doccomment">/// individual families.</span>
+    <span class="doccomment">/// Since the metrics may be substantially different for different scripts,</span>
+    <span class="doccomment">/// a language tag can be provided to indicate that the metrics should be</span>
+    <span class="doccomment">/// retrieved that correspond to the script(s) used by that language.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The [`FontDescription`][crate::FontDescription] is interpreted in the same way as by [`itemize()`][crate::itemize()],</span>
+    <span class="doccomment">/// and the family name may be a comma separated list of names. If characters</span>
+    <span class="doccomment">/// from multiple of these families would be used to render the string, then</span>
+    <span class="doccomment">/// the returned fonts would be a composite of the metrics for the fonts loaded</span>
+    <span class="doccomment">/// for the individual families.</span>
     <span class="doccomment">/// ## `desc`</span>
     <span class="doccomment">/// a [`FontDescription`][crate::FontDescription] structure. [`None`] means that the</span>
-    <span class="doccomment">///  font description from the context will be used.</span>
+    <span class="doccomment">///   font description from the context will be used.</span>
     <span class="doccomment">/// ## `language`</span>
     <span class="doccomment">/// language tag used to determine which script to get</span>
-    <span class="doccomment">///  the metrics for. [`None`] means that the language tag from the context</span>
-    <span class="doccomment">///  will be used. If no language tag is set on the context, metrics</span>
-    <span class="doccomment">///  for the default language (as determined by [`Language::default()`][crate::Language::default()])</span>
-    <span class="doccomment">///  will be returned.</span>
+    <span class="doccomment">///   the metrics for. [`None`] means that the language tag from the context</span>
+    <span class="doccomment">///   will be used. If no language tag is set on the context, metrics</span>
+    <span class="doccomment">///   for the default language (as determined by [`Language::default()`][crate::Language::default()]</span>
+    <span class="doccomment">///   will be returned.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`FontMetrics`][crate::FontMetrics] object. The caller must call `pango_font_metrics_unref()`</span>
-    <span class="doccomment">///  when finished using the object.</span>
+    <span class="doccomment">/// a [`FontMetrics`][crate::FontMetrics] object. The caller must call</span>
+    <span class="doccomment">///   `Pango::FontMetrics::unref()` when finished using the object.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_metrics&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_metrics&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">metrics</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">desc</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">FontDescription</span><span class="op">&gt;</span>,
         <span class="ident">language</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Language</span><span class="op">&gt;</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">FontMetrics</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">FontMetrics</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::pango_context_get_metrics</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -740,7 +771,7 @@
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_44&quot;</span>)))]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_round_glyph_positions&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_round_glyph_positions&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_round_glyph_positions</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_round_glyph_positions</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::pango_context_get_round_glyph_positions</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -748,23 +779,25 @@
         }
     }
 
-    <span class="doccomment">/// Returns the current serial number of `self`. The serial number is</span>
-    <span class="doccomment">/// initialized to an small number larger than zero when a new context</span>
-    <span class="doccomment">/// is created and is increased whenever the context is changed using any</span>
-    <span class="doccomment">/// of the setter functions, or the [`FontMap`][crate::FontMap] it uses to find fonts has</span>
-    <span class="doccomment">/// changed. The serial may wrap, but will never have the value 0. Since it</span>
-    <span class="doccomment">/// can wrap, never compare it with &quot;less than&quot;, always use &quot;not equals&quot;.</span>
+    <span class="doccomment">/// Returns the current serial number of @self.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This can be used to automatically detect changes to a [`Context`][crate::Context], and</span>
-    <span class="doccomment">/// is only useful when implementing objects that need update when their</span>
+    <span class="doccomment">/// The serial number is initialized to an small number larger than zero</span>
+    <span class="doccomment">/// when a new context is created and is increased whenever the context</span>
+    <span class="doccomment">/// is changed using any of the setter functions, or the [`FontMap`][crate::FontMap] it</span>
+    <span class="doccomment">/// uses to find fonts has changed. The serial may wrap, but will never</span>
+    <span class="doccomment">/// have the value 0. Since it can wrap, never compare it with &quot;less than&quot;,</span>
+    <span class="doccomment">/// always use &quot;not equals&quot;.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This can be used to automatically detect changes to a [`Context`][crate::Context],</span>
+    <span class="doccomment">/// and is only useful when implementing objects that need update when their</span>
     <span class="doccomment">/// [`Context`][crate::Context] changes, like [`Layout`][crate::Layout].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The current serial number of `self`.</span>
+    <span class="doccomment">/// The current serial number of @self.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_get_serial&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_serial&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">serial</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">serial</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::pango_context_get_serial</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -774,17 +807,17 @@
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `families`</span>
-    <span class="doccomment">/// location to store a pointer to</span>
-    <span class="doccomment">///  an array of [`FontFamily`][crate::FontFamily] *. This array should be freed</span>
-    <span class="doccomment">///  with `g_free()`.</span>
+    <span class="doccomment">/// location</span>
+    <span class="doccomment">///   to store a pointer to an array of [`FontFamily`][crate::FontFamily]. This array should</span>
+    <span class="doccomment">///   be freed with g_free().</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_list_families&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">list_families</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">FontFamily</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">list_families</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">FontFamily</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">families</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">n_families</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
             <span class="ident">ffi::pango_context_list_families</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">families</span>,
+                <span class="kw-2">&amp;mut</span> <span class="ident">families</span>,
                 <span class="ident">n_families</span>.<span class="ident">as_mut_ptr</span>(),
             );
             <span class="ident">FromGlibContainer::from_glib_container_num</span>(<span class="ident">families</span>, <span class="ident">n_families</span>.<span class="ident">assume_init</span>() <span class="kw">as</span> <span class="ident">usize</span>)
@@ -792,16 +825,16 @@
     }
 
     <span class="doccomment">/// Loads the font in one of the fontmaps in the context</span>
-    <span class="doccomment">/// that is the closest match for `desc`.</span>
+    <span class="doccomment">/// that is the closest match for @desc.</span>
     <span class="doccomment">/// ## `desc`</span>
     <span class="doccomment">/// a [`FontDescription`][crate::FontDescription] describing the font to load</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the newly allocated [`Font`][crate::Font]</span>
-    <span class="doccomment">///  that was loaded, or [`None`] if no font matched.</span>
+    <span class="doccomment">///   that was loaded, or [`None`] if no font matched.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_load_font&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">load_font</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">desc</span>: <span class="kw-2">&amp;</span><span class="ident">FontDescription</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Font</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">load_font</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">desc</span>: <span class="kw-2">&amp;</span><span class="ident">FontDescription</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Font</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::pango_context_load_font</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -811,7 +844,7 @@
     }
 
     <span class="doccomment">/// Load a set of fonts in the context that can be used to render</span>
-    <span class="doccomment">/// a font matching `desc`.</span>
+    <span class="doccomment">/// a font matching @desc.</span>
     <span class="doccomment">/// ## `desc`</span>
     <span class="doccomment">/// a [`FontDescription`][crate::FontDescription] describing the fonts to load</span>
     <span class="doccomment">/// ## `language`</span>
@@ -820,9 +853,9 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the newly allocated</span>
-    <span class="doccomment">///  [`Fontset`][crate::Fontset] loaded, or [`None`] if no font matched.</span>
+    <span class="doccomment">///   [`Fontset`][crate::Fontset] loaded, or [`None`] if no font matched.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_load_fontset&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">load_fontset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">desc</span>: <span class="kw-2">&amp;</span><span class="ident">FontDescription</span>, <span class="ident">language</span>: <span class="kw-2">&amp;</span><span class="ident">Language</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Fontset</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">load_fontset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">desc</span>: <span class="kw-2">&amp;</span><span class="ident">FontDescription</span>, <span class="ident">language</span>: <span class="kw-2">&amp;</span><span class="ident">Language</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Fontset</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::pango_context_load_fontset</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -835,7 +868,7 @@
     <span class="doccomment">/// Sets the base direction for the context.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The base direction is used in applying the Unicode bidirectional</span>
-    <span class="doccomment">/// algorithm; if the `direction` is [`Direction::Ltr`][crate::Direction::Ltr] or</span>
+    <span class="doccomment">/// algorithm; if the @direction is [`Direction::Ltr`][crate::Direction::Ltr] or</span>
     <span class="doccomment">/// [`Direction::Rtl`][crate::Direction::Rtl], then the value will be used as the paragraph</span>
     <span class="doccomment">/// direction in the Unicode bidirectional algorithm. A value of</span>
     <span class="doccomment">/// [`Direction::WeakLtr`][crate::Direction::WeakLtr] or [`Direction::WeakRtl`][crate::Direction::WeakRtl] is used only</span>
@@ -871,13 +904,16 @@
         }
     }
 
-    <span class="doccomment">/// Sets the font map to be searched when fonts are looked-up in this context.</span>
-    <span class="doccomment">/// This is only for internal use by Pango backends, a [`Context`][crate::Context] obtained</span>
-    <span class="doccomment">/// via one of the recommended methods should already have a suitable font map.</span>
+    <span class="doccomment">/// Sets the font map to be searched when fonts are looked-up</span>
+    <span class="doccomment">/// in this context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is only for internal use by Pango backends, a [`Context`][crate::Context]</span>
+    <span class="doccomment">/// obtained via one of the recommended methods should already have a</span>
+    <span class="doccomment">/// suitable font map.</span>
     <span class="doccomment">/// ## `font_map`</span>
     <span class="doccomment">/// the [`FontMap`][crate::FontMap] to set.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_set_font_map&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_font_map</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">FontMap</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">font_map</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_font_map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">font_map</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">FontMap</span><span class="op">&gt;</span>) {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::pango_context_set_font_map</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -888,9 +924,10 @@
 
     <span class="doccomment">/// Sets the gravity hint for the context.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The gravity hint is used in laying vertical text out, and is only relevant</span>
-    <span class="doccomment">/// if gravity of the context as returned by [`gravity()`][Self::gravity()]</span>
-    <span class="doccomment">/// is set [`Gravity::East`][crate::Gravity::East] or [`Gravity::West`][crate::Gravity::West].</span>
+    <span class="doccomment">/// The gravity hint is used in laying vertical text out, and</span>
+    <span class="doccomment">/// is only relevant if gravity of the context as returned by</span>
+    <span class="doccomment">/// [`gravity()`][Self::gravity()] is set to [`Gravity::East`][crate::Gravity::East]</span>
+    <span class="doccomment">/// or [`Gravity::West`][crate::Gravity::West].</span>
     <span class="doccomment">/// ## `hint`</span>
     <span class="doccomment">/// the new gravity hint</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_set_gravity_hint&quot;</span>)]</span>
@@ -900,9 +937,10 @@
         }
     }
 
-    <span class="doccomment">/// Sets the global language tag for the context. The default language</span>
-    <span class="doccomment">/// for the locale of the running process can be found using</span>
-    <span class="doccomment">/// [`Language::default()`][crate::Language::default()].</span>
+    <span class="doccomment">/// Sets the global language tag for the context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The default language for the locale of the running process</span>
+    <span class="doccomment">/// can be found using [`Language::default()`][crate::Language::default()].</span>
     <span class="doccomment">/// ## `language`</span>
     <span class="doccomment">/// the new language tag.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_context_set_language&quot;</span>)]</span>
@@ -916,11 +954,13 @@
     }
 
     <span class="doccomment">/// Sets the transformation matrix that will be applied when rendering</span>
-    <span class="doccomment">/// with this context. Note that reported metrics are in the user space</span>
-    <span class="doccomment">/// coordinates before the application of the matrix, not device-space</span>
-    <span class="doccomment">/// coordinates after the application of the matrix. So, they don&#39;t scale</span>
-    <span class="doccomment">/// with the matrix, though they may change slightly for different</span>
-    <span class="doccomment">/// matrices, depending on how the text is fit to the pixel grid.</span>
+    <span class="doccomment">/// with this context.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that reported metrics are in the user space coordinates before</span>
+    <span class="doccomment">/// the application of the matrix, not device-space coordinates after the</span>
+    <span class="doccomment">/// application of the matrix. So, they don&#39;t scale with the matrix, though</span>
+    <span class="doccomment">/// they may change slightly for different matrices, depending on how the</span>
+    <span class="doccomment">/// text is fit to the pixel grid.</span>
     <span class="doccomment">/// ## `matrix`</span>
     <span class="doccomment">/// a [`Matrix`][crate::Matrix], or [`None`] to unset any existing</span>
     <span class="doccomment">/// matrix. (No matrix set is the same as setting the identity matrix.)</span>
@@ -956,15 +996,16 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">Context</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span><span class="ident">::new</span>()
+    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
+        <span class="ident"><span class="self">Self</span>::new</span>()
     }
 }
 
 <span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Context</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Context&quot;</span>)
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

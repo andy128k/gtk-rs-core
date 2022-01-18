@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango/src/auto/layout_iter.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>layout_iter.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango/src/auto/layout_iter.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>layout_iter.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../../pango/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../pango/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -446,42 +447,71 @@
 <span id="371">371</span>
 <span id="372">372</span>
 <span id="373">373</span>
-</pre><pre class="rust">
-<span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
+<span id="374">374</span>
+<span id="375">375</span>
+<span id="376">376</span>
+<span id="377">377</span>
+<span id="378">378</span>
+<span id="379">379</span>
+<span id="380">380</span>
+<span id="381">381</span>
+<span id="382">382</span>
+<span id="383">383</span>
+<span id="384">384</span>
+<span id="385">385</span>
+<span id="386">386</span>
+<span id="387">387</span>
+<span id="388">388</span>
+<span id="389">389</span>
+<span id="390">390</span>
+<span id="391">391</span>
+<span id="392">392</span>
+<span id="393">393</span>
+<span id="394">394</span>
+<span id="395">395</span>
+<span id="396">396</span>
+<span id="397">397</span>
+<span id="398">398</span>
+<span id="399">399</span>
+<span id="400">400</span>
+<span id="401">401</span>
+<span id="402">402</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
 <span class="comment">// DO NOT EDIT</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Layout</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::LayoutLine</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::LayoutRun</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Rectangle</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Layout</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::LayoutLine</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::LayoutRun</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Rectangle</span>;
 <span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std::mem</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// A [`LayoutIter`][crate::LayoutIter] structure can be used to</span>
-    <span class="doccomment">/// iterate over the visual extents of a [`Layout`][crate::Layout].</span>
+    <span class="doccomment">/// A [`LayoutIter`][crate::LayoutIter] can be used to iterate over the visual</span>
+    <span class="doccomment">/// extents of a [`Layout`][crate::Layout].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The [`LayoutIter`][crate::LayoutIter] structure is opaque, and</span>
-    <span class="doccomment">/// has no user-visible fields.</span>
+    <span class="doccomment">/// To obtain a [`LayoutIter`][crate::LayoutIter], use [`Layout::iter()`][crate::Layout::iter()].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The [`LayoutIter`][crate::LayoutIter] structure is opaque, and has no user-visible fields.</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LayoutIter</span>(<span class="ident">Boxed</span><span class="op">&lt;</span><span class="ident">ffi::PangoLayoutIter</span><span class="op">&gt;</span>);
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">copy</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::pango_layout_iter_copy</span>(<span class="ident">mut_override</span>(<span class="ident">ptr</span>)),
-        <span class="ident">free</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::pango_layout_iter_free</span>(<span class="ident">ptr</span>),
-        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::pango_layout_iter_get_type</span>(),
+        <span class="ident">copy</span> =&gt; <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::pango_layout_iter_copy</span>(<span class="ident">mut_override</span>(<span class="ident">ptr</span>)),
+        <span class="ident">free</span> =&gt; <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::pango_layout_iter_free</span>(<span class="ident">ptr</span>),
+        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::pango_layout_iter_get_type</span>(),
     }
 }
 
 <span class="kw">impl</span> <span class="ident">LayoutIter</span> {
-    <span class="doccomment">/// Determines whether `self` is on the last line of the layout.</span>
+    <span class="doccomment">/// Determines whether @self is on the last line of the layout.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if `self` is on the last line.</span>
+    <span class="doccomment">/// [`true`] if @self is on the last line</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_at_last_line&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">at_last_line</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">at_last_line</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::pango_layout_iter_at_last_line</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -490,31 +520,35 @@
     }
 
     <span class="doccomment">/// Gets the Y position of the current line&#39;s baseline, in layout</span>
-    <span class="doccomment">/// coordinates (origin at top left of the entire layout).</span>
+    <span class="doccomment">/// coordinates.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Layout coordinates have the origin at the top left of the entire layout.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// baseline of current line.</span>
+    <span class="doccomment">/// baseline of current line</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_baseline&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_baseline&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">baseline</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">baseline</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::pango_layout_iter_get_baseline</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Gets the extents of the current character, in layout coordinates</span>
-    <span class="doccomment">/// (origin is the top left of the entire layout). Only logical extents</span>
-    <span class="doccomment">/// can sensibly be obtained for characters; ink extents make sense only</span>
-    <span class="doccomment">/// down to the level of clusters.</span>
+    <span class="doccomment">/// Gets the extents of the current character, in layout coordinates.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Layout coordinates have the origin at the top left of the entire layout.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Only logical extents can sensibly be obtained for characters;</span>
+    <span class="doccomment">/// ink extents make sense only down to the level of clusters.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
     <span class="doccomment">/// rectangle to fill with</span>
-    <span class="doccomment">///  logical extents</span>
+    <span class="doccomment">///   logical extents</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_char_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_char_extents&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">char_extents</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">char_extents</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">logical_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
             <span class="ident">ffi::pango_layout_iter_get_char_extents</span>(
@@ -525,20 +559,21 @@
         }
     }
 
-    <span class="doccomment">/// Gets the extents of the current cluster, in layout coordinates</span>
-    <span class="doccomment">/// (origin is the top left of the entire layout).</span>
+    <span class="doccomment">/// Gets the extents of the current cluster, in layout coordinates.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Layout coordinates have the origin at the top left of the entire layout.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ink_rect`</span>
-    <span class="doccomment">/// rectangle to fill with ink extents, or [`None`]</span>
+    <span class="doccomment">/// rectangle to fill with ink extents</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
-    <span class="doccomment">/// rectangle to fill with logical extents, or [`None`]</span>
+    <span class="doccomment">/// rectangle to fill with logical extents</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_cluster_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_cluster_extents&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cluster_extents</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cluster_extents</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ink_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">logical_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
@@ -551,17 +586,19 @@
         }
     }
 
-    <span class="doccomment">/// Gets the current byte index. Note that iterating forward by char</span>
-    <span class="doccomment">/// moves in visual order, not logical order, so indexes may not be</span>
-    <span class="doccomment">/// sequential. Also, the index may be equal to the length of the text</span>
-    <span class="doccomment">/// in the layout, if on the [`None`] run (see [`run()`][Self::run()]).</span>
+    <span class="doccomment">/// Gets the current byte index.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that iterating forward by char moves in visual order,</span>
+    <span class="doccomment">/// not logical order, so indexes may not be sequential. Also,</span>
+    <span class="doccomment">/// the index may be equal to the length of the text in the</span>
+    <span class="doccomment">/// layout, if on the [`None`] run (see [`run()`][Self::run()]).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// current byte index.</span>
+    <span class="doccomment">/// current byte index</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_index&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_index&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">index</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">index</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::pango_layout_iter_get_index</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>) }
     }
 
@@ -569,30 +606,26 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the layout associated with `self`.</span>
+    <span class="doccomment">/// the layout associated with @self</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_layout&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_layout&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">layout</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Layout</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">layout</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Layout</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_layout_iter_get_layout</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Obtains the extents of the [`Layout`][crate::Layout] being iterated</span>
-    <span class="doccomment">/// over. `ink_rect` or `logical_rect` can be [`None`] if you</span>
-    <span class="doccomment">/// aren&#39;t interested in them.</span>
+    <span class="doccomment">/// Obtains the extents of the [`Layout`][crate::Layout] being iterated over.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ink_rect`</span>
-    <span class="doccomment">/// rectangle to fill with ink extents,</span>
-    <span class="doccomment">///  or [`None`]</span>
+    <span class="doccomment">/// rectangle to fill with ink extents</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
-    <span class="doccomment">/// rectangle to fill with logical</span>
-    <span class="doccomment">///  extents, or [`None`]</span>
+    <span class="doccomment">/// rectangle to fill with logical extents</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_layout_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_layout_extents&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">layout_extents</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">layout_extents</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ink_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">logical_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
@@ -607,36 +640,37 @@
 
     <span class="doccomment">/// Gets the current line.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Use the faster [`line_readonly()`][Self::line_readonly()] if you do not plan</span>
-    <span class="doccomment">/// to modify the contents of the line (glyphs, glyph widths, etc.).</span>
+    <span class="doccomment">/// Use the faster [`line_readonly()`][Self::line_readonly()] if</span>
+    <span class="doccomment">/// you do not plan to modify the contents of the line (glyphs,</span>
+    <span class="doccomment">/// glyph widths, etc.).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the current line.</span>
+    <span class="doccomment">/// the current line</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_line&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_line&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LayoutLine</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LayoutLine</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_layout_iter_get_line</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Obtains the extents of the current line. `ink_rect` or `logical_rect`</span>
-    <span class="doccomment">/// can be [`None`] if you aren&#39;t interested in them. Extents are in layout</span>
-    <span class="doccomment">/// coordinates (origin is the top-left corner of the entire</span>
-    <span class="doccomment">/// [`Layout`][crate::Layout]). Thus the extents returned by this function will be</span>
-    <span class="doccomment">/// the same width/height but not at the same x/y as the extents</span>
-    <span class="doccomment">/// returned from [`LayoutLine::extents()`][crate::LayoutLine::extents()].</span>
+    <span class="doccomment">/// Obtains the extents of the current line.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Extents are in layout coordinates (origin is the top-left corner</span>
+    <span class="doccomment">/// of the entire [`Layout`][crate::Layout]). Thus the extents returned by this</span>
+    <span class="doccomment">/// function will be the same width/height but not at the same x/y</span>
+    <span class="doccomment">/// as the extents returned from [`LayoutLine::extents()`][crate::LayoutLine::extents()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ink_rect`</span>
-    <span class="doccomment">/// rectangle to fill with ink extents, or [`None`]</span>
+    <span class="doccomment">/// rectangle to fill with ink extents</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
-    <span class="doccomment">/// rectangle to fill with logical extents, or [`None`]</span>
+    <span class="doccomment">/// rectangle to fill with logical extents</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_line_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_line_extents&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_extents</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_extents</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ink_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">logical_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
@@ -652,16 +686,16 @@
     <span class="doccomment">/// Gets the current line for read-only access.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is a faster alternative to [`line()`][Self::line()],</span>
-    <span class="doccomment">/// but the user is not expected</span>
-    <span class="doccomment">/// to modify the contents of the line (glyphs, glyph widths, etc.).</span>
+    <span class="doccomment">/// but the user is not expected to modify the contents of the line</span>
+    <span class="doccomment">/// (glyphs, glyph widths, etc.).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the current line, that should not be</span>
-    <span class="doccomment">/// modified.</span>
+    <span class="doccomment">///   modified</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_line_readonly&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_line_readonly&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_readonly</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LayoutLine</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_readonly</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LayoutLine</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_layout_iter_get_line_readonly</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -671,27 +705,27 @@
 
     <span class="doccomment">/// Divides the vertical space in the [`Layout`][crate::Layout] being iterated over</span>
     <span class="doccomment">/// between the lines in the layout, and returns the space belonging to</span>
-    <span class="doccomment">/// the current line. A line&#39;s range includes the line&#39;s logical</span>
-    <span class="doccomment">/// extents, plus half of the spacing above and below the line, if</span>
-    <span class="doccomment">/// [`Layout::set_spacing()`][crate::Layout::set_spacing()] has been called to set layout spacing.</span>
-    <span class="doccomment">/// The Y positions are in layout coordinates (origin at top left of the</span>
-    <span class="doccomment">/// entire layout).</span>
+    <span class="doccomment">/// the current line.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Note: Since 1.44, Pango uses line heights for placing lines,</span>
-    <span class="doccomment">/// and there may be gaps between the ranges returned by this</span>
-    <span class="doccomment">/// function.</span>
+    <span class="doccomment">/// A line&#39;s range includes the line&#39;s logical extents. plus half of the</span>
+    <span class="doccomment">/// spacing above and below the line, if [`Layout::set_spacing()`][crate::Layout::set_spacing()]</span>
+    <span class="doccomment">/// has been called to set layout spacing. The Y positions are in layout</span>
+    <span class="doccomment">/// coordinates (origin at top left of the entire layout).</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note: Since 1.44, Pango uses line heights for placing lines, and there</span>
+    <span class="doccomment">/// may be gaps between the ranges returned by this function.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `y0_`</span>
-    <span class="doccomment">/// start of line, or [`None`]</span>
+    <span class="doccomment">/// start of line</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `y1_`</span>
-    <span class="doccomment">/// end of line, or [`None`]</span>
+    <span class="doccomment">/// end of line</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_line_yrange&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_line_yrange&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_yrange</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">i32</span>, <span class="ident">i32</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_yrange</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>) {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y0_</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y1_</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
@@ -706,37 +740,55 @@
         }
     }
 
-    <span class="doccomment">/// Gets the current run. When iterating by run, at the end of each</span>
-    <span class="doccomment">/// line, there&#39;s a position with a [`None`] run, so this function can return</span>
-    <span class="doccomment">/// [`None`]. The [`None`] run at the end of each line ensures that all lines have</span>
-    <span class="doccomment">/// at least one run, even lines consisting of only a newline.</span>
+    <span class="doccomment">/// Gets the current run.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Use the faster [`run_readonly()`][Self::run_readonly()] if you do not plan</span>
-    <span class="doccomment">/// to modify the contents of the run (glyphs, glyph widths, etc.).</span>
+    <span class="doccomment">/// When iterating by run, at the end of each line, there&#39;s a position</span>
+    <span class="doccomment">/// with a [`None`] run, so this function can return [`None`]. The [`None`] run</span>
+    <span class="doccomment">/// at the end of each line ensures that all lines have at least one run,</span>
+    <span class="doccomment">/// even lines consisting of only a newline.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Use the faster [`run_readonly()`][Self::run_readonly()] if you do not</span>
+    <span class="doccomment">/// plan to modify the contents of the run (glyphs, glyph widths, etc.).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the current run.</span>
+    <span class="doccomment">/// the current run</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_run&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_run&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LayoutRun</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LayoutRun</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_layout_iter_get_run</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the extents of the current run in layout coordinates</span>
-    <span class="doccomment">/// (origin is the top left of the entire layout).</span>
+    <span class="doccomment">/// Gets the Y position of the current run&#39;s baseline, in layout</span>
+    <span class="doccomment">/// coordinates.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Layout coordinates have the origin at the top left of the entire layout.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The run baseline can be different from the line baseline, for</span>
+    <span class="doccomment">/// example due to superscript or subscript positioning.</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>)))]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_run_baseline&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_run_baseline&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run_baseline</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">i32</span> {
+        <span class="kw">unsafe</span> { <span class="ident">ffi::pango_layout_iter_get_run_baseline</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>) }
+    }
+
+    <span class="doccomment">/// Gets the extents of the current run in layout coordinates.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Layout coordinates have the origin at the top left of the entire layout.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ink_rect`</span>
-    <span class="doccomment">/// rectangle to fill with ink extents, or [`None`]</span>
+    <span class="doccomment">/// rectangle to fill with ink extents</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
-    <span class="doccomment">/// rectangle to fill with logical extents, or [`None`]</span>
+    <span class="doccomment">/// rectangle to fill with logical extents</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_run_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_run_extents&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run_extents</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run_extents</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ink_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">logical_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
@@ -749,22 +801,24 @@
         }
     }
 
-    <span class="doccomment">/// Gets the current run. When iterating by run, at the end of each</span>
-    <span class="doccomment">/// line, there&#39;s a position with a [`None`] run, so this function can return</span>
-    <span class="doccomment">/// [`None`]. The [`None`] run at the end of each line ensures that all lines have</span>
-    <span class="doccomment">/// at least one run, even lines consisting of only a newline.</span>
+    <span class="doccomment">/// Gets the current run for read-only access.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// When iterating by run, at the end of each line, there&#39;s a position</span>
+    <span class="doccomment">/// with a [`None`] run, so this function can return [`None`]. The [`None`] run</span>
+    <span class="doccomment">/// at the end of each line ensures that all lines have at least one run,</span>
+    <span class="doccomment">/// even lines consisting of only a newline.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is a faster alternative to [`run()`][Self::run()],</span>
-    <span class="doccomment">/// but the user is not expected</span>
-    <span class="doccomment">/// to modify the contents of the run (glyphs, glyph widths, etc.).</span>
+    <span class="doccomment">/// but the user is not expected to modify the contents of the run (glyphs,</span>
+    <span class="doccomment">/// glyph widths, etc.).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the current run, that</span>
-    <span class="doccomment">/// should not be modified.</span>
+    <span class="doccomment">///   should not be modified</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_get_run_readonly&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_run_readonly&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run_readonly</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LayoutRun</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run_readonly</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LayoutRun</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_none</span>(<span class="ident">ffi::pango_layout_iter_get_run_readonly</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -772,25 +826,27 @@
         }
     }
 
-    <span class="doccomment">/// Moves `self` forward to the next character in visual order. If `self` was already at</span>
-    <span class="doccomment">/// the end of the layout, returns [`false`].</span>
+    <span class="doccomment">/// Moves @self forward to the next character in visual order.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If @self was already at the end of the layout, returns [`false`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// whether motion was possible.</span>
+    <span class="doccomment">/// whether motion was possible</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_next_char&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_char</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_char</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::pango_layout_iter_next_char</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Moves `self` forward to the next cluster in visual order. If `self`</span>
-    <span class="doccomment">/// was already at the end of the layout, returns [`false`].</span>
+    <span class="doccomment">/// Moves @self forward to the next cluster in visual order.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If @self was already at the end of the layout, returns [`false`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// whether motion was possible.</span>
+    <span class="doccomment">/// whether motion was possible</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_next_cluster&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_cluster</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_cluster</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::pango_layout_iter_next_cluster</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -798,27 +854,30 @@
         }
     }
 
-    <span class="doccomment">/// Moves `self` forward to the start of the next line. If `self` is</span>
-    <span class="doccomment">/// already on the last line, returns [`false`].</span>
+    <span class="doccomment">/// Moves @self forward to the start of the next line.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If @self is already on the last line, returns [`false`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// whether motion was possible.</span>
+    <span class="doccomment">/// whether motion was possible</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_next_line&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_line</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_line</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::pango_layout_iter_next_line</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Moves `self` forward to the next run in visual order. If `self` was</span>
-    <span class="doccomment">/// already at the end of the layout, returns [`false`].</span>
+    <span class="doccomment">/// Moves @self forward to the next run in visual order.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If @self was already at the end of the layout, returns [`false`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// whether motion was possible.</span>
+    <span class="doccomment">/// whether motion was possible</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_iter_next_run&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_run</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">next_run</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::pango_layout_iter_next_run</span>(<span class="self">self</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>)) }
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

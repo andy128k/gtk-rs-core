@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango/src/auto/layout_line.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>layout_line.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango/src/auto/layout_line.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>layout_line.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../../pango/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../pango/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -257,53 +258,120 @@
 <span id="182">182</span>
 <span id="183">183</span>
 <span id="184">184</span>
-</pre><pre class="rust">
-<span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
+<span id="224">224</span>
+<span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
+<span id="236">236</span>
+<span id="237">237</span>
+<span id="238">238</span>
+<span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
 <span class="comment">// DO NOT EDIT</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Rectangle</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>)))]</span>
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Direction</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Rectangle</span>;
 <span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std::mem</span>;
 <span class="kw">use</span> <span class="ident">std::ptr</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// The [`LayoutLine`][crate::LayoutLine] structure represents one of the lines resulting</span>
-    <span class="doccomment">/// from laying out a paragraph via [`Layout`][crate::Layout]. [`LayoutLine`][crate::LayoutLine]</span>
-    <span class="doccomment">/// structures are obtained by calling [`Layout::line()`][crate::Layout::line()] and</span>
-    <span class="doccomment">/// are only valid until the text, attributes, or settings of the</span>
-    <span class="doccomment">/// parent [`Layout`][crate::Layout] are modified.</span>
+    <span class="doccomment">/// A [`LayoutLine`][crate::LayoutLine] represents one of the lines resulting from laying</span>
+    <span class="doccomment">/// out a paragraph via [`Layout`][crate::Layout].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Routines for rendering PangoLayout objects are provided in</span>
-    <span class="doccomment">/// code specific to each rendering system.</span>
+    <span class="doccomment">/// [`LayoutLine`][crate::LayoutLine] structures are obtained by calling</span>
+    <span class="doccomment">/// [`Layout::line()`][crate::Layout::line()] and are only valid until the text,</span>
+    <span class="doccomment">/// attributes, or settings of the parent [`Layout`][crate::Layout] are modified.</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LayoutLine</span>(<span class="ident">Shared</span><span class="op">&lt;</span><span class="ident">ffi::PangoLayoutLine</span><span class="op">&gt;</span>);
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="kw-2">ref</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::pango_layout_line_ref</span>(<span class="ident">ptr</span>),
-        <span class="ident">unref</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::pango_layout_line_unref</span>(<span class="ident">ptr</span>),
-        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::pango_layout_line_get_type</span>(),
+        <span class="kw-2">ref</span> =&gt; <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::pango_layout_line_ref</span>(<span class="ident">ptr</span>),
+        <span class="ident">unref</span> =&gt; <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::pango_layout_line_unref</span>(<span class="ident">ptr</span>),
+        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::pango_layout_line_get_type</span>(),
     }
 }
 
 <span class="kw">impl</span> <span class="ident">LayoutLine</span> {
-    <span class="doccomment">/// Computes the logical and ink extents of a layout line. See</span>
-    <span class="doccomment">/// [`FontExt::glyph_extents()`][crate::prelude::FontExt::glyph_extents()] for details about the interpretation</span>
-    <span class="doccomment">/// of the rectangles.</span>
+    <span class="doccomment">/// Computes the logical and ink extents of a layout line.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See [`FontExt::glyph_extents()`][crate::prelude::FontExt::glyph_extents()] for details</span>
+    <span class="doccomment">/// about the interpretation of the rectangles.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ink_rect`</span>
     <span class="doccomment">/// rectangle used to store the extents of</span>
-    <span class="doccomment">///  the glyph string as drawn, or [`None`]</span>
+    <span class="doccomment">///   the glyph string as drawn</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
     <span class="doccomment">/// rectangle used to store the logical</span>
-    <span class="doccomment">///  extents of the glyph string, or [`None`]</span>
+    <span class="doccomment">///   extents of the glyph string</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_extents&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ink_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">logical_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
@@ -316,8 +384,13 @@
         }
     }
 
-    <span class="doccomment">/// Computes the height of the line, ie the distance between</span>
-    <span class="doccomment">/// this and the previous lines baseline.</span>
+    <span class="doccomment">/// Computes the height of the line, as the maximum of the heights</span>
+    <span class="doccomment">/// of fonts used in this line.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that the actual baseline-to-baseline distance between lines</span>
+    <span class="doccomment">/// of text is influenced by other factors, such as</span>
+    <span class="doccomment">/// [`Layout::set_spacing()`][crate::Layout::set_spacing()] and</span>
+    <span class="doccomment">/// [`Layout::set_line_spacing()`][crate::Layout::set_line_spacing()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -328,7 +401,7 @@
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_44&quot;</span>)))]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_height&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_height&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
             <span class="ident">ffi::pango_layout_line_get_height</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">height</span>.<span class="ident">as_mut_ptr</span>());
@@ -337,9 +410,23 @@
         }
     }
 
-    <span class="doccomment">/// Computes the logical and ink extents of `self` in device units.</span>
+    <span class="doccomment">/// Returns the length of the line, in bytes.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// the length of the line</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>)))]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_length&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_length&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">length</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
+        <span class="kw">unsafe</span> { <span class="ident">ffi::pango_layout_line_get_length</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    }
+
+    <span class="doccomment">/// Computes the logical and ink extents of @self in device units.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// This function just calls [`extents()`][Self::extents()] followed by</span>
-    <span class="doccomment">/// two [`extents_to_pixels()`][crate::extents_to_pixels()] calls, rounding `ink_rect` and `logical_rect`</span>
+    <span class="doccomment">/// two [`extents_to_pixels()`][crate::extents_to_pixels()] calls, rounding @ink_rect and @logical_rect</span>
     <span class="doccomment">/// such that the rounded rectangles fully contain the unrounded one (that is,</span>
     <span class="doccomment">/// passes them as first argument to [`extents_to_pixels()`][crate::extents_to_pixels()]).</span>
     <span class="doccomment">///</span>
@@ -348,14 +435,14 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ink_rect`</span>
     <span class="doccomment">/// rectangle used to store the extents of</span>
-    <span class="doccomment">///  the glyph string as drawn, or [`None`]</span>
+    <span class="doccomment">///   the glyph string as drawn</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
     <span class="doccomment">/// rectangle used to store the logical</span>
-    <span class="doccomment">///  extents of the glyph string, or [`None`]</span>
+    <span class="doccomment">///   extents of the glyph string</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_pixel_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_pixel_extents&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixel_extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixel_extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ink_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">logical_rect</span> <span class="op">=</span> <span class="ident">Rectangle::uninitialized</span>();
@@ -368,38 +455,67 @@
         }
     }
 
+    <span class="doccomment">/// Returns the resolved direction of the line.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// the resolved direction of the line</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>)))]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_resolved_direction&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_resolved_direction&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resolved_direction</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Direction</span> {
+        <span class="kw">unsafe</span> {
+            <span class="ident">from_glib</span>(<span class="ident">ffi::pango_layout_line_get_resolved_direction</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            ))
+        }
+    }
+
+    <span class="doccomment">/// Returns the start index of the line, as byte index</span>
+    <span class="doccomment">/// into the text of the layout.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// the start index of the line</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>)))]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_start_index&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_start_index&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">start_index</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
+        <span class="kw">unsafe</span> { <span class="ident">ffi::pango_layout_line_get_start_index</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    }
+
     <span class="doccomment">/// Gets a list of visual ranges corresponding to a given logical range.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// This list is not necessarily minimal - there may be consecutive</span>
     <span class="doccomment">/// ranges which are adjacent. The ranges will be sorted from left to</span>
     <span class="doccomment">/// right. The ranges are with respect to the left edge of the entire</span>
     <span class="doccomment">/// layout, not with respect to the line.</span>
     <span class="doccomment">/// ## `start_index`</span>
     <span class="doccomment">/// Start byte index of the logical range. If this value</span>
-    <span class="doccomment">///  is less than the start index for the line, then</span>
-    <span class="doccomment">///  the first range will extend all the way to the leading</span>
-    <span class="doccomment">///  edge of the layout. Otherwise it will start at the</span>
-    <span class="doccomment">///  leading edge of the first character.</span>
+    <span class="doccomment">///   is less than the start index for the line, then the first range</span>
+    <span class="doccomment">///   will extend all the way to the leading edge of the layout. Otherwise,</span>
+    <span class="doccomment">///   it will start at the leading edge of the first character.</span>
     <span class="doccomment">/// ## `end_index`</span>
-    <span class="doccomment">/// Ending byte index of the logical range. If this value</span>
-    <span class="doccomment">///  is greater than the end index for the line, then</span>
-    <span class="doccomment">///  the last range will extend all the way to the trailing</span>
-    <span class="doccomment">///  edge of the layout. Otherwise, it will end at the</span>
-    <span class="doccomment">///  trailing edge of the last character.</span>
+    <span class="doccomment">/// Ending byte index of the logical range. If this value is</span>
+    <span class="doccomment">///   greater than the end index for the line, then the last range will</span>
+    <span class="doccomment">///   extend all the way to the trailing edge of the layout. Otherwise,</span>
+    <span class="doccomment">///   it will end at the trailing edge of the last character.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ranges`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  location to store a pointer to an array of ranges.</span>
-    <span class="doccomment">///  The array will be of length `&lt;literal&gt;`2*n_ranges`&lt;/literal&gt;`,</span>
-    <span class="doccomment">///  with each range starting at `&lt;literal&gt;`(*ranges)[2*n]`&lt;/literal&gt;`</span>
-    <span class="doccomment">///  and of width `&lt;literal&gt;`(*ranges)[2*n + 1] - (*ranges)[2*n]`&lt;/literal&gt;`.</span>
-    <span class="doccomment">///  This array must be freed with `g_free()`. The coordinates are relative</span>
-    <span class="doccomment">///  to the layout and are in Pango units.</span>
+    <span class="doccomment">/// location to</span>
+    <span class="doccomment">///   store a pointer to an array of ranges. The array will be of length</span>
+    <span class="doccomment">///   `2*n_ranges`, with each range starting at `(*ranges)[2*n]` and of</span>
+    <span class="doccomment">///   width `(*ranges)[2*n + 1] - (*ranges)[2*n]`. This array must be freed</span>
+    <span class="doccomment">///   with g_free(). The coordinates are relative to the layout and are in</span>
+    <span class="doccomment">///   Pango units.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_x_ranges&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_x_ranges&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_ranges</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_index</span>: <span class="ident">i32</span>, <span class="ident">end_index</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_ranges</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_index</span>: <span class="ident">i32</span>, <span class="ident">end_index</span>: <span class="ident">i32</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ranges</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">n_ranges</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
@@ -407,7 +523,7 @@
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
                 <span class="ident">start_index</span>,
                 <span class="ident">end_index</span>,
-                <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ranges</span>,
+                <span class="kw-2">&amp;mut</span> <span class="ident">ranges</span>,
                 <span class="ident">n_ranges</span>.<span class="ident">as_mut_ptr</span>(),
             );
             <span class="ident">FromGlibContainer::from_glib_full_num</span>(<span class="ident">ranges</span>, <span class="ident">n_ranges</span>.<span class="ident">assume_init</span>() <span class="kw">as</span> <span class="ident">usize</span>)
@@ -419,16 +535,16 @@
     <span class="doccomment">/// byte offset of a grapheme within the layout</span>
     <span class="doccomment">/// ## `trailing`</span>
     <span class="doccomment">/// an integer indicating the edge of the grapheme to retrieve</span>
-    <span class="doccomment">///  the position of. If &gt; 0, the trailing edge of the grapheme,</span>
-    <span class="doccomment">///  if 0, the leading of the grapheme.</span>
+    <span class="doccomment">///   the position of. If &gt; 0, the trailing edge of the grapheme,</span>
+    <span class="doccomment">///   if 0, the leading of the grapheme</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `x_pos`</span>
-    <span class="doccomment">/// location to store the x_offset (in Pango unit)</span>
+    <span class="doccomment">/// location to store the x_offset (in Pango units)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_index_to_x&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">index_to_x</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">index_</span>: <span class="ident">i32</span>, <span class="ident">trailing</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">index_to_x</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">index_</span>: <span class="ident">i32</span>, <span class="ident">trailing</span>: <span class="ident">bool</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x_pos</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
             <span class="ident">ffi::pango_layout_line_index_to_x</span>(
@@ -441,6 +557,23 @@
             <span class="ident">x_pos</span>
         }
     }
+
+    <span class="doccomment">/// Returns whether this is the first line of the paragraph.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// [`true`] if this is the first line</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_50&quot;</span>)))]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_is_paragraph_start&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_paragraph_start</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
+        <span class="kw">unsafe</span> {
+            <span class="ident">from_glib</span>(<span class="ident">ffi::pango_layout_line_is_paragraph_start</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            ))
+        }
+    }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>

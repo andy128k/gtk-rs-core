@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/types.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>types.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/types.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>types.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -73,7 +72,9 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
+                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -593,97 +594,200 @@
 <span id="518">518</span>
 <span id="519">519</span>
 <span id="520">520</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+<span id="521">521</span>
+<span id="522">522</span>
+<span id="523">523</span>
+<span id="524">524</span>
+<span id="525">525</span>
+<span id="526">526</span>
+<span id="527">527</span>
+<span id="528">528</span>
+<span id="529">529</span>
+<span id="530">530</span>
+<span id="531">531</span>
+<span id="532">532</span>
+<span id="533">533</span>
+<span id="534">534</span>
+<span id="535">535</span>
+<span id="536">536</span>
+<span id="537">537</span>
+<span id="538">538</span>
+<span id="539">539</span>
+<span id="540">540</span>
+<span id="541">541</span>
+<span id="542">542</span>
+<span id="543">543</span>
+<span id="544">544</span>
+<span id="545">545</span>
+<span id="546">546</span>
+<span id="547">547</span>
+<span id="548">548</span>
+<span id="549">549</span>
+<span id="550">550</span>
+<span id="551">551</span>
+<span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
+<span id="555">555</span>
+<span id="556">556</span>
+<span id="557">557</span>
+<span id="558">558</span>
+<span id="559">559</span>
+<span id="560">560</span>
+<span id="561">561</span>
+<span id="562">562</span>
+<span id="563">563</span>
+<span id="564">564</span>
+<span id="565">565</span>
+<span id="566">566</span>
+<span id="567">567</span>
+<span id="568">568</span>
+<span id="569">569</span>
+<span id="570">570</span>
+<span id="571">571</span>
+<span id="572">572</span>
+<span id="573">573</span>
+<span id="574">574</span>
+<span id="575">575</span>
+<span id="576">576</span>
+<span id="577">577</span>
+<span id="578">578</span>
+<span id="579">579</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">//! Runtime type information.</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::translate</span>::{
-    <span class="ident">from_glib</span>, <span class="ident">FromGlib</span>, <span class="ident">FromGlibContainerAsVec</span>, <span class="ident">IntoGlib</span>, <span class="ident">ToGlibContainerFromSlice</span>, <span class="ident">ToGlibPtr</span>,
-    <span class="ident">ToGlibPtrMut</span>,
-};
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::translate</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Slice</span>;
 
 <span class="kw">use</span> <span class="ident">std::fmt</span>;
 <span class="kw">use</span> <span class="ident">std::mem</span>;
 <span class="kw">use</span> <span class="ident">std::ptr</span>;
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// A GLib or GLib-based library type</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GType&quot;</span>)]</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">transparent</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Type</span>(<span class="ident">ffi::GType</span>);
 
 <span class="kw">impl</span> <span class="ident">Type</span> {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// An invalid `Type` used as error return value in some functions</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_INVALID&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INVALID</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_INVALID</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to the unit type `()`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_NONE&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">UNIT</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_NONE</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `i8`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_CHAR&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">I8</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_CHAR</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `u8`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_UCHAR&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">U8</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_UCHAR</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `bool`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_BOOLEAN&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BOOL</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_BOOLEAN</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `i32`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_INT&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">I32</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_INT</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `u32`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_UINT&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">U32</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_UINT</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to C `long`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_LONG&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">I_LONG</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_LONG</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to C `unsigned long`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_ULONG&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">U_LONG</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_ULONG</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `i64`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_INT64&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">I64</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_INT64</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `u64`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_UINT64&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">U64</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_UINT64</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `f32`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_FLOAT&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">F32</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_FLOAT</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `f64`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_DOUBLE&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">F64</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_DOUBLE</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to `String`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_STRING&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">STRING</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_STRING</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type corresponding to a pointer</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_POINTER&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POINTER</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_POINTER</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type of GVariant</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_VARIANT&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">VARIANT</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_VARIANT</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type from which all interfaces are derived</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_INTERFACE&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INTERFACE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_INTERFACE</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type from which all enumeration types are derived</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_ENUM&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENUM</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_ENUM</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type from which all flags types are derived</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_FLAGS&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FLAGS</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_FLAGS</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type from which all boxed types are derived</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_BOXED&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BOXED</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_BOXED</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type from which all `GParamSpec` types are derived</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_PARAM&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PARAM_SPEC</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_PARAM</span>);
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// The fundamental type from which all objects are derived</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_TYPE_OBJECT&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OBJECT</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>(<span class="ident">gobject_ffi::G_TYPE_OBJECT</span>);
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_type_name&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">name</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">name</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">into_glib</span>() {
-            <span class="ident">gobject_ffi::G_TYPE_INVALID</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;&lt;invalid&gt;&quot;</span>,
-            <span class="ident">x</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">unsafe</span> {
+            <span class="ident">gobject_ffi::G_TYPE_INVALID</span> =&gt; <span class="string">&quot;&lt;invalid&gt;&quot;</span>,
+            <span class="ident">x</span> =&gt; <span class="kw">unsafe</span> {
                 <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_type_name</span>(<span class="ident">x</span>);
                 <span class="ident">std::ffi::CStr::from_ptr</span>(<span class="ident">ptr</span>).<span class="ident">to_str</span>().<span class="ident">unwrap</span>()
             },
@@ -691,15 +795,15 @@
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_type_qname&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">qname</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">crate</span><span class="ident">::Quark</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">qname</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="kw">crate</span>::Quark</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">into_glib</span>() {
-            <span class="ident">gobject_ffi::G_TYPE_INVALID</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">crate</span><span class="ident">::Quark::from_string</span>(<span class="string">&quot;&lt;invalid&gt;&quot;</span>),
-            <span class="ident">x</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_type_qname</span>(<span class="ident">x</span>)) },
+            <span class="ident">gobject_ffi::G_TYPE_INVALID</span> =&gt; <span class="ident"><span class="kw">crate</span>::Quark::from_str</span>(<span class="string">&quot;&lt;invalid&gt;&quot;</span>),
+            <span class="ident">x</span> =&gt; <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_type_qname</span>(<span class="ident">x</span>)) },
         }
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_type_is_a&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_a</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_a</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_type_is_a</span>(
                 <span class="self">self</span>.<span class="ident">into_glib</span>(),
@@ -709,7 +813,7 @@
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_type_parent&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parent</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parent</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">parent</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_type_parent</span>(<span class="self">self</span>.<span class="ident">into_glib</span>()));
             <span class="prelude-val">Some</span>(<span class="ident">parent</span>).<span class="ident">filter</span>(<span class="op">|</span><span class="ident">t</span><span class="op">|</span> <span class="ident">t</span>.<span class="ident">is_valid</span>())
@@ -717,125 +821,131 @@
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_type_children&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">children</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">children</span>(<span class="self">self</span>) -&gt; <span class="ident">Slice</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">n_children</span> <span class="op">=</span> <span class="number">0u32</span>;
-            <span class="kw">let</span> <span class="ident">children</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_type_children</span>(<span class="self">self</span>.<span class="ident">into_glib</span>(), <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">n_children</span>);
+            <span class="kw">let</span> <span class="ident">children</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_type_children</span>(<span class="self">self</span>.<span class="ident">into_glib</span>(), <span class="kw-2">&amp;mut</span> <span class="ident">n_children</span>);
 
-            <span class="ident">FromGlibContainerAsVec::from_glib_full_num_as_vec</span>(<span class="ident">children</span>, <span class="ident">n_children</span> <span class="kw">as</span> <span class="ident">usize</span>)
+            <span class="ident">Slice::from_glib_full_num_copy</span>(<span class="ident">children</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="self">Self</span>, <span class="ident">n_children</span> <span class="kw">as</span> <span class="ident">usize</span>)
         }
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_type_interfaces&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interfaces</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interfaces</span>(<span class="self">self</span>) -&gt; <span class="ident">Slice</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">n_interfaces</span> <span class="op">=</span> <span class="number">0u32</span>;
-            <span class="kw">let</span> <span class="ident">interfaces</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_type_interfaces</span>(<span class="self">self</span>.<span class="ident">into_glib</span>(), <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">n_interfaces</span>);
+            <span class="kw">let</span> <span class="ident">interfaces</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_type_interfaces</span>(<span class="self">self</span>.<span class="ident">into_glib</span>(), <span class="kw-2">&amp;mut</span> <span class="ident">n_interfaces</span>);
 
-            <span class="ident">FromGlibContainerAsVec::from_glib_full_num_as_vec</span>(<span class="ident">interfaces</span>, <span class="ident">n_interfaces</span> <span class="kw">as</span> <span class="ident">usize</span>)
+            <span class="ident">Slice::from_glib_full_num_copy</span>(<span class="ident">interfaces</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="self">Self</span>, <span class="ident">n_interfaces</span> <span class="kw">as</span> <span class="ident">usize</span>)
         }
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_type_interface_prerequisites&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interface_prerequisites</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">t</span> <span class="kw">if</span> <span class="op">!</span><span class="ident">t</span>.<span class="ident">is_a</span>(<span class="self">Self</span><span class="ident">::INTERFACE</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">vec!</span>[],
-            <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">unsafe</span> {
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">n_prereqs</span> <span class="op">=</span> <span class="number">0u32</span>;
-                <span class="kw">let</span> <span class="ident">prereqs</span> <span class="op">=</span>
-                    <span class="ident">gobject_ffi::g_type_interface_prerequisites</span>(<span class="self">self</span>.<span class="ident">into_glib</span>(), <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">n_prereqs</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">interface_prerequisites</span>(<span class="self">self</span>) -&gt; <span class="ident">Slice</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+        <span class="kw">unsafe</span> {
+            <span class="kw">match</span> <span class="self">self</span> {
+                <span class="ident">t</span> <span class="kw">if</span> <span class="op">!</span><span class="ident">t</span>.<span class="ident">is_a</span>(<span class="ident"><span class="self">Self</span>::INTERFACE</span>) =&gt; <span class="ident">Slice::from_glib_full_num_copy</span>(<span class="ident">ptr::null_mut</span>(), <span class="number">0</span>),
+                <span class="kw">_</span> =&gt; {
+                    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">n_prereqs</span> <span class="op">=</span> <span class="number">0u32</span>;
+                    <span class="kw">let</span> <span class="ident">prereqs</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_type_interface_prerequisites</span>(
+                        <span class="self">self</span>.<span class="ident">into_glib</span>(),
+                        <span class="kw-2">&amp;mut</span> <span class="ident">n_prereqs</span>,
+                    );
 
-                <span class="ident">FromGlibContainerAsVec::from_glib_full_num_as_vec</span>(<span class="ident">prereqs</span>, <span class="ident">n_prereqs</span> <span class="kw">as</span> <span class="ident">usize</span>)
-            },
+                    <span class="ident">Slice::from_glib_full_num_copy</span>(<span class="ident">prereqs</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="self">Self</span>, <span class="ident">n_prereqs</span> <span class="kw">as</span> <span class="ident">usize</span>)
+                }
+            }
         }
     }
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_type_from_name&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_name</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">P</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">name</span>: <span class="ident">P</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_name</span>(<span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_</span>: <span class="self">Self</span> <span class="op">=</span>
-                <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_type_from_name</span>(<span class="ident">name</span>.<span class="ident">into</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>));
+            <span class="kw">let</span> <span class="ident">type_</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_type_from_name</span>(<span class="ident">name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>));
             <span class="prelude-val">Some</span>(<span class="ident">type_</span>).<span class="ident">filter</span>(<span class="op">|</span><span class="ident">t</span><span class="op">|</span> <span class="ident">t</span>.<span class="ident">is_valid</span>())
         }
     }
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Checks that the type is not [`INVALID`](Self::INVALID)</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_valid</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="self">self</span> <span class="op">!</span><span class="op">=</span> <span class="self">Self</span><span class="ident">::INVALID</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_valid</span>(<span class="self">self</span>) -&gt; <span class="ident">bool</span> {
+        <span class="self">self</span> <span class="op">!</span><span class="op">=</span> <span class="ident"><span class="self">Self</span>::INVALID</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">Type</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">name</span>())
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
+        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="self">self</span>.<span class="ident">name</span>())
     }
 }
 
 <span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Type</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">name</span>())
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
+        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="self">self</span>.<span class="ident">name</span>())
     }
 }
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Types that are supported by GLib dynamic typing.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">StaticType</span> {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Returns the type identifier of `Self`.</span>
-    <span class="kw">fn</span> <span class="ident">static_type</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Type</span>;
+    <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">Type</span>;
 }
 
 <span class="kw">impl</span> <span class="ident">StaticType</span> <span class="kw">for</span> <span class="ident">Type</span> {
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_gtype_get_type&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">static_type</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Type</span> {
+    <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">Type</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_gtype_get_type</span>()) }
     }
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="kw">crate</span><span class="ident">::value::ValueType</span> <span class="kw">for</span> <span class="ident">Type</span> {
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::value::ValueType</span> <span class="kw">for</span> <span class="ident">Type</span> {
     <span class="kw">type</span> <span class="ident">Type</span> <span class="op">=</span> <span class="ident">Type</span>;
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="kw">crate</span><span class="ident">::value::FromValue</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
-    <span class="kw">type</span> <span class="ident">Checker</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::value::GenericValueTypeChecker</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>;
+<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident"><span class="kw">crate</span>::value::FromValue</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
+    <span class="kw">type</span> <span class="ident">Checker</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::value::GenericValueTypeChecker</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>;
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_value</span>(<span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw">crate</span><span class="ident">::Value</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_value</span>(<span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident"><span class="kw">crate</span>::Value</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_value_get_gtype</span>(<span class="ident">value</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>))
     }
 }
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="kw">crate</span><span class="ident">::value::ToValue</span> <span class="kw">for</span> <span class="ident">Type</span> {
-    <span class="kw">fn</span> <span class="ident">to_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">crate</span><span class="ident">::Value</span> {
+<span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::value::ToValue</span> <span class="kw">for</span> <span class="ident">Type</span> {
+    <span class="kw">fn</span> <span class="ident">to_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="kw">crate</span>::Value</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::Value::from_type</span>(<span class="ident">Type::static_type</span>());
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Value::from_type</span>(<span class="ident">Type::static_type</span>());
             <span class="ident">gobject_ffi::g_value_set_gtype</span>(<span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>, <span class="self">self</span>.<span class="ident">into_glib</span>());
             <span class="ident">value</span>
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">crate</span><span class="ident">::Type</span> {
+    <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="kw">crate</span>::Type</span> {
         <span class="ident">Type::static_type</span>()
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="question-mark">?</span><span class="ident">Sized</span> <span class="op">+</span> <span class="ident">StaticType</span><span class="op">&gt;</span> <span class="ident">StaticType</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">T</span> {
-    <span class="kw">fn</span> <span class="ident">static_type</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Type</span> {
+    <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">Type</span> {
         <span class="ident">T::static_type</span>()
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="question-mark">?</span><span class="ident">Sized</span> <span class="op">+</span> <span class="ident">StaticType</span><span class="op">&gt;</span> <span class="ident">StaticType</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">T</span> {
-    <span class="kw">fn</span> <span class="ident">static_type</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Type</span> {
+    <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">Type</span> {
         <span class="ident">T::static_type</span>()
     }
 }
 
 <span class="macro">macro_rules!</span> <span class="ident">builtin</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>:<span class="ident">ident</span>) <span class="op">=</span><span class="op">&gt;</span> {
+    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>:<span class="ident">ident</span>) =&gt; {
         <span class="kw">impl</span> <span class="ident">StaticType</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> {
-            <span class="kw">fn</span> <span class="ident">static_type</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Type</span> {
+            <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">Type</span> {
                 <span class="ident">Type</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>
             }
         }
@@ -848,49 +958,49 @@
 <span class="kw">impl</span> <span class="ident">std::ops::Deref</span> <span class="kw">for</span> <span class="ident">ILong</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">libc::c_long</span>;
 
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Target</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Target</span> {
         <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">std::ops::DerefMut</span> <span class="kw">for</span> <span class="ident">ILong</span> {
-    <span class="kw">fn</span> <span class="ident">deref_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span><span class="ident">::Target</span> {
-        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="number">0</span>
+    <span class="kw">fn</span> <span class="ident">deref_mut</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;mut</span> <span class="ident"><span class="self">Self</span>::Target</span> {
+        <span class="kw-2">&amp;mut</span> <span class="self">self</span>.<span class="number">0</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">libc::c_long</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ILong</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">v</span>: <span class="ident">libc::c_long</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ILong</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">v</span>: <span class="ident">libc::c_long</span>) -&gt; <span class="ident">ILong</span> {
         <span class="ident">ILong</span>(<span class="ident">v</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">ILong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">libc::c_long</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">v</span>: <span class="ident">ILong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">libc::c_long</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">v</span>: <span class="ident">ILong</span>) -&gt; <span class="ident">libc::c_long</span> {
         <span class="ident">v</span>.<span class="number">0</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PartialEq</span><span class="op">&lt;</span><span class="ident">libc::c_long</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ILong</span> {
-    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">libc::c_long</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="ident">other</span>
+    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">libc::c_long</span>) -&gt; <span class="ident">bool</span> {
+        <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span> <span class="op">==</span> <span class="ident">other</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PartialEq</span><span class="op">&lt;</span><span class="ident">ILong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">libc::c_long</span> {
-    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">ILong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="self">self</span> <span class="op">=</span><span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">other</span>.<span class="number">0</span>
+    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">ILong</span>) -&gt; <span class="ident">bool</span> {
+        <span class="self">self</span> <span class="op">==</span> <span class="kw-2">&amp;</span><span class="ident">other</span>.<span class="number">0</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PartialOrd</span><span class="op">&lt;</span><span class="ident">libc::c_long</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ILong</span> {
-    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">libc::c_long</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::cmp::Ordering</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">libc::c_long</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::cmp::Ordering</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">partial_cmp</span>(<span class="ident">other</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PartialOrd</span><span class="op">&lt;</span><span class="ident">ILong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">libc::c_long</span> {
-    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">ILong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::cmp::Ordering</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">ILong</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::cmp::Ordering</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="ident">other</span>.<span class="number">0</span>)
     }
 }
@@ -901,49 +1011,49 @@
 <span class="kw">impl</span> <span class="ident">std::ops::Deref</span> <span class="kw">for</span> <span class="ident">ULong</span> {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">libc::c_ulong</span>;
 
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Target</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Target</span> {
         <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">std::ops::DerefMut</span> <span class="kw">for</span> <span class="ident">ULong</span> {
-    <span class="kw">fn</span> <span class="ident">deref_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span><span class="ident">::Target</span> {
-        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="number">0</span>
+    <span class="kw">fn</span> <span class="ident">deref_mut</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="kw-2">&amp;mut</span> <span class="ident"><span class="self">Self</span>::Target</span> {
+        <span class="kw-2">&amp;mut</span> <span class="self">self</span>.<span class="number">0</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">libc::c_ulong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ULong</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">v</span>: <span class="ident">libc::c_ulong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ULong</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">v</span>: <span class="ident">libc::c_ulong</span>) -&gt; <span class="ident">ULong</span> {
         <span class="ident">ULong</span>(<span class="ident">v</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">ULong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">libc::c_ulong</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">v</span>: <span class="ident">ULong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">libc::c_ulong</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">v</span>: <span class="ident">ULong</span>) -&gt; <span class="ident">libc::c_ulong</span> {
         <span class="ident">v</span>.<span class="number">0</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PartialEq</span><span class="op">&lt;</span><span class="ident">libc::c_ulong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ULong</span> {
-    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">libc::c_ulong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="ident">other</span>
+    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">libc::c_ulong</span>) -&gt; <span class="ident">bool</span> {
+        <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span> <span class="op">==</span> <span class="ident">other</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PartialEq</span><span class="op">&lt;</span><span class="ident">ULong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">libc::c_ulong</span> {
-    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">ULong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="self">self</span> <span class="op">=</span><span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">other</span>.<span class="number">0</span>
+    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">ULong</span>) -&gt; <span class="ident">bool</span> {
+        <span class="self">self</span> <span class="op">==</span> <span class="kw-2">&amp;</span><span class="ident">other</span>.<span class="number">0</span>
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PartialOrd</span><span class="op">&lt;</span><span class="ident">libc::c_ulong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ULong</span> {
-    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">libc::c_ulong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::cmp::Ordering</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">libc::c_ulong</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::cmp::Ordering</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">partial_cmp</span>(<span class="ident">other</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">PartialOrd</span><span class="op">&lt;</span><span class="ident">ULong</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">libc::c_ulong</span> {
-    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">ULong</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::cmp::Ordering</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">ULong</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::cmp::Ordering</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="ident">other</span>.<span class="number">0</span>)
     }
 }
@@ -963,34 +1073,34 @@
 <span class="macro">builtin!</span>(<span class="ident">String</span>, <span class="ident">STRING</span>);
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">StaticType</span> <span class="kw">for</span> [<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>] {
-    <span class="kw">fn</span> <span class="ident">static_type</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Type</span> {
+    <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">Type</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::g_strv_get_type</span>()) }
     }
 }
 
 <span class="kw">impl</span> <span class="ident">StaticType</span> <span class="kw">for</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">static_type</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Type</span> {
+    <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">Type</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::g_strv_get_type</span>()) }
     }
 }
 
 <span class="kw">impl</span> <span class="ident">StaticType</span> <span class="kw">for</span> () {
-    <span class="kw">fn</span> <span class="ident">static_type</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Type</span> {
+    <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">Type</span> {
         <span class="ident">Type::UNIT</span>
     }
 }
 
 <span class="attribute">#[<span class="ident">inline</span>]</span>
-<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">instance_of</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">StaticType</span><span class="op">&gt;</span>(<span class="ident">ptr</span>: <span class="ident">ffi::gconstpointer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">instance_of</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">StaticType</span><span class="op">&gt;</span>(<span class="ident">ptr</span>: <span class="ident">ffi::gconstpointer</span>) -&gt; <span class="ident">bool</span> {
     <span class="ident">from_glib</span>(<span class="ident">gobject_ffi::g_type_check_instance_is_a</span>(
-        <span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
+        <span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
         <span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>().<span class="ident">into_glib</span>(),
     ))
 }
 
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GType</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">val</span>: <span class="ident">ffi::GType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">val</span>: <span class="ident">ffi::GType</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span>(<span class="ident">val</span>)
     }
 }
@@ -999,32 +1109,32 @@
     <span class="kw">type</span> <span class="ident">GlibType</span> <span class="op">=</span> <span class="ident">ffi::GType</span>;
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">into_glib</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ffi::GType</span> {
+    <span class="kw">fn</span> <span class="ident">into_glib</span>(<span class="self">self</span>) -&gt; <span class="ident">ffi::GType</span> {
         <span class="self">self</span>.<span class="number">0</span>
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ToGlibContainerFromSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ToGlibContainerFromSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">ffi::GType</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
     <span class="kw">type</span> <span class="ident">Storage</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ffi::GType</span><span class="op">&gt;</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">to_glib_none_from_slice</span>(<span class="ident">t</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Type</span>]) <span class="op">-</span><span class="op">&gt;</span> (<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span>, <span class="self">Self</span><span class="ident">::Storage</span>) {
+    <span class="kw">fn</span> <span class="ident">to_glib_none_from_slice</span>(<span class="ident">t</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Type</span>]) -&gt; (<span class="kw-2">*mut</span> <span class="ident">ffi::GType</span>, <span class="ident"><span class="self">Self</span>::Storage</span>) {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">vec</span> <span class="op">=</span> <span class="ident">t</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">t</span><span class="op">|</span> <span class="ident">t</span>.<span class="ident">into_glib</span>()).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>();
 
         (<span class="ident">vec</span>.<span class="ident">as_mut_ptr</span>(), <span class="prelude-val">Some</span>(<span class="ident">vec</span>))
     }
 
-    <span class="kw">fn</span> <span class="ident">to_glib_container_from_slice</span>(<span class="ident">t</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Type</span>]) <span class="op">-</span><span class="op">&gt;</span> (<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span>, <span class="self">Self</span><span class="ident">::Storage</span>) {
-        (<span class="self">Self</span><span class="ident">::to_glib_full_from_slice</span>(<span class="ident">t</span>), <span class="prelude-val">None</span>)
+    <span class="kw">fn</span> <span class="ident">to_glib_container_from_slice</span>(<span class="ident">t</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Type</span>]) -&gt; (<span class="kw-2">*mut</span> <span class="ident">ffi::GType</span>, <span class="ident"><span class="self">Self</span>::Storage</span>) {
+        (<span class="ident"><span class="self">Self</span>::to_glib_full_from_slice</span>(<span class="ident">t</span>), <span class="prelude-val">None</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">to_glib_full_from_slice</span>(<span class="ident">t</span>: <span class="kw-2">&amp;</span>[<span class="ident">Type</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span> {
+    <span class="kw">fn</span> <span class="ident">to_glib_full_from_slice</span>(<span class="ident">t</span>: <span class="kw-2">&amp;</span>[<span class="ident">Type</span>]) -&gt; <span class="kw-2">*mut</span> <span class="ident">ffi::GType</span> {
         <span class="kw">if</span> <span class="ident">t</span>.<span class="ident">is_empty</span>() {
             <span class="kw">return</span> <span class="ident">ptr::null_mut</span>();
         }
 
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span>
-                <span class="ident">ffi::g_malloc0</span>(<span class="ident">mem::size_of</span>::<span class="op">&lt;</span><span class="ident">ffi::GType</span><span class="op">&gt;</span>() <span class="op">*</span> (<span class="ident">t</span>.<span class="ident">len</span>() <span class="op">+</span> <span class="number">1</span>)) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span>;
+                <span class="ident">ffi::g_malloc0</span>(<span class="ident">mem::size_of</span>::<span class="op">&lt;</span><span class="ident">ffi::GType</span><span class="op">&gt;</span>() <span class="op">*</span> (<span class="ident">t</span>.<span class="ident">len</span>() <span class="op">+</span> <span class="number">1</span>)) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ffi::GType</span>;
             <span class="kw">for</span> (<span class="ident">i</span>, <span class="ident">v</span>) <span class="kw">in</span> <span class="ident">t</span>.<span class="ident">iter</span>().<span class="ident">enumerate</span>() {
                 <span class="kw-2">*</span><span class="ident">res</span>.<span class="ident">add</span>(<span class="ident">i</span>) <span class="op">=</span> <span class="ident">v</span>.<span class="ident">into_glib</span>();
             }
@@ -1033,9 +1143,9 @@
     }
 }
 
-<span class="kw">impl</span> <span class="ident">FromGlibContainerAsVec</span><span class="op">&lt;</span><span class="ident">Type</span>, <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GType</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none_num_as_vec</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GType</span>, <span class="ident">num</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">num</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ptr</span>.<span class="ident">is_null</span>() {
+<span class="kw">impl</span> <span class="ident">FromGlibContainerAsVec</span><span class="op">&lt;</span><span class="ident">Type</span>, <span class="kw-2">*const</span> <span class="ident">ffi::GType</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none_num_as_vec</span>(<span class="ident">ptr</span>: <span class="kw-2">*const</span> <span class="ident">ffi::GType</span>, <span class="ident">num</span>: <span class="ident">usize</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+        <span class="kw">if</span> <span class="ident">num</span> <span class="op">==</span> <span class="number">0</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ptr</span>.<span class="ident">is_null</span>() {
             <span class="kw">return</span> <span class="ident">Vec::new</span>();
         }
 
@@ -1046,29 +1156,29 @@
         <span class="ident">res</span>
     }
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_container_num_as_vec</span>(<span class="kw">_</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GType</span>, <span class="kw">_</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_container_num_as_vec</span>(<span class="kw">_</span>: <span class="kw-2">*const</span> <span class="ident">ffi::GType</span>, <span class="kw">_</span>: <span class="ident">usize</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="comment">// Can&#39;t really free a *const</span>
         <span class="macro">unimplemented!</span>();
     }
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full_num_as_vec</span>(<span class="kw">_</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GType</span>, <span class="kw">_</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full_num_as_vec</span>(<span class="kw">_</span>: <span class="kw-2">*const</span> <span class="ident">ffi::GType</span>, <span class="kw">_</span>: <span class="ident">usize</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="comment">// Can&#39;t really free a *const</span>
         <span class="macro">unimplemented!</span>();
     }
 }
 
-<span class="kw">impl</span> <span class="ident">FromGlibContainerAsVec</span><span class="op">&lt;</span><span class="ident">Type</span>, <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none_num_as_vec</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span>, <span class="ident">num</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="ident">FromGlibContainerAsVec::from_glib_none_num_as_vec</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>, <span class="ident">num</span>)
+<span class="kw">impl</span> <span class="ident">FromGlibContainerAsVec</span><span class="op">&lt;</span><span class="ident">Type</span>, <span class="kw-2">*mut</span> <span class="ident">ffi::GType</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Type</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none_num_as_vec</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GType</span>, <span class="ident">num</span>: <span class="ident">usize</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+        <span class="ident">FromGlibContainerAsVec::from_glib_none_num_as_vec</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>, <span class="ident">num</span>)
     }
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_container_num_as_vec</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span>, <span class="ident">num</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_container_num_as_vec</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GType</span>, <span class="ident">num</span>: <span class="ident">usize</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">FromGlibContainerAsVec::from_glib_none_num_as_vec</span>(<span class="ident">ptr</span>, <span class="ident">num</span>);
-        <span class="ident">ffi::g_free</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+        <span class="ident">ffi::g_free</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
         <span class="ident">res</span>
     }
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full_num_as_vec</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GType</span>, <span class="ident">num</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full_num_as_vec</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GType</span>, <span class="ident">num</span>: <span class="ident">usize</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="ident">FromGlibContainerAsVec::from_glib_container_num_as_vec</span>(<span class="ident">ptr</span>, <span class="ident">num</span>)
     }
 }
@@ -1076,7 +1186,7 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span><span class="ident">::InitiallyUnowned</span>;
+    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::InitiallyUnowned</span>;
     <span class="kw">use</span> <span class="ident">std::collections</span>::{<span class="ident">BTreeSet</span>, <span class="ident">HashSet</span>};
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
@@ -1084,13 +1194,13 @@
         <span class="kw">let</span> <span class="ident">invalid</span> <span class="op">=</span> <span class="ident">Type::INVALID</span>;
 
         <span class="macro">assert_eq!</span>(<span class="ident">invalid</span>.<span class="ident">name</span>(), <span class="string">&quot;&lt;invalid&gt;&quot;</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">invalid</span>.<span class="ident">qname</span>(), <span class="kw">crate</span><span class="ident">::Quark::from_string</span>(<span class="string">&quot;&lt;invalid&gt;&quot;</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">invalid</span>.<span class="ident">qname</span>(), <span class="ident"><span class="kw">crate</span>::Quark::from_str</span>(<span class="string">&quot;&lt;invalid&gt;&quot;</span>));
         <span class="macro">assert!</span>(<span class="ident">invalid</span>.<span class="ident">is_a</span>(<span class="ident">Type::INVALID</span>));
         <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">invalid</span>.<span class="ident">is_a</span>(<span class="ident">Type::STRING</span>));
         <span class="macro">assert_eq!</span>(<span class="ident">invalid</span>.<span class="ident">parent</span>(), <span class="prelude-val">None</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">invalid</span>.<span class="ident">children</span>(), <span class="macro">vec!</span>[]);
-        <span class="macro">assert_eq!</span>(<span class="ident">invalid</span>.<span class="ident">interfaces</span>(), <span class="macro">vec!</span>[]);
-        <span class="macro">assert_eq!</span>(<span class="ident">invalid</span>.<span class="ident">interface_prerequisites</span>(), <span class="macro">vec!</span>[]);
+        <span class="macro">assert!</span>(<span class="ident">invalid</span>.<span class="ident">children</span>().<span class="ident">is_empty</span>());
+        <span class="macro">assert!</span>(<span class="ident">invalid</span>.<span class="ident">interfaces</span>().<span class="ident">is_empty</span>());
+        <span class="macro">assert!</span>(<span class="ident">invalid</span>.<span class="ident">interface_prerequisites</span>().<span class="ident">is_empty</span>());
         <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">invalid</span>.<span class="ident">is_valid</span>());
         <span class="macro">dbg!</span>(<span class="kw-2">&amp;</span><span class="ident">invalid</span>);
     }
@@ -1100,7 +1210,11 @@
         <span class="comment">// Get this first so the type is registered</span>
         <span class="kw">let</span> <span class="ident">iu_type</span> <span class="op">=</span> <span class="ident">InitiallyUnowned::static_type</span>();
 
-        <span class="kw">let</span> <span class="ident">set</span> <span class="op">=</span> <span class="ident">Type::OBJECT</span>.<span class="ident">children</span>().<span class="ident">into_iter</span>().<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">HashSet</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>();
+        <span class="kw">let</span> <span class="ident">set</span> <span class="op">=</span> <span class="ident">Type::OBJECT</span>
+            .<span class="ident">children</span>()
+            .<span class="ident">iter</span>()
+            .<span class="ident">copied</span>()
+            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">HashSet</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>();
         <span class="macro">assert!</span>(<span class="ident">set</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">iu_type</span>));
     }
 
@@ -1110,9 +1224,14 @@
         <span class="kw">let</span> <span class="ident">iu_type</span> <span class="op">=</span> <span class="ident">InitiallyUnowned::static_type</span>();
         <span class="macro">assert!</span>(<span class="ident">Type::OBJECT</span> <span class="op">&lt;</span> <span class="ident">iu_type</span>);
 
-        <span class="kw">let</span> <span class="ident">set</span> <span class="op">=</span> <span class="ident">Type::OBJECT</span>.<span class="ident">children</span>().<span class="ident">into_iter</span>().<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">BTreeSet</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>();
+        <span class="kw">let</span> <span class="ident">set</span> <span class="op">=</span> <span class="ident">Type::OBJECT</span>
+            .<span class="ident">children</span>()
+            .<span class="ident">iter</span>()
+            .<span class="ident">copied</span>()
+            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">BTreeSet</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>();
         <span class="macro">assert!</span>(<span class="ident">set</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">iu_type</span>));
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (ee5d8d37b 2022-01-17)" ></div>
+</body></html>
