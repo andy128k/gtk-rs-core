@@ -76,9 +76,8 @@
         </a><h2 class="location"></h2>
     </nav>
     <nav class="sidebar"><a class="sidebar-logo" href="../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
-        </a><div class="sidebar-elems"><h2 class="location">In <a href="index.html">glib</a></h2><div id="sidebar-vars" data-name="wrapper" data-ty="macro" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../glib/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div>
-                                <input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
-    <h1 class="fqn"><span class="in-band">Macro <a href="index.html">glib</a>::<wbr><a class="macro" href="#">wrapper</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/glib/wrapper.rs.html#277-445" title="goto source code">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><div class="example-wrap"><pre class="rust macro"><code><span class="macro">macro_rules!</span> <span class="ident">wrapper</span> {
+        </a><div class="sidebar-elems"><h2 class="location"><a href="index.html">In glib</a></h2><div id="sidebar-vars" data-name="wrapper" data-ty="macro" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../glib/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
+    <h1 class="fqn"><span class="in-band">Macro <a href="index.html">glib</a>::<wbr><a class="macro" href="#">wrapper</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/glib/wrapper.rs.html#277-445">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><div class="example-wrap"><pre class="rust macro"><code><span class="macro">macro_rules!</span> <span class="ident">wrapper</span> {
     (
         $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">attr</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
         <span class="macro-nonterminal">$</span><span class="macro-nonterminal">visibility</span>:<span class="ident">vis</span> <span class="kw">struct</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> $(<span class="op">&lt;</span>$(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">generic</span>:<span class="ident">ident</span> $(: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>:<span class="ident">tt</span> $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound2</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>)<span class="question-mark">?</span>),<span class="op">+</span><span class="op">&gt;</span>)<span class="question-mark">?</span> (<span class="ident">Boxed</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ffi_name</span>:<span class="ident">ty</span><span class="op">&gt;</span>);
@@ -189,7 +188,7 @@ note that each supports different sets of <code>$fn_name</code> inside the
 <code>match fn</code> block.  Also, <code>Object</code> may require you to specify
 things like the class struct to wrap, plus any interfaces that the
 class implements.</p>
-<h4 id="boxed-heap-allocated" class="section-header"><a href="#boxed-heap-allocated">Boxed (heap allocated)</a></h4>
+<h4 id="boxed-heap-allocated"><a href="#boxed-heap-allocated">Boxed (heap allocated)</a></h4>
 <p>Boxed records with single ownership allocated on the heap.</p>
 <p>With no registered <code>glib_ffi::GType</code>:</p>
 
@@ -218,7 +217,7 @@ class implements.</p>
 }</code></pre></div>
 <p><code>type_</code>: <code>|| -&gt; glib_ffi::GType</code> (optional) returns the
 <code>glib_ffi::GType</code> that corresponds to the foreign struct.</p>
-<h4 id="boxedinline-inline-stack-allocated" class="section-header"><a href="#boxedinline-inline-stack-allocated">BoxedInline (inline, stack allocated)</a></h4>
+<h4 id="boxedinline-inline-stack-allocated"><a href="#boxedinline-inline-stack-allocated">BoxedInline (inline, stack allocated)</a></h4>
 <p>Boxed records with single ownership allocated on the stack or otherwise inline.
 With no registered <code>glib_ffi::GType</code>:</p>
 
@@ -247,7 +246,7 @@ With no registered <code>glib_ffi::GType</code>:</p>
 }</code></pre></div>
 <p><code>type_</code>: <code>|| -&gt; glib_ffi::GType</code> (optional) returns the
 <code>glib_ffi::GType</code> that corresponds to the foreign struct.</p>
-<h4 id="shared" class="section-header"><a href="#shared">Shared</a></h4>
+<h4 id="shared"><a href="#shared">Shared</a></h4>
 <p>Records with reference-counted, shared ownership.</p>
 <p>With no registered <code>glib_ffi::GType</code>:</p>
 
@@ -276,7 +275,7 @@ With no registered <code>glib_ffi::GType</code>:</p>
 }</code></pre></div>
 <p><code>type_</code>: <code>|| -&gt; glib_ffi::GType</code> (optional) returns the
 <code>glib_ffi::GType</code> that corresponds to the foreign struct.</p>
-<h4 id="object" class="section-header"><a href="#object">Object</a></h4>
+<h4 id="object"><a href="#object">Object</a></h4>
 <p>Objects – classes.  Note that the class name, if available, must be specified after the
 $foreign type; see below for <a href="#non-derivable-classes">non-derivable classes</a>.</p>
 <p>The basic syntax is this:</p>
@@ -293,7 +292,7 @@ $foreign type; see below for <a href="#non-derivable-classes">non-derivable clas
 }</code></pre></div>
 <p><code>type_</code>: <code>|| -&gt; glib_ffi::GType</code> returns the <code>glib_ffi::GType</code>
 that corresponds to the foreign class.</p>
-<h5 id="all-parent-classes-must-be-specified" class="section-header"><a href="#all-parent-classes-must-be-specified">All parent classes must be specified</a></h5>
+<h5 id="all-parent-classes-must-be-specified"><a href="#all-parent-classes-must-be-specified">All parent classes must be specified</a></h5>
 <p>In the example above, “<code>@extends ParentClass, GrandparentClass, ...,</code>” is where you must
 specify all the parent classes of the one you are wrapping. The uppermost parent class,
 <code>glib::Object</code>, must not be specified.</p>
@@ -317,7 +316,7 @@ specify all the parent classes of the one you are wrapping. The uppermost parent
         <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_button_get_type</span>(),
     }
 }</code></pre></div>
-<h5 id="objects-which-implement-interfaces" class="section-header"><a href="#objects-which-implement-interfaces">Objects which implement interfaces</a></h5>
+<h5 id="objects-which-implement-interfaces"><a href="#objects-which-implement-interfaces">Objects which implement interfaces</a></h5>
 <p>The example above is incomplete, since <code>ffi::GtkButton</code> actually implements two interfaces,
 <code>Buildable</code> and <code>Actionable</code>.  In this case, they must be specified after all the parent classes
 behind the <code>@implements</code> keyword:</p>
@@ -331,7 +330,7 @@ behind the <code>@implements</code> keyword:</p>
         <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_button_get_type</span>(),
     }
 }</code></pre></div>
-<h5 id="non-derivable-classes" class="section-header"><a href="#non-derivable-classes">Non-derivable classes</a></h5>
+<h5 id="non-derivable-classes"><a href="#non-derivable-classes">Non-derivable classes</a></h5>
 <p>By convention, GObject implements “final” classes, i.e. those who
 cannot be subclassed, by <em>not</em> exposing a public Class struct.
 This way it is not possible to override any methods, as there are
@@ -342,7 +341,7 @@ specify a FFI class name at all in the <code>Object&lt;&gt;</code> part:</p>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Clipboard</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkClipboard</span><span class="op">&gt;</span>);
     ...
 }</code></pre></div>
-<h5 id="interfaces" class="section-header"><a href="#interfaces">Interfaces</a></h5>
+<h5 id="interfaces"><a href="#interfaces">Interfaces</a></h5>
 <p>Interfaces are passed in the same way to the macro but instead of specifying
 <code>Object</code>, <code>Interface</code> has to be specified:</p>
 
@@ -350,7 +349,7 @@ specify a FFI class name at all in the <code>Object&lt;&gt;</code> part:</p>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TreeModel</span>(<span class="ident">Interface</span><span class="op">&lt;</span><span class="ident">ffi::GtkTreeModel</span>, <span class="ident">ffi::GtkTreeModelIface</span><span class="op">&gt;</span>);
     ...
 }</code></pre></div>
-<h5 id="interfaces-with-prerequisites" class="section-header"><a href="#interfaces-with-prerequisites">Interfaces with prerequisites</a></h5>
+<h5 id="interfaces-with-prerequisites"><a href="#interfaces-with-prerequisites">Interfaces with prerequisites</a></h5>
 <p>Interfaces can declare prerequisites, i.e. the classes from which types that implement the
 interface have to inherit or interfaces that have to be implemented:</p>
 
@@ -358,5 +357,5 @@ interface have to inherit or interfaces that have to be implemented:</p>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TreeSortable</span>(<span class="ident">Interface</span><span class="op">&lt;</span><span class="ident">ffi::GtkTreeSortable</span>, <span class="ident">ffi::GtkTreeSortable</span><span class="op">&gt;</span>) @<span class="ident">requires</span> <span class="ident">TreeModel</span>;
     ...
 }</code></pre></div>
-</div></details></section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (5e57faa78 2022-01-19)" ></div>
+</div></details></section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0-nightly (03918badd 2022-03-07)" ></div>
 </body></html>
