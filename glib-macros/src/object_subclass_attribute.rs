@@ -13,6 +13,7 @@ pub fn impl_object_subclass(input: &syn::ItemImpl) -> TokenStream {
     let mut has_interfaces = false;
     let mut has_instance = false;
     let mut has_class = false;
+    let mut has_name = false;
     for item in &input.items {
         match item {
             syn::ImplItem::Method(method) => {
@@ -31,6 +32,12 @@ pub fn impl_object_subclass(input: &syn::ItemImpl) -> TokenStream {
                     has_instance = true;
                 } else if name == "Class" {
                     has_class = true;
+                }
+            }
+            syn::ImplItem::Const(constant) => {
+                let name = &constant.ident;
+                if name == "NAME" {
+                    has_name = true;
                 }
             }
             _ => {}
@@ -74,6 +81,16 @@ pub fn impl_object_subclass(input: &syn::ItemImpl) -> TokenStream {
     let instance_opt = (!has_instance)
         .then(|| quote!(type Instance = #crate_ident::subclass::basic::InstanceStruct<Self>;));
 
+    let name_opt = if has_name {
+        None
+    } else {
+        base_type_name(&*input.self_ty).map(|name| {
+            quote!(
+                const NAME: &'static str = #crate_ident::const_format::str_replace!(concat!(module_path!(), "_", stringify!(#name)), ":", "_");
+            )
+        })
+    };
+
     let trait_path = match &trait_ {
         Some(path) => &path.1,
         None => abort_call_site!(WRONG_PLACE_MSG),
@@ -86,6 +103,7 @@ pub fn impl_object_subclass(input: &syn::ItemImpl) -> TokenStream {
             #interfaces_opt
             #class_opt
             #instance_opt
+            #name_opt
             #new_opt
             #(#items)*
         }
@@ -121,5 +139,12 @@ pub fn impl_object_subclass(input: &syn::ItemImpl) -> TokenStream {
                 <Self as #crate_ident::subclass::types::ObjectSubclassExt>::from_instance(obj)
             }
         }
+    }
+}
+
+fn base_type_name(ty: &syn::Type) -> Option<&syn::Ident> {
+    match ty {
+        syn::Type::Path(type_path) => type_path.path.segments.last().map(|seg| &seg.ident),
+        _ => None,
     }
 }
