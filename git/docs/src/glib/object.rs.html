@@ -4582,6 +4582,27 @@
 <a href="#4509" id="4509">4509</a>
 <a href="#4510" id="4510">4510</a>
 <a href="#4511" id="4511">4511</a>
+<a href="#4512" id="4512">4512</a>
+<a href="#4513" id="4513">4513</a>
+<a href="#4514" id="4514">4514</a>
+<a href="#4515" id="4515">4515</a>
+<a href="#4516" id="4516">4516</a>
+<a href="#4517" id="4517">4517</a>
+<a href="#4518" id="4518">4518</a>
+<a href="#4519" id="4519">4519</a>
+<a href="#4520" id="4520">4520</a>
+<a href="#4521" id="4521">4521</a>
+<a href="#4522" id="4522">4522</a>
+<a href="#4523" id="4523">4523</a>
+<a href="#4524" id="4524">4524</a>
+<a href="#4525" id="4525">4525</a>
+<a href="#4526" id="4526">4526</a>
+<a href="#4527" id="4527">4527</a>
+<a href="#4528" id="4528">4528</a>
+<a href="#4529" id="4529">4529</a>
+<a href="#4530" id="4530">4530</a>
+<a href="#4531" id="4531">4531</a>
+<a href="#4532" id="4532">4532</a>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
@@ -4706,10 +4727,9 @@
     /// Returns `Ok(T)` if the object is an instance of `T` and `Err(self)`
     /// otherwise.
     ///
-    /// *NOTE*: This statically checks at compile-time if casting is possible. It is not always
-    /// known at compile-time, whether a specific object implements an interface or not, in which case
-    /// `upcast` would fail to compile. `dynamic_cast` can be used in these circumstances, which
-    /// is checking the types at runtime.
+    /// *NOTE*: This will check at compile-time if `T` is lower down the
+    /// inheritance tree of `Self`, but also check at runtime if downcasting
+    /// is indeed possible.
     ///
     /// # Example
     ///
@@ -4721,7 +4741,7 @@
     </span><span class="attr">#[inline]
     </span><span class="kw">fn </span>downcast&lt;T: ObjectType&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;T, <span class="self">Self</span>&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>: CanDowncast&lt;T&gt;,
+        </span><span class="self">Self</span>: MayDowncastTo&lt;T&gt;,
     {
         <span class="kw">if </span><span class="self">self</span>.is::&lt;T&gt;() {
             <span class="prelude-val">Ok</span>(<span class="kw">unsafe </span>{ <span class="self">self</span>.unsafe_cast() })
@@ -4736,10 +4756,9 @@
     /// Returns `Some(T)` if the object is an instance of `T` and `None`
     /// otherwise.
     ///
-    /// *NOTE*: This statically checks at compile-time if casting is possible. It is not always
-    /// known at compile-time, whether a specific object implements an interface or not, in which case
-    /// `upcast` would fail to compile. `dynamic_cast` can be used in these circumstances, which
-    /// is checking the types at runtime.
+    /// *NOTE*: This will check at compile-time if `T` is lower down the
+    /// inheritance tree of `Self`, but also check at runtime if downcasting
+    /// is indeed possible.
     ///
     /// # Example
     ///
@@ -4751,7 +4770,7 @@
     </span><span class="attr">#[inline]
     </span><span class="kw">fn </span>downcast_ref&lt;T: ObjectType&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>: CanDowncast&lt;T&gt;,
+        </span><span class="self">Self</span>: MayDowncastTo&lt;T&gt;,
     {
         <span class="kw">if </span><span class="self">self</span>.is::&lt;T&gt;() {
             <span class="prelude-val">Some</span>(<span class="kw">unsafe </span>{ <span class="self">self</span>.unsafe_cast_ref() })
@@ -4763,7 +4782,9 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Tries to cast to an object of type `T`. This handles upcasting, downcasting
     /// and casting between interface and interface implementors. All checks are performed at
-    /// runtime, while `downcast` and `upcast` will do many checks at compile-time already.
+    /// runtime, while `upcast` will do many checks at compile-time already. `downcast` will
+    /// perform the same checks at runtime as `dynamic_cast`, but will also ensure some amount of
+    /// compile-time safety.
     ///
     /// It is not always known at compile-time, whether a specific object implements an interface or
     /// not, and checking has to be performed at runtime.
@@ -4887,10 +4908,10 @@
     <span class="kw">type </span>Inner;
     <span class="kw">fn </span>and_downcast&lt;T: ObjectType&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>::Inner: CanDowncast&lt;T&gt;;
+        </span><span class="self">Self</span>::Inner: MayDowncastTo&lt;T&gt;;
     <span class="kw">fn </span>and_downcast_ref&lt;T: ObjectType&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>::Inner: CanDowncast&lt;T&gt;;
+        </span><span class="self">Self</span>::Inner: MayDowncastTo&lt;T&gt;;
     <span class="kw">fn </span>and_upcast&lt;T: ObjectType&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt;
     <span class="kw">where
         </span><span class="self">Self</span>::Inner: IsA&lt;T&gt;;
@@ -4906,7 +4927,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>and_downcast&lt;T: ObjectType&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>::Inner: CanDowncast&lt;T&gt;,
+        </span><span class="self">Self</span>::Inner: MayDowncastTo&lt;T&gt;,
     {
         <span class="self">self</span>.and_then(|i| i.downcast().ok())
     }
@@ -4914,7 +4935,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>and_downcast_ref&lt;T: ObjectType&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>::Inner: CanDowncast&lt;T&gt;,
+        </span><span class="self">Self</span>::Inner: MayDowncastTo&lt;T&gt;,
     {
         <span class="self">self</span>.as_ref().and_then(|i| i.downcast_ref())
     }
@@ -4949,9 +4970,9 @@
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Marker trait for the statically known possibility of downcasting from `Self` to `T`.
-</span><span class="kw">pub trait </span>CanDowncast&lt;T&gt; {}
+</span><span class="kw">pub trait </span>MayDowncastTo&lt;T&gt; {}
 
-<span class="kw">impl</span>&lt;Super: IsA&lt;Super&gt;, Sub: IsA&lt;Super&gt;&gt; CanDowncast&lt;Sub&gt; <span class="kw">for </span>Super {}
+<span class="kw">impl</span>&lt;Super: IsA&lt;Super&gt;, Sub: IsA&lt;Super&gt;&gt; MayDowncastTo&lt;Sub&gt; <span class="kw">for </span>Super {}
 
 <span class="comment">// Manual implementation of glib_shared_wrapper! because of special cases
 </span><span class="attr">#[repr(transparent)]
@@ -8038,6 +8059,27 @@
 <span class="kw">unsafe impl</span>&lt;T: ObjectType + Sync + Sync&gt; Sync <span class="kw">for </span>WeakRef&lt;T&gt; {}
 <span class="kw">unsafe impl</span>&lt;T: ObjectType + Send + Sync&gt; Send <span class="kw">for </span>WeakRef&lt;T&gt; {}
 
+<span class="kw">impl</span>&lt;T: ObjectType&gt; PartialEq <span class="kw">for </span>WeakRef&lt;T&gt; {
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{ <span class="self">self</span>.<span class="number">0</span>.priv_.p == other.<span class="number">0</span>.priv_.p }
+    }
+}
+
+<span class="kw">impl</span>&lt;T: ObjectType&gt; PartialEq&lt;T&gt; <span class="kw">for </span>WeakRef&lt;T&gt; {
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>T) -&gt; bool {
+        <span class="kw">unsafe </span>{ <span class="self">self</span>.<span class="number">0</span>.priv_.p == other.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span>std::os::raw::c_void }
+    }
+}
+
+<span class="kw">impl</span>&lt;T: ObjectType&gt; PartialOrd <span class="kw">for </span>WeakRef&lt;T&gt; {
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>partial_cmp(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;cmp::Ordering&gt; {
+        <span class="kw">unsafe </span>{ <span class="self">self</span>.<span class="number">0</span>.priv_.p.partial_cmp(<span class="kw-2">&amp;</span>other.<span class="number">0</span>.priv_.p) }
+    }
+}
+
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A weak reference to the object it was created for that can be sent to
 /// different threads even for object types that don&#39;t implement `Send`.
@@ -9094,4 +9136,4 @@
     }
 }
 </code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (2d14db321 2023-02-15)" data-search-js="search-14421e1532aead08.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>
+</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (9a7cc6c32 2023-02-16)" data-search-js="search-14421e1532aead08.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>
