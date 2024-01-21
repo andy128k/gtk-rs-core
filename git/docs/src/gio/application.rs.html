@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/application.rs`."><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-1def573a4779b29b.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-d59023bfa12059d2.css"><link rel="stylesheet" disabled href="../../static.files/dark-1ca41bb1e10af075.css"><link rel="stylesheet" disabled href="../../static.files/ayu-18b4181a2f3fb862.css"><script src="../../static.files/storage-3891ce972e3a2bf8.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-98a684e84ae5b08b.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/application.rs`."><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (88189a71e 2024-01-19)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -289,25 +291,25 @@
 <a href="#216" id="216">216</a>
 <a href="#217" id="217">217</a>
 <a href="#218" id="218">218</a>
-<a href="#219" id="219">219</a>
-<a href="#220" id="220">220</a>
-<a href="#221" id="221">221</a>
-<a href="#222" id="222">222</a>
-<a href="#223" id="223">223</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, mem::transmute};
+</span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">boxed::Box</a> <span class="kw">as </span>Box_, <a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">mem::transmute</a>};
 
 <span class="kw">use </span>glib::{
-    prelude::<span class="kw-2">*</span>,
-    signal::{connect_raw, SignalHandlerId},
-    translate::<span class="kw-2">*</span>,
-    ExitCode, GString,
+    <a href="../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
+    signal::{<a href="../../glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
+    <a href="../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>,
+    <a href="../../glib/exit_code/struct.ExitCode.html">ExitCode</a>, <a href="../../glib/gstring/struct.GString.html">GString</a>,
 };
 
-<span class="kw">use crate</span>::{Application, File};
+<span class="kw">use crate</span>::{<a href="auto/application.rs.html#16-306">Application</a>, <a href="auto/file.rs.html#14-108">File</a>};
 
-<span class="kw">pub trait </span>ApplicationExtManual {
+<span class="kw">mod </span>sealed {
+    <span class="kw">pub trait </span>Sealed {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/application.rs.html#16-306"><span class="kw">super</span>::Application</a>&gt;&gt; <a href="#15">Sealed</a> <span class="kw">for </span>T {}
+}
+
+<span class="kw">pub trait </span><a href="../../gio/prelude/trait.ApplicationExtManual.html">ApplicationExtManual</a>: <a href="#15">sealed::Sealed</a> + IsA&lt;<a href="auto/application.rs.html#16-306">Application</a>&gt; {
     <span class="doccomment">/// Runs the application.
     ///
     /// This function is intended to be run from `main()` and its return value
@@ -370,15 +372,15 @@
     /// Since 2.40, applications that are not explicitly flagged as services
     /// or launchers (ie: neither [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] or
     /// [`ApplicationFlags::IS_LAUNCHER`][crate::ApplicationFlags::IS_LAUNCHER] are given as flags) will check (from the
-    /// default handler for local_command_line) if &quot;--gapplication-service&quot;
+    /// default handler for local_command_line) if "--gapplication-service"
     /// was given in the command line. If this flag is present then normal
     /// commandline processing is interrupted and the
-    /// [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] flag is set. This provides a &quot;compromise&quot;
+    /// [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] flag is set. This provides a "compromise"
     /// solution whereby running an application directly from the commandline
     /// will invoke it in the normal way (which can be useful for debugging)
     /// while still allowing applications to be D-Bus activated in service
     /// mode. The D-Bus service file should invoke the executable with
-    /// &quot;--gapplication-service&quot; as the sole commandline argument. This
+    /// "--gapplication-service" as the sole commandline argument. This
     /// approach is suitable for use by most graphical applications but
     /// should not be used from applications like editors that need precise
     /// control over when processes invoked via the commandline will exit and
@@ -390,27 +392,70 @@
     /// # Returns
     ///
     /// the exit status
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_run&quot;</span>)]
-    </span><span class="kw">fn </span>run(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ExitCode;
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_application_run&quot;</span>)]
-    </span><span class="kw">fn </span>run_with_args&lt;S: AsRef&lt;str&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, args: <span class="kw-2">&amp;</span>[S]) -&gt; ExitCode;
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_run"</span>)]
+    </span><span class="kw">fn </span>run(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../glib/exit_code/struct.ExitCode.html">ExitCode</a> {
+        <a class="self" href="#103">self</a>.<a href="#107-114">run_with_args</a>(<span class="kw-2">&amp;</span>std::env::args().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;())
+    }
+    <span class="attr">#[doc(alias = <span class="string">"g_application_run"</span>)]
+    </span><span class="kw">fn </span>run_with_args&lt;S: AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, args: <span class="kw-2">&amp;</span>[S]) -&gt; <a href="../../glib/exit_code/struct.ExitCode.html">ExitCode</a> {
+        <span class="kw">let </span>argv: Vec&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; = <a href="#107">args</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|a| <a href="#108">a</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>();
+        <span class="kw">let </span>argc = <a href="#108">argv</a>.len() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>;
+        <span class="kw">let </span>exit_code = <span class="kw">unsafe </span>{
+            ffi::g_application_run(<a class="self" href="#107">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#109">argc</a>, <a href="#108">argv</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
+        };
+        <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">ExitCode::from</a>(<a href="#110">exit_code</a>)
+    }
     <span class="doccomment">/// The ::open signal is emitted on the primary instance when there are
     /// files to open. See [`ApplicationExt::open()`][crate::prelude::ApplicationExt::open()] for more information.
     /// ## `files`
     /// an array of `GFiles`
     /// ## `hint`
     /// a hint provided by the calling instance
-    </span><span class="kw">fn </span>connect_open&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>[File], <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
+    </span><span class="kw">fn </span>connect_open&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>[<a href="auto/file.rs.html#14-108">File</a>], <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>open_trampoline&lt;P, F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span>[<a href="auto/file.rs.html#14-108">File</a>], <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            files: <span class="kw-2">*const *mut </span><a href="../../gio_sys/struct.GFile.html">ffi::GFile</a>,
+            n_files: libc::c_int,
+            hint: <span class="kw-2">*mut </span>libc::c_char,
+            f: <a href="../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+        ) <span class="kw">where
+            </span>P: IsA&lt;<a href="auto/application.rs.html#16-306">Application</a>&gt;,
+        {
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#127">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <span class="kw">let </span>files: Vec&lt;<a href="auto/file.rs.html#14-108">File</a>&gt; = <a href="../../glib/translate/trait.FromGlibContainer.html">FromGlibContainer::from_glib_none_num</a>(<a href="#124">files</a>, <a href="#125">n_files</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>);
+            <a href="#131">f</a>(
+                <a href="../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#123">this</a>).<a href="../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
+                <span class="kw-2">&amp;</span><a href="#132">files</a>,
+                <span class="kw-2">&amp;</span><a href="../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#126">hint</a>),
+            )
+        }
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#121">f</a>);
+            <a href="../../glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#121">self</a>.<a href="../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"open\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                    open_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
+                )),
+                Box_::into_raw(<a href="#140">f</a>),
+            )
+        }
+    }
 
     <span class="doccomment">/// Increases the use count of `self`.
     ///
     /// Use this function to indicate that the application has a reason to
-    /// continue to run. For example, [`ApplicationExtManual::hold()`][crate::prelude::ApplicationExtManual::hold()] is called by GTK+
+    /// continue to run. For example, [`ApplicationExtManual::hold()`][crate::prelude::ApplicationExtManual::hold()] is called by GTK
     /// when a toplevel window is on the screen.
     ///
     /// To cancel the hold, call [`ApplicationExtManual::release()`][crate::prelude::ApplicationExtManual::release()].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_hold&quot;</span>)]
-    </span><span class="kw">fn </span>hold(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ApplicationHoldGuard;
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_hold"</span>)]
+    </span><span class="kw">fn </span>hold(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="#192">ApplicationHoldGuard</a> {
+        <span class="kw">unsafe </span>{
+            ffi::g_application_hold(<a class="self" href="#160">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        }
+        <a href="#192">ApplicationHoldGuard</a>(<a class="self" href="#160">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../glib/object/trait.ObjectExt.html">downgrade</a>())
+    }
 
     <span class="doccomment">/// Increases the busy count of `self`.
     ///
@@ -424,98 +469,44 @@
     /// To cancel the busy indication, use [`ApplicationExtManual::unmark_busy()`][crate::prelude::ApplicationExtManual::unmark_busy()].
     ///
     /// The application must be registered before calling this function.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_mark_busy&quot;</span>)]
-    </span><span class="kw">fn </span>mark_busy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ApplicationBusyGuard;
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_mark_busy"</span>)]
+    </span><span class="kw">fn </span>mark_busy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="#207">ApplicationBusyGuard</a> {
+        <span class="kw">unsafe </span>{
+            ffi::g_application_mark_busy(<a class="self" href="#180">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        }
+        <a href="#207">ApplicationBusyGuard</a>(<a class="self" href="#180">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../glib/object/trait.ObjectExt.html">downgrade</a>())
+    }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;Application&gt;&gt; ApplicationExtManual <span class="kw">for </span>O {
-    <span class="kw">fn </span>run(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ExitCode {
-        <span class="self">self</span>.run_with_args(<span class="kw-2">&amp;</span>std::env::args().collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;())
-    }
-
-    <span class="kw">fn </span>run_with_args&lt;S: AsRef&lt;str&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, args: <span class="kw-2">&amp;</span>[S]) -&gt; ExitCode {
-        <span class="kw">let </span>argv: Vec&lt;<span class="kw-2">&amp;</span>str&gt; = args.iter().map(|a| a.as_ref()).collect();
-        <span class="kw">let </span>argc = argv.len() <span class="kw">as </span>i32;
-        <span class="kw">let </span>exit_code = <span class="kw">unsafe </span>{
-            ffi::g_application_run(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, argc, argv.to_glib_none().<span class="number">0</span>)
-        };
-        ExitCode::from(exit_code)
-    }
-
-    <span class="kw">fn </span>connect_open&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>[File], <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>open_trampoline&lt;P, F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span>[File], <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            files: <span class="kw-2">*const *mut </span>ffi::GFile,
-            n_files: libc::c_int,
-            hint: <span class="kw-2">*mut </span>libc::c_char,
-            f: glib::ffi::gpointer,
-        ) <span class="kw">where
-            </span>P: IsA&lt;Application&gt;,
-        {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <span class="kw">let </span>files: Vec&lt;File&gt; = FromGlibContainer::from_glib_none_num(files, n_files <span class="kw">as </span>usize);
-            f(
-                Application::from_glib_borrow(this).unsafe_cast_ref(),
-                <span class="kw-2">&amp;</span>files,
-                <span class="kw-2">&amp;</span>GString::from_glib_borrow(hint),
-            )
-        }
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;open\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
-                    open_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
-                )),
-                Box_::into_raw(f),
-            )
-        }
-    }
-
-    <span class="kw">fn </span>hold(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ApplicationHoldGuard {
-        <span class="kw">unsafe </span>{
-            ffi::g_application_hold(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
-        }
-        ApplicationHoldGuard(<span class="self">self</span>.as_ref().downgrade())
-    }
-
-    <span class="kw">fn </span>mark_busy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ApplicationBusyGuard {
-        <span class="kw">unsafe </span>{
-            ffi::g_application_mark_busy(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
-        }
-        ApplicationBusyGuard(<span class="self">self</span>.as_ref().downgrade())
-    }
-}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/application.rs.html#16-306">Application</a>&gt;&gt; <a href="#19-186">ApplicationExtManual</a> <span class="kw">for </span>O {}
 
 <span class="attr">#[derive(Debug)]
-#[must_use = <span class="string">&quot;if unused the Application will immediately be released&quot;</span>]
-</span><span class="kw">pub struct </span>ApplicationHoldGuard(glib::WeakRef&lt;Application&gt;);
+#[must_use = <span class="string">"if unused the Application will immediately be released"</span>]
+</span><span class="kw">pub struct </span><a href="../../gio/prelude/struct.ApplicationHoldGuard.html">ApplicationHoldGuard</a>(glib::WeakRef&lt;<a href="auto/application.rs.html#16-306">Application</a>&gt;);
 
-<span class="kw">impl </span>Drop <span class="kw">for </span>ApplicationHoldGuard {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span><a href="#192">ApplicationHoldGuard</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(application) = <span class="self">self</span>.<span class="number">0</span>.upgrade() {
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(application) = <a class="self" href="#196">self</a>.<span class="number">0</span>.upgrade() {
             <span class="kw">unsafe </span>{
-                ffi::g_application_release(application.to_glib_none().<span class="number">0</span>);
+                ffi::g_application_release(<a href="#197">application</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
             }
         }
     }
 }
 
 <span class="attr">#[derive(Debug)]
-#[must_use = <span class="string">&quot;if unused the Application will immediately be unmarked busy&quot;</span>]
-</span><span class="kw">pub struct </span>ApplicationBusyGuard(glib::WeakRef&lt;Application&gt;);
+#[must_use = <span class="string">"if unused the Application will immediately be unmarked busy"</span>]
+</span><span class="kw">pub struct </span><a href="../../gio/prelude/struct.ApplicationBusyGuard.html">ApplicationBusyGuard</a>(glib::WeakRef&lt;<a href="auto/application.rs.html#16-306">Application</a>&gt;);
 
-<span class="kw">impl </span>Drop <span class="kw">for </span>ApplicationBusyGuard {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span><a href="#207">ApplicationBusyGuard</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(application) = <span class="self">self</span>.<span class="number">0</span>.upgrade() {
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(application) = <a class="self" href="#211">self</a>.<span class="number">0</span>.upgrade() {
             <span class="kw">unsafe </span>{
-                ffi::g_application_unmark_busy(application.to_glib_none().<span class="number">0</span>);
+                ffi::g_application_unmark_busy(<a href="#212">application</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
             }
         }
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (9a7cc6c32 2023-02-16)" data-search-js="search-14421e1532aead08.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

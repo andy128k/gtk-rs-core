@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"trait":["ParamSpecBuilderExt","ParamSpecType"]};
+window.SIDEBAR_ITEMS = {"trait":["DynamicObjectRegisterExt","ParamSpecBuilderExt","TypeModuleExt","TypePluginExt"]};

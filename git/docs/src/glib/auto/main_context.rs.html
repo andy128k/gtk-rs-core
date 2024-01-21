@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/main_context.rs`."><title>main_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-1def573a4779b29b.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-d59023bfa12059d2.css"><link rel="stylesheet" disabled href="../../../static.files/dark-1ca41bb1e10af075.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-18b4181a2f3fb862.css"><script src="../../../static.files/storage-3891ce972e3a2bf8.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-98a684e84ae5b08b.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/main_context.rs`."><title>main_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (88189a71e 2024-01-19)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -213,18 +215,73 @@
 <a href="#140" id="140">140</a>
 <a href="#141" id="141">141</a>
 <a href="#142" id="142">142</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+<a href="#143" id="143">143</a>
+<a href="#144" id="144">144</a>
+<a href="#145" id="145">145</a>
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
+<a href="#148" id="148">148</a>
+<a href="#149" id="149">149</a>
+<a href="#150" id="150">150</a>
+<a href="#151" id="151">151</a>
+<a href="#152" id="152">152</a>
+<a href="#153" id="153">153</a>
+<a href="#154" id="154">154</a>
+<a href="#155" id="155">155</a>
+<a href="#156" id="156">156</a>
+<a href="#157" id="157">157</a>
+<a href="#158" id="158">158</a>
+<a href="#159" id="159">159</a>
+<a href="#160" id="160">160</a>
+<a href="#161" id="161">161</a>
+<a href="#162" id="162">162</a>
+<a href="#163" id="163">163</a>
+<a href="#164" id="164">164</a>
+<a href="#165" id="165">165</a>
+<a href="#166" id="166">166</a>
+<a href="#167" id="167">167</a>
+<a href="#168" id="168">168</a>
+<a href="#169" id="169">169</a>
+<a href="#170" id="170">170</a>
+<a href="#171" id="171">171</a>
+<a href="#172" id="172">172</a>
+<a href="#173" id="173">173</a>
+<a href="#174" id="174">174</a>
+<a href="#175" id="175">175</a>
+<a href="#176" id="176">176</a>
+<a href="#177" id="177">177</a>
+<a href="#178" id="178">178</a>
+<a href="#179" id="179">179</a>
+<a href="#180" id="180">180</a>
+<a href="#181" id="181">181</a>
+<a href="#182" id="182">182</a>
+<a href="#183" id="183">183</a>
+<a href="#184" id="184">184</a>
+<a href="#185" id="185">185</a>
+<a href="#186" id="186">186</a>
+<a href="#187" id="187">187</a>
+<a href="#188" id="188">188</a>
+<a href="#189" id="189">189</a>
+<a href="#190" id="190">190</a>
+<a href="#191" id="191">191</a>
+<a href="#192" id="192">192</a>
+<a href="#193" id="193">193</a>
+<a href="#194" id="194">194</a>
+<a href="#195" id="195">195</a>
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use </span><span class="kw">crate</span>::translate::<span class="kw-2">*</span>;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;v2_72&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
-</span><span class="kw">use </span><span class="kw">crate</span>::MainContextFlags;
+</span><span class="kw">use </span><a href="../lib.rs.html#151"><span class="kw">crate</span>::translate</a>::<span class="kw-2">*</span>;
+<span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
+</span><span class="kw">use </span><a href="flags.rs.html#369-379"><span class="kw">crate</span>::MainContextFlags</a>;
 
-<span class="macro">crate::wrapper! </span>{
-    <span class="attr">#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
-    </span><span class="kw">pub struct </span>MainContext(Shared&lt;ffi::GMainContext&gt;);
+<a class="macro" href="../wrapper.rs.html#277-445">crate::wrapper! </a>{
+    <span class="doccomment">/// The `GMainContext` struct is an opaque data
+    /// type representing a set of sources to be handled in a main loop.
+    </span><span class="attr">#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
+    </span><span class="kw">pub struct </span><a href="../../../glib/struct.MainContext.html">MainContext</a>(Shared&lt;ffi::GMainContext&gt;);
 
     <span class="kw">match fn </span>{
         <span class="kw-2">ref </span>=&gt; |ptr| ffi::g_main_context_ref(ptr),
@@ -233,127 +290,177 @@
     }
 }
 
-<span class="kw">impl </span>MainContext {
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_new&quot;</span>)]
-    </span><span class="kw">pub fn </span>new() -&gt; MainContext {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_main_context_new()) }
+<span class="kw">impl </span><a href="#10-21">MainContext</a> {
+    <span class="doccomment">/// Creates a new [`MainContext`][crate::MainContext] structure.
+    ///
+    /// # Returns
+    ///
+    /// the new [`MainContext`][crate::MainContext]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_new"</span>)]
+    </span><span class="kw">pub fn </span>new() -&gt; <a href="#10-21">MainContext</a> {
+        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_main_context_new()) }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v2_72&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_main_context_new_with_flags&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;new_with_flags&quot;</span>)]
-    </span><span class="kw">pub fn </span>with_flags(flags: MainContextFlags) -&gt; MainContext {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_main_context_new_with_flags(flags.into_glib())) }
+    <span class="doccomment">/// Creates a new [`MainContext`][crate::MainContext] structure.
+    /// ## `flags`
+    /// a bitwise-OR combination of [`MainContextFlags`][crate::MainContextFlags] flags that can only be
+    ///  set at creation time.
+    ///
+    /// # Returns
+    ///
+    /// the new [`MainContext`][crate::MainContext]
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
+    #[doc(alias = <span class="string">"g_main_context_new_with_flags"</span>)]
+    #[doc(alias = <span class="string">"new_with_flags"</span>)]
+    </span><span class="kw">pub fn </span>with_flags(flags: <a href="flags.rs.html#369-379">MainContextFlags</a>) -&gt; <a href="#10-21">MainContext</a> {
+        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_main_context_new_with_flags(<a href="#46">flags</a>.<a href="../translate.rs.html#330">into_glib</a>())) }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_main_context_add_poll&quot;)]
+    <span class="comment">//#[doc(alias = "g_main_context_add_poll")]
     //pub fn add_poll(&amp;self, fd: /*Ignored*/&amp;mut PollFD, priority: i32) {
     //    unsafe { TODO: call ffi:g_main_context_add_poll() }
     //}
 
-    //#[doc(alias = &quot;g_main_context_check&quot;)]
+    //#[doc(alias = "g_main_context_check")]
     //pub fn check(&amp;self, max_priority: i32, fds: /*Ignored*/&amp;[PollFD]) -&gt; bool {
     //    unsafe { TODO: call ffi:g_main_context_check() }
     //}
 
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_dispatch&quot;</span>)]
+    </span><span class="doccomment">/// Dispatches all pending sources.
+    ///
+    /// You must have successfully acquired the context with
+    /// [`acquire()`][Self::acquire()] before you may call this function.
+    ///
+    /// Since 2.76 `self` can be [`None`] to use the global-default
+    /// main context.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_dispatch"</span>)]
     </span><span class="kw">pub fn </span>dispatch(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            ffi::g_main_context_dispatch(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
+            ffi::g_main_context_dispatch(<a class="self" href="#68">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_main_context_find_source_by_funcs_user_data&quot;)]
+    <span class="comment">//#[doc(alias = "g_main_context_find_source_by_funcs_user_data")]
     //pub fn find_source_by_funcs_user_data(&amp;self, funcs: /*Ignored*/&amp;mut SourceFuncs, user_data: /*Unimplemented*/Option&lt;Basic: Pointer&gt;) -&gt; Source {
     //    unsafe { TODO: call ffi:g_main_context_find_source_by_funcs_user_data() }
     //}
 
-    //#[doc(alias = &quot;g_main_context_find_source_by_user_data&quot;)]
+    //#[doc(alias = "g_main_context_find_source_by_user_data")]
     //pub fn find_source_by_user_data(&amp;self, user_data: /*Unimplemented*/Option&lt;Basic: Pointer&gt;) -&gt; Source {
     //    unsafe { TODO: call ffi:g_main_context_find_source_by_user_data() }
     //}
 
-    //#[doc(alias = &quot;g_main_context_get_poll_func&quot;)]
-    //#[doc(alias = &quot;get_poll_func&quot;)]
+    //#[doc(alias = "g_main_context_get_poll_func")]
+    //#[doc(alias = "get_poll_func")]
     //pub fn poll_func(&amp;self) -&gt; /*Unimplemented*/Fn(/*Ignored*/PollFD, u32) -&gt; i32 {
     //    unsafe { TODO: call ffi:g_main_context_get_poll_func() }
     //}
 
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_is_owner&quot;</span>)]
-    </span><span class="kw">pub fn </span>is_owner(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{ from_glib(ffi::g_main_context_is_owner(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="doccomment">/// Determines whether this thread holds the (recursive)
+    /// ownership of this [`MainContext`][crate::MainContext]. This is useful to
+    /// know before waiting on another thread that may be
+    /// blocking to get ownership of `self`.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if current thread is owner of `self`.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_is_owner"</span>)]
+    </span><span class="kw">pub fn </span>is_owner(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_main_context_is_owner(<a class="self" href="#99">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_iteration&quot;</span>)]
-    </span><span class="kw">pub fn </span>iteration(<span class="kw-2">&amp;</span><span class="self">self</span>, may_block: bool) -&gt; bool {
+    <span class="doccomment">/// Runs a single iteration for the given main loop. This involves
+    /// checking to see if any event sources are ready to be processed,
+    /// then if no events sources are ready and `may_block` is [`true`], waiting
+    /// for a source to become ready, then dispatching the highest priority
+    /// events sources that are ready. Otherwise, if `may_block` is [`false`]
+    /// sources are not waited to become ready, only those highest priority
+    /// events sources will be dispatched (if any), that are ready at this
+    /// given moment without further waiting.
+    ///
+    /// Note that even when `may_block` is [`true`], it is still possible for
+    /// [`iteration()`][Self::iteration()] to return [`false`], since the wait may
+    /// be interrupted for other reasons than an event source becoming ready.
+    /// ## `may_block`
+    /// whether the call may block.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if events were dispatched.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_iteration"</span>)]
+    </span><span class="kw">pub fn </span>iteration(<span class="kw-2">&amp;</span><span class="self">self</span>, may_block: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
-            from_glib(ffi::g_main_context_iteration(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                may_block.into_glib(),
+            <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_main_context_iteration(
+                <a class="self" href="#122">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#122">may_block</a>.<a href="../translate.rs.html#330">into_glib</a>(),
             ))
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_pending&quot;</span>)]
-    </span><span class="kw">pub fn </span>pending(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{ from_glib(ffi::g_main_context_pending(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    <span class="doccomment">/// Checks if any sources have pending events for the given context.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if events are pending.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_pending"</span>)]
+    </span><span class="kw">pub fn </span>pending(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_main_context_pending(<a class="self" href="#137">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_main_context_query&quot;)]
+    <span class="comment">//#[doc(alias = "g_main_context_query")]
     //pub fn query(&amp;self, max_priority: i32, fds: /*Ignored*/Vec&lt;PollFD&gt;) -&gt; (i32, i32) {
     //    unsafe { TODO: call ffi:g_main_context_query() }
     //}
 
-    //#[doc(alias = &quot;g_main_context_remove_poll&quot;)]
+    //#[doc(alias = "g_main_context_remove_poll")]
     //pub fn remove_poll(&amp;self, fd: /*Ignored*/&amp;mut PollFD) {
     //    unsafe { TODO: call ffi:g_main_context_remove_poll() }
     //}
 
-    //#[doc(alias = &quot;g_main_context_set_poll_func&quot;)]
+    //#[doc(alias = "g_main_context_set_poll_func")]
     //pub fn set_poll_func(&amp;self, func: /*Unimplemented*/Fn(/*Ignored*/PollFD, u32) -&gt; i32) {
     //    unsafe { TODO: call ffi:g_main_context_set_poll_func() }
     //}
 
-    //#[cfg_attr(feature = &quot;v2_58&quot;, deprecated = &quot;Since 2.58&quot;)]
+    //#[cfg_attr(feature = "v2_58", deprecated = "Since 2.58")]
     //#[allow(deprecated)]
-    //#[doc(alias = &quot;g_main_context_wait&quot;)]
+    //#[doc(alias = "g_main_context_wait")]
     //pub fn wait(&amp;self, cond: /*Ignored*/&amp;mut Cond, mutex: /*Ignored*/&amp;mut Mutex) -&gt; bool {
     //    unsafe { TODO: call ffi:g_main_context_wait() }
     //}
 
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_wakeup&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_wakeup"</span>)]
     </span><span class="kw">pub fn </span>wakeup(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            ffi::g_main_context_wakeup(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
+            ffi::g_main_context_wakeup(<a class="self" href="#164">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_default&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"g_main_context_default"</span>)]
     #[allow(clippy::should_implement_trait)]
-    </span><span class="kw">pub fn </span>default() -&gt; MainContext {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_main_context_default()) }
+    </span><span class="kw">pub fn </span>default() -&gt; <a href="#10-21">MainContext</a> {
+        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_main_context_default()) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_get_thread_default&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_thread_default&quot;</span>)]
-    </span><span class="kw">pub fn </span>thread_default() -&gt; <span class="prelude-ty">Option</span>&lt;MainContext&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_main_context_get_thread_default()) }
+    <span class="attr">#[doc(alias = <span class="string">"g_main_context_get_thread_default"</span>)]
+    #[doc(alias = <span class="string">"get_thread_default"</span>)]
+    </span><span class="kw">pub fn </span>thread_default() -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#10-21">MainContext</a>&gt; {
+        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_main_context_get_thread_default()) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_main_context_ref_thread_default&quot;</span>)]
-    </span><span class="kw">pub fn </span>ref_thread_default() -&gt; MainContext {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_main_context_ref_thread_default()) }
+    <span class="attr">#[doc(alias = <span class="string">"g_main_context_ref_thread_default"</span>)]
+    </span><span class="kw">pub fn </span>ref_thread_default() -&gt; <a href="#10-21">MainContext</a> {
+        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_main_context_ref_thread_default()) }
     }
 }
 
-<span class="kw">impl </span>Default <span class="kw">for </span>MainContext {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#10-21">MainContext</a> {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::new()
+        <a href="#30-32"><span class="self">Self</span>::new</a>()
     }
 }
 
-<span class="kw">unsafe impl </span>Send <span class="kw">for </span>MainContext {}
-<span class="kw">unsafe impl </span>Sync <span class="kw">for </span>MainContext {}
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (9a7cc6c32 2023-02-16)" data-search-js="search-14421e1532aead08.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>
+<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> <span class="kw">for </span><a href="#10-21">MainContext</a> {}
+<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> <span class="kw">for </span><a href="#10-21">MainContext</a> {}
+</code></pre></div></section></main></body></html>
