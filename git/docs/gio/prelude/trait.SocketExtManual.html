@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `SocketExtManual` trait in crate `gio`."><title>SocketExtManual in gio::prelude - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (88189a71e 2024-01-19)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `SocketExtManual` trait in crate `gio`."><title>SocketExtManual in gio::prelude - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -190,12 +190,12 @@ non-blocking mode, a <a href="../enum.IOErrorEnum.html#variant.WouldBlock" title
 returned. To be notified when data is available, wait for the
 <a href="../../glib/auto/flags/struct.IOCondition.html#associatedconstant.IN" title="associated constant glib::auto::flags::IOCondition::IN"><code>glib::IOCondition::IN</code></a> condition.</p>
 <p>On error -1 is returned and <code>error</code> is set accordingly.</p>
-<h6 id="cancellable"><a href="#cancellable"><code>cancellable</code></a></h6>
+<h6 id="cancellable"><a class="doc-anchor" href="#cancellable">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns"><a href="#returns">Returns</a></h5>
+<h5 id="returns"><a class="doc-anchor" href="#returns">§</a>Returns</h5>
 <p>Number of bytes read, or 0 if the connection was closed by
 the peer, or -1 on error</p>
-<h6 id="buffer"><a href="#buffer"><code>buffer</code></a></h6>
+<h6 id="buffer"><a class="doc-anchor" href="#buffer">§</a><code>buffer</code></h6>
 <p>a buffer to read data into (which should be at least <code>size</code> bytes long).</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.receive_from" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#430-458">source</a><h4 class="code-header">fn <a href="#method.receive_from" class="fn">receive_from</a>&lt;B: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html" title="trait core::convert::AsMut">AsMut</a>&lt;[<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
     &amp;self,
@@ -206,15 +206,15 @@ the peer, or -1 on error</p>
 source address of the received packet.
 <code>address</code> is owned by the caller.</p>
 <p>See <a href="trait.SocketExtManual.html#method.receive" title="method gio::prelude::SocketExtManual::receive"><code>SocketExtManual::receive()</code></a> for additional information.</p>
-<h6 id="cancellable-1"><a href="#cancellable-1"><code>cancellable</code></a></h6>
+<h6 id="cancellable-1"><a class="doc-anchor" href="#cancellable-1">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-1"><a href="#returns-1">Returns</a></h5>
+<h5 id="returns-1"><a class="doc-anchor" href="#returns-1">§</a>Returns</h5>
 <p>Number of bytes read, or 0 if the connection was closed by
 the peer, or -1 on error</p>
-<h6 id="address"><a href="#address"><code>address</code></a></h6>
+<h6 id="address"><a class="doc-anchor" href="#address">§</a><code>address</code></h6>
 <p>a pointer to a <a href="../struct.SocketAddress.html" title="struct gio::SocketAddress"><code>SocketAddress</code></a>
 pointer, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h6 id="buffer-1"><a href="#buffer-1"><code>buffer</code></a></h6>
+<h6 id="buffer-1"><a class="doc-anchor" href="#buffer-1">§</a><code>buffer</code></h6>
 <p>a buffer to read data into (which should be at least <code>size</code> bytes long).</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.receive_message" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#540-579">source</a><h4 class="code-header">fn <a href="#method.receive_message" class="fn">receive_message</a>&lt;C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
     &amp;self,
@@ -272,21 +272,21 @@ non-blocking mode, a <a href="../enum.IOErrorEnum.html#variant.WouldBlock" title
 returned. To be notified when data is available, wait for the
 <a href="../../glib/auto/flags/struct.IOCondition.html#associatedconstant.IN" title="associated constant glib::auto::flags::IOCondition::IN"><code>glib::IOCondition::IN</code></a> condition.</p>
 <p>On error -1 is returned and <code>error</code> is set accordingly.</p>
-<h6 id="vectors"><a href="#vectors"><code>vectors</code></a></h6>
+<h6 id="vectors"><a class="doc-anchor" href="#vectors">§</a><code>vectors</code></h6>
 <p>an array of <code>GInputVector</code> structs</p>
-<h6 id="flags"><a href="#flags"><code>flags</code></a></h6>
+<h6 id="flags"><a class="doc-anchor" href="#flags">§</a><code>flags</code></h6>
 <p>a pointer to an int containing <code>GSocketMsgFlags</code> flags,
 which may additionally contain
 <a href="http://man7.org/linux/man-pages/man2/recv.2.html">other platform specific flags</a></p>
-<h6 id="cancellable-2"><a href="#cancellable-2"><code>cancellable</code></a></h6>
+<h6 id="cancellable-2"><a class="doc-anchor" href="#cancellable-2">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-2"><a href="#returns-2">Returns</a></h5>
+<h5 id="returns-2"><a class="doc-anchor" href="#returns-2">§</a>Returns</h5>
 <p>Number of bytes read, or 0 if the connection was closed by
 the peer, or -1 on error</p>
-<h6 id="address-1"><a href="#address-1"><code>address</code></a></h6>
+<h6 id="address-1"><a class="doc-anchor" href="#address-1">§</a><code>address</code></h6>
 <p>a pointer to a <a href="../struct.SocketAddress.html" title="struct gio::SocketAddress"><code>SocketAddress</code></a>
 pointer, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h6 id="messages"><a href="#messages"><code>messages</code></a></h6>
+<h6 id="messages"><a class="doc-anchor" href="#messages">§</a><code>messages</code></h6>
 <p>a pointer
 which may be filled with an array of <code>GSocketControlMessages</code>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.receive_messages" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#645-669">source</a><h4 class="code-header">fn <a href="#method.receive_messages" class="fn">receive_messages</a>&lt;C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
@@ -333,15 +333,15 @@ operating system will be returned, and subsequent calls to
 <p>On error -1 is returned and <code>error</code> is set accordingly. An error will only
 be returned if zero messages could be received; otherwise the number of
 messages successfully received before the error will be returned.</p>
-<h6 id="messages-1"><a href="#messages-1"><code>messages</code></a></h6>
+<h6 id="messages-1"><a class="doc-anchor" href="#messages-1">§</a><code>messages</code></h6>
 <p>an array of <a href="../struct.InputMessage.html" title="struct gio::InputMessage"><code>InputMessage</code></a> structs</p>
-<h6 id="flags-1"><a href="#flags-1"><code>flags</code></a></h6>
+<h6 id="flags-1"><a class="doc-anchor" href="#flags-1">§</a><code>flags</code></h6>
 <p>an int containing <code>GSocketMsgFlags</code> flags for the overall operation,
 which may additionally contain
 <a href="http://man7.org/linux/man-pages/man2/recv.2.html">other platform specific flags</a></p>
-<h6 id="cancellable-3"><a href="#cancellable-3"><code>cancellable</code></a></h6>
+<h6 id="cancellable-3"><a class="doc-anchor" href="#cancellable-3">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-3"><a href="#returns-3">Returns</a></h5>
+<h5 id="returns-3"><a class="doc-anchor" href="#returns-3">§</a>Returns</h5>
 <p>number of messages received, or -1 on error. Note that the number
 of messages received may be smaller than <code>num_messages</code> if in non-blocking
 mode, if the peer closed the connection, or if <code>num_messages</code>
@@ -355,14 +355,14 @@ to receive the remaining messages.</p>
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>This behaves exactly the same as <a href="trait.SocketExtManual.html#method.receive" title="method gio::prelude::SocketExtManual::receive"><code>SocketExtManual::receive()</code></a>, except that
 the choice of blocking or non-blocking behavior is determined by
 the <code>blocking</code> argument rather than by <code>self</code>’s properties.</p>
-<h6 id="blocking"><a href="#blocking"><code>blocking</code></a></h6>
+<h6 id="blocking"><a class="doc-anchor" href="#blocking">§</a><code>blocking</code></h6>
 <p>whether to do blocking or non-blocking I/O</p>
-<h6 id="cancellable-4"><a href="#cancellable-4"><code>cancellable</code></a></h6>
+<h6 id="cancellable-4"><a class="doc-anchor" href="#cancellable-4">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-4"><a href="#returns-4">Returns</a></h5>
+<h5 id="returns-4"><a class="doc-anchor" href="#returns-4">§</a>Returns</h5>
 <p>Number of bytes read, or 0 if the connection was closed by
 the peer, or -1 on error</p>
-<h6 id="buffer-2"><a href="#buffer-2"><code>buffer</code></a></h6>
+<h6 id="buffer-2"><a class="doc-anchor" href="#buffer-2">§</a><code>buffer</code></h6>
 <p>a buffer to read data into (which should be at least <code>size</code> bytes long).</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.send" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#741-767">source</a><h4 class="code-header">fn <a href="#method.send" class="fn">send</a>&lt;B: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;[<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
     &amp;self,
@@ -380,12 +380,12 @@ will be returned. To be notified when space is available, wait for the
 notified of a <a href="../../glib/auto/flags/struct.IOCondition.html#associatedconstant.OUT" title="associated constant glib::auto::flags::IOCondition::OUT"><code>glib::IOCondition::OUT</code></a> condition. (On Windows in particular, this is
 very common due to the way the underlying APIs work.)</p>
 <p>On error -1 is returned and <code>error</code> is set accordingly.</p>
-<h6 id="buffer-3"><a href="#buffer-3"><code>buffer</code></a></h6>
+<h6 id="buffer-3"><a class="doc-anchor" href="#buffer-3">§</a><code>buffer</code></h6>
 <p>the buffer
 containing the data to send.</p>
-<h6 id="cancellable-5"><a href="#cancellable-5"><code>cancellable</code></a></h6>
+<h6 id="cancellable-5"><a class="doc-anchor" href="#cancellable-5">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-5"><a href="#returns-5">Returns</a></h5>
+<h5 id="returns-5"><a class="doc-anchor" href="#returns-5">§</a>Returns</h5>
 <p>Number of bytes written (which may be less than <code>size</code>), or -1
 on error</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.send_message" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#828-856">source</a><h4 class="code-header">fn <a href="#method.send_message" class="fn">send_message</a>&lt;P: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.SocketAddress.html" title="struct gio::SocketAddress">SocketAddress</a>&gt;, C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
@@ -430,19 +430,19 @@ greater than <code>G_MAXSSIZE</code>. If the message can be larger than this,
 then it is mandatory to use the <a href="trait.SocketExtManual.html#method.send_message_with_timeout" title="method gio::prelude::SocketExtManual::send_message_with_timeout"><code>SocketExtManual::send_message_with_timeout()</code></a>
 function.</p>
 <p>On error -1 is returned and <code>error</code> is set accordingly.</p>
-<h6 id="address-2"><a href="#address-2"><code>address</code></a></h6>
+<h6 id="address-2"><a class="doc-anchor" href="#address-2">§</a><code>address</code></h6>
 <p>a <a href="../struct.SocketAddress.html" title="struct gio::SocketAddress"><code>SocketAddress</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h6 id="vectors-1"><a href="#vectors-1"><code>vectors</code></a></h6>
+<h6 id="vectors-1"><a class="doc-anchor" href="#vectors-1">§</a><code>vectors</code></h6>
 <p>an array of <code>GOutputVector</code> structs</p>
-<h6 id="messages-2"><a href="#messages-2"><code>messages</code></a></h6>
+<h6 id="messages-2"><a class="doc-anchor" href="#messages-2">§</a><code>messages</code></h6>
 <p>a pointer to an
 array of <code>GSocketControlMessages</code>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a>.</p>
-<h6 id="flags-2"><a href="#flags-2"><code>flags</code></a></h6>
+<h6 id="flags-2"><a class="doc-anchor" href="#flags-2">§</a><code>flags</code></h6>
 <p>an int containing <code>GSocketMsgFlags</code> flags, which may additionally
 contain <a href="http://man7.org/linux/man-pages/man2/recv.2.html">other platform specific flags</a></p>
-<h6 id="cancellable-6"><a href="#cancellable-6"><code>cancellable</code></a></h6>
+<h6 id="cancellable-6"><a class="doc-anchor" href="#cancellable-6">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-6"><a href="#returns-6">Returns</a></h5>
+<h5 id="returns-6"><a class="doc-anchor" href="#returns-6">§</a>Returns</h5>
 <p>Number of bytes written (which may be less than <code>size</code>), or -1
 on error</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.send_message_with_timeout" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#890-925">source</a><h4 class="code-header">fn <a href="#method.send_message_with_timeout" class="fn">send_message_with_timeout</a>&lt;P: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.SocketAddress.html" title="struct gio::SocketAddress">SocketAddress</a>&gt;, C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
@@ -459,25 +459,25 @@ rather than by <code>self</code>’s properties.</p>
 <p>On error <a href="../enum.PollableReturn.html#variant.Failed" title="variant gio::PollableReturn::Failed"><code>PollableReturn::Failed</code></a> is returned and <code>error</code> is set accordingly, or
 if the socket is currently not writable <a href="../enum.PollableReturn.html#variant.WouldBlock" title="variant gio::PollableReturn::WouldBlock"><code>PollableReturn::WouldBlock</code></a> is
 returned. <code>bytes_written</code> will contain 0 in both cases.</p>
-<h6 id="address-3"><a href="#address-3"><code>address</code></a></h6>
+<h6 id="address-3"><a class="doc-anchor" href="#address-3">§</a><code>address</code></h6>
 <p>a <a href="../struct.SocketAddress.html" title="struct gio::SocketAddress"><code>SocketAddress</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h6 id="vectors-2"><a href="#vectors-2"><code>vectors</code></a></h6>
+<h6 id="vectors-2"><a class="doc-anchor" href="#vectors-2">§</a><code>vectors</code></h6>
 <p>an array of <code>GOutputVector</code> structs</p>
-<h6 id="messages-3"><a href="#messages-3"><code>messages</code></a></h6>
+<h6 id="messages-3"><a class="doc-anchor" href="#messages-3">§</a><code>messages</code></h6>
 <p>a pointer to an
 array of <code>GSocketControlMessages</code>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a>.</p>
-<h6 id="flags-3"><a href="#flags-3"><code>flags</code></a></h6>
+<h6 id="flags-3"><a class="doc-anchor" href="#flags-3">§</a><code>flags</code></h6>
 <p>an int containing <code>GSocketMsgFlags</code> flags, which may additionally
 contain <a href="http://man7.org/linux/man-pages/man2/recv.2.html">other platform specific flags</a></p>
-<h6 id="timeout_us"><a href="#timeout_us"><code>timeout_us</code></a></h6>
+<h6 id="timeout_us"><a class="doc-anchor" href="#timeout_us">§</a><code>timeout_us</code></h6>
 <p>the maximum time (in microseconds) to wait, or -1</p>
-<h6 id="cancellable-7"><a href="#cancellable-7"><code>cancellable</code></a></h6>
+<h6 id="cancellable-7"><a class="doc-anchor" href="#cancellable-7">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-7"><a href="#returns-7">Returns</a></h5>
+<h5 id="returns-7"><a class="doc-anchor" href="#returns-7">§</a>Returns</h5>
 <p><a href="../enum.PollableReturn.html#variant.Ok" title="variant gio::PollableReturn::Ok"><code>PollableReturn::Ok</code></a> if all data was successfully written,
 <a href="../enum.PollableReturn.html#variant.WouldBlock" title="variant gio::PollableReturn::WouldBlock"><code>PollableReturn::WouldBlock</code></a> if the socket is currently not writable, or
 <a href="../enum.PollableReturn.html#variant.Failed" title="variant gio::PollableReturn::Failed"><code>PollableReturn::Failed</code></a> if an error happened and <code>error</code> is set.</p>
-<h6 id="bytes_written"><a href="#bytes_written"><code>bytes_written</code></a></h6>
+<h6 id="bytes_written"><a class="doc-anchor" href="#bytes_written">§</a><code>bytes_written</code></h6>
 <p>location to store the number of bytes that were written to the socket</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.send_messages" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#975-998">source</a><h4 class="code-header">fn <a href="#method.send_messages" class="fn">send_messages</a>&lt;C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
     &amp;self,
@@ -514,14 +514,14 @@ very common due to the way the underlying APIs work.)</p>
 <p>On error -1 is returned and <code>error</code> is set accordingly. An error will only
 be returned if zero messages could be sent; otherwise the number of messages
 successfully sent before the error will be returned.</p>
-<h6 id="messages-4"><a href="#messages-4"><code>messages</code></a></h6>
+<h6 id="messages-4"><a class="doc-anchor" href="#messages-4">§</a><code>messages</code></h6>
 <p>an array of <a href="../struct.OutputMessage.html" title="struct gio::OutputMessage"><code>OutputMessage</code></a> structs</p>
-<h6 id="flags-4"><a href="#flags-4"><code>flags</code></a></h6>
+<h6 id="flags-4"><a class="doc-anchor" href="#flags-4">§</a><code>flags</code></h6>
 <p>an int containing <code>GSocketMsgFlags</code> flags, which may additionally
 contain <a href="http://man7.org/linux/man-pages/man2/recv.2.html">other platform specific flags</a></p>
-<h6 id="cancellable-8"><a href="#cancellable-8"><code>cancellable</code></a></h6>
+<h6 id="cancellable-8"><a class="doc-anchor" href="#cancellable-8">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-8"><a href="#returns-8">Returns</a></h5>
+<h5 id="returns-8"><a class="doc-anchor" href="#returns-8">§</a>Returns</h5>
 <p>number of messages sent, or -1 on error. Note that the number of
 messages sent may be smaller than <code>num_messages</code> if the socket is
 non-blocking or if <code>num_messages</code> was larger than UIO_MAXIOV (1024),
@@ -535,14 +535,14 @@ in which case the caller may re-try to send the remaining messages.</p>
 <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a> then the message is sent to the default receiver (set by
 <a href="trait.SocketExt.html#method.connect" title="method gio::prelude::SocketExt::connect"><code>SocketExt::connect()</code></a>).</p>
 <p>See <a href="trait.SocketExtManual.html#method.send" title="method gio::prelude::SocketExtManual::send"><code>SocketExtManual::send()</code></a> for additional information.</p>
-<h6 id="address-4"><a href="#address-4"><code>address</code></a></h6>
+<h6 id="address-4"><a class="doc-anchor" href="#address-4">§</a><code>address</code></h6>
 <p>a <a href="../struct.SocketAddress.html" title="struct gio::SocketAddress"><code>SocketAddress</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h6 id="buffer-4"><a href="#buffer-4"><code>buffer</code></a></h6>
+<h6 id="buffer-4"><a class="doc-anchor" href="#buffer-4">§</a><code>buffer</code></h6>
 <p>the buffer
 containing the data to send.</p>
-<h6 id="cancellable-9"><a href="#cancellable-9"><code>cancellable</code></a></h6>
+<h6 id="cancellable-9"><a class="doc-anchor" href="#cancellable-9">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-9"><a href="#returns-9">Returns</a></h5>
+<h5 id="returns-9"><a class="doc-anchor" href="#returns-9">§</a>Returns</h5>
 <p>Number of bytes written (which may be less than <code>size</code>), or -1
 on error</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.send_with_blocking" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#1063-1091">source</a><h4 class="code-header">fn <a href="#method.send_with_blocking" class="fn">send_with_blocking</a>&lt;B: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;[<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
@@ -553,14 +553,14 @@ on error</p>
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>This behaves exactly the same as <a href="trait.SocketExtManual.html#method.send" title="method gio::prelude::SocketExtManual::send"><code>SocketExtManual::send()</code></a>, except that
 the choice of blocking or non-blocking behavior is determined by
 the <code>blocking</code> argument rather than by <code>self</code>’s properties.</p>
-<h6 id="buffer-5"><a href="#buffer-5"><code>buffer</code></a></h6>
+<h6 id="buffer-5"><a class="doc-anchor" href="#buffer-5">§</a><code>buffer</code></h6>
 <p>the buffer
 containing the data to send.</p>
-<h6 id="blocking-1"><a href="#blocking-1"><code>blocking</code></a></h6>
+<h6 id="blocking-1"><a class="doc-anchor" href="#blocking-1">§</a><code>blocking</code></h6>
 <p>whether to do blocking or non-blocking I/O</p>
-<h6 id="cancellable-10"><a href="#cancellable-10"><code>cancellable</code></a></h6>
+<h6 id="cancellable-10"><a class="doc-anchor" href="#cancellable-10">§</a><code>cancellable</code></h6>
 <p>a <code>GCancellable</code> or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
-<h5 id="returns-10"><a href="#returns-10">Returns</a></h5>
+<h5 id="returns-10"><a class="doc-anchor" href="#returns-10">§</a>Returns</h5>
 <p>Number of bytes written (which may be less than <code>size</code>), or -1
 on error</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.fd" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#1106-1108">source</a><h4 class="code-header">fn <a href="#method.fd" class="fn">fd</a>&lt;T: <a class="trait" href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.FromRawFd.html" title="trait std::os::fd::raw::FromRawFd">FromRawFd</a>&gt;(&amp;self) -&gt; T</h4></section></summary><span class="item-info"><div class="stab portability">Available on <strong>Unix</strong> only.</div></span><div class="docblock"><p>Returns the underlying OS socket object. On unix this
@@ -568,7 +568,7 @@ is a socket file descriptor, and on Windows this is
 a Winsock2 SOCKET handle. This may be useful for
 doing platform specific or otherwise unusual operations
 on the socket.</p>
-<h5 id="returns-11"><a href="#returns-11">Returns</a></h5>
+<h5 id="returns-11"><a class="doc-anchor" href="#returns-11">§</a>Returns</h5>
 <p>the file descriptor of the socket.</p>
 </div></details><section id="method.create_source" class="method"><a class="src rightside" href="../../src/gio/socket.rs.html#1121-1178">source</a><h4 class="code-header">fn <a href="#method.create_source" class="fn">create_source</a>&lt;F, C&gt;(
     &amp;self,

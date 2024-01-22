@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Defines a wrapper type and implements the appropriate traits."><title>wrapper in glib - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (88189a71e 2024-01-19)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="sidebar-items.js"></script><script defer src="../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc macro"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Defines a wrapper type and implements the appropriate traits."><title>wrapper in glib - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="sidebar-items.js"></script><script defer src="../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc macro"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -182,7 +182,7 @@ note that each supports different sets of <code>$fn_name</code> inside the
 <code>match fn</code> block.  Also, <code>Object</code> may require you to specify
 things like the class struct to wrap, plus any interfaces that the
 class implements.</p>
-<h4 id="boxed-heap-allocated"><a href="#boxed-heap-allocated">Boxed (heap allocated)</a></h4>
+<h4 id="boxed-heap-allocated"><a class="doc-anchor" href="#boxed-heap-allocated">§</a>Boxed (heap allocated)</h4>
 <p>Boxed records with single ownership allocated on the heap.</p>
 <p>With no registered <code>glib_ffi::GType</code>:</p>
 
@@ -211,7 +211,7 @@ class implements.</p>
 }</code></pre></div>
 <p><code>type_</code>: <code>|| -&gt; glib_ffi::GType</code> (optional) returns the
 <code>glib_ffi::GType</code> that corresponds to the foreign struct.</p>
-<h4 id="boxedinline-inline-stack-allocated"><a href="#boxedinline-inline-stack-allocated">BoxedInline (inline, stack allocated)</a></h4>
+<h4 id="boxedinline-inline-stack-allocated"><a class="doc-anchor" href="#boxedinline-inline-stack-allocated">§</a>BoxedInline (inline, stack allocated)</h4>
 <p>Boxed records with single ownership allocated on the stack or otherwise inline.
 With no registered <code>glib_ffi::GType</code>:</p>
 
@@ -240,7 +240,7 @@ With no registered <code>glib_ffi::GType</code>:</p>
 }</code></pre></div>
 <p><code>type_</code>: <code>|| -&gt; glib_ffi::GType</code> (optional) returns the
 <code>glib_ffi::GType</code> that corresponds to the foreign struct.</p>
-<h4 id="shared"><a href="#shared">Shared</a></h4>
+<h4 id="shared"><a class="doc-anchor" href="#shared">§</a>Shared</h4>
 <p>Records with reference-counted, shared ownership.</p>
 <p>With no registered <code>glib_ffi::GType</code>:</p>
 
@@ -269,7 +269,7 @@ With no registered <code>glib_ffi::GType</code>:</p>
 }</code></pre></div>
 <p><code>type_</code>: <code>|| -&gt; glib_ffi::GType</code> (optional) returns the
 <code>glib_ffi::GType</code> that corresponds to the foreign struct.</p>
-<h4 id="object"><a href="#object">Object</a></h4>
+<h4 id="object"><a class="doc-anchor" href="#object">§</a>Object</h4>
 <p>Objects – classes.  Note that the class name, if available, must be specified after the
 $foreign type; see below for <a href="#non-derivable-classes">non-derivable classes</a>.</p>
 <p>The basic syntax is this:</p>
@@ -286,7 +286,7 @@ $foreign type; see below for <a href="#non-derivable-classes">non-derivable clas
 }</code></pre></div>
 <p><code>type_</code>: <code>|| -&gt; glib_ffi::GType</code> returns the <code>glib_ffi::GType</code>
 that corresponds to the foreign class.</p>
-<h5 id="all-parent-classes-must-be-specified"><a href="#all-parent-classes-must-be-specified">All parent classes must be specified</a></h5>
+<h5 id="all-parent-classes-must-be-specified"><a class="doc-anchor" href="#all-parent-classes-must-be-specified">§</a>All parent classes must be specified</h5>
 <p>In the example above, “<code>@extends ParentClass, GrandparentClass, ...,</code>” is where you must
 specify all the parent classes of the one you are wrapping. The uppermost parent class,
 <code>glib::Object</code>, must not be specified.</p>
@@ -310,7 +310,7 @@ specify all the parent classes of the one you are wrapping. The uppermost parent
         type_ =&gt; || ffi::gtk_button_get_type(),
     }
 }</code></pre></div>
-<h5 id="objects-which-implement-interfaces"><a href="#objects-which-implement-interfaces">Objects which implement interfaces</a></h5>
+<h5 id="objects-which-implement-interfaces"><a class="doc-anchor" href="#objects-which-implement-interfaces">§</a>Objects which implement interfaces</h5>
 <p>The example above is incomplete, since <code>ffi::GtkButton</code> actually implements two interfaces,
 <code>Buildable</code> and <code>Actionable</code>.  In this case, they must be specified after all the parent classes
 behind the <code>@implements</code> keyword:</p>
@@ -324,7 +324,7 @@ behind the <code>@implements</code> keyword:</p>
         type_ =&gt; || ffi::gtk_button_get_type(),
     }
 }</code></pre></div>
-<h5 id="non-derivable-classes"><a href="#non-derivable-classes">Non-derivable classes</a></h5>
+<h5 id="non-derivable-classes"><a class="doc-anchor" href="#non-derivable-classes">§</a>Non-derivable classes</h5>
 <p>By convention, GObject implements “final” classes, i.e. those who
 cannot be subclassed, by <em>not</em> exposing a public Class struct.
 This way it is not possible to override any methods, as there are
@@ -335,7 +335,7 @@ specify a FFI class name at all in the <code>Object&lt;&gt;</code> part:</p>
     <span class="kw">pub struct </span>Clipboard(Object&lt;ffi::GtkClipboard&gt;);
     ...
 }</code></pre></div>
-<h5 id="interfaces"><a href="#interfaces">Interfaces</a></h5>
+<h5 id="interfaces"><a class="doc-anchor" href="#interfaces">§</a>Interfaces</h5>
 <p>Interfaces are passed in the same way to the macro but instead of specifying
 <code>Object</code>, <code>Interface</code> has to be specified:</p>
 
@@ -343,7 +343,7 @@ specify a FFI class name at all in the <code>Object&lt;&gt;</code> part:</p>
     <span class="kw">pub struct </span>TreeModel(Interface&lt;ffi::GtkTreeModel, ffi::GtkTreeModelIface&gt;);
     ...
 }</code></pre></div>
-<h5 id="interfaces-with-prerequisites"><a href="#interfaces-with-prerequisites">Interfaces with prerequisites</a></h5>
+<h5 id="interfaces-with-prerequisites"><a class="doc-anchor" href="#interfaces-with-prerequisites">§</a>Interfaces with prerequisites</h5>
 <p>Interfaces can declare prerequisites, i.e. the classes from which types that implement the
 interface have to inherit or interfaces that have to be implemented:</p>
 
