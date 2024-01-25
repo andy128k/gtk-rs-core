@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/subclass/type_plugin.rs`."><title>type_plugin.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/subclass/type_plugin.rs`."><title>type_plugin.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -385,15 +385,15 @@
 <a href="#310" id="310">310</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span><span class="kw">crate</span>::enums::{<a href="../enums.rs.html#384">EnumValues</a>, <a href="../enums.rs.html#966">FlagsValues</a>};
+</span><span class="kw">use </span><span class="kw">crate</span>::enums::{<a href="../enums.rs.html#381">EnumValues</a>, <a href="../enums.rs.html#960">FlagsValues</a>};
 <span class="kw">use </span><a href="../translate.rs.html#327-331"><span class="kw">crate</span>::translate::IntoGlib</a>;
 <span class="kw">use </span><span class="kw">crate</span>::translate::{<a href="../translate.rs.html#1406-1408">FromGlib</a>, <a href="../translate.rs.html#430-455">ToGlibPtr</a>};
 <span class="kw">use crate</span>::{
-    <a href="mod.rs.html#443-459">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../object.rs.html#74-280">Cast</a>, <a href="../object.rs.html#4066">Interface</a>, <a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a>, <a href="../types.rs.html#22">Type</a>, <a href="../gobject/auto/flags.rs.html#239-284">TypeFlags</a>, <a href="../gobject/type_info.rs.html#25">TypeInfo</a>, <a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>,
-    <a href="../gobject/type_value_table.rs.html#11">TypeValueTable</a>,
+    <a href="mod.rs.html#443-459">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../object.rs.html#74-280">Cast</a>, <a href="../object.rs.html#4066">Interface</a>, <a href="../gobject/interface_info.rs.html#8">InterfaceInfo</a>, <a href="../types.rs.html#22">Type</a>, <a href="../gobject/auto/flags.rs.html#182-209">TypeFlags</a>, <a href="../gobject/type_info.rs.html#15">TypeInfo</a>, <a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>,
+    <a href="../gobject/type_value_table.rs.html#8">TypeValueTable</a>,
 };
 
-<span class="kw">pub trait </span><a href="../../../glib/subclass/type_plugin/trait.TypePluginImpl.html">TypePluginImpl</a>: <a href="object.rs.html#17-104">ObjectImpl</a> + <a href="#29-38">TypePluginImplExt</a> {
+<span class="kw">pub trait </span><a href="../../../glib/subclass/type_plugin/trait.TypePluginImpl.html">TypePluginImpl</a>: <a href="object.rs.html#17-93">ObjectImpl</a> + <a href="#29-38">TypePluginImplExt</a> {
     <span class="kw">fn </span>use_plugin(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <a class="self" href="#12">self</a>.<a href="#30">parent_use_plugin</a>();
     }
@@ -402,11 +402,11 @@
         <a class="self" href="#16">self</a>.<a href="#31">parent_unuse_plugin</a>();
     }
 
-    <span class="kw">fn </span>complete_type_info(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; (<a href="../gobject/type_info.rs.html#25">TypeInfo</a>, <a href="../gobject/type_value_table.rs.html#11">TypeValueTable</a>) {
+    <span class="kw">fn </span>complete_type_info(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; (<a href="../gobject/type_info.rs.html#15">TypeInfo</a>, <a href="../gobject/type_value_table.rs.html#8">TypeValueTable</a>) {
         <a class="self" href="#20">self</a>.<a href="#32">parent_complete_type_info</a>(<a href="#20">type_</a>)
     }
 
-    <span class="kw">fn </span>complete_interface_info(<span class="kw-2">&amp;</span><span class="self">self</span>, instance_type: <a href="../types.rs.html#22">Type</a>, interface_type: <a href="../types.rs.html#22">Type</a>) -&gt; <a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a> {
+    <span class="kw">fn </span>complete_interface_info(<span class="kw-2">&amp;</span><span class="self">self</span>, instance_type: <a href="../types.rs.html#22">Type</a>, interface_type: <a href="../types.rs.html#22">Type</a>) -&gt; <a href="../gobject/interface_info.rs.html#8">InterfaceInfo</a> {
         <a class="self" href="#24">self</a>.<a href="#33-37">parent_complete_interface_info</a>(<a href="#24">instance_type</a>, <a href="#24">interface_type</a>)
     }
 }
@@ -414,47 +414,47 @@
 <span class="kw">pub trait </span><a href="../../../glib/subclass/type_plugin/trait.TypePluginImplExt.html">TypePluginImplExt</a>: <a href="types.rs.html#584-701">ObjectSubclass</a> {
     <span class="kw">fn </span>parent_use_plugin(<span class="kw-2">&amp;</span><span class="self">self</span>);
     <span class="kw">fn </span>parent_unuse_plugin(<span class="kw-2">&amp;</span><span class="self">self</span>);
-    <span class="kw">fn </span>parent_complete_type_info(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; (<a href="../gobject/type_info.rs.html#25">TypeInfo</a>, <a href="../gobject/type_value_table.rs.html#11">TypeValueTable</a>);
+    <span class="kw">fn </span>parent_complete_type_info(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; (<a href="../gobject/type_info.rs.html#15">TypeInfo</a>, <a href="../gobject/type_value_table.rs.html#8">TypeValueTable</a>);
     <span class="kw">fn </span>parent_complete_interface_info(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         instance_type: <a href="../types.rs.html#22">Type</a>,
         interface_type: <a href="../types.rs.html#22">Type</a>,
-    ) -&gt; <a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a>;
+    ) -&gt; <a href="../gobject/interface_info.rs.html#8">InterfaceInfo</a>;
 }
 
 <span class="kw">impl</span>&lt;T: <a href="#11-27">TypePluginImpl</a>&gt; <a href="#29-38">TypePluginImplExt</a> <span class="kw">for </span>T {
     <span class="kw">fn </span>parent_use_plugin(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="types.rs.html#554"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#43">type_data</a>.as_ref().<a href="types.rs.html#474-481">parent_interface</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#43">type_data</a>.as_ref().<a href="types.rs.html#474-481">parent_interface</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GTypePluginClass;
 
             <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#44">parent_iface</a>)
                 .use_plugin
                 .expect(<span class="string">"no parent \"use_plugin\" implementation"</span>);
 
-            <a href="#47">f</a>(<a class="self" href="#41">self</a>.<a href="types.rs.html#722">obj</a>().<a href="../object.rs.html#272-279">unsafe_cast_ref</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>&gt;().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)
+            <a href="#47">f</a>(<a class="self" href="#41">self</a>.<a href="types.rs.html#722">obj</a>().<a href="../object.rs.html#272-279">unsafe_cast_ref</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>&gt;().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)
         }
     }
 
     <span class="kw">fn </span>parent_unuse_plugin(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="types.rs.html#554"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#57">type_data</a>.as_ref().<a href="types.rs.html#474-481">parent_interface</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#57">type_data</a>.as_ref().<a href="types.rs.html#474-481">parent_interface</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GTypePluginClass;
 
             <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#58">parent_iface</a>)
                 .unuse_plugin
                 .expect(<span class="string">"no parent \"unuse_plugin\" implementation"</span>);
 
-            <a href="#61">f</a>(<a class="self" href="#55">self</a>.<a href="types.rs.html#722">obj</a>().<a href="../object.rs.html#272-279">unsafe_cast_ref</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>&gt;().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)
+            <a href="#61">f</a>(<a class="self" href="#55">self</a>.<a href="types.rs.html#722">obj</a>().<a href="../object.rs.html#272-279">unsafe_cast_ref</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>&gt;().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)
         }
     }
 
-    <span class="kw">fn </span>parent_complete_type_info(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; (<a href="../gobject/type_info.rs.html#25">TypeInfo</a>, <a href="../gobject/type_value_table.rs.html#11">TypeValueTable</a>) {
+    <span class="kw">fn </span>parent_complete_type_info(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; (<a href="../gobject/type_info.rs.html#15">TypeInfo</a>, <a href="../gobject/type_value_table.rs.html#8">TypeValueTable</a>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="types.rs.html#554"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#71">type_data</a>.as_ref().<a href="types.rs.html#474-481">parent_interface</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#71">type_data</a>.as_ref().<a href="types.rs.html#474-481">parent_interface</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GTypePluginClass;
 
             <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#72">parent_iface</a>)
@@ -464,10 +464,10 @@
             <span class="kw">let </span>info = <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">TypeInfo::default</a>();
             <span class="kw">let </span>value_table = <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">TypeValueTable::default</a>();
             <a href="#75">f</a>(
-                <a class="self" href="#69">self</a>.<a href="types.rs.html#722">obj</a>().<a href="../object.rs.html#272-279">unsafe_cast_ref</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>&gt;().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#69">self</a>.<a href="types.rs.html#722">obj</a>().<a href="../object.rs.html#272-279">unsafe_cast_ref</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>&gt;().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#69">type_</a>.<a href="../translate.rs.html#330">into_glib</a>(),
-                <a href="#79">info</a>.<a href="../gobject/type_info.rs.html#32-34">as_ptr</a>(),
-                <a href="#80">value_table</a>.<a href="../gobject/type_value_table.rs.html#18-20">as_ptr</a>(),
+                <a href="#79">info</a>.<a href="../gobject/type_info.rs.html#22-24">as_ptr</a>(),
+                <a href="#80">value_table</a>.<a href="../gobject/type_value_table.rs.html#15-17">as_ptr</a>(),
             );
 
             (<a href="#79">info</a>, <a href="#80">value_table</a>)
@@ -478,11 +478,11 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         instance_type: <a href="../types.rs.html#22">Type</a>,
         interface_type: <a href="../types.rs.html#22">Type</a>,
-    ) -&gt; <a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a> {
+    ) -&gt; <a href="../gobject/interface_info.rs.html#8">InterfaceInfo</a> {
         <span class="kw">let </span>info = <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">InterfaceInfo::default</a>();
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="types.rs.html#554"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#99">type_data</a>.as_ref().<a href="types.rs.html#474-481">parent_interface</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#99">type_data</a>.as_ref().<a href="types.rs.html#474-481">parent_interface</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GTypePluginClass;
 
             <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#100">parent_iface</a>)
@@ -490,17 +490,17 @@
                 .expect(<span class="string">"no parent \"complete_interface_info\" implementation"</span>);
 
             <a href="#103">f</a>(
-                <a class="self" href="#93">self</a>.<a href="types.rs.html#722">obj</a>().<a href="../object.rs.html#272-279">unsafe_cast_ref</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a>&gt;().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#93">self</a>.<a href="types.rs.html#722">obj</a>().<a href="../object.rs.html#272-279">unsafe_cast_ref</a>::&lt;<a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a>&gt;().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#94">instance_type</a>.<a href="../translate.rs.html#330">into_glib</a>(),
                 <a href="#95">interface_type</a>.<a href="../translate.rs.html#330">into_glib</a>(),
-                <a href="#97">info</a>.<a href="../gobject/interface_info.rs.html#18-20">as_ptr</a>(),
+                <a href="#97">info</a>.<a href="../gobject/interface_info.rs.html#15-17">as_ptr</a>(),
             )
         }
         <a href="#97">info</a>
     }
 }
 
-<span class="kw">unsafe impl</span>&lt;T: <a href="#11-27">TypePluginImpl</a>&gt; IsImplementable&lt;T&gt; <span class="kw">for </span><a href="../gobject/type_plugin.rs.html#5-125">TypePlugin</a> {
+<span class="kw">unsafe impl</span>&lt;T: <a href="#11-27">TypePluginImpl</a>&gt; IsImplementable&lt;T&gt; <span class="kw">for </span><a href="../gobject/type_plugin.rs.html#5-66">TypePlugin</a> {
     <span class="kw">fn </span>interface_init(iface: <span class="kw-2">&amp;mut </span>Interface&lt;<span class="self">Self</span>&gt;) {
         <span class="kw">let </span>iface = <a href="#119">iface</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
 
@@ -536,8 +536,8 @@
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#144">type_plugin</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = <a href="#151">instance</a>.<a href="types.rs.html#84">imp</a>();
     <span class="kw">let </span>type_ = <a href="../translate.rs.html#1407">Type::from_glib</a>(<a href="#145">gtype</a>);
-    <span class="kw">let </span>info = <a href="../gobject/type_info.rs.html#40-42">TypeInfo::from_glib_ptr_borrow_mut</a>(<a href="#146">info_ptr</a>);
-    <span class="kw">let </span>value_table = <a href="../gobject/type_value_table.rs.html#26-30">TypeValueTable::from_glib_ptr_borrow_mut</a>(<a href="#147">value_table_ptr</a>);
+    <span class="kw">let </span>info = <a href="../gobject/type_info.rs.html#30-32">TypeInfo::from_glib_ptr_borrow_mut</a>(<a href="#146">info_ptr</a>);
+    <span class="kw">let </span>value_table = <a href="../gobject/type_value_table.rs.html#23-27">TypeValueTable::from_glib_ptr_borrow_mut</a>(<a href="#147">value_table_ptr</a>);
 
     <span class="kw">let </span>(info_, value_table_) = <a href="#152">imp</a>.<a href="#20-22">complete_type_info</a>(<a href="#153">type_</a>);
 
@@ -556,32 +556,32 @@
     <span class="kw">let </span>imp = <a href="#170">instance</a>.<a href="types.rs.html#84">imp</a>();
     <span class="kw">let </span>instance_type = <a href="../translate.rs.html#1407">Type::from_glib</a>(<a href="#165">instance_gtype</a>);
     <span class="kw">let </span>interface_type = <a href="../translate.rs.html#1407">Type::from_glib</a>(<a href="#166">interface_gtype</a>);
-    <span class="kw">let </span>info = <a href="../gobject/interface_info.rs.html#26-30">InterfaceInfo::from_glib_ptr_borrow_mut</a>(<a href="#167">info_ptr</a>);
+    <span class="kw">let </span>info = <a href="../gobject/interface_info.rs.html#23-27">InterfaceInfo::from_glib_ptr_borrow_mut</a>(<a href="#167">info_ptr</a>);
 
     <span class="kw">let </span>info_ = <a href="#171">imp</a>.<a href="#24-26">complete_interface_info</a>(<a href="#172">instance_type</a>, <a href="#173">interface_type</a>);
     <span class="kw-2">*</span><a href="#174">info</a> = <a href="#176">info_</a>;
 }
 
-<span class="kw">pub trait </span><a href="../../../glib/subclass/type_plugin/trait.TypePluginRegisterImpl.html">TypePluginRegisterImpl</a>: <a href="object.rs.html#17-104">ObjectImpl</a> + <a href="#11-27">TypePluginImpl</a> {
+<span class="kw">pub trait </span><a href="../../../glib/subclass/type_plugin/trait.TypePluginRegisterImpl.html">TypePluginRegisterImpl</a>: <a href="object.rs.html#17-93">ObjectImpl</a> + <a href="#11-27">TypePluginImpl</a> {
     <span class="kw">fn </span>add_dynamic_interface(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         _instance_type: <a href="../types.rs.html#22">Type</a>,
         _interface_type: <a href="../types.rs.html#22">Type</a>,
-        _interface_info: <span class="kw-2">&amp;</span><a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a>,
+        _interface_info: <span class="kw-2">&amp;</span><a href="../gobject/interface_info.rs.html#8">InterfaceInfo</a>,
     ) {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
     <span class="kw">fn </span>register_dynamic_enum(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         _name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        _const_static_values: <span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="../enums.rs.html#384">EnumValues</a>,
+        _const_static_values: <span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="../enums.rs.html#381">EnumValues</a>,
     ) -&gt; <a href="../types.rs.html#22">Type</a> {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
     <span class="kw">fn </span>register_dynamic_flags(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         _name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        _const_static_values: <span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="../enums.rs.html#966">FlagsValues</a>,
+        _const_static_values: <span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="../enums.rs.html#960">FlagsValues</a>,
     ) -&gt; <a href="../types.rs.html#22">Type</a> {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
@@ -589,8 +589,8 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         _parent_type: <a href="../types.rs.html#22">Type</a>,
         _type_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        _type_info: <span class="kw-2">&amp;</span><a href="../gobject/type_info.rs.html#25">TypeInfo</a>,
-        _flags: <a href="../gobject/auto/flags.rs.html#239-284">TypeFlags</a>,
+        _type_info: <span class="kw-2">&amp;</span><a href="../gobject/type_info.rs.html#15">TypeInfo</a>,
+        _flags: <a href="../gobject/auto/flags.rs.html#182-209">TypeFlags</a>,
     ) -&gt; <a href="../types.rs.html#22">Type</a> {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }

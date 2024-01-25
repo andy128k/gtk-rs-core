@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/main_context.rs`."><title>main_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/main_context.rs`."><title>main_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -440,16 +440,16 @@
     /// for polling is determined by calling g_main_context_query ().
     ///
     /// You must have successfully acquired the context with
-    /// [`acquire()`][Self::acquire()] before you may call this function.
+    /// g_main_context_acquire() before you may call this function.
     ///
     /// # Returns
     ///
     /// [`true`] if some source is ready to be dispatched
-    ///  prior to polling.
+    ///               prior to polling.
     ///
     /// ## `priority`
     /// location to store priority of highest priority
-    ///  source already ready.
+    ///            source already ready.
     </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_prepare"</span>)]
     </span><span class="kw">pub fn </span>prepare(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <span class="kw">unsafe </span>{
@@ -464,24 +464,24 @@
         }
     }
 
-    <span class="doccomment">/// Finds a [`Source`][crate::Source] given a pair of context and ID.
+    <span class="doccomment">/// Finds a #GSource given a pair of context and ID.
     ///
     /// It is a programmer error to attempt to look up a non-existent source.
     ///
     /// More specifically: source IDs can be reissued after a source has been
     /// destroyed and therefore it is never valid to use this function with a
-    /// source ID which may have already been removed. An example is when
-    /// scheduling an idle to run in another thread with `g_idle_add()`: the
+    /// source ID which may have already been removed.  An example is when
+    /// scheduling an idle to run in another thread with g_idle_add(): the
     /// idle may already have run and been removed by the time this function
-    /// is called on its (now invalid) source ID. This source ID may have
+    /// is called on its (now invalid) source ID.  This source ID may have
     /// been reissued, leading to the operation being performed against the
     /// wrong source.
     /// ## `source_id`
-    /// the source ID, as returned by `g_source_get_id()`.
+    /// the source ID, as returned by g_source_get_id().
     ///
     /// # Returns
     ///
-    /// the [`Source`][crate::Source]
+    /// the #GSource
     </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_find_source_by_id"</span>)]
     </span><span class="kw">pub fn </span>find_source_by_id(<span class="kw-2">&amp;</span><span class="self">self</span>, source_id: <span class="kw-2">&amp;</span><a href="source.rs.html#21">SourceId</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="auto/source.rs.html#7-18">Source</a>&gt; {
         <span class="kw">unsafe </span>{
@@ -500,26 +500,26 @@
     /// not desired and `func` should always be called asynchronously then use [`MainContext::spawn`]
     /// [`glib::idle_add`](crate::idle_add) instead.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Invokes a function in such a way that `self` is owned during the
-    /// invocation of `function`.
+    </span><span class="doccomment">/// Invokes a function in such a way that @self is owned during the
+    /// invocation of @function.
     ///
-    /// If `self` is [`None`] then the global-default main context — as
-    /// returned by [`default()`][Self::default()] — is used.
+    /// If @self is [`None`] then the global-default main context — as
+    /// returned by g_main_context_default() — is used.
     ///
-    /// If `self` is owned by the current thread, `function` is called
-    /// directly. Otherwise, if `self` is the thread-default main context
-    /// of the current thread and [`acquire()`][Self::acquire()] succeeds, then
-    /// `function` is called and [`release()`][Self::release()] is called
+    /// If @self is owned by the current thread, @function is called
+    /// directly.  Otherwise, if @self is the thread-default main context
+    /// of the current thread and g_main_context_acquire() succeeds, then
+    /// @function is called and g_main_context_release() is called
     /// afterwards.
     ///
-    /// In any other case, an idle source is created to call `function` and
-    /// that source is attached to `self` (presumably to be run in another
-    /// thread). The idle source is attached with `G_PRIORITY_DEFAULT`
-    /// priority. If you want a different priority, use
-    /// [`invoke_full()`][Self::invoke_full()].
+    /// In any other case, an idle source is created to call @function and
+    /// that source is attached to @self (presumably to be run in another
+    /// thread).  The idle source is attached with `G_PRIORITY_DEFAULT`
+    /// priority.  If you want a different priority, use
+    /// g_main_context_invoke_full().
     ///
-    /// Note that, as with normal idle functions, `function` should probably
-    /// return [`false`]. If it returns [`true`], it will be continuously run in a
+    /// Note that, as with normal idle functions, @function should probably
+    /// return [`false`].  If it returns [`true`], it will be continuously run in a
     /// loop (and may prevent this call from returning).
     /// ## `function`
     /// function to call
@@ -650,20 +650,20 @@
     /// If some other thread is the owner of the context,
     /// returns [`false`] immediately. Ownership is properly
     /// recursive: the owner can require ownership again
-    /// and will release ownership when [`release()`][Self::release()]
-    /// is called as many times as [`acquire()`][Self::acquire()].
+    /// and will release ownership when g_main_context_release()
+    /// is called as many times as g_main_context_acquire().
     ///
     /// You must be the owner of a context before you
-    /// can call [`prepare()`][Self::prepare()], `g_main_context_query()`,
-    /// `g_main_context_check()`, [`dispatch()`][Self::dispatch()], [`release()`][Self::release()].
+    /// can call g_main_context_prepare(), g_main_context_query(),
+    /// g_main_context_check(), g_main_context_dispatch(), g_main_context_release().
     ///
-    /// Since 2.76 `self` can be [`None`] to use the global-default
+    /// Since 2.76 @self can be [`None`] to use the global-default
     /// main context.
     ///
     /// # Returns
     ///
     /// [`true`] if the operation succeeded, and
-    ///  this thread is now the owner of `self`.
+    ///   this thread is now the owner of @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_acquire"</span>)]
     </span><span class="kw">pub fn </span>acquire(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#252">MainContextAcquireGuard</a>, <a href="error.rs.html#243-251"><span class="kw">crate</span>::BoolError</a>&gt; {
         <span class="kw">unsafe </span>{

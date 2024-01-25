@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/volume.rs`."><title>volume.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/volume.rs`."><title>volume.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -615,8 +615,8 @@
 // DO NOT EDIT
 
 </span><span class="kw">use crate</span>::{
-    <a href="async_result.rs.html#7-106">AsyncResult</a>, <a href="cancellable.rs.html#7-83">Cancellable</a>, <a href="drive.rs.html#16-84">Drive</a>, <a href="file.rs.html#14-108">File</a>, <a href="icon.rs.html#7-46">Icon</a>, <a href="mount.rs.html#16-73">Mount</a>, <a href="flags.rs.html#2325-2334">MountMountFlags</a>, <a href="mount_operation.rs.html#13-187">MountOperation</a>,
-    <a href="flags.rs.html#2408-2421">MountUnmountFlags</a>,
+    <a href="async_result.rs.html#7-105">AsyncResult</a>, <a href="cancellable.rs.html#7-85">Cancellable</a>, <a href="drive.rs.html#16-84">Drive</a>, <a href="file.rs.html#14-116">File</a>, <a href="icon.rs.html#7-47">Icon</a>, <a href="mount.rs.html#16-75">Mount</a>, <a href="flags.rs.html#2331-2340">MountMountFlags</a>, <a href="mount_operation.rs.html#13-187">MountOperation</a>,
+    <a href="flags.rs.html#2414-2427">MountUnmountFlags</a>,
 };
 <span class="kw">use </span>glib::{
     <a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
@@ -626,45 +626,45 @@
 <span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">boxed::Box</a> <span class="kw">as </span>Box_, <a href="https://doc.rust-lang.org/nightly/core/pin/struct.Pin.html">pin::Pin</a>};
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// The [`Volume`][crate::Volume] interface represents user-visible objects that can be
-    /// mounted. Note, when porting from GnomeVFS, [`Volume`][crate::Volume] is the moral
-    /// equivalent of `GnomeVFSDrive`.
+    <span class="doccomment">/// The `GVolume` interface represents user-visible objects that can be
+    /// mounted. Note, when [porting from GnomeVFS](migrating-gnome-vfs.html),
+    /// `GVolume` is the moral equivalent of `GnomeVFSDrive`.
     ///
-    /// Mounting a [`Volume`][crate::Volume] instance is an asynchronous operation. For more
+    /// Mounting a `GVolume` instance is an asynchronous operation. For more
     /// information about asynchronous operations, see [`AsyncResult`][crate::AsyncResult] and
-    /// [`Task`][crate::Task]. To mount a [`Volume`][crate::Volume], first call [`VolumeExt::mount()`][crate::prelude::VolumeExt::mount()] with (at
-    /// least) the [`Volume`][crate::Volume] instance, optionally a [`MountOperation`][crate::MountOperation] object
-    /// and a `GAsyncReadyCallback`.
+    /// [`Task`][crate::Task]. To mount a `GVolume`, first call [`VolumeExt::mount()`][crate::prelude::VolumeExt::mount()]
+    /// with (at least) the `GVolume` instance, optionally a
+    /// [`MountOperation`][crate::MountOperation] object and a [type@Gio.AsyncReadyCallback].
     ///
-    /// Typically, one will only want to pass [`None`] for the
+    /// Typically, one will only want to pass `NULL` for the
     /// [`MountOperation`][crate::MountOperation] if automounting all volumes when a desktop session
-    /// starts since it's not desirable to put up a lot of dialogs asking
+    /// starts since it’s not desirable to put up a lot of dialogs asking
     /// for credentials.
     ///
     /// The callback will be fired when the operation has resolved (either
     /// with success or failure), and a [`AsyncResult`][crate::AsyncResult] instance will be
-    /// passed to the callback. That callback should then call
-    /// `g_volume_mount_finish()` with the [`Volume`][crate::Volume] instance and the
+    /// passed to the callback.  That callback should then call
+    /// `Gio::Volume::mount_finish()` with the `GVolume` instance and the
     /// [`AsyncResult`][crate::AsyncResult] data to see if the operation was completed
-    /// successfully. If an `error` is present when `g_volume_mount_finish()`
-    /// is called, then it will be filled with any error information.
+    /// successfully.  If a [type@GLib.Error] is present when
+    /// `Gio::Volume::mount_finish()` is called, then it will be filled with any
+    /// error information.
     ///
-    /// ## Volume Identifiers # {`volume`-identifier}
+    /// ## Volume Identifiers
     ///
     /// It is sometimes necessary to directly access the underlying
     /// operating system object behind a volume (e.g. for passing a volume
-    /// to an application via the commandline). For this purpose, GIO
-    /// allows to obtain an 'identifier' for the volume. There can be
+    /// to an application via the command line). For this purpose, GIO
+    /// allows to obtain an ‘identifier’ for the volume. There can be
     /// different kinds of identifiers, such as Hal UDIs, filesystem labels,
     /// traditional Unix devices (e.g. `/dev/sda2`), UUIDs. GIO uses predefined
     /// strings as names for the different kinds of identifiers:
-    /// [`VOLUME_IDENTIFIER_KIND_UUID`][crate::VOLUME_IDENTIFIER_KIND_UUID], [`VOLUME_IDENTIFIER_KIND_LABEL`][crate::VOLUME_IDENTIFIER_KIND_LABEL], etc.
+    /// `G_VOLUME_IDENTIFIER_KIND_UUID`, `G_VOLUME_IDENTIFIER_KIND_LABEL`, etc.
     /// Use [`VolumeExt::identifier()`][crate::prelude::VolumeExt::identifier()] to obtain an identifier for a volume.
     ///
-    ///
-    /// Note that [`VOLUME_IDENTIFIER_KIND_HAL_UDI`][crate::VOLUME_IDENTIFIER_KIND_HAL_UDI] will only be available
-    /// when the gvfs hal volume monitor is in use. Other volume monitors
-    /// will generally be able to provide the [`VOLUME_IDENTIFIER_KIND_UNIX_DEVICE`][crate::VOLUME_IDENTIFIER_KIND_UNIX_DEVICE]
+    /// Note that `G_VOLUME_IDENTIFIER_KIND_HAL_UDI` will only be available
+    /// when the GVFS hal volume monitor is in use. Other volume monitors
+    /// will generally be able to provide the `G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE`
     /// identifier, which can be used to obtain a hal device by means of
     /// `libhal_manager_find_device_string_match()`.
     ///
@@ -678,7 +678,7 @@
     ///
     ///
     /// #### `removed`
-    ///  This signal is emitted when the [`Volume`][crate::Volume] have been removed. If
+    ///  This signal is emitted when the #GVolume have been removed. If
     /// the recipient is holding references to the object they should
     /// release them so the object can be finalized.
     ///
@@ -714,7 +714,7 @@
     ///
     /// # Returns
     ///
-    /// [`true`] if the `self` can be ejected. [`false`] otherwise
+    /// [`true`] if the @self can be ejected. [`false`] otherwise
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_can_eject"</span>)]
     </span><span class="kw">fn </span>can_eject(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_volume_can_eject(<a class="self" href="#107">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
@@ -724,30 +724,30 @@
     ///
     /// # Returns
     ///
-    /// [`true`] if the `self` can be mounted. [`false`] otherwise
+    /// [`true`] if the @self can be mounted. [`false`] otherwise
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_can_mount"</span>)]
     </span><span class="kw">fn </span>can_mount(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_volume_can_mount(<a class="self" href="#117">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Ejects a volume. This is an asynchronous operation, and is
-    /// finished by calling `g_volume_eject_with_operation_finish()` with the `self`
-    /// and [`AsyncResult`][crate::AsyncResult] data returned in the `callback`.
+    /// finished by calling g_volume_eject_with_operation_finish() with the @self
+    /// and #GAsyncResult data returned in the @callback.
     /// ## `flags`
     /// flags affecting the unmount if required for eject
     /// ## `mount_operation`
-    /// a [`MountOperation`][crate::MountOperation] or [`None`] to
-    ///  avoid user interaction
+    /// a #GMountOperation or [`None`] to
+    ///     avoid user interaction
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
+    /// optional #GCancellable object, [`None`] to ignore
     /// ## `callback`
-    /// a `GAsyncReadyCallback`, or [`None`]
+    /// a #GAsyncReadyCallback, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_eject_with_operation"</span>)]
     </span><span class="kw">fn </span>eject_with_operation&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        flags: <a href="flags.rs.html#2408-2421">MountUnmountFlags</a>,
+        flags: <a href="flags.rs.html#2414-2427">MountUnmountFlags</a>,
         mount_operation: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="mount_operation.rs.html#13-187">MountOperation</a>&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
@@ -800,7 +800,7 @@
 
     <span class="kw">fn </span>eject_with_operation_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        flags: <a href="flags.rs.html#2408-2421">MountUnmountFlags</a>,
+        flags: <a href="flags.rs.html#2414-2427">MountUnmountFlags</a>,
         mount_operation: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="mount_operation.rs.html#13-187">MountOperation</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
     ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
         <span class="kw">let </span>mount_operation = <a href="#192">mount_operation</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
@@ -819,13 +819,13 @@
         ))
     }
 
-    <span class="doccomment">/// Gets the kinds of [identifiers][volume-identifier] that `self` has.
-    /// Use [`identifier()`][Self::identifier()] to obtain the identifiers themselves.
+    <span class="doccomment">/// Gets the kinds of [identifiers](#volume-identifiers) that @self has.
+    /// Use g_volume_get_identifier() to obtain the identifiers themselves.
     ///
     /// # Returns
     ///
     /// a [`None`]-terminated array
-    ///  of strings containing kinds of identifiers. Use `g_strfreev()` to free.
+    ///   of strings containing kinds of identifiers. Use g_strfreev() to free.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_enumerate_identifiers"</span>)]
     </span><span class="kw">fn </span>enumerate_identifiers(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
@@ -835,10 +835,10 @@
         }
     }
 
-    <span class="doccomment">/// Gets the activation root for a [`Volume`][crate::Volume] if it is known ahead of
-    /// mount time. Returns [`None`] otherwise. If not [`None`] and if `self`
-    /// is mounted, then the result of [`MountExt::root()`][crate::prelude::MountExt::root()] on the
-    /// [`Mount`][crate::Mount] object obtained from [`get_mount()`][Self::get_mount()] will always
+    <span class="doccomment">/// Gets the activation root for a #GVolume if it is known ahead of
+    /// mount time. Returns [`None`] otherwise. If not [`None`] and if @self
+    /// is mounted, then the result of g_mount_get_root() on the
+    /// #GMount object obtained from g_volume_get_mount() will always
     /// either be equal or a prefix of what this function returns. In
     /// other words, in code
     ///
@@ -866,17 +866,17 @@
     /// ```
     /// will always be [`true`].
     ///
-    /// Activation roots are typically used in [`VolumeMonitor`][crate::VolumeMonitor]
+    /// Activation roots are typically used in #GVolumeMonitor
     /// implementations to find the underlying mount to shadow, see
-    /// [`MountExt::is_shadowed()`][crate::prelude::MountExt::is_shadowed()] for more details.
+    /// g_mount_is_shadowed() for more details.
     ///
     /// # Returns
     ///
-    /// the activation root of `self`
-    ///  or [`None`]. Use `g_object_unref()` to free.
+    /// the activation root of @self
+    ///     or [`None`]. Use g_object_unref() to free.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_activation_root"</span>)]
     #[doc(alias = <span class="string">"get_activation_root"</span>)]
-    </span><span class="kw">fn </span>activation_root(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="file.rs.html#14-108">File</a>&gt; {
+    </span><span class="kw">fn </span>activation_root(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="file.rs.html#14-116">File</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_volume_get_activation_root(
                 <a class="self" href="#267">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
@@ -884,34 +884,34 @@
         }
     }
 
-    <span class="doccomment">/// Gets the drive for the `self`.
+    <span class="doccomment">/// Gets the drive for the @self.
     ///
     /// # Returns
     ///
-    /// a [`Drive`][crate::Drive] or [`None`] if `self` is not
-    ///  associated with a drive. The returned object should be unreffed
-    ///  with `g_object_unref()` when no longer needed.
+    /// a #GDrive or [`None`] if @self is not
+    ///     associated with a drive. The returned object should be unreffed
+    ///     with g_object_unref() when no longer needed.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_drive"</span>)]
     #[doc(alias = <span class="string">"get_drive"</span>)]
     </span><span class="kw">fn </span>drive(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="drive.rs.html#16-84">Drive</a>&gt; {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_volume_get_drive(<a class="self" href="#284">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the icon for `self`.
+    <span class="doccomment">/// Gets the icon for @self.
     ///
     /// # Returns
     ///
-    /// a [`Icon`][crate::Icon].
-    ///  The returned object should be unreffed with `g_object_unref()`
-    ///  when no longer needed.
+    /// a #GIcon.
+    ///     The returned object should be unreffed with g_object_unref()
+    ///     when no longer needed.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_icon"</span>)]
     #[doc(alias = <span class="string">"get_icon"</span>)]
-    </span><span class="kw">fn </span>icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="icon.rs.html#7-46">Icon</a> {
+    </span><span class="kw">fn </span>icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="icon.rs.html#7-47">Icon</a> {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_volume_get_icon(<a class="self" href="#297">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the identifier of the given kind for `self`.
-    /// See the [introduction][volume-identifier] for more
+    <span class="doccomment">/// Gets the identifier of the given kind for @self.
+    /// See the [introduction](#volume-identifiers) for more
     /// information about volume identifiers.
     /// ## `kind`
     /// the kind of identifier to return
@@ -919,8 +919,8 @@
     /// # Returns
     ///
     /// a newly allocated string containing the
-    ///  requested identifier, or [`None`] if the [`Volume`][crate::Volume]
-    ///  doesn't have this kind of identifier
+    ///     requested identifier, or [`None`] if the #GVolume
+    ///     doesn't have this kind of identifier
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_identifier"</span>)]
     #[doc(alias = <span class="string">"get_identifier"</span>)]
     </span><span class="kw">fn </span>identifier(<span class="kw-2">&amp;</span><span class="self">self</span>, kind: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
@@ -932,51 +932,51 @@
         }
     }
 
-    <span class="doccomment">/// Gets the mount for the `self`.
+    <span class="doccomment">/// Gets the mount for the @self.
     ///
     /// # Returns
     ///
-    /// a [`Mount`][crate::Mount] or [`None`] if `self` isn't mounted.
-    ///  The returned object should be unreffed with `g_object_unref()`
-    ///  when no longer needed.
+    /// a #GMount or [`None`] if @self isn't mounted.
+    ///     The returned object should be unreffed with g_object_unref()
+    ///     when no longer needed.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_mount"</span>)]
-    </span><span class="kw">fn </span>get_mount(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="mount.rs.html#16-73">Mount</a>&gt; {
+    </span><span class="kw">fn </span>get_mount(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="mount.rs.html#16-75">Mount</a>&gt; {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_volume_get_mount(<a class="self" href="#331">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the name of `self`.
+    <span class="doccomment">/// Gets the name of @self.
     ///
     /// # Returns
     ///
-    /// the name for the given `self`. The returned string should
-    ///  be freed with `g_free()` when no longer needed.
+    /// the name for the given @self. The returned string should
+    ///     be freed with g_free() when no longer needed.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_name"</span>)]
     #[doc(alias = <span class="string">"get_name"</span>)]
     </span><span class="kw">fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_volume_get_name(<a class="self" href="#343">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the sort key for `self`, if any.
+    <span class="doccomment">/// Gets the sort key for @self, if any.
     ///
     /// # Returns
     ///
-    /// Sorting key for `self` or [`None`] if no such key is available
+    /// Sorting key for @self or [`None`] if no such key is available
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_sort_key"</span>)]
     #[doc(alias = <span class="string">"get_sort_key"</span>)]
     </span><span class="kw">fn </span>sort_key(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::g_volume_get_sort_key(<a class="self" href="#354">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the symbolic icon for `self`.
+    <span class="doccomment">/// Gets the symbolic icon for @self.
     ///
     /// # Returns
     ///
-    /// a [`Icon`][crate::Icon].
-    ///  The returned object should be unreffed with `g_object_unref()`
-    ///  when no longer needed.
+    /// a #GIcon.
+    ///     The returned object should be unreffed with g_object_unref()
+    ///     when no longer needed.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_symbolic_icon"</span>)]
     #[doc(alias = <span class="string">"get_symbolic_icon"</span>)]
-    </span><span class="kw">fn </span>symbolic_icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="icon.rs.html#7-46">Icon</a> {
+    </span><span class="kw">fn </span>symbolic_icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="icon.rs.html#7-47">Icon</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_volume_get_symbolic_icon(
                 <a class="self" href="#367">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
@@ -984,17 +984,17 @@
         }
     }
 
-    <span class="doccomment">/// Gets the UUID for the `self`. The reference is typically based on
+    <span class="doccomment">/// Gets the UUID for the @self. The reference is typically based on
     /// the file system UUID for the volume in question and should be
     /// considered an opaque string. Returns [`None`] if there is no UUID
     /// available.
     ///
     /// # Returns
     ///
-    /// the UUID for `self` or [`None`] if no UUID
-    ///  can be computed.
-    ///  The returned string should be freed with `g_free()`
-    ///  when no longer needed.
+    /// the UUID for @self or [`None`] if no UUID
+    ///     can be computed.
+    ///     The returned string should be freed with g_free()
+    ///     when no longer needed.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_get_uuid"</span>)]
     #[doc(alias = <span class="string">"get_uuid"</span>)]
     </span><span class="kw">fn </span>uuid(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
@@ -1002,22 +1002,22 @@
     }
 
     <span class="doccomment">/// Mounts a volume. This is an asynchronous operation, and is
-    /// finished by calling `g_volume_mount_finish()` with the `self`
-    /// and [`AsyncResult`][crate::AsyncResult] returned in the `callback`.
+    /// finished by calling g_volume_mount_finish() with the @self
+    /// and #GAsyncResult returned in the @callback.
     /// ## `flags`
     /// flags affecting the operation
     /// ## `mount_operation`
-    /// a [`MountOperation`][crate::MountOperation] or [`None`] to avoid user interaction
+    /// a #GMountOperation or [`None`] to avoid user interaction
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
+    /// optional #GCancellable object, [`None`] to ignore
     /// ## `callback`
-    /// a `GAsyncReadyCallback`, or [`None`]
+    /// a #GAsyncReadyCallback, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_mount"</span>)]
     </span><span class="kw">fn </span>mount&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        flags: <a href="flags.rs.html#2325-2334">MountMountFlags</a>,
+        flags: <a href="flags.rs.html#2331-2340">MountMountFlags</a>,
         mount_operation: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="mount_operation.rs.html#13-187">MountOperation</a>&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
@@ -1064,7 +1064,7 @@
 
     <span class="kw">fn </span>mount_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        flags: <a href="flags.rs.html#2325-2334">MountMountFlags</a>,
+        flags: <a href="flags.rs.html#2331-2340">MountMountFlags</a>,
         mount_operation: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="mount_operation.rs.html#13-187">MountOperation</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
     ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
         <span class="kw">let </span>mount_operation = <a href="#456">mount_operation</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
@@ -1120,7 +1120,7 @@
         }
     }
 
-    <span class="doccomment">/// This signal is emitted when the [`Volume`][crate::Volume] have been removed. If
+    <span class="doccomment">/// This signal is emitted when the #GVolume have been removed. If
     /// the recipient is holding references to the object they should
     /// release them so the object can be finalized.
     </span><span class="attr">#[doc(alias = <span class="string">"removed"</span>)]

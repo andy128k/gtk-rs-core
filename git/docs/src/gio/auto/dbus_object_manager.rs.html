@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/dbus_object_manager.rs`."><title>dbus_object_manager.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/dbus_object_manager.rs`."><title>dbus_object_manager.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -381,7 +381,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="dbus_interface.rs.html#8-22">DBusInterface</a>, <a href="dbus_object.rs.html#13-42">DBusObject</a>};
+</span><span class="kw">use crate</span>::{<a href="dbus_interface.rs.html#8-24">DBusInterface</a>, <a href="dbus_object.rs.html#13-42">DBusObject</a>};
 <span class="kw">use </span>glib::{
     <a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
     signal::{<a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
@@ -390,43 +390,43 @@
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// The [`DBusObjectManager`][crate::DBusObjectManager] type is the base type for service- and
+    <span class="doccomment">/// The `GDBusObjectManager` type is the base type for service- and
     /// client-side implementations of the standardized
-    /// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
+    /// [`org.freedesktop.DBus.ObjectManager`](http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-objectmanager)
     /// interface.
     ///
-    /// See `GDBusObjectManagerClient` for the client-side implementation
-    /// and `GDBusObjectManagerServer` for the service-side implementation.
+    /// See `Gio::DBusObjectManagerClient` for the client-side implementation
+    /// and `Gio::DBusObjectManagerServer` for the service-side implementation.
     ///
     /// ## Signals
     ///
     ///
     /// #### `interface-added`
-    ///  Emitted when `interface` is added to `object`.
+    ///  Emitted when @interface is added to @object.
     ///
     /// This signal exists purely as a convenience to avoid having to
-    /// connect signals to all objects managed by `manager`.
+    /// connect signals to all objects managed by @manager.
     ///
     ///
     ///
     ///
     /// #### `interface-removed`
-    ///  Emitted when `interface` has been removed from `object`.
+    ///  Emitted when @interface has been removed from @object.
     ///
     /// This signal exists purely as a convenience to avoid having to
-    /// connect signals to all objects managed by `manager`.
+    /// connect signals to all objects managed by @manager.
     ///
     ///
     ///
     ///
     /// #### `object-added`
-    ///  Emitted when `object` is added to `manager`.
+    ///  Emitted when @object is added to @manager.
     ///
     ///
     ///
     ///
     /// #### `object-removed`
-    ///  Emitted when `object` is removed from `manager`.
+    ///  Emitted when @object is removed from @manager.
     ///
     ///
     ///
@@ -456,7 +456,7 @@
 ///
 /// [`DBusObjectManager`][struct@crate::DBusObjectManager]
 </span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.DBusObjectManagerExt.html">DBusObjectManagerExt</a>: IsA&lt;<a href="#13-63">DBusObjectManager</a>&gt; + <a href="#70">sealed::Sealed</a> + <span class="lifetime">'static </span>{
-    <span class="doccomment">/// Gets the interface proxy for `interface_name` at `object_path`, if
+    <span class="doccomment">/// Gets the interface proxy for @interface_name at @object_path, if
     /// any.
     /// ## `object_path`
     /// Object path to look up.
@@ -465,11 +465,11 @@
     ///
     /// # Returns
     ///
-    /// A [`DBusInterface`][crate::DBusInterface] instance or [`None`]. Free
-    ///  with `g_object_unref()`.
+    /// A #GDBusInterface instance or [`None`]. Free
+    ///   with g_object_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_object_manager_get_interface"</span>)]
     #[doc(alias = <span class="string">"get_interface"</span>)]
-    </span><span class="kw">fn </span>interface(<span class="kw-2">&amp;</span><span class="self">self</span>, object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, interface_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_interface.rs.html#8-22">DBusInterface</a>&gt; {
+    </span><span class="kw">fn </span>interface(<span class="kw-2">&amp;</span><span class="self">self</span>, object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, interface_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_interface.rs.html#8-24">DBusInterface</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_dbus_object_manager_get_interface(
                 <a class="self" href="#93">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
@@ -479,14 +479,14 @@
         }
     }
 
-    <span class="doccomment">/// Gets the [`DBusObject`][crate::DBusObject] at `object_path`, if any.
+    <span class="doccomment">/// Gets the #GDBusObject at @object_path, if any.
     /// ## `object_path`
     /// Object path to look up.
     ///
     /// # Returns
     ///
-    /// A [`DBusObject`][crate::DBusObject] or [`None`]. Free with
-    ///  `g_object_unref()`.
+    /// A #GDBusObject or [`None`]. Free with
+    ///   g_object_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_object_manager_get_object"</span>)]
     #[doc(alias = <span class="string">"get_object"</span>)]
     </span><span class="kw">fn </span>object(<span class="kw-2">&amp;</span><span class="self">self</span>, object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_object.rs.html#13-42">DBusObject</a>&gt; {
@@ -498,11 +498,11 @@
         }
     }
 
-    <span class="doccomment">/// Gets the object path that `self` is for.
+    <span class="doccomment">/// Gets the object path that @self is for.
     ///
     /// # Returns
     ///
-    /// A string owned by `self`. Do not free.
+    /// A string owned by @self. Do not free.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_object_manager_get_object_path"</span>)]
     #[doc(alias = <span class="string">"get_object_path"</span>)]
     </span><span class="kw">fn </span>object_path(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
@@ -513,14 +513,14 @@
         }
     }
 
-    <span class="doccomment">/// Gets all [`DBusObject`][crate::DBusObject] objects known to `self`.
+    <span class="doccomment">/// Gets all #GDBusObject objects known to @self.
     ///
     /// # Returns
     ///
     /// A list of
-    ///  [`DBusObject`][crate::DBusObject] objects. The returned list should be freed with
-    ///  `g_list_free()` after each element has been freed with
-    ///  `g_object_unref()`.
+    ///   #GDBusObject objects. The returned list should be freed with
+    ///   g_list_free() after each element has been freed with
+    ///   g_object_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_object_manager_get_objects"</span>)]
     #[doc(alias = <span class="string">"get_objects"</span>)]
     </span><span class="kw">fn </span>objects(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="dbus_object.rs.html#13-42">DBusObject</a>&gt; {
@@ -531,22 +531,22 @@
         }
     }
 
-    <span class="doccomment">/// Emitted when `interface` is added to `object`.
+    <span class="doccomment">/// Emitted when @interface is added to @object.
     ///
     /// This signal exists purely as a convenience to avoid having to
-    /// connect signals to all objects managed by `manager`.
+    /// connect signals to all objects managed by @manager.
     /// ## `object`
-    /// The [`DBusObject`][crate::DBusObject] on which an interface was added.
+    /// The #GDBusObject on which an interface was added.
     /// ## `interface`
-    /// The [`DBusInterface`][crate::DBusInterface] that was added.
+    /// The #GDBusInterface that was added.
     </span><span class="attr">#[doc(alias = <span class="string">"interface-added"</span>)]
-    </span><span class="kw">fn </span>connect_interface_added&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>, <span class="kw-2">&amp;</span><a href="dbus_interface.rs.html#8-22">DBusInterface</a>) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">fn </span>connect_interface_added&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>, <span class="kw-2">&amp;</span><a href="dbus_interface.rs.html#8-24">DBusInterface</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>interface_added_trampoline&lt;
             P: IsA&lt;<a href="#13-63">DBusObjectManager</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>, <span class="kw-2">&amp;</span><a href="dbus_interface.rs.html#8-22">DBusInterface</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>, <span class="kw-2">&amp;</span><a href="dbus_interface.rs.html#8-24">DBusInterface</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusObjectManager.html">ffi::GDBusObjectManager</a>,
             object: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusObject.html">ffi::GDBusObject</a>,
@@ -573,22 +573,22 @@
         }
     }
 
-    <span class="doccomment">/// Emitted when `interface` has been removed from `object`.
+    <span class="doccomment">/// Emitted when @interface has been removed from @object.
     ///
     /// This signal exists purely as a convenience to avoid having to
-    /// connect signals to all objects managed by `manager`.
+    /// connect signals to all objects managed by @manager.
     /// ## `object`
-    /// The [`DBusObject`][crate::DBusObject] on which an interface was removed.
+    /// The #GDBusObject on which an interface was removed.
     /// ## `interface`
-    /// The [`DBusInterface`][crate::DBusInterface] that was removed.
+    /// The #GDBusInterface that was removed.
     </span><span class="attr">#[doc(alias = <span class="string">"interface-removed"</span>)]
-    </span><span class="kw">fn </span>connect_interface_removed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>, <span class="kw-2">&amp;</span><a href="dbus_interface.rs.html#8-22">DBusInterface</a>) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">fn </span>connect_interface_removed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>, <span class="kw-2">&amp;</span><a href="dbus_interface.rs.html#8-24">DBusInterface</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>interface_removed_trampoline&lt;
             P: IsA&lt;<a href="#13-63">DBusObjectManager</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>, <span class="kw-2">&amp;</span><a href="dbus_interface.rs.html#8-22">DBusInterface</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>, <span class="kw-2">&amp;</span><a href="dbus_interface.rs.html#8-24">DBusInterface</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusObjectManager.html">ffi::GDBusObjectManager</a>,
             object: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusObject.html">ffi::GDBusObject</a>,
@@ -615,9 +615,9 @@
         }
     }
 
-    <span class="doccomment">/// Emitted when `object` is added to `manager`.
+    <span class="doccomment">/// Emitted when @object is added to @manager.
     /// ## `object`
-    /// The [`DBusObject`][crate::DBusObject] that was added.
+    /// The #GDBusObject that was added.
     </span><span class="attr">#[doc(alias = <span class="string">"object-added"</span>)]
     </span><span class="kw">fn </span>connect_object_added&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>object_added_trampoline&lt;
@@ -647,9 +647,9 @@
         }
     }
 
-    <span class="doccomment">/// Emitted when `object` is removed from `manager`.
+    <span class="doccomment">/// Emitted when @object is removed from @manager.
     /// ## `object`
-    /// The [`DBusObject`][crate::DBusObject] that was removed.
+    /// The #GDBusObject that was removed.
     </span><span class="attr">#[doc(alias = <span class="string">"object-removed"</span>)]
     </span><span class="kw">fn </span>connect_object_removed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="dbus_object.rs.html#13-42">DBusObject</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>object_removed_trampoline&lt;

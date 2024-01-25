@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/main_context.rs`."><title>main_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/main_context.rs`."><title>main_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -346,7 +346,7 @@
 </span><span class="kw">use </span><a href="../lib.rs.html#151"><span class="kw">crate</span>::translate</a>::<span class="kw-2">*</span>;
 <span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
-</span><span class="kw">use </span><a href="flags.rs.html#369-386"><span class="kw">crate</span>::MainContextFlags</a>;
+</span><span class="kw">use </span><a href="flags.rs.html#368-385"><span class="kw">crate</span>::MainContextFlags</a>;
 
 <a class="macro" href="../wrapper.rs.html#277-445">crate::wrapper! </a>{
     <span class="doccomment">/// The `GMainContext` struct is an opaque data
@@ -362,29 +362,29 @@
 }
 
 <span class="kw">impl </span><a href="#10-21">MainContext</a> {
-    <span class="doccomment">/// Creates a new [`MainContext`][crate::MainContext] structure.
+    <span class="doccomment">/// Creates a new #GMainContext structure.
     ///
     /// # Returns
     ///
-    /// the new [`MainContext`][crate::MainContext]
+    /// the new #GMainContext
     </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_new"</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; <a href="#10-21">MainContext</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_main_context_new()) }
     }
 
-    <span class="doccomment">/// Creates a new [`MainContext`][crate::MainContext] structure.
+    <span class="doccomment">/// Creates a new #GMainContext structure.
     /// ## `flags`
-    /// a bitwise-OR combination of [`MainContextFlags`][crate::MainContextFlags] flags that can only be
-    ///  set at creation time.
+    /// a bitwise-OR combination of #GMainContextFlags flags that can only be
+    ///         set at creation time.
     ///
     /// # Returns
     ///
-    /// the new [`MainContext`][crate::MainContext]
+    /// the new #GMainContext
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
     #[doc(alias = <span class="string">"g_main_context_new_with_flags"</span>)]
     #[doc(alias = <span class="string">"new_with_flags"</span>)]
-    </span><span class="kw">pub fn </span>with_flags(flags: <a href="flags.rs.html#369-386">MainContextFlags</a>) -&gt; <a href="#10-21">MainContext</a> {
+    </span><span class="kw">pub fn </span>with_flags(flags: <a href="flags.rs.html#368-385">MainContextFlags</a>) -&gt; <a href="#10-21">MainContext</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_main_context_new_with_flags(<a href="#46">flags</a>.<a href="../translate.rs.html#330">into_glib</a>())) }
     }
 
@@ -401,9 +401,9 @@
     </span><span class="doccomment">/// Dispatches all pending sources.
     ///
     /// You must have successfully acquired the context with
-    /// [`acquire()`][Self::acquire()] before you may call this function.
+    /// g_main_context_acquire() before you may call this function.
     ///
-    /// Since 2.76 `self` can be [`None`] to use the global-default
+    /// Since 2.76 @self can be [`None`] to use the global-default
     /// main context.
     </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_dispatch"</span>)]
     </span><span class="kw">pub fn </span>dispatch(<span class="kw-2">&amp;</span><span class="self">self</span>) {
@@ -429,13 +429,13 @@
     //}
 
     </span><span class="doccomment">/// Determines whether this thread holds the (recursive)
-    /// ownership of this [`MainContext`][crate::MainContext]. This is useful to
+    /// ownership of this #GMainContext. This is useful to
     /// know before waiting on another thread that may be
-    /// blocking to get ownership of `self`.
+    /// blocking to get ownership of @self.
     ///
     /// # Returns
     ///
-    /// [`true`] if current thread is owner of `self`.
+    /// [`true`] if current thread is owner of @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_is_owner"</span>)]
     </span><span class="kw">pub fn </span>is_owner(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_main_context_is_owner(<a class="self" href="#99">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
@@ -443,15 +443,15 @@
 
     <span class="doccomment">/// Runs a single iteration for the given main loop. This involves
     /// checking to see if any event sources are ready to be processed,
-    /// then if no events sources are ready and `may_block` is [`true`], waiting
+    /// then if no events sources are ready and @may_block is [`true`], waiting
     /// for a source to become ready, then dispatching the highest priority
-    /// events sources that are ready. Otherwise, if `may_block` is [`false`]
+    /// events sources that are ready. Otherwise, if @may_block is [`false`]
     /// sources are not waited to become ready, only those highest priority
     /// events sources will be dispatched (if any), that are ready at this
     /// given moment without further waiting.
     ///
-    /// Note that even when `may_block` is [`true`], it is still possible for
-    /// [`iteration()`][Self::iteration()] to return [`false`], since the wait may
+    /// Note that even when @may_block is [`true`], it is still possible for
+    /// g_main_context_iteration() to return [`false`], since the wait may
     /// be interrupted for other reasons than an event source becoming ready.
     /// ## `may_block`
     /// whether the call may block.
@@ -501,14 +501,14 @@
     //    unsafe { TODO: call ffi:g_main_context_wait() }
     //}
 
-    </span><span class="doccomment">/// If `self` is currently blocking in [`iteration()`][Self::iteration()]
+    </span><span class="doccomment">/// If @self is currently blocking in g_main_context_iteration()
     /// waiting for a source to become ready, cause it to stop blocking
-    /// and return. Otherwise, cause the next invocation of
-    /// [`iteration()`][Self::iteration()] to return without blocking.
+    /// and return.  Otherwise, cause the next invocation of
+    /// g_main_context_iteration() to return without blocking.
     ///
-    /// This API is useful for low-level control over [`MainContext`][crate::MainContext]; for
+    /// This API is useful for low-level control over #GMainContext; for
     /// example, integrating it with main loop implementations such as
-    /// [`MainLoop`][crate::MainLoop].
+    /// #GMainLoop.
     ///
     /// Another related use for this function is when implementing a main
     /// loop with a termination condition, computed from multiple threads:
@@ -547,7 +547,7 @@
     <span class="doccomment">/// Returns the global-default main context. This is the main context
     /// used for main loop functions when a main loop is not explicitly
     /// specified, and corresponds to the "main" main loop. See also
-    /// [`thread_default()`][Self::thread_default()].
+    /// g_main_context_get_thread_default().
     ///
     /// # Returns
     ///
@@ -558,21 +558,21 @@
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_main_context_default()) }
     }
 
-    <span class="doccomment">/// Gets the thread-default [`MainContext`][crate::MainContext] for this thread. Asynchronous
+    <span class="doccomment">/// Gets the thread-default #GMainContext for this thread. Asynchronous
     /// operations that want to be able to be run in contexts other than
     /// the default one should call this method or
-    /// [`ref_thread_default()`][Self::ref_thread_default()] to get a [`MainContext`][crate::MainContext] to add
-    /// their `GSources` to. (Note that even in single-threaded
+    /// g_main_context_ref_thread_default() to get a #GMainContext to add
+    /// their #GSources to. (Note that even in single-threaded
     /// programs applications may sometimes want to temporarily push a
     /// non-default context, so it is not safe to assume that this will
     /// always return [`None`] if you are running in the default thread.)
     ///
     /// If you need to hold a reference on the context, use
-    /// [`ref_thread_default()`][Self::ref_thread_default()] instead.
+    /// g_main_context_ref_thread_default() instead.
     ///
     /// # Returns
     ///
-    /// the thread-default [`MainContext`][crate::MainContext], or
+    /// the thread-default #GMainContext, or
     /// [`None`] if the thread-default context is the global-default main context.
     </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_get_thread_default"</span>)]
     #[doc(alias = <span class="string">"get_thread_default"</span>)]
@@ -580,17 +580,17 @@
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_main_context_get_thread_default()) }
     }
 
-    <span class="doccomment">/// Gets the thread-default [`MainContext`][crate::MainContext] for this thread, as with
-    /// [`thread_default()`][Self::thread_default()], but also adds a reference to
-    /// it with `g_main_context_ref()`. In addition, unlike
-    /// [`thread_default()`][Self::thread_default()], if the thread-default context
-    /// is the global-default context, this will return that [`MainContext`][crate::MainContext]
+    <span class="doccomment">/// Gets the thread-default #GMainContext for this thread, as with
+    /// g_main_context_get_thread_default(), but also adds a reference to
+    /// it with g_main_context_ref(). In addition, unlike
+    /// g_main_context_get_thread_default(), if the thread-default context
+    /// is the global-default context, this will return that #GMainContext
     /// (with a ref added to it) rather than returning [`None`].
     ///
     /// # Returns
     ///
-    /// the thread-default [`MainContext`][crate::MainContext]. Unref
-    ///  with `g_main_context_unref()` when you are done with it.
+    /// the thread-default #GMainContext. Unref
+    ///     with g_main_context_unref() when you are done with it.
     </span><span class="attr">#[doc(alias = <span class="string">"g_main_context_ref_thread_default"</span>)]
     </span><span class="kw">pub fn </span>ref_thread_default() -&gt; <a href="#10-21">MainContext</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_main_context_ref_thread_default()) }

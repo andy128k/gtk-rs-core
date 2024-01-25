@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/variant.rs`."><title>variant.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/variant.rs`."><title>variant.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -3315,7 +3315,7 @@
 };
 
 <span class="kw">use crate</span>::{
-    <a href="lib.rs.html#146">prelude</a>::<span class="kw-2">*</span>, <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="bytes.rs.html#14-90">Bytes</a>, <a href="types.rs.html#22">Type</a>, <a href="variant_iter.rs.html#14-18">VariantIter</a>, <a href="variant_iter.rs.html#102-106">VariantStrIter</a>, <a href="variant_type.rs.html#490-492">VariantTy</a>, <a href="variant_type.rs.html#173-180">VariantType</a>,
+    <a href="lib.rs.html#146">prelude</a>::<span class="kw-2">*</span>, <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="bytes.rs.html#14-65">Bytes</a>, <a href="types.rs.html#22">Type</a>, <a href="variant_iter.rs.html#14-18">VariantIter</a>, <a href="variant_iter.rs.html#102-106">VariantStrIter</a>, <a href="variant_type.rs.html#493-495">VariantTy</a>, <a href="variant_type.rs.html#176-183">VariantType</a>,
 };
 
 <a class="macro" href="wrapper.rs.html#277-445">wrapper! </a>{
@@ -3324,68 +3324,67 @@
     ///
     /// See the [module documentation](index.html) for more details.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// [`Variant`][struct@crate::Variant] is a variant datatype; it can contain one or more values
+    </span><span class="doccomment">/// `GVariant` is a variant datatype; it can contain one or more values
     /// along with information about the type of the values.
     ///
-    /// A [`Variant`][struct@crate::Variant] may contain simple types, like an integer, or a boolean value;
+    /// A `GVariant` may contain simple types, like an integer, or a boolean value;
     /// or complex types, like an array of two strings, or a dictionary of key
-    /// value pairs. A [`Variant`][struct@crate::Variant] is also immutable: once it's been created neither
+    /// value pairs. A `GVariant` is also immutable: once it’s been created neither
     /// its type nor its content can be modified further.
     ///
-    /// GVariant is useful whenever data needs to be serialized, for example when
-    /// sending method parameters in D-Bus, or when saving settings using GSettings.
+    /// `GVariant` is useful whenever data needs to be serialized, for example when
+    /// sending method parameters in D-Bus, or when saving settings using
+    /// `Gio::Settings`.
     ///
-    /// When creating a new [`Variant`][struct@crate::Variant], you pass the data you want to store in it
+    /// When creating a new `GVariant`, you pass the data you want to store in it
     /// along with a string representing the type of data you wish to pass to it.
     ///
-    /// For instance, if you want to create a [`Variant`][struct@crate::Variant] holding an integer value you
+    /// For instance, if you want to create a `GVariant` holding an integer value you
     /// can use:
     ///
+    /// **⚠️ The following code is in c ⚠️**
     ///
-    ///
-    /// **⚠️ The following code is in C ⚠️**
-    ///
-    /// ```C
-    ///   GVariant *v = g_variant_new ("u", 40);
+    /// ```c
+    /// GVariant *v = g_variant_new ("u", 40);
     /// ```
     ///
-    /// The string "u" in the first argument tells [`Variant`][struct@crate::Variant] that the data passed to
-    /// the constructor (40) is going to be an unsigned integer.
+    /// The string `u` in the first argument tells `GVariant` that the data passed to
+    /// the constructor (`40`) is going to be an unsigned integer.
     ///
-    /// More advanced examples of [`Variant`][struct@crate::Variant] in use can be found in documentation for
-    /// [GVariant format strings][gvariant-format-strings-pointers].
+    /// More advanced examples of `GVariant` in use can be found in documentation for
+    /// [`GVariant` format strings](gvariant-format-strings.html#pointers).
     ///
     /// The range of possible values is determined by the type.
     ///
-    /// The type system used by [`Variant`][struct@crate::Variant] is [`VariantType`][crate::VariantType].
+    /// The type system used by `GVariant` is [type@GLib.VariantType].
     ///
-    /// [`Variant`][struct@crate::Variant] instances always have a type and a value (which are given
-    /// at construction time). The type and value of a [`Variant`][struct@crate::Variant] instance
-    /// can never change other than by the [`Variant`][struct@crate::Variant] itself being
-    /// destroyed. A [`Variant`][struct@crate::Variant] cannot contain a pointer.
+    /// `GVariant` instances always have a type and a value (which are given
+    /// at construction time).  The type and value of a `GVariant` instance
+    /// can never change other than by the `GVariant` itself being
+    /// destroyed.  A `GVariant` cannot contain a pointer.
     ///
-    /// [`Variant`][struct@crate::Variant] is reference counted using `g_variant_ref()` and
-    /// `g_variant_unref()`. [`Variant`][struct@crate::Variant] also has floating reference counts --
+    /// `GVariant` is reference counted using `GLib::Variant::ref()` and
+    /// `GLib::Variant::unref()`.  `GVariant` also has floating reference counts —
     /// see [`ref_sink()`][Self::ref_sink()].
     ///
-    /// [`Variant`][struct@crate::Variant] is completely threadsafe. A [`Variant`][struct@crate::Variant] instance can be
+    /// `GVariant` is completely threadsafe.  A `GVariant` instance can be
     /// concurrently accessed in any way from any number of threads without
     /// problems.
     ///
-    /// [`Variant`][struct@crate::Variant] is heavily optimised for dealing with data in serialized
-    /// form. It works particularly well with data located in memory-mapped
-    /// files. It can perform nearly all deserialization operations in a
+    /// `GVariant` is heavily optimised for dealing with data in serialized
+    /// form.  It works particularly well with data located in memory-mapped
+    /// files.  It can perform nearly all deserialization operations in a
     /// small constant time, usually touching only a single memory page.
-    /// Serialized [`Variant`][struct@crate::Variant] data can also be sent over the network.
+    /// Serialized `GVariant` data can also be sent over the network.
     ///
-    /// [`Variant`][struct@crate::Variant] is largely compatible with D-Bus. Almost all types of
-    /// [`Variant`][struct@crate::Variant] instances can be sent over D-Bus. See [`VariantType`][crate::VariantType] for
-    /// exceptions. (However, [`Variant`][struct@crate::Variant]'s serialization format is not the same
-    /// as the serialization format of a D-Bus message body: use `GDBusMessage`,
-    /// in the gio library, for those.)
+    /// `GVariant` is largely compatible with D-Bus.  Almost all types of
+    /// `GVariant` instances can be sent over D-Bus.  See [type@GLib.VariantType] for
+    /// exceptions.  (However, `GVariant`’s serialization format is not the same
+    /// as the serialization format of a D-Bus message body: use
+    /// `Gio::DBusMessage`, in the GIO library, for those.)
     ///
-    /// For space-efficiency, the [`Variant`][struct@crate::Variant] serialization format does not
-    /// automatically include the variant's length, type or endianness,
+    /// For space-efficiency, the `GVariant` serialization format does not
+    /// automatically include the variant’s length, type or endianness,
     /// which must either be implied from context (such as knowledge that a
     /// particular file format always contains a little-endian
     /// `G_VARIANT_TYPE_VARIANT` which occupies the whole length of the file)
@@ -3393,60 +3392,61 @@
     /// indicator could be placed at the beginning of a file, network message
     /// or network stream).
     ///
-    /// A [`Variant`][struct@crate::Variant]'s size is limited mainly by any lower level operating
-    /// system constraints, such as the number of bits in `gsize`. For
+    /// A `GVariant`’s size is limited mainly by any lower level operating
+    /// system constraints, such as the number of bits in `gsize`.  For
     /// example, it is reasonable to have a 2GB file mapped into memory
-    /// with `GMappedFile`, and call [`from_data()`][Self::from_data()] on it.
+    /// with `GLib::MappedFile`, and call `GLib::Variant::new_from_data()` on
+    /// it.
     ///
-    /// For convenience to C programmers, [`Variant`][struct@crate::Variant] features powerful
-    /// varargs-based value construction and destruction. This feature is
+    /// For convenience to C programmers, `GVariant` features powerful
+    /// varargs-based value construction and destruction.  This feature is
     /// designed to be embedded in other libraries.
     ///
-    /// There is a Python-inspired text language for describing [`Variant`][struct@crate::Variant]
-    /// values. [`Variant`][struct@crate::Variant] includes a printer for this language and a parser
+    /// There is a Python-inspired text language for describing `GVariant`
+    /// values.  `GVariant` includes a printer for this language and a parser
     /// with type inferencing.
     ///
     /// ## Memory Use
     ///
-    /// [`Variant`][struct@crate::Variant] tries to be quite efficient with respect to memory use.
+    /// `GVariant` tries to be quite efficient with respect to memory use.
     /// This section gives a rough idea of how much memory is used by the
-    /// current implementation. The information here is subject to change
+    /// current implementation.  The information here is subject to change
     /// in the future.
     ///
-    /// The memory allocated by [`Variant`][struct@crate::Variant] can be grouped into 4 broad
+    /// The memory allocated by `GVariant` can be grouped into 4 broad
     /// purposes: memory for serialized data, memory for the type
     /// information cache, buffer management memory and memory for the
-    /// [`Variant`][struct@crate::Variant] structure itself.
+    /// `GVariant` structure itself.
     ///
     /// ## Serialized Data Memory
     ///
-    /// This is the memory that is used for storing GVariant data in
-    /// serialized form. This is what would be sent over the network or
+    /// This is the memory that is used for storing `GVariant` data in
+    /// serialized form.  This is what would be sent over the network or
     /// what would end up on disk, not counting any indicator of the
     /// endianness, or of the length or type of the top-level variant.
     ///
     /// The amount of memory required to store a boolean is 1 byte. 16,
     /// 32 and 64 bit integers and double precision floating point numbers
-    /// use their "natural" size. Strings (including object path and
+    /// use their ‘natural’ size.  Strings (including object path and
     /// signature strings) are stored with a nul terminator, and as such
     /// use the length of the string plus 1 byte.
     ///
-    /// Maybe types use no space at all to represent the null value and
+    /// ‘Maybe’ types use no space at all to represent the null value and
     /// use the same amount of space (sometimes plus one byte) as the
     /// equivalent non-maybe-typed value to represent the non-null case.
     ///
     /// Arrays use the amount of space required to store each of their
-    /// members, concatenated. Additionally, if the items stored in an
+    /// members, concatenated.  Additionally, if the items stored in an
     /// array are not of a fixed-size (ie: strings, other arrays, etc)
-    /// then an additional framing offset is stored for each item. The
+    /// then an additional framing offset is stored for each item.  The
     /// size of this offset is either 1, 2 or 4 bytes depending on the
-    /// overall size of the container. Additionally, extra padding bytes
+    /// overall size of the container.  Additionally, extra padding bytes
     /// are added as required for alignment of child values.
     ///
     /// Tuples (including dictionary entries) use the amount of space
     /// required to store each of their members, concatenated, plus one
     /// framing offset (as per arrays) for each non-fixed-sized item in
-    /// the tuple, except for the last one. Additionally, extra padding
+    /// the tuple, except for the last one.  Additionally, extra padding
     /// bytes are added as required for alignment of child values.
     ///
     /// Variants use the same amount of space as the item inside of the
@@ -3457,65 +3457,65 @@
     /// In the case that the dictionary is empty, 0 bytes are required for
     /// the serialization.
     ///
-    /// If we add an item "width" that maps to the int32 value of 500 then
-    /// we will use 4 byte to store the int32 (so 6 for the variant
-    /// containing it) and 6 bytes for the string. The variant must be
-    /// aligned to 8 after the 6 bytes of the string, so that's 2 extra
-    /// bytes. 6 (string) + 2 (padding) + 6 (variant) is 14 bytes used
-    /// for the dictionary entry. An additional 1 byte is added to the
+    /// If we add an item ‘width’ that maps to the int32 value of 500 then
+    /// we will use 4 bytes to store the int32 (so 6 for the variant
+    /// containing it) and 6 bytes for the string.  The variant must be
+    /// aligned to 8 after the 6 bytes of the string, so that’s 2 extra
+    /// bytes.  6 (string) + 2 (padding) + 6 (variant) is 14 bytes used
+    /// for the dictionary entry.  An additional 1 byte is added to the
     /// array as a framing offset making a total of 15 bytes.
     ///
-    /// If we add another entry, "title" that maps to a nullable string
+    /// If we add another entry, ‘title’ that maps to a nullable string
     /// that happens to have a value of null, then we use 0 bytes for the
     /// null value (and 3 bytes for the variant to contain it along with
-    /// its type string) plus 6 bytes for the string. Again, we need 2
-    /// padding bytes. That makes a total of 6 + 2 + 3 = 11 bytes.
+    /// its type string) plus 6 bytes for the string.  Again, we need 2
+    /// padding bytes.  That makes a total of 6 + 2 + 3 = 11 bytes.
     ///
     /// We now require extra padding between the two items in the array.
-    /// After the 14 bytes of the first item, that's 2 bytes required.
+    /// After the 14 bytes of the first item, that’s 2 bytes required.
     /// We now require 2 framing offsets for an extra two
     /// bytes. 14 + 2 + 11 + 2 = 29 bytes to encode the entire two-item
     /// dictionary.
     ///
     /// ## Type Information Cache
     ///
-    /// For each GVariant type that currently exists in the program a type
-    /// information structure is kept in the type information cache. The
+    /// For each `GVariant` type that currently exists in the program a type
+    /// information structure is kept in the type information cache.  The
     /// type information structure is required for rapid deserialization.
     ///
-    /// Continuing with the above example, if a [`Variant`][struct@crate::Variant] exists with the
-    /// type "a{sv}" then a type information struct will exist for
-    /// "a{sv}", "{sv}", "s", and "v". Multiple uses of the same type
-    /// will share the same type information. Additionally, all
+    /// Continuing with the above example, if a `GVariant` exists with the
+    /// type `a{sv}` then a type information struct will exist for
+    /// `a{sv}`, `{sv}`, `s`, and `v`.  Multiple uses of the same type
+    /// will share the same type information.  Additionally, all
     /// single-digit types are stored in read-only static memory and do
     /// not contribute to the writable memory footprint of a program using
-    /// [`Variant`][struct@crate::Variant].
+    /// `GVariant`.
     ///
     /// Aside from the type information structures stored in read-only
-    /// memory, there are two forms of type information. One is used for
+    /// memory, there are two forms of type information.  One is used for
     /// container types where there is a single element type: arrays and
-    /// maybe types. The other is used for container types where there
+    /// maybe types.  The other is used for container types where there
     /// are multiple element types: tuples and dictionary entries.
     ///
-    /// Array type info structures are 6 * sizeof (void *), plus the
-    /// memory required to store the type string itself. This means that
-    /// on 32-bit systems, the cache entry for "a{sv}" would require 30
-    /// bytes of memory (plus malloc overhead).
+    /// Array type info structures are `6 * sizeof (void *)`, plus the
+    /// memory required to store the type string itself.  This means that
+    /// on 32-bit systems, the cache entry for `a{sv}` would require 30
+    /// bytes of memory (plus allocation overhead).
     ///
-    /// Tuple type info structures are 6 * sizeof (void *), plus 4 *
-    /// sizeof (void *) for each item in the tuple, plus the memory
-    /// required to store the type string itself. A 2-item tuple, for
+    /// Tuple type info structures are `6 * sizeof (void *)`, plus `4 *
+    /// sizeof (void *)` for each item in the tuple, plus the memory
+    /// required to store the type string itself.  A 2-item tuple, for
     /// example, would have a type information structure that consumed
-    /// writable memory in the size of 14 * sizeof (void *) (plus type
-    /// string) This means that on 32-bit systems, the cache entry for
-    /// "{sv}" would require 61 bytes of memory (plus malloc overhead).
+    /// writable memory in the size of `14 * sizeof (void *)` (plus type
+    /// string)  This means that on 32-bit systems, the cache entry for
+    /// `{sv}` would require 61 bytes of memory (plus allocation overhead).
     ///
-    /// This means that in total, for our "a{sv}" example, 91 bytes of
+    /// This means that in total, for our `a{sv}` example, 91 bytes of
     /// type information would be allocated.
     ///
-    /// The type information cache, additionally, uses a `GHashTable` to
+    /// The type information cache, additionally, uses a `GLib::HashTable` to
     /// store and look up the cached items and stores a pointer to this
-    /// hash table in static storage. The hash table is freed when there
+    /// hash table in static storage.  The hash table is freed when there
     /// are zero items in the type cache.
     ///
     /// Although these sizes may seem large it is important to remember
@@ -3525,35 +3525,35 @@
     ///
     /// ## Buffer Management Memory
     ///
-    /// [`Variant`][struct@crate::Variant] uses an internal buffer management structure to deal
+    /// `GVariant` uses an internal buffer management structure to deal
     /// with the various different possible sources of serialized data
-    /// that it uses. The buffer is responsible for ensuring that the
+    /// that it uses.  The buffer is responsible for ensuring that the
     /// correct call is made when the data is no longer in use by
-    /// [`Variant`][struct@crate::Variant]. This may involve a `g_free()` or a `g_slice_free()` or
-    /// even `g_mapped_file_unref()`.
+    /// `GVariant`.  This may involve a `free()` or
+    /// even `GLib::MappedFile::unref()`.
     ///
     /// One buffer management structure is used for each chunk of
-    /// serialized data. The size of the buffer management structure
-    /// is 4 * (void *). On 32-bit systems, that's 16 bytes.
+    /// serialized data.  The size of the buffer management structure
+    /// is `4 * (void *)`.  On 32-bit systems, that’s 16 bytes.
     ///
     /// ## GVariant structure
     ///
-    /// The size of a [`Variant`][struct@crate::Variant] structure is 6 * (void *). On 32-bit
-    /// systems, that's 24 bytes.
+    /// The size of a `GVariant` structure is `6 * (void *)`.  On 32-bit
+    /// systems, that’s 24 bytes.
     ///
-    /// [`Variant`][struct@crate::Variant] structures only exist if they are explicitly created
-    /// with API calls. For example, if a [`Variant`][struct@crate::Variant] is constructed out of
+    /// `GVariant` structures only exist if they are explicitly created
+    /// with API calls.  For example, if a `GVariant` is constructed out of
     /// serialized data for the example given above (with the dictionary)
     /// then although there are 9 individual values that comprise the
     /// entire dictionary (two keys, two values, two variants containing
     /// the values, two dictionary entries, plus the dictionary itself),
-    /// only 1 [`Variant`][struct@crate::Variant] instance exists -- the one referring to the
+    /// only 1 `GVariant` instance exists — the one referring to the
     /// dictionary.
     ///
     /// If calls are made to start accessing the other values then
-    /// [`Variant`][struct@crate::Variant] instances will exist for those values only for as long
-    /// as they are in use (ie: until you call `g_variant_unref()`). The
-    /// type information is shared. The serialized data and the buffer
+    /// `GVariant` instances will exist for those values only for as long
+    /// as they are in use (ie: until you call `GLib::Variant::unref()`).  The
+    /// type information is shared.  The serialized data and the buffer
     /// management structure for that serialized data is shared by the
     /// child.
     ///
@@ -3563,10 +3563,10 @@
     /// strings to variants (with two entries, as given above), we are
     /// using 91 bytes of memory for type information, 29 bytes of memory
     /// for the serialized data, 16 bytes for buffer management and 24
-    /// bytes for the [`Variant`][struct@crate::Variant] instance, or a total of 160 bytes, plus
-    /// malloc overhead. If we were to use [`child_value()`][Self::child_value()] to
-    /// access the two dictionary entries, we would use an additional 48
-    /// bytes. If we were to have other dictionaries of the same type, we
+    /// bytes for the `GVariant` instance, or a total of 160 bytes, plus
+    /// allocation overhead.  If we were to use [`child_value()`][Self::child_value()]
+    /// to access the two dictionary entries, we would use an additional 48
+    /// bytes.  If we were to have other dictionaries of the same type, we
     /// would use more memory for the serialized data and buffer
     /// management for those dictionaries, but the type information would
     /// be shared.
@@ -3598,7 +3598,7 @@
 </span><span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; <span class="kw">crate</span>::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#117-376">Variant</a> {
     <span class="kw">type </span>Checker = <span class="kw">crate</span>::value::GenericValueTypeOrNoneChecker&lt;<span class="self">Self</span>&gt;;
 
-    <span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="value.rs.html#476-521"><span class="kw">crate</span>::Value</a>) -&gt; <span class="self">Self </span>{
+    <span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="value.rs.html#476-510"><span class="kw">crate</span>::Value</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">let </span>ptr = gobject_ffi::g_value_dup_variant(<a href="#397">value</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!ptr.is_null());
         <a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#398">ptr</a>)
@@ -3607,9 +3607,9 @@
 
 <span class="attr">#[doc(hidden)]
 </span><span class="kw">impl </span><a href="value.rs.html#369-379"><span class="kw">crate</span>::value::ToValue</a> <span class="kw">for </span><a href="#117-376">Variant</a> {
-    <span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="value.rs.html#476-521"><span class="kw">crate</span>::Value</a> {
+    <span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="value.rs.html#476-510"><span class="kw">crate</span>::Value</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="value.rs.html#547-553"><span class="kw">crate</span>::Value::from_type_unchecked</a>(<a href="types.rs.html#293">Variant::static_type</a>());
+            <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="value.rs.html#536-542"><span class="kw">crate</span>::Value::from_type_unchecked</a>(<a href="types.rs.html#293">Variant::static_type</a>());
             gobject_ffi::g_value_take_variant(<a href="#408">value</a>.<a href="translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#406">self</a>.<a href="translate.rs.html#452-454">to_glib_full</a>());
             <a href="#408">value</a>
         }
@@ -3621,11 +3621,11 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>From&lt;<a href="#117-376">Variant</a>&gt; <span class="kw">for </span><a href="value.rs.html#476-521"><span class="kw">crate</span>::Value</a> {
+</span><span class="kw">impl </span>From&lt;<a href="#117-376">Variant</a>&gt; <span class="kw">for </span><a href="value.rs.html#476-510"><span class="kw">crate</span>::Value</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>from(v: <a href="#117-376">Variant</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="value.rs.html#547-553"><span class="kw">crate</span>::Value::from_type_unchecked</a>(<a href="types.rs.html#293">Variant::static_type</a>());
+            <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="value.rs.html#536-542"><span class="kw">crate</span>::Value::from_type_unchecked</a>(<a href="types.rs.html#293">Variant::static_type</a>());
             gobject_ffi::g_value_take_variant(<a href="#424">value</a>.<a href="translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#422">v</a>.<a href="translate.rs.html#715">into_glib_ptr</a>());
             <a href="#424">value</a>
         }
@@ -3634,7 +3634,7 @@
 
 <span class="attr">#[doc(hidden)]
 </span><span class="kw">impl </span><a href="value.rs.html#397-402"><span class="kw">crate</span>::value::ToValueOptional</a> <span class="kw">for </span><a href="#117-376">Variant</a> {
-    <span class="kw">fn </span>to_value_optional(s: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="self">Self</span>&gt;) -&gt; <a href="value.rs.html#476-521"><span class="kw">crate</span>::Value</a> {
+    <span class="kw">fn </span>to_value_optional(s: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="self">Self</span>&gt;) -&gt; <a href="value.rs.html#476-510"><span class="kw">crate</span>::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = <span class="kw">crate</span>::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
             gobject_ffi::g_value_take_variant(<a href="#434">value</a>.<a href="translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#433">s</a>.<a href="translate.rs.html#452-454">to_glib_full</a>());
@@ -3649,12 +3649,12 @@
 /// on a [`Variant`](struct.Variant.html) when the expected type does not match the actual type.
 </span><span class="attr">#[derive(Clone, PartialEq, Eq, Debug)]
 </span><span class="kw">pub struct </span><a href="../../glib/variant/struct.VariantTypeMismatchError.html">VariantTypeMismatchError</a> {
-    <span class="kw">pub </span>actual: <a href="variant_type.rs.html#173-180">VariantType</a>,
-    <span class="kw">pub </span>expected: <a href="variant_type.rs.html#173-180">VariantType</a>,
+    <span class="kw">pub </span>actual: <a href="variant_type.rs.html#176-183">VariantType</a>,
+    <span class="kw">pub </span>expected: <a href="variant_type.rs.html#176-183">VariantType</a>,
 }
 
 <span class="kw">impl </span><a href="#447-450">VariantTypeMismatchError</a> {
-    <span class="kw">pub fn </span>new(actual: <a href="variant_type.rs.html#173-180">VariantType</a>, expected: <a href="variant_type.rs.html#173-180">VariantType</a>) -&gt; <span class="self">Self </span>{
+    <span class="kw">pub fn </span>new(actual: <a href="variant_type.rs.html#176-183">VariantType</a>, expected: <a href="variant_type.rs.html#176-183">VariantType</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{ <a href="#453">actual</a>, <a href="#453">expected</a> }
     }
 }
@@ -3675,17 +3675,17 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the type of the value.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Determines the type of `self`.
+    </span><span class="doccomment">/// Determines the type of @self.
     ///
-    /// The return value is valid for the lifetime of `self` and must not
+    /// The return value is valid for the lifetime of @self and must not
     /// be freed.
     ///
     /// # Returns
     ///
-    /// a [`VariantType`][crate::VariantType]
+    /// a #GVariantType
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_get_type"</span>)]
-    </span><span class="kw">pub fn </span>type_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a> {
-        <span class="kw">unsafe </span>{ <a href="variant_type.rs.html#697-702">VariantTy::from_ptr</a>(ffi::g_variant_get_type(<a class="self" href="#483">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
+    </span><span class="kw">pub fn </span>type_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a> {
+        <span class="kw">unsafe </span>{ <a href="variant_type.rs.html#700-705">VariantTy::from_ptr</a>(ffi::g_variant_get_type(<a class="self" href="#483">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -3702,7 +3702,7 @@
     /// This is equivalent to [`self.type_().is_subtype_of(type_)`](VariantTy::is_subtype_of).
     </span><span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_variant_is_of_type"</span>)]
-    </span><span class="kw">pub fn </span>is_type(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+    </span><span class="kw">pub fn </span>is_type(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_variant_is_of_type(
                 <a class="self" href="#501">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
@@ -3714,13 +3714,13 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the classification of the variant.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Classifies `self` according to its top-level type.
+    </span><span class="doccomment">/// Classifies @self according to its top-level type.
     ///
     /// # Returns
     ///
-    /// the [`VariantClass`][crate::VariantClass] of `self`
+    /// the #GVariantClass of @self
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_classify"</span>)]
-    </span><span class="kw">pub fn </span>classify(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="auto/enums.rs.html#2471-2530"><span class="kw">crate</span>::VariantClass</a> {
+    </span><span class="kw">pub fn </span>classify(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="auto/enums.rs.html#2744-2803"><span class="kw">crate</span>::VariantClass</a> {
         <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_variant_classify(<a class="self" href="#519">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
@@ -3729,24 +3729,24 @@
     ///
     /// Returns `Some` if `T` matches the variant's type.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Deconstructs a [`Variant`][struct@crate::Variant] instance.
+    </span><span class="doccomment">/// Deconstructs a #GVariant instance.
     ///
-    /// Think of this function as an analogue to `scanf()`.
+    /// Think of this function as an analogue to scanf().
     ///
     /// The arguments that are expected by this function are entirely
-    /// determined by `format_string`. `format_string` also restricts the
-    /// permissible types of `self`. It is an error to give a value with
-    /// an incompatible type. See the section on
+    /// determined by @format_string.  @format_string also restricts the
+    /// permissible types of @self.  It is an error to give a value with
+    /// an incompatible type.  See the section on
     /// [GVariant format strings][gvariant-format-strings].
     /// Please note that the syntax of the format string is very likely to be
     /// extended in the future.
     ///
-    /// `format_string` determines the C types that are used for unpacking
+    /// @format_string determines the C types that are used for unpacking
     /// the values and also determines if the values are copied or borrowed,
     /// see the section on
-    /// [GVariant format strings][gvariant-format-strings-pointers].
+    /// [`GVariant` format strings](gvariant-format-strings.html#pointers).
     /// ## `format_string`
-    /// a [`Variant`][struct@crate::Variant] format string
+    /// a #GVariant format string
     </span><span class="attr">#[inline]
     </span><span class="kw">pub fn </span>get&lt;T: <a href="#1587-1593">FromVariant</a>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;T&gt; {
         <a href="#1592">T::from_variant</a>(<a class="self" href="#547">self</a>)
@@ -3788,26 +3788,26 @@
     /// * if `self` is not a container type.
     /// * if given `index` is larger than number of children.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Reads a child item out of a container [`Variant`][struct@crate::Variant] instance. This
+    </span><span class="doccomment">/// Reads a child item out of a container #GVariant instance.  This
     /// includes variants, maybes, arrays, tuples and dictionary
-    /// entries. It is an error to call this function on any other type of
-    /// [`Variant`][struct@crate::Variant].
+    /// entries.  It is an error to call this function on any other type of
+    /// #GVariant.
     ///
-    /// It is an error if `index_` is greater than the number of child items
-    /// in the container. See [`n_children()`][Self::n_children()].
+    /// It is an error if @index_ is greater than the number of child items
+    /// in the container.  See g_variant_n_children().
     ///
-    /// The returned value is never floating. You should free it with
-    /// `g_variant_unref()` when you're done with it.
+    /// The returned value is never floating.  You should free it with
+    /// g_variant_unref() when you're done with it.
     ///
     /// Note that values borrowed from the returned child are not guaranteed to
     /// still be valid after the child is freed even if you still hold a reference
-    /// to `self`, if `self` has not been serialized at the time this function is
-    /// called. To avoid this, you can serialize `self` by calling
-    /// [`data()`][Self::data()] and optionally ignoring the return value.
+    /// to @self, if @self has not been serialized at the time this function is
+    /// called. To avoid this, you can serialize @self by calling
+    /// g_variant_get_data() and optionally ignoring the return value.
     ///
     /// There may be implementation specific restrictions on deeply nested values,
     /// which would result in the unit tuple being returned as the child value,
-    /// instead of further nested children. [`Variant`][struct@crate::Variant] is guaranteed to handle
+    /// instead of further nested children. #GVariant is guaranteed to handle
     /// nesting up to at least 64 levels.
     ///
     /// This function is O(1).
@@ -3880,7 +3880,7 @@
     #[doc(alias = <span class="string">"g_variant_get_string"</span>)]
     </span><span class="kw">pub fn </span>str(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">match </span><a class="self" href="#677">self</a>.<a href="#483-485">type_</a>().<a href="variant_type.rs.html#715-717">as_str</a>() {
+            <span class="kw">match </span><a class="self" href="#677">self</a>.<a href="#483-485">type_</a>().<a href="variant_type.rs.html#718-720">as_str</a>() {
                 <span class="string">"s" </span>| <span class="string">"o" </span>| <span class="string">"g" </span>=&gt; {
                     <span class="kw">let </span><span class="kw-2">mut </span>len = <span class="number">0</span>;
                     <span class="kw">let </span>ptr = ffi::g_variant_get_string(<a class="self" href="#677">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <span class="kw-2">&amp;mut </span><a href="#681">len</a>);
@@ -3907,28 +3907,28 @@
     </span><span class="doccomment">/// Provides access to the serialized data for an array of fixed-sized
     /// items.
     ///
-    /// `self` must be an array with fixed-sized elements. Numeric types are
+    /// @self must be an array with fixed-sized elements.  Numeric types are
     /// fixed-size, as are tuples containing only other fixed-sized types.
     ///
-    /// `element_size` must be the size of a single element in the array,
+    /// @element_size must be the size of a single element in the array,
     /// as given by the section on
     /// [serialized data memory][gvariant-serialized-data-memory].
     ///
     /// In particular, arrays of these fixed-sized types can be interpreted
-    /// as an array of the given C type, with `element_size` set to the size
+    /// as an array of the given C type, with @element_size set to the size
     /// the appropriate type:
-    /// - `G_VARIANT_TYPE_INT16` (etc.): `gint16` (etc.)
-    /// - `G_VARIANT_TYPE_BOOLEAN`: `guchar` (not `gboolean`!)
-    /// - `G_VARIANT_TYPE_BYTE`: `guint8`
-    /// - `G_VARIANT_TYPE_HANDLE`: `guint32`
-    /// - `G_VARIANT_TYPE_DOUBLE`: `gdouble`
+    /// - `G_VARIANT_TYPE_INT16` (etc.): #gint16 (etc.)
+    /// - `G_VARIANT_TYPE_BOOLEAN`: #guchar (not #gboolean!)
+    /// - `G_VARIANT_TYPE_BYTE`: #guint8
+    /// - `G_VARIANT_TYPE_HANDLE`: #guint32
+    /// - `G_VARIANT_TYPE_DOUBLE`: #gdouble
     ///
     /// For example, if calling this function for an array of 32-bit integers,
     /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
     /// of a double-check that the form of the serialized data matches the caller's
     /// expectation.
     ///
-    /// `n_elements`, which must be non-[`None`], is set equal to the number of
+    /// @n_elements, which must be non-[`None`], is set equal to the number of
     /// items in the array.
     /// ## `element_size`
     /// the size of each element
@@ -3936,11 +3936,11 @@
     /// # Returns
     ///
     /// a pointer to
-    ///  the fixed array
+    ///     the fixed array
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_get_fixed_array"</span>)]
     </span><span class="kw">pub fn </span>fixed_array&lt;T: <a href="#2458">FixedSizeVariantType</a>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="kw-2">&amp;</span>[T], <a href="#447-450">VariantTypeMismatchError</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>expected_ty = <a href="#1600">T::static_variant_type</a>().<a href="variant_type.rs.html#888-902">as_array</a>();
+            <span class="kw">let </span>expected_ty = <a href="#1600">T::static_variant_type</a>().<a href="variant_type.rs.html#891-905">as_array</a>();
             <span class="kw">if </span><span class="self">self</span>.type_() != expected_ty {
                 <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="#447-450">VariantTypeMismatchError</a> {
                     actual: <a class="self" href="#737">self</a>.<a href="#483-485">type_</a>().<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">to_owned</a>(),
@@ -3986,12 +3986,12 @@
     /// This function panics if not all variants are of type `type_`.
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_new_array"</span>)]
     </span><span class="kw">pub fn </span>array_from_iter_with_type(
-        type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a>,
+        type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a>,
         children: <span class="kw">impl </span>IntoIterator&lt;Item = <span class="kw">impl </span>AsRef&lt;<a href="#117-376">Variant</a>&gt;&gt;,
     ) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>builder = mem::MaybeUninit::uninit();
-            ffi::g_variant_builder_init(<a href="#789">builder</a>.as_mut_ptr(), <a href="#785">type_</a>.<a href="variant_type.rs.html#888-902">as_array</a>().<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_variant_builder_init(<a href="#789">builder</a>.as_mut_ptr(), <a href="#785">type_</a>.<a href="variant_type.rs.html#891-905">as_array</a>().<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">let </span><span class="kw-2">mut </span>builder = <a href="#789">builder</a>.assume_init();
             <span class="kw">for </span>value <span class="kw">in </span>children.into_iter() {
                 <span class="kw">let </span>value = value.as_ref();
@@ -4016,7 +4016,7 @@
 
         <span class="kw">unsafe </span>{
             <a href="translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_variant_new_fixed_array(
-                <a href="#811">type_</a>.<a href="variant_type.rs.html#708-710">as_ptr</a>(),
+                <a href="#811">type_</a>.<a href="variant_type.rs.html#711-713">as_ptr</a>(),
                 <a href="#810">array</a>.as_ptr() <span class="kw">as </span>ffi::gconstpointer,
                 <a href="#810">array</a>.len(),
                 mem::size_of::&lt;T&gt;(),
@@ -4083,7 +4083,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Creates a new maybe Variant with Nothing.
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_new_maybe"</span>)]
-    </span><span class="kw">pub fn </span>from_none(type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>from_none(type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
             <a href="translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_variant_new_maybe(
                 <a href="#882">type_</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
@@ -4112,15 +4112,15 @@
     ///
     /// A variant can be recreated from this output via [`Variant::parse`].
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Pretty-prints `self` in the format understood by `g_variant_parse()`.
+    </span><span class="doccomment">/// Pretty-prints @self in the format understood by g_variant_parse().
     ///
     /// The format is described [here][gvariant-text].
     ///
-    /// If `type_annotate` is [`true`], then type information is included in
+    /// If @type_annotate is [`true`], then type information is included in
     /// the output.
     /// ## `type_annotate`
     /// [`true`] if type information should be included in
-    ///  the output
+    ///                 the output
     ///
     /// # Returns
     ///
@@ -4138,7 +4138,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Parses a GVariant from the text representation produced by [`print()`](Self::print).
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_parse"</span>)]
-    </span><span class="kw">pub fn </span>parse(type_: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a>&gt;, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    </span><span class="kw">pub fn </span>parse(type_: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a>&gt;, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
             <span class="kw">let </span>text = <a href="#937">text</a>.as_bytes().as_ptr_range();
@@ -4162,27 +4162,27 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Constructs a new serialized-mode GVariant instance.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Constructs a new serialized-mode [`Variant`][struct@crate::Variant] instance. This is the
+    </span><span class="doccomment">/// Constructs a new serialized-mode #GVariant instance.  This is the
     /// inner interface for creation of new serialized values that gets
     /// called from various functions in gvariant.c.
     ///
-    /// A reference is taken on `bytes`.
+    /// A reference is taken on @bytes.
     ///
-    /// The data in `bytes` must be aligned appropriately for the `type_` being loaded.
+    /// The data in @bytes must be aligned appropriately for the @type_ being loaded.
     /// Otherwise this function will internally create a copy of the memory (since
     /// GLib 2.60) or (in older versions) fail and exit the process.
     /// ## `type_`
-    /// a [`VariantType`][crate::VariantType]
+    /// a #GVariantType
     /// ## `bytes`
-    /// a [`Bytes`][crate::Bytes]
+    /// a #GBytes
     /// ## `trusted`
-    /// if the contents of `bytes` are trusted
+    /// if the contents of @bytes are trusted
     ///
     /// # Returns
     ///
-    /// a new [`Variant`][struct@crate::Variant] with a floating reference
+    /// a new #GVariant with a floating reference
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_new_from_bytes"</span>)]
-    </span><span class="kw">pub fn </span>from_bytes&lt;T: <a href="#1597-1601">StaticVariantType</a>&gt;(bytes: <span class="kw-2">&amp;</span><a href="bytes.rs.html#14-90">Bytes</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>from_bytes&lt;T: <a href="#1597-1601">StaticVariantType</a>&gt;(bytes: <span class="kw-2">&amp;</span><a href="bytes.rs.html#14-65">Bytes</a>) -&gt; <span class="self">Self </span>{
         <a href="#1071-1079">Variant::from_bytes_with_type</a>(<a href="#981">bytes</a>, <span class="kw-2">&amp;</span><a href="#1600">T::static_variant_type</a>())
     }
 
@@ -4199,54 +4199,54 @@
     /// Since the data is not validated, this is potentially dangerous if called
     /// on bytes which are not guaranteed to have come from serialising another
     /// Variant.  The caller is responsible for ensuring bad data is not passed in.
-    </span><span class="kw">pub unsafe fn </span>from_bytes_trusted&lt;T: <a href="#1597-1601">StaticVariantType</a>&gt;(bytes: <span class="kw-2">&amp;</span><a href="bytes.rs.html#14-90">Bytes</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub unsafe fn </span>from_bytes_trusted&lt;T: <a href="#1597-1601">StaticVariantType</a>&gt;(bytes: <span class="kw-2">&amp;</span><a href="bytes.rs.html#14-65">Bytes</a>) -&gt; <span class="self">Self </span>{
         <a href="#1094-1100">Variant::from_bytes_with_type_trusted</a>(<a href="#998">bytes</a>, <span class="kw-2">&amp;</span><a href="#1600">T::static_variant_type</a>())
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Constructs a new serialized-mode GVariant instance.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Creates a new [`Variant`][struct@crate::Variant] instance from serialized data.
+    </span><span class="doccomment">/// Creates a new #GVariant instance from serialized data.
     ///
-    /// `type_` is the type of [`Variant`][struct@crate::Variant] instance that will be constructed.
-    /// The interpretation of `data` depends on knowing the type.
+    /// @type_ is the type of #GVariant instance that will be constructed.
+    /// The interpretation of @data depends on knowing the type.
     ///
-    /// `data` is not modified by this function and must remain valid with an
-    /// unchanging value until such a time as `notify` is called with
-    /// `user_data`. If the contents of `data` change before that time then
+    /// @data is not modified by this function and must remain valid with an
+    /// unchanging value until such a time as @notify is called with
+    /// @user_data.  If the contents of @data change before that time then
     /// the result is undefined.
     ///
-    /// If `data` is trusted to be serialized data in normal form then
-    /// `trusted` should be [`true`]. This applies to serialized data created
+    /// If @data is trusted to be serialized data in normal form then
+    /// @trusted should be [`true`].  This applies to serialized data created
     /// within this process or read from a trusted location on the disk (such
-    /// as a file installed in /usr/lib alongside your application). You
-    /// should set trusted to [`false`] if `data` is read from the network, a
+    /// as a file installed in /usr/lib alongside your application).  You
+    /// should set trusted to [`false`] if @data is read from the network, a
     /// file in the user's home directory, etc.
     ///
-    /// If `data` was not stored in this machine's native endianness, any multi-byte
+    /// If @data was not stored in this machine's native endianness, any multi-byte
     /// numeric values in the returned variant will also be in non-native
-    /// endianness. [`byteswap()`][Self::byteswap()] can be used to recover the original values.
+    /// endianness. g_variant_byteswap() can be used to recover the original values.
     ///
-    /// `notify` will be called with `user_data` when `data` is no longer
-    /// needed. The exact time of this call is unspecified and might even be
+    /// @notify will be called with @user_data when @data is no longer
+    /// needed.  The exact time of this call is unspecified and might even be
     /// before this function returns.
     ///
-    /// Note: `data` must be backed by memory that is aligned appropriately for the
-    /// `type_` being loaded. Otherwise this function will internally create a copy of
+    /// Note: @data must be backed by memory that is aligned appropriately for the
+    /// @type_ being loaded. Otherwise this function will internally create a copy of
     /// the memory (since GLib 2.60) or (in older versions) fail and exit the
     /// process.
     /// ## `type_`
-    /// a definite [`VariantType`][crate::VariantType]
+    /// a definite #GVariantType
     /// ## `data`
     /// the serialized data
     /// ## `trusted`
-    /// [`true`] if `data` is definitely in normal form
+    /// [`true`] if @data is definitely in normal form
     /// ## `notify`
-    /// function to call when `data` is no longer needed
+    /// function to call when @data is no longer needed
     ///
     /// # Returns
     ///
-    /// a new floating [`Variant`][struct@crate::Variant] of type `type_`
+    /// a new floating #GVariant of type @type_
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_new_from_data"</span>)]
     </span><span class="kw">pub fn </span>from_data&lt;T: <a href="#1597-1601">StaticVariantType</a>, A: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;&gt;(data: A) -&gt; <span class="self">Self </span>{
         <a href="#1105-1126">Variant::from_data_with_type</a>(<a href="#1047">data</a>, <span class="kw-2">&amp;</span><a href="#1600">T::static_variant_type</a>())
@@ -4272,10 +4272,10 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Constructs a new serialized-mode GVariant instance with a given type.
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_new_from_bytes"</span>)]
-    </span><span class="kw">pub fn </span>from_bytes_with_type(bytes: <span class="kw-2">&amp;</span><a href="bytes.rs.html#14-90">Bytes</a>, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>from_bytes_with_type(bytes: <span class="kw-2">&amp;</span><a href="bytes.rs.html#14-65">Bytes</a>, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
             <a href="translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_variant_new_from_bytes(
-                <a href="#1071">type_</a>.<a href="variant_type.rs.html#708-710">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <a href="#1071">type_</a>.<a href="variant_type.rs.html#711-713">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
                 <a href="#1071">bytes</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
                 <span class="bool-val">false</span>.<a href="translate.rs.html#330">into_glib</a>(),
             ))
@@ -4295,9 +4295,9 @@
     /// Since the data is not validated, this is potentially dangerous if called
     /// on bytes which are not guaranteed to have come from serialising another
     /// Variant.  The caller is responsible for ensuring bad data is not passed in.
-    </span><span class="kw">pub unsafe fn </span>from_bytes_with_type_trusted(bytes: <span class="kw-2">&amp;</span><a href="bytes.rs.html#14-90">Bytes</a>, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub unsafe fn </span>from_bytes_with_type_trusted(bytes: <span class="kw-2">&amp;</span><a href="bytes.rs.html#14-65">Bytes</a>, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a>) -&gt; <span class="self">Self </span>{
         <a href="translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_variant_new_from_bytes(
-            <a href="#1094">type_</a>.<a href="variant_type.rs.html#708-710">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+            <a href="#1094">type_</a>.<a href="variant_type.rs.html#711-713">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
             <a href="#1094">bytes</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
             <span class="bool-val">true</span>.<a href="translate.rs.html#330">into_glib</a>(),
         ))
@@ -4306,7 +4306,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Constructs a new serialized-mode GVariant instance with a given type.
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_new_from_data"</span>)]
-    </span><span class="kw">pub fn </span>from_data_with_type&lt;A: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;&gt;(data: A, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>from_data_with_type&lt;A: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;&gt;(data: A, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = Box::new(<a href="#1105">data</a>);
             <span class="kw">let </span>(data_ptr, len) = {
@@ -4319,7 +4319,7 @@
             }
 
             <a href="translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_variant_new_from_data(
-                <a href="#1105">type_</a>.<a href="variant_type.rs.html#708-710">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <a href="#1105">type_</a>.<a href="variant_type.rs.html#711-713">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
                 <a href="#1108">data_ptr</a> <span class="kw">as </span>ffi::gconstpointer,
                 <a href="#1108">len</a>,
                 <span class="bool-val">false</span>.<a href="translate.rs.html#330">into_glib</a>(),
@@ -4342,7 +4342,7 @@
     /// Since the data is not validated, this is potentially dangerous if called
     /// on bytes which are not guaranteed to have come from serialising another
     /// Variant.  The caller is responsible for ensuring bad data is not passed in.
-    </span><span class="kw">pub unsafe fn </span>from_data_with_type_trusted&lt;A: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;&gt;(data: A, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#490-492">VariantTy</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub unsafe fn </span>from_data_with_type_trusted&lt;A: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;&gt;(data: A, type_: <span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495">VariantTy</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">let </span>data = Box::new(<a href="#1141">data</a>);
         <span class="kw">let </span>(data_ptr, len) = {
             <span class="kw">let </span>data = (<span class="kw-2">*</span><a href="#1142">data</a>).<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>();
@@ -4354,7 +4354,7 @@
         }
 
         <a href="translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_variant_new_from_data(
-            <a href="#1141">type_</a>.<a href="variant_type.rs.html#708-710">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+            <a href="#1141">type_</a>.<a href="variant_type.rs.html#711-713">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
             <a href="#1143">data_ptr</a> <span class="kw">as </span>ffi::gconstpointer,
             <a href="#1143">len</a>,
             <span class="bool-val">true</span>.<a href="translate.rs.html#330">into_glib</a>(),
@@ -4366,44 +4366,44 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the serialized form of a GVariant instance.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Returns a pointer to the serialized form of a [`Variant`][struct@crate::Variant] instance.
+    </span><span class="doccomment">/// Returns a pointer to the serialized form of a #GVariant instance.
     /// The semantics of this function are exactly the same as
-    /// [`data()`][Self::data()], except that the returned [`Bytes`][crate::Bytes] holds
+    /// g_variant_get_data(), except that the returned #GBytes holds
     /// a reference to the variant data.
     ///
     /// # Returns
     ///
-    /// A new [`Bytes`][crate::Bytes] representing the variant data
+    /// A new #GBytes representing the variant data
     </span><span class="attr">#[doc(alias = <span class="string">"get_data_as_bytes"</span>)]
     #[doc(alias = <span class="string">"g_variant_get_data_as_bytes"</span>)]
-    </span><span class="kw">pub fn </span>data_as_bytes(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="bytes.rs.html#14-90">Bytes</a> {
+    </span><span class="kw">pub fn </span>data_as_bytes(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="bytes.rs.html#14-65">Bytes</a> {
         <span class="kw">unsafe </span>{ <a href="translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_variant_get_data_as_bytes(<a class="self" href="#1175">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the serialized form of a GVariant instance.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Returns a pointer to the serialized form of a [`Variant`][struct@crate::Variant] instance.
+    </span><span class="doccomment">/// Returns a pointer to the serialized form of a #GVariant instance.
     /// The returned data may not be in fully-normalised form if read from an
-    /// untrusted source. The returned data must not be freed; it remains
-    /// valid for as long as `self` exists.
+    /// untrusted source.  The returned data must not be freed; it remains
+    /// valid for as long as @self exists.
     ///
-    /// If `self` is a fixed-sized value that was deserialized from a
-    /// corrupted serialized container then [`None`] may be returned. In this
+    /// If @self is a fixed-sized value that was deserialized from a
+    /// corrupted serialized container then [`None`] may be returned.  In this
     /// case, the proper thing to do is typically to use the appropriate
-    /// number of nul bytes in place of `self`. If `self` is not fixed-sized
+    /// number of nul bytes in place of @self.  If @self is not fixed-sized
     /// then [`None`] is never returned.
     ///
-    /// In the case that `self` is already in serialized form, this function
-    /// is O(1). If the value is not already in serialized form,
+    /// In the case that @self is already in serialized form, this function
+    /// is O(1).  If the value is not already in serialized form,
     /// serialization occurs implicitly and is approximately O(n) in the size
     /// of the result.
     ///
     /// To deserialize the data returned by this function, in addition to the
-    /// serialized data, you must know the type of the [`Variant`][struct@crate::Variant], and (if the
+    /// serialized data, you must know the type of the #GVariant, and (if the
     /// machine might be different) the endianness of the machine that stored
     /// it. As a result, file formats or network messages that incorporate
-    /// serialized `GVariants` must include this information either
+    /// serialized #GVariants must include this information either
     /// implicitly (for instance "the file always contains a
     /// `G_VARIANT_TYPE_VARIANT` and it is always in little-endian order") or
     /// explicitly (by storing the type and/or endianness in addition to the
@@ -4411,7 +4411,7 @@
     ///
     /// # Returns
     ///
-    /// the serialized form of `self`, or [`None`]
+    /// the serialized form of @self, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_get_data"</span>)]
     </span><span class="kw">pub fn </span>data(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>] {
         <span class="kw">unsafe </span>{
@@ -4428,21 +4428,21 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the size of serialized form of a GVariant instance.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Determines the number of bytes that would be required to store `self`
-    /// with [`store()`][Self::store()].
+    </span><span class="doccomment">/// Determines the number of bytes that would be required to store @self
+    /// with g_variant_store().
     ///
-    /// If `self` has a fixed-sized type then this function always returned
+    /// If @self has a fixed-sized type then this function always returned
     /// that fixed size.
     ///
-    /// In the case that `self` is already in serialized form or the size has
+    /// In the case that @self is already in serialized form or the size has
     /// already been calculated (ie: this function has been called before)
-    /// then this function is O(1). Otherwise, the size is calculated, an
+    /// then this function is O(1).  Otherwise, the size is calculated, an
     /// operation which is approximately O(n) in the number of values
     /// involved.
     ///
     /// # Returns
     ///
-    /// the serialized size of `self`
+    /// the serialized size of @self
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_get_size"</span>)]
     </span><span class="kw">pub fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a> {
         <span class="kw">unsafe </span>{ ffi::g_variant_get_size(<a class="self" href="#1243">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
@@ -4453,18 +4453,18 @@
     ///
     /// The slice needs to be big enough.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Stores the serialized form of `self` at `data`. `data` should be
-    /// large enough. See [`size()`][Self::size()].
+    </span><span class="doccomment">/// Stores the serialized form of @self at @data.  @data should be
+    /// large enough.  See g_variant_get_size().
     ///
     /// The stored data is in machine native byte order but may not be in
-    /// fully-normalised form if read from an untrusted source. See
-    /// [`normal_form()`][Self::normal_form()] for a solution.
+    /// fully-normalised form if read from an untrusted source.  See
+    /// g_variant_get_normal_form() for a solution.
     ///
-    /// As with [`data()`][Self::data()], to be able to deserialize the
+    /// As with g_variant_get_data(), to be able to deserialize the
     /// serialized variant successfully, its type and (if the destination
     /// machine might be different) its endianness must also be available.
     ///
-    /// This function is approximately O(n) in the size of `data`.
+    /// This function is approximately O(n) in the size of @data.
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_store"</span>)]
     </span><span class="kw">pub fn </span>store(<span class="kw-2">&amp;</span><span class="self">self</span>, data: <span class="kw-2">&amp;mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="error.rs.html#243-251"><span class="kw">crate</span>::BoolError</a>&gt; {
         <span class="kw">unsafe </span>{
@@ -4482,35 +4482,35 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns a copy of the variant in normal form.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Gets a [`Variant`][struct@crate::Variant] instance that has the same value as `self` and is
+    </span><span class="doccomment">/// Gets a #GVariant instance that has the same value as @self and is
     /// trusted to be in normal form.
     ///
-    /// If `self` is already trusted to be in normal form then a new
-    /// reference to `self` is returned.
+    /// If @self is already trusted to be in normal form then a new
+    /// reference to @self is returned.
     ///
-    /// If `self` is not already trusted, then it is scanned to check if it
-    /// is in normal form. If it is found to be in normal form then it is
+    /// If @self is not already trusted, then it is scanned to check if it
+    /// is in normal form.  If it is found to be in normal form then it is
     /// marked as trusted and a new reference to it is returned.
     ///
-    /// If `self` is found not to be in normal form then a new trusted
-    /// [`Variant`][struct@crate::Variant] is created with the same value as `self`. The non-normal parts of
-    /// `self` will be replaced with default values which are guaranteed to be in
+    /// If @self is found not to be in normal form then a new trusted
+    /// #GVariant is created with the same value as @self. The non-normal parts of
+    /// @self will be replaced with default values which are guaranteed to be in
     /// normal form.
     ///
-    /// It makes sense to call this function if you've received [`Variant`][struct@crate::Variant]
+    /// It makes sense to call this function if you've received #GVariant
     /// data from untrusted sources and you want to ensure your serialized
     /// output is definitely in normal form.
     ///
-    /// If `self` is already in normal form, a new reference will be returned
-    /// (which will be floating if `self` is floating). If it is not in normal form,
-    /// the newly created [`Variant`][struct@crate::Variant] will be returned with a single non-floating
-    /// reference. Typically, `g_variant_take_ref()` should be called on the return
+    /// If @self is already in normal form, a new reference will be returned
+    /// (which will be floating if @self is floating). If it is not in normal form,
+    /// the newly created #GVariant will be returned with a single non-floating
+    /// reference. Typically, g_variant_take_ref() should be called on the return
     /// value from this function to guarantee ownership of a single non-floating
     /// reference to it.
     ///
     /// # Returns
     ///
-    /// a trusted [`Variant`][struct@crate::Variant]
+    /// a trusted #GVariant
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_get_normal_form"</span>)]
     #[must_use]
     </span><span class="kw">pub fn </span>normal_form(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
@@ -4520,19 +4520,19 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns a copy of the variant in the opposite endianness.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Performs a byteswapping operation on the contents of `self`. The
-    /// result is that all multi-byte numeric data contained in `self` is
-    /// byteswapped. That includes 16, 32, and 64bit signed and unsigned
+    </span><span class="doccomment">/// Performs a byteswapping operation on the contents of @self.  The
+    /// result is that all multi-byte numeric data contained in @self is
+    /// byteswapped.  That includes 16, 32, and 64bit signed and unsigned
     /// integers as well as file handles and double precision floating point
     /// values.
     ///
     /// This function is an identity mapping on any value that does not
-    /// contain multi-byte numeric data. That include strings, booleans,
+    /// contain multi-byte numeric data.  That include strings, booleans,
     /// bytes and containers containing only these things (recursively).
     ///
     /// While this function can safely handle untrusted, non-normal data, it is
     /// recommended to check whether the input is in normal form beforehand, using
-    /// [`is_normal_form()`][Self::is_normal_form()], and to reject non-normal inputs if your
+    /// g_variant_is_normal_form(), and to reject non-normal inputs if your
     /// application can be strict about what inputs it rejects.
     ///
     /// The returned value is always in normal form and is marked as trusted.
@@ -4540,7 +4540,7 @@
     ///
     /// # Returns
     ///
-    /// the byteswapped form of `self`
+    /// the byteswapped form of @self
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_byteswap"</span>)]
     #[must_use]
     </span><span class="kw">pub fn </span>byteswap(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
@@ -4550,15 +4550,15 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Determines the number of children in a container GVariant instance.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Determines the number of children in a container [`Variant`][struct@crate::Variant] instance.
+    </span><span class="doccomment">/// Determines the number of children in a container #GVariant instance.
     /// This includes variants, maybes, arrays, tuples and dictionary
-    /// entries. It is an error to call this function on any other type of
-    /// [`Variant`][struct@crate::Variant].
+    /// entries.  It is an error to call this function on any other type of
+    /// #GVariant.
     ///
-    /// For variants, the return value is always 1. For values with maybe
-    /// types, it is always zero or one. For arrays, it is the length of the
-    /// array. For tuples it is the number of tuple items (which depends
-    /// only on the type). For dictionary entries, it is always 2
+    /// For variants, the return value is always 1.  For values with maybe
+    /// types, it is always zero or one.  For arrays, it is the length of the
+    /// array.  For tuples it is the number of tuple items (which depends
+    /// only on the type).  For dictionary entries, it is always 2
     ///
     /// This function is O(1).
     ///
@@ -4604,7 +4604,7 @@
     </span><span class="kw">pub fn </span>array_iter_str(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="variant_iter.rs.html#102-106">VariantStrIter</a>, <a href="#447-450">VariantTypeMismatchError</a>&gt; {
         <span class="kw">let </span>child_ty = <a href="#1600">String::static_variant_type</a>();
         <span class="kw">let </span>actual_ty = <a class="self" href="#1400">self</a>.<a href="#483-485">type_</a>();
-        <span class="kw">let </span>expected_ty = <a href="#1401">child_ty</a>.<a href="variant_type.rs.html#888-902">as_array</a>();
+        <span class="kw">let </span>expected_ty = <a href="#1401">child_ty</a>.<a href="variant_type.rs.html#891-905">as_array</a>();
         <span class="kw">if </span>actual_ty != expected_ty {
             <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="#447-450">VariantTypeMismatchError</a> {
                 actual: <a href="#1402">actual_ty</a>.<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">to_owned</a>(),
@@ -4618,11 +4618,11 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Return whether this Variant is a container type.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Checks if `self` is a container.
+    </span><span class="doccomment">/// Checks if @self is a container.
     ///
     /// # Returns
     ///
-    /// [`true`] if `self` is a container
+    /// [`true`] if @self is a container
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_is_container"</span>)]
     </span><span class="kw">pub fn </span>is_container(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_variant_is_container(<a class="self" href="#1423">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
@@ -4631,15 +4631,15 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Return whether this Variant is in normal form.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Checks if `self` is in normal form.
+    </span><span class="doccomment">/// Checks if @self is in normal form.
     ///
     /// The main reason to do this is to detect if a given chunk of
-    /// serialized data is in normal form: load the data into a [`Variant`][struct@crate::Variant]
-    /// using [`from_data()`][Self::from_data()] and then use this function to
+    /// serialized data is in normal form: load the data into a #GVariant
+    /// using g_variant_new_from_data() and then use this function to
     /// check.
     ///
-    /// If `self` is found to be in normal form then it will be marked as
-    /// being trusted. If the value was already marked as being trusted then
+    /// If @self is found to be in normal form then it will be marked as
+    /// being trusted.  If the value was already marked as being trusted then
     /// this function will immediately return [`true`].
     ///
     /// There may be implementation specific restrictions on deeply nested values.
@@ -4647,7 +4647,7 @@
     ///
     /// # Returns
     ///
-    /// [`true`] if `self` is in normal form
+    /// [`true`] if @self is in normal form
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_is_normal_form"</span>)]
     </span><span class="kw">pub fn </span>is_normal_form(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_variant_is_normal_form(<a class="self" href="#1448">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
@@ -4656,20 +4656,20 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Return whether input string is a valid `VariantClass::ObjectPath`.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Determines if a given string is a valid D-Bus object path. You
+    </span><span class="doccomment">/// Determines if a given string is a valid D-Bus object path.  You
     /// should ensure that a string is a valid D-Bus object path before
-    /// passing it to [`new_object_path()`][Self::new_object_path()].
+    /// passing it to g_variant_new_object_path().
     ///
     /// A valid object path starts with `/` followed by zero or more
-    /// sequences of characters separated by `/` characters. Each sequence
-    /// must contain only the characters `[A-Z][a-z][0-9]_`. No sequence
+    /// sequences of characters separated by `/` characters.  Each sequence
+    /// must contain only the characters `[A-Z][a-z][0-9]_`.  No sequence
     /// (including the one following the final `/` character) may be empty.
     /// ## `string`
     /// a normal C nul-terminated string
     ///
     /// # Returns
     ///
-    /// [`true`] if `string` is a D-Bus object path
+    /// [`true`] if @string is a D-Bus object path
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_is_object_path"</span>)]
     </span><span class="kw">pub fn </span>is_object_path(string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_variant_is_object_path(<a href="#1470">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
@@ -4678,18 +4678,18 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Return whether input string is a valid `VariantClass::Signature`.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Determines if a given string is a valid D-Bus type signature. You
+    </span><span class="doccomment">/// Determines if a given string is a valid D-Bus type signature.  You
     /// should ensure that a string is a valid D-Bus type signature before
-    /// passing it to [`new_signature()`][Self::new_signature()].
+    /// passing it to g_variant_new_signature().
     ///
-    /// D-Bus type signatures consist of zero or more definite [`VariantType`][crate::VariantType]
+    /// D-Bus type signatures consist of zero or more definite #GVariantType
     /// strings in sequence.
     /// ## `string`
     /// a normal C nul-terminated string
     ///
     /// # Returns
     ///
-    /// [`true`] if `string` is a D-Bus type signature
+    /// [`true`] if @string is a D-Bus type signature
     </span><span class="attr">#[doc(alias = <span class="string">"g_variant_is_signature"</span>)]
     </span><span class="kw">pub fn </span>is_signature(string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_variant_is_signature(<a href="#1490">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
@@ -4801,11 +4801,11 @@
 </span><span class="kw">pub trait </span><a href="../../glib/variant/trait.StaticVariantType.html">StaticVariantType</a> {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the `VariantType` corresponding to `Self`.
-    </span><span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt;;
+    </span><span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt;;
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="#117-376">Variant</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         Cow::Borrowed(VariantTy::VARIANT)
     }
 }
@@ -4824,7 +4824,7 @@
 }
 
 <span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <a href="#1597-1601">StaticVariantType</a>&gt; <a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span>T {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         &lt;T <span class="kw">as </span>StaticVariantType&gt;::static_variant_type()
     }
 }
@@ -4909,7 +4909,7 @@
 );
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span>() {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         Cow::Borrowed(VariantTy::UNIT)
     }
 }
@@ -4938,7 +4938,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         Cow::Borrowed(VariantTy::BOOLEAN)
     }
 }
@@ -4971,7 +4971,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         Cow::Borrowed(VariantTy::STRING)
     }
 }
@@ -4996,7 +4996,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         <a href="#1600">String::static_variant_type</a>()
     }
 }
@@ -5015,7 +5015,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         <a href="#1600">std::path::Path::static_variant_type</a>()
     }
 }
@@ -5043,7 +5043,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         &lt;<span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;::static_variant_type()
     }
 }
@@ -5063,7 +5063,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">std::ffi::OsString</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         <a href="#1600">std::ffi::OsStr::static_variant_type</a>()
     }
 }
@@ -5091,7 +5091,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">std::ffi::OsStr</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         &lt;<span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;::static_variant_type()
     }
 }
@@ -5111,8 +5111,8 @@
 }
 
 <span class="kw">impl</span>&lt;T: <a href="#1597-1601">StaticVariantType</a>&gt; <a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><span class="prelude-ty">Option</span>&lt;T&gt; {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
-        Cow::Owned(<a href="variant_type.rs.html#267-269">VariantType::new_maybe</a>(<span class="kw-2">&amp;</span><a href="#1600">T::static_variant_type</a>()))
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
+        Cow::Owned(<a href="variant_type.rs.html#270-272">VariantType::new_maybe</a>(<span class="kw-2">&amp;</span><a href="#1600">T::static_variant_type</a>()))
     }
 }
 
@@ -5149,8 +5149,8 @@
 }
 
 <span class="kw">impl</span>&lt;T: <a href="#1597-1601">StaticVariantType</a>&gt; <a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span>[T] {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
-        <a href="#1600">T::static_variant_type</a>().<a href="variant_type.rs.html#888-902">as_array</a>()
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
+        <a href="#1600">T::static_variant_type</a>().<a href="variant_type.rs.html#891-905">as_array</a>()
     }
 }
 
@@ -5233,7 +5233,7 @@
 }
 
 <span class="kw">impl</span>&lt;T: <a href="#1597-1601">StaticVariantType</a>&gt; <a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span>Vec&lt;T&gt; {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         &lt;[T]&gt;::static_variant_type()
     }
 }
@@ -5505,15 +5505,15 @@
 }
 
 <span class="kw">impl</span>&lt;K: <a href="#1597-1601">StaticVariantType</a>, V: <a href="#1597-1601">StaticVariantType</a>&gt; <a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span>DictEntry&lt;K, V&gt; {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
-        Cow::Owned(<a href="variant_type.rs.html#222-229">VariantType::new_dict_entry</a>(
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
+        Cow::Owned(<a href="variant_type.rs.html#225-232">VariantType::new_dict_entry</a>(
             <span class="kw-2">&amp;</span><a href="#1600">K::static_variant_type</a>(),
             <span class="kw-2">&amp;</span><a href="#1600">V::static_variant_type</a>(),
         ))
     }
 }
 
-<span class="kw">fn </span>static_variant_mapping&lt;K, V&gt;() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt;
+<span class="kw">fn </span>static_variant_mapping&lt;K, V&gt;() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt;
 <span class="kw">where
     </span>K: <a href="#1597-1601">StaticVariantType</a>,
     V: <a href="#1597-1601">StaticVariantType</a>,
@@ -5530,7 +5530,7 @@
     <span class="kw">let </span><span class="kw-2">mut </span>builder = <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::GStringBuilder::default</a>();
     <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.write.html">write!</a>(<a href="#2326">builder</a>, <span class="string">"a{{{}{}}}"</span>, key_type.as_str(), value_type.as_str()).unwrap();
 
-    Cow::Owned(<a href="variant_type.rs.html#305-318">VariantType::from_string</a>(<a href="#2326">builder</a>.<a href="gstring_builder.rs.html#152-157">into_string</a>()).unwrap())
+    Cow::Owned(<a href="variant_type.rs.html#308-321">VariantType::from_string</a>(<a href="#2326">builder</a>.<a href="gstring_builder.rs.html#152-157">into_string</a>()).unwrap())
 }
 
 <span class="kw">impl</span>&lt;K, V, H&gt; <a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span>HashMap&lt;K, V, H&gt;
@@ -5539,7 +5539,7 @@
     V: <a href="#1597-1601">StaticVariantType</a>,
     H: <a href="https://doc.rust-lang.org/nightly/core/hash/trait.BuildHasher.html">BuildHasher</a> + <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a>,
 {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         static_variant_mapping::&lt;K, V&gt;()
     }
 }
@@ -5549,7 +5549,7 @@
     </span>K: <a href="#1597-1601">StaticVariantType</a>,
     V: <a href="#1597-1601">StaticVariantType</a>,
 {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         static_variant_mapping::&lt;K, V&gt;()
     }
 }
@@ -5742,7 +5742,7 @@
 }
 
 <span class="kw">impl</span>&lt;A: AsRef&lt;[T]&gt;, T: <a href="#2458">FixedSizeVariantType</a>&gt; <a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span>FixedSizeVariantArray&lt;A, T&gt; {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         &lt;[T]&gt;::static_variant_type()
     }
 }
@@ -5809,7 +5809,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="#2593">Handle</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         Cow::Borrowed(VariantTy::HANDLE)
     }
 }
@@ -5887,7 +5887,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="#2642">ObjectPath</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         Cow::Borrowed(VariantTy::OBJECT_PATH)
     }
 }
@@ -5968,7 +5968,7 @@
 }
 
 <span class="kw">impl </span><a href="#1597-1601">StaticVariantType</a> <span class="kw">for </span><a href="#2723">Signature</a> {
-    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#490-492">VariantTy</a>&gt; {
+    <span class="kw">fn </span>static_variant_type() -&gt; Cow&lt;<span class="lifetime">'static</span>, <a href="variant_type.rs.html#493-495">VariantTy</a>&gt; {
         Cow::Borrowed(VariantTy::SIGNATURE)
     }
 }

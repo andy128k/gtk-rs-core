@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/dbus_proxy.rs`."><title>dbus_proxy.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/dbus_proxy.rs`."><title>dbus_proxy.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -1518,15 +1518,17 @@
 <a href="#1443" id="1443">1443</a>
 <a href="#1444" id="1444">1444</a>
 <a href="#1445" id="1445">1445</a>
+<a href="#1446" id="1446">1446</a>
+<a href="#1447" id="1447">1447</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
 </span><span class="attr">#[cfg(unix)]
 #[cfg_attr(docsrs, doc(cfg(unix)))]
-</span><span class="kw">use </span><a href="unix_fd_list.rs.html#7-30"><span class="kw">crate</span>::UnixFDList</a>;
+</span><span class="kw">use </span><a href="unix_fd_list.rs.html#7-31"><span class="kw">crate</span>::UnixFDList</a>;
 <span class="kw">use crate</span>::{
-    <a href="async_initable.rs.html#9-123">AsyncInitable</a>, <a href="async_result.rs.html#7-106">AsyncResult</a>, <a href="enums.rs.html#11-26">BusType</a>, <a href="cancellable.rs.html#7-83">Cancellable</a>, <a href="flags.rs.html#608-626">DBusCallFlags</a>, <a href="dbus_connection.rs.html#20-195">DBusConnection</a>, <a href="dbus_interface.rs.html#8-22">DBusInterface</a>,
+    <a href="async_initable.rs.html#9-123">AsyncInitable</a>, <a href="async_result.rs.html#7-105">AsyncResult</a>, <a href="enums.rs.html#11-26">BusType</a>, <a href="cancellable.rs.html#7-85">Cancellable</a>, <a href="flags.rs.html#608-626">DBusCallFlags</a>, <a href="dbus_connection.rs.html#20-198">DBusConnection</a>, <a href="dbus_interface.rs.html#8-24">DBusInterface</a>,
     <a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>, <a href="flags.rs.html#1176-1212">DBusProxyFlags</a>, <a href="initable.rs.html#8-43">Initable</a>,
 };
 <span class="kw">use </span>glib::{
@@ -1537,73 +1539,75 @@
 <span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">boxed::Box</a> <span class="kw">as </span>Box_, <a href="https://doc.rust-lang.org/nightly/core/pin/struct.Pin.html">pin::Pin</a>};
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`DBusProxy`][crate::DBusProxy] is a base class used for proxies to access a D-Bus
-    /// interface on a remote object. A [`DBusProxy`][crate::DBusProxy] can be constructed for
+    <span class="doccomment">/// `GDBusProxy` is a base class used for proxies to access a D-Bus
+    /// interface on a remote object. A `GDBusProxy` can be constructed for
     /// both well-known and unique names.
     ///
-    /// By default, [`DBusProxy`][crate::DBusProxy] will cache all properties (and listen to
+    /// By default, `GDBusProxy` will cache all properties (and listen to
     /// changes) of the remote object, and proxy all signals that get
     /// emitted. This behaviour can be changed by passing suitable
     /// [`DBusProxyFlags`][crate::DBusProxyFlags] when the proxy is created. If the proxy is for a
     /// well-known name, the property cache is flushed when the name owner
     /// vanishes and reloaded when a name owner appears.
     ///
-    /// The unique name owner of the proxy's name is tracked and can be read from
-    /// [`g-name-owner`][struct@crate::DBusProxy#g-name-owner]. Connect to the [`notify`][struct@crate::glib::Object#notify] signal to
-    /// get notified of changes. Additionally, only signals and property
-    /// changes emitted from the current name owner are considered and
-    /// calls are always sent to the current name owner. This avoids a
-    /// number of race conditions when the name is lost by one owner and
-    /// claimed by another. However, if no name owner currently exists,
+    /// The unique name owner of the proxy’s name is tracked and can be read from
+    /// [`g-name-owner`][struct@crate::DBusProxy#g-name-owner]. Connect to the
+    /// [`notify`][struct@crate::glib::Object#notify] signal to get notified of changes.
+    /// Additionally, only signals and property changes emitted from the current name
+    /// owner are considered and calls are always sent to the current name owner.
+    /// This avoids a number of race conditions when the name is lost by one owner
+    /// and claimed by another. However, if no name owner currently exists,
     /// then calls will be sent to the well-known name which may result in
     /// the message bus launching an owner (unless
-    /// [`DBusProxyFlags::DO_NOT_AUTO_START`][crate::DBusProxyFlags::DO_NOT_AUTO_START] is set).
+    /// `G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START` is set).
     ///
     /// If the proxy is for a stateless D-Bus service, where the name owner may
-    /// be started and stopped between calls, the [`g-name-owner`][struct@crate::DBusProxy#g-name-owner] tracking
-    /// of [`DBusProxy`][crate::DBusProxy] will cause the proxy to drop signal and property changes from
-    /// the service after it has restarted for the first time. When interacting
-    /// with a stateless D-Bus service, do not use [`DBusProxy`][crate::DBusProxy] — use direct D-Bus
-    /// method calls and signal connections.
+    /// be started and stopped between calls, the
+    /// [`g-name-owner`][struct@crate::DBusProxy#g-name-owner] tracking of `GDBusProxy` will cause the
+    /// proxy to drop signal and property changes from the service after it has
+    /// restarted for the first time. When interacting with a stateless D-Bus
+    /// service, do not use `GDBusProxy` — use direct D-Bus method calls and signal
+    /// connections.
     ///
     /// The generic [`g-properties-changed`][struct@crate::DBusProxy#g-properties-changed] and
-    /// [`g-signal`][struct@crate::DBusProxy#g-signal] signals are not very convenient to work with.
-    /// Therefore, the recommended way of working with proxies is to subclass
-    /// [`DBusProxy`][crate::DBusProxy], and have more natural properties and signals in your derived
-    /// class. This [example][gdbus-example-gdbus-codegen] shows how this can
-    /// easily be done using the [gdbus-codegen][gdbus-codegen] tool.
+    /// [`g-signal`][struct@crate::DBusProxy#g-signal] signals are not very convenient to work
+    /// with. Therefore, the recommended way of working with proxies is to subclass
+    /// `GDBusProxy`, and have more natural properties and signals in your derived
+    /// class. This [example](migrating-gdbus.html#using-gdbus-codegen) shows how
+    /// this can easily be done using the [`gdbus-codegen`](gdbus-codegen.html) tool.
     ///
-    /// A [`DBusProxy`][crate::DBusProxy] instance can be used from multiple threads but note
-    /// that all signals (e.g. [`g-signal`][struct@crate::DBusProxy#g-signal], [`g-properties-changed`][struct@crate::DBusProxy#g-properties-changed]
-    /// and [`notify`][struct@crate::glib::Object#notify]) are emitted in the
-    /// [thread-default main context][g-main-context-push-thread-default]
-    /// of the thread where the instance was constructed.
+    /// A `GDBusProxy` instance can be used from multiple threads but note
+    /// that all signals (e.g. [`g-signal`][struct@crate::DBusProxy#g-signal],
+    /// [`g-properties-changed`][struct@crate::DBusProxy#g-properties-changed] and
+    /// [`notify`][struct@crate::glib::Object#notify]) are emitted in the thread-default main
+    /// context (see [`glib::MainContext::push_thread_default()`][crate::glib::MainContext::push_thread_default()]) of the thread
+    /// where the instance was constructed.
     ///
     /// An example using a proxy for a well-known name can be found in
-    /// [gdbus-example-watch-proxy.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-watch-proxy.c)
+    /// [`gdbus-example-watch-proxy.c`](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-watch-proxy.c).
     ///
     /// ## Properties
     ///
     ///
     /// #### `g-bus-type`
     ///  If this property is not [`BusType::None`][crate::BusType::None], then
-    /// [`g-connection`][struct@crate::DBusProxy#g-connection] must be [`None`] and will be set to the
-    /// [`DBusConnection`][crate::DBusConnection] obtained by calling [`bus_get()`][crate::bus_get()] with the value
+    /// #GDBusProxy:g-connection must be [`None`] and will be set to the
+    /// #GDBusConnection obtained by calling g_bus_get() with the value
     /// of this property.
     ///
     /// Writeable | Construct Only
     ///
     ///
     /// #### `g-connection`
-    ///  The [`DBusConnection`][crate::DBusConnection] the proxy is for.
+    ///  The #GDBusConnection the proxy is for.
     ///
     /// Readable | Writeable | Construct Only
     ///
     ///
     /// #### `g-default-timeout`
     ///  The timeout to use if -1 (specifying default timeout) is passed
-    /// as `timeout_msec` in the [`DBusProxyExt::call()`][crate::prelude::DBusProxyExt::call()] and
-    /// [`DBusProxyExt::call_sync()`][crate::prelude::DBusProxyExt::call_sync()] functions.
+    /// as @timeout_msec in the g_dbus_proxy_call() and
+    /// g_dbus_proxy_call_sync() functions.
     ///
     /// This allows applications to set a proxy-wide timeout for all
     /// remote method invocations on the proxy. If this property is -1,
@@ -1614,7 +1618,7 @@
     ///
     ///
     /// #### `g-flags`
-    ///  Flags from the [`DBusProxyFlags`][crate::DBusProxyFlags] enumeration.
+    ///  Flags from the #GDBusProxyFlags enumeration.
     ///
     /// Readable | Writeable | Construct Only
     ///
@@ -1622,27 +1626,27 @@
     /// #### `g-interface-info`
     ///  Ensure that interactions with this proxy conform to the given
     /// interface. This is mainly to ensure that malformed data received
-    /// from the other peer is ignored. The given [`DBusInterfaceInfo`][crate::DBusInterfaceInfo] is
+    /// from the other peer is ignored. The given #GDBusInterfaceInfo is
     /// said to be the "expected interface".
     ///
     /// The checks performed are:
     /// - When completing a method call, if the type signature of
-    ///  the reply message isn't what's expected, the reply is
-    ///  discarded and the [`glib::Error`][crate::glib::Error] is set to [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument].
+    ///   the reply message isn't what's expected, the reply is
+    ///   discarded and the #GError is set to [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument].
     ///
     /// - Received signals that have a type signature mismatch are dropped and
-    ///  a warning is logged via `g_warning()`.
+    ///   a warning is logged via g_warning().
     ///
     /// - Properties received via the initial `GetAll()` call or via the
-    ///  `::PropertiesChanged` signal (on the
-    ///  [org.freedesktop.DBus.Properties](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties)
-    ///  interface) or set using [`DBusProxyExt::set_cached_property()`][crate::prelude::DBusProxyExt::set_cached_property()]
-    ///  with a type signature mismatch are ignored and a warning is
-    ///  logged via `g_warning()`.
+    ///   `::PropertiesChanged` signal (on the
+    ///   [org.freedesktop.DBus.Properties](http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties)
+    ///   interface) or set using g_dbus_proxy_set_cached_property()
+    ///   with a type signature mismatch are ignored and a warning is
+    ///   logged via g_warning().
     ///
     /// Note that these checks are never done on methods, signals and
     /// properties that are not referenced in the given
-    /// [`DBusInterfaceInfo`][crate::DBusInterfaceInfo], since extending a D-Bus interface on the
+    /// #GDBusInterfaceInfo, since extending a D-Bus interface on the
     /// service-side is not considered an ABI break.
     ///
     /// Readable | Writeable
@@ -1661,8 +1665,8 @@
     ///
     ///
     /// #### `g-name-owner`
-    ///  The unique name that owns [`g-name`][struct@crate::DBusProxy#g-name] or [`None`] if no-one
-    /// currently owns that name. You may connect to [`notify`][struct@crate::glib::Object#notify] signal to
+    ///  The unique name that owns #GDBusProxy:g-name or [`None`] if no-one
+    /// currently owns that name. You may connect to #GObject::notify signal to
     /// track changes to this property.
     ///
     /// Readable
@@ -1677,14 +1681,14 @@
     ///
     ///
     /// #### `g-properties-changed`
-    ///  Emitted when one or more D-Bus properties on `proxy` changes. The
+    ///  Emitted when one or more D-Bus properties on @proxy changes. The
     /// local cache has already been updated when this signal fires. Note
-    /// that both `changed_properties` and `invalidated_properties` are
+    /// that both @changed_properties and @invalidated_properties are
     /// guaranteed to never be [`None`] (either may be empty though).
     ///
     /// If the proxy has the flag
     /// [`DBusProxyFlags::GET_INVALIDATED_PROPERTIES`][crate::DBusProxyFlags::GET_INVALIDATED_PROPERTIES] set, then
-    /// `invalidated_properties` will always be empty.
+    /// @invalidated_properties will always be empty.
     ///
     /// This signal corresponds to the
     /// `PropertiesChanged` D-Bus signal on the
@@ -1694,7 +1698,7 @@
     ///
     ///
     /// #### `g-signal`
-    ///  Emitted when a signal from the remote object and interface that `proxy` is for, has been received.
+    ///  Emitted when a signal from the remote object and interface that @proxy is for, has been received.
     ///
     /// Since 2.72 this signal supports detailed connections. You can connect to
     /// the detailed signal `g-signal::x` in order to receive callbacks only when
@@ -1706,26 +1710,26 @@
     ///
     /// [`DBusProxyExt`][trait@crate::prelude::DBusProxyExt], [`trait@glib::ObjectExt`], [`AsyncInitableExt`][trait@crate::prelude::AsyncInitableExt], [`DBusInterfaceExt`][trait@crate::prelude::DBusInterfaceExt], [`InitableExt`][trait@crate::prelude::InitableExt], [`DBusProxyExtManual`][trait@crate::prelude::DBusProxyExtManual]
     </span><span class="attr">#[doc(alias = <span class="string">"GDBusProxy"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusProxy.html">DBusProxy</a>(Object&lt;<a href="../../../gio_sys/struct.GDBusProxy.html">ffi::GDBusProxy</a>, <a href="../../../gio_sys/struct.GDBusProxyClass.html">ffi::GDBusProxyClass</a>&gt;) @implements <a href="async_initable.rs.html#9-123">AsyncInitable</a>, <a href="dbus_interface.rs.html#8-22">DBusInterface</a>, <a href="initable.rs.html#8-43">Initable</a>;
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusProxy.html">DBusProxy</a>(Object&lt;<a href="../../../gio_sys/struct.GDBusProxy.html">ffi::GDBusProxy</a>, <a href="../../../gio_sys/struct.GDBusProxyClass.html">ffi::GDBusProxyClass</a>&gt;) @implements <a href="async_initable.rs.html#9-123">AsyncInitable</a>, <a href="dbus_interface.rs.html#8-24">DBusInterface</a>, <a href="initable.rs.html#8-43">Initable</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_dbus_proxy_get_type(),
     }
 }
 
-<span class="kw">impl </span><a href="#19-194">DBusProxy</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#19-194">DBusProxy</a>&gt; = <span class="prelude-val">None</span>;
+<span class="kw">impl </span><a href="#19-196">DBusProxy</a> {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#19-196">DBusProxy</a>&gt; = <span class="prelude-val">None</span>;
 
-    <span class="doccomment">/// Like [`new_sync()`][Self::new_sync()] but takes a [`BusType`][crate::BusType] instead of a [`DBusConnection`][crate::DBusConnection].
+    <span class="doccomment">/// Like g_dbus_proxy_new_sync() but takes a #GBusType instead of a #GDBusConnection.
     ///
-    /// [`DBusProxy`][crate::DBusProxy] is used in this [example][gdbus-wellknown-proxy].
+    /// #GDBusProxy is used in this [example][gdbus-wellknown-proxy].
     /// ## `bus_type`
-    /// A [`BusType`][crate::BusType].
+    /// A #GBusType.
     /// ## `flags`
     /// Flags used when constructing the proxy.
     /// ## `info`
-    /// A [`DBusInterfaceInfo`][crate::DBusInterfaceInfo] specifying the minimal interface
-    ///  that `proxy` conforms to or [`None`].
+    /// A #GDBusInterfaceInfo specifying the minimal interface
+    ///        that @proxy conforms to or [`None`].
     /// ## `name`
     /// A bus name (well-known or unique).
     /// ## `object_path`
@@ -1733,12 +1737,12 @@
     /// ## `interface_name`
     /// A D-Bus interface name.
     /// ## `cancellable`
-    /// A [`Cancellable`][crate::Cancellable] or [`None`].
+    /// A #GCancellable or [`None`].
     ///
     /// # Returns
     ///
-    /// A [`DBusProxy`][crate::DBusProxy] or [`None`] if error is set.
-    ///  Free with `g_object_unref()`.
+    /// A #GDBusProxy or [`None`] if error is set.
+    ///    Free with g_object_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_new_for_bus_sync"</span>)]
     #[doc(alias = <span class="string">"new_for_bus_sync"</span>)]
     </span><span class="kw">pub fn </span>for_bus_sync(
@@ -1748,157 +1752,157 @@
         name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interface_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#19-194">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#19-196">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_dbus_proxy_new_for_bus_sync(
-                <a href="#225">bus_type</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#226">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#227">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#228">name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#229">object_path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#230">interface_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#231">cancellable</a>.map(|p| <a href="#242">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span><a href="#234">error</a>,
+                <a href="#227">bus_type</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#228">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#229">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#230">name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#231">object_path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#232">interface_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#233">cancellable</a>.map(|p| <a href="#244">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span><a href="#236">error</a>,
             );
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#235">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#237">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#234">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#236">error</a>))
             }
         }
     }
 
-    <span class="doccomment">/// Creates a proxy for accessing `interface_name` on the remote object
-    /// at `object_path` owned by `name` at `connection` and synchronously
+    <span class="doccomment">/// Creates a proxy for accessing @interface_name on the remote object
+    /// at @object_path owned by @name at @connection and synchronously
     /// loads D-Bus properties unless the
     /// [`DBusProxyFlags::DO_NOT_LOAD_PROPERTIES`][crate::DBusProxyFlags::DO_NOT_LOAD_PROPERTIES] flag is used.
     ///
     /// If the [`DBusProxyFlags::DO_NOT_CONNECT_SIGNALS`][crate::DBusProxyFlags::DO_NOT_CONNECT_SIGNALS] flag is not set, also sets up
-    /// match rules for signals. Connect to the [`g-signal`][struct@crate::DBusProxy#g-signal] signal
+    /// match rules for signals. Connect to the #GDBusProxy::g-signal signal
     /// to handle signals from the remote object.
     ///
     /// If both [`DBusProxyFlags::DO_NOT_LOAD_PROPERTIES`][crate::DBusProxyFlags::DO_NOT_LOAD_PROPERTIES] and
     /// [`DBusProxyFlags::DO_NOT_CONNECT_SIGNALS`][crate::DBusProxyFlags::DO_NOT_CONNECT_SIGNALS] are set, this constructor is
     /// guaranteed to return immediately without blocking.
     ///
-    /// If `name` is a well-known name and the
+    /// If @name is a well-known name and the
     /// [`DBusProxyFlags::DO_NOT_AUTO_START`][crate::DBusProxyFlags::DO_NOT_AUTO_START] and [`DBusProxyFlags::DO_NOT_AUTO_START_AT_CONSTRUCTION`][crate::DBusProxyFlags::DO_NOT_AUTO_START_AT_CONSTRUCTION]
     /// flags aren't set and no name owner currently exists, the message bus
     /// will be requested to launch a name owner for the name.
     ///
-    /// This is a synchronous failable constructor. See [`new()`][Self::new()]
-    /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
+    /// This is a synchronous failable constructor. See g_dbus_proxy_new()
+    /// and g_dbus_proxy_new_finish() for the asynchronous version.
     ///
-    /// [`DBusProxy`][crate::DBusProxy] is used in this [example][gdbus-wellknown-proxy].
+    /// #GDBusProxy is used in this [example][gdbus-wellknown-proxy].
     /// ## `connection`
-    /// A [`DBusConnection`][crate::DBusConnection].
+    /// A #GDBusConnection.
     /// ## `flags`
     /// Flags used when constructing the proxy.
     /// ## `info`
-    /// A [`DBusInterfaceInfo`][crate::DBusInterfaceInfo] specifying the minimal interface that `proxy` conforms to or [`None`].
+    /// A #GDBusInterfaceInfo specifying the minimal interface that @proxy conforms to or [`None`].
     /// ## `name`
-    /// A bus name (well-known or unique) or [`None`] if `connection` is not a message bus connection.
+    /// A bus name (well-known or unique) or [`None`] if @connection is not a message bus connection.
     /// ## `object_path`
     /// An object path.
     /// ## `interface_name`
     /// A D-Bus interface name.
     /// ## `cancellable`
-    /// A [`Cancellable`][crate::Cancellable] or [`None`].
+    /// A #GCancellable or [`None`].
     ///
     /// # Returns
     ///
-    /// A [`DBusProxy`][crate::DBusProxy] or [`None`] if error is set.
-    ///  Free with `g_object_unref()`.
+    /// A #GDBusProxy or [`None`] if error is set.
+    ///    Free with g_object_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_new_sync"</span>)]
     </span><span class="kw">pub fn </span>new_sync(
-        connection: <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-195">DBusConnection</a>,
+        connection: <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-198">DBusConnection</a>,
         flags: <a href="flags.rs.html#1176-1212">DBusProxyFlags</a>,
         info: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>&gt;,
         name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interface_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#19-194">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#19-196">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_dbus_proxy_new_sync(
-                <a href="#296">connection</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#297">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#298">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#299">name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#300">object_path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#301">interface_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#302">cancellable</a>.map(|p| <a href="#313">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span><a href="#305">error</a>,
+                <a href="#298">connection</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#299">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#300">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#301">name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#302">object_path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#303">interface_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#304">cancellable</a>.map(|p| <a href="#315">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span><a href="#307">error</a>,
             );
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#306">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#308">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#305">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#307">error</a>))
             }
         }
     }
 
-    <span class="doccomment">/// Creates a proxy for accessing `interface_name` on the remote object
-    /// at `object_path` owned by `name` at `connection` and asynchronously
+    <span class="doccomment">/// Creates a proxy for accessing @interface_name on the remote object
+    /// at @object_path owned by @name at @connection and asynchronously
     /// loads D-Bus properties unless the
     /// [`DBusProxyFlags::DO_NOT_LOAD_PROPERTIES`][crate::DBusProxyFlags::DO_NOT_LOAD_PROPERTIES] flag is used. Connect to
-    /// the [`g-properties-changed`][struct@crate::DBusProxy#g-properties-changed] signal to get notified about
+    /// the #GDBusProxy::g-properties-changed signal to get notified about
     /// property changes.
     ///
     /// If the [`DBusProxyFlags::DO_NOT_CONNECT_SIGNALS`][crate::DBusProxyFlags::DO_NOT_CONNECT_SIGNALS] flag is not set, also sets up
-    /// match rules for signals. Connect to the [`g-signal`][struct@crate::DBusProxy#g-signal] signal
+    /// match rules for signals. Connect to the #GDBusProxy::g-signal signal
     /// to handle signals from the remote object.
     ///
     /// If both [`DBusProxyFlags::DO_NOT_LOAD_PROPERTIES`][crate::DBusProxyFlags::DO_NOT_LOAD_PROPERTIES] and
     /// [`DBusProxyFlags::DO_NOT_CONNECT_SIGNALS`][crate::DBusProxyFlags::DO_NOT_CONNECT_SIGNALS] are set, this constructor is
     /// guaranteed to complete immediately without blocking.
     ///
-    /// If `name` is a well-known name and the
+    /// If @name is a well-known name and the
     /// [`DBusProxyFlags::DO_NOT_AUTO_START`][crate::DBusProxyFlags::DO_NOT_AUTO_START] and [`DBusProxyFlags::DO_NOT_AUTO_START_AT_CONSTRUCTION`][crate::DBusProxyFlags::DO_NOT_AUTO_START_AT_CONSTRUCTION]
     /// flags aren't set and no name owner currently exists, the message bus
     /// will be requested to launch a name owner for the name.
     ///
     /// This is a failable asynchronous constructor - when the proxy is
-    /// ready, `callback` will be invoked and you can use
-    /// `g_dbus_proxy_new_finish()` to get the result.
+    /// ready, @callback will be invoked and you can use
+    /// g_dbus_proxy_new_finish() to get the result.
     ///
-    /// See [`new_sync()`][Self::new_sync()] and for a synchronous version of this constructor.
+    /// See g_dbus_proxy_new_sync() and for a synchronous version of this constructor.
     ///
-    /// [`DBusProxy`][crate::DBusProxy] is used in this [example][gdbus-wellknown-proxy].
+    /// #GDBusProxy is used in this [example][gdbus-wellknown-proxy].
     /// ## `connection`
-    /// A [`DBusConnection`][crate::DBusConnection].
+    /// A #GDBusConnection.
     /// ## `flags`
     /// Flags used when constructing the proxy.
     /// ## `info`
-    /// A [`DBusInterfaceInfo`][crate::DBusInterfaceInfo] specifying the minimal interface that `proxy` conforms to or [`None`].
+    /// A #GDBusInterfaceInfo specifying the minimal interface that @proxy conforms to or [`None`].
     /// ## `name`
-    /// A bus name (well-known or unique) or [`None`] if `connection` is not a message bus connection.
+    /// A bus name (well-known or unique) or [`None`] if @connection is not a message bus connection.
     /// ## `object_path`
     /// An object path.
     /// ## `interface_name`
     /// A D-Bus interface name.
     /// ## `cancellable`
-    /// A [`Cancellable`][crate::Cancellable] or [`None`].
+    /// A #GCancellable or [`None`].
     /// ## `callback`
     /// Callback function to invoke when the proxy is ready.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_new"</span>)]
-    </span><span class="kw">pub fn </span>new&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#19-194">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
-        connection: <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-195">DBusConnection</a>,
+    </span><span class="kw">pub fn </span>new&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#19-196">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
+        connection: <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-198">DBusConnection</a>,
         flags: <a href="flags.rs.html#1176-1212">DBusProxyFlags</a>,
         info: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>&gt;,
         name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interface_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = <a href="#378">main_context</a>.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!<a href="#379">is_main_context_owner</a>)
-            .then(|| <a href="#378">main_context</a>.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#380">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#381">is_main_context_owner</a>)
+            .then(|| <a href="#380">main_context</a>.acquire().ok())
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
@@ -1906,81 +1910,81 @@
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#376">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>new_trampoline&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#19-194">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#378">callback</a>));
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>new_trampoline&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#19-196">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
             _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
             res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
             user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
-            <span class="kw">let </span>ret = ffi::g_dbus_proxy_new_finish(<a href="#392">res</a>, <span class="kw-2">&amp;mut </span><a href="#395">error</a>);
+            <span class="kw">let </span>ret = ffi::g_dbus_proxy_new_finish(<a href="#394">res</a>, <span class="kw-2">&amp;mut </span><a href="#397">error</a>);
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#396">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#398">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#395">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#397">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(<a href="#393">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = <a href="#402">callback</a>.into_inner();
-            <a href="#404">callback</a>(<a href="#397">result</a>);
+                Box_::from_raw(<a href="#395">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#404">callback</a>.into_inner();
+            <a href="#406">callback</a>(<a href="#399">result</a>);
         }
         <span class="kw">let </span>callback = new_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::g_dbus_proxy_new(
-                <a href="#369">connection</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#370">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#371">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#372">name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#373">object_path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#374">interface_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#375">cancellable</a>.map(|p| <a href="#416">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<a href="#407">callback</a>),
-                Box_::into_raw(<a href="#388">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a href="#371">connection</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#372">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#373">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#374">name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#375">object_path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#376">interface_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#377">cancellable</a>.map(|p| <a href="#418">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#409">callback</a>),
+                Box_::into_raw(<a href="#390">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
     <span class="kw">pub fn </span>new_future(
-        connection: <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-195">DBusConnection</a>,
+        connection: <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-198">DBusConnection</a>,
         flags: <a href="flags.rs.html#1176-1212">DBusProxyFlags</a>,
         info: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>&gt;,
         name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interface_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="#19-194">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
-        <span class="kw">let </span>connection = <a href="#424">connection</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
-        <span class="kw">let </span>info = <a href="#426">info</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
-        <span class="kw">let </span>name = <a href="#427">name</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
-        <span class="kw">let </span>object_path = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#428">object_path</a>);
-        <span class="kw">let </span>interface_name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#429">interface_name</a>);
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="#19-196">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
+        <span class="kw">let </span>connection = <a href="#426">connection</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
+        <span class="kw">let </span>info = <a href="#428">info</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        <span class="kw">let </span>name = <a href="#429">name</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        <span class="kw">let </span>object_path = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#430">object_path</a>);
+        <span class="kw">let </span>interface_name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#431">interface_name</a>);
         Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <span class="kw-2">&amp;</span>(),
             <span class="kw">move </span>|_obj, cancellable, send| {
-                <a href="#368-421"><span class="self">Self</span>::new</a>(
-                    <span class="kw-2">&amp;</span><a href="#431">connection</a>,
-                    <a href="#425">flags</a>,
-                    <a href="#432">info</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
-                    <a href="#433">name</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
-                    <span class="kw-2">&amp;</span><a href="#434">object_path</a>,
-                    <span class="kw-2">&amp;</span><a href="#435">interface_name</a>,
-                    <span class="prelude-val">Some</span>(<a href="#438">cancellable</a>),
+                <a href="#370-423"><span class="self">Self</span>::new</a>(
+                    <span class="kw-2">&amp;</span><a href="#433">connection</a>,
+                    <a href="#427">flags</a>,
+                    <a href="#434">info</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                    <a href="#435">name</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                    <span class="kw-2">&amp;</span><a href="#436">object_path</a>,
+                    <span class="kw-2">&amp;</span><a href="#437">interface_name</a>,
+                    <span class="prelude-val">Some</span>(<a href="#440">cancellable</a>),
                     <span class="kw">move </span>|res| {
-                        <a href="#438">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#447">res</a>);
+                        <a href="#440">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#449">res</a>);
                     },
                 );
             },
         ))
     }
 
-    <span class="doccomment">/// Like [`new()`][Self::new()] but takes a [`BusType`][crate::BusType] instead of a [`DBusConnection`][crate::DBusConnection].
+    <span class="doccomment">/// Like g_dbus_proxy_new() but takes a #GBusType instead of a #GDBusConnection.
     ///
-    /// [`DBusProxy`][crate::DBusProxy] is used in this [example][gdbus-wellknown-proxy].
+    /// #GDBusProxy is used in this [example][gdbus-wellknown-proxy].
     /// ## `bus_type`
-    /// A [`BusType`][crate::BusType].
+    /// A #GBusType.
     /// ## `flags`
     /// Flags used when constructing the proxy.
     /// ## `info`
-    /// A [`DBusInterfaceInfo`][crate::DBusInterfaceInfo] specifying the minimal interface that `proxy` conforms to or [`None`].
+    /// A #GDBusInterfaceInfo specifying the minimal interface that @proxy conforms to or [`None`].
     /// ## `name`
     /// A bus name (well-known or unique).
     /// ## `object_path`
@@ -1988,25 +1992,25 @@
     /// ## `interface_name`
     /// A D-Bus interface name.
     /// ## `cancellable`
-    /// A [`Cancellable`][crate::Cancellable] or [`None`].
+    /// A #GCancellable or [`None`].
     /// ## `callback`
     /// Callback function to invoke when the proxy is ready.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_new_for_bus"</span>)]
     #[doc(alias = <span class="string">"new_for_bus"</span>)]
-    </span><span class="kw">pub fn </span>for_bus&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#19-194">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">pub fn </span>for_bus&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#19-196">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         bus_type: <a href="enums.rs.html#11-26">BusType</a>,
         flags: <a href="flags.rs.html#1176-1212">DBusProxyFlags</a>,
         info: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>&gt;,
         name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interface_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = <a href="#486">main_context</a>.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!<a href="#487">is_main_context_owner</a>)
-            .then(|| <a href="#486">main_context</a>.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#488">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#489">is_main_context_owner</a>)
+            .then(|| <a href="#488">main_context</a>.acquire().ok())
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
@@ -2014,38 +2018,38 @@
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#484">callback</a>));
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#486">callback</a>));
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>for_bus_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#19-194">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#19-196">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
             res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
             user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
-            <span class="kw">let </span>ret = ffi::g_dbus_proxy_new_for_bus_finish(<a href="#502">res</a>, <span class="kw-2">&amp;mut </span><a href="#505">error</a>);
+            <span class="kw">let </span>ret = ffi::g_dbus_proxy_new_for_bus_finish(<a href="#504">res</a>, <span class="kw-2">&amp;mut </span><a href="#507">error</a>);
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#506">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#508">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#505">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#507">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(<a href="#503">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = <a href="#512">callback</a>.into_inner();
-            <a href="#514">callback</a>(<a href="#507">result</a>);
+                Box_::from_raw(<a href="#505">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#514">callback</a>.into_inner();
+            <a href="#516">callback</a>(<a href="#509">result</a>);
         }
         <span class="kw">let </span>callback = for_bus_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::g_dbus_proxy_new_for_bus(
-                <a href="#477">bus_type</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#478">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#479">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#480">name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#481">object_path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#482">interface_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#483">cancellable</a>.map(|p| <a href="#526">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<a href="#517">callback</a>),
-                Box_::into_raw(<a href="#496">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a href="#479">bus_type</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#480">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#481">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#482">name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#483">object_path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#484">interface_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#485">cancellable</a>.map(|p| <a href="#528">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#519">callback</a>),
+                Box_::into_raw(<a href="#498">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
@@ -2057,24 +2061,24 @@
         name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         object_path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interface_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="#19-194">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
-        <span class="kw">let </span>info = <a href="#536">info</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
-        <span class="kw">let </span>name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#537">name</a>);
-        <span class="kw">let </span>object_path = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#538">object_path</a>);
-        <span class="kw">let </span>interface_name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#539">interface_name</a>);
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="#19-196">DBusProxy</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
+        <span class="kw">let </span>info = <a href="#538">info</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        <span class="kw">let </span>name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#539">name</a>);
+        <span class="kw">let </span>object_path = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#540">object_path</a>);
+        <span class="kw">let </span>interface_name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#541">interface_name</a>);
         Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <span class="kw-2">&amp;</span>(),
             <span class="kw">move </span>|_obj, cancellable, send| {
-                <a href="#476-531"><span class="self">Self</span>::for_bus</a>(
-                    <a href="#534">bus_type</a>,
-                    <a href="#535">flags</a>,
-                    <a href="#541">info</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
-                    <span class="kw-2">&amp;</span><a href="#542">name</a>,
-                    <span class="kw-2">&amp;</span><a href="#543">object_path</a>,
-                    <span class="kw-2">&amp;</span><a href="#544">interface_name</a>,
-                    <span class="prelude-val">Some</span>(<a href="#547">cancellable</a>),
+                <a href="#478-533"><span class="self">Self</span>::for_bus</a>(
+                    <a href="#536">bus_type</a>,
+                    <a href="#537">flags</a>,
+                    <a href="#543">info</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                    <span class="kw-2">&amp;</span><a href="#544">name</a>,
+                    <span class="kw-2">&amp;</span><a href="#545">object_path</a>,
+                    <span class="kw-2">&amp;</span><a href="#546">interface_name</a>,
+                    <span class="prelude-val">Some</span>(<a href="#549">cancellable</a>),
                     <span class="kw">move </span>|res| {
-                        <a href="#547">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#556">res</a>);
+                        <a href="#549">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#558">res</a>);
                     },
                 );
             },
@@ -2082,12 +2086,12 @@
     }
 }
 
-<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> <span class="kw">for </span><a href="#19-194">DBusProxy</a> {}
-<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> <span class="kw">for </span><a href="#19-194">DBusProxy</a> {}
+<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> <span class="kw">for </span><a href="#19-196">DBusProxy</a> {}
+<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> <span class="kw">for </span><a href="#19-196">DBusProxy</a> {}
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="#19-194"><span class="kw">super</span>::DBusProxy</a>&gt;&gt; <a href="#569">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="#19-196"><span class="kw">super</span>::DBusProxy</a>&gt;&gt; <a href="#571">Sealed</a> <span class="kw">for </span>T {}
 }
 
 <span class="doccomment">/// Trait containing all [`struct@DBusProxy`] methods.
@@ -2095,22 +2099,22 @@
 /// # Implementors
 ///
 /// [`DBusProxy`][struct@crate::DBusProxy]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.DBusProxyExt.html">DBusProxyExt</a>: IsA&lt;<a href="#19-194">DBusProxy</a>&gt; + <a href="#569">sealed::Sealed</a> + <span class="lifetime">'static </span>{
-    <span class="doccomment">/// Asynchronously invokes the `method_name` method on `self`.
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.DBusProxyExt.html">DBusProxyExt</a>: IsA&lt;<a href="#19-196">DBusProxy</a>&gt; + <a href="#571">sealed::Sealed</a> + <span class="lifetime">'static </span>{
+    <span class="doccomment">/// Asynchronously invokes the @method_name method on @self.
     ///
-    /// If `method_name` contains any dots, then `name` is split into interface and
-    /// method name parts. This allows using `self` for invoking methods on
+    /// If @method_name contains any dots, then @name is split into interface and
+    /// method name parts. This allows using @self for invoking methods on
     /// other interfaces.
     ///
-    /// If the [`DBusConnection`][crate::DBusConnection] associated with `self` is closed then
+    /// If the #GDBusConnection associated with @self is closed then
     /// the operation will fail with [`IOErrorEnum::Closed`][crate::IOErrorEnum::Closed]. If
-    /// `cancellable` is canceled, the operation will fail with
-    /// [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled]. If `parameters` contains a value not
+    /// @cancellable is canceled, the operation will fail with
+    /// [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled]. If @parameters contains a value not
     /// compatible with the D-Bus protocol, the operation fails with
     /// [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument].
     ///
-    /// If the `parameters` [`glib::Variant`][struct@crate::glib::Variant] is floating, it is consumed. This allows
-    /// convenient 'inline' use of [`glib::Variant::new()`][crate::glib::Variant::new()], e.g.:
+    /// If the @parameters #GVariant is floating, it is consumed. This allows
+    /// convenient 'inline' use of g_variant_new(), e.g.:
     ///
     ///
     /// **⚠️ The following code is in C ⚠️**
@@ -2128,33 +2132,33 @@
     ///                     &amp;data);
     /// ```
     ///
-    /// If `self` has an expected interface (see
-    /// [`g-interface-info`][struct@crate::DBusProxy#g-interface-info]) and `method_name` is referenced by it,
+    /// If @self has an expected interface (see
+    /// #GDBusProxy:g-interface-info) and @method_name is referenced by it,
     /// then the return value is checked against the return type.
     ///
     /// This is an asynchronous method. When the operation is finished,
-    /// `callback` will be invoked in the
+    /// @callback will be invoked in the
     /// [thread-default main context][g-main-context-push-thread-default]
     /// of the thread you are calling this method from.
-    /// You can then call `g_dbus_proxy_call_finish()` to get the result of
-    /// the operation. See [`call_sync()`][Self::call_sync()] for the synchronous
+    /// You can then call g_dbus_proxy_call_finish() to get the result of
+    /// the operation. See g_dbus_proxy_call_sync() for the synchronous
     /// version of this method.
     ///
-    /// If `callback` is [`None`] then the D-Bus method call message will be sent with
+    /// If @callback is [`None`] then the D-Bus method call message will be sent with
     /// the [`DBusMessageFlags::NO_REPLY_EXPECTED`][crate::DBusMessageFlags::NO_REPLY_EXPECTED] flag set.
     /// ## `method_name`
     /// Name of method to invoke.
     /// ## `parameters`
-    /// A [`glib::Variant`][struct@crate::glib::Variant] tuple with parameters for the signal or [`None`] if not passing parameters.
+    /// A #GVariant tuple with parameters for the signal or [`None`] if not passing parameters.
     /// ## `flags`
-    /// Flags from the [`DBusCallFlags`][crate::DBusCallFlags] enumeration.
+    /// Flags from the #GDBusCallFlags enumeration.
     /// ## `timeout_msec`
     /// The timeout in milliseconds (with `G_MAXINT` meaning
-    ///  "infinite") or -1 to use the proxy default timeout.
+    ///                "infinite") or -1 to use the proxy default timeout.
     /// ## `cancellable`
-    /// A [`Cancellable`][crate::Cancellable] or [`None`].
+    /// A #GCancellable or [`None`].
     /// ## `callback`
-    /// A `GAsyncReadyCallback` to call when the request is satisfied or [`None`] if you don't
+    /// A #GAsyncReadyCallback to call when the request is satisfied or [`None`] if you don't
     /// care about the result of the method invocation.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_call"</span>)]
     </span><span class="kw">fn </span>call&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
@@ -2163,13 +2167,13 @@
         parameters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;,
         flags: <a href="flags.rs.html#608-626">DBusCallFlags</a>,
         timeout_msec: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = <a href="#649">main_context</a>.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!<a href="#650">is_main_context_owner</a>)
-            .then(|| <a href="#649">main_context</a>.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#651">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#652">is_main_context_owner</a>)
+            .then(|| <a href="#651">main_context</a>.acquire().ok())
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
@@ -2177,7 +2181,7 @@
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#647">callback</a>));
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#649">callback</a>));
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>call_trampoline&lt;
             P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
@@ -2186,28 +2190,28 @@
             user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
-            <span class="kw">let </span>ret = ffi::g_dbus_proxy_call_finish(<a href="#664">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, <a href="#665">res</a>, <span class="kw-2">&amp;mut </span><a href="#668">error</a>);
+            <span class="kw">let </span>ret = ffi::g_dbus_proxy_call_finish(<a href="#666">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, <a href="#667">res</a>, <span class="kw-2">&amp;mut </span><a href="#670">error</a>);
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#669">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#671">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#668">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#670">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(<a href="#666">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = <a href="#675">callback</a>.into_inner();
-            <a href="#677">callback</a>(<a href="#670">result</a>);
+                Box_::from_raw(<a href="#668">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#677">callback</a>.into_inner();
+            <a href="#679">callback</a>(<a href="#672">result</a>);
         }
         <span class="kw">let </span>callback = call_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::g_dbus_proxy_call(
-                <a class="self" href="#641">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#642">method_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#643">parameters</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#644">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#645">timeout_msec</a>,
-                <a href="#646">cancellable</a>.map(|p| <a href="#688">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<a href="#680">callback</a>),
-                Box_::into_raw(<a href="#659">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#643">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#644">method_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#645">parameters</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#646">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#647">timeout_msec</a>,
+                <a href="#648">cancellable</a>.map(|p| <a href="#690">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#682">callback</a>),
+                Box_::into_raw(<a href="#661">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
@@ -2220,40 +2224,40 @@
         timeout_msec: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
     {
-        <span class="kw">let </span>method_name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#697">method_name</a>);
-        <span class="kw">let </span>parameters = <a href="#698">parameters</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        <span class="kw">let </span>method_name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#699">method_name</a>);
+        <span class="kw">let </span>parameters = <a href="#700">parameters</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
         Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
-            <a class="self" href="#696">self</a>,
+            <a class="self" href="#698">self</a>,
             <span class="kw">move </span>|obj, cancellable, send| {
-                <a href="#707">obj</a>.<a href="#640-693">call</a>(
-                    <span class="kw-2">&amp;</span><a href="#703">method_name</a>,
-                    <a href="#704">parameters</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
-                    <a href="#699">flags</a>,
-                    <a href="#700">timeout_msec</a>,
-                    <span class="prelude-val">Some</span>(<a href="#707">cancellable</a>),
+                <a href="#709">obj</a>.<a href="#642-695">call</a>(
+                    <span class="kw-2">&amp;</span><a href="#705">method_name</a>,
+                    <a href="#706">parameters</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                    <a href="#701">flags</a>,
+                    <a href="#702">timeout_msec</a>,
+                    <span class="prelude-val">Some</span>(<a href="#709">cancellable</a>),
                     <span class="kw">move </span>|res| {
-                        <a href="#707">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#714">res</a>);
+                        <a href="#709">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#716">res</a>);
                     },
                 );
             },
         ))
     }
 
-    <span class="doccomment">/// Synchronously invokes the `method_name` method on `self`.
+    <span class="doccomment">/// Synchronously invokes the @method_name method on @self.
     ///
-    /// If `method_name` contains any dots, then `name` is split into interface and
-    /// method name parts. This allows using `self` for invoking methods on
+    /// If @method_name contains any dots, then @name is split into interface and
+    /// method name parts. This allows using @self for invoking methods on
     /// other interfaces.
     ///
-    /// If the [`DBusConnection`][crate::DBusConnection] associated with `self` is disconnected then
+    /// If the #GDBusConnection associated with @self is disconnected then
     /// the operation will fail with [`IOErrorEnum::Closed`][crate::IOErrorEnum::Closed]. If
-    /// `cancellable` is canceled, the operation will fail with
-    /// [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled]. If `parameters` contains a value not
+    /// @cancellable is canceled, the operation will fail with
+    /// [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled]. If @parameters contains a value not
     /// compatible with the D-Bus protocol, the operation fails with
     /// [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument].
     ///
-    /// If the `parameters` [`glib::Variant`][struct@crate::glib::Variant] is floating, it is consumed. This allows
-    /// convenient 'inline' use of [`glib::Variant::new()`][crate::glib::Variant::new()], e.g.:
+    /// If the @parameters #GVariant is floating, it is consumed. This allows
+    /// convenient 'inline' use of g_variant_new(), e.g.:
     ///
     ///
     /// **⚠️ The following code is in C ⚠️**
@@ -2271,29 +2275,29 @@
     /// ```
     ///
     /// The calling thread is blocked until a reply is received. See
-    /// [`call()`][Self::call()] for the asynchronous version of this
+    /// g_dbus_proxy_call() for the asynchronous version of this
     /// method.
     ///
-    /// If `self` has an expected interface (see
-    /// [`g-interface-info`][struct@crate::DBusProxy#g-interface-info]) and `method_name` is referenced by it,
+    /// If @self has an expected interface (see
+    /// #GDBusProxy:g-interface-info) and @method_name is referenced by it,
     /// then the return value is checked against the return type.
     /// ## `method_name`
     /// Name of method to invoke.
     /// ## `parameters`
-    /// A [`glib::Variant`][struct@crate::glib::Variant] tuple with parameters for the signal
-    ///  or [`None`] if not passing parameters.
+    /// A #GVariant tuple with parameters for the signal
+    ///              or [`None`] if not passing parameters.
     /// ## `flags`
-    /// Flags from the [`DBusCallFlags`][crate::DBusCallFlags] enumeration.
+    /// Flags from the #GDBusCallFlags enumeration.
     /// ## `timeout_msec`
     /// The timeout in milliseconds (with `G_MAXINT` meaning
-    ///  "infinite") or -1 to use the proxy default timeout.
+    ///                "infinite") or -1 to use the proxy default timeout.
     /// ## `cancellable`
-    /// A [`Cancellable`][crate::Cancellable] or [`None`].
+    /// A #GCancellable or [`None`].
     ///
     /// # Returns
     ///
-    /// [`None`] if `error` is set. Otherwise a [`glib::Variant`][struct@crate::glib::Variant] tuple with
-    /// return values. Free with `g_variant_unref()`.
+    /// [`None`] if @error is set. Otherwise a #GVariant tuple with
+    /// return values. Free with g_variant_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_call_sync"</span>)]
     </span><span class="kw">fn </span>call_sync(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -2301,65 +2305,65 @@
         parameters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;,
         flags: <a href="flags.rs.html#608-626">DBusCallFlags</a>,
         timeout_msec: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_dbus_proxy_call_sync(
-                <a class="self" href="#779">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#780">method_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#781">parameters</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#782">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#783">timeout_msec</a>,
-                <a href="#784">cancellable</a>.map(|p| <a href="#794">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span><a href="#787">error</a>,
+                <a class="self" href="#781">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#782">method_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#783">parameters</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#784">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#785">timeout_msec</a>,
+                <a href="#786">cancellable</a>.map(|p| <a href="#796">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span><a href="#789">error</a>,
             );
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#788">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#790">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#787">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#789">error</a>))
             }
         }
     }
 
-    <span class="doccomment">/// Like [`call()`][Self::call()] but also takes a [`UnixFDList`][crate::UnixFDList] object.
+    <span class="doccomment">/// Like g_dbus_proxy_call() but also takes a #GUnixFDList object.
     ///
     /// This method is only available on UNIX.
     /// ## `method_name`
     /// Name of method to invoke.
     /// ## `parameters`
-    /// A [`glib::Variant`][struct@crate::glib::Variant] tuple with parameters for the signal or [`None`] if not passing parameters.
+    /// A #GVariant tuple with parameters for the signal or [`None`] if not passing parameters.
     /// ## `flags`
-    /// Flags from the [`DBusCallFlags`][crate::DBusCallFlags] enumeration.
+    /// Flags from the #GDBusCallFlags enumeration.
     /// ## `timeout_msec`
     /// The timeout in milliseconds (with `G_MAXINT` meaning
-    ///  "infinite") or -1 to use the proxy default timeout.
+    ///                "infinite") or -1 to use the proxy default timeout.
     /// ## `fd_list`
-    /// A [`UnixFDList`][crate::UnixFDList] or [`None`].
+    /// A #GUnixFDList or [`None`].
     /// ## `cancellable`
-    /// A [`Cancellable`][crate::Cancellable] or [`None`].
+    /// A #GCancellable or [`None`].
     /// ## `callback`
-    /// A `GAsyncReadyCallback` to call when the request is satisfied or [`None`] if you don't
+    /// A #GAsyncReadyCallback to call when the request is satisfied or [`None`] if you don't
     /// care about the result of the method invocation.
     </span><span class="attr">#[cfg(unix)]
     #[cfg_attr(docsrs, doc(cfg(unix)))]
     #[doc(alias = <span class="string">"g_dbus_proxy_call_with_unix_fd_list"</span>)]
     </span><span class="kw">fn </span>call_with_unix_fd_list&lt;
-        P: FnOnce(<span class="prelude-ty">Result</span>&lt;(<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="unix_fd_list.rs.html#7-30">UnixFDList</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
+        P: FnOnce(<span class="prelude-ty">Result</span>&lt;(<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="unix_fd_list.rs.html#7-31">UnixFDList</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         method_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         parameters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;,
         flags: <a href="flags.rs.html#608-626">DBusCallFlags</a>,
         timeout_msec: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        fd_list: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="unix_fd_list.rs.html#7-30">UnixFDList</a>&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        fd_list: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="unix_fd_list.rs.html#7-31">UnixFDList</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = <a href="#839">main_context</a>.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!<a href="#840">is_main_context_owner</a>)
-            .then(|| <a href="#839">main_context</a>.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#841">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#842">is_main_context_owner</a>)
+            .then(|| <a href="#841">main_context</a>.acquire().ok())
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
@@ -2367,9 +2371,9 @@
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#837">callback</a>));
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#839">callback</a>));
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>call_with_unix_fd_list_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;(<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="unix_fd_list.rs.html#7-30">UnixFDList</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;(<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="unix_fd_list.rs.html#7-31">UnixFDList</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
             res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
@@ -2378,33 +2382,33 @@
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span><span class="kw-2">mut </span>out_fd_list = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_dbus_proxy_call_with_unix_fd_list_finish(
-                <a href="#854">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="kw-2">&amp;mut </span><a href="#859">out_fd_list</a>,
-                <a href="#855">res</a>,
-                <span class="kw-2">&amp;mut </span><a href="#858">error</a>,
+                <a href="#856">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="kw-2">&amp;mut </span><a href="#861">out_fd_list</a>,
+                <a href="#857">res</a>,
+                <span class="kw-2">&amp;mut </span><a href="#860">error</a>,
             );
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>((from_glib_full(<a href="#860">ret</a>), from_glib_full(<a href="#859">out_fd_list</a>)))
+                <span class="prelude-val">Ok</span>((from_glib_full(<a href="#862">ret</a>), from_glib_full(<a href="#861">out_fd_list</a>)))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#858">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#860">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(<a href="#856">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = <a href="#871">callback</a>.into_inner();
-            <a href="#873">callback</a>(<a href="#866">result</a>);
+                Box_::from_raw(<a href="#858">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#873">callback</a>.into_inner();
+            <a href="#875">callback</a>(<a href="#868">result</a>);
         }
         <span class="kw">let </span>callback = call_with_unix_fd_list_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::g_dbus_proxy_call_with_unix_fd_list(
-                <a class="self" href="#830">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#831">method_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#832">parameters</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#833">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#834">timeout_msec</a>,
-                <a href="#835">fd_list</a>.map(|p| <a href="#884">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#836">cancellable</a>.map(|p| <a href="#885">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<a href="#876">callback</a>),
-                Box_::into_raw(<a href="#849">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#832">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#833">method_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#834">parameters</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#835">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#836">timeout_msec</a>,
+                <a href="#837">fd_list</a>.map(|p| <a href="#886">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#838">cancellable</a>.map(|p| <a href="#887">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#878">callback</a>),
+                Box_::into_raw(<a href="#851">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
@@ -2417,59 +2421,59 @@
         parameters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;,
         flags: <a href="flags.rs.html#608-626">DBusCallFlags</a>,
         timeout_msec: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        fd_list: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="unix_fd_list.rs.html#7-30">UnixFDList</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+        fd_list: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="unix_fd_list.rs.html#7-31">UnixFDList</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
     ) -&gt; Pin&lt;
         Box_&lt;
-            <span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="unix_fd_list.rs.html#7-30">UnixFDList</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt;
+            <span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="unix_fd_list.rs.html#7-31">UnixFDList</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt;
                 + <span class="lifetime">'static</span>,
         &gt;,
     &gt; {
-        <span class="kw">let </span>method_name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#896">method_name</a>);
-        <span class="kw">let </span>parameters = <a href="#897">parameters</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
-        <span class="kw">let </span>fd_list = <a href="#900">fd_list</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        <span class="kw">let </span>method_name = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#898">method_name</a>);
+        <span class="kw">let </span>parameters = <a href="#899">parameters</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        <span class="kw">let </span>fd_list = <a href="#902">fd_list</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
         Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
-            <a class="self" href="#895">self</a>,
+            <a class="self" href="#897">self</a>,
             <span class="kw">move </span>|obj, cancellable, send| {
-                <a href="#912">obj</a>.<a href="#827-890">call_with_unix_fd_list</a>(
-                    <span class="kw-2">&amp;</span><a href="#907">method_name</a>,
-                    <a href="#908">parameters</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
-                    <a href="#898">flags</a>,
-                    <a href="#899">timeout_msec</a>,
-                    <a href="#909">fd_list</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
-                    <span class="prelude-val">Some</span>(<a href="#912">cancellable</a>),
+                <a href="#914">obj</a>.<a href="#829-892">call_with_unix_fd_list</a>(
+                    <span class="kw-2">&amp;</span><a href="#909">method_name</a>,
+                    <a href="#910">parameters</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                    <a href="#900">flags</a>,
+                    <a href="#901">timeout_msec</a>,
+                    <a href="#911">fd_list</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                    <span class="prelude-val">Some</span>(<a href="#914">cancellable</a>),
                     <span class="kw">move </span>|res| {
-                        <a href="#912">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#920">res</a>);
+                        <a href="#914">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#922">res</a>);
                     },
                 );
             },
         ))
     }
 
-    <span class="doccomment">/// Like [`call_sync()`][Self::call_sync()] but also takes and returns [`UnixFDList`][crate::UnixFDList] objects.
+    <span class="doccomment">/// Like g_dbus_proxy_call_sync() but also takes and returns #GUnixFDList objects.
     ///
     /// This method is only available on UNIX.
     /// ## `method_name`
     /// Name of method to invoke.
     /// ## `parameters`
-    /// A [`glib::Variant`][struct@crate::glib::Variant] tuple with parameters for the signal
-    ///  or [`None`] if not passing parameters.
+    /// A #GVariant tuple with parameters for the signal
+    ///              or [`None`] if not passing parameters.
     /// ## `flags`
-    /// Flags from the [`DBusCallFlags`][crate::DBusCallFlags] enumeration.
+    /// Flags from the #GDBusCallFlags enumeration.
     /// ## `timeout_msec`
     /// The timeout in milliseconds (with `G_MAXINT` meaning
-    ///  "infinite") or -1 to use the proxy default timeout.
+    ///                "infinite") or -1 to use the proxy default timeout.
     /// ## `fd_list`
-    /// A [`UnixFDList`][crate::UnixFDList] or [`None`].
+    /// A #GUnixFDList or [`None`].
     /// ## `cancellable`
-    /// A [`Cancellable`][crate::Cancellable] or [`None`].
+    /// A #GCancellable or [`None`].
     ///
     /// # Returns
     ///
-    /// [`None`] if `error` is set. Otherwise a [`glib::Variant`][struct@crate::glib::Variant] tuple with
-    /// return values. Free with `g_variant_unref()`.
+    /// [`None`] if @error is set. Otherwise a #GVariant tuple with
+    /// return values. Free with g_variant_unref().
     ///
     /// ## `out_fd_list`
-    /// Return location for a [`UnixFDList`][crate::UnixFDList] or [`None`].
+    /// Return location for a #GUnixFDList or [`None`].
     </span><span class="attr">#[cfg(unix)]
     #[cfg_attr(docsrs, doc(cfg(unix)))]
     #[doc(alias = <span class="string">"g_dbus_proxy_call_with_unix_fd_list_sync"</span>)]
@@ -2479,27 +2483,27 @@
         parameters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;,
         flags: <a href="flags.rs.html#608-626">DBusCallFlags</a>,
         timeout_msec: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        fd_list: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="unix_fd_list.rs.html#7-30">UnixFDList</a>&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="unix_fd_list.rs.html#7-30">UnixFDList</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+        fd_list: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="unix_fd_list.rs.html#7-31">UnixFDList</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>, <a href="unix_fd_list.rs.html#7-31">UnixFDList</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>out_fd_list = std::ptr::null_mut();
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_dbus_proxy_call_with_unix_fd_list_sync(
-                <a class="self" href="#957">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#958">method_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#959">parameters</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#960">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#961">timeout_msec</a>,
-                <a href="#962">fd_list</a>.map(|p| <a href="#974">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span><a href="#966">out_fd_list</a>,
-                <a href="#963">cancellable</a>.map(|p| <a href="#976">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span><a href="#967">error</a>,
+                <a class="self" href="#959">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#960">method_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#961">parameters</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#962">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#963">timeout_msec</a>,
+                <a href="#964">fd_list</a>.map(|p| <a href="#976">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span><a href="#968">out_fd_list</a>,
+                <a href="#965">cancellable</a>.map(|p| <a href="#978">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span><a href="#969">error</a>,
             );
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>((from_glib_full(<a href="#968">ret</a>), from_glib_full(<a href="#966">out_fd_list</a>)))
+                <span class="prelude-val">Ok</span>((from_glib_full(<a href="#970">ret</a>), from_glib_full(<a href="#968">out_fd_list</a>)))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#967">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#969">error</a>))
             }
         }
     }
@@ -2507,121 +2511,121 @@
     <span class="doccomment">/// Looks up the value for a property from the cache. This call does no
     /// blocking IO.
     ///
-    /// If `self` has an expected interface (see
-    /// [`g-interface-info`][struct@crate::DBusProxy#g-interface-info]) and `property_name` is referenced by
-    /// it, then `value` is checked against the type of the property.
+    /// If @self has an expected interface (see
+    /// #GDBusProxy:g-interface-info) and @property_name is referenced by
+    /// it, then @value is checked against the type of the property.
     /// ## `property_name`
     /// Property name.
     ///
     /// # Returns
     ///
-    /// A reference to the [`glib::Variant`][struct@crate::glib::Variant] instance
-    ///  that holds the value for `property_name` or [`None`] if the value is not in
-    ///  the cache. The returned reference must be freed with `g_variant_unref()`.
+    /// A reference to the #GVariant instance
+    ///    that holds the value for @property_name or [`None`] if the value is not in
+    ///    the cache. The returned reference must be freed with g_variant_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_cached_property"</span>)]
     #[doc(alias = <span class="string">"get_cached_property"</span>)]
     </span><span class="kw">fn </span>cached_property(<span class="kw-2">&amp;</span><span class="self">self</span>, property_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_dbus_proxy_get_cached_property(
-                <a class="self" href="#1003">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#1003">property_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1005">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#1005">property_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the names of all cached properties on `self`.
+    <span class="doccomment">/// Gets the names of all cached properties on @self.
     ///
     /// # Returns
     ///
     /// A
-    ///  [`None`]-terminated array of strings or [`None`] if
-    ///  `self` has no cached properties. Free the returned array with
-    ///  `g_strfreev()`.
+    ///          [`None`]-terminated array of strings or [`None`] if
+    ///          @self has no cached properties. Free the returned array with
+    ///          g_strfreev().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_cached_property_names"</span>)]
     #[doc(alias = <span class="string">"get_cached_property_names"</span>)]
     </span><span class="kw">fn </span>cached_property_names(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(ffi::g_dbus_proxy_get_cached_property_names(
-                <a class="self" href="#1022">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1024">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the connection `self` is for.
+    <span class="doccomment">/// Gets the connection @self is for.
     ///
     /// # Returns
     ///
-    /// A [`DBusConnection`][crate::DBusConnection] owned by `self`. Do not free.
+    /// A #GDBusConnection owned by @self. Do not free.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_connection"</span>)]
     #[doc(alias = <span class="string">"get_connection"</span>)]
-    </span><span class="kw">fn </span>connection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="dbus_connection.rs.html#20-195">DBusConnection</a> {
+    </span><span class="kw">fn </span>connection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="dbus_connection.rs.html#20-198">DBusConnection</a> {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_dbus_proxy_get_connection(
-                <a class="self" href="#1037">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1039">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
     <span class="doccomment">/// Gets the timeout to use if -1 (specifying default timeout) is
-    /// passed as `timeout_msec` in the [`call()`][Self::call()] and
-    /// [`call_sync()`][Self::call_sync()] functions.
+    /// passed as @timeout_msec in the g_dbus_proxy_call() and
+    /// g_dbus_proxy_call_sync() functions.
     ///
-    /// See the [`g-default-timeout`][struct@crate::DBusProxy#g-default-timeout] property for more details.
+    /// See the #GDBusProxy:g-default-timeout property for more details.
     ///
     /// # Returns
     ///
-    /// Timeout to use for `self`.
+    /// Timeout to use for @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_default_timeout"</span>)]
     #[doc(alias = <span class="string">"get_default_timeout"</span>)]
     </span><span class="kw">fn </span>default_timeout(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
-        <span class="kw">unsafe </span>{ ffi::g_dbus_proxy_get_default_timeout(<a class="self" href="#1056">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+        <span class="kw">unsafe </span>{ ffi::g_dbus_proxy_get_default_timeout(<a class="self" href="#1058">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Gets the flags that `self` was constructed with.
+    <span class="doccomment">/// Gets the flags that @self was constructed with.
     ///
     /// # Returns
     ///
-    /// Flags from the [`DBusProxyFlags`][crate::DBusProxyFlags] enumeration.
+    /// Flags from the #GDBusProxyFlags enumeration.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_flags"</span>)]
     #[doc(alias = <span class="string">"get_flags"</span>)]
     </span><span class="kw">fn </span>flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#1176-1212">DBusProxyFlags</a> {
-        <span class="kw">unsafe </span>{ from_glib(ffi::g_dbus_proxy_get_flags(<a class="self" href="#1067">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib(ffi::g_dbus_proxy_get_flags(<a class="self" href="#1069">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Returns the [`DBusInterfaceInfo`][crate::DBusInterfaceInfo], if any, specifying the interface
-    /// that `self` conforms to. See the [`g-interface-info`][struct@crate::DBusProxy#g-interface-info]
+    <span class="doccomment">/// Returns the #GDBusInterfaceInfo, if any, specifying the interface
+    /// that @self conforms to. See the #GDBusProxy:g-interface-info
     /// property for more details.
     ///
     /// # Returns
     ///
-    /// A [`DBusInterfaceInfo`][crate::DBusInterfaceInfo] or [`None`].
-    ///  Do not unref the returned object, it is owned by `self`.
+    /// A #GDBusInterfaceInfo or [`None`].
+    ///    Do not unref the returned object, it is owned by @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_interface_info"</span>)]
     #[doc(alias = <span class="string">"get_interface_info"</span>)]
     </span><span class="kw">fn </span>interface_info(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_dbus_proxy_get_interface_info(
-                <a class="self" href="#1081">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1083">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the D-Bus interface name `self` is for.
+    <span class="doccomment">/// Gets the D-Bus interface name @self is for.
     ///
     /// # Returns
     ///
-    /// A string owned by `self`. Do not free.
+    /// A string owned by @self. Do not free.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_interface_name"</span>)]
     #[doc(alias = <span class="string">"get_interface_name"</span>)]
     </span><span class="kw">fn </span>interface_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_dbus_proxy_get_interface_name(
-                <a class="self" href="#1096">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1098">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the name that `self` was constructed for.
+    <span class="doccomment">/// Gets the name that @self was constructed for.
     ///
     /// When connected to a message bus, this will usually be non-[`None`].
     /// However, it may be [`None`] for a proxy that communicates using a peer-to-peer
@@ -2629,59 +2633,59 @@
     ///
     /// # Returns
     ///
-    /// A string owned by `self`. Do not free.
+    /// A string owned by @self. Do not free.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_name"</span>)]
     #[doc(alias = <span class="string">"get_name"</span>)]
     </span><span class="kw">fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_dbus_proxy_get_name(<a class="self" href="#1115">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_dbus_proxy_get_name(<a class="self" href="#1117">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// The unique name that owns the name that `self` is for or [`None`] if
+    <span class="doccomment">/// The unique name that owns the name that @self is for or [`None`] if
     /// no-one currently owns that name. You may connect to the
-    /// [`notify`][struct@crate::glib::Object#notify] signal to track changes to the
-    /// [`g-name-owner`][struct@crate::DBusProxy#g-name-owner] property.
+    /// #GObject::notify signal to track changes to the
+    /// #GDBusProxy:g-name-owner property.
     ///
     /// # Returns
     ///
     /// The name owner or [`None`] if no name
-    ///  owner exists. Free with `g_free()`.
+    ///    owner exists. Free with g_free().
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_name_owner"</span>)]
     #[doc(alias = <span class="string">"get_name_owner"</span>)]
     </span><span class="kw">fn </span>name_owner(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_dbus_proxy_get_name_owner(
-                <a class="self" href="#1130">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1132">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the object path `self` is for.
+    <span class="doccomment">/// Gets the object path @self is for.
     ///
     /// # Returns
     ///
-    /// A string owned by `self`. Do not free.
+    /// A string owned by @self. Do not free.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_get_object_path"</span>)]
     #[doc(alias = <span class="string">"get_object_path"</span>)]
     </span><span class="kw">fn </span>object_path(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_dbus_proxy_get_object_path(
-                <a class="self" href="#1145">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1147">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// If `value` is not [`None`], sets the cached value for the property with
-    /// name `property_name` to the value in `value`.
+    <span class="doccomment">/// If @value is not [`None`], sets the cached value for the property with
+    /// name @property_name to the value in @value.
     ///
-    /// If `value` is [`None`], then the cached value is removed from the
+    /// If @value is [`None`], then the cached value is removed from the
     /// property cache.
     ///
-    /// If `self` has an expected interface (see
-    /// [`g-interface-info`][struct@crate::DBusProxy#g-interface-info]) and `property_name` is referenced by
-    /// it, then `value` is checked against the type of the property.
+    /// If @self has an expected interface (see
+    /// #GDBusProxy:g-interface-info) and @property_name is referenced by
+    /// it, then @value is checked against the type of the property.
     ///
-    /// If the `value` [`glib::Variant`][struct@crate::glib::Variant] is floating, it is consumed. This allows
-    /// convenient 'inline' use of [`glib::Variant::new()`][crate::glib::Variant::new()], e.g.
+    /// If the @value #GVariant is floating, it is consumed. This allows
+    /// convenient 'inline' use of g_variant_new(), e.g.
     ///
     ///
     /// **⚠️ The following code is in C ⚠️**
@@ -2694,7 +2698,7 @@
     ///                                                  42));
     /// ```
     ///
-    /// Normally you will not need to use this method since `self`
+    /// Normally you will not need to use this method since @self
     /// is tracking changes using the
     /// `org.freedesktop.DBus.Properties.PropertiesChanged`
     /// D-Bus signal. However, for performance reasons an object may
@@ -2715,52 +2719,52 @@
     </span><span class="kw">fn </span>set_cached_property(<span class="kw-2">&amp;</span><span class="self">self</span>, property_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, value: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_dbus_proxy_set_cached_property(
-                <a class="self" href="#1195">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#1195">property_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#1195">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1197">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#1197">property_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#1197">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
     <span class="doccomment">/// Sets the timeout to use if -1 (specifying default timeout) is
-    /// passed as `timeout_msec` in the [`call()`][Self::call()] and
-    /// [`call_sync()`][Self::call_sync()] functions.
+    /// passed as @timeout_msec in the g_dbus_proxy_call() and
+    /// g_dbus_proxy_call_sync() functions.
     ///
-    /// See the [`g-default-timeout`][struct@crate::DBusProxy#g-default-timeout] property for more details.
+    /// See the #GDBusProxy:g-default-timeout property for more details.
     /// ## `timeout_msec`
     /// Timeout in milliseconds.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_set_default_timeout"</span>)]
     </span><span class="kw">fn </span>set_default_timeout(<span class="kw-2">&amp;</span><span class="self">self</span>, timeout_msec: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_dbus_proxy_set_default_timeout(<a class="self" href="#1213">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1213">timeout_msec</a>);
+            ffi::g_dbus_proxy_set_default_timeout(<a class="self" href="#1215">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1215">timeout_msec</a>);
         }
     }
 
-    <span class="doccomment">/// Ensure that interactions with `self` conform to the given
-    /// interface. See the [`g-interface-info`][struct@crate::DBusProxy#g-interface-info] property for more
+    <span class="doccomment">/// Ensure that interactions with @self conform to the given
+    /// interface. See the #GDBusProxy:g-interface-info property for more
     /// details.
     /// ## `info`
     /// Minimum interface this proxy conforms to
-    ///  or [`None`] to unset.
+    ///    or [`None`] to unset.
     </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_proxy_set_interface_info"</span>)]
     </span><span class="kw">fn </span>set_interface_info(<span class="kw-2">&amp;</span><span class="self">self</span>, info: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_dbus_proxy_set_interface_info(
-                <a class="self" href="#1226">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#1226">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1228">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#1228">info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// The [`DBusConnection`][crate::DBusConnection] the proxy is for.
+    <span class="doccomment">/// The #GDBusConnection the proxy is for.
     </span><span class="attr">#[doc(alias = <span class="string">"g-connection"</span>)]
-    </span><span class="kw">fn </span>g_connection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_connection.rs.html#20-195">DBusConnection</a>&gt; {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1237">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-connection"</span>)
+    </span><span class="kw">fn </span>g_connection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_connection.rs.html#20-198">DBusConnection</a>&gt; {
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1239">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-connection"</span>)
     }
 
     <span class="doccomment">/// The timeout to use if -1 (specifying default timeout) is passed
-    /// as `timeout_msec` in the [`call()`][Self::call()] and
-    /// [`call_sync()`][Self::call_sync()] functions.
+    /// as @timeout_msec in the g_dbus_proxy_call() and
+    /// g_dbus_proxy_call_sync() functions.
     ///
     /// This allows applications to set a proxy-wide timeout for all
     /// remote method invocations on the proxy. If this property is -1,
@@ -2768,12 +2772,12 @@
     /// `G_MAXINT`, then no timeout is used.
     </span><span class="attr">#[doc(alias = <span class="string">"g-default-timeout"</span>)]
     </span><span class="kw">fn </span>g_default_timeout(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1250">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-default-timeout"</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1252">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-default-timeout"</span>)
     }
 
     <span class="doccomment">/// The timeout to use if -1 (specifying default timeout) is passed
-    /// as `timeout_msec` in the [`call()`][Self::call()] and
-    /// [`call_sync()`][Self::call_sync()] functions.
+    /// as @timeout_msec in the g_dbus_proxy_call() and
+    /// g_dbus_proxy_call_sync() functions.
     ///
     /// This allows applications to set a proxy-wide timeout for all
     /// remote method invocations on the proxy. If this property is -1,
@@ -2781,97 +2785,97 @@
     /// `G_MAXINT`, then no timeout is used.
     </span><span class="attr">#[doc(alias = <span class="string">"g-default-timeout"</span>)]
     </span><span class="kw">fn </span>set_g_default_timeout(<span class="kw-2">&amp;</span><span class="self">self</span>, g_default_timeout: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#1263">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-default-timeout"</span>, <a href="#1263">g_default_timeout</a>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#1265">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-default-timeout"</span>, <a href="#1265">g_default_timeout</a>)
     }
 
-    <span class="doccomment">/// Flags from the [`DBusProxyFlags`][crate::DBusProxyFlags] enumeration.
+    <span class="doccomment">/// Flags from the #GDBusProxyFlags enumeration.
     </span><span class="attr">#[doc(alias = <span class="string">"g-flags"</span>)]
     </span><span class="kw">fn </span>g_flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#1176-1212">DBusProxyFlags</a> {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1269">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-flags"</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1271">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-flags"</span>)
     }
 
     <span class="doccomment">/// Ensure that interactions with this proxy conform to the given
     /// interface. This is mainly to ensure that malformed data received
-    /// from the other peer is ignored. The given [`DBusInterfaceInfo`][crate::DBusInterfaceInfo] is
+    /// from the other peer is ignored. The given #GDBusInterfaceInfo is
     /// said to be the "expected interface".
     ///
     /// The checks performed are:
     /// - When completing a method call, if the type signature of
-    ///  the reply message isn't what's expected, the reply is
-    ///  discarded and the [`glib::Error`][crate::glib::Error] is set to [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument].
+    ///   the reply message isn't what's expected, the reply is
+    ///   discarded and the #GError is set to [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument].
     ///
     /// - Received signals that have a type signature mismatch are dropped and
-    ///  a warning is logged via `g_warning()`.
+    ///   a warning is logged via g_warning().
     ///
     /// - Properties received via the initial `GetAll()` call or via the
-    ///  `::PropertiesChanged` signal (on the
-    ///  [org.freedesktop.DBus.Properties](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties)
-    ///  interface) or set using [`set_cached_property()`][Self::set_cached_property()]
-    ///  with a type signature mismatch are ignored and a warning is
-    ///  logged via `g_warning()`.
+    ///   `::PropertiesChanged` signal (on the
+    ///   [org.freedesktop.DBus.Properties](http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties)
+    ///   interface) or set using g_dbus_proxy_set_cached_property()
+    ///   with a type signature mismatch are ignored and a warning is
+    ///   logged via g_warning().
     ///
     /// Note that these checks are never done on methods, signals and
     /// properties that are not referenced in the given
-    /// [`DBusInterfaceInfo`][crate::DBusInterfaceInfo], since extending a D-Bus interface on the
+    /// #GDBusInterfaceInfo, since extending a D-Bus interface on the
     /// service-side is not considered an ABI break.
     </span><span class="attr">#[doc(alias = <span class="string">"g-interface-info"</span>)]
     </span><span class="kw">fn </span>g_interface_info(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>&gt; {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1298">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-interface-info"</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1300">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-interface-info"</span>)
     }
 
     <span class="doccomment">/// Ensure that interactions with this proxy conform to the given
     /// interface. This is mainly to ensure that malformed data received
-    /// from the other peer is ignored. The given [`DBusInterfaceInfo`][crate::DBusInterfaceInfo] is
+    /// from the other peer is ignored. The given #GDBusInterfaceInfo is
     /// said to be the "expected interface".
     ///
     /// The checks performed are:
     /// - When completing a method call, if the type signature of
-    ///  the reply message isn't what's expected, the reply is
-    ///  discarded and the [`glib::Error`][crate::glib::Error] is set to [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument].
+    ///   the reply message isn't what's expected, the reply is
+    ///   discarded and the #GError is set to [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument].
     ///
     /// - Received signals that have a type signature mismatch are dropped and
-    ///  a warning is logged via `g_warning()`.
+    ///   a warning is logged via g_warning().
     ///
     /// - Properties received via the initial `GetAll()` call or via the
-    ///  `::PropertiesChanged` signal (on the
-    ///  [org.freedesktop.DBus.Properties](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties)
-    ///  interface) or set using [`set_cached_property()`][Self::set_cached_property()]
-    ///  with a type signature mismatch are ignored and a warning is
-    ///  logged via `g_warning()`.
+    ///   `::PropertiesChanged` signal (on the
+    ///   [org.freedesktop.DBus.Properties](http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties)
+    ///   interface) or set using g_dbus_proxy_set_cached_property()
+    ///   with a type signature mismatch are ignored and a warning is
+    ///   logged via g_warning().
     ///
     /// Note that these checks are never done on methods, signals and
     /// properties that are not referenced in the given
-    /// [`DBusInterfaceInfo`][crate::DBusInterfaceInfo], since extending a D-Bus interface on the
+    /// #GDBusInterfaceInfo, since extending a D-Bus interface on the
     /// service-side is not considered an ABI break.
     </span><span class="attr">#[doc(alias = <span class="string">"g-interface-info"</span>)]
     </span><span class="kw">fn </span>set_g_interface_info(<span class="kw-2">&amp;</span><span class="self">self</span>, g_interface_info: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="dbus_interface_info.rs.html#8-18">DBusInterfaceInfo</a>&gt;) {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#1327">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-interface-info"</span>, <a href="#1327">g_interface_info</a>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#1329">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-interface-info"</span>, <a href="#1329">g_interface_info</a>)
     }
 
     <span class="doccomment">/// The D-Bus interface name the proxy is for.
     </span><span class="attr">#[doc(alias = <span class="string">"g-interface-name"</span>)]
     </span><span class="kw">fn </span>g_interface_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1333">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-interface-name"</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1335">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-interface-name"</span>)
     }
 
     <span class="doccomment">/// The well-known or unique name that the proxy is for.
     </span><span class="attr">#[doc(alias = <span class="string">"g-name"</span>)]
     </span><span class="kw">fn </span>g_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1339">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-name"</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1341">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-name"</span>)
     }
 
-    <span class="doccomment">/// The unique name that owns [`g-name`][struct@crate::DBusProxy#g-name] or [`None`] if no-one
-    /// currently owns that name. You may connect to [`notify`][struct@crate::glib::Object#notify] signal to
+    <span class="doccomment">/// The unique name that owns #GDBusProxy:g-name or [`None`] if no-one
+    /// currently owns that name. You may connect to #GObject::notify signal to
     /// track changes to this property.
     </span><span class="attr">#[doc(alias = <span class="string">"g-name-owner"</span>)]
     </span><span class="kw">fn </span>g_name_owner(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1347">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-name-owner"</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1349">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-name-owner"</span>)
     }
 
     <span class="doccomment">/// The object path the proxy is for.
     </span><span class="attr">#[doc(alias = <span class="string">"g-object-path"</span>)]
     </span><span class="kw">fn </span>g_object_path(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1353">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-object-path"</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1355">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"g-object-path"</span>)
     }
 
     <span class="attr">#[doc(alias = <span class="string">"g-default-timeout"</span>)]
@@ -2880,25 +2884,25 @@
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_g_default_timeout_trampoline&lt;
-            P: IsA&lt;<a href="#19-194">DBusProxy</a>&gt;,
+            P: IsA&lt;<a href="#19-196">DBusProxy</a>&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusProxy.html">ffi::GDBusProxy</a>,
             _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
             f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1368">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1370">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">DBusProxy::from_glib_borrow</a>(<a href="#1366">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1370">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1372">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">DBusProxy::from_glib_borrow</a>(<a href="#1368">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1360">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1362">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#1359">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#1361">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 <span class="string">b"notify::g-default-timeout\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
                 <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_g_default_timeout_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#1374">f</a>),
+                Box_::into_raw(<a href="#1376">f</a>),
             )
         }
     }
@@ -2909,25 +2913,25 @@
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_g_interface_info_trampoline&lt;
-            P: IsA&lt;<a href="#19-194">DBusProxy</a>&gt;,
+            P: IsA&lt;<a href="#19-196">DBusProxy</a>&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusProxy.html">ffi::GDBusProxy</a>,
             _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
             f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1397">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1399">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">DBusProxy::from_glib_borrow</a>(<a href="#1395">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1399">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1401">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">DBusProxy::from_glib_borrow</a>(<a href="#1397">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1389">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1391">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#1388">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#1390">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 <span class="string">b"notify::g-interface-info\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
                 <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_g_interface_info_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#1403">f</a>),
+                Box_::into_raw(<a href="#1405">f</a>),
             )
         }
     }
@@ -2938,29 +2942,29 @@
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_g_name_owner_trampoline&lt;
-            P: IsA&lt;<a href="#19-194">DBusProxy</a>&gt;,
+            P: IsA&lt;<a href="#19-196">DBusProxy</a>&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusProxy.html">ffi::GDBusProxy</a>,
             _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
             f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1426">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1428">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">DBusProxy::from_glib_borrow</a>(<a href="#1424">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1428">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1430">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">DBusProxy::from_glib_borrow</a>(<a href="#1426">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1418">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1420">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#1417">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#1419">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 <span class="string">b"notify::g-name-owner\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
                 <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_g_name_owner_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#1432">f</a>),
+                Box_::into_raw(<a href="#1434">f</a>),
             )
         }
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="#19-194">DBusProxy</a>&gt;&gt; <a href="#578-1443">DBusProxyExt</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="#19-196">DBusProxy</a>&gt;&gt; <a href="#580-1445">DBusProxyExt</a> <span class="kw">for </span>O {}
 </code></pre></div></section></main></body></html>

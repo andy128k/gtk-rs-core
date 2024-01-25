@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/seekable.rs`."><title>seekable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/seekable.rs`."><title>seekable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -253,24 +253,24 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use </span><a href="cancellable.rs.html#7-83"><span class="kw">crate</span>::Cancellable</a>;
+</span><span class="kw">use </span><a href="cancellable.rs.html#7-85"><span class="kw">crate</span>::Cancellable</a>;
 <span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`Seekable`][crate::Seekable] is implemented by streams (implementations of
+    <span class="doccomment">/// `GSeekable` is implemented by streams (implementations of
     /// [`InputStream`][crate::InputStream] or [`OutputStream`][crate::OutputStream]) that support seeking.
     ///
     /// Seekable streams largely fall into two categories: resizable and
     /// fixed-size.
     ///
-    /// [`Seekable`][crate::Seekable] on fixed-sized streams is approximately the same as POSIX
-    /// `lseek()` on a block device (for example: attempting to seek past the
-    /// end of the device is an error). Fixed streams typically cannot be
+    /// `GSeekable` on fixed-sized streams is approximately the same as POSIX
+    /// [`lseek()`](man:lseek(2)) on a block device (for example: attempting to seek
+    /// past the end of the device is an error).  Fixed streams typically cannot be
     /// truncated.
     ///
-    /// [`Seekable`][crate::Seekable] on resizable streams is approximately the same as POSIX
-    /// `lseek()` on a normal file. Seeking past the end and writing data will
-    /// usually cause the stream to resize by introducing zero bytes.
+    /// `GSeekable` on resizable streams is approximately the same as POSIX
+    /// [`lseek()`](man:lseek(2)) on a normal file.  Seeking past the end and writing
+    /// data will usually cause the stream to resize by introducing zero bytes.
     ///
     /// # Implements
     ///
@@ -298,18 +298,18 @@
 ///
 /// [`BufferedInputStream`][struct@crate::BufferedInputStream], [`BufferedOutputStream`][struct@crate::BufferedOutputStream], [`DataInputStream`][struct@crate::DataInputStream], [`DataOutputStream`][struct@crate::DataOutputStream], [`FileIOStream`][struct@crate::FileIOStream], [`FileInputStream`][struct@crate::FileInputStream], [`FileOutputStream`][struct@crate::FileOutputStream], [`MemoryInputStream`][struct@crate::MemoryInputStream], [`MemoryOutputStream`][struct@crate::MemoryOutputStream], [`Seekable`][struct@crate::Seekable]
 </span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.SeekableExt.html">SeekableExt</a>: IsA&lt;<a href="#8-33">Seekable</a>&gt; + <a href="#40">sealed::Sealed</a> + <span class="lifetime">'static </span>{
-    <span class="doccomment">/// Tests if the stream supports the `GSeekableIface`.
+    <span class="doccomment">/// Tests if the stream supports the #GSeekableIface.
     ///
     /// # Returns
     ///
-    /// [`true`] if `self` can be seeked. [`false`] otherwise.
+    /// [`true`] if @self can be seeked. [`false`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">"g_seekable_can_seek"</span>)]
     </span><span class="kw">fn </span>can_seek(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_seekable_can_seek(<a class="self" href="#56">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Tests if the length of the stream can be adjusted with
-    /// [`truncate()`][Self::truncate()].
+    /// g_seekable_truncate().
     ///
     /// # Returns
     ///
@@ -319,38 +319,38 @@
         <span class="kw">unsafe </span>{ from_glib(ffi::g_seekable_can_truncate(<a class="self" href="#67">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Seeks in the stream by the given `offset`, modified by `type_`.
+    <span class="doccomment">/// Seeks in the stream by the given @offset, modified by @type_.
     ///
     /// Attempting to seek past the end of the stream will have different
-    /// results depending on if the stream is fixed-sized or resizable. If
+    /// results depending on if the stream is fixed-sized or resizable.  If
     /// the stream is resizable then seeking past the end and then writing
-    /// will result in zeros filling the empty space. Seeking past the end
-    /// of a resizable stream and reading will result in EOF. Seeking past
+    /// will result in zeros filling the empty space.  Seeking past the end
+    /// of a resizable stream and reading will result in EOF.  Seeking past
     /// the end of a fixed-sized stream will fail.
     ///
     /// Any operation that would result in a negative offset will fail.
     ///
-    /// If `cancellable` is not [`None`], then the operation can be cancelled by
+    /// If @cancellable is not [`None`], then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled] will be returned.
     /// ## `offset`
-    /// a `goffset`.
+    /// a #goffset.
     /// ## `type_`
-    /// a [`glib::SeekType`][crate::glib::SeekType].
+    /// a #GSeekType.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
     /// [`true`] if successful. If an error
-    ///  has occurred, this function will return [`false`] and set `error`
-    ///  appropriately if present.
+    ///     has occurred, this function will return [`false`] and set @error
+    ///     appropriately if present.
     </span><span class="attr">#[doc(alias = <span class="string">"g_seekable_seek"</span>)]
     </span><span class="kw">fn </span>seek(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         offset: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
         type_: <a href="../../../glib/auto/enums/enum.SeekType.html">glib::SeekType</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -381,30 +381,30 @@
         <span class="kw">unsafe </span>{ ffi::g_seekable_tell(<a class="self" href="#129">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Sets the length of the stream to `offset`. If the stream was previously
-    /// larger than `offset`, the extra data is discarded. If the stream was
-    /// previously shorter than `offset`, it is extended with NUL ('\0') bytes.
+    <span class="doccomment">/// Sets the length of the stream to @offset. If the stream was previously
+    /// larger than @offset, the extra data is discarded. If the stream was
+    /// previously shorter than @offset, it is extended with NUL ('\0') bytes.
     ///
-    /// If `cancellable` is not [`None`], then the operation can be cancelled by
+    /// If @cancellable is not [`None`], then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled] will be returned. If an
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
     /// ## `offset`
-    /// new length for `self`, in bytes.
+    /// new length for @self, in bytes.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
     /// [`true`] if successful. If an error
-    ///  has occurred, this function will return [`false`] and set `error`
-    ///  appropriately if present.
+    ///     has occurred, this function will return [`false`] and set @error
+    ///     appropriately if present.
     </span><span class="attr">#[doc(alias = <span class="string">"g_seekable_truncate"</span>)]
     </span><span class="kw">fn </span>truncate(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         offset: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();

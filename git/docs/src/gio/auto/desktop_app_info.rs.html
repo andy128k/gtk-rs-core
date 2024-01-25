@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/desktop_app_info.rs`."><title>desktop_app_info.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/desktop_app_info.rs`."><title>desktop_app_info.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -612,12 +612,12 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="app_info.rs.html#9-69">AppInfo</a>, <a href="app_launch_context.rs.html#13-89">AppLaunchContext</a>};
+</span><span class="kw">use crate</span>::{<a href="app_info.rs.html#9-73">AppInfo</a>, <a href="app_launch_context.rs.html#13-89">AppLaunchContext</a>};
 <span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`DesktopAppInfo`][crate::DesktopAppInfo] is an implementation of [`AppInfo`][crate::AppInfo] based on
+    <span class="doccomment">/// `GDesktopAppInfo` is an implementation of [`AppInfo`][crate::AppInfo] based on
     /// desktop files.
     ///
     /// Note that `&lt;gio/gdesktopappinfo.h&gt;` belongs to the UNIX-specific
@@ -628,7 +628,7 @@
     ///
     ///
     /// #### `filename`
-    ///  The origin filename of this [`DesktopAppInfo`][crate::DesktopAppInfo]
+    ///  The origin filename of this #GDesktopAppInfo
     ///
     /// Readable | Writeable | Construct Only
     ///
@@ -636,7 +636,7 @@
     ///
     /// [`trait@glib::ObjectExt`], [`AppInfoExt`][trait@crate::prelude::AppInfoExt], [`DesktopAppInfoExtManual`][trait@crate::prelude::DesktopAppInfoExtManual], [`AppInfoExtManual`][trait@crate::prelude::AppInfoExtManual]
     </span><span class="attr">#[doc(alias = <span class="string">"GDesktopAppInfo"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.DesktopAppInfo.html">DesktopAppInfo</a>(Object&lt;<a href="../../../gio_sys/struct.GDesktopAppInfo.html">ffi::GDesktopAppInfo</a>, <a href="../../../gio_sys/struct.GDesktopAppInfoClass.html">ffi::GDesktopAppInfoClass</a>&gt;) @implements <a href="app_info.rs.html#9-69">AppInfo</a>;
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.DesktopAppInfo.html">DesktopAppInfo</a>(Object&lt;<a href="../../../gio_sys/struct.GDesktopAppInfo.html">ffi::GDesktopAppInfo</a>, <a href="../../../gio_sys/struct.GDesktopAppInfoClass.html">ffi::GDesktopAppInfoClass</a>&gt;) @implements <a href="app_info.rs.html#9-73">AppInfo</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_desktop_app_info_get_type(),
@@ -644,7 +644,7 @@
 }
 
 <span class="kw">impl </span><a href="#9-34">DesktopAppInfo</a> {
-    <span class="doccomment">/// Creates a new [`DesktopAppInfo`][crate::DesktopAppInfo] based on a desktop file id.
+    <span class="doccomment">/// Creates a new #GDesktopAppInfo based on a desktop file id.
     ///
     /// A desktop file id is the basename of the desktop file, including the
     /// .desktop extension. GIO is looking for a desktop file with this name
@@ -660,21 +660,21 @@
     ///
     /// # Returns
     ///
-    /// a new [`DesktopAppInfo`][crate::DesktopAppInfo], or [`None`] if no desktop
-    ///  file with that id exists.
+    /// a new #GDesktopAppInfo, or [`None`] if no desktop
+    ///     file with that id exists.
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_new"</span>)]
     </span><span class="kw">pub fn </span>new(desktop_id: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#9-34">DesktopAppInfo</a>&gt; {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_desktop_app_info_new(<a href="#56">desktop_id</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Creates a new [`DesktopAppInfo`][crate::DesktopAppInfo].
+    <span class="doccomment">/// Creates a new #GDesktopAppInfo.
     /// ## `filename`
     /// the path of a desktop file, in the GLib
-    ///  filename encoding
+    ///      filename encoding
     ///
     /// # Returns
     ///
-    /// a new [`DesktopAppInfo`][crate::DesktopAppInfo] or [`None`] on error.
+    /// a new #GDesktopAppInfo or [`None`] on error.
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_new_from_filename"</span>)]
     #[doc(alias = <span class="string">"new_from_filename"</span>)]
     </span><span class="kw">pub fn </span>from_filename(filename: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#9-34">DesktopAppInfo</a>&gt; {
@@ -685,13 +685,13 @@
         }
     }
 
-    <span class="doccomment">/// Creates a new [`DesktopAppInfo`][crate::DesktopAppInfo].
+    <span class="doccomment">/// Creates a new #GDesktopAppInfo.
     /// ## `key_file`
-    /// an opened [`glib::KeyFile`][crate::glib::KeyFile]
+    /// an opened #GKeyFile
     ///
     /// # Returns
     ///
-    /// a new [`DesktopAppInfo`][crate::DesktopAppInfo] or [`None`] on error.
+    /// a new #GDesktopAppInfo or [`None`] on error.
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_new_from_keyfile"</span>)]
     #[doc(alias = <span class="string">"new_from_keyfile"</span>)]
     </span><span class="kw">pub fn </span>from_keyfile(key_file: <span class="kw-2">&amp;</span><a href="../../../glib/auto/key_file/struct.KeyFile.html">glib::KeyFile</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#9-34">DesktopAppInfo</a>&gt; {
@@ -703,13 +703,13 @@
     }
 
     <span class="doccomment">/// Gets the user-visible display name of the "additional application
-    /// action" specified by `action_name`.
+    /// action" specified by @action_name.
     ///
     /// This corresponds to the "Name" key within the keyfile group for the
     /// action.
     /// ## `action_name`
     /// the name of the action as from
-    ///  [`list_actions()`][Self::list_actions()]
+    ///   g_desktop_app_info_list_actions()
     ///
     /// # Returns
     ///
@@ -725,16 +725,16 @@
         }
     }
 
-    <span class="doccomment">/// Looks up a boolean value in the keyfile backing `self`.
+    <span class="doccomment">/// Looks up a boolean value in the keyfile backing @self.
     ///
-    /// The `key` is looked up in the "Desktop Entry" group.
+    /// The @key is looked up in the "Desktop Entry" group.
     /// ## `key`
     /// the key to look up
     ///
     /// # Returns
     ///
     /// the boolean value, or [`false`] if the key
-    ///  is not found
+    ///     is not found
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_get_boolean"</span>)]
     #[doc(alias = <span class="string">"get_boolean"</span>)]
     </span><span class="kw">pub fn </span>boolean(<span class="kw-2">&amp;</span><span class="self">self</span>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
@@ -751,7 +751,7 @@
     /// # Returns
     ///
     /// The unparsed Categories key from the desktop file;
-    ///  i.e. no attempt is made to split it by ';' or validate it.
+    ///     i.e. no attempt is made to split it by ';' or validate it.
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_get_categories"</span>)]
     #[doc(alias = <span class="string">"get_categories"</span>)]
     </span><span class="kw">pub fn </span>categories(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
@@ -762,14 +762,14 @@
         }
     }
 
-    <span class="doccomment">/// When `self` was created from a known filename, return it. In some
-    /// situations such as the [`DesktopAppInfo`][crate::DesktopAppInfo] returned from
-    /// [`from_keyfile()`][Self::from_keyfile()], this function will return [`None`].
+    <span class="doccomment">/// When @self was created from a known filename, return it.  In some
+    /// situations such as the #GDesktopAppInfo returned from
+    /// g_desktop_app_info_new_from_keyfile(), this function will return [`None`].
     ///
     /// # Returns
     ///
-    /// The full path to the file for `self`,
-    ///  or [`None`] if not known.
+    /// The full path to the file for @self,
+    ///     or [`None`] if not known.
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_get_filename"</span>)]
     #[doc(alias = <span class="string">"get_filename"</span>)]
     </span><span class="kw">pub fn </span>filename(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a>&gt; {
@@ -818,17 +818,17 @@
         }
     }
 
-    <span class="doccomment">/// Looks up a localized string value in the keyfile backing `self`
+    <span class="doccomment">/// Looks up a localized string value in the keyfile backing @self
     /// translated to the current locale.
     ///
-    /// The `key` is looked up in the "Desktop Entry" group.
+    /// The @key is looked up in the "Desktop Entry" group.
     /// ## `key`
     /// the key to look up
     ///
     /// # Returns
     ///
     /// a newly allocated string, or [`None`] if the key
-    ///  is not found
+    ///     is not found
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_get_locale_string"</span>)]
     #[doc(alias = <span class="string">"get_locale_string"</span>)]
     </span><span class="kw">pub fn </span>locale_string(<span class="kw-2">&amp;</span><span class="self">self</span>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
@@ -842,7 +842,7 @@
 
     <span class="doccomment">/// Gets the value of the NoDisplay key, which helps determine if the
     /// application info should be shown in menus. See
-    /// `G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY` and [`AppInfoExt::should_show()`][crate::prelude::AppInfoExt::should_show()].
+    /// `G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY` and g_app_info_should_show().
     ///
     /// # Returns
     ///
@@ -857,19 +857,19 @@
     /// applications for a specific name of the desktop, based on the
     /// `OnlyShowIn` and `NotShowIn` keys.
     ///
-    /// `desktop_env` should typically be given as [`None`], in which case the
-    /// `XDG_CURRENT_DESKTOP` environment variable is consulted. If you want
-    /// to override the default mechanism then you may specify `desktop_env`,
+    /// @desktop_env should typically be given as [`None`], in which case the
+    /// `XDG_CURRENT_DESKTOP` environment variable is consulted.  If you want
+    /// to override the default mechanism then you may specify @desktop_env,
     /// but this is not recommended.
     ///
-    /// Note that [`AppInfoExt::should_show()`][crate::prelude::AppInfoExt::should_show()] for `self` will include this check (with
-    /// [`None`] for `desktop_env`) as well as additional checks.
+    /// Note that g_app_info_should_show() for @self will include this check (with
+    /// [`None`] for @desktop_env) as well as additional checks.
     /// ## `desktop_env`
     /// a string specifying a desktop name
     ///
     /// # Returns
     ///
-    /// [`true`] if the `self` should be shown in `desktop_env` according to the
+    /// [`true`] if the @self should be shown in @desktop_env according to the
     /// `OnlyShowIn` and `NotShowIn` keys, [`false`]
     /// otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_get_show_in"</span>)]
@@ -883,9 +883,9 @@
         }
     }
 
-    <span class="doccomment">/// Retrieves the StartupWMClass field from `self`. This represents the
+    <span class="doccomment">/// Retrieves the StartupWMClass field from @self. This represents the
     /// WM_CLASS property of the main window of the application, if launched
-    /// through `self`.
+    /// through @self.
     ///
     /// # Returns
     ///
@@ -901,16 +901,16 @@
         }
     }
 
-    <span class="doccomment">/// Looks up a string value in the keyfile backing `self`.
+    <span class="doccomment">/// Looks up a string value in the keyfile backing @self.
     ///
-    /// The `key` is looked up in the "Desktop Entry" group.
+    /// The @key is looked up in the "Desktop Entry" group.
     /// ## `key`
     /// the key to look up
     ///
     /// # Returns
     ///
     /// a newly allocated string, or [`None`] if the key
-    ///  is not found
+    ///     is not found
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_get_string"</span>)]
     #[doc(alias = <span class="string">"get_string"</span>)]
     </span><span class="kw">pub fn </span>string(<span class="kw-2">&amp;</span><span class="self">self</span>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
@@ -922,9 +922,9 @@
         }
     }
 
-    <span class="doccomment">/// Looks up a string list value in the keyfile backing `self`.
+    <span class="doccomment">/// Looks up a string list value in the keyfile backing @self.
     ///
-    /// The `key` is looked up in the "Desktop Entry" group.
+    /// The @key is looked up in the "Desktop Entry" group.
     /// ## `key`
     /// the key to look up
     ///
@@ -932,7 +932,7 @@
     ///
     ///
     ///  a [`None`]-terminated string array or [`None`] if the specified
-    ///  key cannot be found. The array should be freed with `g_strfreev()`.
+    ///  key cannot be found. The array should be freed with g_strfreev().
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     #[doc(alias = <span class="string">"g_desktop_app_info_get_string_list"</span>)]
@@ -952,14 +952,14 @@
         }
     }
 
-    <span class="doccomment">/// Returns whether `key` exists in the "Desktop Entry" group
-    /// of the keyfile backing `self`.
+    <span class="doccomment">/// Returns whether @key exists in the "Desktop Entry" group
+    /// of the keyfile backing @self.
     /// ## `key`
     /// the key to look up
     ///
     /// # Returns
     ///
-    /// [`true`] if the `key` exists
+    /// [`true`] if the @key exists
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_has_key"</span>)]
     </span><span class="kw">pub fn </span>has_key(<span class="kw-2">&amp;</span><span class="self">self</span>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
@@ -973,23 +973,23 @@
     <span class="doccomment">/// Activates the named application action.
     ///
     /// You may only call this function on action names that were
-    /// returned from [`list_actions()`][Self::list_actions()].
+    /// returned from g_desktop_app_info_list_actions().
     ///
     /// Note that if the main entry of the desktop file indicates that the
-    /// application supports startup notification, and `launch_context` is
+    /// application supports startup notification, and @launch_context is
     /// non-[`None`], then startup notification will be used when activating the
     /// action (and as such, invocation of the action on the receiving side
     /// must signal the end of startup notification when it is completed).
     /// This is the expected behaviour of applications declaring additional
     /// actions, as per the desktop file specification.
     ///
-    /// As with [`AppInfoExt::launch()`][crate::prelude::AppInfoExt::launch()] there is no way to detect failures that
+    /// As with g_app_info_launch() there is no way to detect failures that
     /// occur while using this function.
     /// ## `action_name`
     /// the name of the action as from
-    ///  [`list_actions()`][Self::list_actions()]
+    ///   g_desktop_app_info_list_actions()
     /// ## `launch_context`
-    /// a [`AppLaunchContext`][crate::AppLaunchContext]
+    /// a #GAppLaunchContext
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_launch_action"</span>)]
     </span><span class="kw">pub fn </span>launch_action(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -1005,36 +1005,36 @@
         }
     }
 
-    <span class="doccomment">/// This function performs the equivalent of [`AppInfoExt::launch_uris()`][crate::prelude::AppInfoExt::launch_uris()],
+    <span class="doccomment">/// This function performs the equivalent of g_app_info_launch_uris(),
     /// but is intended primarily for operating system components that
-    /// launch applications. Ordinary applications should use
-    /// [`AppInfoExt::launch_uris()`][crate::prelude::AppInfoExt::launch_uris()].
+    /// launch applications.  Ordinary applications should use
+    /// g_app_info_launch_uris().
     ///
-    /// If the application is launched via GSpawn, then `spawn_flags`, `user_setup`
-    /// and `user_setup_data` are used for the call to `g_spawn_async()`.
-    /// Additionally, `pid_callback` (with `pid_callback_data`) will be called to
-    /// inform about the PID of the created process. See `g_spawn_async_with_pipes()`
+    /// If the application is launched via GSpawn, then @spawn_flags, @user_setup
+    /// and @user_setup_data are used for the call to g_spawn_async().
+    /// Additionally, @pid_callback (with @pid_callback_data) will be called to
+    /// inform about the PID of the created process. See g_spawn_async_with_pipes()
     /// for information on certain parameter conditions that can enable an
-    /// optimized `posix_spawn()` codepath to be used.
+    /// optimized posix_spawn() codepath to be used.
     ///
     /// If application launching occurs via some other mechanism (eg: D-Bus
-    /// activation) then `spawn_flags`, `user_setup`, `user_setup_data`,
-    /// `pid_callback` and `pid_callback_data` are ignored.
+    /// activation) then @spawn_flags, @user_setup, @user_setup_data,
+    /// @pid_callback and @pid_callback_data are ignored.
     /// ## `uris`
     /// List of URIs
     /// ## `launch_context`
-    /// a [`AppLaunchContext`][crate::AppLaunchContext]
+    /// a #GAppLaunchContext
     /// ## `spawn_flags`
-    /// [`glib::SpawnFlags`][crate::glib::SpawnFlags], used for each process
+    /// #GSpawnFlags, used for each process
     /// ## `user_setup`
-    /// a `GSpawnChildSetupFunc`, used once
-    ///  for each process.
+    /// a #GSpawnChildSetupFunc, used once
+    ///     for each process.
     /// ## `user_setup_data`
-    /// User data for `user_setup`
+    /// User data for @user_setup
     /// ## `pid_callback`
     /// Callback for child processes
     /// ## `pid_callback_data`
-    /// User data for `callback`
+    /// User data for @callback
     ///
     /// # Returns
     ///
@@ -1122,7 +1122,7 @@
         }
     }
 
-    <span class="doccomment">/// Gets all applications that implement `interface`.
+    <span class="doccomment">/// Gets all applications that implement @interface.
     ///
     /// An application implements an interface if that interface is listed in
     /// the Implements= line of the desktop file of the application.
@@ -1131,7 +1131,7 @@
     ///
     /// # Returns
     ///
-    /// a list of [`DesktopAppInfo`][crate::DesktopAppInfo]
+    /// a list of #GDesktopAppInfo
     /// objects.
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_get_implementations"</span>)]
     #[doc(alias = <span class="string">"get_implementations"</span>)]

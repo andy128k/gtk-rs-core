@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/volume_monitor.rs`."><title>volume_monitor.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/volume_monitor.rs`."><title>volume_monitor.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -697,7 +697,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="drive.rs.html#16-84">Drive</a>, <a href="mount.rs.html#16-73">Mount</a>, <a href="volume.rs.html#16-84">Volume</a>};
+</span><span class="kw">use crate</span>::{<a href="drive.rs.html#16-84">Drive</a>, <a href="mount.rs.html#16-75">Mount</a>, <a href="volume.rs.html#16-84">Volume</a>};
 <span class="kw">use </span>glib::{
     <a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
     signal::{<a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
@@ -706,14 +706,14 @@
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`VolumeMonitor`][crate::VolumeMonitor] is for listing the user interesting devices and volumes
+    <span class="doccomment">/// `GVolumeMonitor` is for listing the user interesting devices and volumes
     /// on the computer. In other words, what a file selector or file manager
     /// would show in a sidebar.
     ///
-    /// [`VolumeMonitor`][crate::VolumeMonitor] is not
-    /// [thread-default-context aware][g-main-context-push-thread-default],
-    /// and so should not be used other than from the main thread, with no
-    /// thread-default-context active.
+    /// `GVolumeMonitor` is not
+    /// thread-default-context aware (see
+    /// [`glib::MainContext::push_thread_default()`][crate::glib::MainContext::push_thread_default()]), and so should not be used
+    /// other than from the main thread, with no thread-default-context active.
     ///
     /// In order to receive updates about volumes and mounts monitored through GVFS,
     /// a main loop must be running.
@@ -740,13 +740,13 @@
     ///
     ///
     /// #### `drive-eject-button`
-    ///  Emitted when the eject button is pressed on `drive`.
+    ///  Emitted when the eject button is pressed on @drive.
     ///
     ///
     ///
     ///
     /// #### `drive-stop-button`
-    ///  Emitted when the stop button is pressed on `drive`.
+    ///  Emitted when the stop button is pressed on @drive.
     ///
     ///
     ///
@@ -813,8 +813,8 @@
     ///
     /// # Returns
     ///
-    /// a reference to the [`VolumeMonitor`][crate::VolumeMonitor] used by gio. Call
-    ///  `g_object_unref()` when done with it.
+    /// a reference to the #GVolumeMonitor used by gio. Call
+    ///    g_object_unref() when done with it.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_monitor_get"</span>)]
     </span><span class="kw">pub fn </span>get() -&gt; <a href="#13-112">VolumeMonitor</a> {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_volume_monitor_get()) }
@@ -834,12 +834,12 @@
 </span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.VolumeMonitorExt.html">VolumeMonitorExt</a>: IsA&lt;<a href="#13-112">VolumeMonitor</a>&gt; + <a href="#130">sealed::Sealed</a> + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Gets a list of drives connected to the system.
     ///
-    /// The returned list should be freed with `g_list_free()`, after
-    /// its elements have been unreffed with `g_object_unref()`.
+    /// The returned list should be freed with g_list_free(), after
+    /// its elements have been unreffed with g_object_unref().
     ///
     /// # Returns
     ///
-    /// a `GList` of connected [`Drive`][crate::Drive] objects.
+    /// a #GList of connected #GDrive objects.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_monitor_get_connected_drives"</span>)]
     #[doc(alias = <span class="string">"get_connected_drives"</span>)]
     </span><span class="kw">fn </span>connected_drives(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="drive.rs.html#16-84">Drive</a>&gt; {
@@ -850,17 +850,17 @@
         }
     }
 
-    <span class="doccomment">/// Finds a [`Mount`][crate::Mount] object by its UUID (see [`MountExt::uuid()`][crate::prelude::MountExt::uuid()])
+    <span class="doccomment">/// Finds a #GMount object by its UUID (see g_mount_get_uuid())
     /// ## `uuid`
     /// the UUID to look for
     ///
     /// # Returns
     ///
-    /// a [`Mount`][crate::Mount] or [`None`] if no such mount is available.
-    ///  Free the returned object with `g_object_unref()`.
+    /// a #GMount or [`None`] if no such mount is available.
+    ///     Free the returned object with g_object_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_monitor_get_mount_for_uuid"</span>)]
     #[doc(alias = <span class="string">"get_mount_for_uuid"</span>)]
-    </span><span class="kw">fn </span>mount_for_uuid(<span class="kw-2">&amp;</span><span class="self">self</span>, uuid: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="mount.rs.html#16-73">Mount</a>&gt; {
+    </span><span class="kw">fn </span>mount_for_uuid(<span class="kw-2">&amp;</span><span class="self">self</span>, uuid: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="mount.rs.html#16-75">Mount</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_volume_monitor_get_mount_for_uuid(
                 <a class="self" href="#168">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
@@ -871,15 +871,15 @@
 
     <span class="doccomment">/// Gets a list of the mounts on the system.
     ///
-    /// The returned list should be freed with `g_list_free()`, after
-    /// its elements have been unreffed with `g_object_unref()`.
+    /// The returned list should be freed with g_list_free(), after
+    /// its elements have been unreffed with g_object_unref().
     ///
     /// # Returns
     ///
-    /// a `GList` of [`Mount`][crate::Mount] objects.
+    /// a #GList of #GMount objects.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_monitor_get_mounts"</span>)]
     #[doc(alias = <span class="string">"get_mounts"</span>)]
-    </span><span class="kw">fn </span>mounts(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="mount.rs.html#16-73">Mount</a>&gt; {
+    </span><span class="kw">fn </span>mounts(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="mount.rs.html#16-75">Mount</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(ffi::g_volume_monitor_get_mounts(
                 <a class="self" href="#187">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
@@ -887,14 +887,14 @@
         }
     }
 
-    <span class="doccomment">/// Finds a [`Volume`][crate::Volume] object by its UUID (see [`VolumeExt::uuid()`][crate::prelude::VolumeExt::uuid()])
+    <span class="doccomment">/// Finds a #GVolume object by its UUID (see g_volume_get_uuid())
     /// ## `uuid`
     /// the UUID to look for
     ///
     /// # Returns
     ///
-    /// a [`Volume`][crate::Volume] or [`None`] if no such volume is available.
-    ///  Free the returned object with `g_object_unref()`.
+    /// a #GVolume or [`None`] if no such volume is available.
+    ///     Free the returned object with g_object_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_monitor_get_volume_for_uuid"</span>)]
     #[doc(alias = <span class="string">"get_volume_for_uuid"</span>)]
     </span><span class="kw">fn </span>volume_for_uuid(<span class="kw-2">&amp;</span><span class="self">self</span>, uuid: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="volume.rs.html#16-84">Volume</a>&gt; {
@@ -908,12 +908,12 @@
 
     <span class="doccomment">/// Gets a list of the volumes on the system.
     ///
-    /// The returned list should be freed with `g_list_free()`, after
-    /// its elements have been unreffed with `g_object_unref()`.
+    /// The returned list should be freed with g_list_free(), after
+    /// its elements have been unreffed with g_object_unref().
     ///
     /// # Returns
     ///
-    /// a `GList` of [`Volume`][crate::Volume] objects.
+    /// a #GList of #GVolume objects.
     </span><span class="attr">#[doc(alias = <span class="string">"g_volume_monitor_get_volumes"</span>)]
     #[doc(alias = <span class="string">"get_volumes"</span>)]
     </span><span class="kw">fn </span>volumes(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="volume.rs.html#16-84">Volume</a>&gt; {
@@ -958,7 +958,7 @@
 
     <span class="doccomment">/// Emitted when a drive is connected to the system.
     /// ## `drive`
-    /// a [`Drive`][crate::Drive] that was connected.
+    /// a #GDrive that was connected.
     </span><span class="attr">#[doc(alias = <span class="string">"drive-connected"</span>)]
     </span><span class="kw">fn </span>connect_drive_connected&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="drive.rs.html#16-84">Drive</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>drive_connected_trampoline&lt;
@@ -990,7 +990,7 @@
 
     <span class="doccomment">/// Emitted when a drive is disconnected from the system.
     /// ## `drive`
-    /// a [`Drive`][crate::Drive] that was disconnected.
+    /// a #GDrive that was disconnected.
     </span><span class="attr">#[doc(alias = <span class="string">"drive-disconnected"</span>)]
     </span><span class="kw">fn </span>connect_drive_disconnected&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="drive.rs.html#16-84">Drive</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>drive_disconnected_trampoline&lt;
@@ -1020,7 +1020,7 @@
         }
     }
 
-    <span class="doccomment">/// Emitted when the eject button is pressed on `drive`.
+    <span class="doccomment">/// Emitted when the eject button is pressed on @drive.
     /// ## `drive`
     /// the drive where the eject button was pressed
     </span><span class="attr">#[doc(alias = <span class="string">"drive-eject-button"</span>)]
@@ -1052,7 +1052,7 @@
         }
     }
 
-    <span class="doccomment">/// Emitted when the stop button is pressed on `drive`.
+    <span class="doccomment">/// Emitted when the stop button is pressed on @drive.
     /// ## `drive`
     /// the drive where the stop button was pressed
     </span><span class="attr">#[doc(alias = <span class="string">"drive-stop-button"</span>)]
@@ -1086,12 +1086,12 @@
 
     <span class="doccomment">/// Emitted when a mount is added.
     /// ## `mount`
-    /// a [`Mount`][crate::Mount] that was added.
+    /// a #GMount that was added.
     </span><span class="attr">#[doc(alias = <span class="string">"mount-added"</span>)]
-    </span><span class="kw">fn </span>connect_mount_added&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-73">Mount</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+    </span><span class="kw">fn </span>connect_mount_added&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-75">Mount</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>mount_added_trampoline&lt;
             P: IsA&lt;<a href="#13-112">VolumeMonitor</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-73">Mount</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-75">Mount</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GVolumeMonitor.html">ffi::GVolumeMonitor</a>,
             mount: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GMount.html">ffi::GMount</a>,
@@ -1118,12 +1118,12 @@
 
     <span class="doccomment">/// Emitted when a mount changes.
     /// ## `mount`
-    /// a [`Mount`][crate::Mount] that changed.
+    /// a #GMount that changed.
     </span><span class="attr">#[doc(alias = <span class="string">"mount-changed"</span>)]
-    </span><span class="kw">fn </span>connect_mount_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-73">Mount</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+    </span><span class="kw">fn </span>connect_mount_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-75">Mount</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>mount_changed_trampoline&lt;
             P: IsA&lt;<a href="#13-112">VolumeMonitor</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-73">Mount</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-75">Mount</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GVolumeMonitor.html">ffi::GVolumeMonitor</a>,
             mount: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GMount.html">ffi::GMount</a>,
@@ -1153,12 +1153,12 @@
     /// This signal depends on the backend and is only emitted if
     /// GIO was used to unmount.
     /// ## `mount`
-    /// a [`Mount`][crate::Mount] that is being unmounted.
+    /// a #GMount that is being unmounted.
     </span><span class="attr">#[doc(alias = <span class="string">"mount-pre-unmount"</span>)]
-    </span><span class="kw">fn </span>connect_mount_pre_unmount&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-73">Mount</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+    </span><span class="kw">fn </span>connect_mount_pre_unmount&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-75">Mount</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>mount_pre_unmount_trampoline&lt;
             P: IsA&lt;<a href="#13-112">VolumeMonitor</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-73">Mount</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-75">Mount</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GVolumeMonitor.html">ffi::GVolumeMonitor</a>,
             mount: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GMount.html">ffi::GMount</a>,
@@ -1185,12 +1185,12 @@
 
     <span class="doccomment">/// Emitted when a mount is removed.
     /// ## `mount`
-    /// a [`Mount`][crate::Mount] that was removed.
+    /// a #GMount that was removed.
     </span><span class="attr">#[doc(alias = <span class="string">"mount-removed"</span>)]
-    </span><span class="kw">fn </span>connect_mount_removed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-73">Mount</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+    </span><span class="kw">fn </span>connect_mount_removed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-75">Mount</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>mount_removed_trampoline&lt;
             P: IsA&lt;<a href="#13-112">VolumeMonitor</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-73">Mount</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="mount.rs.html#16-75">Mount</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GVolumeMonitor.html">ffi::GVolumeMonitor</a>,
             mount: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GMount.html">ffi::GMount</a>,
@@ -1217,7 +1217,7 @@
 
     <span class="doccomment">/// Emitted when a mountable volume is added to the system.
     /// ## `volume`
-    /// a [`Volume`][crate::Volume] that was added.
+    /// a #GVolume that was added.
     </span><span class="attr">#[doc(alias = <span class="string">"volume-added"</span>)]
     </span><span class="kw">fn </span>connect_volume_added&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="volume.rs.html#16-84">Volume</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>volume_added_trampoline&lt;
@@ -1249,7 +1249,7 @@
 
     <span class="doccomment">/// Emitted when mountable volume is changed.
     /// ## `volume`
-    /// a [`Volume`][crate::Volume] that changed.
+    /// a #GVolume that changed.
     </span><span class="attr">#[doc(alias = <span class="string">"volume-changed"</span>)]
     </span><span class="kw">fn </span>connect_volume_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="volume.rs.html#16-84">Volume</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>volume_changed_trampoline&lt;
@@ -1281,7 +1281,7 @@
 
     <span class="doccomment">/// Emitted when a mountable volume is removed from the system.
     /// ## `volume`
-    /// a [`Volume`][crate::Volume] that was removed.
+    /// a #GVolume that was removed.
     </span><span class="attr">#[doc(alias = <span class="string">"volume-removed"</span>)]
     </span><span class="kw">fn </span>connect_volume_removed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="volume.rs.html#16-84">Volume</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>volume_removed_trampoline&lt;

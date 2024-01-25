@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/desktop_app_info.rs`."><title>desktop_app_info.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/desktop_app_info.rs`."><title>desktop_app_info.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -246,29 +246,29 @@
 <span class="kw">use </span><a href="auto/desktop_app_info.rs.html#9-34"><span class="kw">crate</span>::DesktopAppInfo</a>;
 
 <span class="kw">impl </span><a href="auto/desktop_app_info.rs.html#9-34">DesktopAppInfo</a> {
-    <span class="doccomment">/// Searches desktop files for ones that match `search_string`.
+    <span class="doccomment">/// Searches desktop files for ones that match @search_string.
     ///
-    /// The return value is an array of strvs. Each strv contains a list of
-    /// applications that matched `search_string` with an equal score. The
+    /// The return value is an array of strvs.  Each strv contains a list of
+    /// applications that matched @search_string with an equal score.  The
     /// outer list is sorted by score so that the first strv contains the
     /// best-matching applications, and so on.
     /// The algorithm for determining matches is undefined and may change at
     /// any time.
     ///
     /// None of the search results are subjected to the normal validation
-    /// checks performed by [`new()`][Self::new()] (for example, checking that
+    /// checks performed by g_desktop_app_info_new() (for example, checking that
     /// the executable referenced by a result exists), and so it is possible for
-    /// [`new()`][Self::new()] to return [`None`] when passed an app ID returned by
+    /// g_desktop_app_info_new() to return [`None`] when passed an app ID returned by
     /// this function. It is expected that calling code will do this when
-    /// subsequently creating a [`DesktopAppInfo`][crate::DesktopAppInfo] for each result.
+    /// subsequently creating a #GDesktopAppInfo for each result.
     /// ## `search_string`
     /// the search string to use
     ///
     /// # Returns
     ///
     /// a
-    ///  list of strvs. Free each item with `g_strfreev()` and free the outer
-    ///  list with `g_free()`.
+    ///   list of strvs.  Free each item with g_strfreev() and free the outer
+    ///   list with g_free().
     </span><span class="attr">#[doc(alias = <span class="string">"g_desktop_app_info_search"</span>)]
     </span><span class="kw">pub fn </span>search(search_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Vec&lt;Vec&lt;<a href="../../glib/gstring/struct.GString.html">GString</a>&gt;&gt; {
         <span class="kw">unsafe </span>{

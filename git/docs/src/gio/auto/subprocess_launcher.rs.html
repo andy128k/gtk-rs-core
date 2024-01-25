@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/subprocess_launcher.rs`."><title>subprocess_launcher.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/subprocess_launcher.rs`."><title>subprocess_launcher.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -428,11 +428,15 @@
 <a href="#353" id="353">353</a>
 <a href="#354" id="354">354</a>
 <a href="#355" id="355">355</a>
+<a href="#356" id="356">356</a>
+<a href="#357" id="357">357</a>
+<a href="#358" id="358">358</a>
+<a href="#359" id="359">359</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="subprocess.rs.html#9-87">Subprocess</a>, <a href="flags.rs.html#2881-2943">SubprocessFlags</a>};
+</span><span class="kw">use crate</span>::{<a href="subprocess.rs.html#9-91">Subprocess</a>, <a href="flags.rs.html#2887-2949">SubprocessFlags</a>};
 <span class="kw">use </span><a href="../../../glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 <span class="attr">#[cfg(unix)]
 #[cfg_attr(docsrs, doc(cfg(unix)))]
@@ -445,14 +449,16 @@
     ///
     /// While the [`Subprocess`][crate::Subprocess] class has high level functions covering
     /// popular cases, use of this class allows access to more advanced
-    /// options. It can also be used to launch multiple subprocesses with
+    /// options.  It can also be used to launch multiple subprocesses with
     /// a similar configuration.
     ///
     /// ## Properties
     ///
     ///
     /// #### `flags`
-    ///  Writeable | Construct Only
+    ///  [`SubprocessFlags`][crate::SubprocessFlags] for launched processes.
+    ///
+    /// Writeable | Construct Only
     ///
     /// # Implements
     ///
@@ -465,27 +471,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="#11-36">SubprocessLauncher</a> {
-    <span class="doccomment">/// Creates a new [`SubprocessLauncher`][crate::SubprocessLauncher].
+<span class="kw">impl </span><a href="#11-38">SubprocessLauncher</a> {
+    <span class="doccomment">/// Creates a new #GSubprocessLauncher.
     ///
-    /// The launcher is created with the default options. A copy of the
+    /// The launcher is created with the default options.  A copy of the
     /// environment of the calling process is made at the time of this call
     /// and will be used as the environment that the process is launched in.
     /// ## `flags`
-    /// [`SubprocessFlags`][crate::SubprocessFlags]
+    /// #GSubprocessFlags
     </span><span class="attr">#[doc(alias = <span class="string">"g_subprocess_launcher_new"</span>)]
-    </span><span class="kw">pub fn </span>new(flags: <a href="flags.rs.html#2881-2943">SubprocessFlags</a>) -&gt; <a href="#11-36">SubprocessLauncher</a> {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_subprocess_launcher_new(<a href="#47">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>())) }
+    </span><span class="kw">pub fn </span>new(flags: <a href="flags.rs.html#2887-2949">SubprocessFlags</a>) -&gt; <a href="#11-38">SubprocessLauncher</a> {
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_subprocess_launcher_new(<a href="#49">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>())) }
     }
 
     <span class="doccomment">/// Closes all the file descriptors previously passed to the object with
-    /// [`take_fd()`][Self::take_fd()], [`take_stderr_fd()`][Self::take_stderr_fd()], etc.
+    /// g_subprocess_launcher_take_fd(), g_subprocess_launcher_take_stderr_fd(), etc.
     ///
-    /// After calling this method, any subsequent calls to `g_subprocess_launcher_spawn()` or [`spawn()`][Self::spawn()] will
+    /// After calling this method, any subsequent calls to g_subprocess_launcher_spawn() or g_subprocess_launcher_spawnv() will
     /// return [`IOErrorEnum::Closed`][crate::IOErrorEnum::Closed]. This method is idempotent if
     /// called more than once.
     ///
-    /// This function is called automatically when the [`SubprocessLauncher`][crate::SubprocessLauncher]
+    /// This function is called automatically when the #GSubprocessLauncher
     /// is disposed, but is provided separately so that garbage collected
     /// language bindings can call it earlier to guarantee when FDs are closed.
     </span><span class="attr">#[cfg(unix)]
@@ -495,11 +501,11 @@
     #[doc(alias = <span class="string">"g_subprocess_launcher_close"</span>)]
     </span><span class="kw">pub fn </span>close(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            ffi::g_subprocess_launcher_close(<a class="self" href="#66">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_subprocess_launcher_close(<a class="self" href="#68">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Returns the value of the environment variable `variable` in the
+    <span class="doccomment">/// Returns the value of the environment variable @variable in the
     /// environment of processes launched from this launcher.
     ///
     /// On UNIX, the returned string can be an arbitrary byte string.
@@ -510,55 +516,55 @@
     /// # Returns
     ///
     /// the value of the environment variable,
-    ///  [`None`] if unset
+    ///     [`None`] if unset
     </span><span class="attr">#[doc(alias = <span class="string">"g_subprocess_launcher_getenv"</span>)]
     </span><span class="kw">pub fn </span>getenv(<span class="kw-2">&amp;</span><span class="self">self</span>, variable: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_subprocess_launcher_getenv(
-                <a class="self" href="#85">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#85">variable</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#87">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#87">variable</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
     <span class="doccomment">/// Sets up a child setup function.
     ///
-    /// The child setup function will be called after `fork()` but before
-    /// `exec()` on the child's side.
+    /// The child setup function will be called after fork() but before
+    /// exec() on the child's side.
     ///
-    /// `destroy_notify` will not be automatically called on the child's side
-    /// of the `fork()`. It will only be called when the last reference on the
-    /// [`SubprocessLauncher`][crate::SubprocessLauncher] is dropped or when a new child setup function is
+    /// @destroy_notify will not be automatically called on the child's side
+    /// of the fork().  It will only be called when the last reference on the
+    /// #GSubprocessLauncher is dropped or when a new child setup function is
     /// given.
     ///
-    /// [`None`] can be given as `child_setup` to disable the functionality.
+    /// [`None`] can be given as @child_setup to disable the functionality.
     ///
     /// Child setup functions are only available on UNIX.
     /// ## `child_setup`
-    /// a `GSpawnChildSetupFunc` to use as the child setup function
+    /// a #GSpawnChildSetupFunc to use as the child setup function
     /// ## `destroy_notify`
-    /// a `GDestroyNotify` for `user_data`
+    /// a #GDestroyNotify for @user_data
     </span><span class="attr">#[cfg(unix)]
     #[cfg_attr(docsrs, doc(cfg(unix)))]
     #[doc(alias = <span class="string">"g_subprocess_launcher_set_child_setup"</span>)]
     </span><span class="kw">pub fn </span>set_child_setup&lt;P: Fn() + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, child_setup: P) {
-        <span class="kw">let </span>child_setup_data: Box_&lt;P&gt; = Box_::new(<a href="#114">child_setup</a>);
+        <span class="kw">let </span>child_setup_data: Box_&lt;P&gt; = Box_::new(<a href="#116">child_setup</a>);
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>child_setup_func&lt;P: Fn() + <span class="lifetime">'static</span>&gt;(data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>) {
-            <span class="kw">let </span>callback = <span class="kw-2">&amp;*</span>(<a href="#116">data</a> <span class="kw">as </span><span class="kw-2">*mut </span>P);
-            (<span class="kw-2">*</span><a href="#117">callback</a>)()
+            <span class="kw">let </span>callback = <span class="kw-2">&amp;*</span>(<a href="#118">data</a> <span class="kw">as </span><span class="kw-2">*mut </span>P);
+            (<span class="kw-2">*</span><a href="#119">callback</a>)()
         }
         <span class="kw">let </span>child_setup = <span class="prelude-val">Some</span>(child_setup_func::&lt;P&gt; <span class="kw">as _</span>);
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>destroy_notify_func&lt;P: Fn() + <span class="lifetime">'static</span>&gt;(data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>) {
-            <span class="kw">let </span>_callback = Box_::from_raw(<a href="#121">data</a> <span class="kw">as </span><span class="kw-2">*mut </span>P);
+            <span class="kw">let </span>_callback = Box_::from_raw(<a href="#123">data</a> <span class="kw">as </span><span class="kw-2">*mut </span>P);
         }
         <span class="kw">let </span>destroy_call3 = <span class="prelude-val">Some</span>(destroy_notify_func::&lt;P&gt; <span class="kw">as _</span>);
-        <span class="kw">let </span>super_callback0: Box_&lt;P&gt; = <a href="#115">child_setup_data</a>;
+        <span class="kw">let </span>super_callback0: Box_&lt;P&gt; = <a href="#117">child_setup_data</a>;
         <span class="kw">unsafe </span>{
             ffi::g_subprocess_launcher_set_child_setup(
-                <a class="self" href="#114">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#120">child_setup</a>,
-                Box_::into_raw(<a href="#125">super_callback0</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <a href="#124">destroy_call3</a>,
+                <a class="self" href="#116">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#122">child_setup</a>,
+                Box_::into_raw(<a href="#127">super_callback0</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a href="#126">destroy_call3</a>,
             );
         }
     }
@@ -574,8 +580,8 @@
     </span><span class="kw">pub fn </span>set_cwd(<span class="kw-2">&amp;</span><span class="self">self</span>, cwd: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_subprocess_launcher_set_cwd(
-                <a class="self" href="#144">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#144">cwd</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#146">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#146">cwd</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -583,29 +589,29 @@
     <span class="doccomment">/// Replace the entire environment of processes launched from this
     /// launcher with the given 'environ' variable.
     ///
-    /// Typically you will build this variable by using `g_listenv()` to copy
-    /// the process 'environ' and using the functions `g_environ_setenv()`,
-    /// `g_environ_unsetenv()`, etc.
+    /// Typically you will build this variable by using g_listenv() to copy
+    /// the process 'environ' and using the functions g_environ_setenv(),
+    /// g_environ_unsetenv(), etc.
     ///
-    /// As an alternative, you can use [`setenv()`][Self::setenv()],
-    /// [`unsetenv()`][Self::unsetenv()], etc.
+    /// As an alternative, you can use g_subprocess_launcher_setenv(),
+    /// g_subprocess_launcher_unsetenv(), etc.
     ///
     /// Pass an empty array to set an empty environment. Pass [`None`] to inherit the
     /// parent process’ environment. As of GLib 2.54, the parent process’ environment
-    /// will be copied when [`set_environ()`][Self::set_environ()] is called.
+    /// will be copied when g_subprocess_launcher_set_environ() is called.
     /// Previously, it was copied when the subprocess was executed. This means the
-    /// copied environment may now be modified (using [`setenv()`][Self::setenv()],
+    /// copied environment may now be modified (using g_subprocess_launcher_setenv(),
     /// etc.) before launching the subprocess.
     ///
     /// On UNIX, all strings in this array can be arbitrary byte strings.
     /// On Windows, they should be in UTF-8.
     /// ## `env`
     ///
-    ///  the replacement environment
+    ///     the replacement environment
     </span><span class="attr">#[doc(alias = <span class="string">"g_subprocess_launcher_set_environ"</span>)]
     </span><span class="kw">pub fn </span>set_environ(<span class="kw-2">&amp;</span><span class="self">self</span>, env: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>]) {
         <span class="kw">unsafe </span>{
-            ffi::g_subprocess_launcher_set_environ(<a class="self" href="#176">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#176">env</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_subprocess_launcher_set_environ(<a class="self" href="#178">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#178">env</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -619,20 +625,20 @@
     /// [`SubprocessFlags::STDIN_INHERIT`][crate::SubprocessFlags::STDIN_INHERIT]).
     ///
     /// You may also not set a flag that conflicts with a previous call to a
-    /// function like [`set_stdin_file_path()`][Self::set_stdin_file_path()] or
-    /// [`take_stdout_fd()`][Self::take_stdout_fd()].
+    /// function like g_subprocess_launcher_set_stdin_file_path() or
+    /// g_subprocess_launcher_take_stdout_fd().
     /// ## `flags`
-    /// [`SubprocessFlags`][crate::SubprocessFlags]
+    /// #GSubprocessFlags
     </span><span class="attr">#[doc(alias = <span class="string">"g_subprocess_launcher_set_flags"</span>)]
-    </span><span class="kw">pub fn </span>set_flags(<span class="kw-2">&amp;</span><span class="self">self</span>, flags: <a href="flags.rs.html#2881-2943">SubprocessFlags</a>) {
+    </span><span class="kw">pub fn </span>set_flags(<span class="kw-2">&amp;</span><span class="self">self</span>, flags: <a href="flags.rs.html#2887-2949">SubprocessFlags</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_subprocess_launcher_set_flags(<a class="self" href="#197">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#197">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            ffi::g_subprocess_launcher_set_flags(<a class="self" href="#199">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#199">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
     }
 
     <span class="doccomment">/// Sets the file path to use as the stderr for spawned processes.
     ///
-    /// If `path` is [`None`] then any previously given path is unset.
+    /// If @path is [`None`] then any previously given path is unset.
     ///
     /// The file will be created or truncated when the process is spawned, as
     /// would be the case if using '2&gt;' at the shell.
@@ -652,15 +658,15 @@
     </span><span class="kw">pub fn </span>set_stderr_file_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="prelude-ty">Option</span>&lt;<span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_subprocess_launcher_set_stderr_file_path(
-                <a class="self" href="#222">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#222">path</a>.as_ref().map(|p| <a href="#226">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#224">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#224">path</a>.as_ref().map(|p| <a href="#228">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
     <span class="doccomment">/// Sets the file path to use as the stdin for spawned processes.
     ///
-    /// If `path` is [`None`] then any previously given path is unset.
+    /// If @path is [`None`] then any previously given path is unset.
     ///
     /// The file must exist or spawning the process will fail.
     ///
@@ -668,21 +674,23 @@
     /// the launcher flags contain any flags directing stdin elsewhere.
     ///
     /// This feature is only available on UNIX.
+    /// ## `path`
+    /// a filename or [`None`]
     </span><span class="attr">#[cfg(unix)]
     #[cfg_attr(docsrs, doc(cfg(unix)))]
     #[doc(alias = <span class="string">"g_subprocess_launcher_set_stdin_file_path"</span>)]
-    </span><span class="kw">pub fn </span>set_stdin_file_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
+    </span><span class="kw">pub fn </span>set_stdin_file_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="prelude-ty">Option</span>&lt;<span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_subprocess_launcher_set_stdin_file_path(
-                <a class="self" href="#244">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#244">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#248">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#248">path</a>.as_ref().map(|p| <a href="#252">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
     <span class="doccomment">/// Sets the file path to use as the stdout for spawned processes.
     ///
-    /// If `path` is [`None`] then any previously given path is unset.
+    /// If @path is [`None`] then any previously given path is unset.
     ///
     /// The file will be created or truncated when the process is spawned, as
     /// would be the case if using '&gt;' at the shell.
@@ -699,13 +707,13 @@
     </span><span class="kw">pub fn </span>set_stdout_file_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="prelude-ty">Option</span>&lt;<span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_subprocess_launcher_set_stdout_file_path(
-                <a class="self" href="#269">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#269">path</a>.as_ref().map(|p| <a href="#273">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#273">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#273">path</a>.as_ref().map(|p| <a href="#277">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the environment variable `variable` in the environment of
+    <span class="doccomment">/// Sets the environment variable @variable in the environment of
     /// processes launched from this launcher.
     ///
     /// On UNIX, both the variable's name and value can be arbitrary byte
@@ -713,7 +721,7 @@
     /// On Windows, they should be in UTF-8.
     /// ## `variable`
     /// the environment variable to set,
-    ///  must not contain '='
+    ///     must not contain '='
     /// ## `value`
     /// the new value for the variable
     /// ## `overwrite`
@@ -727,10 +735,10 @@
     ) {
         <span class="kw">unsafe </span>{
             ffi::g_subprocess_launcher_setenv(
-                <a class="self" href="#293">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#294">variable</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#295">value</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#296">overwrite</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a class="self" href="#297">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#298">variable</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#299">value</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#300">overwrite</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
             );
         }
     }
@@ -740,45 +748,45 @@
     //    unsafe { TODO: call ffi:g_subprocess_launcher_spawn() }
     //}
 
-    </span><span class="doccomment">/// Creates a [`Subprocess`][crate::Subprocess] given a provided varargs list of arguments.
+    </span><span class="doccomment">/// Creates a #GSubprocess given a provided varargs list of arguments.
     /// ## `argv0`
     /// Command line arguments
     ///
     /// # Returns
     ///
-    /// A new [`Subprocess`][crate::Subprocess], or [`None`] on error (and `error` will be set)
+    /// A new #GSubprocess, or [`None`] on error (and @error will be set)
     </span><span class="attr">#[doc(alias = <span class="string">"g_subprocess_launcher_spawnv"</span>)]
     #[doc(alias = <span class="string">"spawnv"</span>)]
-    </span><span class="kw">pub fn </span>spawn(<span class="kw-2">&amp;</span><span class="self">self</span>, argv: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">std::ffi::OsStr</a>]) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="subprocess.rs.html#9-87">Subprocess</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+    </span><span class="kw">pub fn </span>spawn(<span class="kw-2">&amp;</span><span class="self">self</span>, argv: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">std::ffi::OsStr</a>]) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="subprocess.rs.html#9-91">Subprocess</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_subprocess_launcher_spawnv(
-                <a class="self" href="#322">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#322">argv</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span><a href="#324">error</a>,
+                <a class="self" href="#326">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#326">argv</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span><a href="#328">error</a>,
             );
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#325">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#329">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#324">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#328">error</a>))
             }
         }
     }
 
-    <span class="doccomment">/// Removes the environment variable `variable` from the environment of
+    <span class="doccomment">/// Removes the environment variable @variable from the environment of
     /// processes launched from this launcher.
     ///
     /// On UNIX, the variable's name can be an arbitrary byte string not
     /// containing '='. On Windows, it should be in UTF-8.
     /// ## `variable`
     /// the environment variable to unset,
-    ///  must not contain '='
+    ///     must not contain '='
     </span><span class="attr">#[doc(alias = <span class="string">"g_subprocess_launcher_unsetenv"</span>)]
     </span><span class="kw">pub fn </span>unsetenv(<span class="kw-2">&amp;</span><span class="self">self</span>, variable: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">std::ffi::OsStr</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_subprocess_launcher_unsetenv(
-                <a class="self" href="#347">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#347">variable</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#351">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#351">variable</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }

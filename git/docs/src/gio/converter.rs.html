@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/converter.rs`."><title>converter.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/converter.rs`."><title>converter.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -241,17 +241,17 @@
 
 <span class="kw">use </span>glib::{<a href="../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
-<span class="kw">use crate</span>::{<a href="auto/converter.rs.html#7-25">Converter</a>, <a href="auto/flags.rs.html#519-534">ConverterFlags</a>, <a href="auto/enums.rs.html#116-131">ConverterResult</a>};
+<span class="kw">use crate</span>::{<a href="auto/converter.rs.html#7-27">Converter</a>, <a href="auto/flags.rs.html#519-534">ConverterFlags</a>, <a href="auto/enums.rs.html#116-131">ConverterResult</a>};
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/converter.rs.html#7-25"><span class="kw">super</span>::Converter</a>&gt;&gt; <a href="#10">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/converter.rs.html#7-27"><span class="kw">super</span>::Converter</a>&gt;&gt; <a href="#10">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">pub trait </span><a href="../../gio/prelude/trait.ConverterExtManual.html">ConverterExtManual</a>: <a href="#10">sealed::Sealed</a> + IsA&lt;<a href="auto/converter.rs.html#7-25">Converter</a>&gt; + <span class="lifetime">'static </span>{
+<span class="kw">pub trait </span><a href="../../gio/prelude/trait.ConverterExtManual.html">ConverterExtManual</a>: <a href="#10">sealed::Sealed</a> + IsA&lt;<a href="auto/converter.rs.html#7-27">Converter</a>&gt; + <span class="lifetime">'static </span>{
     <span class="doccomment">/// This is the main operation used when converting data. It is to be called
     /// multiple times in a loop, and each time it will do some work, i.e.
-    /// producing some output (in `outbuf`) or consuming some input (from `inbuf`) or
+    /// producing some output (in @outbuf) or consuming some input (from @inbuf) or
     /// both. If its not possible to do any work an error is returned.
     ///
     /// Note that a single call may not consume all input (or any input at all).
@@ -264,7 +264,7 @@
     ///
     /// A full conversion loop involves calling this method repeatedly, each time
     /// giving it new input and space output space. When there is no more input
-    /// data after the data in `inbuf`, the flag [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] must be set.
+    /// data after the data in @inbuf, the flag [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] must be set.
     /// The loop will be (unless some error happens) returning [`ConverterResult::Converted`][crate::ConverterResult::Converted]
     /// each time until all data is consumed and all output is produced, then
     /// [`ConverterResult::Finished`][crate::ConverterResult::Finished] is returned instead. Note, that [`ConverterResult::Finished`][crate::ConverterResult::Finished]
@@ -272,26 +272,26 @@
     /// in a decompression converter where the end of data is detectable from the
     /// data (and there might even be other data after the end of the compressed data).
     ///
-    /// When some data has successfully been converted `bytes_read` and is set to
-    /// the number of bytes read from `inbuf`, and `bytes_written` is set to indicate
-    /// how many bytes was written to `outbuf`. If there are more data to output
+    /// When some data has successfully been converted @bytes_read and is set to
+    /// the number of bytes read from @inbuf, and @bytes_written is set to indicate
+    /// how many bytes was written to @outbuf. If there are more data to output
     /// or consume (i.e. unless the [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] is specified) then
     /// [`ConverterResult::Converted`][crate::ConverterResult::Converted] is returned, and if no more data is to be output
     /// then [`ConverterResult::Finished`][crate::ConverterResult::Finished] is returned.
     ///
-    /// On error [`ConverterResult::Error`][crate::ConverterResult::Error] is returned and `error` is set accordingly.
+    /// On error [`ConverterResult::Error`][crate::ConverterResult::Error] is returned and @error is set accordingly.
     /// Some errors need special handling:
     ///
     /// [`IOErrorEnum::NoSpace`][crate::IOErrorEnum::NoSpace] is returned if there is not enough space
     /// to write the resulting converted data, the application should
-    /// call the function again with a larger `outbuf` to continue.
+    /// call the function again with a larger @outbuf to continue.
     ///
     /// [`IOErrorEnum::PartialInput`][crate::IOErrorEnum::PartialInput] is returned if there is not enough
     /// input to fully determine what the conversion should produce,
     /// and the [`ConverterFlags::INPUT_AT_END`][crate::ConverterFlags::INPUT_AT_END] flag is not set. This happens for
     /// example with an incomplete multibyte sequence when converting text,
     /// or when a regexp matches up to the end of the input (and may match
-    /// further input). It may also happen when `inbuf_size` is zero and
+    /// further input). It may also happen when @inbuf_size is zero and
     /// there is no more data to produce.
     ///
     /// When this happens the application should read more input and then
@@ -302,10 +302,10 @@
     /// [`IOErrorEnum::PartialInput`][crate::IOErrorEnum::PartialInput] in e.g. a charset conversion where the
     /// input is actually partial).
     ///
-    /// After [`ConverterExtManual::convert()`][crate::prelude::ConverterExtManual::convert()] has returned [`ConverterResult::Finished`][crate::ConverterResult::Finished] the
+    /// After g_converter_convert() has returned [`ConverterResult::Finished`][crate::ConverterResult::Finished] the
     /// converter object is in an invalid state where its not allowed
-    /// to call [`ConverterExtManual::convert()`][crate::prelude::ConverterExtManual::convert()] anymore. At this time you can only
-    /// free the object or call [`ConverterExt::reset()`][crate::prelude::ConverterExt::reset()] to reset it to the
+    /// to call g_converter_convert() anymore. At this time you can only
+    /// free the object or call g_converter_reset() to reset it to the
     /// initial state.
     ///
     /// If the flag [`ConverterFlags::FLUSH`][crate::ConverterFlags::FLUSH] is set then conversion is modified
@@ -333,24 +333,24 @@
     /// (typically [`IOErrorEnum::PartialInput`][crate::IOErrorEnum::PartialInput]).
     /// ## `inbuf`
     /// the buffer
-    ///  containing the data to convert.
+    ///         containing the data to convert.
     /// ## `outbuf`
     /// a
-    ///  buffer to write converted data in.
+    ///    buffer to write converted data in.
     /// ## `flags`
-    /// a [`ConverterFlags`][crate::ConverterFlags] controlling the conversion details
+    /// a #GConverterFlags controlling the conversion details
     ///
     /// # Returns
     ///
-    /// a [`ConverterResult`][crate::ConverterResult], [`ConverterResult::Error`][crate::ConverterResult::Error] on error.
+    /// a #GConverterResult, [`ConverterResult::Error`][crate::ConverterResult::Error] on error.
     ///
     /// ## `bytes_read`
     /// will be set to the number of bytes read
-    ///  from `inbuf` on success
+    ///    from @inbuf on success
     ///
     /// ## `bytes_written`
     /// will be set to the number of bytes
-    ///  written to `outbuf` on success
+    ///    written to @outbuf on success
     </span><span class="attr">#[doc(alias = <span class="string">"g_converter_convert"</span>)]
     </span><span class="kw">fn </span>convert&lt;IN: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, OUT: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -396,5 +396,5 @@
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/converter.rs.html#7-25">Converter</a>&gt;&gt; <a href="#14-160">ConverterExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/converter.rs.html#7-27">Converter</a>&gt;&gt; <a href="#14-160">ConverterExtManual</a> <span class="kw">for </span>O {}
 </code></pre></div></section></main></body></html>

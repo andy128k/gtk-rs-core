@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/resource.rs`."><title>resource.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/resource.rs`."><title>resource.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -426,74 +426,98 @@
 <a href="#351" id="351">351</a>
 <a href="#352" id="352">352</a>
 <a href="#353" id="353">353</a>
+<a href="#354" id="354">354</a>
+<a href="#355" id="355">355</a>
+<a href="#356" id="356">356</a>
+<a href="#357" id="357">357</a>
+<a href="#358" id="358">358</a>
+<a href="#359" id="359">359</a>
+<a href="#360" id="360">360</a>
+<a href="#361" id="361">361</a>
+<a href="#362" id="362">362</a>
+<a href="#363" id="363">363</a>
+<a href="#364" id="364">364</a>
+<a href="#365" id="365">365</a>
+<a href="#366" id="366">366</a>
+<a href="#367" id="367">367</a>
+<a href="#368" id="368">368</a>
+<a href="#369" id="369">369</a>
+<a href="#370" id="370">370</a>
+<a href="#371" id="371">371</a>
+<a href="#372" id="372">372</a>
+<a href="#373" id="373">373</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="input_stream.rs.html#9-33">InputStream</a>, <a href="flags.rs.html#2693-2702">ResourceLookupFlags</a>};
+</span><span class="kw">use crate</span>::{<a href="input_stream.rs.html#9-35">InputStream</a>, <a href="flags.rs.html#2699-2708">ResourceLookupFlags</a>};
 <span class="kw">use </span><a href="../../../glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
     <span class="doccomment">/// Applications and libraries often contain binary or textual data that is
     /// really part of the application, rather than user data. For instance
-    /// `GtkBuilder` .ui files, splashscreen images, GMenu markup XML, CSS files,
-    /// icons, etc. These are often shipped as files in `$datadir/appname`, or
-    /// manually included as literal strings in the code.
+    /// `Gtk::Builder` `.ui` files, splashscreen images, [`Menu`][crate::Menu] markup
+    /// XML, CSS files, icons, etc. These are often shipped as files in
+    /// `$datadir/appname`, or manually included as literal strings in the code.
     ///
-    /// The [`Resource`][crate::Resource] API and the [glib-compile-resources][glib-compile-resources] program
-    /// provide a convenient and efficient alternative to this which has some nice properties. You
-    /// maintain the files as normal files, so its easy to edit them, but during the build the files
-    /// are combined into a binary bundle that is linked into the executable. This means that loading
-    /// the resource files are efficient (as they are already in memory, shared with other instances) and
-    /// simple (no need to check for things like I/O errors or locate the files in the filesystem). It
+    /// The `GResource` API and the
+    /// [`glib-compile-resources`](glib-compile-resources.html) program provide a
+    /// convenient and efficient alternative to this which has some nice properties.
+    /// You maintain the files as normal files, so it’s easy to edit them, but during
+    /// the build the files are combined into a binary bundle that is linked into the
+    /// executable. This means that loading the resource files are efficient (as they
+    /// are already in memory, shared with other instances) and simple (no need to
+    /// check for things like I/O errors or locate the files in the filesystem). It
     /// also makes it easier to create relocatable applications.
     ///
-    /// Resource files can also be marked as compressed. Such files will be included in the resource bundle
-    /// in a compressed form, but will be automatically uncompressed when the resource is used. This
-    /// is very useful e.g. for larger text files that are parsed once (or rarely) and then thrown away.
+    /// Resource files can also be marked as compressed. Such files will be included
+    /// in the resource bundle in a compressed form, but will be automatically
+    /// uncompressed when the resource is used. This is very useful e.g. for larger
+    /// text files that are parsed once (or rarely) and then thrown away.
     ///
     /// Resource files can also be marked to be preprocessed, by setting the value of the
     /// `preprocess` attribute to a comma-separated list of preprocessing options.
     /// The only options currently supported are:
     ///
-    /// `xml-stripblanks` which will use the xmllint command
-    /// to strip ignorable whitespace from the XML file. For this to work,
-    /// the `XMLLINT` environment variable must be set to the full path to
-    /// the xmllint executable, or xmllint must be in the `PATH`; otherwise
-    /// the preprocessing step is skipped.
+    ///  - `xml-stripblanks` which will use the [`xmllint`](man:xmllint(1)) command
+    ///    to strip ignorable whitespace from the XML file. For this to work,
+    ///    the `XMLLINT` environment variable must be set to the full path to
+    ///    the xmllint executable, or xmllint must be in the `PATH`; otherwise
+    ///    the preprocessing step is skipped.
     ///
-    /// `to-pixdata` (deprecated since gdk-pixbuf 2.32) which will use the
-    /// `gdk-pixbuf-pixdata` command to convert images to the `GdkPixdata` format,
-    /// which allows you to create pixbufs directly using the data inside the
-    /// resource file, rather than an (uncompressed) copy of it. For this, the
-    /// `gdk-pixbuf-pixdata` program must be in the `PATH`, or the
-    /// `GDK_PIXBUF_PIXDATA` environment variable must be set to the full path to the
-    /// `gdk-pixbuf-pixdata` executable; otherwise the resource compiler will abort.
-    /// `to-pixdata` has been deprecated since gdk-pixbuf 2.32, as [`Resource`][crate::Resource]
-    /// supports embedding modern image formats just as well. Instead of using it,
-    /// embed a PNG or SVG file in your [`Resource`][crate::Resource].
+    ///  - `to-pixdata` (deprecated since gdk-pixbuf 2.32) which will use the
+    ///    `gdk-pixbuf-pixdata` command to convert images to the `Gdk::Pixdata`
+    ///    format, which allows you to create pixbufs directly using the data inside
+    ///    the resource file, rather than an (uncompressed) copy of it. For this, the
+    ///    `gdk-pixbuf-pixdata` program must be in the `PATH`, or the
+    ///    `GDK_PIXBUF_PIXDATA` environment variable must be set to the full path to
+    ///    the `gdk-pixbuf-pixdata` executable; otherwise the resource compiler will
+    ///    abort. `to-pixdata` has been deprecated since gdk-pixbuf 2.32, as
+    ///    `GResource` supports embedding modern image formats just as well. Instead
+    ///    of using it, embed a PNG or SVG file in your `GResource`.
     ///
-    /// `json-stripblanks` which will use the `json-glib-format` command to strip
-    /// ignorable whitespace from the JSON file. For this to work, the
-    /// `JSON_GLIB_FORMAT` environment variable must be set to the full path to the
-    /// `json-glib-format` executable, or it must be in the `PATH`;
-    /// otherwise the preprocessing step is skipped. In addition, at least version
-    /// 1.6 of `json-glib-format` is required.
+    ///  - `json-stripblanks` which will use the
+    ///    [`json-glib-format`](man:json-glib-format(1)) command to strip ignorable
+    ///    whitespace from the JSON file. For this to work, the `JSON_GLIB_FORMAT`
+    ///    environment variable must be set to the full path to the
+    ///    `json-glib-format` executable, or it must be in the `PATH`; otherwise the
+    ///    preprocessing step is skipped. In addition, at least version 1.6 of
+    ///    `json-glib-format` is required.
     ///
-    /// Resource files will be exported in the GResource namespace using the
+    /// Resource files will be exported in the `GResource` namespace using the
     /// combination of the given `prefix` and the filename from the `file` element.
     /// The `alias` attribute can be used to alter the filename to expose them at a
     /// different location in the resource namespace. Typically, this is used to
     /// include files from a different source directory without exposing the source
     /// directory in the resource namespace, as in the example below.
     ///
-    /// Resource bundles are created by the [glib-compile-resources][glib-compile-resources] program
-    /// which takes an XML file that describes the bundle, and a set of files that the XML references. These
-    /// are combined into a binary resource bundle.
+    /// Resource bundles are created by the
+    /// [`glib-compile-resources`](glib-compile-resources.html) program
+    /// which takes an XML file that describes the bundle, and a set of files that
+    /// the XML references. These are combined into a binary resource bundle.
     ///
     /// An example resource description:
-    ///
-    /// ```text
+    /// ```xml
     /// &lt;?xml version="1.0" encoding="UTF-8"?&gt;
     /// &lt;gresources&gt;
     ///   &lt;gresource prefix="/org/gtk/Example"&gt;
@@ -506,7 +530,6 @@
     /// ```
     ///
     /// This will create a resource bundle with the following files:
-    ///
     /// ```text
     /// /org/gtk/Example/data/splashscreen.png
     /// /org/gtk/Example/dialog.ui
@@ -514,65 +537,82 @@
     /// /org/gtk/Example/example.css
     /// ```
     ///
-    /// Note that all resources in the process share the same namespace, so use Java-style
-    /// path prefixes (like in the above example) to avoid conflicts.
+    /// Note that all resources in the process share the same namespace, so use
+    /// Java-style path prefixes (like in the above example) to avoid conflicts.
     ///
-    /// You can then use [glib-compile-resources][glib-compile-resources] to compile the XML to a
-    /// binary bundle that you can load with [`load()`][Self::load()]. However, its more common to use the --generate-source and
-    /// --generate-header arguments to create a source file and header to link directly into your application.
-    /// This will generate ``get_resource()``, ``register_resource()`` and
-    /// ``unregister_resource()`` functions, prefixed by the `--c-name` argument passed
-    /// to [glib-compile-resources][glib-compile-resources]. ``get_resource()`` returns
-    /// the generated [`Resource`][crate::Resource] object. The register and unregister functions
-    /// register the resource so its files can be accessed using
+    /// You can then use [`glib-compile-resources`](glib-compile-resources.html) to
+    /// compile the XML to a binary bundle that you can load with
+    /// [`load()`][Self::load()]. However, it’s more common to use the
+    /// `--generate-source` and `--generate-header` arguments to create a source file
+    /// and header to link directly into your application.
+    /// This will generate `get_resource()`, `register_resource()` and
+    /// `unregister_resource()` functions, prefixed by the `--c-name` argument passed
+    /// to [`glib-compile-resources`](glib-compile-resources.html). `get_resource()`
+    /// returns the generated `GResource` object. The register and unregister
+    /// functions register the resource so its files can be accessed using
     /// [`resources_lookup_data()`][crate::resources_lookup_data()].
     ///
-    /// Once a [`Resource`][crate::Resource] has been created and registered all the data in it can be accessed globally in the process by
-    /// using API calls like [`resources_open_stream()`][crate::resources_open_stream()] to stream the data or [`resources_lookup_data()`][crate::resources_lookup_data()] to get a direct pointer
-    /// to the data. You can also use URIs like "resource:///org/gtk/Example/data/splashscreen.png" with [`File`][crate::File] to access
-    /// the resource data.
+    /// Once a `GResource` has been created and registered all the data in it can be
+    /// accessed globally in the process by using API calls like
+    /// [`resources_open_stream()`][crate::resources_open_stream()] to stream the data or
+    /// [`resources_lookup_data()`][crate::resources_lookup_data()] to get a direct pointer to the data. You can
+    /// also use URIs like `resource:///org/gtk/Example/data/splashscreen.png` with
+    /// [`File`][crate::File] to access the resource data.
     ///
-    /// Some higher-level APIs, such as `GtkApplication`, will automatically load
-    /// resources from certain well-known paths in the resource namespace as a
+    /// Some higher-level APIs, such as `Gtk::Application`, will automatically
+    /// load resources from certain well-known paths in the resource namespace as a
     /// convenience. See the documentation for those APIs for details.
     ///
-    /// There are two forms of the generated source, the default version uses the compiler support for constructor
-    /// and destructor functions (where available) to automatically create and register the [`Resource`][crate::Resource] on startup
-    /// or library load time. If you pass `--manual-register`, two functions to register/unregister the resource are created
-    /// instead. This requires an explicit initialization call in your application/library, but it works on all platforms,
-    /// even on the minor ones where constructors are not supported. (Constructor support is available for at least Win32, Mac OS and Linux.)
+    /// There are two forms of the generated source, the default version uses the
+    /// compiler support for constructor and destructor functions (where available)
+    /// to automatically create and register the `GResource` on startup or library
+    /// load time. If you pass `--manual-register`, two functions to
+    /// register/unregister the resource are created instead. This requires an
+    /// explicit initialization call in your application/library, but it works on all
+    /// platforms, even on the minor ones where constructors are not supported.
+    /// (Constructor support is available for at least Win32, Mac OS and Linux.)
     ///
-    /// Note that resource data can point directly into the data segment of e.g. a library, so if you are unloading libraries
-    /// during runtime you need to be very careful with keeping around pointers to data from a resource, as this goes away
-    /// when the library is unloaded. However, in practice this is not generally a problem, since most resource accesses
-    /// are for your own resources, and resource data is often used once, during parsing, and then released.
+    /// Note that resource data can point directly into the data segment of e.g. a
+    /// library, so if you are unloading libraries during runtime you need to be very
+    /// careful with keeping around pointers to data from a resource, as this goes
+    /// away when the library is unloaded. However, in practice this is not generally
+    /// a problem, since most resource accesses are for your own resources, and
+    /// resource data is often used once, during parsing, and then released.
     ///
-    /// When debugging a program or testing a change to an installed version, it is often useful to be able to
-    /// replace resources in the program or library, without recompiling, for debugging or quick hacking and testing
-    /// purposes. Since GLib 2.50, it is possible to use the `G_RESOURCE_OVERLAYS` environment variable to selectively overlay
-    /// resources with replacements from the filesystem. It is a `G_SEARCHPATH_SEPARATOR`-separated list of substitutions to perform
-    /// during resource lookups. It is ignored when running in a setuid process.
+    /// # Overlays
+    ///
+    /// When debugging a program or testing a change to an installed version, it is
+    /// often useful to be able to replace resources in the program or library,
+    /// without recompiling, for debugging or quick hacking and testing purposes.
+    /// Since GLib 2.50, it is possible to use the `G_RESOURCE_OVERLAYS` environment
+    /// variable to selectively overlay resources with replacements from the
+    /// filesystem.  It is a `G_SEARCHPATH_SEPARATOR`-separated list of substitutions
+    /// to perform during resource lookups. It is ignored when running in a setuid
+    /// process.
     ///
     /// A substitution has the form
     ///
-    ///
     /// ```text
-    ///    /org/gtk/libgtk=/home/desrt/gtk-overlay
+    /// /org/gtk/libgtk=/home/desrt/gtk-overlay
     /// ```
     ///
-    /// The part before the `=` is the resource subpath for which the overlay applies. The part after is a
-    /// filesystem path which contains files and subdirectories as you would like to be loaded as resources with the
+    /// The part before the `=` is the resource subpath for which the overlay
+    /// applies.  The part after is a filesystem path which contains files and
+    /// subdirectories as you would like to be loaded as resources with the
     /// equivalent names.
     ///
-    /// In the example above, if an application tried to load a resource with the resource path
-    /// `/org/gtk/libgtk/ui/gtkdialog.ui` then GResource would check the filesystem path
-    /// `/home/desrt/gtk-overlay/ui/gtkdialog.ui`. If a file was found there, it would be used instead. This is an
-    /// overlay, not an outright replacement, which means that if a file is not found at that path, the built-in
-    /// version will be used instead. Whiteouts are not currently supported.
+    /// In the example above, if an application tried to load a resource with the
+    /// resource path `/org/gtk/libgtk/ui/gtkdialog.ui` then `GResource` would check
+    /// the filesystem path `/home/desrt/gtk-overlay/ui/gtkdialog.ui`.  If a file was
+    /// found there, it would be used instead.  This is an overlay, not an outright
+    /// replacement, which means that if a file is not found at that path, the
+    /// built-in version will be used instead.  Whiteouts are not currently
+    /// supported.
     ///
-    /// Substitutions must start with a slash, and must not contain a trailing slash before the '='. The path after
-    /// the slash should ideally be absolute, but this is not strictly required. It is possible to overlay the
-    /// location of a single resource with an individual file.
+    /// Substitutions must start with a slash, and must not contain a trailing slash
+    /// before the `=`.  The path after the slash should ideally be absolute, but
+    /// this is not strictly required.  It is possible to overlay the location of a
+    /// single resource with an individual file.
     </span><span class="attr">#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.Resource.html">Resource</a>(Shared&lt;<a href="../../../gio_sys/struct.GResource.html">ffi::GResource</a>&gt;);
 
@@ -583,19 +623,19 @@
     }
 }
 
-<span class="kw">impl </span><a href="#8-156">Resource</a> {
-    <span class="doccomment">/// Returns all the names of children at the specified `path` in the resource.
+<span class="kw">impl </span><a href="#8-176">Resource</a> {
+    <span class="doccomment">/// Returns all the names of children at the specified @path in the resource.
     /// The return result is a [`None`] terminated list of strings which should
-    /// be released with `g_strfreev()`.
+    /// be released with g_strfreev().
     ///
-    /// If `path` is invalid or does not exist in the [`Resource`][crate::Resource],
+    /// If @path is invalid or does not exist in the #GResource,
     /// [`ResourceError::NotFound`][crate::ResourceError::NotFound] will be returned.
     ///
-    /// `lookup_flags` controls the behaviour of the lookup.
+    /// @lookup_flags controls the behaviour of the lookup.
     /// ## `path`
     /// A pathname inside the resource
     /// ## `lookup_flags`
-    /// A [`ResourceLookupFlags`][crate::ResourceLookupFlags]
+    /// A #GResourceLookupFlags
     ///
     /// # Returns
     ///
@@ -604,32 +644,32 @@
     </span><span class="kw">pub fn </span>enumerate_children(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        lookup_flags: <a href="flags.rs.html#2693-2702">ResourceLookupFlags</a>,
+        lookup_flags: <a href="flags.rs.html#2699-2708">ResourceLookupFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_resource_enumerate_children(
-                <a class="self" href="#177">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#178">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#179">lookup_flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <span class="kw-2">&amp;mut </span><a href="#182">error</a>,
+                <a class="self" href="#197">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#198">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#199">lookup_flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <span class="kw-2">&amp;mut </span><a href="#202">error</a>,
             );
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(<a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(<a href="#183">ret</a>))
+                <span class="prelude-val">Ok</span>(<a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(<a href="#203">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#182">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#202">error</a>))
             }
         }
     }
 
-    <span class="doccomment">/// Looks for a file at the specified `path` in the resource and
+    <span class="doccomment">/// Looks for a file at the specified @path in the resource and
     /// if found returns information about it.
     ///
-    /// `lookup_flags` controls the behaviour of the lookup.
+    /// @lookup_flags controls the behaviour of the lookup.
     /// ## `path`
     /// A pathname inside the resource
     /// ## `lookup_flags`
-    /// A [`ResourceLookupFlags`][crate::ResourceLookupFlags]
+    /// A #GResourceLookupFlags
     ///
     /// # Returns
     ///
@@ -637,41 +677,41 @@
     ///
     /// ## `size`
     /// a location to place the length of the contents of the file,
-    ///  or [`None`] if the length is not needed
+    ///    or [`None`] if the length is not needed
     ///
     /// ## `flags`
     /// a location to place the flags about the file,
-    ///  or [`None`] if the length is not needed
+    ///    or [`None`] if the length is not needed
     </span><span class="attr">#[doc(alias = <span class="string">"g_resource_get_info"</span>)]
     #[doc(alias = <span class="string">"get_info"</span>)]
     </span><span class="kw">pub fn </span>info(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        lookup_flags: <a href="flags.rs.html#2693-2702">ResourceLookupFlags</a>,
+        lookup_flags: <a href="flags.rs.html#2699-2708">ResourceLookupFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>size = std::mem::MaybeUninit::uninit();
             <span class="kw">let </span><span class="kw-2">mut </span>flags = std::mem::MaybeUninit::uninit();
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>is_ok = ffi::g_resource_get_info(
-                <a class="self" href="#220">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#221">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#222">lookup_flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#225">size</a>.as_mut_ptr(),
-                <a href="#226">flags</a>.as_mut_ptr(),
-                <span class="kw-2">&amp;mut </span><a href="#227">error</a>,
+                <a class="self" href="#240">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#241">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#242">lookup_flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#245">size</a>.as_mut_ptr(),
+                <a href="#246">flags</a>.as_mut_ptr(),
+                <span class="kw-2">&amp;mut </span><a href="#247">error</a>,
             );
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert_eq.html">debug_assert_eq!</a>(is_ok == glib::ffi::GFALSE, !error.is_null());
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>((<a href="#225">size</a>.assume_init(), <a href="#226">flags</a>.assume_init()))
+                <span class="prelude-val">Ok</span>((<a href="#245">size</a>.assume_init(), <a href="#246">flags</a>.assume_init()))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#227">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#247">error</a>))
             }
         }
     }
 
-    <span class="doccomment">/// Looks for a file at the specified `path` in the resource and
-    /// returns a [`glib::Bytes`][crate::glib::Bytes] that lets you directly access the data in
+    <span class="doccomment">/// Looks for a file at the specified @path in the resource and
+    /// returns a #GBytes that lets you directly access the data in
     /// memory.
     ///
     /// The data is always followed by a zero byte, so you
@@ -683,98 +723,98 @@
     /// in the program binary. For compressed files we allocate memory on
     /// the heap and automatically uncompress the data.
     ///
-    /// `lookup_flags` controls the behaviour of the lookup.
+    /// @lookup_flags controls the behaviour of the lookup.
     /// ## `path`
     /// A pathname inside the resource
     /// ## `lookup_flags`
-    /// A [`ResourceLookupFlags`][crate::ResourceLookupFlags]
+    /// A #GResourceLookupFlags
     ///
     /// # Returns
     ///
-    /// [`glib::Bytes`][crate::glib::Bytes] or [`None`] on error.
-    ///  Free the returned object with `g_bytes_unref()`
+    /// #GBytes or [`None`] on error.
+    ///     Free the returned object with g_bytes_unref()
     </span><span class="attr">#[doc(alias = <span class="string">"g_resource_lookup_data"</span>)]
     </span><span class="kw">pub fn </span>lookup_data(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        lookup_flags: <a href="flags.rs.html#2693-2702">ResourceLookupFlags</a>,
+        lookup_flags: <a href="flags.rs.html#2699-2708">ResourceLookupFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="../../../glib/bytes/struct.Bytes.html">glib::Bytes</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_resource_lookup_data(
-                <a class="self" href="#270">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#271">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#272">lookup_flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <span class="kw-2">&amp;mut </span><a href="#275">error</a>,
+                <a class="self" href="#290">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#291">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#292">lookup_flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <span class="kw-2">&amp;mut </span><a href="#295">error</a>,
             );
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#276">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#296">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#275">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#295">error</a>))
             }
         }
     }
 
-    <span class="doccomment">/// Looks for a file at the specified `path` in the resource and
-    /// returns a [`InputStream`][crate::InputStream] that lets you read the data.
+    <span class="doccomment">/// Looks for a file at the specified @path in the resource and
+    /// returns a #GInputStream that lets you read the data.
     ///
-    /// `lookup_flags` controls the behaviour of the lookup.
+    /// @lookup_flags controls the behaviour of the lookup.
     /// ## `path`
     /// A pathname inside the resource
     /// ## `lookup_flags`
-    /// A [`ResourceLookupFlags`][crate::ResourceLookupFlags]
+    /// A #GResourceLookupFlags
     ///
     /// # Returns
     ///
-    /// [`InputStream`][crate::InputStream] or [`None`] on error.
-    ///  Free the returned object with `g_object_unref()`
+    /// #GInputStream or [`None`] on error.
+    ///     Free the returned object with g_object_unref()
     </span><span class="attr">#[doc(alias = <span class="string">"g_resource_open_stream"</span>)]
     </span><span class="kw">pub fn </span>open_stream(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         path: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        lookup_flags: <a href="flags.rs.html#2693-2702">ResourceLookupFlags</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="input_stream.rs.html#9-33">InputStream</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+        lookup_flags: <a href="flags.rs.html#2699-2708">ResourceLookupFlags</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="input_stream.rs.html#9-35">InputStream</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_resource_open_stream(
-                <a class="self" href="#305">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#306">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#307">lookup_flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <span class="kw-2">&amp;mut </span><a href="#310">error</a>,
+                <a class="self" href="#325">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#326">path</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#327">lookup_flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <span class="kw-2">&amp;mut </span><a href="#330">error</a>,
             );
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#311">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#331">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#310">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#330">error</a>))
             }
         }
     }
 
-    <span class="doccomment">/// Loads a binary resource bundle and creates a [`Resource`][crate::Resource] representation of it, allowing
+    <span class="doccomment">/// Loads a binary resource bundle and creates a #GResource representation of it, allowing
     /// you to query it for data.
     ///
     /// If you want to use this resource in the global resource namespace you need
-    /// to register it with [`resources_register()`][crate::resources_register()].
+    /// to register it with g_resources_register().
     ///
-    /// If `filename` is empty or the data in it is corrupt,
-    /// [`ResourceError::Internal`][crate::ResourceError::Internal] will be returned. If `filename` doesn’t exist, or
-    /// there is an error in reading it, an error from `g_mapped_file_new()` will be
+    /// If @filename is empty or the data in it is corrupt,
+    /// [`ResourceError::Internal`][crate::ResourceError::Internal] will be returned. If @filename doesn’t exist, or
+    /// there is an error in reading it, an error from g_mapped_file_new() will be
     /// returned.
     /// ## `filename`
     /// the path of a filename to load, in the GLib filename encoding
     ///
     /// # Returns
     ///
-    /// a new [`Resource`][crate::Resource], or [`None`] on error
+    /// a new #GResource, or [`None`] on error
     </span><span class="attr">#[doc(alias = <span class="string">"g_resource_load"</span>)]
-    </span><span class="kw">pub fn </span>load(filename: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#8-156">Resource</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+    </span><span class="kw">pub fn </span>load(filename: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#8-176">Resource</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
-            <span class="kw">let </span>ret = ffi::g_resource_load(<a href="#342">filename</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <span class="kw-2">&amp;mut </span><a href="#344">error</a>);
+            <span class="kw">let </span>ret = ffi::g_resource_load(<a href="#362">filename</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <span class="kw-2">&amp;mut </span><a href="#364">error</a>);
             <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#345">ret</a>))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#365">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(<a href="#344">error</a>))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#364">error</a>))
             }
         }
     }

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/io_extension_point.rs`."><title>io_extension_point.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/io_extension_point.rs`."><title>io_extension_point.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -310,6 +310,59 @@
 <a href="#235" id="235">235</a>
 <a href="#236" id="236">236</a>
 <a href="#237" id="237">237</a>
+<a href="#238" id="238">238</a>
+<a href="#239" id="239">239</a>
+<a href="#240" id="240">240</a>
+<a href="#241" id="241">241</a>
+<a href="#242" id="242">242</a>
+<a href="#243" id="243">243</a>
+<a href="#244" id="244">244</a>
+<a href="#245" id="245">245</a>
+<a href="#246" id="246">246</a>
+<a href="#247" id="247">247</a>
+<a href="#248" id="248">248</a>
+<a href="#249" id="249">249</a>
+<a href="#250" id="250">250</a>
+<a href="#251" id="251">251</a>
+<a href="#252" id="252">252</a>
+<a href="#253" id="253">253</a>
+<a href="#254" id="254">254</a>
+<a href="#255" id="255">255</a>
+<a href="#256" id="256">256</a>
+<a href="#257" id="257">257</a>
+<a href="#258" id="258">258</a>
+<a href="#259" id="259">259</a>
+<a href="#260" id="260">260</a>
+<a href="#261" id="261">261</a>
+<a href="#262" id="262">262</a>
+<a href="#263" id="263">263</a>
+<a href="#264" id="264">264</a>
+<a href="#265" id="265">265</a>
+<a href="#266" id="266">266</a>
+<a href="#267" id="267">267</a>
+<a href="#268" id="268">268</a>
+<a href="#269" id="269">269</a>
+<a href="#270" id="270">270</a>
+<a href="#271" id="271">271</a>
+<a href="#272" id="272">272</a>
+<a href="#273" id="273">273</a>
+<a href="#274" id="274">274</a>
+<a href="#275" id="275">275</a>
+<a href="#276" id="276">276</a>
+<a href="#277" id="277">277</a>
+<a href="#278" id="278">278</a>
+<a href="#279" id="279">279</a>
+<a href="#280" id="280">280</a>
+<a href="#281" id="281">281</a>
+<a href="#282" id="282">282</a>
+<a href="#283" id="283">283</a>
+<a href="#284" id="284">284</a>
+<a href="#285" id="285">285</a>
+<a href="#286" id="286">286</a>
+<a href="#287" id="287">287</a>
+<a href="#288" id="288">288</a>
+<a href="#289" id="289">289</a>
+<a href="#290" id="290">290</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span>std::{marker::PhantomData, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>};
@@ -344,7 +397,7 @@
     }
 
     <span class="attr">#[must_use = <span class="string">"Building the object from the builder is usually expensive and is not expected to have side effects"</span>]
-    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#57">IOExtensionPoint</a> {
+    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#110">IOExtensionPoint</a> {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>ep = <a href="../../glib/translate/trait.FromGlibPtrNone.html">IOExtensionPoint::from_glib_none</a>(ffi::g_io_extension_point_register(
                 <a class="self" href="#35">self</a>.name.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
@@ -362,35 +415,88 @@
 /// Each extension point is identified by a name, and it may optionally require that any implementation
 /// must be of a certain type.
 </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-</span><span class="doccomment">/// [`IOExtensionPoint`][crate::IOExtensionPoint] is an opaque data structure and can only be accessed
-/// using the following functions.
+</span><span class="doccomment">/// `GIOExtensionPoint` provides a mechanism for modules to extend the
+/// functionality of the library or application that loaded it in an
+/// organized fashion.
+///
+/// An extension point is identified by a name, and it may optionally
+/// require that any implementation must be of a certain type (or derived
+/// thereof). Use [`register()`][Self::register()] to register an
+/// extension point, and [`set_required_type()`][Self::set_required_type()] to
+/// set a required type.
+///
+/// A module can implement an extension point by specifying the
+/// [type@GObject.Type] that implements the functionality. Additionally, each
+/// implementation of an extension point has a name, and a priority. Use
+/// [`implement()`][Self::implement()] to implement an extension point.
+///
+/// **⚠️ The following code is in c ⚠️**
+///
+/// ```c
+/// GIOExtensionPoint *ep;
+///
+/// // Register an extension point
+/// ep = g_io_extension_point_register ("my-extension-point");
+/// g_io_extension_point_set_required_type (ep, MY_TYPE_EXAMPLE);
+/// ```
+///
+/// **⚠️ The following code is in c ⚠️**
+///
+/// ```c
+/// // Implement an extension point
+/// G_DEFINE_TYPE (MyExampleImpl, my_example_impl, MY_TYPE_EXAMPLE)
+/// g_io_extension_point_implement ("my-extension-point",
+///                                 my_example_impl_get_type (),
+///                                 "my-example",
+///                                 10);
+/// ```
+///
+///  It is up to the code that registered the extension point how
+///  it uses the implementations that have been associated with it.
+///  Depending on the use case, it may use all implementations, or
+///  only the one with the highest priority, or pick a specific
+///  one by name.
+///
+///  To avoid opening all modules just to find out what extension
+///  points they implement, GIO makes use of a caching mechanism,
+///  see [gio-querymodules](gio-querymodules.html).
+///  You are expected to run this command after installing a
+///  GIO module.
+///
+///  The `GIO_EXTRA_MODULES` environment variable can be used to
+///  specify additional directories to automatically load modules
+///  from. This environment variable has the same syntax as the
+///  `PATH`. If two modules have the same base name in different
+///  directories, then the latter one will be ignored. If additional
+///  directories are specified GIO will load modules from the built-in
+///  directory last.
 </span><span class="attr">#[doc(alias = <span class="string">"GIOExtensionPoint"</span>)]
 #[derive(Debug, Copy, Clone, Eq, PartialEq)]
 </span><span class="kw">pub struct </span><a href="../../gio/struct.IOExtensionPoint.html">IOExtensionPoint</a>(ptr::NonNull&lt;<a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>&gt;);
 
-<span class="kw">impl </span>FromGlibPtrNone&lt;<span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>&gt; <span class="kw">for </span><a href="#57">IOExtensionPoint</a> {
+<span class="kw">impl </span>FromGlibPtrNone&lt;<span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>&gt; <span class="kw">for </span><a href="#110">IOExtensionPoint</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_none(ptr: <span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>) -&gt; <span class="self">Self </span>{
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!ptr.is_null());
-        <a href="#57">IOExtensionPoint</a>(ptr::NonNull::new_unchecked(<a href="#61">ptr</a>))
+        <a href="#110">IOExtensionPoint</a>(ptr::NonNull::new_unchecked(<a href="#114">ptr</a>))
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="#57">IOExtensionPoint</a> {
-    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="#57">IOExtensionPoint</a>&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="#110">IOExtensionPoint</a> {
+    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="#110">IOExtensionPoint</a>&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>, <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="#57">IOExtensionPoint</a>&gt; {
-        Stash(<a class="self" href="#71">self</a>.<span class="number">0</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>, PhantomData)
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>, <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="#110">IOExtensionPoint</a>&gt; {
+        Stash(<a class="self" href="#124">self</a>.<span class="number">0</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../gio_sys/type.GIOExtensionPoint.html">ffi::GIOExtensionPoint</a>, PhantomData)
     }
 }
 
-<span class="kw">impl </span><a href="#57">IOExtensionPoint</a> {
+<span class="kw">impl </span><a href="#110">IOExtensionPoint</a> {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Create a new builder for an extension point.
     </span><span class="attr">#[doc(alias = <span class="string">"g_io_extension_point_register"</span>)]
     </span><span class="kw">pub fn </span>builder(name: <span class="kw">impl </span>Into&lt;<a href="../../glib/gstring/struct.GString.html">GString</a>&gt;) -&gt; <a href="#13-16">IOExtensionPointBuilder</a> {
-        <a href="#19-24">IOExtensionPointBuilder::new</a>(<a href="#80">name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>())
+        <a href="#19-24">IOExtensionPointBuilder::new</a>(<a href="#133">name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>())
     }
 
     <span class="doccomment">/// Looks up an existing extension point.
@@ -399,13 +505,13 @@
     ///
     /// # Returns
     ///
-    /// the [`IOExtensionPoint`][crate::IOExtensionPoint], or [`None`] if there
-    ///  is no registered extension point with the given name.
+    /// the #GIOExtensionPoint, or [`None`] if there
+    ///    is no registered extension point with the given name.
     </span><span class="attr">#[doc(alias = <span class="string">"g_io_extension_point_lookup"</span>)]
     </span><span class="kw">pub fn </span>lookup(name: <span class="kw">impl </span><a href="../../glib/gstring/trait.IntoGStr.html">IntoGStr</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>&gt; {
-        <a href="#93">name</a>.<a href="../../glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ep = ffi::g_io_extension_point_lookup(<a href="#94">name</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
-            from_glib_none(<a href="#95">ep</a>)
+        <a href="#146">name</a>.<a href="../../glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
+            <span class="kw">let </span>ep = ffi::g_io_extension_point_lookup(<a href="#147">name</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            from_glib_none(<a href="#148">ep</a>)
         })
     }
 
@@ -414,62 +520,62 @@
     ///
     /// # Returns
     ///
-    /// a `GList` of
-    ///  `GIOExtensions`. The list is owned by GIO and should not be
-    ///  modified.
+    /// a #GList of
+    ///     #GIOExtensions. The list is owned by GIO and should not be
+    ///     modified.
     </span><span class="attr">#[doc(alias = <span class="string">"g_io_extension_point_get_extensions"</span>)]
     </span><span class="kw">pub fn </span>extensions(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="io_extension.rs.html#14">IOExtension</a>&gt; {
         <span class="kw">let </span><span class="kw-2">mut </span>res = Vec::new();
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>l = ffi::g_io_extension_point_get_extensions(<a class="self" href="#109">self</a>.<span class="number">0</span>.as_ptr());
+            <span class="kw">let </span><span class="kw-2">mut </span>l = ffi::g_io_extension_point_get_extensions(<a class="self" href="#162">self</a>.<span class="number">0</span>.as_ptr());
             <span class="kw">while </span>!l.is_null() {
                 <span class="kw">let </span>e: <span class="kw-2">*mut </span>ffi::GIOExtension = Ptr::from((<span class="kw-2">*</span>l).data);
                 res.push(from_glib_none(e));
                 l = (<span class="kw-2">*</span>l).next;
             }
         }
-        <a href="#110">res</a>
+        <a href="#163">res</a>
     }
 
-    <span class="doccomment">/// Finds a [`IOExtension`][crate::IOExtension] for an extension point by name.
+    <span class="doccomment">/// Finds a #GIOExtension for an extension point by name.
     /// ## `name`
     /// the name of the extension to get
     ///
     /// # Returns
     ///
-    /// the [`IOExtension`][crate::IOExtension] for `self` that has the
-    ///  given name, or [`None`] if there is no extension with that name
+    /// the #GIOExtension for @self that has the
+    ///    given name, or [`None`] if there is no extension with that name
     </span><span class="attr">#[doc(alias = <span class="string">"g_io_extension_point_get_extension_by_name"</span>)]
     </span><span class="kw">pub fn </span>extension_by_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span><a href="../../glib/gstring/trait.IntoGStr.html">IntoGStr</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="io_extension.rs.html#14">IOExtension</a>&gt; {
-        <a href="#131">name</a>.<a href="../../glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
+        <a href="#184">name</a>.<a href="../../glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
             <span class="kw">let </span>e = ffi::g_io_extension_point_get_extension_by_name(
-                <a class="self" href="#131">self</a>.<span class="number">0</span>.as_ptr(),
-                <a href="#132">name</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#184">self</a>.<span class="number">0</span>.as_ptr(),
+                <a href="#185">name</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
-            from_glib_none(<a href="#133">e</a>)
+            from_glib_none(<a href="#186">e</a>)
         })
     }
 
-    <span class="doccomment">/// Gets the required type for `self`.
+    <span class="doccomment">/// Gets the required type for @self.
     ///
     /// # Returns
     ///
-    /// the `GType` that all implementations must have,
-    ///  or `G_TYPE_INVALID` if the extension point has no required type
+    /// the #GType that all implementations must have,
+    ///   or `G_TYPE_INVALID` if the extension point has no required type
     </span><span class="attr">#[doc(alias = <span class="string">"g_io_extension_point_get_required_type"</span>)]
     </span><span class="kw">pub fn </span>required_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../glib/types/struct.Type.html">Type</a> {
-        <span class="kw">unsafe </span>{ from_glib(ffi::g_io_extension_point_get_required_type(<a class="self" href="#148">self</a>.<span class="number">0</span>.as_ptr())) }
+        <span class="kw">unsafe </span>{ from_glib(ffi::g_io_extension_point_get_required_type(<a class="self" href="#201">self</a>.<span class="number">0</span>.as_ptr())) }
     }
 
-    <span class="doccomment">/// Registers `type_` as extension for the extension point with name
-    /// `extension_point_name`.
+    <span class="doccomment">/// Registers @type_ as extension for the extension point with name
+    /// @extension_point_name.
     ///
-    /// If `type_` has already been registered as an extension for this
-    /// extension point, the existing [`IOExtension`][crate::IOExtension] object is returned.
+    /// If @type_ has already been registered as an extension for this
+    /// extension point, the existing #GIOExtension object is returned.
     /// ## `extension_point_name`
     /// the name of the extension point
     /// ## `type_`
-    /// the `GType` to register as extension
+    /// the #GType to register as extension
     /// ## `extension_name`
     /// the name for the extension
     /// ## `priority`
@@ -477,7 +583,7 @@
     ///
     /// # Returns
     ///
-    /// a [`IOExtension`][crate::IOExtension] object for `GType`
+    /// a #GIOExtension object for #GType
     </span><span class="attr">#[doc(alias = <span class="string">"g_io_extension_point_implement"</span>)]
     </span><span class="kw">pub fn </span>implement(
         extension_point_name: <span class="kw">impl </span><a href="../../glib/gstring/trait.IntoGStr.html">IntoGStr</a>,
@@ -485,15 +591,15 @@
         extension_name: <span class="kw">impl </span><a href="../../glib/gstring/trait.IntoGStr.html">IntoGStr</a>,
         priority: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     ) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="io_extension.rs.html#14">IOExtension</a>&gt; {
-        <a href="#171">extension_point_name</a>.<a href="../../glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|extension_point_name| {
-            <a href="#173">extension_name</a>.<a href="../../glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|extension_name| <span class="kw">unsafe </span>{
+        <a href="#224">extension_point_name</a>.<a href="../../glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|extension_point_name| {
+            <a href="#226">extension_name</a>.<a href="../../glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|extension_name| <span class="kw">unsafe </span>{
                 <span class="kw">let </span>e = ffi::g_io_extension_point_implement(
-                    <a href="#176">extension_point_name</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#172">type_</a>.<a href="../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                    <a href="#177">extension_name</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#174">priority</a>,
+                    <a href="#229">extension_point_name</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#225">type_</a>.<a href="../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                    <a href="#230">extension_name</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#227">priority</a>,
                 );
-                from_glib_none(<a href="#178">e</a>)
+                from_glib_none(<a href="#231">e</a>)
             })
         })
     }

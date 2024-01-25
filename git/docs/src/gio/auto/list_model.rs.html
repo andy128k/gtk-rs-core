@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/list_model.rs`."><title>list_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/list_model.rs`."><title>list_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -357,70 +357,70 @@
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`ListModel`][crate::ListModel] is an interface that represents a mutable list of
-    /// `GObjects`. Its main intention is as a model for various widgets in
-    /// user interfaces, such as list views, but it can also be used as a
+    <span class="doccomment">/// `GListModel` is an interface that represents a mutable list of
+    /// [`glib::Object`][crate::glib::Object]. Its main intention is as a model for various widgets
+    /// in user interfaces, such as list views, but it can also be used as a
     /// convenient method of returning lists of data, with support for
     /// updates.
     ///
     /// Each object in the list may also report changes in itself via some
-    /// mechanism (normally the [`notify`][struct@crate::glib::Object#notify] signal). Taken together
-    /// with the [`items-changed`][struct@crate::ListModel#items-changed] signal, this provides for a list
-    /// that can change its membership, and in which the members can change
-    /// their individual properties.
+    /// mechanism (normally the [`notify`][struct@crate::glib::Object#notify] signal).  Taken
+    /// together with the [`items-changed`][struct@crate::ListModel#items-changed] signal, this provides
+    /// for a list that can change its membership, and in which the members can
+    /// change their individual properties.
     ///
     /// A good example would be the list of visible wireless network access
     /// points, where each access point can report dynamic properties such as
     /// signal strength.
     ///
-    /// It is important to note that the [`ListModel`][crate::ListModel] itself does not report
-    /// changes to the individual items. It only reports changes to the list
-    /// membership. If you want to observe changes to the objects themselves
+    /// It is important to note that the `GListModel` itself does not report
+    /// changes to the individual items.  It only reports changes to the list
+    /// membership.  If you want to observe changes to the objects themselves
     /// then you need to connect signals to the objects that you are
     /// interested in.
     ///
-    /// All items in a [`ListModel`][crate::ListModel] are of (or derived from) the same type.
-    /// [`ListModelExt::item_type()`][crate::prelude::ListModelExt::item_type()] returns that type. The type may be an
+    /// All items in a `GListModel` are of (or derived from) the same type.
+    /// [`ListModelExt::item_type()`][crate::prelude::ListModelExt::item_type()] returns that type.  The type may be an
     /// interface, in which case all objects in the list must implement it.
     ///
     /// The semantics are close to that of an array:
-    /// [`ListModelExt::n_items()`][crate::prelude::ListModelExt::n_items()] returns the number of items in the list and
-    /// `g_list_model_get_item()` returns an item at a (0-based) position. In
-    /// order to allow implementations to calculate the list length lazily,
+    /// [`ListModelExt::n_items()`][crate::prelude::ListModelExt::n_items()] returns the number of items in the list
+    /// and `Gio::ListModel::get_item()` returns an item at a (0-based) position.
+    /// In order to allow implementations to calculate the list length lazily,
     /// you can also iterate over items: starting from 0, repeatedly call
-    /// `g_list_model_get_item()` until it returns [`None`].
+    /// `Gio::ListModel::get_item()` until it returns `NULL`.
     ///
     /// An implementation may create objects lazily, but must take care to
     /// return the same object for a given position until all references to
     /// it are gone.
     ///
     /// On the other side, a consumer is expected only to hold references on
-    /// objects that are currently "user visible", in order to facilitate the
+    /// objects that are currently ‘user visible’, in order to facilitate the
     /// maximum level of laziness in the implementation of the list and to
     /// reduce the required number of signal connections at a given time.
     ///
-    /// This interface is intended only to be used from a single thread. The
+    /// This interface is intended only to be used from a single thread.  The
     /// thread in which it is appropriate to use it depends on the particular
     /// implementation, but typically it will be from the thread that owns
-    /// the [thread-default main context][g-main-context-push-thread-default]
-    /// in effect at the time that the model was created.
+    /// the thread-default main context (see
+    /// [`glib::MainContext::push_thread_default()`][crate::glib::MainContext::push_thread_default()]) in effect at the time that the
+    /// model was created.
     ///
-    /// Over time, it has established itself as good practice for listmodel
+    /// Over time, it has established itself as good practice for list model
     /// implementations to provide properties `item-type` and `n-items` to
     /// ease working with them. While it is not required, it is recommended
     /// that implementations provide these two properties. They should return
-    /// the values of [`ListModelExt::item_type()`][crate::prelude::ListModelExt::item_type()] and [`ListModelExt::n_items()`][crate::prelude::ListModelExt::n_items()]
-    /// respectively and be defined as such:
+    /// the values of [`ListModelExt::item_type()`][crate::prelude::ListModelExt::item_type()] and
+    /// [`ListModelExt::n_items()`][crate::prelude::ListModelExt::n_items()] respectively and be defined as such:
     ///
+    /// **⚠️ The following code is in c ⚠️**
     ///
-    /// **⚠️ The following code is in C ⚠️**
-    ///
-    /// ```C
+    /// ```c
     /// properties[PROP_ITEM_TYPE] =
-    ///   g_param_spec_gtype ("item-type", "", "", G_TYPE_OBJECT,
+    ///   g_param_spec_gtype ("item-type", NULL, NULL, G_TYPE_OBJECT,
     ///                       G_PARAM_CONSTRUCT_ONLY | G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
     /// properties[PROP_N_ITEMS] =
-    ///   g_param_spec_uint ("n-items", "", "", 0, G_MAXUINT, 0,
+    ///   g_param_spec_uint ("n-items", NULL, NULL, 0, G_MAXUINT, 0,
     ///                      G_PARAM_READABLE | G_PARAM_STATIC_STRINGS);
     /// ```
     ///
@@ -429,7 +429,7 @@
     ///
     /// #### `items-changed`
     ///  This signal is emitted whenever items were added to or removed
-    /// from `list`. At `position`, `removed` items were removed and `added`
+    /// from @list. At @position, @removed items were removed and @added
     /// items were added in their place.
     ///
     /// Note: If `removed != added`, the positions of all later items
@@ -463,18 +463,18 @@
 ///
 /// [`ListModel`][struct@crate::ListModel], [`ListStore`][struct@crate::ListStore]
 </span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ListModelExt.html">ListModelExt</a>: IsA&lt;<a href="#12-102">ListModel</a>&gt; + <a href="#109">sealed::Sealed</a> + <span class="lifetime">'static </span>{
-    <span class="doccomment">/// Gets the type of the items in `self`.
+    <span class="doccomment">/// Gets the type of the items in @self.
     ///
-    /// All items returned from `g_list_model_get_item()` are of the type
+    /// All items returned from g_list_model_get_item() are of the type
     /// returned by this function, or a subtype, or if the type is an
     /// interface, they are an implementation of that interface.
     ///
-    /// The item type of a [`ListModel`][crate::ListModel] can not change during the life of the
+    /// The item type of a #GListModel can not change during the life of the
     /// model.
     ///
     /// # Returns
     ///
-    /// the `GType` of the items contained in `self`.
+    /// the #GType of the items contained in @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_list_model_get_item_type"</span>)]
     #[doc(alias = <span class="string">"get_item_type"</span>)]
     </span><span class="kw">fn </span>item_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/types/struct.Type.html">glib::types::Type</a> {
@@ -485,39 +485,39 @@
         }
     }
 
-    <span class="doccomment">/// Gets the number of items in `self`.
+    <span class="doccomment">/// Gets the number of items in @self.
     ///
     /// Depending on the model implementation, calling this function may be
     /// less efficient than iterating the list with increasing values for
-    /// `position` until `g_list_model_get_item()` returns [`None`].
+    /// @position until g_list_model_get_item() returns [`None`].
     ///
     /// # Returns
     ///
-    /// the number of items in `self`.
+    /// the number of items in @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_list_model_get_n_items"</span>)]
     #[doc(alias = <span class="string">"get_n_items"</span>)]
     </span><span class="kw">fn </span>n_items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_list_model_get_n_items(<a class="self" href="#152">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Get the item at `position`.
+    <span class="doccomment">/// Get the item at @position.
     ///
-    /// If `position` is greater than the number of items in `self`, [`None`] is
+    /// If @position is greater than the number of items in @self, [`None`] is
     /// returned.
     ///
     /// [`None`] is never returned for an index that is smaller than the length
     /// of the list.
     ///
     /// This function is meant to be used by language bindings in place
-    /// of `g_list_model_get_item()`.
+    /// of g_list_model_get_item().
     ///
-    /// See also: [`n_items()`][Self::n_items()]
+    /// See also: g_list_model_get_n_items()
     /// ## `position`
     /// the position of the item to fetch
     ///
     /// # Returns
     ///
-    /// the object at `position`.
+    /// the object at @position.
     </span><span class="attr">#[doc(alias = <span class="string">"g_list_model_get_object"</span>)]
     #[doc(alias = <span class="string">"get_object"</span>)]
     </span><span class="kw">fn </span>item(<span class="kw-2">&amp;</span><span class="self">self</span>, position: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/object/struct.Object.html">glib::Object</a>&gt; {
@@ -529,20 +529,20 @@
         }
     }
 
-    <span class="doccomment">/// Emits the [`items-changed`][struct@crate::ListModel#items-changed] signal on `self`.
+    <span class="doccomment">/// Emits the #GListModel::items-changed signal on @self.
     ///
     /// This function should only be called by classes implementing
-    /// [`ListModel`][crate::ListModel]. It has to be called after the internal representation
-    /// of `self` has been updated, because handlers connected to this signal
+    /// #GListModel. It has to be called after the internal representation
+    /// of @self has been updated, because handlers connected to this signal
     /// might query the new state of the list.
     ///
     /// Implementations must only make changes to the model (as visible to
     /// its consumer) in places that will not cause problems for that
-    /// consumer. For models that are driven directly by a write API (such
-    /// as [`ListStore`][crate::ListStore]), changes can be reported in response to uses of that
-    /// API. For models that represent remote data, changes should only be
-    /// made from a fresh mainloop dispatch. It is particularly not
-    /// permitted to make changes in response to a call to the [`ListModel`][crate::ListModel]
+    /// consumer.  For models that are driven directly by a write API (such
+    /// as #GListStore), changes can be reported in response to uses of that
+    /// API.  For models that represent remote data, changes should only be
+    /// made from a fresh mainloop dispatch.  It is particularly not
+    /// permitted to make changes in response to a call to the #GListModel
     /// consumer API.
     ///
     /// Stated another way: in general, it is assumed that code making a
@@ -550,7 +550,7 @@
     /// mainloop, and without calling other code, will continue to view the
     /// same contents of the model.
     /// ## `position`
-    /// the position at which `self` changed
+    /// the position at which @self changed
     /// ## `removed`
     /// the number of items removed
     /// ## `added`
@@ -568,13 +568,13 @@
     }
 
     <span class="doccomment">/// This signal is emitted whenever items were added to or removed
-    /// from `list`. At `position`, `removed` items were removed and `added`
+    /// from @list. At @position, @removed items were removed and @added
     /// items were added in their place.
     ///
     /// Note: If `removed != added`, the positions of all later items
     /// in the model change.
     /// ## `position`
-    /// the position at which `list` changed
+    /// the position at which @list changed
     /// ## `removed`
     /// the number of items removed
     /// ## `added`

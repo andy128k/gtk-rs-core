@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/regex.rs`."><title>regex.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/regex.rs`."><title>regex.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -783,20 +783,20 @@
 //! compatibility with GLib.Regex based APIs.
 
 </span><span class="kw">use crate</span>::{
-    <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="gstring.rs.html#24">GStr</a>, <a href="gstring.rs.html#676">GStringPtr</a>, <a href="gstring.rs.html#2301-2303">IntoGStr</a>, <a href="match_info.rs.html#10-13">MatchInfo</a>, <a href="collections/ptr_slice.rs.html#18-26">PtrSlice</a>, <a href="auto/regex.rs.html#7-69">Regex</a>, <a href="auto/flags.rs.html#475-594">RegexCompileFlags</a>,
-    <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+    <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="gstring.rs.html#24">GStr</a>, <a href="gstring.rs.html#676">GStringPtr</a>, <a href="gstring.rs.html#2301-2303">IntoGStr</a>, <a href="match_info.rs.html#10-13">MatchInfo</a>, <a href="collections/ptr_slice.rs.html#18-26">PtrSlice</a>, <a href="auto/regex.rs.html#7-69">Regex</a>, <a href="auto/flags.rs.html#474-593">RegexCompileFlags</a>,
+    <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
 };
 <span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/core/mem/index.html">mem</a>, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>};
 
 <span class="kw">impl </span><a href="auto/regex.rs.html#7-69">Regex</a> {
-    <span class="doccomment">/// Retrieves the number of the subexpression named `name`.
+    <span class="doccomment">/// Retrieves the number of the subexpression named @name.
     /// ## `name`
     /// name of the subexpression
     ///
     /// # Returns
     ///
-    /// The number of the subexpression or -1 if `name`
-    ///  does not exists
+    /// The number of the subexpression or -1 if @name
+    ///   does not exists
     </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_string_number"</span>)]
     #[doc(alias = <span class="string">"get_string_number"</span>)]
     </span><span class="kw">pub fn </span>string_number(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
@@ -805,15 +805,15 @@
         })
     }
 
-    <span class="doccomment">/// Escapes the nul characters in `string` to "\x00". It can be used
+    <span class="doccomment">/// Escapes the nul characters in @string to "\x00".  It can be used
     /// to compile a regex with embedded nul characters.
     ///
-    /// For completeness, `length` can be -1 for a nul-terminated string.
-    /// In this case the output string will be of course equal to `string`.
+    /// For completeness, @length can be -1 for a nul-terminated string.
+    /// In this case the output string will be of course equal to @string.
     /// ## `string`
     /// the string to escape
     /// ## `length`
-    /// the length of `string`
+    /// the length of @string
     ///
     /// # Returns
     ///
@@ -831,16 +831,16 @@
     }
 
     <span class="doccomment">/// Escapes the special characters used for regular expressions
-    /// in `string`, for instance "a.b*c" becomes "a\.b\*c". This
+    /// in @string, for instance "a.b*c" becomes "a\.b\*c". This
     /// function is useful to dynamically generate regular expressions.
     ///
-    /// `string` can contain nul characters that are replaced with "\0",
-    /// in this case remember to specify the correct length of `string`
-    /// in `length`.
+    /// @string can contain nul characters that are replaced with "\0",
+    /// in this case remember to specify the correct length of @string
+    /// in @length.
     /// ## `string`
     /// the string to escape
     /// ## `length`
-    /// the length of `string`, in bytes, or -1 if `string` is nul-terminated
+    /// the length of @string, in bytes, or -1 if @string is nul-terminated
     ///
     /// # Returns
     ///
@@ -857,25 +857,25 @@
         }
     }
 
-    <span class="doccomment">/// Checks whether `replacement` is a valid replacement string
-    /// (see [`replace()`][Self::replace()]), i.e. that all escape sequences in
+    <span class="doccomment">/// Checks whether @replacement is a valid replacement string
+    /// (see g_regex_replace()), i.e. that all escape sequences in
     /// it are valid.
     ///
-    /// If `has_references` is not [`None`] then `replacement` is checked
+    /// If @has_references is not [`None`] then @replacement is checked
     /// for pattern references. For instance, replacement text 'foo\n'
     /// does not contain references and may be evaluated without information
     /// about actual match, but '\0\1' (whole match followed by first
-    /// subpattern) requires valid [`MatchInfo`][crate::MatchInfo] object.
+    /// subpattern) requires valid #GMatchInfo object.
     /// ## `replacement`
     /// the replacement string
     ///
     /// # Returns
     ///
-    /// whether `replacement` is a valid replacement string
+    /// whether @replacement is a valid replacement string
     ///
     /// ## `has_references`
     /// location to store information about
-    ///  references in `replacement` or [`None`]
+    ///   references in @replacement or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_regex_check_replacement"</span>)]
     </span><span class="kw">pub fn </span>check_replacement(replacement: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
         <a href="#102">replacement</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|replacement| <span class="kw">unsafe </span>{
@@ -895,16 +895,16 @@
         })
     }
 
-    <span class="doccomment">/// Scans for a match in `string` for `pattern`.
+    <span class="doccomment">/// Scans for a match in @string for @pattern.
     ///
-    /// This function is equivalent to [`match_()`][Self::match_()] but it does not
-    /// require to compile the pattern with [`new()`][Self::new()], avoiding some
+    /// This function is equivalent to g_regex_match() but it does not
+    /// require to compile the pattern with g_regex_new(), avoiding some
     /// lines of code when you need just to do a match without extracting
     /// substrings, capture counts, and so on.
     ///
-    /// If this function is to be called on the same `pattern` more than
+    /// If this function is to be called on the same @pattern more than
     /// once, it's more efficient to compile the pattern once with
-    /// [`new()`][Self::new()] and then use [`match_()`][Self::match_()].
+    /// g_regex_new() and then use g_regex_match().
     /// ## `pattern`
     /// the regular expression
     /// ## `string`
@@ -921,8 +921,8 @@
     </span><span class="kw">pub fn </span>match_simple(
         pattern: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        compile_options: <a href="auto/flags.rs.html#475-594">RegexCompileFlags</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        compile_options: <a href="auto/flags.rs.html#474-593">RegexCompileFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <a href="#144">pattern</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|pattern| {
             <a href="#145">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| <span class="kw">unsafe </span>{
@@ -936,10 +936,10 @@
         })
     }
 
-    <span class="doccomment">/// Replaces all occurrences of the pattern in `self` with the
+    <span class="doccomment">/// Replaces all occurrences of the pattern in @self with the
     /// replacement text. Backreferences of the form '\number' or
-    /// '\g`&lt;number&gt;`' in the replacement text are interpolated by the
-    /// number-th captured subexpression of the match, '\g`&lt;name&gt;`' refers
+    /// '\g&lt;number&gt;' in the replacement text are interpolated by the
+    /// number-th captured subexpression of the match, '\g&lt;name&gt;' refers
     /// to the captured subexpression with the given name. '\0' refers
     /// to the complete match, but '\0' followed by a number is the octal
     /// representation of a character. To include a literal '\' in the
@@ -953,13 +953,13 @@
     /// - \U: Convert to upper case till \E
     /// - \E: End case modification
     ///
-    /// If you do not need to use backreferences use [`replace_literal()`][Self::replace_literal()].
+    /// If you do not need to use backreferences use g_regex_replace_literal().
     ///
-    /// The `replacement` string must be UTF-8 encoded even if [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] was
-    /// passed to [`new()`][Self::new()]. If you want to use not UTF-8 encoded strings
-    /// you can use [`replace_literal()`][Self::replace_literal()].
+    /// The @replacement string must be UTF-8 encoded even if [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] was
+    /// passed to g_regex_new(). If you want to use not UTF-8 encoded strings
+    /// you can use g_regex_replace_literal().
     ///
-    /// Setting `start_position` differs from just passing over a shortened
+    /// Setting @start_position differs from just passing over a shortened
     /// string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the case of a pattern that
     /// begins with any kind of lookbehind assertion, such as "\b".
     /// ## `string`
@@ -980,7 +980,7 @@
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
         replacement: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="#202">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
@@ -1008,17 +1008,17 @@
     <span class="doccomment">/// Using the standard algorithm for regular expression matching only
     /// the longest match in the string is retrieved. This function uses
     /// a different algorithm so it can retrieve all the possible matches.
-    /// For more documentation see [`match_all_full()`][Self::match_all_full()].
+    /// For more documentation see g_regex_match_all_full().
     ///
-    /// A [`MatchInfo`][crate::MatchInfo] structure, used to get information on the match, is
-    /// stored in `match_info` if not [`None`]. Note that if `match_info` is
+    /// A #GMatchInfo structure, used to get information on the match, is
+    /// stored in @match_info if not [`None`]. Note that if @match_info is
     /// not [`None`] then it is created even if the function returns [`false`],
     /// i.e. you must free it regardless if regular expression actually
     /// matched.
     ///
-    /// `string` is not copied and is used in [`MatchInfo`][crate::MatchInfo] internally. If
-    /// you use any [`MatchInfo`][crate::MatchInfo] method (except `g_match_info_free()`) after
-    /// freeing or modifying `string` then the behaviour is undefined.
+    /// @string is not copied and is used in #GMatchInfo internally. If
+    /// you use any #GMatchInfo method (except g_match_info_free()) after
+    /// freeing or modifying @string then the behaviour is undefined.
     /// ## `string`
     /// the string to scan for matches
     /// ## `match_options`
@@ -1030,54 +1030,54 @@
     ///
     /// ## `match_info`
     /// pointer to location where to store
-    ///  the [`MatchInfo`][crate::MatchInfo], or [`None`] if you do not need it
+    ///     the #GMatchInfo, or [`None`] if you do not need it
     </span><span class="attr">#[doc(alias = <span class="string">"g_regex_match_all"</span>)]
     </span><span class="kw">pub fn </span>match_all&lt;<span class="lifetime">'input</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw-2">&amp;</span><span class="lifetime">'input </span><a href="gstring.rs.html#24">GStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; <span class="prelude-ty">Option</span>&lt;MatchInfo&lt;<span class="lifetime">'input</span>&gt;&gt; {
         <a class="self" href="#258">self</a>.<a href="#318-343">match_all_full</a>(<a href="#259">string</a>, <span class="number">0</span>, <a href="#260">match_options</a>).ok()
     }
 
     <span class="doccomment">/// Using the standard algorithm for regular expression matching only
-    /// the longest match in the `string` is retrieved, it is not possible
+    /// the longest match in the @string is retrieved, it is not possible
     /// to obtain all the available matches. For instance matching
-    /// "`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`" against the pattern "&lt;.*&gt;"
-    /// you get "`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`".
+    /// "&lt;a&gt; &lt;b&gt; &lt;c&gt;" against the pattern "&lt;.*&gt;"
+    /// you get "&lt;a&gt; &lt;b&gt; &lt;c&gt;".
     ///
     /// This function uses a different algorithm (called DFA, i.e. deterministic
     /// finite automaton), so it can retrieve all the possible matches, all
     /// starting at the same point in the string. For instance matching
-    /// "`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`" against the pattern "&lt;.*&gt;;"
-    /// you would obtain three matches: "`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`",
-    /// "`&lt;a&gt;` `&lt;b&gt;`" and "`&lt;a&gt;`".
+    /// "&lt;a&gt; &lt;b&gt; &lt;c&gt;" against the pattern "&lt;.*&gt;;"
+    /// you would obtain three matches: "&lt;a&gt; &lt;b&gt; &lt;c&gt;",
+    /// "&lt;a&gt; &lt;b&gt;" and "&lt;a&gt;".
     ///
     /// The number of matched strings is retrieved using
-    /// [`MatchInfo::match_count()`][crate::MatchInfo::match_count()]. To obtain the matched strings and
-    /// their position you can use, respectively, [`MatchInfo::fetch()`][crate::MatchInfo::fetch()] and
-    /// [`MatchInfo::fetch_pos()`][crate::MatchInfo::fetch_pos()]. Note that the strings are returned in
+    /// g_match_info_get_match_count(). To obtain the matched strings and
+    /// their position you can use, respectively, g_match_info_fetch() and
+    /// g_match_info_fetch_pos(). Note that the strings are returned in
     /// reverse order of length; that is, the longest matching string is
     /// given first.
     ///
     /// Note that the DFA algorithm is slower than the standard one and it
     /// is not able to capture substrings, so backreferences do not work.
     ///
-    /// Setting `start_position` differs from just passing over a shortened
+    /// Setting @start_position differs from just passing over a shortened
     /// string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the case of a pattern
     /// that begins with any kind of lookbehind assertion, such as "\b".
     ///
-    /// Unless [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] is specified in the options, `string` must be valid UTF-8.
+    /// Unless [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] is specified in the options, @string must be valid UTF-8.
     ///
-    /// A [`MatchInfo`][crate::MatchInfo] structure, used to get information on the match, is
-    /// stored in `match_info` if not [`None`]. Note that if `match_info` is
+    /// A #GMatchInfo structure, used to get information on the match, is
+    /// stored in @match_info if not [`None`]. Note that if @match_info is
     /// not [`None`] then it is created even if the function returns [`false`],
     /// i.e. you must free it regardless if regular expression actually
     /// matched.
     ///
-    /// `string` is not copied and is used in [`MatchInfo`][crate::MatchInfo] internally. If
-    /// you use any [`MatchInfo`][crate::MatchInfo] method (except `g_match_info_free()`) after
-    /// freeing or modifying `string` then the behaviour is undefined.
+    /// @string is not copied and is used in #GMatchInfo internally. If
+    /// you use any #GMatchInfo method (except g_match_info_free()) after
+    /// freeing or modifying @string then the behaviour is undefined.
     /// ## `string`
     /// the string to scan for matches
     /// ## `start_position`
@@ -1091,13 +1091,13 @@
     ///
     /// ## `match_info`
     /// pointer to location where to store
-    ///  the [`MatchInfo`][crate::MatchInfo], or [`None`] if you do not need it
+    ///     the #GMatchInfo, or [`None`] if you do not need it
     </span><span class="attr">#[doc(alias = <span class="string">"g_regex_match_all_full"</span>)]
     </span><span class="kw">pub fn </span>match_all_full&lt;<span class="lifetime">'input</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw-2">&amp;</span><span class="lifetime">'input </span><a href="gstring.rs.html#24">GStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;MatchInfo&lt;<span class="lifetime">'input</span>&gt;, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>match_info = ptr::null_mut();
@@ -1124,34 +1124,34 @@
     </span><span class="kw">pub fn </span>match_&lt;<span class="lifetime">'input</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw-2">&amp;</span><span class="lifetime">'input </span><a href="gstring.rs.html#24">GStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; <span class="prelude-ty">Option</span>&lt;MatchInfo&lt;<span class="lifetime">'input</span>&gt;&gt; {
         <a class="self" href="#347">self</a>.<a href="#424-449">match_full</a>(<a href="#348">string</a>, <span class="number">0</span>, <a href="#349">match_options</a>).ok()
     }
 
-    <span class="doccomment">/// Scans for a match in `string` for the pattern in `self`.
-    /// The `match_options` are combined with the match options specified
-    /// when the `self` structure was created, letting you have more
-    /// flexibility in reusing [`Regex`][crate::Regex] structures.
+    <span class="doccomment">/// Scans for a match in @string for the pattern in @self.
+    /// The @match_options are combined with the match options specified
+    /// when the @self structure was created, letting you have more
+    /// flexibility in reusing #GRegex structures.
     ///
-    /// Setting `start_position` differs from just passing over a shortened
+    /// Setting @start_position differs from just passing over a shortened
     /// string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the case of a pattern
     /// that begins with any kind of lookbehind assertion, such as "\b".
     ///
-    /// Unless [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] is specified in the options, `string` must be valid UTF-8.
+    /// Unless [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] is specified in the options, @string must be valid UTF-8.
     ///
-    /// A [`MatchInfo`][crate::MatchInfo] structure, used to get information on the match, is
-    /// stored in `match_info` if not [`None`]. Note that if `match_info` is
+    /// A #GMatchInfo structure, used to get information on the match, is
+    /// stored in @match_info if not [`None`]. Note that if @match_info is
     /// not [`None`] then it is created even if the function returns [`false`],
     /// i.e. you must free it regardless if regular expression actually
     /// matched.
     ///
-    /// `string` is not copied and is used in [`MatchInfo`][crate::MatchInfo] internally. If
-    /// you use any [`MatchInfo`][crate::MatchInfo] method (except `g_match_info_free()`) after
-    /// freeing or modifying `string` then the behaviour is undefined.
+    /// @string is not copied and is used in #GMatchInfo internally. If
+    /// you use any #GMatchInfo method (except g_match_info_free()) after
+    /// freeing or modifying @string then the behaviour is undefined.
     ///
     /// To retrieve all the non-overlapping matches of the pattern in
-    /// string you can use [`MatchInfo::next()`][crate::MatchInfo::next()].
+    /// string you can use g_match_info_next().
     ///
     ///
     ///
@@ -1197,13 +1197,13 @@
     ///
     /// ## `match_info`
     /// pointer to location where to store
-    ///  the [`MatchInfo`][crate::MatchInfo], or [`None`] if you do not need it
+    ///     the #GMatchInfo, or [`None`] if you do not need it
     </span><span class="attr">#[doc(alias = <span class="string">"g_regex_match_full"</span>)]
     </span><span class="kw">pub fn </span>match_full&lt;<span class="lifetime">'input</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw-2">&amp;</span><span class="lifetime">'input </span><a href="gstring.rs.html#24">GStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;MatchInfo&lt;<span class="lifetime">'input</span>&gt;, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>match_info = ptr::null_mut();
@@ -1226,11 +1226,11 @@
         }
     }
 
-    <span class="doccomment">/// Replaces all occurrences of the pattern in `self` with the
-    /// replacement text. `replacement` is replaced literally, to
-    /// include backreferences use [`replace()`][Self::replace()].
+    <span class="doccomment">/// Replaces all occurrences of the pattern in @self with the
+    /// replacement text. @replacement is replaced literally, to
+    /// include backreferences use g_regex_replace().
     ///
-    /// Setting `start_position` differs from just passing over a
+    /// Setting @start_position differs from just passing over a
     /// shortened string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the
     /// case of a pattern that begins with any kind of lookbehind
     /// assertion, such as "\b".
@@ -1252,7 +1252,7 @@
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
         replacement: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="#474">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
@@ -1290,7 +1290,7 @@
     /// you do need to represent empty elements, you'll need to check for the
     /// empty string before calling this function.
     ///
-    /// A pattern that can match empty strings splits `string` into separate
+    /// A pattern that can match empty strings splits @string into separate
     /// characters wherever it matches the empty string between characters.
     /// For example splitting "ab c" using as a separator "\s*", you will get
     /// "a", "b" and "c".
@@ -1302,12 +1302,12 @@
     /// # Returns
     ///
     /// a [`None`]-terminated gchar ** array. Free
-    /// it using `g_strfreev()`
+    /// it using g_strfreev()
     </span><span class="attr">#[doc(alias = <span class="string">"g_regex_split"</span>)]
     </span><span class="kw">pub fn </span>split(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; PtrSlice&lt;<a href="gstring.rs.html#676">GStringPtr</a>&gt; {
         <a class="self" href="#530">self</a>.<a href="#574-600">split_full</a>(<a href="#531">string</a>, <span class="number">0</span>, <a href="#532">match_options</a>, <span class="number">0</span>)
             .unwrap_or_default()
@@ -1326,12 +1326,12 @@
     /// you do need to represent empty elements, you'll need to check for the
     /// empty string before calling this function.
     ///
-    /// A pattern that can match empty strings splits `string` into separate
+    /// A pattern that can match empty strings splits @string into separate
     /// characters wherever it matches the empty string between characters.
     /// For example splitting "ab c" using as a separator "\s*", you will get
     /// "a", "b" and "c".
     ///
-    /// Setting `start_position` differs from just passing over a shortened
+    /// Setting @start_position differs from just passing over a shortened
     /// string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the case of a pattern
     /// that begins with any kind of lookbehind assertion, such as "\b".
     /// ## `string`
@@ -1341,19 +1341,19 @@
     /// ## `match_options`
     /// match time option flags
     /// ## `max_tokens`
-    /// the maximum number of tokens to split `string` into.
-    ///  If this is less than 1, the string is split completely
+    /// the maximum number of tokens to split @string into.
+    ///   If this is less than 1, the string is split completely
     ///
     /// # Returns
     ///
     /// a [`None`]-terminated gchar ** array. Free
-    /// it using `g_strfreev()`
+    /// it using g_strfreev()
     </span><span class="attr">#[doc(alias = <span class="string">"g_regex_split_full"</span>)]
     </span><span class="kw">pub fn </span>split_full(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
         max_tokens: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;PtrSlice&lt;<a href="gstring.rs.html#676">GStringPtr</a>&gt;, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
@@ -1383,14 +1383,14 @@
     /// If the pattern does not match anywhere in the string, then the
     /// whole string is returned as the first token.
     ///
-    /// This function is equivalent to [`split()`][Self::split()] but it does
-    /// not require to compile the pattern with [`new()`][Self::new()], avoiding
+    /// This function is equivalent to g_regex_split() but it does
+    /// not require to compile the pattern with g_regex_new(), avoiding
     /// some lines of code when you need just to do a split without
     /// extracting substrings, capture counts, and so on.
     ///
-    /// If this function is to be called on the same `pattern` more than
+    /// If this function is to be called on the same @pattern more than
     /// once, it's more efficient to compile the pattern once with
-    /// [`new()`][Self::new()] and then use [`split()`][Self::split()].
+    /// g_regex_new() and then use g_regex_split().
     ///
     /// As a special case, the result of splitting the empty string ""
     /// is an empty vector, not a vector containing a single string.
@@ -1400,7 +1400,7 @@
     /// you'll need to check for the empty string before calling this
     /// function.
     ///
-    /// A pattern that can match empty strings splits `string` into
+    /// A pattern that can match empty strings splits @string into
     /// separate characters wherever it matches the empty string between
     /// characters. For example splitting "ab c" using as a separator
     /// "\s*", you will get "a", "b" and "c".
@@ -1416,13 +1416,13 @@
     /// # Returns
     ///
     /// a [`None`]-terminated array of strings. Free
-    /// it using `g_strfreev()`
+    /// it using g_strfreev()
     </span><span class="attr">#[doc(alias = <span class="string">"g_regex_split_simple"</span>)]
     </span><span class="kw">pub fn </span>split_simple(
         pattern: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        compile_options: <a href="auto/flags.rs.html#475-594">RegexCompileFlags</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        compile_options: <a href="auto/flags.rs.html#474-593">RegexCompileFlags</a>,
+        match_options: <a href="auto/flags.rs.html#613-711">RegexMatchFlags</a>,
     ) -&gt; PtrSlice&lt;<a href="gstring.rs.html#676">GStringPtr</a>&gt; {
         <a href="#644">pattern</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|pattern| {
             <a href="#645">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| <span class="kw">unsafe </span>{

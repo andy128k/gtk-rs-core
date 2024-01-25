@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/source.rs`."><title>source.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/source.rs`."><title>source.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -395,25 +395,25 @@
     //    unsafe { TODO: call ffi:g_source_new() }
     //}
 
-    </span><span class="doccomment">/// Adds `child_source` to `self` as a "polled" source; when `self` is
-    /// added to a [`MainContext`][crate::MainContext], `child_source` will be automatically added
-    /// with the same priority, when `child_source` is triggered, it will
-    /// cause `self` to dispatch (in addition to calling its own
-    /// callback), and when `self` is destroyed, it will destroy
-    /// `child_source` as well. (`self` will also still be dispatched if
+    </span><span class="doccomment">/// Adds @child_source to @self as a "polled" source; when @self is
+    /// added to a #GMainContext, @child_source will be automatically added
+    /// with the same priority, when @child_source is triggered, it will
+    /// cause @self to dispatch (in addition to calling its own
+    /// callback), and when @self is destroyed, it will destroy
+    /// @child_source as well. (@self will also still be dispatched if
     /// its own prepare/check functions indicate that it is ready.)
     ///
-    /// If you don't need `child_source` to do anything on its own when it
-    /// triggers, you can call `g_source_set_dummy_callback()` on it to set a
+    /// If you don't need @child_source to do anything on its own when it
+    /// triggers, you can call g_source_set_dummy_callback() on it to set a
     /// callback that does nothing (except return [`true`] if appropriate).
     ///
-    /// `self` will hold a reference on `child_source` while `child_source`
+    /// @self will hold a reference on @child_source while @child_source
     /// is attached to it.
     ///
-    /// This API is only intended to be used by implementations of [`Source`][crate::Source].
-    /// Do not call this API on a [`Source`][crate::Source] that you did not create.
+    /// This API is only intended to be used by implementations of #GSource.
+    /// Do not call this API on a #GSource that you did not create.
     /// ## `child_source`
-    /// a second [`Source`][crate::Source] that `self` should "poll"
+    /// a second #GSource that @self should "poll"
     </span><span class="attr">#[doc(alias = <span class="string">"g_source_add_child_source"</span>)]
     </span><span class="kw">pub fn </span>add_child_source(<span class="kw-2">&amp;</span><span class="self">self</span>, child_source: <span class="kw-2">&amp;</span><a href="#7-18">Source</a>) {
         <span class="kw">unsafe </span>{
@@ -439,7 +439,7 @@
     }
 
     <span class="doccomment">/// Checks whether a source is allowed to be called recursively.
-    /// see `g_source_set_can_recurse()`.
+    /// see g_source_set_can_recurse().
     ///
     /// # Returns
     ///
@@ -450,28 +450,28 @@
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_source_get_can_recurse(<a class="self" href="#77">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the [`MainContext`][crate::MainContext] with which the source is associated.
+    <span class="doccomment">/// Gets the #GMainContext with which the source is associated.
     ///
     /// You can call this on a source that has been destroyed, provided
-    /// that the [`MainContext`][crate::MainContext] it was attached to still exists (in which
-    /// case it will return that [`MainContext`][crate::MainContext]). In particular, you can
+    /// that the #GMainContext it was attached to still exists (in which
+    /// case it will return that #GMainContext). In particular, you can
     /// always call this function on the source returned from
-    /// [`main_current_source()`][crate::main_current_source()]. But calling this function on a source
-    /// whose [`MainContext`][crate::MainContext] has been destroyed is an error.
+    /// g_main_current_source(). But calling this function on a source
+    /// whose #GMainContext has been destroyed is an error.
     ///
     /// # Returns
     ///
-    /// the [`MainContext`][crate::MainContext] with which the
-    ///  source is associated, or [`None`] if the context has not
-    ///  yet been added to a source.
+    /// the #GMainContext with which the
+    ///               source is associated, or [`None`] if the context has not
+    ///               yet been added to a source.
     </span><span class="attr">#[doc(alias = <span class="string">"g_source_get_context"</span>)]
     #[doc(alias = <span class="string">"get_context"</span>)]
     </span><span class="kw">pub fn </span>context(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="main_context.rs.html#10-21">MainContext</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_source_get_context(<a class="self" href="#97">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets a name for the source, used in debugging and profiling. The
-    /// name may be [`None`] if it has never been set with `g_source_set_name()`.
+    <span class="doccomment">/// Gets a name for the source, used in debugging and profiling.  The
+    /// name may be #NULL if it has never been set with g_source_set_name().
     ///
     /// # Returns
     ///
@@ -493,11 +493,11 @@
         <span class="kw">unsafe </span>{ ffi::g_source_get_priority(<a class="self" href="#120">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Gets the "ready time" of `self`, as set by
-    /// `g_source_set_ready_time()`.
+    <span class="doccomment">/// Gets the "ready time" of @self, as set by
+    /// g_source_set_ready_time().
     ///
-    /// Any time before the current monotonic time (including 0) is an
-    /// indication that the source will fire immediately.
+    /// Any time before or equal to the current monotonic time (including 0)
+    /// is an indication that the source will fire immediately.
     ///
     /// # Returns
     ///
@@ -509,12 +509,12 @@
     }
 
     <span class="doccomment">/// Gets the time to be used when checking this source. The advantage of
-    /// calling this function over calling [`monotonic_time()`][crate::monotonic_time()] directly is
+    /// calling this function over calling g_get_monotonic_time() directly is
     /// that when checking multiple sources, GLib can cache a single value
     /// instead of having to repeatedly get the system monotonic time.
     ///
     /// The time here is the system monotonic time, if available, or some
-    /// other reasonable alternative otherwise. See [`monotonic_time()`][crate::monotonic_time()].
+    /// other reasonable alternative otherwise.  See g_get_monotonic_time().
     ///
     /// # Returns
     ///
@@ -525,7 +525,7 @@
         <span class="kw">unsafe </span>{ ffi::g_source_get_time(<a class="self" href="#152">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Returns whether `self` has been destroyed.
+    <span class="doccomment">/// Returns whether @self has been destroyed.
     ///
     /// This is important when you operate upon your objects
     /// from within idle handlers, but may have freed the object
@@ -607,7 +607,7 @@
     /// ```
     ///
     /// Calls to this function from a thread other than the one acquired by the
-    /// [`MainContext`][crate::MainContext] the [`Source`][crate::Source] is attached to are typically redundant, as the
+    /// #GMainContext the #GSource is attached to are typically redundant, as the
     /// source could be destroyed immediately after this function returns. However,
     /// once a source is destroyed it cannot be un-destroyed, so this function can be
     /// used for opportunistic checks from any thread.
@@ -630,13 +630,13 @@
     //    unsafe { TODO: call ffi:g_source_query_unix_fd() }
     //}
 
-    </span><span class="doccomment">/// Detaches `child_source` from `self` and destroys it.
+    </span><span class="doccomment">/// Detaches @child_source from @self and destroys it.
     ///
-    /// This API is only intended to be used by implementations of [`Source`][crate::Source].
-    /// Do not call this API on a [`Source`][crate::Source] that you did not create.
+    /// This API is only intended to be used by implementations of #GSource.
+    /// Do not call this API on a #GSource that you did not create.
     /// ## `child_source`
-    /// a [`Source`][crate::Source] previously passed to
-    ///  [`add_child_source()`][Self::add_child_source()].
+    /// a #GSource previously passed to
+    ///     g_source_add_child_source().
     </span><span class="attr">#[doc(alias = <span class="string">"g_source_remove_child_source"</span>)]
     </span><span class="kw">pub fn </span>remove_child_source(<span class="kw-2">&amp;</span><span class="self">self</span>, child_source: <span class="kw-2">&amp;</span><a href="#7-18">Source</a>) {
         <span class="kw">unsafe </span>{

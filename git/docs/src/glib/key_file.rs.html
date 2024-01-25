@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/key_file.rs`."><title>key_file.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/key_file.rs`."><title>key_file.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -585,22 +585,22 @@
 
 </span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/core/mem/index.html">mem</a>, <a href="https://doc.rust-lang.org/nightly/std/path/index.html">path</a>, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>};
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="error.rs.html#10-25">Error</a>, <a href="gstring.rs.html#996">GString</a>, <a href="gstring.rs.html#676">GStringPtr</a>, <a href="auto/key_file.rs.html#7-87">KeyFile</a>, <a href="auto/flags.rs.html#267-288">KeyFileFlags</a>, <a href="collections/ptr_slice.rs.html#18-26">PtrSlice</a>};
+<span class="kw">use crate</span>::{<a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="error.rs.html#10-25">Error</a>, <a href="gstring.rs.html#996">GString</a>, <a href="gstring.rs.html#676">GStringPtr</a>, <a href="auto/key_file.rs.html#7-153">KeyFile</a>, <a href="auto/flags.rs.html#267-288">KeyFileFlags</a>, <a href="collections/ptr_slice.rs.html#18-26">PtrSlice</a>};
 
-<span class="kw">impl </span><a href="auto/key_file.rs.html#7-87">KeyFile</a> {
-    <span class="doccomment">/// Writes the contents of `self` to `filename` using
-    /// [`file_set_contents()`][crate::file_set_contents()]. If you need stricter guarantees about durability of
-    /// the written file than are provided by [`file_set_contents()`][crate::file_set_contents()], use
-    /// [`file_set_contents_full()`][crate::file_set_contents_full()] with the return value of [`to_data()`][Self::to_data()].
+<span class="kw">impl </span><a href="auto/key_file.rs.html#7-153">KeyFile</a> {
+    <span class="doccomment">/// Writes the contents of @self to @filename using
+    /// g_file_set_contents(). If you need stricter guarantees about durability of
+    /// the written file than are provided by g_file_set_contents(), use
+    /// g_file_set_contents_full() with the return value of g_key_file_to_data().
     ///
     /// This function can fail for any of the reasons that
-    /// [`file_set_contents()`][crate::file_set_contents()] may fail.
+    /// g_file_set_contents() may fail.
     /// ## `filename`
     /// the name of the file to write to
     ///
     /// # Returns
     ///
-    /// [`true`] if successful, else [`false`] with `error` set
+    /// [`true`] if successful, else [`false`] with @error set
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_save_to_file"</span>)]
     </span><span class="kw">pub fn </span>save_to_file&lt;T: AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, filename: T) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-25">Error</a>&gt; {
         <span class="kw">unsafe </span>{
@@ -618,15 +618,15 @@
         }
     }
 
-    <span class="doccomment">/// This function looks for a key file named `file` in the paths
-    /// returned from [`user_data_dir()`][crate::user_data_dir()] and [`system_data_dirs()`][crate::system_data_dirs()],
-    /// loads the file into `self` and returns the file's full path in
-    /// `full_path`. If the file could not be loaded then an `error` is
-    /// set to either a [`FileError`][crate::FileError] or [`KeyFileError`][crate::KeyFileError].
+    <span class="doccomment">/// This function looks for a key file named @file in the paths
+    /// returned from g_get_user_data_dir() and g_get_system_data_dirs(),
+    /// loads the file into @self and returns the file's full path in
+    /// @full_path.  If the file could not be loaded then an `error` is
+    /// set to either a #GFileError or #GKeyFileError.
     /// ## `file`
     /// a relative path to a filename to open and parse
     /// ## `flags`
-    /// flags from [`KeyFileFlags`][crate::KeyFileFlags]
+    /// flags from #GKeyFileFlags
     ///
     /// # Returns
     ///
@@ -634,7 +634,7 @@
     ///
     /// ## `full_path`
     /// return location for a string containing the full path
-    ///  of the file, or [`None`]
+    ///   of the file, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_load_from_data_dirs"</span>)]
     </span><span class="kw">pub fn </span>load_from_data_dirs&lt;T: AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -660,11 +660,11 @@
         }
     }
 
-    <span class="doccomment">/// This function looks for a key file named `file` in the paths
-    /// specified in `search_dirs`, loads the file into `self` and
-    /// returns the file's full path in `full_path`.
+    <span class="doccomment">/// This function looks for a key file named @file in the paths
+    /// specified in @search_dirs, loads the file into @self and
+    /// returns the file's full path in @full_path.
     ///
-    /// If the file could not be found in any of the `search_dirs`,
+    /// If the file could not be found in any of the @search_dirs,
     /// [`KeyFileError::NotFound`][crate::KeyFileError::NotFound] is returned. If
     /// the file is found but the OS returns an error when opening or reading the
     /// file, a `G_FILE_ERROR` is returned. If there is a problem parsing the file, a
@@ -674,7 +674,7 @@
     /// ## `search_dirs`
     /// [`None`]-terminated array of directories to search
     /// ## `flags`
-    /// flags from [`KeyFileFlags`][crate::KeyFileFlags]
+    /// flags from #GKeyFileFlags
     ///
     /// # Returns
     ///
@@ -682,7 +682,7 @@
     ///
     /// ## `full_path`
     /// return location for a string containing the full path
-    ///  of the file, or [`None`]
+    ///   of the file, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_load_from_dirs"</span>)]
     </span><span class="kw">pub fn </span>load_from_dirs&lt;T: AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;, U: AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -712,19 +712,19 @@
         }
     }
 
-    <span class="doccomment">/// This function outputs `self` as a string.
+    <span class="doccomment">/// This function outputs @self as a string.
     ///
     /// Note that this function never reports an error,
-    /// so it is safe to pass [`None`] as `error`.
+    /// so it is safe to pass [`None`] as @error.
     ///
     /// # Returns
     ///
     /// a newly allocated string holding
-    ///  the contents of the [`KeyFile`][crate::KeyFile]
+    ///   the contents of the #GKeyFile
     ///
     /// ## `length`
     /// return location for the length of the
-    ///  returned string, or [`None`]
+    ///   returned string, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_to_data"</span>)]
     </span><span class="kw">pub fn </span>to_data(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="gstring.rs.html#996">GString</a> {
         <span class="kw">unsafe </span>{
@@ -734,14 +734,14 @@
         }
     }
 
-    <span class="doccomment">/// Returns all groups in the key file loaded with `self`.
+    <span class="doccomment">/// Returns all groups in the key file loaded with @self.
     /// The array of returned groups will be [`None`]-terminated, so
-    /// `length` may optionally be [`None`].
+    /// @length may optionally be [`None`].
     ///
     /// # Returns
     ///
     /// a newly-allocated [`None`]-terminated array of strings.
-    ///  Use `g_strfreev()` to free it.
+    ///   Use g_strfreev() to free it.
     ///
     /// ## `length`
     /// return location for the number of returned groups, or [`None`]
@@ -755,10 +755,10 @@
         }
     }
 
-    <span class="doccomment">/// Returns all keys for the group name `group_name`. The array of
-    /// returned keys will be [`None`]-terminated, so `length` may
-    /// optionally be [`None`]. In the event that the `group_name` cannot
-    /// be found, [`None`] is returned and `error` is set to
+    <span class="doccomment">/// Returns all keys for the group name @group_name.  The array of
+    /// returned keys will be [`None`]-terminated, so @length may
+    /// optionally be [`None`]. In the event that the @group_name cannot
+    /// be found, [`None`] is returned and @error is set to
     /// [`KeyFileError::GroupNotFound`][crate::KeyFileError::GroupNotFound].
     /// ## `group_name`
     /// a group name
@@ -766,7 +766,7 @@
     /// # Returns
     ///
     /// a newly-allocated [`None`]-terminated array of strings.
-    ///  Use `g_strfreev()` to free it.
+    ///     Use g_strfreev() to free it.
     ///
     /// ## `length`
     /// return location for the number of keys returned, or [`None`]
@@ -793,13 +793,13 @@
         }
     }
 
-    <span class="doccomment">/// Returns the value associated with `key` under `group_name` as a
+    <span class="doccomment">/// Returns the value associated with @key under @group_name as a
     /// boolean.
     ///
-    /// If `key` cannot be found then [`false`] is returned and `error` is set
+    /// If @key cannot be found then [`false`] is returned and @error is set
     /// to [`KeyFileError::KeyNotFound`][crate::KeyFileError::KeyNotFound]. Likewise, if the value
-    /// associated with `key` cannot be interpreted as a boolean then [`false`]
-    /// is returned and `error` is set to [`KeyFileError::InvalidValue`][crate::KeyFileError::InvalidValue].
+    /// associated with @key cannot be interpreted as a boolean then [`false`]
+    /// is returned and @error is set to [`KeyFileError::InvalidValue`][crate::KeyFileError::InvalidValue].
     /// ## `group_name`
     /// a group name
     /// ## `key`
@@ -808,7 +808,7 @@
     /// # Returns
     ///
     /// the value associated with the key as a boolean,
-    ///  or [`false`] if the key was not found or could not be parsed.
+    ///    or [`false`] if the key was not found or could not be parsed.
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_get_boolean"</span>)]
     #[doc(alias = <span class="string">"get_boolean"</span>)]
     </span><span class="kw">pub fn </span>boolean(<span class="kw-2">&amp;</span><span class="self">self</span>, group_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <a href="error.rs.html#10-25">Error</a>&gt; {
@@ -828,15 +828,15 @@
         }
     }
 
-    <span class="doccomment">/// Looks whether the key file has the key `key` in the group
-    /// `group_name`.
+    <span class="doccomment">/// Looks whether the key file has the key @key in the group
+    /// @group_name.
     ///
-    /// Note that this function does not follow the rules for [`Error`][crate::Error] strictly;
-    /// the return value both carries meaning and signals an error. To use
-    /// this function, you must pass a [`Error`][crate::Error] pointer in `error`, and check
+    /// Note that this function does not follow the rules for #GError strictly;
+    /// the return value both carries meaning and signals an error.  To use
+    /// this function, you must pass a #GError pointer in @error, and check
     /// whether it is not [`None`] to see if an error occurred.
     ///
-    /// Language bindings should use [`value()`][Self::value()] to test whether
+    /// Language bindings should use g_key_file_get_value() to test whether
     /// or not a key exists.
     /// ## `group_name`
     /// a group name
@@ -845,7 +845,7 @@
     ///
     /// # Returns
     ///
-    /// [`true`] if `key` is a part of `group_name`, [`false`] otherwise
+    /// [`true`] if @key is a part of @group_name, [`false`] otherwise
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_has_key"</span>)]
     </span><span class="kw">pub fn </span>has_key(<span class="kw-2">&amp;</span><span class="self">self</span>, group_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <a href="error.rs.html#10-25">Error</a>&gt; {
         <span class="kw">unsafe </span>{
@@ -864,13 +864,13 @@
         }
     }
 
-    <span class="doccomment">/// Returns the values associated with `key` under `group_name` as
+    <span class="doccomment">/// Returns the values associated with @key under @group_name as
     /// booleans.
     ///
-    /// If `key` cannot be found then [`None`] is returned and `error` is set to
+    /// If @key cannot be found then [`None`] is returned and @error is set to
     /// [`KeyFileError::KeyNotFound`][crate::KeyFileError::KeyNotFound]. Likewise, if the values associated
-    /// with `key` cannot be interpreted as booleans then [`None`] is returned
-    /// and `error` is set to [`KeyFileError::InvalidValue`][crate::KeyFileError::InvalidValue].
+    /// with @key cannot be interpreted as booleans then [`None`] is returned
+    /// and @error is set to [`KeyFileError::InvalidValue`][crate::KeyFileError::InvalidValue].
     /// ## `group_name`
     /// a group name
     /// ## `key`
@@ -879,9 +879,9 @@
     /// # Returns
     ///
     ///
-    ///  the values associated with the key as a list of booleans, or [`None`] if the
-    ///  key was not found or could not be parsed. The returned list of booleans
-    ///  should be freed with `g_free()` when no longer needed.
+    ///    the values associated with the key as a list of booleans, or [`None`] if the
+    ///    key was not found or could not be parsed. The returned list of booleans
+    ///    should be freed with g_free() when no longer needed.
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_get_boolean_list"</span>)]
     #[doc(alias = <span class="string">"get_boolean_list"</span>)]
     </span><span class="kw">pub fn </span>boolean_list(<span class="kw-2">&amp;</span><span class="self">self</span>, group_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;, <a href="error.rs.html#10-25">Error</a>&gt; {
@@ -905,14 +905,14 @@
         }
     }
 
-    <span class="doccomment">/// Returns the string value associated with `key` under `group_name`.
-    /// Unlike [`value()`][Self::value()], this function handles escape sequences
+    <span class="doccomment">/// Returns the string value associated with @key under @group_name.
+    /// Unlike g_key_file_get_value(), this function handles escape sequences
     /// like \s.
     ///
     /// In the event the key cannot be found, [`None`] is returned and
-    /// `error` is set to [`KeyFileError::KeyNotFound`][crate::KeyFileError::KeyNotFound]. In the
-    /// event that the `group_name` cannot be found, [`None`] is returned
-    /// and `error` is set to [`KeyFileError::GroupNotFound`][crate::KeyFileError::GroupNotFound].
+    /// @error is set to [`KeyFileError::KeyNotFound`][crate::KeyFileError::KeyNotFound].  In the
+    /// event that the @group_name cannot be found, [`None`] is returned
+    /// and @error is set to [`KeyFileError::GroupNotFound`][crate::KeyFileError::GroupNotFound].
     /// ## `group_name`
     /// a group name
     /// ## `key`
@@ -921,7 +921,7 @@
     /// # Returns
     ///
     /// a newly allocated string or [`None`] if the specified
-    ///  key cannot be found.
+    ///   key cannot be found.
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_get_string"</span>)]
     #[doc(alias = <span class="string">"get_string"</span>)]
     </span><span class="kw">pub fn </span>string(<span class="kw-2">&amp;</span><span class="self">self</span>, group_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="gstring.rs.html#996">GString</a>, <a href="error.rs.html#10-25">Error</a>&gt; {
@@ -942,12 +942,12 @@
         }
     }
 
-    <span class="doccomment">/// Returns the values associated with `key` under `group_name`.
+    <span class="doccomment">/// Returns the values associated with @key under @group_name.
     ///
     /// In the event the key cannot be found, [`None`] is returned and
-    /// `error` is set to [`KeyFileError::KeyNotFound`][crate::KeyFileError::KeyNotFound]. In the
-    /// event that the `group_name` cannot be found, [`None`] is returned
-    /// and `error` is set to [`KeyFileError::GroupNotFound`][crate::KeyFileError::GroupNotFound].
+    /// @error is set to [`KeyFileError::KeyNotFound`][crate::KeyFileError::KeyNotFound].  In the
+    /// event that the @group_name cannot be found, [`None`] is returned
+    /// and @error is set to [`KeyFileError::GroupNotFound`][crate::KeyFileError::GroupNotFound].
     /// ## `group_name`
     /// a group name
     /// ## `key`
@@ -957,7 +957,7 @@
     ///
     ///
     ///  a [`None`]-terminated string array or [`None`] if the specified
-    ///  key cannot be found. The array should be freed with `g_strfreev()`.
+    ///  key cannot be found. The array should be freed with g_strfreev().
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_get_string_list"</span>)]
     #[doc(alias = <span class="string">"get_string_list"</span>)]
     </span><span class="kw">pub fn </span>string_list(<span class="kw-2">&amp;</span><span class="self">self</span>, group_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, key: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;PtrSlice&lt;<a href="gstring.rs.html#676">GStringPtr</a>&gt;, <a href="error.rs.html#10-25">Error</a>&gt; {
@@ -983,17 +983,17 @@
         }
     }
 
-    <span class="doccomment">/// Returns the value associated with `key` under `group_name`
-    /// translated in the given `locale` if available. If `locale` is
+    <span class="doccomment">/// Returns the value associated with @key under @group_name
+    /// translated in the given @locale if available.  If @locale is
     /// [`None`] then the current locale is assumed.
     ///
-    /// If `locale` is to be non-[`None`], or if the current locale will change over
-    /// the lifetime of the [`KeyFile`][crate::KeyFile], it must be loaded with
+    /// If @locale is to be non-[`None`], or if the current locale will change over
+    /// the lifetime of the #GKeyFile, it must be loaded with
     /// [`KeyFileFlags::KEEP_TRANSLATIONS`][crate::KeyFileFlags::KEEP_TRANSLATIONS] in order to load strings for all locales.
     ///
-    /// If `key` cannot be found then [`None`] is returned and `error` is set
+    /// If @key cannot be found then [`None`] is returned and @error is set
     /// to [`KeyFileError::KeyNotFound`][crate::KeyFileError::KeyNotFound]. If the value associated
-    /// with `key` cannot be interpreted or no suitable translation can
+    /// with @key cannot be interpreted or no suitable translation can
     /// be found then the untranslated value is returned.
     /// ## `group_name`
     /// a group name
@@ -1005,7 +1005,7 @@
     /// # Returns
     ///
     /// a newly allocated string or [`None`] if the specified
-    ///  key cannot be found.
+    ///   key cannot be found.
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_get_locale_string"</span>)]
     #[doc(alias = <span class="string">"get_locale_string"</span>)]
     </span><span class="kw">pub fn </span>locale_string(
@@ -1032,19 +1032,19 @@
         }
     }
 
-    <span class="doccomment">/// Returns the values associated with `key` under `group_name`
-    /// translated in the given `locale` if available. If `locale` is
+    <span class="doccomment">/// Returns the values associated with @key under @group_name
+    /// translated in the given @locale if available.  If @locale is
     /// [`None`] then the current locale is assumed.
     ///
-    /// If `locale` is to be non-[`None`], or if the current locale will change over
-    /// the lifetime of the [`KeyFile`][crate::KeyFile], it must be loaded with
+    /// If @locale is to be non-[`None`], or if the current locale will change over
+    /// the lifetime of the #GKeyFile, it must be loaded with
     /// [`KeyFileFlags::KEEP_TRANSLATIONS`][crate::KeyFileFlags::KEEP_TRANSLATIONS] in order to load strings for all locales.
     ///
-    /// If `key` cannot be found then [`None`] is returned and `error` is set
+    /// If @key cannot be found then [`None`] is returned and @error is set
     /// to [`KeyFileError::KeyNotFound`][crate::KeyFileError::KeyNotFound]. If the values associated
-    /// with `key` cannot be interpreted or no suitable translations
+    /// with @key cannot be interpreted or no suitable translations
     /// can be found then the untranslated values are returned. The
-    /// returned array is [`None`]-terminated, so `length` may optionally
+    /// returned array is [`None`]-terminated, so @length may optionally
     /// be [`None`].
     /// ## `group_name`
     /// a group name
@@ -1056,8 +1056,8 @@
     /// # Returns
     ///
     /// a newly allocated [`None`]-terminated string array
-    ///  or [`None`] if the key isn't found. The string array should be freed
-    ///  with `g_strfreev()`.
+    ///   or [`None`] if the key isn't found. The string array should be freed
+    ///   with g_strfreev().
     </span><span class="attr">#[doc(alias = <span class="string">"g_key_file_get_locale_string_list"</span>)]
     #[doc(alias = <span class="string">"get_locale_string_list"</span>)]
     </span><span class="kw">pub fn </span>locale_string_list(

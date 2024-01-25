@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/socket.rs`."><title>socket.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/socket.rs`."><title>socket.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -1490,34 +1490,34 @@
 <span class="kw">use </span>glib::{<a href="../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="../../glib/collections/slice/struct.Slice.html">Slice</a>};
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
-</span><span class="kw">use </span><a href="auto/enums.rs.html#2587-2599"><span class="kw">crate</span>::PollableReturn</a>;
-<span class="kw">use crate</span>::{<a href="auto/cancellable.rs.html#7-83">Cancellable</a>, <a href="auto/socket.rs.html#16-146">Socket</a>, <a href="auto/socket_address.rs.html#13-35">SocketAddress</a>, <a href="auto/socket_control_message.rs.html#7-40">SocketControlMessage</a>};
+</span><span class="kw">use </span><a href="auto/enums.rs.html#2596-2608"><span class="kw">crate</span>::PollableReturn</a>;
+<span class="kw">use crate</span>::{<a href="auto/cancellable.rs.html#7-85">Cancellable</a>, <a href="auto/socket.rs.html#16-185">Socket</a>, <a href="auto/socket_address.rs.html#13-38">SocketAddress</a>, <a href="auto/socket_control_message.rs.html#7-40">SocketControlMessage</a>};
 
-<span class="kw">impl </span><a href="auto/socket.rs.html#16-146">Socket</a> {
-    <span class="doccomment">/// Creates a new [`Socket`][crate::Socket] from a native file descriptor
+<span class="kw">impl </span><a href="auto/socket.rs.html#16-185">Socket</a> {
+    <span class="doccomment">/// Creates a new #GSocket from a native file descriptor
     /// or winsock SOCKET handle.
     ///
     /// This reads all the settings from the file descriptor so that
     /// all properties should work. Note that the file descriptor
     /// will be set to non-blocking mode, independent on the blocking
-    /// mode of the [`Socket`][crate::Socket].
+    /// mode of the #GSocket.
     ///
-    /// On success, the returned [`Socket`][crate::Socket] takes ownership of `fd`. On failure, the
-    /// caller must close `fd` themselves.
+    /// On success, the returned #GSocket takes ownership of @fd. On failure, the
+    /// caller must close @fd themselves.
     ///
     /// Since GLib 2.46, it is no longer a fatal error to call this on a non-socket
-    /// descriptor. Instead, a GError will be set with code [`IOErrorEnum::Failed`][crate::IOErrorEnum::Failed]
+    /// descriptor.  Instead, a GError will be set with code [`IOErrorEnum::Failed`][crate::IOErrorEnum::Failed]
     /// ## `fd`
     /// a native socket file descriptor.
     ///
     /// # Returns
     ///
-    /// a [`Socket`][crate::Socket] or [`None`] on error.
-    ///  Free the returned object with `g_object_unref()`.
+    /// a #GSocket or [`None`] on error.
+    ///     Free the returned object with g_object_unref().
     </span><span class="attr">#[cfg(unix)]
     #[cfg_attr(docsrs, doc(cfg(unix)))]
     #[allow(clippy::missing_safety_doc)]
-    </span><span class="kw">pub unsafe fn </span>from_fd(fd: <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.IntoRawFd.html">IntoRawFd</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="auto/socket.rs.html#16-146">Socket</a>, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+    </span><span class="kw">pub unsafe fn </span>from_fd(fd: <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.IntoRawFd.html">IntoRawFd</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="auto/socket.rs.html#16-185">Socket</a>, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">let </span>fd = <a href="#44">fd</a>.<a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.IntoRawFd.html">into_raw_fd</a>();
         <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
         <span class="kw">let </span>ret = ffi::g_socket_new_from_fd(<a href="#45">fd</a>, <span class="kw-2">&amp;mut </span><a href="#46">error</a>);
@@ -1544,7 +1544,7 @@
 
 <span class="attr">#[cfg(unix)]
 #[cfg_attr(docsrs, doc(cfg(unix)))]
-</span><span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">AsRawFd</a> <span class="kw">for </span><a href="auto/socket.rs.html#16-146">Socket</a> {
+</span><span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">AsRawFd</a> <span class="kw">for </span><a href="auto/socket.rs.html#16-185">Socket</a> {
     <span class="kw">fn </span>as_raw_fd(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/type.RawFd.html">RawFd</a> {
         <span class="kw">unsafe </span>{ ffi::g_socket_get_fd(<a class="self" href="#72">self</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) <span class="kw">as _ </span>}
     }
@@ -1649,36 +1649,36 @@
 
 <span class="doccomment">/// Structure used for scatter/gather data input when receiving multiple
 /// messages or packets in one go. You generally pass in an array of empty
-/// `GInputVectors` and the operation will use all the buffers as if they
-/// were one buffer, and will set `bytes_received` to the total number of bytes
-/// received across all `GInputVectors`.
+/// #GInputVectors and the operation will use all the buffers as if they
+/// were one buffer, and will set @bytes_received to the total number of bytes
+/// received across all #GInputVectors.
 ///
 /// This structure closely mirrors `struct mmsghdr` and `struct msghdr` from
 /// the POSIX sockets API (see `man 2 recvmmsg`).
 ///
-/// If `address` is non-[`None`] then it is set to the source address the message
+/// If @address is non-[`None`] then it is set to the source address the message
 /// was received from, and the caller must free it afterwards.
 ///
-/// If `control_messages` is non-[`None`] then it is set to an array of control
+/// If @control_messages is non-[`None`] then it is set to an array of control
 /// messages received with the message (if any), and the caller must free it
-/// afterwards. `num_control_messages` is set to the number of elements in
+/// afterwards. @num_control_messages is set to the number of elements in
 /// this array, which may be zero.
 ///
-/// Flags relevant to this message will be returned in `flags`. For example,
+/// Flags relevant to this message will be returned in @flags. For example,
 /// `MSG_EOR` or `MSG_TRUNC`.
 </span><span class="attr">#[doc(alias = <span class="string">"GInputMessage"</span>)]
 #[repr(transparent)]
 #[derive(Debug)]
 </span><span class="kw">pub struct </span><a href="../../gio/struct.InputMessage.html">InputMessage</a>&lt;<span class="lifetime">'m</span>&gt; {
     message: <a href="../../gio_sys/struct.GInputMessage.html">ffi::GInputMessage</a>,
-    address: PhantomData&lt;<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><span class="kw-2">mut </span><span class="prelude-ty">Option</span>&lt;<a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;&gt;&gt;,
+    address: PhantomData&lt;<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><span class="kw-2">mut </span><span class="prelude-ty">Option</span>&lt;<a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;&gt;&gt;,
     vectors: PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><span class="kw-2">mut </span>[InputVector&lt;<span class="lifetime">'m</span>&gt;]&gt;,
     control_messages: PhantomData&lt;<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><span class="kw-2">mut </span><a href="#126-129">SocketControlMessages</a>&gt;&gt;,
 }
 
 <span class="kw">impl</span>&lt;<span class="lifetime">'m</span>&gt; InputMessage&lt;<span class="lifetime">'m</span>&gt; {
     <span class="kw">pub fn </span>new(
-        <span class="kw-2">mut </span>address: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><span class="kw-2">mut </span><span class="prelude-ty">Option</span>&lt;<a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;&gt;,
+        <span class="kw-2">mut </span>address: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><span class="kw-2">mut </span><span class="prelude-ty">Option</span>&lt;<a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;&gt;,
         vectors: <span class="kw-2">&amp;</span><span class="lifetime">'m </span><span class="kw-2">mut </span>[InputVector&lt;<span class="lifetime">'m</span>&gt;],
         control_messages: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><span class="kw-2">mut </span><a href="#126-129">SocketControlMessages</a>&gt;,
     ) -&gt; <span class="self">Self </span>{
@@ -1761,23 +1761,23 @@
 
 <span class="doccomment">/// Structure used for scatter/gather data output when sending multiple
 /// messages or packets in one go. You generally pass in an array of
-/// `GOutputVectors` and the operation will use all the buffers as if they
+/// #GOutputVectors and the operation will use all the buffers as if they
 /// were one buffer.
 ///
-/// If `address` is [`None`] then the message is sent to the default receiver
-/// (as previously set by [`SocketExt::connect()`][crate::prelude::SocketExt::connect()]).
+/// If @address is [`None`] then the message is sent to the default receiver
+/// (as previously set by g_socket_connect()).
 </span><span class="attr">#[doc(alias = <span class="string">"GOutputMessage"</span>)]
 #[repr(transparent)]
 #[derive(Debug)]
 </span><span class="kw">pub struct </span><a href="../../gio/struct.OutputMessage.html">OutputMessage</a>&lt;<span class="lifetime">'m</span>&gt; {
     message: <a href="../../gio_sys/struct.GOutputMessage.html">ffi::GOutputMessage</a>,
-    address: PhantomData&lt;<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;&gt;,
+    address: PhantomData&lt;<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span><a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;&gt;,
     vectors: PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span>[OutputVector&lt;<span class="lifetime">'m</span>&gt;]&gt;,
     control_messages: PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span>[<a href="auto/socket_control_message.rs.html#7-40">SocketControlMessage</a>]&gt;,
 }
 
 <span class="kw">impl</span>&lt;<span class="lifetime">'m</span>&gt; OutputMessage&lt;<span class="lifetime">'m</span>&gt; {
-    <span class="kw">pub fn </span>new&lt;A: IsA&lt;<a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;&gt;(
+    <span class="kw">pub fn </span>new&lt;A: IsA&lt;<a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;&gt;(
         address: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'m </span>A&gt;,
         vectors: <span class="kw-2">&amp;</span><span class="lifetime">'m </span>[OutputVector&lt;<span class="lifetime">'m</span>&gt;],
         control_messages: <span class="kw-2">&amp;</span><span class="lifetime">'m </span>[<a href="auto/socket_control_message.rs.html#7-40">SocketControlMessage</a>],
@@ -1785,7 +1785,7 @@
         <span class="self">Self </span>{
             message: <a href="../../gio_sys/struct.GOutputMessage.html">ffi::GOutputMessage</a> {
                 address: <a href="#305">address</a>
-                    .map(|a| <a href="#312">a</a>.<a href="../../glib/object/trait.Cast.html">upcast_ref</a>::&lt;<a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;().<a href="../../glib/object/trait.ObjectType.html">as_ptr</a>())
+                    .map(|a| <a href="#312">a</a>.<a href="../../glib/object/trait.Cast.html">upcast_ref</a>::&lt;<a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;().<a href="../../glib/object/trait.ObjectType.html">as_ptr</a>())
                     .unwrap_or_else(ptr::null_mut),
                 vectors: mut_override(<a href="#306">vectors</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><a href="../../gio_sys/struct.GOutputVector.html">ffi::GOutputVector</a>),
                 num_vectors: <a href="#306">vectors</a>.len().<a href="https://doc.rust-lang.org/nightly/core/convert/trait.TryInto.html">try_into</a>().unwrap(),
@@ -1815,24 +1815,24 @@
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/socket.rs.html#16-146"><span class="kw">super</span>::Socket</a>&gt;&gt; <a href="#341">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/socket.rs.html#16-185"><span class="kw">super</span>::Socket</a>&gt;&gt; <a href="#341">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">pub trait </span><a href="../../gio/prelude/trait.SocketExtManual.html">SocketExtManual</a>: <a href="#341">sealed::Sealed</a> + IsA&lt;<a href="auto/socket.rs.html#16-146">Socket</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> {
-    <span class="doccomment">/// Receive data (up to `size` bytes) from a socket. This is mainly used by
-    /// connection-oriented sockets; it is identical to [`SocketExtManual::receive_from()`][crate::prelude::SocketExtManual::receive_from()]
-    /// with `address` set to [`None`].
+<span class="kw">pub trait </span><a href="../../gio/prelude/trait.SocketExtManual.html">SocketExtManual</a>: <a href="#341">sealed::Sealed</a> + IsA&lt;<a href="auto/socket.rs.html#16-185">Socket</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> {
+    <span class="doccomment">/// Receive data (up to @size bytes) from a socket. This is mainly used by
+    /// connection-oriented sockets; it is identical to g_socket_receive_from()
+    /// with @address set to [`None`].
     ///
     /// For [`SocketType::Datagram`][crate::SocketType::Datagram] and [`SocketType::Seqpacket`][crate::SocketType::Seqpacket] sockets,
-    /// [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()] will always read either 0 or 1 complete messages from
-    /// the socket. If the received message is too large to fit in `buffer`, then
-    /// the data beyond `size` bytes will be discarded, without any explicit
+    /// g_socket_receive() will always read either 0 or 1 complete messages from
+    /// the socket. If the received message is too large to fit in @buffer, then
+    /// the data beyond @size bytes will be discarded, without any explicit
     /// indication that this has occurred.
     ///
-    /// For [`SocketType::Stream`][crate::SocketType::Stream] sockets, [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()] can return any
-    /// number of bytes, up to `size`. If more than `size` bytes have been
+    /// For [`SocketType::Stream`][crate::SocketType::Stream] sockets, g_socket_receive() can return any
+    /// number of bytes, up to @size. If more than @size bytes have been
     /// received, the additional data will be returned in future calls to
-    /// [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()].
+    /// g_socket_receive().
     ///
     /// If the socket is in blocking mode the call will block until there
     /// is some data to receive, the connection is closed, or there is an
@@ -1841,7 +1841,7 @@
     /// returned. To be notified when data is available, wait for the
     /// [`glib::IOCondition::IN`][crate::glib::IOCondition::IN] condition.
     ///
-    /// On error -1 is returned and `error` is set accordingly.
+    /// On error -1 is returned and @error is set accordingly.
     /// ## `cancellable`
     /// a `GCancellable` or [`None`]
     ///
@@ -1852,9 +1852,9 @@
     ///
     /// ## `buffer`
     ///
-    ///  a buffer to read data into (which should be at least `size` bytes long).
+    ///     a buffer to read data into (which should be at least @size bytes long).
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_receive"</span>)]
-    </span><span class="kw">fn </span>receive&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>receive&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="kw-2">mut </span>buffer: B,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
@@ -1880,13 +1880,13 @@
             }
         }
     }
-    <span class="doccomment">/// Receive data (up to `size` bytes) from a socket.
+    <span class="doccomment">/// Receive data (up to @size bytes) from a socket.
     ///
-    /// If `address` is non-[`None`] then `address` will be set equal to the
+    /// If @address is non-[`None`] then @address will be set equal to the
     /// source address of the received packet.
-    /// `address` is owned by the caller.
+    /// @address is owned by the caller.
     ///
-    /// See [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()] for additional information.
+    /// See g_socket_receive() for additional information.
     /// ## `cancellable`
     /// a `GCancellable` or [`None`]
     ///
@@ -1896,18 +1896,18 @@
     /// the peer, or -1 on error
     ///
     /// ## `address`
-    /// a pointer to a [`SocketAddress`][crate::SocketAddress]
-    ///  pointer, or [`None`]
+    /// a pointer to a #GSocketAddress
+    ///     pointer, or [`None`]
     ///
     /// ## `buffer`
     ///
-    ///  a buffer to read data into (which should be at least `size` bytes long).
+    ///     a buffer to read data into (which should be at least @size bytes long).
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_receive_from"</span>)]
-    </span><span class="kw">fn </span>receive_from&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>receive_from&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="kw-2">mut </span>buffer: B,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="auto/socket_address.rs.html#13-35">SocketAddress</a>), <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="auto/socket_address.rs.html#13-38">SocketAddress</a>), <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">let </span>cancellable = <a href="#433">cancellable</a>.map(|c| <a href="#435">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>());
         <span class="kw">let </span>gcancellable = <a href="#435">cancellable</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>();
         <span class="kw">let </span>buffer = <a href="#432">buffer</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
@@ -1932,53 +1932,53 @@
             }
         }
     }
-    <span class="doccomment">/// Receive data from a socket. For receiving multiple messages, see
-    /// [`SocketExtManual::receive_messages()`][crate::prelude::SocketExtManual::receive_messages()]; for easier use, see
-    /// [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()] and [`SocketExtManual::receive_from()`][crate::prelude::SocketExtManual::receive_from()].
+    <span class="doccomment">/// Receive data from a socket.  For receiving multiple messages, see
+    /// g_socket_receive_messages(); for easier use, see
+    /// g_socket_receive() and g_socket_receive_from().
     ///
-    /// If `address` is non-[`None`] then `address` will be set equal to the
+    /// If @address is non-[`None`] then @address will be set equal to the
     /// source address of the received packet.
-    /// `address` is owned by the caller.
+    /// @address is owned by the caller.
     ///
-    /// `vector` must point to an array of `GInputVector` structs and
-    /// `num_vectors` must be the length of this array. These structs
+    /// @vector must point to an array of #GInputVector structs and
+    /// @num_vectors must be the length of this array.  These structs
     /// describe the buffers that received data will be scattered into.
-    /// If `num_vectors` is -1, then `vectors` is assumed to be terminated
-    /// by a `GInputVector` with a [`None`] buffer pointer.
+    /// If @num_vectors is -1, then @vectors is assumed to be terminated
+    /// by a #GInputVector with a [`None`] buffer pointer.
     ///
-    /// As a special case, if `num_vectors` is 0 (in which case, `vectors`
+    /// As a special case, if @num_vectors is 0 (in which case, @vectors
     /// may of course be [`None`]), then a single byte is received and
     /// discarded. This is to facilitate the common practice of sending a
     /// single '\0' byte for the purposes of transferring ancillary data.
     ///
-    /// `messages`, if non-[`None`], will be set to point to a newly-allocated
-    /// array of [`SocketControlMessage`][crate::SocketControlMessage] instances or [`None`] if no such
+    /// @messages, if non-[`None`], will be set to point to a newly-allocated
+    /// array of #GSocketControlMessage instances or [`None`] if no such
     /// messages was received. These correspond to the control messages
-    /// received from the kernel, one [`SocketControlMessage`][crate::SocketControlMessage] per message
+    /// received from the kernel, one #GSocketControlMessage per message
     /// from the kernel. This array is [`None`]-terminated and must be freed
-    /// by the caller using `g_free()` after calling `g_object_unref()` on each
-    /// element. If `messages` is [`None`], any control messages received will
+    /// by the caller using g_free() after calling g_object_unref() on each
+    /// element. If @messages is [`None`], any control messages received will
     /// be discarded.
     ///
-    /// `num_messages`, if non-[`None`], will be set to the number of control
+    /// @num_messages, if non-[`None`], will be set to the number of control
     /// messages received.
     ///
-    /// If both `messages` and `num_messages` are non-[`None`], then
-    /// `num_messages` gives the number of [`SocketControlMessage`][crate::SocketControlMessage] instances
-    /// in `messages` (ie: not including the [`None`] terminator).
+    /// If both @messages and @num_messages are non-[`None`], then
+    /// @num_messages gives the number of #GSocketControlMessage instances
+    /// in @messages (ie: not including the [`None`] terminator).
     ///
-    /// `flags` is an in/out parameter. The commonly available arguments
-    /// for this are available in the `GSocketMsgFlags` enum, but the
+    /// @flags is an in/out parameter. The commonly available arguments
+    /// for this are available in the #GSocketMsgFlags enum, but the
     /// values there are the same as the system values, and the flags
     /// are passed in as-is, so you can pass in system-specific flags too
-    /// (and [`SocketExtManual::receive_message()`][crate::prelude::SocketExtManual::receive_message()] may pass system-specific flags out).
+    /// (and g_socket_receive_message() may pass system-specific flags out).
     /// Flags passed in to the parameter affect the receive operation; flags returned
     /// out of it are relevant to the specific returned message.
     ///
-    /// As with [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()], data may be discarded if `self` is
+    /// As with g_socket_receive(), data may be discarded if @self is
     /// [`SocketType::Datagram`][crate::SocketType::Datagram] or [`SocketType::Seqpacket`][crate::SocketType::Seqpacket] and you do not
     /// provide enough buffer space to read a complete message. You can pass
-    /// `G_SOCKET_MSG_PEEK` in `flags` to peek at the current message without
+    /// `G_SOCKET_MSG_PEEK` in @flags to peek at the current message without
     /// removing it from the receive queue, but there is no portable way to find
     /// out the length of the message other than by reading it into a
     /// sufficiently-large buffer.
@@ -1990,13 +1990,13 @@
     /// returned. To be notified when data is available, wait for the
     /// [`glib::IOCondition::IN`][crate::glib::IOCondition::IN] condition.
     ///
-    /// On error -1 is returned and `error` is set accordingly.
+    /// On error -1 is returned and @error is set accordingly.
     /// ## `vectors`
-    /// an array of `GInputVector` structs
+    /// an array of #GInputVector structs
     /// ## `flags`
-    /// a pointer to an int containing `GSocketMsgFlags` flags,
-    ///  which may additionally contain
-    ///  [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
+    /// a pointer to an int containing #GSocketMsgFlags flags,
+    ///    which may additionally contain
+    ///    [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
     /// ## `cancellable`
     /// a `GCancellable` or [`None`]
     ///
@@ -2006,16 +2006,16 @@
     /// the peer, or -1 on error
     ///
     /// ## `address`
-    /// a pointer to a [`SocketAddress`][crate::SocketAddress]
-    ///  pointer, or [`None`]
+    /// a pointer to a #GSocketAddress
+    ///     pointer, or [`None`]
     ///
     /// ## `messages`
     /// a pointer
-    ///  which may be filled with an array of `GSocketControlMessages`, or [`None`]
+    ///    which may be filled with an array of #GSocketControlMessages, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_receive_message"</span>)]
-    </span><span class="kw">fn </span>receive_message&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>receive_message&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="kw-2">mut </span>address: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;mut </span><span class="prelude-ty">Option</span>&lt;<a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;&gt;,
+        <span class="kw-2">mut </span>address: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;mut </span><span class="prelude-ty">Option</span>&lt;<a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;&gt;,
         vectors: <span class="kw-2">&amp;mut </span>[<a href="#88-91">InputVector</a>],
         control_messages: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;mut </span><a href="#126-129">SocketControlMessages</a>&gt;,
         <span class="kw-2">mut </span>flags: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
@@ -2053,72 +2053,72 @@
             }
         }
     }
-    <span class="doccomment">/// Receive multiple data messages from `self` in one go. This is the most
+    <span class="doccomment">/// Receive multiple data messages from @self in one go.  This is the most
     /// complicated and fully-featured version of this call. For easier use, see
-    /// [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()], [`SocketExtManual::receive_from()`][crate::prelude::SocketExtManual::receive_from()], and [`SocketExtManual::receive_message()`][crate::prelude::SocketExtManual::receive_message()].
+    /// g_socket_receive(), g_socket_receive_from(), and g_socket_receive_message().
     ///
-    /// `messages` must point to an array of [`InputMessage`][crate::InputMessage] structs and
-    /// `num_messages` must be the length of this array. Each [`InputMessage`][crate::InputMessage]
-    /// contains a pointer to an array of `GInputVector` structs describing the
+    /// @messages must point to an array of #GInputMessage structs and
+    /// @num_messages must be the length of this array. Each #GInputMessage
+    /// contains a pointer to an array of #GInputVector structs describing the
     /// buffers that the data received in each message will be written to. Using
-    /// multiple `GInputVectors` is more memory-efficient than manually copying data
+    /// multiple #GInputVectors is more memory-efficient than manually copying data
     /// out of a single buffer to multiple sources, and more system-call-efficient
-    /// than making multiple calls to [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()], such as in scenarios where
+    /// than making multiple calls to g_socket_receive(), such as in scenarios where
     /// a lot of data packets need to be received (e.g. high-bandwidth video
     /// streaming over RTP/UDP).
     ///
-    /// `flags` modify how all messages are received. The commonly available
-    /// arguments for this are available in the `GSocketMsgFlags` enum, but the
+    /// @flags modify how all messages are received. The commonly available
+    /// arguments for this are available in the #GSocketMsgFlags enum, but the
     /// values there are the same as the system values, and the flags
     /// are passed in as-is, so you can pass in system-specific flags too. These
     /// flags affect the overall receive operation. Flags affecting individual
-    /// messages are returned in `GInputMessage.flags`.
+    /// messages are returned in #GInputMessage.flags.
     ///
-    /// The other members of [`InputMessage`][crate::InputMessage] are treated as described in its
+    /// The other members of #GInputMessage are treated as described in its
     /// documentation.
     ///
-    /// If [`blocking`][struct@crate::Socket#blocking] is [`true`] the call will block until `num_messages` have
+    /// If #GSocket:blocking is [`true`] the call will block until @num_messages have
     /// been received, or the end of the stream is reached.
     ///
-    /// If [`blocking`][struct@crate::Socket#blocking] is [`false`] the call will return up to `num_messages`
+    /// If #GSocket:blocking is [`false`] the call will return up to @num_messages
     /// without blocking, or [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] if no messages are queued in the
     /// operating system to be received.
     ///
-    /// In blocking mode, if [`timeout`][struct@crate::Socket#timeout] is positive and is reached before any
+    /// In blocking mode, if #GSocket:timeout is positive and is reached before any
     /// messages are received, [`IOErrorEnum::TimedOut`][crate::IOErrorEnum::TimedOut] is returned, otherwise up to
-    /// `num_messages` are returned. (Note: This is effectively the
-    /// behaviour of `MSG_WAITFORONE` with `recvmmsg()`.)
+    /// @num_messages are returned. (Note: This is effectively the
+    /// behaviour of `MSG_WAITFORONE` with recvmmsg().)
     ///
     /// To be notified when messages are available, wait for the
     /// [`glib::IOCondition::IN`][crate::glib::IOCondition::IN] condition. Note though that you may still receive
-    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] from [`SocketExtManual::receive_messages()`][crate::prelude::SocketExtManual::receive_messages()] even if you were
+    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] from g_socket_receive_messages() even if you were
     /// previously notified of a [`glib::IOCondition::IN`][crate::glib::IOCondition::IN] condition.
     ///
     /// If the remote peer closes the connection, any messages queued in the
     /// operating system will be returned, and subsequent calls to
-    /// [`SocketExtManual::receive_messages()`][crate::prelude::SocketExtManual::receive_messages()] will return 0 (with no error set).
+    /// g_socket_receive_messages() will return 0 (with no error set).
     ///
-    /// On error -1 is returned and `error` is set accordingly. An error will only
+    /// On error -1 is returned and @error is set accordingly. An error will only
     /// be returned if zero messages could be received; otherwise the number of
     /// messages successfully received before the error will be returned.
     /// ## `messages`
-    /// an array of [`InputMessage`][crate::InputMessage] structs
+    /// an array of #GInputMessage structs
     /// ## `flags`
-    /// an int containing `GSocketMsgFlags` flags for the overall operation,
-    ///  which may additionally contain
-    ///  [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
+    /// an int containing #GSocketMsgFlags flags for the overall operation,
+    ///    which may additionally contain
+    ///    [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
     /// ## `cancellable`
     /// a `GCancellable` or [`None`]
     ///
     /// # Returns
     ///
     /// number of messages received, or -1 on error. Note that the number
-    ///  of messages received may be smaller than `num_messages` if in non-blocking
-    ///  mode, if the peer closed the connection, or if `num_messages`
-    ///  was larger than `UIO_MAXIOV` (1024), in which case the caller may re-try
-    ///  to receive the remaining messages.
+    ///     of messages received may be smaller than @num_messages if in non-blocking
+    ///     mode, if the peer closed the connection, or if @num_messages
+    ///     was larger than `UIO_MAXIOV` (1024), in which case the caller may re-try
+    ///     to receive the remaining messages.
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_receive_messages"</span>)]
-    </span><span class="kw">fn </span>receive_messages&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>receive_messages&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         messages: <span class="kw-2">&amp;mut </span>[<a href="#196-201">InputMessage</a>],
         flags: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
@@ -2143,9 +2143,9 @@
             }
         }
     }
-    <span class="doccomment">/// This behaves exactly the same as [`SocketExtManual::receive()`][crate::prelude::SocketExtManual::receive()], except that
+    <span class="doccomment">/// This behaves exactly the same as g_socket_receive(), except that
     /// the choice of blocking or non-blocking behavior is determined by
-    /// the `blocking` argument rather than by `self`'s properties.
+    /// the @blocking argument rather than by @self's properties.
     /// ## `blocking`
     /// whether to do blocking or non-blocking I/O
     /// ## `cancellable`
@@ -2158,9 +2158,9 @@
     ///
     /// ## `buffer`
     ///
-    ///  a buffer to read data into (which should be at least `size` bytes long).
+    ///     a buffer to read data into (which should be at least @size bytes long).
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_receive_with_blocking"</span>)]
-    </span><span class="kw">fn </span>receive_with_blocking&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>receive_with_blocking&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="kw-2">mut </span>buffer: B,
         blocking: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
@@ -2189,32 +2189,32 @@
         }
     }
 
-    <span class="doccomment">/// Tries to send `size` bytes from `buffer` on the socket. This is
+    <span class="doccomment">/// Tries to send @size bytes from @buffer on the socket. This is
     /// mainly used by connection-oriented sockets; it is identical to
-    /// [`SocketExtManual::send_to()`][crate::prelude::SocketExtManual::send_to()] with `address` set to [`None`].
+    /// g_socket_send_to() with @address set to [`None`].
     ///
     /// If the socket is in blocking mode the call will block until there is
     /// space for the data in the socket queue. If there is no space available
     /// and the socket is in non-blocking mode a [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] error
     /// will be returned. To be notified when space is available, wait for the
     /// [`glib::IOCondition::OUT`][crate::glib::IOCondition::OUT] condition. Note though that you may still receive
-    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] from [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()] even if you were previously
+    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] from g_socket_send() even if you were previously
     /// notified of a [`glib::IOCondition::OUT`][crate::glib::IOCondition::OUT] condition. (On Windows in particular, this is
     /// very common due to the way the underlying APIs work.)
     ///
-    /// On error -1 is returned and `error` is set accordingly.
+    /// On error -1 is returned and @error is set accordingly.
     /// ## `buffer`
     /// the buffer
-    ///  containing the data to send.
+    ///     containing the data to send.
     /// ## `cancellable`
     /// a `GCancellable` or [`None`]
     ///
     /// # Returns
     ///
-    /// Number of bytes written (which may be less than `size`), or -1
+    /// Number of bytes written (which may be less than @size), or -1
     /// on error
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_send"</span>)]
-    </span><span class="kw">fn </span>send&lt;B: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>send&lt;B: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         buffer: B,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
@@ -2241,30 +2241,30 @@
             }
         }
     }
-    <span class="doccomment">/// Send data to `address` on `self`. For sending multiple messages see
-    /// [`SocketExtManual::send_messages()`][crate::prelude::SocketExtManual::send_messages()]; for easier use, see
-    /// [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()] and [`SocketExtManual::send_to()`][crate::prelude::SocketExtManual::send_to()].
+    <span class="doccomment">/// Send data to @address on @self.  For sending multiple messages see
+    /// g_socket_send_messages(); for easier use, see
+    /// g_socket_send() and g_socket_send_to().
     ///
-    /// If `address` is [`None`] then the message is sent to the default receiver
-    /// (set by [`SocketExt::connect()`][crate::prelude::SocketExt::connect()]).
+    /// If @address is [`None`] then the message is sent to the default receiver
+    /// (set by g_socket_connect()).
     ///
-    /// `vectors` must point to an array of `GOutputVector` structs and
-    /// `num_vectors` must be the length of this array. (If `num_vectors` is -1,
-    /// then `vectors` is assumed to be terminated by a `GOutputVector` with a
-    /// [`None`] buffer pointer.) The `GOutputVector` structs describe the buffers
+    /// @vectors must point to an array of #GOutputVector structs and
+    /// @num_vectors must be the length of this array. (If @num_vectors is -1,
+    /// then @vectors is assumed to be terminated by a #GOutputVector with a
+    /// [`None`] buffer pointer.) The #GOutputVector structs describe the buffers
     /// that the sent data will be gathered from. Using multiple
-    /// `GOutputVectors` is more memory-efficient than manually copying
+    /// #GOutputVectors is more memory-efficient than manually copying
     /// data from multiple sources into a single buffer, and more
-    /// network-efficient than making multiple calls to [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()].
+    /// network-efficient than making multiple calls to g_socket_send().
     ///
-    /// `messages`, if non-[`None`], is taken to point to an array of `num_messages`
-    /// [`SocketControlMessage`][crate::SocketControlMessage] instances. These correspond to the control
+    /// @messages, if non-[`None`], is taken to point to an array of @num_messages
+    /// #GSocketControlMessage instances. These correspond to the control
     /// messages to be sent on the socket.
-    /// If `num_messages` is -1 then `messages` is treated as a [`None`]-terminated
+    /// If @num_messages is -1 then @messages is treated as a [`None`]-terminated
     /// array.
     ///
-    /// `flags` modify how the message is sent. The commonly available arguments
-    /// for this are available in the `GSocketMsgFlags` enum, but the
+    /// @flags modify how the message is sent. The commonly available arguments
+    /// for this are available in the #GSocketMsgFlags enum, but the
     /// values there are the same as the system values, and the flags
     /// are passed in as-is, so you can pass in system-specific flags too.
     ///
@@ -2273,35 +2273,35 @@
     /// and the socket is in non-blocking mode a [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] error
     /// will be returned. To be notified when space is available, wait for the
     /// [`glib::IOCondition::OUT`][crate::glib::IOCondition::OUT] condition. Note though that you may still receive
-    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] from [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()] even if you were previously
+    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] from g_socket_send() even if you were previously
     /// notified of a [`glib::IOCondition::OUT`][crate::glib::IOCondition::OUT] condition. (On Windows in particular, this is
     /// very common due to the way the underlying APIs work.)
     ///
-    /// The sum of the sizes of each `GOutputVector` in vectors must not be
+    /// The sum of the sizes of each #GOutputVector in vectors must not be
     /// greater than `G_MAXSSIZE`. If the message can be larger than this,
-    /// then it is mandatory to use the [`SocketExtManual::send_message_with_timeout()`][crate::prelude::SocketExtManual::send_message_with_timeout()]
+    /// then it is mandatory to use the g_socket_send_message_with_timeout()
     /// function.
     ///
-    /// On error -1 is returned and `error` is set accordingly.
+    /// On error -1 is returned and @error is set accordingly.
     /// ## `address`
-    /// a [`SocketAddress`][crate::SocketAddress], or [`None`]
+    /// a #GSocketAddress, or [`None`]
     /// ## `vectors`
-    /// an array of `GOutputVector` structs
+    /// an array of #GOutputVector structs
     /// ## `messages`
     /// a pointer to an
-    ///  array of `GSocketControlMessages`, or [`None`].
+    ///   array of #GSocketControlMessages, or [`None`].
     /// ## `flags`
-    /// an int containing `GSocketMsgFlags` flags, which may additionally
-    ///  contain [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
+    /// an int containing #GSocketMsgFlags flags, which may additionally
+    ///    contain [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
     /// ## `cancellable`
     /// a `GCancellable` or [`None`]
     ///
     /// # Returns
     ///
-    /// Number of bytes written (which may be less than `size`), or -1
+    /// Number of bytes written (which may be less than @size), or -1
     /// on error
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_send_message"</span>)]
-    </span><span class="kw">fn </span>send_message&lt;P: IsA&lt;<a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>send_message&lt;P: IsA&lt;<a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         address: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
         vectors: <span class="kw-2">&amp;</span>[<a href="#256-259">OutputVector</a>],
@@ -2330,23 +2330,23 @@
             }
         }
     }
-    <span class="doccomment">/// This behaves exactly the same as [`SocketExtManual::send_message()`][crate::prelude::SocketExtManual::send_message()], except that
-    /// the choice of timeout behavior is determined by the `timeout_us` argument
-    /// rather than by `self`'s properties.
+    <span class="doccomment">/// This behaves exactly the same as g_socket_send_message(), except that
+    /// the choice of timeout behavior is determined by the @timeout_us argument
+    /// rather than by @self's properties.
     ///
-    /// On error [`PollableReturn::Failed`][crate::PollableReturn::Failed] is returned and `error` is set accordingly, or
+    /// On error [`PollableReturn::Failed`][crate::PollableReturn::Failed] is returned and @error is set accordingly, or
     /// if the socket is currently not writable [`PollableReturn::WouldBlock`][crate::PollableReturn::WouldBlock] is
-    /// returned. `bytes_written` will contain 0 in both cases.
+    /// returned. @bytes_written will contain 0 in both cases.
     /// ## `address`
-    /// a [`SocketAddress`][crate::SocketAddress], or [`None`]
+    /// a #GSocketAddress, or [`None`]
     /// ## `vectors`
-    /// an array of `GOutputVector` structs
+    /// an array of #GOutputVector structs
     /// ## `messages`
     /// a pointer to an
-    ///  array of `GSocketControlMessages`, or [`None`].
+    ///   array of #GSocketControlMessages, or [`None`].
     /// ## `flags`
-    /// an int containing `GSocketMsgFlags` flags, which may additionally
-    ///  contain [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
+    /// an int containing #GSocketMsgFlags flags, which may additionally
+    ///    contain [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
     /// ## `timeout_us`
     /// the maximum time (in microseconds) to wait, or -1
     /// ## `cancellable`
@@ -2356,14 +2356,14 @@
     ///
     /// [`PollableReturn::Ok`][crate::PollableReturn::Ok] if all data was successfully written,
     /// [`PollableReturn::WouldBlock`][crate::PollableReturn::WouldBlock] if the socket is currently not writable, or
-    /// [`PollableReturn::Failed`][crate::PollableReturn::Failed] if an error happened and `error` is set.
+    /// [`PollableReturn::Failed`][crate::PollableReturn::Failed] if an error happened and @error is set.
     ///
     /// ## `bytes_written`
     /// location to store the number of bytes that were written to the socket
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     #[doc(alias = <span class="string">"g_socket_send_message_with_timeout"</span>)]
-    </span><span class="kw">fn </span>send_message_with_timeout&lt;P: IsA&lt;<a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>send_message_with_timeout&lt;P: IsA&lt;<a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         address: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
         vectors: <span class="kw-2">&amp;</span>[<a href="#256-259">OutputVector</a>],
@@ -2371,7 +2371,7 @@
         flags: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
         timeout: <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/core/time/struct.Duration.html">Duration</a>&gt;,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="auto/enums.rs.html#2587-2599">PollableReturn</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="auto/enums.rs.html#2596-2608">PollableReturn</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">let </span>cancellable = <a href="#897">cancellable</a>.map(|c| <a href="#899">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>());
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
@@ -2399,24 +2399,24 @@
             }
         }
     }
-    <span class="doccomment">/// Send multiple data messages from `self` in one go. This is the most
+    <span class="doccomment">/// Send multiple data messages from @self in one go.  This is the most
     /// complicated and fully-featured version of this call. For easier use, see
-    /// [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()], [`SocketExtManual::send_to()`][crate::prelude::SocketExtManual::send_to()], and [`SocketExtManual::send_message()`][crate::prelude::SocketExtManual::send_message()].
+    /// g_socket_send(), g_socket_send_to(), and g_socket_send_message().
     ///
-    /// `messages` must point to an array of [`OutputMessage`][crate::OutputMessage] structs and
-    /// `num_messages` must be the length of this array. Each [`OutputMessage`][crate::OutputMessage]
+    /// @messages must point to an array of #GOutputMessage structs and
+    /// @num_messages must be the length of this array. Each #GOutputMessage
     /// contains an address to send the data to, and a pointer to an array of
-    /// `GOutputVector` structs to describe the buffers that the data to be sent
-    /// for each message will be gathered from. Using multiple `GOutputVectors` is
+    /// #GOutputVector structs to describe the buffers that the data to be sent
+    /// for each message will be gathered from. Using multiple #GOutputVectors is
     /// more memory-efficient than manually copying data from multiple sources
     /// into a single buffer, and more network-efficient than making multiple
-    /// calls to [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()]. Sending multiple messages in one go avoids the
+    /// calls to g_socket_send(). Sending multiple messages in one go avoids the
     /// overhead of making a lot of syscalls in scenarios where a lot of data
     /// packets need to be sent (e.g. high-bandwidth video streaming over RTP/UDP),
     /// or where the same data needs to be sent to multiple recipients.
     ///
-    /// `flags` modify how the message is sent. The commonly available arguments
-    /// for this are available in the `GSocketMsgFlags` enum, but the
+    /// @flags modify how the message is sent. The commonly available arguments
+    /// for this are available in the #GSocketMsgFlags enum, but the
     /// values there are the same as the system values, and the flags
     /// are passed in as-is, so you can pass in system-specific flags too.
     ///
@@ -2426,29 +2426,29 @@
     /// will be returned if no data was written at all, otherwise the number of
     /// messages sent will be returned. To be notified when space is available,
     /// wait for the [`glib::IOCondition::OUT`][crate::glib::IOCondition::OUT] condition. Note though that you may still receive
-    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] from [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()] even if you were previously
+    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] from g_socket_send() even if you were previously
     /// notified of a [`glib::IOCondition::OUT`][crate::glib::IOCondition::OUT] condition. (On Windows in particular, this is
     /// very common due to the way the underlying APIs work.)
     ///
-    /// On error -1 is returned and `error` is set accordingly. An error will only
+    /// On error -1 is returned and @error is set accordingly. An error will only
     /// be returned if zero messages could be sent; otherwise the number of messages
     /// successfully sent before the error will be returned.
     /// ## `messages`
-    /// an array of [`OutputMessage`][crate::OutputMessage] structs
+    /// an array of #GOutputMessage structs
     /// ## `flags`
-    /// an int containing `GSocketMsgFlags` flags, which may additionally
-    ///  contain [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
+    /// an int containing #GSocketMsgFlags flags, which may additionally
+    ///    contain [other platform specific flags](http://man7.org/linux/man-pages/man2/recv.2.html)
     /// ## `cancellable`
     /// a `GCancellable` or [`None`]
     ///
     /// # Returns
     ///
     /// number of messages sent, or -1 on error. Note that the number of
-    ///  messages sent may be smaller than `num_messages` if the socket is
-    ///  non-blocking or if `num_messages` was larger than UIO_MAXIOV (1024),
-    ///  in which case the caller may re-try to send the remaining messages.
+    ///     messages sent may be smaller than @num_messages if the socket is
+    ///     non-blocking or if @num_messages was larger than UIO_MAXIOV (1024),
+    ///     in which case the caller may re-try to send the remaining messages.
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_send_messages"</span>)]
-    </span><span class="kw">fn </span>send_messages&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>send_messages&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         messages: <span class="kw-2">&amp;mut </span>[<a href="#296-301">OutputMessage</a>],
         flags: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
@@ -2472,25 +2472,25 @@
             }
         }
     }
-    <span class="doccomment">/// Tries to send `size` bytes from `buffer` to `address`. If `address` is
+    <span class="doccomment">/// Tries to send @size bytes from @buffer to @address. If @address is
     /// [`None`] then the message is sent to the default receiver (set by
-    /// [`SocketExt::connect()`][crate::prelude::SocketExt::connect()]).
+    /// g_socket_connect()).
     ///
-    /// See [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()] for additional information.
+    /// See g_socket_send() for additional information.
     /// ## `address`
-    /// a [`SocketAddress`][crate::SocketAddress], or [`None`]
+    /// a #GSocketAddress, or [`None`]
     /// ## `buffer`
     /// the buffer
-    ///  containing the data to send.
+    ///     containing the data to send.
     /// ## `cancellable`
     /// a `GCancellable` or [`None`]
     ///
     /// # Returns
     ///
-    /// Number of bytes written (which may be less than `size`), or -1
+    /// Number of bytes written (which may be less than @size), or -1
     /// on error
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_send_to"</span>)]
-    </span><span class="kw">fn </span>send_to&lt;B: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, P: IsA&lt;<a href="auto/socket_address.rs.html#13-35">SocketAddress</a>&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>send_to&lt;B: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, P: IsA&lt;<a href="auto/socket_address.rs.html#13-38">SocketAddress</a>&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         address: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
         buffer: B,
@@ -2520,12 +2520,12 @@
             }
         }
     }
-    <span class="doccomment">/// This behaves exactly the same as [`SocketExtManual::send()`][crate::prelude::SocketExtManual::send()], except that
+    <span class="doccomment">/// This behaves exactly the same as g_socket_send(), except that
     /// the choice of blocking or non-blocking behavior is determined by
-    /// the `blocking` argument rather than by `self`'s properties.
+    /// the @blocking argument rather than by @self's properties.
     /// ## `buffer`
     /// the buffer
-    ///  containing the data to send.
+    ///     containing the data to send.
     /// ## `blocking`
     /// whether to do blocking or non-blocking I/O
     /// ## `cancellable`
@@ -2533,10 +2533,10 @@
     ///
     /// # Returns
     ///
-    /// Number of bytes written (which may be less than `size`), or -1
+    /// Number of bytes written (which may be less than @size), or -1
     /// on error
     </span><span class="attr">#[doc(alias = <span class="string">"g_socket_send_with_blocking"</span>)]
-    </span><span class="kw">fn </span>send_with_blocking&lt;B: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>send_with_blocking&lt;B: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         buffer: B,
         blocking: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
@@ -2604,10 +2604,10 @@
     ) -&gt; <a href="../../glib/auto/source/struct.Source.html">glib::Source</a>
     <span class="kw">where
         </span>F: FnMut(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>) -&gt; <a href="../../glib/control_flow/enum.ControlFlow.html">glib::ControlFlow</a> + <span class="lifetime">'static</span>,
-        C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
     {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>trampoline&lt;
-            O: IsA&lt;<a href="auto/socket.rs.html#16-146">Socket</a>&gt;,
+            O: IsA&lt;<a href="auto/socket.rs.html#16-185">Socket</a>&gt;,
             F: FnMut(<span class="kw-2">&amp;</span>O, <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>) -&gt; <a href="../../glib/control_flow/enum.ControlFlow.html">glib::ControlFlow</a> + <span class="lifetime">'static</span>,
         &gt;(
             socket: <span class="kw-2">*mut </span><a href="../../gio_sys/struct.GSocket.html">ffi::GSocket</a>,
@@ -2653,13 +2653,13 @@
         }
     }
 
-    <span class="kw">fn </span>create_source_future&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    <span class="kw">fn </span>create_source_future&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         condition: <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
         priority: <a href="../../glib/source/struct.Priority.html">glib::Priority</a>,
     ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>&gt; + <span class="lifetime">'static</span>&gt;&gt; {
-        <span class="kw">let </span>cancellable: <span class="prelude-ty">Option</span>&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt; = <a href="#1183">cancellable</a>.map(|c| <a href="#1186">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).cloned();
+        <span class="kw">let </span>cancellable: <span class="prelude-ty">Option</span>&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt; = <a href="#1183">cancellable</a>.map(|c| <a href="#1186">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).cloned();
 
         <span class="kw">let </span>obj = <a class="self" href="#1181">self</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
         Box::pin(glib::SourceFuture::new(<span class="kw">move </span>|send| {
@@ -2677,13 +2677,13 @@
         }))
     }
 
-    <span class="kw">fn </span>create_source_stream&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    <span class="kw">fn </span>create_source_stream&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         condition: <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
         priority: <a href="../../glib/source/struct.Priority.html">glib::Priority</a>,
     ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>&gt; + <span class="lifetime">'static</span>&gt;&gt; {
-        <span class="kw">let </span>cancellable: <span class="prelude-ty">Option</span>&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt; = <a href="#1207">cancellable</a>.map(|c| <a href="#1210">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).cloned();
+        <span class="kw">let </span>cancellable: <span class="prelude-ty">Option</span>&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt; = <a href="#1207">cancellable</a>.map(|c| <a href="#1210">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).cloned();
 
         <span class="kw">let </span>obj = <a class="self" href="#1205">self</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
         Box::pin(glib::SourceStream::new(<span class="kw">move </span>|send| {
@@ -2705,7 +2705,7 @@
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/socket.rs.html#16-146">Socket</a>&gt;&gt; <a href="#345-1230">SocketExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/socket.rs.html#16-185">Socket</a>&gt;&gt; <a href="#345-1230">SocketExtManual</a> <span class="kw">for </span>O {}
 
 <span class="attr">#[cfg(all(docsrs, not(unix)))]
 </span><span class="kw">pub trait </span>IntoRawFd {

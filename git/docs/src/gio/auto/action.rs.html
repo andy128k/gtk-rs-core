@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/action.rs`."><title>action.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/action.rs`."><title>action.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -577,51 +577,51 @@
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`Action`][crate::Action] represents a single named action.
+    <span class="doccomment">/// `GAction` represents a single named action.
     ///
     /// The main interface to an action is that it can be activated with
     /// [`ActionExt::activate()`][crate::prelude::ActionExt::activate()]. This results in the 'activate' signal being
-    /// emitted. An activation has a [`glib::Variant`][struct@crate::glib::Variant] parameter (which may be
-    /// [`None`]). The correct type for the parameter is determined by a static
+    /// emitted. An activation has a `GVariant` parameter (which may be
+    /// `NULL`). The correct type for the parameter is determined by a static
     /// parameter type (which is given at construction time).
     ///
     /// An action may optionally have a state, in which case the state may be
-    /// set with [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()]. This call takes a [`glib::Variant`][struct@crate::glib::Variant]. The
+    /// set with [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()]. This call takes a #GVariant. The
     /// correct type for the state is determined by a static state type
     /// (which is given at construction time).
     ///
     /// The state may have a hint associated with it, specifying its valid
     /// range.
     ///
-    /// [`Action`][crate::Action] is merely the interface to the concept of an action, as
-    /// described above. Various implementations of actions exist, including
+    /// `GAction` is merely the interface to the concept of an action, as
+    /// described above.  Various implementations of actions exist, including
     /// [`SimpleAction`][crate::SimpleAction].
     ///
     /// In all cases, the implementing class is responsible for storing the
-    /// name of the action, the parameter type, the enabled state, the
-    /// optional state type and the state and emitting the appropriate
-    /// signals when these change. The implementor is responsible for filtering
-    /// calls to [`ActionExt::activate()`][crate::prelude::ActionExt::activate()] and [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()] for type
-    /// safety and for the state being enabled.
+    /// name of the action, the parameter type, the enabled state, the optional
+    /// state type and the state and emitting the appropriate signals when these
+    /// change. The implementor is responsible for filtering calls to
+    /// [`ActionExt::activate()`][crate::prelude::ActionExt::activate()] and [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()]
+    /// for type safety and for the state being enabled.
     ///
-    /// Probably the only useful thing to do with a [`Action`][crate::Action] is to put it
+    /// Probably the only useful thing to do with a `GAction` is to put it
     /// inside of a [`SimpleActionGroup`][crate::SimpleActionGroup].
     ///
     /// ## Properties
     ///
     ///
     /// #### `enabled`
-    ///  If `action` is currently enabled.
+    ///  If @action is currently enabled.
     ///
-    /// If the action is disabled then calls to [`ActionExt::activate()`][crate::prelude::ActionExt::activate()] and
-    /// [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()] have no effect.
+    /// If the action is disabled then calls to g_action_activate() and
+    /// g_action_change_state() have no effect.
     ///
     /// Readable
     ///
     ///
     /// #### `name`
-    ///  The name of the action. This is mostly meaningful for identifying
-    /// the action once it has been added to a [`ActionGroup`][crate::ActionGroup]. It is immutable.
+    ///  The name of the action.  This is mostly meaningful for identifying
+    /// the action once it has been added to a #GActionGroup. It is immutable.
     ///
     /// Readable
     ///
@@ -641,7 +641,7 @@
     ///
     ///
     /// #### `state-type`
-    ///  The [`glib::VariantType`][crate::glib::VariantType] of the state that the action has, or [`None`] if the
+    ///  The #GVariantType of the state that the action has, or [`None`] if the
     /// action is stateless. This is immutable.
     ///
     /// Readable
@@ -660,19 +660,19 @@
 <span class="kw">impl </span><a href="#12-91">Action</a> {
     <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#12-91">Action</a>&gt; = <span class="prelude-val">None</span>;
 
-    <span class="doccomment">/// Checks if `action_name` is valid.
+    <span class="doccomment">/// Checks if @action_name is valid.
     ///
-    /// `action_name` is valid if it consists only of alphanumeric characters,
-    /// plus '-' and '.'. The empty string is not a valid action name.
+    /// @action_name is valid if it consists only of alphanumeric characters,
+    /// plus '-' and '.'.  The empty string is not a valid action name.
     ///
-    /// It is an error to call this function with a non-utf8 `action_name`.
-    /// `action_name` must not be [`None`].
+    /// It is an error to call this function with a non-utf8 @action_name.
+    /// @action_name must not be [`None`].
     /// ## `action_name`
     /// a potential action name
     ///
     /// # Returns
     ///
-    /// [`true`] if `action_name` is valid
+    /// [`true`] if @action_name is valid
     </span><span class="attr">#[doc(alias = <span class="string">"g_action_name_is_valid"</span>)]
     </span><span class="kw">pub fn </span>name_is_valid(action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_action_name_is_valid(<a href="#110">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
@@ -685,42 +685,42 @@
     ///
     /// The first format is used to represent an action name with no target
     /// value and consists of just an action name containing no whitespace
-    /// nor the characters `:`, `(` or `)`. For example: `app.action`.
+    /// nor the characters `:`, `(` or `)`.  For example: `app.action`.
     ///
     /// The second format is used to represent an action with a target value
     /// that is a non-empty string consisting only of alphanumerics, plus `-`
-    /// and `.`. In that case, the action name and target value are
-    /// separated by a double colon (`::`). For example:
+    /// and `.`.  In that case, the action name and target value are
+    /// separated by a double colon (`::`).  For example:
     /// `app.action::target`.
     ///
     /// The third format is used to represent an action with any type of
-    /// target value, including strings. The target value follows the action
-    /// name, surrounded in parens. For example: `app.action(42)`. The
-    /// target value is parsed using `g_variant_parse()`. If a tuple-typed
+    /// target value, including strings.  The target value follows the action
+    /// name, surrounded in parens.  For example: `app.action(42)`.  The
+    /// target value is parsed using g_variant_parse().  If a tuple-typed
     /// value is desired, it must be specified in the same way, resulting in
-    /// two sets of parens, for example: `app.action((1,2,3))`. A string
+    /// two sets of parens, for example: `app.action((1,2,3))`.  A string
     /// target can be specified this way as well: `app.action('target')`.
     /// For strings, this third format must be used if target value is
     /// empty or contains characters other than alphanumerics, `-` and `.`.
     ///
     /// If this function returns [`true`], a non-[`None`] value is guaranteed to be returned
-    /// in `action_name` (if a pointer is passed in). A [`None`] value may still be
-    /// returned in `target_value`, as the `detailed_name` may not contain a target.
+    /// in @action_name (if a pointer is passed in). A [`None`] value may still be
+    /// returned in @target_value, as the @detailed_name may not contain a target.
     ///
-    /// If returned, the [`glib::Variant`][struct@crate::glib::Variant] in `target_value` is guaranteed to not be floating.
+    /// If returned, the #GVariant in @target_value is guaranteed to not be floating.
     /// ## `detailed_name`
     /// a detailed action name
     ///
     /// # Returns
     ///
-    /// [`true`] if successful, else [`false`] with `error` set
+    /// [`true`] if successful, else [`false`] with @error set
     ///
     /// ## `action_name`
     /// the action name
     ///
     /// ## `target_value`
     /// the target value,
-    ///  or [`None`] for no target
+    ///   or [`None`] for no target
     </span><span class="attr">#[doc(alias = <span class="string">"g_action_parse_detailed_name"</span>)]
     </span><span class="kw">pub fn </span>parse_detailed_name(
         detailed_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -744,20 +744,20 @@
         }
     }
 
-    <span class="doccomment">/// Formats a detailed action name from `action_name` and `target_value`.
+    <span class="doccomment">/// Formats a detailed action name from @action_name and @target_value.
     ///
     /// It is an error to call this function with an invalid action name.
     ///
-    /// This function is the opposite of [`parse_detailed_name()`][Self::parse_detailed_name()].
-    /// It will produce a string that can be parsed back to the `action_name`
-    /// and `target_value` by that function.
+    /// This function is the opposite of g_action_parse_detailed_name().
+    /// It will produce a string that can be parsed back to the @action_name
+    /// and @target_value by that function.
     ///
     /// See that function for the types of strings that will be printed by
     /// this function.
     /// ## `action_name`
     /// a valid action name
     /// ## `target_value`
-    /// a [`glib::Variant`][struct@crate::glib::Variant] target value, or [`None`]
+    /// a #GVariant target value, or [`None`]
     ///
     /// # Returns
     ///
@@ -789,11 +789,11 @@
 </span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ActionExt.html">ActionExt</a>: IsA&lt;<a href="#12-91">Action</a>&gt; + <a href="#213">sealed::Sealed</a> + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Activates the action.
     ///
-    /// `parameter` must be the correct type of parameter for the action (ie:
-    /// the parameter type given at construction time). If the parameter
-    /// type was [`None`] then `parameter` must also be [`None`].
+    /// @parameter must be the correct type of parameter for the action (ie:
+    /// the parameter type given at construction time).  If the parameter
+    /// type was [`None`] then @parameter must also be [`None`].
     ///
-    /// If the `parameter` GVariant is floating, it is consumed.
+    /// If the @parameter GVariant is floating, it is consumed.
     /// ## `parameter`
     /// the parameter to the activation
     </span><span class="attr">#[doc(alias = <span class="string">"g_action_activate"</span>)]
@@ -803,16 +803,16 @@
         }
     }
 
-    <span class="doccomment">/// Request for the state of `self` to be changed to `value`.
+    <span class="doccomment">/// Request for the state of @self to be changed to @value.
     ///
-    /// The action must be stateful and `value` must be of the correct type.
-    /// See [`state_type()`][Self::state_type()].
+    /// The action must be stateful and @value must be of the correct type.
+    /// See g_action_get_state_type().
     ///
-    /// This call merely requests a change. The action may refuse to change
-    /// its state or may change its state to something other than `value`.
-    /// See [`state_hint()`][Self::state_hint()].
+    /// This call merely requests a change.  The action may refuse to change
+    /// its state or may change its state to something other than @value.
+    /// See g_action_get_state_hint().
     ///
-    /// If the `value` GVariant is floating, it is consumed.
+    /// If the @value GVariant is floating, it is consumed.
     /// ## `value`
     /// the new state
     </span><span class="attr">#[doc(alias = <span class="string">"g_action_change_state"</span>)]
@@ -822,7 +822,7 @@
         }
     }
 
-    <span class="doccomment">/// Checks if `self` is currently enabled.
+    <span class="doccomment">/// Checks if @self is currently enabled.
     ///
     /// An action must be enabled in order to be activated or in order to
     /// have its state changed from outside callers.
@@ -836,7 +836,7 @@
         <span class="kw">unsafe </span>{ from_glib(ffi::g_action_get_enabled(<a class="self" href="#268">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Queries the name of `self`.
+    <span class="doccomment">/// Queries the name of @self.
     ///
     /// # Returns
     ///
@@ -848,13 +848,13 @@
     }
 
     <span class="doccomment">/// Queries the type of the parameter that must be given when activating
-    /// `self`.
+    /// @self.
     ///
-    /// When activating the action using [`activate()`][Self::activate()], the [`glib::Variant`][struct@crate::glib::Variant]
+    /// When activating the action using g_action_activate(), the #GVariant
     /// given to that function must be of the type returned by this function.
     ///
     /// In the case that this function returns [`None`], you must not give any
-    /// [`glib::Variant`][struct@crate::glib::Variant], but [`None`] instead.
+    /// #GVariant, but [`None`] instead.
     ///
     /// # Returns
     ///
@@ -869,14 +869,14 @@
         }
     }
 
-    <span class="doccomment">/// Queries the current state of `self`.
+    <span class="doccomment">/// Queries the current state of @self.
     ///
-    /// If the action is not stateful then [`None`] will be returned. If the
+    /// If the action is not stateful then [`None`] will be returned.  If the
     /// action is stateful then the type of the return value is the type
-    /// given by [`state_type()`][Self::state_type()].
+    /// given by g_action_get_state_type().
     ///
     /// The return value (if non-[`None`]) should be freed with
-    /// `g_variant_unref()` when it is no longer required.
+    /// g_variant_unref() when it is no longer required.
     ///
     /// # Returns
     ///
@@ -888,23 +888,23 @@
     }
 
     <span class="doccomment">/// Requests a hint about the valid range of values for the state of
-    /// `self`.
+    /// @self.
     ///
     /// If [`None`] is returned it either means that the action is not stateful
     /// or that there is no hint about the valid range of values for the
     /// state of the action.
     ///
-    /// If a [`glib::Variant`][struct@crate::glib::Variant] array is returned then each item in the array is a
-    /// possible value for the state. If a [`glib::Variant`][struct@crate::glib::Variant] pair (ie: two-tuple) is
+    /// If a #GVariant array is returned then each item in the array is a
+    /// possible value for the state.  If a #GVariant pair (ie: two-tuple) is
     /// returned then the tuple specifies the inclusive lower and upper bound
     /// of valid values for the state.
     ///
-    /// In any case, the information is merely a hint. It may be possible to
+    /// In any case, the information is merely a hint.  It may be possible to
     /// have a state value outside of the hinted range and setting a value
     /// within the range may fail.
     ///
     /// The return value (if non-[`None`]) should be freed with
-    /// `g_variant_unref()` when it is no longer required.
+    /// g_variant_unref() when it is no longer required.
     ///
     /// # Returns
     ///
@@ -915,18 +915,18 @@
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_action_get_state_hint(<a class="self" href="#347">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Queries the type of the state of `self`.
+    <span class="doccomment">/// Queries the type of the state of @self.
     ///
     /// If the action is stateful (e.g. created with
-    /// [`SimpleAction::new_stateful()`][crate::SimpleAction::new_stateful()]) then this function returns the
-    /// [`glib::VariantType`][crate::glib::VariantType] of the state. This is the type of the initial value
-    /// given as the state. All calls to [`change_state()`][Self::change_state()] must give a
-    /// [`glib::Variant`][struct@crate::glib::Variant] of this type and [`state()`][Self::state()] will return a
-    /// [`glib::Variant`][struct@crate::glib::Variant] of the same type.
+    /// g_simple_action_new_stateful()) then this function returns the
+    /// #GVariantType of the state.  This is the type of the initial value
+    /// given as the state. All calls to g_action_change_state() must give a
+    /// #GVariant of this type and g_action_get_state() will return a
+    /// #GVariant of the same type.
     ///
-    /// If the action is not stateful (e.g. created with [`SimpleAction::new()`][crate::SimpleAction::new()])
-    /// then this function will return [`None`]. In that case, [`state()`][Self::state()]
-    /// will return [`None`] and you must not call [`change_state()`][Self::change_state()].
+    /// If the action is not stateful (e.g. created with g_simple_action_new())
+    /// then this function will return [`None`]. In that case, g_action_get_state()
+    /// will return [`None`] and you must not call g_action_change_state().
     ///
     /// # Returns
     ///

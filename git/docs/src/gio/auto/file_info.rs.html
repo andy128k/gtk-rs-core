@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/file_info.rs`."><title>file_info.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/file_info.rs`."><title>file_info.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -1173,30 +1173,34 @@
 <a href="#1098" id="1098">1098</a>
 <a href="#1099" id="1099">1099</a>
 <a href="#1100" id="1100">1100</a>
+<a href="#1101" id="1101">1101</a>
+<a href="#1102" id="1102">1102</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 </span><span class="attr">#![allow(deprecated)]
 
-</span><span class="kw">use crate</span>::{<a href="file_attribute_matcher.rs.html#7-17">FileAttributeMatcher</a>, <a href="enums.rs.html#1120-1132">FileAttributeStatus</a>, <a href="enums.rs.html#1220-1253">FileAttributeType</a>, <a href="enums.rs.html#1511-1537">FileType</a>, <a href="icon.rs.html#7-46">Icon</a>};
+</span><span class="kw">use crate</span>::{<a href="file_attribute_matcher.rs.html#7-17">FileAttributeMatcher</a>, <a href="enums.rs.html#1120-1132">FileAttributeStatus</a>, <a href="enums.rs.html#1220-1253">FileAttributeType</a>, <a href="enums.rs.html#1511-1537">FileType</a>, <a href="icon.rs.html#7-47">Icon</a>};
 <span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// Functionality for manipulating basic metadata for files. [`FileInfo`][crate::FileInfo]
+    <span class="doccomment">/// Stores information about a file system object referenced by a [`File`][crate::File].
+    ///
+    /// Functionality for manipulating basic metadata for files. `GFileInfo`
     /// implements methods for getting information that all files should
     /// contain, and allows for manipulation of extended attributes.
     ///
-    /// See [GFileAttribute][gio-GFileAttribute] for more information on how
-    /// GIO handles file attributes.
+    /// See [file-attributes.html](file attributes) for more information on how GIO
+    /// handles file attributes.
     ///
-    /// To obtain a [`FileInfo`][crate::FileInfo] for a [`File`][crate::File], use [`FileExt::query_info()`][crate::prelude::FileExt::query_info()] (or its
-    /// async variant). To obtain a [`FileInfo`][crate::FileInfo] for a file input or output
-    /// stream, use [`FileInputStreamExt::query_info()`][crate::prelude::FileInputStreamExt::query_info()] or
-    /// [`FileOutputStreamExt::query_info()`][crate::prelude::FileOutputStreamExt::query_info()] (or their async variants).
+    /// To obtain a `GFileInfo` for a [`File`][crate::File], use
+    /// [`FileExt::query_info()`][crate::prelude::FileExt::query_info()] (or its async variant). To obtain a `GFileInfo`
+    /// for a file input or output stream, use [`FileInputStreamExt::query_info()`][crate::prelude::FileInputStreamExt::query_info()]
+    /// or [`FileOutputStreamExt::query_info()`][crate::prelude::FileOutputStreamExt::query_info()] (or their async variants).
     ///
     /// To change the actual attributes of a file, you should then set the
-    /// attribute in the [`FileInfo`][crate::FileInfo] and call [`FileExt::set_attributes_from_info()`][crate::prelude::FileExt::set_attributes_from_info()]
-    /// or [`FileExt::set_attributes_async()`][crate::prelude::FileExt::set_attributes_async()] on a GFile.
+    /// attribute in the `GFileInfo` and call [`FileExt::set_attributes_from_info()`][crate::prelude::FileExt::set_attributes_from_info()]
+    /// or [`FileExt::set_attributes_async()`][crate::prelude::FileExt::set_attributes_async()] on a `GFile`.
     ///
     /// However, not all attributes can be changed in the file. For instance,
     /// the actual size of a file cannot be changed via [`set_size()`][Self::set_size()].
@@ -1210,12 +1214,12 @@
     /// only if calling the API in a tight loop.
     ///
     /// It is an error to call these accessors without specifying their required file
-    /// attributes when creating the [`FileInfo`][crate::FileInfo]. Use [`has_attribute()`][Self::has_attribute()] or
-    /// [`list_attributes()`][Self::list_attributes()] to check what attributes are specified for a
-    /// [`FileInfo`][crate::FileInfo].
+    /// attributes when creating the `GFileInfo`. Use
+    /// [`has_attribute()`][Self::has_attribute()] or [`list_attributes()`][Self::list_attributes()]
+    /// to check what attributes are specified for a `GFileInfo`.
     ///
-    /// [`FileAttributeMatcher`][crate::FileAttributeMatcher] allows for searching through a [`FileInfo`][crate::FileInfo] for
-    /// attributes.
+    /// [`FileAttributeMatcher`][crate::FileAttributeMatcher] allows for searching through a `GFileInfo`
+    /// for attributes.
     ///
     /// # Implements
     ///
@@ -1228,33 +1232,33 @@
     }
 }
 
-<span class="kw">impl </span><a href="#9-54">FileInfo</a> {
+<span class="kw">impl </span><a href="#9-56">FileInfo</a> {
     <span class="doccomment">/// Creates a new file info structure.
     ///
     /// # Returns
     ///
-    /// a [`FileInfo`][crate::FileInfo].
+    /// a #GFileInfo.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_new"</span>)]
-    </span><span class="kw">pub fn </span>new() -&gt; <a href="#9-54">FileInfo</a> {
+    </span><span class="kw">pub fn </span>new() -&gt; <a href="#9-56">FileInfo</a> {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_file_info_new()) }
     }
 
-    <span class="doccomment">/// Clears the status information from `self`.
+    <span class="doccomment">/// Clears the status information from @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_clear_status"</span>)]
     </span><span class="kw">pub fn </span>clear_status(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_clear_status(<a class="self" href="#69">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_clear_status(<a class="self" href="#71">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// First clears all of the [GFileAttribute][gio-GFileAttribute] of `dest_info`,
-    /// and then copies all of the file attributes from `self` to `dest_info`.
+    <span class="doccomment">/// First clears all of the [GFileAttribute][gio-GFileAttribute] of @dest_info,
+    /// and then copies all of the file attributes from @self to @dest_info.
     /// ## `dest_info`
     /// destination to copy attributes to.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_copy_into"</span>)]
-    </span><span class="kw">pub fn </span>copy_into(<span class="kw-2">&amp;</span><span class="self">self</span>, dest_info: <span class="kw-2">&amp;</span><a href="#9-54">FileInfo</a>) {
+    </span><span class="kw">pub fn </span>copy_into(<span class="kw-2">&amp;</span><span class="self">self</span>, dest_info: <span class="kw-2">&amp;</span><a href="#9-56">FileInfo</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_copy_into(<a class="self" href="#80">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#80">dest_info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_copy_into(<a class="self" href="#82">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#82">dest_info</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -1262,23 +1266,23 @@
     ///
     /// # Returns
     ///
-    /// a duplicate [`FileInfo`][crate::FileInfo] of `self`.
+    /// a duplicate #GFileInfo of @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_dup"</span>)]
     #[must_use]
-    </span><span class="kw">pub fn </span>dup(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="#9-54">FileInfo</a> {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_file_info_dup(<a class="self" href="#93">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+    </span><span class="kw">pub fn </span>dup(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="#9-56">FileInfo</a> {
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_file_info_dup(<a class="self" href="#95">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the access time of the current `self` and returns it as a
-    /// [`glib::DateTime`][crate::glib::DateTime].
+    <span class="doccomment">/// Gets the access time of the current @self and returns it as a
+    /// #GDateTime.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_TIME_ACCESS`][crate::FILE_ATTRIBUTE_TIME_ACCESS]. If [`FILE_ATTRIBUTE_TIME_ACCESS_USEC`][crate::FILE_ATTRIBUTE_TIME_ACCESS_USEC] is
-    /// provided, the resulting [`glib::DateTime`][crate::glib::DateTime] will additionally have microsecond
+    /// provided, the resulting #GDateTime will additionally have microsecond
     /// precision.
     ///
     /// If nanosecond precision is needed, [`FILE_ATTRIBUTE_TIME_ACCESS_NSEC`][crate::FILE_ATTRIBUTE_TIME_ACCESS_NSEC] must
-    /// be queried separately using [`attribute_uint32()`][Self::attribute_uint32()].
+    /// be queried separately using g_file_info_get_attribute_uint32().
     ///
     /// # Returns
     ///
@@ -1288,7 +1292,7 @@
     #[doc(alias = <span class="string">"g_file_info_get_access_date_time"</span>)]
     #[doc(alias = <span class="string">"get_access_date_time"</span>)]
     </span><span class="kw">pub fn </span>access_date_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/auto/date_time/struct.DateTime.html">glib::DateTime</a>&gt; {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_file_info_get_access_date_time(<a class="self" href="#115">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_file_info_get_access_date_time(<a class="self" href="#117">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the value of an attribute, formatted as a string.
@@ -1299,16 +1303,16 @@
     ///
     /// # Returns
     ///
-    /// a UTF-8 string associated with the given `attribute`, or
-    ///  [`None`] if the attribute wasn’t set.
-    ///  When you're done with the string it must be freed with `g_free()`.
+    /// a UTF-8 string associated with the given @attribute, or
+    ///    [`None`] if the attribute wasn’t set.
+    ///    When you're done with the string it must be freed with g_free().
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_attribute_as_string"</span>)]
     #[doc(alias = <span class="string">"get_attribute_as_string"</span>)]
     </span><span class="kw">pub fn </span>attribute_as_string(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_file_info_get_attribute_as_string(
-                <a class="self" href="#132">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#132">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#134">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#134">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1326,8 +1330,8 @@
     </span><span class="kw">pub fn </span>boolean(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_file_info_get_attribute_boolean(
-                <a class="self" href="#151">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#151">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#153">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#153">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1339,15 +1343,15 @@
     ///
     /// # Returns
     ///
-    /// the contents of the `attribute` value as a byte string, or
+    /// the contents of the @attribute value as a byte string, or
     /// [`None`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_attribute_byte_string"</span>)]
     #[doc(alias = <span class="string">"get_attribute_byte_string"</span>)]
     </span><span class="kw">pub fn </span>attribute_byte_string(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_file_info_get_attribute_byte_string(
-                <a class="self" href="#171">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#171">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#173">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#173">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1369,7 +1373,7 @@
     ///
     /// # Returns
     ///
-    /// the contents of the `attribute` value as
+    /// the contents of the @attribute value as
     /// a file path, or [`None`] otherwise.
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_78"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_78"</span>)))]
@@ -1378,8 +1382,8 @@
     </span><span class="kw">pub fn </span>attribute_file_path(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_file_info_get_attribute_file_path(
-                <a class="self" href="#203">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#203">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#205">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#205">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1397,7 +1401,7 @@
     #[doc(alias = <span class="string">"get_attribute_int32"</span>)]
     </span><span class="kw">pub fn </span>attribute_int32(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_get_attribute_int32(<a class="self" href="#223">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#223">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
+            ffi::g_file_info_get_attribute_int32(<a class="self" href="#225">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#225">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
         }
     }
 
@@ -1414,26 +1418,26 @@
     #[doc(alias = <span class="string">"get_attribute_int64"</span>)]
     </span><span class="kw">pub fn </span>attribute_int64(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_get_attribute_int64(<a class="self" href="#240">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#240">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
+            ffi::g_file_info_get_attribute_int64(<a class="self" href="#242">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#242">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
         }
     }
 
-    <span class="doccomment">/// Gets the value of a [`glib::Object`][crate::glib::Object] attribute. If the attribute does
-    /// not contain a [`glib::Object`][crate::glib::Object], [`None`] will be returned.
+    <span class="doccomment">/// Gets the value of a #GObject attribute. If the attribute does
+    /// not contain a #GObject, [`None`] will be returned.
     /// ## `attribute`
     /// a file attribute key.
     ///
     /// # Returns
     ///
-    /// a [`glib::Object`][crate::glib::Object] associated with the given `attribute`,
+    /// a #GObject associated with the given @attribute,
     /// or [`None`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_attribute_object"</span>)]
     #[doc(alias = <span class="string">"get_attribute_object"</span>)]
     </span><span class="kw">pub fn </span>attribute_object(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/object/struct.Object.html">glib::Object</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_file_info_get_attribute_object(
-                <a class="self" href="#257">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#257">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#259">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#259">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1444,15 +1448,15 @@
     ///
     /// # Returns
     ///
-    /// a [`FileAttributeStatus`][crate::FileAttributeStatus] for the given `attribute`, or
-    ///  [`FileAttributeStatus::Unset`][crate::FileAttributeStatus::Unset] if the key is invalid.
+    /// a #GFileAttributeStatus for the given @attribute, or
+    ///    [`FileAttributeStatus::Unset`][crate::FileAttributeStatus::Unset] if the key is invalid.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_attribute_status"</span>)]
     #[doc(alias = <span class="string">"get_attribute_status"</span>)]
     </span><span class="kw">pub fn </span>attribute_status(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="enums.rs.html#1120-1132">FileAttributeStatus</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_file_info_get_attribute_status(
-                <a class="self" href="#276">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#276">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#278">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#278">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1464,15 +1468,15 @@
     ///
     /// # Returns
     ///
-    /// the contents of the `attribute` value as a UTF-8 string,
+    /// the contents of the @attribute value as a UTF-8 string,
     /// or [`None`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_attribute_string"</span>)]
     #[doc(alias = <span class="string">"get_attribute_string"</span>)]
     </span><span class="kw">pub fn </span>attribute_string(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_file_info_get_attribute_string(
-                <a class="self" href="#296">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#296">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#298">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#298">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1483,15 +1487,15 @@
     ///
     /// # Returns
     ///
-    /// a [`FileAttributeType`][crate::FileAttributeType] for the given `attribute`, or
+    /// a #GFileAttributeType for the given @attribute, or
     /// [`FileAttributeType::Invalid`][crate::FileAttributeType::Invalid] if the key is not set.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_attribute_type"</span>)]
     #[doc(alias = <span class="string">"get_attribute_type"</span>)]
     </span><span class="kw">pub fn </span>attribute_type(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="enums.rs.html#1220-1253">FileAttributeType</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_file_info_get_attribute_type(
-                <a class="self" href="#315">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#315">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#317">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#317">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1509,7 +1513,7 @@
     #[doc(alias = <span class="string">"get_attribute_uint32"</span>)]
     </span><span class="kw">pub fn </span>attribute_uint32(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_get_attribute_uint32(<a class="self" href="#335">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#335">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
+            ffi::g_file_info_get_attribute_uint32(<a class="self" href="#337">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#337">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
         }
     }
 
@@ -1526,13 +1530,13 @@
     #[doc(alias = <span class="string">"get_attribute_uint64"</span>)]
     </span><span class="kw">pub fn </span>attribute_uint64(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a> {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_get_attribute_uint64(<a class="self" href="#352">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#352">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
+            ffi::g_file_info_get_attribute_uint64(<a class="self" href="#354">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#354">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
         }
     }
 
     <span class="doccomment">/// Gets the file's content type.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE`][crate::FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE].
     ///
     /// # Returns
@@ -1542,19 +1546,19 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_content_type"</span>)]
     #[doc(alias = <span class="string">"get_content_type"</span>)]
     </span><span class="kw">pub fn </span>content_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_content_type(<a class="self" href="#369">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_content_type(<a class="self" href="#371">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the creation time of the current `self` and returns it as a
-    /// [`glib::DateTime`][crate::glib::DateTime].
+    <span class="doccomment">/// Gets the creation time of the current @self and returns it as a
+    /// #GDateTime.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_TIME_CREATED`][crate::FILE_ATTRIBUTE_TIME_CREATED]. If [`FILE_ATTRIBUTE_TIME_CREATED_USEC`][crate::FILE_ATTRIBUTE_TIME_CREATED_USEC] is
-    /// provided, the resulting [`glib::DateTime`][crate::glib::DateTime] will additionally have microsecond
+    /// provided, the resulting #GDateTime will additionally have microsecond
     /// precision.
     ///
     /// If nanosecond precision is needed, [`FILE_ATTRIBUTE_TIME_CREATED_NSEC`][crate::FILE_ATTRIBUTE_TIME_CREATED_NSEC] must
-    /// be queried separately using [`attribute_uint32()`][Self::attribute_uint32()].
+    /// be queried separately using g_file_info_get_attribute_uint32().
     ///
     /// # Returns
     ///
@@ -1566,27 +1570,27 @@
     </span><span class="kw">pub fn </span>creation_date_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/auto/date_time/struct.DateTime.html">glib::DateTime</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_file_info_get_creation_date_time(
-                <a class="self" href="#391">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#393">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Returns the [`glib::DateTime`][crate::glib::DateTime] representing the deletion date of the file, as
+    <span class="doccomment">/// Returns the #GDateTime representing the deletion date of the file, as
     /// available in [`FILE_ATTRIBUTE_TRASH_DELETION_DATE`][crate::FILE_ATTRIBUTE_TRASH_DELETION_DATE]. If the
     /// [`FILE_ATTRIBUTE_TRASH_DELETION_DATE`][crate::FILE_ATTRIBUTE_TRASH_DELETION_DATE] attribute is unset, [`None`] is returned.
     ///
     /// # Returns
     ///
-    /// a [`glib::DateTime`][crate::glib::DateTime], or [`None`].
+    /// a #GDateTime, or [`None`].
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_deletion_date"</span>)]
     #[doc(alias = <span class="string">"get_deletion_date"</span>)]
     </span><span class="kw">pub fn </span>deletion_date(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/auto/date_time/struct.DateTime.html">glib::DateTime</a>&gt; {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_file_info_get_deletion_date(<a class="self" href="#408">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::g_file_info_get_deletion_date(<a class="self" href="#410">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets a display name for a file. This is guaranteed to always be set.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME`][crate::FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME].
     ///
     /// # Returns
@@ -1595,12 +1599,12 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_display_name"</span>)]
     #[doc(alias = <span class="string">"get_display_name"</span>)]
     </span><span class="kw">pub fn </span>display_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_display_name(<a class="self" href="#422">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_display_name(<a class="self" href="#424">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the edit name for a file.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_EDIT_NAME`][crate::FILE_ATTRIBUTE_STANDARD_EDIT_NAME].
     ///
     /// # Returns
@@ -1609,13 +1613,13 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_edit_name"</span>)]
     #[doc(alias = <span class="string">"get_edit_name"</span>)]
     </span><span class="kw">pub fn </span>edit_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_edit_name(<a class="self" href="#436">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_edit_name(<a class="self" href="#438">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the [entity tag][gfile-etag] for a given
-    /// [`FileInfo`][crate::FileInfo]. See [`FILE_ATTRIBUTE_ETAG_VALUE`][crate::FILE_ATTRIBUTE_ETAG_VALUE].
+    <span class="doccomment">/// Gets the [entity tag](iface.File.html#entity-tags) for a given
+    /// #GFileInfo. See [`FILE_ATTRIBUTE_ETAG_VALUE`][crate::FILE_ATTRIBUTE_ETAG_VALUE].
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_ETAG_VALUE`][crate::FILE_ATTRIBUTE_ETAG_VALUE].
     ///
     /// # Returns
@@ -1624,41 +1628,41 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_etag"</span>)]
     #[doc(alias = <span class="string">"get_etag"</span>)]
     </span><span class="kw">pub fn </span>etag(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_etag(<a class="self" href="#451">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_etag(<a class="self" href="#453">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets a file's type (whether it is a regular file, symlink, etc).
-    /// This is different from the file's content type, see [`content_type()`][Self::content_type()].
+    /// This is different from the file's content type, see g_file_info_get_content_type().
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_TYPE`][crate::FILE_ATTRIBUTE_STANDARD_TYPE].
     ///
     /// # Returns
     ///
-    /// a [`FileType`][crate::FileType] for the given file.
+    /// a #GFileType for the given file.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_file_type"</span>)]
     #[doc(alias = <span class="string">"get_file_type"</span>)]
     </span><span class="kw">pub fn </span>file_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#1511-1537">FileType</a> {
-        <span class="kw">unsafe </span>{ from_glib(ffi::g_file_info_get_file_type(<a class="self" href="#466">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib(ffi::g_file_info_get_file_type(<a class="self" href="#468">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the icon for a file.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_ICON`][crate::FILE_ATTRIBUTE_STANDARD_ICON].
     ///
     /// # Returns
     ///
-    /// [`Icon`][crate::Icon] for the given `self`.
+    /// #GIcon for the given @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_icon"</span>)]
     #[doc(alias = <span class="string">"get_icon"</span>)]
-    </span><span class="kw">pub fn </span>icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="icon.rs.html#7-46">Icon</a>&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_icon(<a class="self" href="#480">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+    </span><span class="kw">pub fn </span>icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="icon.rs.html#7-47">Icon</a>&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_icon(<a class="self" href="#482">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Checks if a file is a backup file.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_IS_BACKUP`][crate::FILE_ATTRIBUTE_STANDARD_IS_BACKUP].
     ///
     /// # Returns
@@ -1667,12 +1671,12 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_is_backup"</span>)]
     #[doc(alias = <span class="string">"get_is_backup"</span>)]
     </span><span class="kw">pub fn </span>is_backup(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <span class="kw">unsafe </span>{ from_glib(ffi::g_file_info_get_is_backup(<a class="self" href="#494">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib(ffi::g_file_info_get_is_backup(<a class="self" href="#496">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Checks if a file is hidden.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_IS_HIDDEN`][crate::FILE_ATTRIBUTE_STANDARD_IS_HIDDEN].
     ///
     /// # Returns
@@ -1681,33 +1685,33 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_is_hidden"</span>)]
     #[doc(alias = <span class="string">"get_is_hidden"</span>)]
     </span><span class="kw">pub fn </span>is_hidden(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <span class="kw">unsafe </span>{ from_glib(ffi::g_file_info_get_is_hidden(<a class="self" href="#508">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib(ffi::g_file_info_get_is_hidden(<a class="self" href="#510">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Checks if a file is a symlink.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_IS_SYMLINK`][crate::FILE_ATTRIBUTE_STANDARD_IS_SYMLINK].
     ///
     /// # Returns
     ///
-    /// [`true`] if the given `self` is a symlink.
+    /// [`true`] if the given @self is a symlink.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_is_symlink"</span>)]
     #[doc(alias = <span class="string">"get_is_symlink"</span>)]
     </span><span class="kw">pub fn </span>is_symlink(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <span class="kw">unsafe </span>{ from_glib(ffi::g_file_info_get_is_symlink(<a class="self" href="#522">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib(ffi::g_file_info_get_is_symlink(<a class="self" href="#524">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the modification time of the current `self` and returns it as a
-    /// [`glib::DateTime`][crate::glib::DateTime].
+    <span class="doccomment">/// Gets the modification time of the current @self and returns it as a
+    /// #GDateTime.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_TIME_MODIFIED`][crate::FILE_ATTRIBUTE_TIME_MODIFIED]. If [`FILE_ATTRIBUTE_TIME_MODIFIED_USEC`][crate::FILE_ATTRIBUTE_TIME_MODIFIED_USEC] is
-    /// provided, the resulting [`glib::DateTime`][crate::glib::DateTime] will additionally have microsecond
+    /// provided, the resulting #GDateTime will additionally have microsecond
     /// precision.
     ///
     /// If nanosecond precision is needed, [`FILE_ATTRIBUTE_TIME_MODIFIED_NSEC`][crate::FILE_ATTRIBUTE_TIME_MODIFIED_NSEC] must
-    /// be queried separately using [`attribute_uint32()`][Self::attribute_uint32()].
+    /// be queried separately using g_file_info_get_attribute_uint32().
     ///
     /// # Returns
     ///
@@ -1719,14 +1723,14 @@
     </span><span class="kw">pub fn </span>modification_date_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/auto/date_time/struct.DateTime.html">glib::DateTime</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_file_info_get_modification_date_time(
-                <a class="self" href="#544">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#546">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
     <span class="doccomment">/// Gets the name for a file. This is guaranteed to always be set.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_NAME`][crate::FILE_ATTRIBUTE_STANDARD_NAME].
     ///
     /// # Returns
@@ -1735,57 +1739,57 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_name"</span>)]
     #[doc(alias = <span class="string">"get_name"</span>)]
     </span><span class="kw">pub fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a> {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_name(<a class="self" href="#562">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_name(<a class="self" href="#564">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the file's size (in bytes). The size is retrieved through the value of
     /// the [`FILE_ATTRIBUTE_STANDARD_SIZE`][crate::FILE_ATTRIBUTE_STANDARD_SIZE] attribute and is converted
-    /// from `guint64` to `goffset` before returning the result.
+    /// from #guint64 to #goffset before returning the result.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_SIZE`][crate::FILE_ATTRIBUTE_STANDARD_SIZE].
     ///
     /// # Returns
     ///
-    /// a `goffset` containing the file's size (in bytes).
+    /// a #goffset containing the file's size (in bytes).
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_size"</span>)]
     #[doc(alias = <span class="string">"get_size"</span>)]
     </span><span class="kw">pub fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
-        <span class="kw">unsafe </span>{ ffi::g_file_info_get_size(<a class="self" href="#578">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+        <span class="kw">unsafe </span>{ ffi::g_file_info_get_size(<a class="self" href="#580">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Gets the value of the sort_order attribute from the [`FileInfo`][crate::FileInfo].
+    <span class="doccomment">/// Gets the value of the sort_order attribute from the #GFileInfo.
     /// See [`FILE_ATTRIBUTE_STANDARD_SORT_ORDER`][crate::FILE_ATTRIBUTE_STANDARD_SORT_ORDER].
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_SORT_ORDER`][crate::FILE_ATTRIBUTE_STANDARD_SORT_ORDER].
     ///
     /// # Returns
     ///
-    /// a `gint32` containing the value of the "standard::sort_order" attribute.
+    /// a #gint32 containing the value of the "standard::sort_order" attribute.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_sort_order"</span>)]
     #[doc(alias = <span class="string">"get_sort_order"</span>)]
     </span><span class="kw">pub fn </span>sort_order(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
-        <span class="kw">unsafe </span>{ ffi::g_file_info_get_sort_order(<a class="self" href="#593">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+        <span class="kw">unsafe </span>{ ffi::g_file_info_get_sort_order(<a class="self" href="#595">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Gets the symbolic icon for a file.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON`][crate::FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON].
     ///
     /// # Returns
     ///
-    /// [`Icon`][crate::Icon] for the given `self`.
+    /// #GIcon for the given @self.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_symbolic_icon"</span>)]
     #[doc(alias = <span class="string">"get_symbolic_icon"</span>)]
-    </span><span class="kw">pub fn </span>symbolic_icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="icon.rs.html#7-46">Icon</a>&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_symbolic_icon(<a class="self" href="#607">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+    </span><span class="kw">pub fn </span>symbolic_icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="icon.rs.html#7-47">Icon</a>&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_symbolic_icon(<a class="self" href="#609">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the symlink target for a given [`FileInfo`][crate::FileInfo].
+    <span class="doccomment">/// Gets the symlink target for a given #GFileInfo.
     ///
-    /// It is an error to call this if the [`FileInfo`][crate::FileInfo] does not contain
+    /// It is an error to call this if the #GFileInfo does not contain
     /// [`FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET`][crate::FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET].
     ///
     /// # Returns
@@ -1794,42 +1798,42 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_get_symlink_target"</span>)]
     #[doc(alias = <span class="string">"get_symlink_target"</span>)]
     </span><span class="kw">pub fn </span>symlink_target(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a>&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_symlink_target(<a class="self" href="#621">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::g_file_info_get_symlink_target(<a class="self" href="#623">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Checks if a file info structure has an attribute named `attribute`.
+    <span class="doccomment">/// Checks if a file info structure has an attribute named @attribute.
     /// ## `attribute`
     /// a file attribute key.
     ///
     /// # Returns
     ///
-    /// [`true`] if `self` has an attribute named `attribute`,
-    ///  [`false`] otherwise.
+    /// [`true`] if @self has an attribute named @attribute,
+    ///     [`false`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_has_attribute"</span>)]
     </span><span class="kw">pub fn </span>has_attribute(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_file_info_has_attribute(
-                <a class="self" href="#634">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#634">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#636">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#636">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
     <span class="doccomment">/// Checks if a file info structure has an attribute in the
-    /// specified `name_space`.
+    /// specified @name_space.
     /// ## `name_space`
     /// a file attribute namespace.
     ///
     /// # Returns
     ///
-    /// [`true`] if `self` has an attribute in `name_space`,
-    ///  [`false`] otherwise.
+    /// [`true`] if @self has an attribute in @name_space,
+    ///     [`false`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_has_namespace"</span>)]
     </span><span class="kw">pub fn </span>has_namespace(<span class="kw-2">&amp;</span><span class="self">self</span>, name_space: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_file_info_has_namespace(
-                <a class="self" href="#653">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#653">name_space</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#655">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#655">name_space</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1837,30 +1841,30 @@
     <span class="doccomment">/// Lists the file info structure's attributes.
     /// ## `name_space`
     /// a file attribute key's namespace, or [`None`] to list
-    ///  all attributes.
+    ///   all attributes.
     ///
     /// # Returns
     ///
     /// a
     /// null-terminated array of strings of all of the possible attribute
-    /// types for the given `name_space`, or [`None`] on error.
+    /// types for the given @name_space, or [`None`] on error.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_list_attributes"</span>)]
     </span><span class="kw">pub fn </span>list_attributes(<span class="kw-2">&amp;</span><span class="self">self</span>, name_space: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; Vec&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(ffi::g_file_info_list_attributes(
-                <a class="self" href="#673">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#673">name_space</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#675">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#675">name_space</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Removes all cases of `attribute` from `self` if it exists.
+    <span class="doccomment">/// Removes all cases of @attribute from @self if it exists.
     /// ## `attribute`
     /// a file attribute key.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_remove_attribute"</span>)]
     </span><span class="kw">pub fn </span>remove_attribute(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_remove_attribute(<a class="self" href="#686">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#686">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_remove_attribute(<a class="self" href="#688">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#688">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -1870,13 +1874,13 @@
     ///
     /// [`FILE_ATTRIBUTE_TIME_ACCESS_NSEC`][crate::FILE_ATTRIBUTE_TIME_ACCESS_NSEC] will be cleared.
     /// ## `atime`
-    /// a [`glib::DateTime`][crate::glib::DateTime].
+    /// a #GDateTime.
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
     #[doc(alias = <span class="string">"g_file_info_set_access_date_time"</span>)]
     </span><span class="kw">pub fn </span>set_access_date_time(<span class="kw-2">&amp;</span><span class="self">self</span>, atime: <span class="kw-2">&amp;</span><a href="../../../glib/auto/date_time/struct.DateTime.html">glib::DateTime</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_access_date_time(<a class="self" href="#702">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#702">atime</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_set_access_date_time(<a class="self" href="#704">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#704">atime</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -1885,7 +1889,7 @@
     //    unsafe { TODO: call ffi:g_file_info_set_attribute() }
     //}
 
-    </span><span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    </span><span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     /// ## `attribute`
     /// a file attribute key.
@@ -1895,14 +1899,14 @@
     </span><span class="kw">pub fn </span>set_attribute_boolean(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, attr_value: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_boolean(
-                <a class="self" href="#720">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#720">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#720">attr_value</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a class="self" href="#722">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#722">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#722">attr_value</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
             );
         }
     }
 
-    <span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    <span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     /// ## `attribute`
     /// a file attribute key.
@@ -1912,14 +1916,14 @@
     </span><span class="kw">pub fn </span>set_attribute_byte_string(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, attr_value: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_byte_string(
-                <a class="self" href="#737">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#737">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#737">attr_value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#739">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#739">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#739">attr_value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    <span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     ///
     /// This function is meant to be used by language bindings that have specific
@@ -1938,14 +1942,14 @@
     ) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_file_path(
-                <a class="self" href="#760">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#761">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#762">attr_value</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#762">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#763">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#764">attr_value</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    <span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     /// ## `attribute`
     /// a file attribute key.
@@ -1955,14 +1959,14 @@
     </span><span class="kw">pub fn </span>set_attribute_int32(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, attr_value: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_int32(
-                <a class="self" href="#780">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#780">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#780">attr_value</a>,
+                <a class="self" href="#782">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#782">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#782">attr_value</a>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    <span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     /// ## `attribute`
     /// attribute name to set.
@@ -1972,50 +1976,50 @@
     </span><span class="kw">pub fn </span>set_attribute_int64(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, attr_value: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_int64(
-                <a class="self" href="#797">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#797">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#797">attr_value</a>,
+                <a class="self" href="#799">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#799">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#799">attr_value</a>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets `mask` on `self` to match specific attribute types.
+    <span class="doccomment">/// Sets @mask on @self to match specific attribute types.
     /// ## `mask`
-    /// a [`FileAttributeMatcher`][crate::FileAttributeMatcher].
+    /// a #GFileAttributeMatcher.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_attribute_mask"</span>)]
     </span><span class="kw">pub fn </span>set_attribute_mask(<span class="kw-2">&amp;</span><span class="self">self</span>, mask: <span class="kw-2">&amp;</span><a href="file_attribute_matcher.rs.html#7-17">FileAttributeMatcher</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_attribute_mask(<a class="self" href="#811">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#811">mask</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_set_attribute_mask(<a class="self" href="#813">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#813">mask</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    <span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     /// ## `attribute`
     /// a file attribute key.
     /// ## `attr_value`
-    /// a [`glib::Object`][crate::glib::Object].
+    /// a #GObject.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_attribute_object"</span>)]
     </span><span class="kw">pub fn </span>set_attribute_object(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, attr_value: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="../../../glib/object/struct.Object.html">glib::Object</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_object(
-                <a class="self" href="#824">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#824">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#824">attr_value</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#826">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#826">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#826">attr_value</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
     <span class="doccomment">/// Sets the attribute status for an attribute key. This is only
-    /// needed by external code that implement [`FileExt::set_attributes_from_info()`][crate::prelude::FileExt::set_attributes_from_info()]
+    /// needed by external code that implement g_file_set_attributes_from_info()
     /// or similar functions.
     ///
-    /// The attribute must exist in `self` for this to work. Otherwise [`false`]
-    /// is returned and `self` is unchanged.
+    /// The attribute must exist in @self for this to work. Otherwise [`false`]
+    /// is returned and @self is unchanged.
     /// ## `attribute`
     /// a file attribute key
     /// ## `status`
-    /// a [`FileAttributeStatus`][crate::FileAttributeStatus]
+    /// a #GFileAttributeStatus
     ///
     /// # Returns
     ///
@@ -2024,14 +2028,14 @@
     </span><span class="kw">pub fn </span>set_attribute_status(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, status: <a href="enums.rs.html#1120-1132">FileAttributeStatus</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_file_info_set_attribute_status(
-                <a class="self" href="#849">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#849">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#849">status</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a class="self" href="#851">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#851">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#851">status</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
             ))
         }
     }
 
-    <span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    <span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     /// ## `attribute`
     /// a file attribute key.
@@ -2041,14 +2045,14 @@
     </span><span class="kw">pub fn </span>set_attribute_string(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, attr_value: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_string(
-                <a class="self" href="#866">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#866">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#866">attr_value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#868">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#868">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#868">attr_value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    <span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     /// ## `attribute`
     /// a file attribute key.
@@ -2058,14 +2062,14 @@
     </span><span class="kw">pub fn </span>set_attribute_uint32(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, attr_value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_uint32(
-                <a class="self" href="#883">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#883">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#883">attr_value</a>,
+                <a class="self" href="#885">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#885">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#885">attr_value</a>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the `attribute` to contain the given `attr_value`,
+    <span class="doccomment">/// Sets the @attribute to contain the given @attr_value,
     /// if possible.
     /// ## `attribute`
     /// a file attribute key.
@@ -2075,21 +2079,21 @@
     </span><span class="kw">pub fn </span>set_attribute_uint64(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, attr_value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_attribute_uint64(
-                <a class="self" href="#900">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#900">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#900">attr_value</a>,
+                <a class="self" href="#902">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#902">attribute</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#902">attr_value</a>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the content type attribute for a given [`FileInfo`][crate::FileInfo].
+    <span class="doccomment">/// Sets the content type attribute for a given #GFileInfo.
     /// See [`FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE`][crate::FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE].
     /// ## `content_type`
     /// a content type. See [GContentType][gio-GContentType]
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_content_type"</span>)]
     </span><span class="kw">pub fn </span>set_content_type(<span class="kw-2">&amp;</span><span class="self">self</span>, content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_content_type(<a class="self" href="#915">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#915">content_type</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_set_content_type(<a class="self" href="#917">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#917">content_type</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -2099,27 +2103,27 @@
     ///
     /// [`FILE_ATTRIBUTE_TIME_CREATED_NSEC`][crate::FILE_ATTRIBUTE_TIME_CREATED_NSEC] will be cleared.
     /// ## `creation_time`
-    /// a [`glib::DateTime`][crate::glib::DateTime].
+    /// a #GDateTime.
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
     #[doc(alias = <span class="string">"g_file_info_set_creation_date_time"</span>)]
     </span><span class="kw">pub fn </span>set_creation_date_time(<span class="kw-2">&amp;</span><span class="self">self</span>, creation_time: <span class="kw-2">&amp;</span><a href="../../../glib/auto/date_time/struct.DateTime.html">glib::DateTime</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_creation_date_time(
-                <a class="self" href="#931">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#931">creation_time</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#933">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#933">creation_time</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the display name for the current [`FileInfo`][crate::FileInfo].
+    <span class="doccomment">/// Sets the display name for the current #GFileInfo.
     /// See [`FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME`][crate::FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME].
     /// ## `display_name`
     /// a string containing a display name.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_display_name"</span>)]
     </span><span class="kw">pub fn </span>set_display_name(<span class="kw-2">&amp;</span><span class="self">self</span>, display_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_display_name(<a class="self" href="#945">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#945">display_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_set_display_name(<a class="self" href="#947">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#947">display_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -2130,51 +2134,51 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_edit_name"</span>)]
     </span><span class="kw">pub fn </span>set_edit_name(<span class="kw-2">&amp;</span><span class="self">self</span>, edit_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_edit_name(<a class="self" href="#956">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#956">edit_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_set_edit_name(<a class="self" href="#958">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#958">edit_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Sets the file type in a [`FileInfo`][crate::FileInfo] to `type_`.
+    <span class="doccomment">/// Sets the file type in a #GFileInfo to @type_.
     /// See [`FILE_ATTRIBUTE_STANDARD_TYPE`][crate::FILE_ATTRIBUTE_STANDARD_TYPE].
     /// ## `type_`
-    /// a [`FileType`][crate::FileType].
+    /// a #GFileType.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_file_type"</span>)]
     </span><span class="kw">pub fn </span>set_file_type(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="enums.rs.html#1511-1537">FileType</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_file_type(<a class="self" href="#967">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#967">type_</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            ffi::g_file_info_set_file_type(<a class="self" href="#969">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#969">type_</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
     }
 
-    <span class="doccomment">/// Sets the icon for a given [`FileInfo`][crate::FileInfo].
+    <span class="doccomment">/// Sets the icon for a given #GFileInfo.
     /// See [`FILE_ATTRIBUTE_STANDARD_ICON`][crate::FILE_ATTRIBUTE_STANDARD_ICON].
     /// ## `icon`
-    /// a [`Icon`][crate::Icon].
+    /// a #GIcon.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_icon"</span>)]
-    </span><span class="kw">pub fn </span>set_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="icon.rs.html#7-46">Icon</a>&gt;) {
+    </span><span class="kw">pub fn </span>set_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="icon.rs.html#7-47">Icon</a>&gt;) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_icon(<a class="self" href="#978">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#978">icon</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_set_icon(<a class="self" href="#980">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#980">icon</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Sets the "is_hidden" attribute in a [`FileInfo`][crate::FileInfo] according to `is_hidden`.
+    <span class="doccomment">/// Sets the "is_hidden" attribute in a #GFileInfo according to @is_hidden.
     /// See [`FILE_ATTRIBUTE_STANDARD_IS_HIDDEN`][crate::FILE_ATTRIBUTE_STANDARD_IS_HIDDEN].
     /// ## `is_hidden`
-    /// a `gboolean`.
+    /// a #gboolean.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_is_hidden"</span>)]
     </span><span class="kw">pub fn </span>set_is_hidden(<span class="kw-2">&amp;</span><span class="self">self</span>, is_hidden: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_is_hidden(<a class="self" href="#989">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#989">is_hidden</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            ffi::g_file_info_set_is_hidden(<a class="self" href="#991">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#991">is_hidden</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
     }
 
-    <span class="doccomment">/// Sets the "is_symlink" attribute in a [`FileInfo`][crate::FileInfo] according to `is_symlink`.
+    <span class="doccomment">/// Sets the "is_symlink" attribute in a #GFileInfo according to @is_symlink.
     /// See [`FILE_ATTRIBUTE_STANDARD_IS_SYMLINK`][crate::FILE_ATTRIBUTE_STANDARD_IS_SYMLINK].
     /// ## `is_symlink`
-    /// a `gboolean`.
+    /// a #gboolean.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_is_symlink"</span>)]
     </span><span class="kw">pub fn </span>set_is_symlink(<span class="kw-2">&amp;</span><span class="self">self</span>, is_symlink: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_is_symlink(<a class="self" href="#1000">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1000">is_symlink</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            ffi::g_file_info_set_is_symlink(<a class="self" href="#1002">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1002">is_symlink</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
     }
 
@@ -2184,38 +2188,38 @@
     ///
     /// [`FILE_ATTRIBUTE_TIME_MODIFIED_NSEC`][crate::FILE_ATTRIBUTE_TIME_MODIFIED_NSEC] will be cleared.
     /// ## `mtime`
-    /// a [`glib::DateTime`][crate::glib::DateTime].
+    /// a #GDateTime.
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_62"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_62"</span>)))]
     #[doc(alias = <span class="string">"g_file_info_set_modification_date_time"</span>)]
     </span><span class="kw">pub fn </span>set_modification_date_time(<span class="kw-2">&amp;</span><span class="self">self</span>, mtime: <span class="kw-2">&amp;</span><a href="../../../glib/auto/date_time/struct.DateTime.html">glib::DateTime</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_modification_date_time(
-                <a class="self" href="#1016">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#1016">mtime</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1018">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#1018">mtime</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// Sets the name attribute for the current [`FileInfo`][crate::FileInfo].
+    <span class="doccomment">/// Sets the name attribute for the current #GFileInfo.
     /// See [`FILE_ATTRIBUTE_STANDARD_NAME`][crate::FILE_ATTRIBUTE_STANDARD_NAME].
     /// ## `name`
     /// a string containing a name.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_name"</span>)]
     </span><span class="kw">pub fn </span>set_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_name(<a class="self" href="#1030">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1030">name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_set_name(<a class="self" href="#1032">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1032">name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
     <span class="doccomment">/// Sets the [`FILE_ATTRIBUTE_STANDARD_SIZE`][crate::FILE_ATTRIBUTE_STANDARD_SIZE] attribute in the file info
     /// to the given size.
     /// ## `size`
-    /// a `goffset` containing the file's size.
+    /// a #goffset containing the file's size.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_size"</span>)]
     </span><span class="kw">pub fn </span>set_size(<span class="kw-2">&amp;</span><span class="self">self</span>, size: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_size(<a class="self" href="#1041">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1041">size</a>);
+            ffi::g_file_info_set_size(<a class="self" href="#1043">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1043">size</a>);
         }
     }
 
@@ -2226,20 +2230,20 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_sort_order"</span>)]
     </span><span class="kw">pub fn </span>set_sort_order(<span class="kw-2">&amp;</span><span class="self">self</span>, sort_order: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_set_sort_order(<a class="self" href="#1052">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1052">sort_order</a>);
+            ffi::g_file_info_set_sort_order(<a class="self" href="#1054">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1054">sort_order</a>);
         }
     }
 
-    <span class="doccomment">/// Sets the symbolic icon for a given [`FileInfo`][crate::FileInfo].
+    <span class="doccomment">/// Sets the symbolic icon for a given #GFileInfo.
     /// See [`FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON`][crate::FILE_ATTRIBUTE_STANDARD_SYMBOLIC_ICON].
     /// ## `icon`
-    /// a [`Icon`][crate::Icon].
+    /// a #GIcon.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_set_symbolic_icon"</span>)]
-    </span><span class="kw">pub fn </span>set_symbolic_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="icon.rs.html#7-46">Icon</a>&gt;) {
+    </span><span class="kw">pub fn </span>set_symbolic_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="icon.rs.html#7-47">Icon</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_symbolic_icon(
-                <a class="self" href="#1063">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#1063">icon</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1065">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#1065">icon</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -2252,25 +2256,25 @@
     </span><span class="kw">pub fn </span>set_symlink_target(<span class="kw-2">&amp;</span><span class="self">self</span>, symlink_target: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_file_info_set_symlink_target(
-                <a class="self" href="#1077">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#1077">symlink_target</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#1079">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#1079">symlink_target</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// Unsets a mask set by [`set_attribute_mask()`][Self::set_attribute_mask()], if one
+    <span class="doccomment">/// Unsets a mask set by g_file_info_set_attribute_mask(), if one
     /// is set.
     </span><span class="attr">#[doc(alias = <span class="string">"g_file_info_unset_attribute_mask"</span>)]
     </span><span class="kw">pub fn </span>unset_attribute_mask(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            ffi::g_file_info_unset_attribute_mask(<a class="self" href="#1089">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            ffi::g_file_info_unset_attribute_mask(<a class="self" href="#1091">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#9-54">FileInfo</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#9-56">FileInfo</a> {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <a href="#63-65"><span class="self">Self</span>::new</a>()
+        <a href="#65-67"><span class="self">Self</span>::new</a>()
     }
 }
 </code></pre></div></section></main></body></html>

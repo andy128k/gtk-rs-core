@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/tls_database.rs`."><title>tls_database.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/tls_database.rs`."><title>tls_database.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -820,22 +820,22 @@
 // DO NOT EDIT
 
 </span><span class="kw">use crate</span>::{
-    <a href="async_result.rs.html#7-106">AsyncResult</a>, <a href="cancellable.rs.html#7-83">Cancellable</a>, <a href="socket_connectable.rs.html#8-80">SocketConnectable</a>, <a href="tls_certificate.rs.html#17-192">TlsCertificate</a>, <a href="flags.rs.html#3017-3064">TlsCertificateFlags</a>,
-    <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>, <a href="flags.rs.html#3138-3147">TlsDatabaseVerifyFlags</a>, <a href="tls_interaction.rs.html#12-43">TlsInteraction</a>,
+    <a href="async_result.rs.html#7-105">AsyncResult</a>, <a href="cancellable.rs.html#7-85">Cancellable</a>, <a href="socket_connectable.rs.html#8-78">SocketConnectable</a>, <a href="tls_certificate.rs.html#17-192">TlsCertificate</a>, <a href="flags.rs.html#3023-3070">TlsCertificateFlags</a>,
+    <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>, <a href="flags.rs.html#3144-3153">TlsDatabaseVerifyFlags</a>, <a href="tls_interaction.rs.html#12-43">TlsInteraction</a>,
 };
 <span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 <span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">boxed::Box</a> <span class="kw">as </span>Box_, <a href="https://doc.rust-lang.org/nightly/core/pin/struct.Pin.html">pin::Pin</a>};
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`TlsDatabase`][crate::TlsDatabase] is used to look up certificates and other information
+    <span class="doccomment">/// `GTlsDatabase` is used to look up certificates and other information
     /// from a certificate or key store. It is an abstract base class which
     /// TLS library specific subtypes override.
     ///
-    /// A [`TlsDatabase`][crate::TlsDatabase] may be accessed from multiple threads by the TLS backend.
+    /// A `GTlsDatabase` may be accessed from multiple threads by the TLS backend.
     /// All implementations are required to be fully thread-safe.
     ///
     /// Most common client applications will not directly interact with
-    /// [`TlsDatabase`][crate::TlsDatabase]. It is used internally by [`TlsConnection`][crate::TlsConnection].
+    /// `GTlsDatabase`. It is used internally by [`TlsConnection`][crate::TlsConnection].
     ///
     /// This is an Abstract Base Class, you cannot instantiate it.
     ///
@@ -896,14 +896,14 @@
     <span class="doccomment">/// Look up a certificate by its handle.
     ///
     /// The handle should have been created by calling
-    /// [`create_certificate_handle()`][Self::create_certificate_handle()] on a [`TlsDatabase`][crate::TlsDatabase] object of
+    /// g_tls_database_create_certificate_handle() on a #GTlsDatabase object of
     /// the same TLS backend. The handle is designed to remain valid across
     /// instantiations of the database.
     ///
     /// If the handle is no longer valid, or does not point to a certificate in
     /// this database, then [`None`] will be returned.
     ///
-    /// This function can block, use [`lookup_certificate_for_handle_async()`][Self::lookup_certificate_for_handle_async()] to perform
+    /// This function can block, use g_tls_database_lookup_certificate_for_handle_async() to perform
     /// the lookup operation asynchronously.
     /// ## `handle`
     /// a certificate handle
@@ -912,19 +912,19 @@
     /// ## `flags`
     /// Flags which affect the lookup.
     /// ## `cancellable`
-    /// a [`Cancellable`][crate::Cancellable], or [`None`]
+    /// a #GCancellable, or [`None`]
     ///
     /// # Returns
     ///
     /// a newly allocated
-    /// [`TlsCertificate`][crate::TlsCertificate], or [`None`]. Use `g_object_unref()` to release the certificate.
+    /// #GTlsCertificate, or [`None`]. Use g_object_unref() to release the certificate.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_database_lookup_certificate_for_handle"</span>)]
     </span><span class="kw">fn </span>lookup_certificate_for_handle(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         handle: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt;&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -945,7 +945,7 @@
     }
 
     <span class="doccomment">/// Asynchronously look up a certificate by its handle in the database. See
-    /// [`lookup_certificate_for_handle()`][Self::lookup_certificate_for_handle()] for more information.
+    /// g_tls_database_lookup_certificate_for_handle() for more information.
     /// ## `handle`
     /// a certificate handle
     /// ## `interaction`
@@ -953,7 +953,7 @@
     /// ## `flags`
     /// Flags which affect the lookup.
     /// ## `cancellable`
-    /// a [`Cancellable`][crate::Cancellable], or [`None`]
+    /// a #GCancellable, or [`None`]
     /// ## `callback`
     /// callback to call when the operation completes
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_database_lookup_certificate_for_handle_async"</span>)]
@@ -963,8 +963,8 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         handle: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt;&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
@@ -1020,7 +1020,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         handle: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
     ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
     {
         <span class="kw">let </span>handle = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#204">handle</a>);
@@ -1041,11 +1041,11 @@
         ))
     }
 
-    <span class="doccomment">/// Look up the issuer of `certificate` in the database. The
-    /// [`issuer`][struct@crate::TlsCertificate#issuer] property of `certificate` is not modified, and
+    <span class="doccomment">/// Look up the issuer of @certificate in the database. The
+    /// #GTlsCertificate:issuer property of @certificate is not modified, and
     /// the two certificates are not hooked into a chain.
     ///
-    /// This function can block. Use [`lookup_certificate_issuer_async()`][Self::lookup_certificate_issuer_async()]
+    /// This function can block. Use g_tls_database_lookup_certificate_issuer_async()
     /// to perform the lookup operation asynchronously.
     ///
     /// Beware this function cannot be used to build certification paths. The
@@ -1062,25 +1062,25 @@
     /// security-related decisions. Only GLib itself should make security
     /// decisions about TLS certificates.
     /// ## `certificate`
-    /// a [`TlsCertificate`][crate::TlsCertificate]
+    /// a #GTlsCertificate
     /// ## `interaction`
     /// used to interact with the user if necessary
     /// ## `flags`
     /// flags which affect the lookup operation
     /// ## `cancellable`
-    /// a [`Cancellable`][crate::Cancellable], or [`None`]
+    /// a #GCancellable, or [`None`]
     ///
     /// # Returns
     ///
-    /// a newly allocated issuer [`TlsCertificate`][crate::TlsCertificate],
-    /// or [`None`]. Use `g_object_unref()` to release the certificate.
+    /// a newly allocated issuer #GTlsCertificate,
+    /// or [`None`]. Use g_object_unref() to release the certificate.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_database_lookup_certificate_issuer"</span>)]
     </span><span class="kw">fn </span>lookup_certificate_issuer(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         certificate: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt;,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt;&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -1100,16 +1100,16 @@
         }
     }
 
-    <span class="doccomment">/// Asynchronously look up the issuer of `certificate` in the database. See
-    /// [`lookup_certificate_issuer()`][Self::lookup_certificate_issuer()] for more information.
+    <span class="doccomment">/// Asynchronously look up the issuer of @certificate in the database. See
+    /// g_tls_database_lookup_certificate_issuer() for more information.
     /// ## `certificate`
-    /// a [`TlsCertificate`][crate::TlsCertificate]
+    /// a #GTlsCertificate
     /// ## `interaction`
     /// used to interact with the user if necessary
     /// ## `flags`
     /// flags which affect the lookup operation
     /// ## `cancellable`
-    /// a [`Cancellable`][crate::Cancellable], or [`None`]
+    /// a #GCancellable, or [`None`]
     /// ## `callback`
     /// callback to call when the operation completes
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_database_lookup_certificate_issuer_async"</span>)]
@@ -1117,8 +1117,8 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         certificate: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt;,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt;&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
@@ -1174,7 +1174,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         certificate: <span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>),
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
     ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
     {
         <span class="kw">let </span>certificate = <a href="#358">certificate</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
@@ -1197,28 +1197,28 @@
 
     <span class="doccomment">/// Look up certificates issued by this issuer in the database.
     ///
-    /// This function can block, use [`lookup_certificates_issued_by_async()`][Self::lookup_certificates_issued_by_async()] to perform
+    /// This function can block, use g_tls_database_lookup_certificates_issued_by_async() to perform
     /// the lookup operation asynchronously.
     /// ## `issuer_raw_dn`
-    /// a [`glib::ByteArray`][crate::glib::ByteArray] which holds the DER encoded issuer DN.
+    /// a #GByteArray which holds the DER encoded issuer DN.
     /// ## `interaction`
     /// used to interact with the user if necessary
     /// ## `flags`
     /// Flags which affect the lookup operation.
     /// ## `cancellable`
-    /// a [`Cancellable`][crate::Cancellable], or [`None`]
+    /// a #GCancellable, or [`None`]
     ///
     /// # Returns
     ///
-    /// a newly allocated list of [`TlsCertificate`][crate::TlsCertificate]
-    /// objects. Use `g_object_unref()` on each certificate, and `g_list_free()` on the release the list.
+    /// a newly allocated list of #GTlsCertificate
+    /// objects. Use g_object_unref() on each certificate, and g_list_free() on the release the list.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_database_lookup_certificates_issued_by"</span>)]
     </span><span class="kw">fn </span>lookup_certificates_issued_by(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         issuer_raw_dn: <span class="kw-2">&amp;</span><a href="../../../glib/byte_array/struct.ByteArray.html">glib::ByteArray</a>,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt;&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -1239,19 +1239,19 @@
     }
 
     <span class="doccomment">/// Asynchronously look up certificates issued by this issuer in the database. See
-    /// [`lookup_certificates_issued_by()`][Self::lookup_certificates_issued_by()] for more information.
+    /// g_tls_database_lookup_certificates_issued_by() for more information.
     ///
     /// The database may choose to hold a reference to the issuer byte array for the duration
     /// of this asynchronous operation. The byte array should not be modified during
     /// this time.
     /// ## `issuer_raw_dn`
-    /// a [`glib::ByteArray`][crate::glib::ByteArray] which holds the DER encoded issuer DN.
+    /// a #GByteArray which holds the DER encoded issuer DN.
     /// ## `interaction`
     /// used to interact with the user if necessary
     /// ## `flags`
     /// Flags which affect the lookup operation.
     /// ## `cancellable`
-    /// a [`Cancellable`][crate::Cancellable], or [`None`]
+    /// a #GCancellable, or [`None`]
     /// ## `callback`
     /// callback to call when the operation completes
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_database_lookup_certificates_issued_by_async"</span>)]
@@ -1261,8 +1261,8 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         issuer_raw_dn: <span class="kw-2">&amp;</span><a href="../../../glib/byte_array/struct.ByteArray.html">glib::ByteArray</a>,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt;&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
@@ -1318,7 +1318,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         issuer_raw_dn: <span class="kw-2">&amp;</span><a href="../../../glib/byte_array/struct.ByteArray.html">glib::ByteArray</a>,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
-        flags: <a href="enums.rs.html#3984-3994">TlsDatabaseLookupFlags</a>,
+        flags: <a href="enums.rs.html#3993-4003">TlsDatabaseLookupFlags</a>,
     ) -&gt; Pin&lt;
         Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;,
     &gt; {
@@ -1343,32 +1343,32 @@
     <span class="doccomment">/// Determines the validity of a certificate chain, outside the context
     /// of a TLS session.
     ///
-    /// `chain` is a chain of [`TlsCertificate`][crate::TlsCertificate] objects each pointing to the next
-    /// certificate in the chain by its [`issuer`][struct@crate::TlsCertificate#issuer] property.
+    /// @chain is a chain of #GTlsCertificate objects each pointing to the next
+    /// certificate in the chain by its #GTlsCertificate:issuer property.
     ///
-    /// `purpose` describes the purpose (or usage) for which the certificate
-    /// is being used. Typically `purpose` will be set to [`TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER`][crate::TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER]
+    /// @purpose describes the purpose (or usage) for which the certificate
+    /// is being used. Typically @purpose will be set to [`TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER`][crate::TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER]
     /// which means that the certificate is being used to authenticate a server
     /// (and we are acting as the client).
     ///
-    /// The `identity` is used to ensure the server certificate is valid for
+    /// The @identity is used to ensure the server certificate is valid for
     /// the expected peer identity. If the identity does not match the
     /// certificate, [`TlsCertificateFlags::BAD_IDENTITY`][crate::TlsCertificateFlags::BAD_IDENTITY] will be set in the
-    /// return value. If `identity` is [`None`], that bit will never be set in
+    /// return value. If @identity is [`None`], that bit will never be set in
     /// the return value. The peer identity may also be used to check for
     /// pinned certificates (trust exceptions) in the database. These may
     /// override the normal verification process on a host-by-host basis.
     ///
-    /// Currently there are no `flags`, and [`TlsDatabaseVerifyFlags::NONE`][crate::TlsDatabaseVerifyFlags::NONE] should be
+    /// Currently there are no @flags, and [`TlsDatabaseVerifyFlags::NONE`][crate::TlsDatabaseVerifyFlags::NONE] should be
     /// used.
     ///
-    /// If `chain` is found to be valid, then the return value will be 0. If
-    /// `chain` is found to be invalid, then the return value will indicate at
+    /// If @chain is found to be valid, then the return value will be 0. If
+    /// @chain is found to be invalid, then the return value will indicate at
     /// least one problem found. If the function is unable to determine
-    /// whether `chain` is valid (for example, because `cancellable` is
+    /// whether @chain is valid (for example, because @cancellable is
     /// triggered before it completes) then the return value will be
-    /// [`TlsCertificateFlags::GENERIC_ERROR`][crate::TlsCertificateFlags::GENERIC_ERROR] and `error` will be set accordingly.
-    /// `error` is not set when `chain` is successfully analyzed but found to
+    /// [`TlsCertificateFlags::GENERIC_ERROR`][crate::TlsCertificateFlags::GENERIC_ERROR] and @error will be set accordingly.
+    /// @error is not set when @chain is successfully analyzed but found to
     /// be invalid.
     ///
     /// GLib guarantees that if certificate verification fails, at least one
@@ -1379,29 +1379,29 @@
     /// expired certificates, because this could potentially be the only
     /// error flag set even if other problems exist with the certificate.
     ///
-    /// Prior to GLib 2.48, GLib's default TLS backend modified `chain` to
-    /// represent the certification path built by [`TlsDatabase`][crate::TlsDatabase] during
-    /// certificate verification by adjusting the [`issuer`][struct@crate::TlsCertificate#issuer]
-    /// property of each certificate in `chain`. Since GLib 2.48, this no
-    /// longer occurs, so you cannot rely on [`issuer`][struct@crate::TlsCertificate#issuer] to
+    /// Prior to GLib 2.48, GLib's default TLS backend modified @chain to
+    /// represent the certification path built by #GTlsDatabase during
+    /// certificate verification by adjusting the #GTlsCertificate:issuer
+    /// property of each certificate in @chain. Since GLib 2.48, this no
+    /// longer occurs, so you cannot rely on #GTlsCertificate:issuer to
     /// represent the actual certification path used during certificate
     /// verification.
     ///
-    /// Because TLS session context is not used, [`TlsDatabase`][crate::TlsDatabase] may not
-    /// perform as many checks on the certificates as [`TlsConnection`][crate::TlsConnection] would.
+    /// Because TLS session context is not used, #GTlsDatabase may not
+    /// perform as many checks on the certificates as #GTlsConnection would.
     /// For example, certificate constraints may not be honored, and
     /// revocation checks may not be performed. The best way to verify TLS
-    /// certificates used by a TLS connection is to let [`TlsConnection`][crate::TlsConnection]
+    /// certificates used by a TLS connection is to let #GTlsConnection
     /// handle the verification.
     ///
     /// The TLS backend may attempt to look up and add missing certificates
     /// to the chain. This may involve HTTP requests to download missing
     /// certificates.
     ///
-    /// This function can block. Use [`verify_chain_async()`][Self::verify_chain_async()] to
+    /// This function can block. Use g_tls_database_verify_chain_async() to
     /// perform the verification operation asynchronously.
     /// ## `chain`
-    /// a [`TlsCertificate`][crate::TlsCertificate] chain
+    /// a #GTlsCertificate chain
     /// ## `purpose`
     /// the purpose that this certificate chain will be used for.
     /// ## `identity`
@@ -1411,22 +1411,22 @@
     /// ## `flags`
     /// additional verify flags
     /// ## `cancellable`
-    /// a [`Cancellable`][crate::Cancellable], or [`None`]
+    /// a #GCancellable, or [`None`]
     ///
     /// # Returns
     ///
-    /// the appropriate [`TlsCertificateFlags`][crate::TlsCertificateFlags] which represents the
+    /// the appropriate #GTlsCertificateFlags which represents the
     /// result of verification.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_database_verify_chain"</span>)]
     </span><span class="kw">fn </span>verify_chain(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         chain: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt;,
         purpose: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        identity: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="socket_connectable.rs.html#8-80">SocketConnectable</a>&gt;&gt;,
+        identity: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="socket_connectable.rs.html#8-78">SocketConnectable</a>&gt;&gt;,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt;&gt;,
-        flags: <a href="flags.rs.html#3138-3147">TlsDatabaseVerifyFlags</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="flags.rs.html#3017-3064">TlsCertificateFlags</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
+        flags: <a href="flags.rs.html#3144-3153">TlsDatabaseVerifyFlags</a>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="flags.rs.html#3023-3070">TlsCertificateFlags</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_tls_database_verify_chain(
@@ -1449,9 +1449,9 @@
 
     <span class="doccomment">/// Asynchronously determines the validity of a certificate chain after
     /// looking up and adding any missing certificates to the chain. See
-    /// [`verify_chain()`][Self::verify_chain()] for more information.
+    /// g_tls_database_verify_chain() for more information.
     /// ## `chain`
-    /// a [`TlsCertificate`][crate::TlsCertificate] chain
+    /// a #GTlsCertificate chain
     /// ## `purpose`
     /// the purpose that this certificate chain will be used for.
     /// ## `identity`
@@ -1461,18 +1461,18 @@
     /// ## `flags`
     /// additional verify flags
     /// ## `cancellable`
-    /// a [`Cancellable`][crate::Cancellable], or [`None`]
+    /// a #GCancellable, or [`None`]
     /// ## `callback`
     /// callback to call when the operation completes
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_database_verify_chain_async"</span>)]
-    </span><span class="kw">fn </span>verify_chain_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="flags.rs.html#3017-3064">TlsCertificateFlags</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">fn </span>verify_chain_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="flags.rs.html#3023-3070">TlsCertificateFlags</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         chain: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt;,
         purpose: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        identity: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="socket_connectable.rs.html#8-80">SocketConnectable</a>&gt;&gt;,
+        identity: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="socket_connectable.rs.html#8-78">SocketConnectable</a>&gt;&gt;,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt;&gt;,
-        flags: <a href="flags.rs.html#3138-3147">TlsDatabaseVerifyFlags</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        flags: <a href="flags.rs.html#3144-3153">TlsDatabaseVerifyFlags</a>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
@@ -1488,7 +1488,7 @@
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#659">callback</a>));
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>verify_chain_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="flags.rs.html#3017-3064">TlsCertificateFlags</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="flags.rs.html#3023-3070">TlsCertificateFlags</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
             res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
@@ -1527,11 +1527,11 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         chain: <span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="tls_certificate.rs.html#17-192">TlsCertificate</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>),
         purpose: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        identity: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="socket_connectable.rs.html#8-80">SocketConnectable</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+        identity: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="socket_connectable.rs.html#8-78">SocketConnectable</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
         interaction: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="tls_interaction.rs.html#12-43">TlsInteraction</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
-        flags: <a href="flags.rs.html#3138-3147">TlsDatabaseVerifyFlags</a>,
+        flags: <a href="flags.rs.html#3144-3153">TlsDatabaseVerifyFlags</a>,
     ) -&gt; Pin&lt;
-        Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="flags.rs.html#3017-3064">TlsCertificateFlags</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;,
+        Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="flags.rs.html#3023-3070">TlsCertificateFlags</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;,
     &gt; {
         <span class="kw">let </span>chain = <a href="#711">chain</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
         <span class="kw">let </span>purpose = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#712">purpose</a>);

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/subclass/input_stream.rs`."><title>input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/subclass/input_stream.rs`."><title>input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -447,27 +447,27 @@
 
 <span class="kw">use </span>glib::{<a href="../../../glib/subclass/prelude/index.html">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="../../../glib/object/trait.Cast.html">Cast</a>, <a href="../../../glib/error/struct.Error.html">Error</a>};
 
-<span class="kw">use crate</span>::{<a href="../auto/cancellable.rs.html#7-83">Cancellable</a>, <a href="../auto/input_stream.rs.html#9-33">InputStream</a>};
+<span class="kw">use crate</span>::{<a href="../auto/cancellable.rs.html#7-85">Cancellable</a>, <a href="../auto/input_stream.rs.html#9-35">InputStream</a>};
 
 <span class="kw">pub trait </span><a href="../../../gio/subclass/prelude/trait.InputStreamImpl.html">InputStreamImpl</a>: <a href="../../../glib/subclass/object/trait.ObjectImpl.html">ObjectImpl</a> + <a href="#50-126">InputStreamImplExt</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> {
-    <span class="kw">fn </span>read(<span class="kw-2">&amp;</span><span class="self">self</span>, buffer: <span class="kw-2">&amp;mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>], cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
+    <span class="kw">fn </span>read(<span class="kw-2">&amp;</span><span class="self">self</span>, buffer: <span class="kw-2">&amp;mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>], cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
         <a class="self" href="#10">self</a>.<a href="#51-79">parent_read</a>(<a href="#10">buffer</a>, <a href="#10">cancellable</a>)
     }
 
-    <span class="kw">fn </span>close(<span class="kw-2">&amp;</span><span class="self">self</span>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
+    <span class="kw">fn </span>close(<span class="kw-2">&amp;</span><span class="self">self</span>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
         <a class="self" href="#14">self</a>.<a href="#81-100">parent_close</a>(<a href="#14">cancellable</a>)
     }
 
-    <span class="doccomment">/// Tries to skip `count` bytes from the stream. Will block during the operation.
+    <span class="doccomment">/// Tries to skip @count bytes from the stream. Will block during the operation.
     ///
-    /// This is identical to [`InputStreamExtManual::read()`][crate::prelude::InputStreamExtManual::read()], from a behaviour standpoint,
+    /// This is identical to g_input_stream_read(), from a behaviour standpoint,
     /// but the bytes that are skipped are not returned to the user. Some
     /// streams have an implementation that is more efficient than reading the data.
     ///
     /// This function is optional for inherited classes, as the default implementation
     /// emulates it using read.
     ///
-    /// If `cancellable` is not [`None`], then the operation can be cancelled by
+    /// If @cancellable is not [`None`], then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled] will be returned. If an
     /// operation was partially finished when the operation was cancelled the
@@ -475,12 +475,12 @@
     /// ## `count`
     /// the number of bytes that will be skipped from the stream
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
     /// Number of bytes skipped, or -1 on error
-    </span><span class="kw">fn </span>skip(<span class="kw-2">&amp;</span><span class="self">self</span>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
+    </span><span class="kw">fn </span>skip(<span class="kw-2">&amp;</span><span class="self">self</span>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
         <a class="self" href="#40">self</a>.<a href="#102-125">parent_skip</a>(<a href="#40">count</a>, <a href="#40">cancellable</a>)
     }
 }
@@ -494,7 +494,7 @@
     <span class="kw">fn </span>parent_read(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         buffer: <span class="kw-2">&amp;mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>],
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
@@ -504,7 +504,7 @@
                 .expect(<span class="string">"No parent class implementation for \"read\""</span>);
             <span class="kw">let </span><span class="kw-2">mut </span>err = ptr::null_mut();
             <span class="kw">let </span>res = <a href="#59">f</a>(
-                <a class="self" href="#52">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/input_stream.rs.html#9-33">InputStream</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#52">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/input_stream.rs.html#9-35">InputStream</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#53">buffer</a>.as_mut_ptr() <span class="kw">as </span><a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
                 <a href="#53">buffer</a>.len(),
                 <a href="#54">cancellable</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
@@ -521,7 +521,7 @@
         }
     }
 
-    <span class="kw">fn </span>parent_close(<span class="kw-2">&amp;</span><span class="self">self</span>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
+    <span class="kw">fn </span>parent_close(<span class="kw-2">&amp;</span><span class="self">self</span>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
             <span class="kw">let </span>parent_class = <a href="#83">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GInputStreamClass.html">ffi::GInputStreamClass</a>;
@@ -542,7 +542,7 @@
         }
     }
 
-    <span class="kw">fn </span>parent_skip(<span class="kw-2">&amp;</span><span class="self">self</span>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
+    <span class="kw">fn </span>parent_skip(<span class="kw-2">&amp;</span><span class="self">self</span>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="../../../glib/error/struct.Error.html">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
             <span class="kw">let </span>parent_class = <a href="#104">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GInputStreamClass.html">ffi::GInputStreamClass</a>;
@@ -551,7 +551,7 @@
                 .skip
                 .expect(<span class="string">"No parent class implementation for \"skip\""</span>);
             <span class="kw">let </span>res = <a href="#107">f</a>(
-                <a class="self" href="#102">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/input_stream.rs.html#9-33">InputStream</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#102">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/input_stream.rs.html#9-35">InputStream</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#102">count</a>,
                 <a href="#102">cancellable</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 <span class="kw-2">&amp;mut </span><a href="#106">err</a>,
@@ -570,7 +570,7 @@
 
 <span class="kw">impl</span>&lt;T: <a href="#9-43">InputStreamImpl</a>&gt; <a href="#50-126">InputStreamImplExt</a> <span class="kw">for </span>T {}
 
-<span class="kw">unsafe impl</span>&lt;T: <a href="#9-43">InputStreamImpl</a>&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span><a href="../auto/input_stream.rs.html#9-33">InputStream</a> {
+<span class="kw">unsafe impl</span>&lt;T: <a href="#9-43">InputStreamImpl</a>&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span><a href="../auto/input_stream.rs.html#9-35">InputStream</a> {
     <span class="kw">fn </span>class_init(class: <span class="kw-2">&amp;mut </span>::glib::Class&lt;<span class="self">Self</span>&gt;) {
         <span class="self">Self</span>::parent_class_init::&lt;T&gt;(<a href="#131">class</a>);
 
@@ -601,7 +601,7 @@
         } <span class="kw">else </span>{
             slice::from_raw_parts_mut(<a href="#143">buffer</a> <span class="kw">as </span><span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="#144">count</a>)
         },
-        <span class="prelude-ty">Option</span>::&lt;<a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;::from_glib_borrow(<a href="#145">cancellable</a>)
+        <span class="prelude-ty">Option</span>::&lt;<a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;::from_glib_borrow(<a href="#145">cancellable</a>)
             .<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()
             .as_ref(),
     ) {
@@ -628,7 +628,7 @@
     <span class="kw">let </span>imp = <a href="#184">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
     <span class="kw">match </span><a href="#185">imp</a>.<a href="#14-16">close</a>(
-        <span class="prelude-ty">Option</span>::&lt;<a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;::from_glib_borrow(<a href="#181">cancellable</a>)
+        <span class="prelude-ty">Option</span>::&lt;<a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;::from_glib_borrow(<a href="#181">cancellable</a>)
             .<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()
             .as_ref(),
     ) {
@@ -657,7 +657,7 @@
 
     <span class="kw">match </span><a href="#213">imp</a>.<a href="#40-42">skip</a>(
         <a href="#204">count</a>,
-        <span class="prelude-ty">Option</span>::&lt;<a href="../auto/cancellable.rs.html#7-83">Cancellable</a>&gt;::from_glib_borrow(<a href="#205">cancellable</a>)
+        <span class="prelude-ty">Option</span>::&lt;<a href="../auto/cancellable.rs.html#7-85">Cancellable</a>&gt;::from_glib_borrow(<a href="#205">cancellable</a>)
             .<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()
             .as_ref(),
     ) {

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `PollableOutputStreamExtManual` trait in crate `gio`."><title>PollableOutputStreamExtManual in gio::prelude - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `PollableOutputStreamExtManual` trait in crate `gio`."><title>PollableOutputStreamExtManual in gio::prelude - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -108,19 +108,19 @@
     func: F
 ) -&gt; <a class="struct" href="../../glib/auto/source/struct.Source.html" title="struct glib::auto::source::Source">Source</a><div class="where">where
     F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnMut.html" title="trait core::ops::function::FnMut">FnMut</a>(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;Self</a>) -&gt; <a class="enum" href="../../glib/control_flow/enum.ControlFlow.html" title="enum glib::control_flow::ControlFlow">ControlFlow</a> + 'static,
-    C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;,</div></h4></section></summary><div class="docblock"><p>Creates a <a href="../../glib/auto/source/struct.Source.html" title="struct glib::auto::source::Source"><code>glib::Source</code></a> that triggers when <code>self</code> can be written, or
-<code>cancellable</code> is triggered or an error occurs. The callback on the
-source is of the <code>GPollableSourceFunc</code> type.</p>
-<p>As with <a href="trait.PollableOutputStreamExt.html#method.is_writable" title="method gio::prelude::PollableOutputStreamExt::is_writable"><code>PollableOutputStreamExt::is_writable()</code></a>, it is possible that
+    C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;,</div></h4></section></summary><div class="docblock"><p>Creates a #GSource that triggers when @self can be written, or
+@cancellable is triggered or an error occurs. The callback on the
+source is of the #GPollableSourceFunc type.</p>
+<p>As with g_pollable_output_stream_is_writable(), it is possible that
 the stream may not actually be writable even after the source
-triggers, so you should use <a href="trait.PollableOutputStreamExt.html#method.write_nonblocking" title="method gio::prelude::PollableOutputStreamExt::write_nonblocking"><code>PollableOutputStreamExt::write_nonblocking()</code></a>
-rather than <a href="trait.OutputStreamExt.html#method.write" title="method gio::prelude::OutputStreamExt::write"><code>OutputStreamExt::write()</code></a> from the callback.</p>
+triggers, so you should use g_pollable_output_stream_write_nonblocking()
+rather than g_output_stream_write() from the callback.</p>
 <p>The behaviour of this method is undefined if
-<a href="trait.PollableOutputStreamExt.html#method.can_poll" title="method gio::prelude::PollableOutputStreamExt::can_poll"><code>PollableOutputStreamExt::can_poll()</code></a> returns <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html" title="primitive bool"><code>false</code></a> for <code>self</code>.</p>
+g_pollable_output_stream_can_poll() returns <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html" title="primitive bool"><code>false</code></a> for @self.</p>
 <h6 id="cancellable"><a class="doc-anchor" href="#cancellable">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h5 id="returns"><a class="doc-anchor" href="#returns">§</a>Returns</h5>
-<p>a new <a href="../../glib/auto/source/struct.Source.html" title="struct glib::auto::source::Source"><code>glib::Source</code></a></p>
+<p>a new #GSource</p>
 </div></details><section id="method.create_source_future" class="method"><a class="src rightside" href="../../src/gio/pollable_output_stream.rs.html#95-110">source</a><h4 class="code-header">fn <a href="#method.create_source_future" class="fn">create_source_future</a>&lt;C: <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;(
     &amp;self,
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;C</a>&gt;,
@@ -133,30 +133,30 @@ rather than <a href="trait.OutputStreamExt.html#method.write" title="method gio:
     &amp;self,
     vectors: &amp;[<a class="struct" href="../struct.OutputVector.html" title="struct gio::OutputVector">OutputVector</a>&lt;'_&gt;],
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;
-) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;(<a class="enum" href="../enum.PollableReturn.html" title="enum gio::PollableReturn">PollableReturn</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><span class="item-info"><div class="stab portability">Available on <strong>crate feature <code>v2_60</code></strong> only.</div></span><div class="docblock"><p>Attempts to write the bytes contained in the <code>n_vectors</code> <code>vectors</code> to <code>self</code>,
-as with <a href="trait.OutputStreamExtManual.html#method.writev" title="method gio::prelude::OutputStreamExtManual::writev"><code>OutputStreamExtManual::writev()</code></a>. If <code>self</code> is not currently writable,
-this will immediately return %<a href="../enum.PollableReturn.html#variant.WouldBlock" title="variant gio::PollableReturn::WouldBlock"><code>PollableReturn::WouldBlock</code></a>, and you can
-use <a href="trait.PollableOutputStreamExtManual.html#method.create_source" title="method gio::prelude::PollableOutputStreamExtManual::create_source"><code>PollableOutputStreamExtManual::create_source()</code></a> to create a <a href="../../glib/auto/source/struct.Source.html" title="struct glib::auto::source::Source"><code>glib::Source</code></a>
-that will be triggered when <code>self</code> is writable. <code>error</code> will <em>not</em> be
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;(<a class="enum" href="../enum.PollableReturn.html" title="enum gio::PollableReturn">PollableReturn</a>, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><span class="item-info"><div class="stab portability">Available on <strong>crate feature <code>v2_60</code></strong> only.</div></span><div class="docblock"><p>Attempts to write the bytes contained in the @n_vectors @vectors to @self,
+as with g_output_stream_writev(). If @self is not currently writable,
+this will immediately return %@G_POLLABLE_RETURN_WOULD_BLOCK, and you can
+use g_pollable_output_stream_create_source() to create a #GSource
+that will be triggered when @self is writable. @error will <em>not</em> be
 set in that case.</p>
 <p>Note that since this method never blocks, you cannot actually
-use <code>cancellable</code> to cancel it. However, it will return an error
-if <code>cancellable</code> has already been cancelled when you call, which
+use @cancellable to cancel it. However, it will return an error
+if @cancellable has already been cancelled when you call, which
 may happen if you call this method after a source triggers due
 to having been cancelled.</p>
 <p>Also note that if <a href="../enum.PollableReturn.html#variant.WouldBlock" title="variant gio::PollableReturn::WouldBlock"><code>PollableReturn::WouldBlock</code></a> is returned some underlying
-transports like D/TLS require that you re-send the same <code>vectors</code> and
-<code>n_vectors</code> in the next write call.</p>
+transports like D/TLS require that you re-send the same @vectors and
+@n_vectors in the next write call.</p>
 <p>The behaviour of this method is undefined if
-<a href="trait.PollableOutputStreamExt.html#method.can_poll" title="method gio::prelude::PollableOutputStreamExt::can_poll"><code>PollableOutputStreamExt::can_poll()</code></a> returns <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html" title="primitive bool"><code>false</code></a> for <code>self</code>.</p>
+g_pollable_output_stream_can_poll() returns <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html" title="primitive bool"><code>false</code></a> for @self.</p>
 <h6 id="vectors"><a class="doc-anchor" href="#vectors">§</a><code>vectors</code></h6>
-<p>the buffer containing the <code>GOutputVectors</code> to write.</p>
+<p>the buffer containing the #GOutputVectors to write.</p>
 <h6 id="cancellable-1"><a class="doc-anchor" href="#cancellable-1">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h5 id="returns-1"><a class="doc-anchor" href="#returns-1">§</a>Returns</h5>
-<p>%<a href="../enum.PollableReturn.html#variant.Ok" title="variant gio::PollableReturn::Ok"><code>PollableReturn::Ok</code></a> on success, <a href="../enum.PollableReturn.html#variant.WouldBlock" title="variant gio::PollableReturn::WouldBlock"><code>PollableReturn::WouldBlock</code></a>
-if the stream is not currently writable (and <code>error</code> is <em>not</em> set), or
-<a href="../enum.PollableReturn.html#variant.Failed" title="variant gio::PollableReturn::Failed"><code>PollableReturn::Failed</code></a> if there was an error in which case <code>error</code> will
+<p>%@G_POLLABLE_RETURN_OK on success, <a href="../enum.PollableReturn.html#variant.WouldBlock" title="variant gio::PollableReturn::WouldBlock"><code>PollableReturn::WouldBlock</code></a>
+if the stream is not currently writable (and @error is <em>not</em> set), or
+<a href="../enum.PollableReturn.html#variant.Failed" title="variant gio::PollableReturn::Failed"><code>PollableReturn::Failed</code></a> if there was an error in which case @error will
 be set.</p>
 <h6 id="bytes_written"><a class="doc-anchor" href="#bytes_written">§</a><code>bytes_written</code></h6>
 <p>location to store the number of bytes that were

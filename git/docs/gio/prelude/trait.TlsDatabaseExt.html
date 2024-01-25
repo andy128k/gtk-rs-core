@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Trait containing all `struct@TlsDatabase` methods."><title>TlsDatabaseExt in gio::prelude - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Trait containing all `struct@TlsDatabase` methods."><title>TlsDatabaseExt in gio::prelude - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -194,12 +194,12 @@ handle.</p>
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate">TlsCertificate</a>&gt;, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>Look up a certificate by its handle.</p>
 <p>The handle should have been created by calling
-<a href="trait.TlsDatabaseExt.html#method.create_certificate_handle"><code>create_certificate_handle()</code></a> on a <a href="../struct.TlsDatabase.html" title="struct gio::TlsDatabase"><code>TlsDatabase</code></a> object of
+g_tls_database_create_certificate_handle() on a #GTlsDatabase object of
 the same TLS backend. The handle is designed to remain valid across
 instantiations of the database.</p>
 <p>If the handle is no longer valid, or does not point to a certificate in
 this database, then <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a> will be returned.</p>
-<p>This function can block, use <a href="trait.TlsDatabaseExt.html#method.lookup_certificate_for_handle_async"><code>lookup_certificate_for_handle_async()</code></a> to perform
+<p>This function can block, use g_tls_database_lookup_certificate_for_handle_async() to perform
 the lookup operation asynchronously.</p>
 <h6 id="handle"><a class="doc-anchor" href="#handle">§</a><code>handle</code></h6>
 <p>a certificate handle</p>
@@ -208,10 +208,10 @@ the lookup operation asynchronously.</p>
 <h6 id="flags"><a class="doc-anchor" href="#flags">§</a><code>flags</code></h6>
 <p>Flags which affect the lookup.</p>
 <h6 id="cancellable"><a class="doc-anchor" href="#cancellable">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h5 id="returns-1"><a class="doc-anchor" href="#returns-1">§</a>Returns</h5>
 <p>a newly allocated
-<a href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate"><code>TlsCertificate</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a>. Use <code>g_object_unref()</code> to release the certificate.</p>
+#GTlsCertificate, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a>. Use g_object_unref() to release the certificate.</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.lookup_certificate_for_handle_async" class="method"><a class="src rightside" href="../../src/gio/auto/tls_database.rs.html#143-200">source</a><h4 class="code-header">fn <a href="#method.lookup_certificate_for_handle_async" class="fn">lookup_certificate_for_handle_async</a>&lt;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate">TlsCertificate</a>, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;) + 'static&gt;(
     &amp;self,
     handle: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -220,7 +220,7 @@ the lookup operation asynchronously.</p>
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;,
     callback: P
 )</h4></section></summary><div class="docblock"><p>Asynchronously look up a certificate by its handle in the database. See
-<a href="trait.TlsDatabaseExt.html#method.lookup_certificate_for_handle"><code>lookup_certificate_for_handle()</code></a> for more information.</p>
+g_tls_database_lookup_certificate_for_handle() for more information.</p>
 <h6 id="handle-1"><a class="doc-anchor" href="#handle-1">§</a><code>handle</code></h6>
 <p>a certificate handle</p>
 <h6 id="interaction-1"><a class="doc-anchor" href="#interaction-1">§</a><code>interaction</code></h6>
@@ -228,7 +228,7 @@ the lookup operation asynchronously.</p>
 <h6 id="flags-1"><a class="doc-anchor" href="#flags-1">§</a><code>flags</code></h6>
 <p>Flags which affect the lookup.</p>
 <h6 id="cancellable-1"><a class="doc-anchor" href="#cancellable-1">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h6 id="callback"><a class="doc-anchor" href="#callback">§</a><code>callback</code></h6>
 <p>callback to call when the operation completes</p>
 </div></details><section id="method.lookup_certificate_for_handle_future" class="method"><a class="src rightside" href="../../src/gio/auto/tls_database.rs.html#202-225">source</a><h4 class="code-header">fn <a href="#method.lookup_certificate_for_handle_future" class="fn">lookup_certificate_for_handle_future</a>(
@@ -242,10 +242,10 @@ the lookup operation asynchronously.</p>
     interaction: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.TlsInteraction.html" title="struct gio::TlsInteraction">TlsInteraction</a>&gt;&gt;,
     flags: <a class="enum" href="../enum.TlsDatabaseLookupFlags.html" title="enum gio::TlsDatabaseLookupFlags">TlsDatabaseLookupFlags</a>,
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;
-) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate">TlsCertificate</a>, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>Look up the issuer of <code>certificate</code> in the database. The
-<a href="../struct.TlsCertificate.html#issuer" title="struct gio::TlsCertificate"><code>issuer</code></a> property of <code>certificate</code> is not modified, and
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate">TlsCertificate</a>, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>Look up the issuer of @certificate in the database. The
+#GTlsCertificate:issuer property of @certificate is not modified, and
 the two certificates are not hooked into a chain.</p>
-<p>This function can block. Use <a href="trait.TlsDatabaseExt.html#method.lookup_certificate_issuer_async"><code>lookup_certificate_issuer_async()</code></a>
+<p>This function can block. Use g_tls_database_lookup_certificate_issuer_async()
 to perform the lookup operation asynchronously.</p>
 <p>Beware this function cannot be used to build certification paths. The
 issuer certificate returned by this function may not be the same as
@@ -261,16 +261,16 @@ certificate. Accordingly, this function cannot be used to make
 security-related decisions. Only GLib itself should make security
 decisions about TLS certificates.</p>
 <h6 id="certificate-1"><a class="doc-anchor" href="#certificate-1">§</a><code>certificate</code></h6>
-<p>a <a href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate"><code>TlsCertificate</code></a></p>
+<p>a #GTlsCertificate</p>
 <h6 id="interaction-2"><a class="doc-anchor" href="#interaction-2">§</a><code>interaction</code></h6>
 <p>used to interact with the user if necessary</p>
 <h6 id="flags-2"><a class="doc-anchor" href="#flags-2">§</a><code>flags</code></h6>
 <p>flags which affect the lookup operation</p>
 <h6 id="cancellable-2"><a class="doc-anchor" href="#cancellable-2">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h5 id="returns-2"><a class="doc-anchor" href="#returns-2">§</a>Returns</h5>
-<p>a newly allocated issuer <a href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate"><code>TlsCertificate</code></a>,
-or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a>. Use <code>g_object_unref()</code> to release the certificate.</p>
+<p>a newly allocated issuer #GTlsCertificate,
+or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a>. Use g_object_unref() to release the certificate.</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.lookup_certificate_issuer_async" class="method"><a class="src rightside" href="../../src/gio/auto/tls_database.rs.html#299-354">source</a><h4 class="code-header">fn <a href="#method.lookup_certificate_issuer_async" class="fn">lookup_certificate_issuer_async</a>&lt;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate">TlsCertificate</a>, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;) + 'static&gt;(
     &amp;self,
     certificate: &amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate">TlsCertificate</a>&gt;,
@@ -278,16 +278,16 @@ or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#varia
     flags: <a class="enum" href="../enum.TlsDatabaseLookupFlags.html" title="enum gio::TlsDatabaseLookupFlags">TlsDatabaseLookupFlags</a>,
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;,
     callback: P
-)</h4></section></summary><div class="docblock"><p>Asynchronously look up the issuer of <code>certificate</code> in the database. See
-<a href="trait.TlsDatabaseExt.html#method.lookup_certificate_issuer"><code>lookup_certificate_issuer()</code></a> for more information.</p>
+)</h4></section></summary><div class="docblock"><p>Asynchronously look up the issuer of @certificate in the database. See
+g_tls_database_lookup_certificate_issuer() for more information.</p>
 <h6 id="certificate-2"><a class="doc-anchor" href="#certificate-2">§</a><code>certificate</code></h6>
-<p>a <a href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate"><code>TlsCertificate</code></a></p>
+<p>a #GTlsCertificate</p>
 <h6 id="interaction-3"><a class="doc-anchor" href="#interaction-3">§</a><code>interaction</code></h6>
 <p>used to interact with the user if necessary</p>
 <h6 id="flags-3"><a class="doc-anchor" href="#flags-3">§</a><code>flags</code></h6>
 <p>flags which affect the lookup operation</p>
 <h6 id="cancellable-3"><a class="doc-anchor" href="#cancellable-3">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h6 id="callback-1"><a class="doc-anchor" href="#callback-1">§</a><code>callback</code></h6>
 <p>callback to call when the operation completes</p>
 </div></details><section id="method.lookup_certificate_issuer_future" class="method"><a class="src rightside" href="../../src/gio/auto/tls_database.rs.html#356-379">source</a><h4 class="code-header">fn <a href="#method.lookup_certificate_issuer_future" class="fn">lookup_certificate_issuer_future</a>(
@@ -302,19 +302,19 @@ or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#varia
     flags: <a class="enum" href="../enum.TlsDatabaseLookupFlags.html" title="enum gio::TlsDatabaseLookupFlags">TlsDatabaseLookupFlags</a>,
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate">TlsCertificate</a>&gt;, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>Look up certificates issued by this issuer in the database.</p>
-<p>This function can block, use <a href="trait.TlsDatabaseExt.html#method.lookup_certificates_issued_by_async"><code>lookup_certificates_issued_by_async()</code></a> to perform
+<p>This function can block, use g_tls_database_lookup_certificates_issued_by_async() to perform
 the lookup operation asynchronously.</p>
 <h6 id="issuer_raw_dn"><a class="doc-anchor" href="#issuer_raw_dn">§</a><code>issuer_raw_dn</code></h6>
-<p>a <a href="../../glib/byte_array/struct.ByteArray.html" title="struct glib::byte_array::ByteArray"><code>glib::ByteArray</code></a> which holds the DER encoded issuer DN.</p>
+<p>a #GByteArray which holds the DER encoded issuer DN.</p>
 <h6 id="interaction-4"><a class="doc-anchor" href="#interaction-4">§</a><code>interaction</code></h6>
 <p>used to interact with the user if necessary</p>
 <h6 id="flags-4"><a class="doc-anchor" href="#flags-4">§</a><code>flags</code></h6>
 <p>Flags which affect the lookup operation.</p>
 <h6 id="cancellable-4"><a class="doc-anchor" href="#cancellable-4">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h5 id="returns-3"><a class="doc-anchor" href="#returns-3">§</a>Returns</h5>
-<p>a newly allocated list of <a href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate"><code>TlsCertificate</code></a>
-objects. Use <code>g_object_unref()</code> on each certificate, and <code>g_list_free()</code> on the release the list.</p>
+<p>a newly allocated list of #GTlsCertificate
+objects. Use g_object_unref() on each certificate, and g_list_free() on the release the list.</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.lookup_certificates_issued_by_async" class="method"><a class="src rightside" href="../../src/gio/auto/tls_database.rs.html#441-498">source</a><h4 class="code-header">fn <a href="#method.lookup_certificates_issued_by_async" class="fn">lookup_certificates_issued_by_async</a>&lt;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate">TlsCertificate</a>&gt;, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;) + 'static&gt;(
     &amp;self,
     issuer_raw_dn: &amp;<a class="struct" href="../../glib/byte_array/struct.ByteArray.html" title="struct glib::byte_array::ByteArray">ByteArray</a>,
@@ -323,18 +323,18 @@ objects. Use <code>g_object_unref()</code> on each certificate, and <code>g_list
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;,
     callback: P
 )</h4></section></summary><div class="docblock"><p>Asynchronously look up certificates issued by this issuer in the database. See
-<a href="trait.TlsDatabaseExt.html#method.lookup_certificates_issued_by"><code>lookup_certificates_issued_by()</code></a> for more information.</p>
+g_tls_database_lookup_certificates_issued_by() for more information.</p>
 <p>The database may choose to hold a reference to the issuer byte array for the duration
 of this asynchronous operation. The byte array should not be modified during
 this time.</p>
 <h6 id="issuer_raw_dn-1"><a class="doc-anchor" href="#issuer_raw_dn-1">§</a><code>issuer_raw_dn</code></h6>
-<p>a <a href="../../glib/byte_array/struct.ByteArray.html" title="struct glib::byte_array::ByteArray"><code>glib::ByteArray</code></a> which holds the DER encoded issuer DN.</p>
+<p>a #GByteArray which holds the DER encoded issuer DN.</p>
 <h6 id="interaction-5"><a class="doc-anchor" href="#interaction-5">§</a><code>interaction</code></h6>
 <p>used to interact with the user if necessary</p>
 <h6 id="flags-5"><a class="doc-anchor" href="#flags-5">§</a><code>flags</code></h6>
 <p>Flags which affect the lookup operation.</p>
 <h6 id="cancellable-5"><a class="doc-anchor" href="#cancellable-5">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h6 id="callback-2"><a class="doc-anchor" href="#callback-2">§</a><code>callback</code></h6>
 <p>callback to call when the operation completes</p>
 </div></details><section id="method.lookup_certificates_issued_by_future" class="method"><a class="src rightside" href="../../src/gio/auto/tls_database.rs.html#500-524">source</a><h4 class="code-header">fn <a href="#method.lookup_certificates_issued_by_future" class="fn">lookup_certificates_issued_by_future</a>(
@@ -352,28 +352,28 @@ this time.</p>
     cancellable: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;impl <a class="trait" href="../../glib/object/trait.IsA.html" title="trait glib::object::IsA">IsA</a>&lt;<a class="struct" href="../struct.Cancellable.html" title="struct gio::Cancellable">Cancellable</a>&gt;&gt;
 ) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../struct.TlsCertificateFlags.html" title="struct gio::TlsCertificateFlags">TlsCertificateFlags</a>, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;</h4></section></summary><div class="docblock"><p>Determines the validity of a certificate chain, outside the context
 of a TLS session.</p>
-<p><code>chain</code> is a chain of <a href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate"><code>TlsCertificate</code></a> objects each pointing to the next
-certificate in the chain by its <a href="../struct.TlsCertificate.html#issuer" title="struct gio::TlsCertificate"><code>issuer</code></a> property.</p>
-<p><code>purpose</code> describes the purpose (or usage) for which the certificate
-is being used. Typically <code>purpose</code> will be set to <a href="../static.TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER.html" title="static gio::TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER"><code>TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER</code></a>
+<p>@chain is a chain of #GTlsCertificate objects each pointing to the next
+certificate in the chain by its #GTlsCertificate:issuer property.</p>
+<p>@purpose describes the purpose (or usage) for which the certificate
+is being used. Typically @purpose will be set to <a href="../static.TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER.html" title="static gio::TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER"><code>TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER</code></a>
 which means that the certificate is being used to authenticate a server
 (and we are acting as the client).</p>
-<p>The <code>identity</code> is used to ensure the server certificate is valid for
+<p>The @identity is used to ensure the server certificate is valid for
 the expected peer identity. If the identity does not match the
 certificate, <a href="../struct.TlsCertificateFlags.html#associatedconstant.BAD_IDENTITY" title="associated constant gio::TlsCertificateFlags::BAD_IDENTITY"><code>TlsCertificateFlags::BAD_IDENTITY</code></a> will be set in the
-return value. If <code>identity</code> is <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a>, that bit will never be set in
+return value. If @identity is <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a>, that bit will never be set in
 the return value. The peer identity may also be used to check for
 pinned certificates (trust exceptions) in the database. These may
 override the normal verification process on a host-by-host basis.</p>
-<p>Currently there are no <code>flags</code>, and <a href="../struct.TlsDatabaseVerifyFlags.html#associatedconstant.NONE" title="associated constant gio::TlsDatabaseVerifyFlags::NONE"><code>TlsDatabaseVerifyFlags::NONE</code></a> should be
+<p>Currently there are no @flags, and <a href="../struct.TlsDatabaseVerifyFlags.html#associatedconstant.NONE" title="associated constant gio::TlsDatabaseVerifyFlags::NONE"><code>TlsDatabaseVerifyFlags::NONE</code></a> should be
 used.</p>
-<p>If <code>chain</code> is found to be valid, then the return value will be 0. If
-<code>chain</code> is found to be invalid, then the return value will indicate at
+<p>If @chain is found to be valid, then the return value will be 0. If
+@chain is found to be invalid, then the return value will indicate at
 least one problem found. If the function is unable to determine
-whether <code>chain</code> is valid (for example, because <code>cancellable</code> is
+whether @chain is valid (for example, because @cancellable is
 triggered before it completes) then the return value will be
-<a href="../struct.TlsCertificateFlags.html#associatedconstant.GENERIC_ERROR" title="associated constant gio::TlsCertificateFlags::GENERIC_ERROR"><code>TlsCertificateFlags::GENERIC_ERROR</code></a> and <code>error</code> will be set accordingly.
-<code>error</code> is not set when <code>chain</code> is successfully analyzed but found to
+<a href="../struct.TlsCertificateFlags.html#associatedconstant.GENERIC_ERROR" title="associated constant gio::TlsCertificateFlags::GENERIC_ERROR"><code>TlsCertificateFlags::GENERIC_ERROR</code></a> and @error will be set accordingly.
+@error is not set when @chain is successfully analyzed but found to
 be invalid.</p>
 <p>GLib guarantees that if certificate verification fails, at least one
 error will be set in the return value, but it does not guarantee
@@ -382,26 +382,26 @@ decide to ignore any particular type of error. For example, it would
 be incorrect to mask <a href="../struct.TlsCertificateFlags.html#associatedconstant.EXPIRED" title="associated constant gio::TlsCertificateFlags::EXPIRED"><code>TlsCertificateFlags::EXPIRED</code></a> if you want to allow
 expired certificates, because this could potentially be the only
 error flag set even if other problems exist with the certificate.</p>
-<p>Prior to GLib 2.48, GLib’s default TLS backend modified <code>chain</code> to
-represent the certification path built by <a href="../struct.TlsDatabase.html" title="struct gio::TlsDatabase"><code>TlsDatabase</code></a> during
-certificate verification by adjusting the <a href="../struct.TlsCertificate.html#issuer" title="struct gio::TlsCertificate"><code>issuer</code></a>
-property of each certificate in <code>chain</code>. Since GLib 2.48, this no
-longer occurs, so you cannot rely on <a href="../struct.TlsCertificate.html#issuer" title="struct gio::TlsCertificate"><code>issuer</code></a> to
+<p>Prior to GLib 2.48, GLib’s default TLS backend modified @chain to
+represent the certification path built by #GTlsDatabase during
+certificate verification by adjusting the #GTlsCertificate:issuer
+property of each certificate in @chain. Since GLib 2.48, this no
+longer occurs, so you cannot rely on #GTlsCertificate:issuer to
 represent the actual certification path used during certificate
 verification.</p>
-<p>Because TLS session context is not used, <a href="../struct.TlsDatabase.html" title="struct gio::TlsDatabase"><code>TlsDatabase</code></a> may not
-perform as many checks on the certificates as <a href="../struct.TlsConnection.html" title="struct gio::TlsConnection"><code>TlsConnection</code></a> would.
+<p>Because TLS session context is not used, #GTlsDatabase may not
+perform as many checks on the certificates as #GTlsConnection would.
 For example, certificate constraints may not be honored, and
 revocation checks may not be performed. The best way to verify TLS
-certificates used by a TLS connection is to let <a href="../struct.TlsConnection.html" title="struct gio::TlsConnection"><code>TlsConnection</code></a>
+certificates used by a TLS connection is to let #GTlsConnection
 handle the verification.</p>
 <p>The TLS backend may attempt to look up and add missing certificates
 to the chain. This may involve HTTP requests to download missing
 certificates.</p>
-<p>This function can block. Use <a href="trait.TlsDatabaseExt.html#method.verify_chain_async"><code>verify_chain_async()</code></a> to
+<p>This function can block. Use g_tls_database_verify_chain_async() to
 perform the verification operation asynchronously.</p>
 <h6 id="chain"><a class="doc-anchor" href="#chain">§</a><code>chain</code></h6>
-<p>a <a href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate"><code>TlsCertificate</code></a> chain</p>
+<p>a #GTlsCertificate chain</p>
 <h6 id="purpose"><a class="doc-anchor" href="#purpose">§</a><code>purpose</code></h6>
 <p>the purpose that this certificate chain will be used for.</p>
 <h6 id="identity"><a class="doc-anchor" href="#identity">§</a><code>identity</code></h6>
@@ -411,9 +411,9 @@ perform the verification operation asynchronously.</p>
 <h6 id="flags-6"><a class="doc-anchor" href="#flags-6">§</a><code>flags</code></h6>
 <p>additional verify flags</p>
 <h6 id="cancellable-6"><a class="doc-anchor" href="#cancellable-6">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h5 id="returns-4"><a class="doc-anchor" href="#returns-4">§</a>Returns</h5>
-<p>the appropriate <a href="../struct.TlsCertificateFlags.html" title="struct gio::TlsCertificateFlags"><code>TlsCertificateFlags</code></a> which represents the
+<p>the appropriate #GTlsCertificateFlags which represents the
 result of verification.</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.verify_chain_async" class="method"><a class="src rightside" href="../../src/gio/auto/tls_database.rs.html#651-707">source</a><h4 class="code-header">fn <a href="#method.verify_chain_async" class="fn">verify_chain_async</a>&lt;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../struct.TlsCertificateFlags.html" title="struct gio::TlsCertificateFlags">TlsCertificateFlags</a>, <a class="struct" href="../../glib/error/struct.Error.html" title="struct glib::error::Error">Error</a>&gt;) + 'static&gt;(
     &amp;self,
@@ -426,9 +426,9 @@ result of verification.</p>
     callback: P
 )</h4></section></summary><div class="docblock"><p>Asynchronously determines the validity of a certificate chain after
 looking up and adding any missing certificates to the chain. See
-<a href="trait.TlsDatabaseExt.html#method.verify_chain"><code>verify_chain()</code></a> for more information.</p>
+g_tls_database_verify_chain() for more information.</p>
 <h6 id="chain-1"><a class="doc-anchor" href="#chain-1">§</a><code>chain</code></h6>
-<p>a <a href="../struct.TlsCertificate.html" title="struct gio::TlsCertificate"><code>TlsCertificate</code></a> chain</p>
+<p>a #GTlsCertificate chain</p>
 <h6 id="purpose-1"><a class="doc-anchor" href="#purpose-1">§</a><code>purpose</code></h6>
 <p>the purpose that this certificate chain will be used for.</p>
 <h6 id="identity-1"><a class="doc-anchor" href="#identity-1">§</a><code>identity</code></h6>
@@ -438,7 +438,7 @@ looking up and adding any missing certificates to the chain. See
 <h6 id="flags-7"><a class="doc-anchor" href="#flags-7">§</a><code>flags</code></h6>
 <p>additional verify flags</p>
 <h6 id="cancellable-7"><a class="doc-anchor" href="#cancellable-7">§</a><code>cancellable</code></h6>
-<p>a <a href="../struct.Cancellable.html" title="struct gio::Cancellable"><code>Cancellable</code></a>, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
+<p>a #GCancellable, or <a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None" title="variant core::option::Option::None"><code>None</code></a></p>
 <h6 id="callback-3"><a class="doc-anchor" href="#callback-3">§</a><code>callback</code></h6>
 <p>callback to call when the operation completes</p>
 </div></details><section id="method.verify_chain_future" class="method"><a class="src rightside" href="../../src/gio/auto/tls_database.rs.html#709-739">source</a><h4 class="code-header">fn <a href="#method.verify_chain_future" class="fn">verify_chain_future</a>(

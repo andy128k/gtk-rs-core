@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/simple_action.rs`."><title>simple_action.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/simple_action.rs`."><title>simple_action.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -480,27 +480,27 @@
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// A [`SimpleAction`][crate::SimpleAction] is the obvious simple implementation of the [`Action`][crate::Action]
-    /// interface. This is the easiest way to create an action for purposes of
-    /// adding it to a [`SimpleActionGroup`][crate::SimpleActionGroup].
+    <span class="doccomment">/// A `GSimpleAction` is the obvious simple implementation of the
+    /// [`Action`][crate::Action] interface. This is the easiest way to create an action for
+    /// purposes of adding it to a [`SimpleActionGroup`][crate::SimpleActionGroup].
     ///
-    /// See also `GtkAction`.
+    /// See also `Gtk::Action`.
     ///
     /// ## Properties
     ///
     ///
     /// #### `enabled`
-    ///  If `action` is currently enabled.
+    ///  If @action is currently enabled.
     ///
-    /// If the action is disabled then calls to [`ActionExt::activate()`][crate::prelude::ActionExt::activate()] and
-    /// [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()] have no effect.
+    /// If the action is disabled then calls to g_action_activate() and
+    /// g_action_change_state() have no effect.
     ///
     /// Readable | Writeable
     ///
     ///
     /// #### `name`
     ///  The name of the action. This is mostly meaningful for identifying
-    /// the action once it has been added to a [`SimpleActionGroup`][crate::SimpleActionGroup].
+    /// the action once it has been added to a #GSimpleActionGroup.
     ///
     /// Readable | Writeable | Construct Only
     ///
@@ -519,7 +519,7 @@
     ///
     ///
     /// #### `state-type`
-    ///  The [`glib::VariantType`][crate::glib::VariantType] of the state that the action has, or [`None`] if the
+    ///  The #GVariantType of the state that the action has, or [`None`] if the
     /// action is stateless.
     ///
     /// Readable
@@ -527,17 +527,17 @@
     ///
     ///
     /// #### `enabled`
-    ///  If `action` is currently enabled.
+    ///  If @action is currently enabled.
     ///
-    /// If the action is disabled then calls to [`ActionExt::activate()`][crate::prelude::ActionExt::activate()] and
-    /// [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()] have no effect.
+    /// If the action is disabled then calls to g_action_activate() and
+    /// g_action_change_state() have no effect.
     ///
     /// Readable
     ///
     ///
     /// #### `name`
-    ///  The name of the action. This is mostly meaningful for identifying
-    /// the action once it has been added to a [`ActionGroup`][crate::ActionGroup]. It is immutable.
+    ///  The name of the action.  This is mostly meaningful for identifying
+    /// the action once it has been added to a #GActionGroup. It is immutable.
     ///
     /// Readable
     ///
@@ -557,7 +557,7 @@
     ///
     ///
     /// #### `state-type`
-    ///  The [`glib::VariantType`][crate::glib::VariantType] of the state that the action has, or [`None`] if the
+    ///  The #GVariantType of the state that the action has, or [`None`] if the
     /// action is stateless. This is immutable.
     ///
     /// Readable
@@ -569,17 +569,17 @@
     /// #### `activate`
     ///  Indicates that the action was just activated.
     ///
-    /// `parameter` will always be of the expected type, i.e. the parameter type
+    /// @parameter will always be of the expected type, i.e. the parameter type
     /// specified when the action was created. If an incorrect type is given when
     /// activating the action, this signal is not emitted.
     ///
     /// Since GLib 2.40, if no handler is connected to this signal then the
     /// default behaviour for boolean-stated actions with a [`None`] parameter
-    /// type is to toggle them via the [`change-state`][struct@crate::SimpleAction#change-state] signal.
+    /// type is to toggle them via the #GSimpleAction::change-state signal.
     /// For stateful actions where the state type is equal to the parameter
     /// type, the default is to forward them directly to
-    /// [`change-state`][struct@crate::SimpleAction#change-state]. This should allow almost all users
-    /// of [`SimpleAction`][crate::SimpleAction] to connect only one handler or the other.
+    /// #GSimpleAction::change-state.  This should allow almost all users
+    /// of #GSimpleAction to connect only one handler or the other.
     ///
     ///
     ///
@@ -588,16 +588,16 @@
     ///  Indicates that the action just received a request to change its
     /// state.
     ///
-    /// `value` will always be of the correct state type, i.e. the type of the
-    /// initial state passed to [`SimpleAction::new_stateful()`][crate::SimpleAction::new_stateful()]. If an incorrect
+    /// @value will always be of the correct state type, i.e. the type of the
+    /// initial state passed to g_simple_action_new_stateful(). If an incorrect
     /// type is given when requesting to change the state, this signal is not
     /// emitted.
     ///
     /// If no handler is connected to this signal then the default
-    /// behaviour is to call [`SimpleAction::set_state()`][crate::SimpleAction::set_state()] to set the state
+    /// behaviour is to call g_simple_action_set_state() to set the state
     /// to the requested value. If you connect a signal handler then no
     /// default action is taken. If the state should change then you must
-    /// call [`SimpleAction::set_state()`][crate::SimpleAction::set_state()] from the handler.
+    /// call g_simple_action_set_state() from the handler.
     ///
     /// An example of a 'change-state' handler:
     ///
@@ -639,17 +639,17 @@
 <span class="kw">impl </span><a href="#13-168">SimpleAction</a> {
     <span class="doccomment">/// Creates a new action.
     ///
-    /// The created action is stateless. See [`new_stateful()`][Self::new_stateful()] to create
+    /// The created action is stateless. See g_simple_action_new_stateful() to create
     /// an action that has state.
     /// ## `name`
     /// the name of the action
     /// ## `parameter_type`
     /// the type of parameter that will be passed to
-    ///  handlers for the [`activate`][struct@crate::SimpleAction#activate] signal, or [`None`] for no parameter
+    ///   handlers for the #GSimpleAction::activate signal, or [`None`] for no parameter
     ///
     /// # Returns
     ///
-    /// a new [`SimpleAction`][crate::SimpleAction]
+    /// a new #GSimpleAction
     </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_new"</span>)]
     </span><span class="kw">pub fn </span>new(name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, parameter_type: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant_type/struct.VariantTy.html">glib::VariantTy</a>&gt;) -&gt; <a href="#13-168">SimpleAction</a> {
         <span class="kw">unsafe </span>{
@@ -662,21 +662,21 @@
 
     <span class="doccomment">/// Creates a new stateful action.
     ///
-    /// All future state values must have the same [`glib::VariantType`][crate::glib::VariantType] as the initial
-    /// `state`.
+    /// All future state values must have the same #GVariantType as the initial
+    /// @state.
     ///
-    /// If the `state` [`glib::Variant`][struct@crate::glib::Variant] is floating, it is consumed.
+    /// If the @state #GVariant is floating, it is consumed.
     /// ## `name`
     /// the name of the action
     /// ## `parameter_type`
     /// the type of the parameter that will be passed to
-    ///  handlers for the [`activate`][struct@crate::SimpleAction#activate] signal, or [`None`] for no parameter
+    ///   handlers for the #GSimpleAction::activate signal, or [`None`] for no parameter
     /// ## `state`
     /// the initial state of the action
     ///
     /// # Returns
     ///
-    /// a new [`SimpleAction`][crate::SimpleAction]
+    /// a new #GSimpleAction
     </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_new_stateful"</span>)]
     </span><span class="kw">pub fn </span>new_stateful(
         name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -697,7 +697,7 @@
     /// An action must be enabled in order to be activated or in order to
     /// have its state changed from outside callers.
     ///
-    /// This should only be called by the implementor of the action. Users
+    /// This should only be called by the implementor of the action.  Users
     /// of the action should not attempt to modify its enabled flag.
     /// ## `enabled`
     /// whether the action is enabled
@@ -712,14 +712,14 @@
     ///
     /// This directly updates the 'state' property to the given value.
     ///
-    /// This should only be called by the implementor of the action. Users
+    /// This should only be called by the implementor of the action.  Users
     /// of the action should not attempt to directly modify the 'state'
-    /// property. Instead, they should call [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()] to
+    /// property.  Instead, they should call g_action_change_state() to
     /// request the change.
     ///
-    /// If the `value` GVariant is floating, it is consumed.
+    /// If the @value GVariant is floating, it is consumed.
     /// ## `value`
-    /// the new [`glib::Variant`][struct@crate::glib::Variant] for the state
+    /// the new #GVariant for the state
     </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_set_state"</span>)]
     </span><span class="kw">pub fn </span>set_state(<span class="kw-2">&amp;</span><span class="self">self</span>, value: <span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>) {
         <span class="kw">unsafe </span>{
@@ -729,10 +729,10 @@
 
     <span class="doccomment">/// Sets the state hint for the action.
     ///
-    /// See [`ActionExt::state_hint()`][crate::prelude::ActionExt::state_hint()] for more information about
+    /// See g_action_get_state_hint() for more information about
     /// action state hints.
     /// ## `state_hint`
-    /// a [`glib::Variant`][struct@crate::glib::Variant] representing the state hint
+    /// a #GVariant representing the state hint
     </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_set_state_hint"</span>)]
     </span><span class="kw">pub fn </span>set_state_hint(<span class="kw-2">&amp;</span><span class="self">self</span>, state_hint: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) {
         <span class="kw">unsafe </span>{
@@ -742,20 +742,20 @@
 
     <span class="doccomment">/// Indicates that the action was just activated.
     ///
-    /// `parameter` will always be of the expected type, i.e. the parameter type
+    /// @parameter will always be of the expected type, i.e. the parameter type
     /// specified when the action was created. If an incorrect type is given when
     /// activating the action, this signal is not emitted.
     ///
     /// Since GLib 2.40, if no handler is connected to this signal then the
     /// default behaviour for boolean-stated actions with a [`None`] parameter
-    /// type is to toggle them via the [`change-state`][struct@crate::SimpleAction#change-state] signal.
+    /// type is to toggle them via the #GSimpleAction::change-state signal.
     /// For stateful actions where the state type is equal to the parameter
     /// type, the default is to forward them directly to
-    /// [`change-state`][struct@crate::SimpleAction#change-state]. This should allow almost all users
-    /// of [`SimpleAction`][crate::SimpleAction] to connect only one handler or the other.
+    /// #GSimpleAction::change-state.  This should allow almost all users
+    /// of #GSimpleAction to connect only one handler or the other.
     /// ## `parameter`
     /// the parameter to the activation, or [`None`] if it has
-    ///  no parameter
+    ///   no parameter
     </span><span class="attr">#[doc(alias = <span class="string">"activate"</span>)]
     </span><span class="kw">pub fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -792,16 +792,16 @@
     <span class="doccomment">/// Indicates that the action just received a request to change its
     /// state.
     ///
-    /// `value` will always be of the correct state type, i.e. the type of the
-    /// initial state passed to [`new_stateful()`][Self::new_stateful()]. If an incorrect
+    /// @value will always be of the correct state type, i.e. the type of the
+    /// initial state passed to g_simple_action_new_stateful(). If an incorrect
     /// type is given when requesting to change the state, this signal is not
     /// emitted.
     ///
     /// If no handler is connected to this signal then the default
-    /// behaviour is to call [`set_state()`][Self::set_state()] to set the state
+    /// behaviour is to call g_simple_action_set_state() to set the state
     /// to the requested value. If you connect a signal handler then no
     /// default action is taken. If the state should change then you must
-    /// call [`set_state()`][Self::set_state()] from the handler.
+    /// call g_simple_action_set_state() from the handler.
     ///
     /// An example of a 'change-state' handler:
     ///

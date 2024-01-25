@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/menu.rs`."><title>menu.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/menu.rs`."><title>menu.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -403,8 +403,8 @@
 <span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`Menu`][crate::Menu] is a simple implementation of [`MenuModel`][crate::MenuModel].
-    /// You populate a [`Menu`][crate::Menu] by adding [`MenuItem`][crate::MenuItem] instances to it.
+    <span class="doccomment">/// `GMenu` is a simple implementation of [`MenuModel`][crate::MenuModel].
+    /// You populate a `GMenu` by adding [`MenuItem`][crate::MenuItem] instances to it.
     ///
     /// There are some convenience functions to allow you to directly
     /// add items (avoiding [`MenuItem`][crate::MenuItem]) for the common cases. To add
@@ -424,20 +424,20 @@
 }
 
 <span class="kw">impl </span><a href="#8-27">Menu</a> {
-    <span class="doccomment">/// Creates a new [`Menu`][crate::Menu].
+    <span class="doccomment">/// Creates a new #GMenu.
     ///
     /// The new menu has no items.
     ///
     /// # Returns
     ///
-    /// a new [`Menu`][crate::Menu]
+    /// a new #GMenu
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_new"</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; <a href="#8-27">Menu</a> {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_menu_new()) }
     }
 
     <span class="doccomment">/// Convenience function for appending a normal menu item to the end of
-    /// `self`. Combine [`MenuItem::new()`][crate::MenuItem::new()] and [`insert_item()`][Self::insert_item()] for a more
+    /// @self.  Combine g_menu_item_new() and g_menu_insert_item() for a more
     /// flexible alternative.
     /// ## `label`
     /// the section label, or [`None`]
@@ -454,11 +454,11 @@
         }
     }
 
-    <span class="doccomment">/// Appends `item` to the end of `self`.
+    <span class="doccomment">/// Appends @item to the end of @self.
     ///
-    /// See [`insert_item()`][Self::insert_item()] for more information.
+    /// See g_menu_insert_item() for more information.
     /// ## `item`
-    /// a [`MenuItem`][crate::MenuItem] to append
+    /// a #GMenuItem to append
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_append_item"</span>)]
     </span><span class="kw">pub fn </span>append_item(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span><a href="menu_item.rs.html#8-21">MenuItem</a>) {
         <span class="kw">unsafe </span>{
@@ -467,12 +467,12 @@
     }
 
     <span class="doccomment">/// Convenience function for appending a section menu item to the end of
-    /// `self`. Combine [`MenuItem::new_section()`][crate::MenuItem::new_section()] and [`insert_item()`][Self::insert_item()] for a
+    /// @self.  Combine g_menu_item_new_section() and g_menu_insert_item() for a
     /// more flexible alternative.
     /// ## `label`
     /// the section label, or [`None`]
     /// ## `section`
-    /// a [`MenuModel`][crate::MenuModel] with the items of the section
+    /// a #GMenuModel with the items of the section
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_append_section"</span>)]
     </span><span class="kw">pub fn </span>append_section(<span class="kw-2">&amp;</span><span class="self">self</span>, label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, section: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;) {
         <span class="kw">unsafe </span>{
@@ -485,12 +485,12 @@
     }
 
     <span class="doccomment">/// Convenience function for appending a submenu menu item to the end of
-    /// `self`. Combine [`MenuItem::new_submenu()`][crate::MenuItem::new_submenu()] and [`insert_item()`][Self::insert_item()] for a
+    /// @self.  Combine g_menu_item_new_submenu() and g_menu_insert_item() for a
     /// more flexible alternative.
     /// ## `label`
     /// the section label, or [`None`]
     /// ## `submenu`
-    /// a [`MenuModel`][crate::MenuModel] with the items of the submenu
+    /// a #GMenuModel with the items of the submenu
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_append_submenu"</span>)]
     </span><span class="kw">pub fn </span>append_submenu(<span class="kw-2">&amp;</span><span class="self">self</span>, label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, submenu: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;) {
         <span class="kw">unsafe </span>{
@@ -502,13 +502,13 @@
         }
     }
 
-    <span class="doccomment">/// Marks `self` as frozen.
+    <span class="doccomment">/// Marks @self as frozen.
     ///
     /// After the menu is frozen, it is an error to attempt to make any
-    /// changes to it. In effect this means that the [`Menu`][crate::Menu] API must no
+    /// changes to it.  In effect this means that the #GMenu API must no
     /// longer be used.
     ///
-    /// This function causes [`MenuModelExt::is_mutable()`][crate::prelude::MenuModelExt::is_mutable()] to begin returning
+    /// This function causes g_menu_model_is_mutable() to begin returning
     /// [`false`], which has some positive performance implications.
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_freeze"</span>)]
     </span><span class="kw">pub fn </span>freeze(<span class="kw-2">&amp;</span><span class="self">self</span>) {
@@ -517,8 +517,8 @@
         }
     }
 
-    <span class="doccomment">/// Convenience function for inserting a normal menu item into `self`.
-    /// Combine [`MenuItem::new()`][crate::MenuItem::new()] and [`insert_item()`][Self::insert_item()] for a more flexible
+    <span class="doccomment">/// Convenience function for inserting a normal menu item into @self.
+    /// Combine g_menu_item_new() and g_menu_insert_item() for a more flexible
     /// alternative.
     /// ## `position`
     /// the position at which to insert the item
@@ -538,27 +538,27 @@
         }
     }
 
-    <span class="doccomment">/// Inserts `item` into `self`.
+    <span class="doccomment">/// Inserts @item into @self.
     ///
     /// The "insertion" is actually done by copying all of the attribute and
-    /// link values of `item` and using them to form a new item within `self`.
-    /// As such, `item` itself is not really inserted, but rather, a menu item
-    /// that is exactly the same as the one presently described by `item`.
+    /// link values of @item and using them to form a new item within @self.
+    /// As such, @item itself is not really inserted, but rather, a menu item
+    /// that is exactly the same as the one presently described by @item.
     ///
-    /// This means that `item` is essentially useless after the insertion
-    /// occurs. Any changes you make to it are ignored unless it is inserted
+    /// This means that @item is essentially useless after the insertion
+    /// occurs.  Any changes you make to it are ignored unless it is inserted
     /// again (at which point its updated values will be copied).
     ///
-    /// You should probably just free `item` once you're done.
+    /// You should probably just free @item once you're done.
     ///
     /// There are many convenience functions to take care of common cases.
-    /// See [`insert()`][Self::insert()], [`insert_section()`][Self::insert_section()] and
-    /// [`insert_submenu()`][Self::insert_submenu()] as well as "prepend" and "append" variants of
+    /// See g_menu_insert(), g_menu_insert_section() and
+    /// g_menu_insert_submenu() as well as "prepend" and "append" variants of
     /// each of these functions.
     /// ## `position`
     /// the position at which to insert the item
     /// ## `item`
-    /// the [`MenuItem`][crate::MenuItem] to insert
+    /// the #GMenuItem to insert
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_insert_item"</span>)]
     </span><span class="kw">pub fn </span>insert_item(<span class="kw-2">&amp;</span><span class="self">self</span>, position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, item: <span class="kw-2">&amp;</span><a href="menu_item.rs.html#8-21">MenuItem</a>) {
         <span class="kw">unsafe </span>{
@@ -566,15 +566,15 @@
         }
     }
 
-    <span class="doccomment">/// Convenience function for inserting a section menu item into `self`.
-    /// Combine [`MenuItem::new_section()`][crate::MenuItem::new_section()] and [`insert_item()`][Self::insert_item()] for a more
+    <span class="doccomment">/// Convenience function for inserting a section menu item into @self.
+    /// Combine g_menu_item_new_section() and g_menu_insert_item() for a more
     /// flexible alternative.
     /// ## `position`
     /// the position at which to insert the item
     /// ## `label`
     /// the section label, or [`None`]
     /// ## `section`
-    /// a [`MenuModel`][crate::MenuModel] with the items of the section
+    /// a #GMenuModel with the items of the section
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_insert_section"</span>)]
     </span><span class="kw">pub fn </span>insert_section(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -592,15 +592,15 @@
         }
     }
 
-    <span class="doccomment">/// Convenience function for inserting a submenu menu item into `self`.
-    /// Combine [`MenuItem::new_submenu()`][crate::MenuItem::new_submenu()] and [`insert_item()`][Self::insert_item()] for a more
+    <span class="doccomment">/// Convenience function for inserting a submenu menu item into @self.
+    /// Combine g_menu_item_new_submenu() and g_menu_insert_item() for a more
     /// flexible alternative.
     /// ## `position`
     /// the position at which to insert the item
     /// ## `label`
     /// the section label, or [`None`]
     /// ## `submenu`
-    /// a [`MenuModel`][crate::MenuModel] with the items of the submenu
+    /// a #GMenuModel with the items of the submenu
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_insert_submenu"</span>)]
     </span><span class="kw">pub fn </span>insert_submenu(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -619,7 +619,7 @@
     }
 
     <span class="doccomment">/// Convenience function for prepending a normal menu item to the start
-    /// of `self`. Combine [`MenuItem::new()`][crate::MenuItem::new()] and [`insert_item()`][Self::insert_item()] for a more
+    /// of @self.  Combine g_menu_item_new() and g_menu_insert_item() for a more
     /// flexible alternative.
     /// ## `label`
     /// the section label, or [`None`]
@@ -636,11 +636,11 @@
         }
     }
 
-    <span class="doccomment">/// Prepends `item` to the start of `self`.
+    <span class="doccomment">/// Prepends @item to the start of @self.
     ///
-    /// See [`insert_item()`][Self::insert_item()] for more information.
+    /// See g_menu_insert_item() for more information.
     /// ## `item`
-    /// a [`MenuItem`][crate::MenuItem] to prepend
+    /// a #GMenuItem to prepend
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_prepend_item"</span>)]
     </span><span class="kw">pub fn </span>prepend_item(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span><a href="menu_item.rs.html#8-21">MenuItem</a>) {
         <span class="kw">unsafe </span>{
@@ -649,12 +649,12 @@
     }
 
     <span class="doccomment">/// Convenience function for prepending a section menu item to the start
-    /// of `self`. Combine [`MenuItem::new_section()`][crate::MenuItem::new_section()] and [`insert_item()`][Self::insert_item()] for
+    /// of @self.  Combine g_menu_item_new_section() and g_menu_insert_item() for
     /// a more flexible alternative.
     /// ## `label`
     /// the section label, or [`None`]
     /// ## `section`
-    /// a [`MenuModel`][crate::MenuModel] with the items of the section
+    /// a #GMenuModel with the items of the section
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_prepend_section"</span>)]
     </span><span class="kw">pub fn </span>prepend_section(<span class="kw-2">&amp;</span><span class="self">self</span>, label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, section: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;) {
         <span class="kw">unsafe </span>{
@@ -667,12 +667,12 @@
     }
 
     <span class="doccomment">/// Convenience function for prepending a submenu menu item to the start
-    /// of `self`. Combine [`MenuItem::new_submenu()`][crate::MenuItem::new_submenu()] and [`insert_item()`][Self::insert_item()] for
+    /// of @self.  Combine g_menu_item_new_submenu() and g_menu_insert_item() for
     /// a more flexible alternative.
     /// ## `label`
     /// the section label, or [`None`]
     /// ## `submenu`
-    /// a [`MenuModel`][crate::MenuModel] with the items of the submenu
+    /// a #GMenuModel with the items of the submenu
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_prepend_submenu"</span>)]
     </span><span class="kw">pub fn </span>prepend_submenu(<span class="kw-2">&amp;</span><span class="self">self</span>, label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, submenu: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;) {
         <span class="kw">unsafe </span>{
@@ -686,7 +686,7 @@
 
     <span class="doccomment">/// Removes an item from the menu.
     ///
-    /// `position` gives the index of the item to remove.
+    /// @position gives the index of the item to remove.
     ///
     /// It is an error if position is not in range the range from 0 to one
     /// less than the number of items in the menu.

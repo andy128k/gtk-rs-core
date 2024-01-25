@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/data_input_stream.rs`."><title>data_input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/data_input_stream.rs`."><title>data_input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -515,37 +515,37 @@
 
 <span class="kw">use </span>glib::{<a href="../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="../../glib/gstring/struct.GString.html">GString</a>};
 
-<span class="kw">use crate</span>::{<a href="auto/cancellable.rs.html#7-83">Cancellable</a>, <a href="auto/data_input_stream.rs.html#16-62">DataInputStream</a>};
+<span class="kw">use crate</span>::{<a href="auto/cancellable.rs.html#7-85">Cancellable</a>, <a href="auto/data_input_stream.rs.html#16-68">DataInputStream</a>};
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/data_input_stream.rs.html#16-62"><span class="kw">super</span>::DataInputStream</a>&gt;&gt; <a href="#10">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/data_input_stream.rs.html#16-68"><span class="kw">super</span>::DataInputStream</a>&gt;&gt; <a href="#10">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">pub trait </span><a href="../../gio/prelude/trait.DataInputStreamExtManual.html">DataInputStreamExtManual</a>: <a href="#10">sealed::Sealed</a> + IsA&lt;<a href="auto/data_input_stream.rs.html#16-62">DataInputStream</a>&gt; + <span class="lifetime">'static </span>{
-    <span class="doccomment">/// Reads a line from the data input stream. Note that no encoding
+<span class="kw">pub trait </span><a href="../../gio/prelude/trait.DataInputStreamExtManual.html">DataInputStreamExtManual</a>: <a href="#10">sealed::Sealed</a> + IsA&lt;<a href="auto/data_input_stream.rs.html#16-68">DataInputStream</a>&gt; + <span class="lifetime">'static </span>{
+    <span class="doccomment">/// Reads a line from the data input stream.  Note that no encoding
     /// checks or conversion is performed; the input is not guaranteed to
     /// be UTF-8, and may in fact have embedded NUL characters.
     ///
-    /// If `cancellable` is not [`None`], then the operation can be cancelled by
+    /// If @cancellable is not [`None`], then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled] will be returned.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
     ///
     ///  a NUL terminated byte array with the line that was read in
-    ///  (without the newlines). Set `length` to a `gsize` to get the length
-    ///  of the read line. On an error, it will return [`None`] and `error`
+    ///  (without the newlines).  Set @length to a #gsize to get the length
+    ///  of the read line.  On an error, it will return [`None`] and @error
     ///  will be set. If there's no content to read, it will still return
-    ///  [`None`], but `error` won't be set.
+    ///  [`None`], but @error won't be set.
     ///
     /// ## `length`
-    /// a `gsize` to get the length of the data read in.
+    /// a #gsize to get the length of the data read in.
     </span><span class="attr">#[doc(alias = <span class="string">"g_data_input_stream_read_line"</span>)]
-    </span><span class="kw">fn </span>read_line&lt;P: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>read_line&lt;P: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;glib::collections::Slice&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
@@ -567,21 +567,21 @@
         }
     }
 
-    <span class="doccomment">/// The asynchronous version of [`read_line()`][Self::read_line()]. It is
+    <span class="doccomment">/// The asynchronous version of g_data_input_stream_read_line().  It is
     /// an error to have two outstanding calls to this function.
     ///
-    /// When the operation is finished, `callback` will be called. You
-    /// can then call `g_data_input_stream_read_line_finish()` to get
+    /// When the operation is finished, @callback will be called. You
+    /// can then call g_data_input_stream_read_line_finish() to get
     /// the result of the operation.
     /// ## `io_priority`
     /// the [I/O priority][io-priority] of the request
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     /// ## `callback`
     /// callback to call when the request is satisfied.
     </span><span class="attr">#[doc(alias = <span class="string">"g_data_input_stream_read_line_async"</span>)]
     </span><span class="kw">fn </span>read_line_async&lt;
-        P: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        P: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
         Q: FnOnce(<span class="prelude-ty">Result</span>&lt;glib::collections::Slice&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -660,26 +660,26 @@
 
     <span class="doccomment">/// Reads a UTF-8 encoded line from the data input stream.
     ///
-    /// If `cancellable` is not [`None`], then the operation can be cancelled by
+    /// If @cancellable is not [`None`], then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled] will be returned.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
     /// a NUL terminated UTF-8 string
-    ///  with the line that was read in (without the newlines). Set
-    ///  `length` to a `gsize` to get the length of the read line. On an
-    ///  error, it will return [`None`] and `error` will be set. For UTF-8
-    ///  conversion errors, the set error domain is `G_CONVERT_ERROR`. If
-    ///  there's no content to read, it will still return [`None`], but `error`
+    ///  with the line that was read in (without the newlines).  Set
+    ///  @length to a #gsize to get the length of the read line.  On an
+    ///  error, it will return [`None`] and @error will be set.  For UTF-8
+    ///  conversion errors, the set error domain is `G_CONVERT_ERROR`.  If
+    ///  there's no content to read, it will still return [`None`], but @error
     ///  won't be set.
     ///
     /// ## `length`
-    /// a `gsize` to get the length of the data read in.
+    /// a #gsize to get the length of the data read in.
     </span><span class="attr">#[doc(alias = <span class="string">"g_data_input_stream_read_line_utf8"</span>)]
-    </span><span class="kw">fn </span>read_line_utf8&lt;P: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>read_line_utf8&lt;P: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="../../glib/gstring/struct.GString.html">GString</a>&gt;, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
@@ -700,7 +700,7 @@
     }
 
     <span class="kw">fn </span>read_line_utf8_async&lt;
-        P: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        P: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
         Q: FnOnce(<span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="../../glib/gstring/struct.GString.html">GString</a>&gt;, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -774,34 +774,34 @@
     <span class="doccomment">/// Reads a string from the data input stream, up to the first
     /// occurrence of any of the stop characters.
     ///
-    /// In contrast to `g_data_input_stream_read_until()`, this function
+    /// In contrast to g_data_input_stream_read_until(), this function
     /// does not consume the stop character. You have to use
-    /// [`DataInputStreamExt::read_byte()`][crate::prelude::DataInputStreamExt::read_byte()] to get it before calling
-    /// [`read_upto()`][Self::read_upto()] again.
+    /// g_data_input_stream_read_byte() to get it before calling
+    /// g_data_input_stream_read_upto() again.
     ///
-    /// Note that `stop_chars` may contain '\0' if `stop_chars_len` is
+    /// Note that @stop_chars may contain '\0' if @stop_chars_len is
     /// specified.
     ///
     /// The returned string will always be nul-terminated on success.
     /// ## `stop_chars`
     /// characters to terminate the read
     /// ## `stop_chars_len`
-    /// length of `stop_chars`. May be -1 if `stop_chars` is
-    ///  nul-terminated
+    /// length of @stop_chars. May be -1 if @stop_chars is
+    ///     nul-terminated
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
+    /// optional #GCancellable object, [`None`] to ignore
     ///
     /// # Returns
     ///
     /// a string with the data that was read
-    ///  before encountering any of the stop characters. Set `length` to
-    ///  a `gsize` to get the length of the string. This function will
-    ///  return [`None`] on an error
+    ///     before encountering any of the stop characters. Set @length to
+    ///     a #gsize to get the length of the string. This function will
+    ///     return [`None`] on an error
     ///
     /// ## `length`
-    /// a `gsize` to get the length of the data read in
+    /// a #gsize to get the length of the data read in
     </span><span class="attr">#[doc(alias = <span class="string">"g_data_input_stream_read_upto"</span>)]
-    </span><span class="kw">fn </span>read_upto&lt;P: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>read_upto&lt;P: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         stop_chars: <span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>],
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
@@ -830,34 +830,34 @@
         }
     }
 
-    <span class="doccomment">/// The asynchronous version of [`read_upto()`][Self::read_upto()].
+    <span class="doccomment">/// The asynchronous version of g_data_input_stream_read_upto().
     /// It is an error to have two outstanding calls to this function.
     ///
-    /// In contrast to `g_data_input_stream_read_until()`, this function
+    /// In contrast to g_data_input_stream_read_until(), this function
     /// does not consume the stop character. You have to use
-    /// [`DataInputStreamExt::read_byte()`][crate::prelude::DataInputStreamExt::read_byte()] to get it before calling
-    /// [`read_upto()`][Self::read_upto()] again.
+    /// g_data_input_stream_read_byte() to get it before calling
+    /// g_data_input_stream_read_upto() again.
     ///
-    /// Note that `stop_chars` may contain '\0' if `stop_chars_len` is
+    /// Note that @stop_chars may contain '\0' if @stop_chars_len is
     /// specified.
     ///
-    /// When the operation is finished, `callback` will be called. You
-    /// can then call `g_data_input_stream_read_upto_finish()` to get
+    /// When the operation is finished, @callback will be called. You
+    /// can then call g_data_input_stream_read_upto_finish() to get
     /// the result of the operation.
     /// ## `stop_chars`
     /// characters to terminate the read
     /// ## `stop_chars_len`
-    /// length of `stop_chars`. May be -1 if `stop_chars` is
-    ///  nul-terminated
+    /// length of @stop_chars. May be -1 if @stop_chars is
+    ///     nul-terminated
     /// ## `io_priority`
     /// the [I/O priority][io-priority] of the request
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
+    /// optional #GCancellable object, [`None`] to ignore
     /// ## `callback`
     /// callback to call when the request is satisfied
     </span><span class="attr">#[doc(alias = <span class="string">"g_data_input_stream_read_upto_async"</span>)]
     </span><span class="kw">fn </span>read_upto_async&lt;
-        P: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        P: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
         Q: FnOnce(<span class="prelude-ty">Result</span>&lt;glib::collections::Slice&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -944,5 +944,5 @@
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/data_input_stream.rs.html#16-62">DataInputStream</a>&gt;&gt; <a href="#14-434">DataInputStreamExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/data_input_stream.rs.html#16-68">DataInputStream</a>&gt;&gt; <a href="#14-434">DataInputStreamExtManual</a> <span class="kw">for </span>O {}
 </code></pre></div></section></main></body></html>

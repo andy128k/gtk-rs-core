@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/flags.rs`."><title>flags.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/flags.rs`."><title>flags.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -3398,6 +3398,12 @@
 <a href="#3323" id="3323">3323</a>
 <a href="#3324" id="3324">3324</a>
 <a href="#3325" id="3325">3325</a>
+<a href="#3326" id="3326">3326</a>
+<a href="#3327" id="3327">3327</a>
+<a href="#3328" id="3328">3328</a>
+<a href="#3329" id="3329">3329</a>
+<a href="#3330" id="3330">3330</a>
+<a href="#3331" id="3331">3331</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -3405,7 +3411,7 @@
 </span><span class="kw">use </span>glib::{bitflags::bitflags, <a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when creating a [`AppInfo`][crate::AppInfo].
+    <span class="doccomment">/// Flags used when creating a #GAppInfo.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GAppInfoCreateFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.AppInfoCreateFlags.html">AppInfoCreateFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -3497,66 +3503,66 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used to define the behaviour of a [`Application`][crate::Application].
+    <span class="doccomment">/// Flags used to define the behaviour of a #GApplication.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GApplicationFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.ApplicationFlags.html">ApplicationFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="doccomment">/// Default. Deprecated in 2.74, use
-        ///  `G_APPLICATION_DEFAULT_FLAGS` instead
+        ///   `G_APPLICATION_DEFAULT_FLAGS` instead
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_FLAGS_NONE"</span>)]
         </span><span class="kw">const </span>FLAGS_NONE = ffi::G_APPLICATION_FLAGS_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// Run as a service. In this mode, registration
-        ///  fails if the service is already running, and the application
-        ///  will initially wait up to 10 seconds for an initial activation
-        ///  message to arrive.
+        ///      fails if the service is already running, and the application
+        ///      will initially wait up to 10 seconds for an initial activation
+        ///      message to arrive.
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_IS_SERVICE"</span>)]
         </span><span class="kw">const </span>IS_SERVICE = ffi::G_APPLICATION_IS_SERVICE <span class="kw">as _</span>;
         <span class="doccomment">/// Don't try to become the primary instance.
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_IS_LAUNCHER"</span>)]
         </span><span class="kw">const </span>IS_LAUNCHER = ffi::G_APPLICATION_IS_LAUNCHER <span class="kw">as _</span>;
         <span class="doccomment">/// This application handles opening files (in
-        ///  the primary instance). Note that this flag only affects the default
-        ///  implementation of `local_command_line()`, and has no effect if
-        ///  [`HANDLES_COMMAND_LINE`][Self::HANDLES_COMMAND_LINE] is given.
-        ///  See [`ApplicationExtManual::run()`][crate::prelude::ApplicationExtManual::run()] for details.
+        ///     the primary instance). Note that this flag only affects the default
+        ///     implementation of local_command_line(), and has no effect if
+        ///     [`HANDLES_COMMAND_LINE`][Self::HANDLES_COMMAND_LINE] is given.
+        ///     See g_application_run() for details.
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_HANDLES_OPEN"</span>)]
         </span><span class="kw">const </span>HANDLES_OPEN = ffi::G_APPLICATION_HANDLES_OPEN <span class="kw">as _</span>;
         <span class="doccomment">/// This application handles command line
-        ///  arguments (in the primary instance). Note that this flag only affect
-        ///  the default implementation of `local_command_line()`.
-        ///  See [`ApplicationExtManual::run()`][crate::prelude::ApplicationExtManual::run()] for details.
+        ///     arguments (in the primary instance). Note that this flag only affect
+        ///     the default implementation of local_command_line().
+        ///     See g_application_run() for details.
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_HANDLES_COMMAND_LINE"</span>)]
         </span><span class="kw">const </span>HANDLES_COMMAND_LINE = ffi::G_APPLICATION_HANDLES_COMMAND_LINE <span class="kw">as _</span>;
         <span class="doccomment">/// Send the environment of the
-        ///  launching process to the primary instance. Set this flag if your
-        ///  application is expected to behave differently depending on certain
-        ///  environment variables. For instance, an editor might be expected
-        ///  to use the `GIT_COMMITTER_NAME` environment variable
-        ///  when editing a git commit message. The environment is available
-        ///  to the [`command-line`][struct@crate::Application#command-line] signal handler, via
-        ///  [`ApplicationCommandLineExt::getenv()`][crate::prelude::ApplicationCommandLineExt::getenv()].
+        ///     launching process to the primary instance. Set this flag if your
+        ///     application is expected to behave differently depending on certain
+        ///     environment variables. For instance, an editor might be expected
+        ///     to use the `GIT_COMMITTER_NAME` environment variable
+        ///     when editing a git commit message. The environment is available
+        ///     to the #GApplication::command-line signal handler, via
+        ///     g_application_command_line_getenv().
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_SEND_ENVIRONMENT"</span>)]
         </span><span class="kw">const </span>SEND_ENVIRONMENT = ffi::G_APPLICATION_SEND_ENVIRONMENT <span class="kw">as _</span>;
         <span class="doccomment">/// Make no attempts to do any of the typical
-        ///  single-instance application negotiation, even if the application
-        ///  ID is given. The application neither attempts to become the
-        ///  owner of the application ID nor does it check if an existing
-        ///  owner already exists. Everything occurs in the local process.
-        ///  Since: 2.30.
+        ///     single-instance application negotiation, even if the application
+        ///     ID is given.  The application neither attempts to become the
+        ///     owner of the application ID nor does it check if an existing
+        ///     owner already exists.  Everything occurs in the local process.
+        ///     Since: 2.30.
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_NON_UNIQUE"</span>)]
         </span><span class="kw">const </span>NON_UNIQUE = ffi::G_APPLICATION_NON_UNIQUE <span class="kw">as _</span>;
         <span class="doccomment">/// Allow users to override the
-        ///  application ID from the command line with `--gapplication-app-id`.
-        ///  Since: 2.48
+        ///     application ID from the command line with `--gapplication-app-id`.
+        ///     Since: 2.48
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_CAN_OVERRIDE_APP_ID"</span>)]
         </span><span class="kw">const </span>CAN_OVERRIDE_APP_ID = ffi::G_APPLICATION_CAN_OVERRIDE_APP_ID <span class="kw">as _</span>;
         <span class="doccomment">/// Allow another instance to take over
-        ///  the bus name. Since: 2.60
+        ///     the bus name. Since: 2.60
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_ALLOW_REPLACEMENT"</span>)]
         </span><span class="kw">const </span>ALLOW_REPLACEMENT = ffi::G_APPLICATION_ALLOW_REPLACEMENT <span class="kw">as _</span>;
         <span class="doccomment">/// Take over from another instance. This flag is
-        ///  usually set by passing `--gapplication-replace` on the commandline.
-        ///  Since: 2.60
+        ///     usually set by passing `--gapplication-replace` on the commandline.
+        ///     Since: 2.60
         </span><span class="attr">#[doc(alias = <span class="string">"G_APPLICATION_REPLACE"</span>)]
         </span><span class="kw">const </span>REPLACE = ffi::G_APPLICATION_REPLACE <span class="kw">as _</span>;
     }
@@ -3635,7 +3641,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// [`AskPasswordFlags`][crate::AskPasswordFlags] are used to request specific information from the
+    <span class="doccomment">/// #GAskPasswordFlags are used to request specific information from the
     /// user, or to notify the user of their choices in an authentication
     /// situation.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
@@ -3735,7 +3741,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used in `g_bus_own_name()`.
+    <span class="doccomment">/// Flags used in g_bus_own_name().
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GBusNameOwnerFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.BusNameOwnerFlags.html">BusNameOwnerFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -3750,7 +3756,7 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_BUS_NAME_OWNER_FLAGS_REPLACE"</span>)]
         </span><span class="kw">const </span>REPLACE = ffi::G_BUS_NAME_OWNER_FLAGS_REPLACE <span class="kw">as _</span>;
         <span class="doccomment">/// If another message bus connection owns the name, immediately
-        /// return an error from `g_bus_own_name()` rather than entering the waiting queue for that name. (Since 2.54)
+        /// return an error from g_bus_own_name() rather than entering the waiting queue for that name. (Since 2.54)
         </span><span class="attr">#[doc(alias = <span class="string">"G_BUS_NAME_OWNER_FLAGS_DO_NOT_QUEUE"</span>)]
         </span><span class="kw">const </span>DO_NOT_QUEUE = ffi::G_BUS_NAME_OWNER_FLAGS_DO_NOT_QUEUE <span class="kw">as _</span>;
     }
@@ -3829,7 +3835,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used in `g_bus_watch_name()`.
+    <span class="doccomment">/// Flags used in g_bus_watch_name().
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GBusNameWatcherFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.BusNameWatcherFlags.html">BusNameWatcherFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -3917,7 +3923,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when calling a [`ConverterExtManual::convert()`][crate::prelude::ConverterExtManual::convert()].
+    <span class="doccomment">/// Flags used when calling a g_converter_convert().
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GConverterFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.ConverterFlags.html">ConverterFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4006,7 +4012,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used in [`DBusConnection::call()`][crate::DBusConnection::call()] and similar APIs.
+    <span class="doccomment">/// Flags used in g_dbus_connection_call() and similar APIs.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusCallFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusCallFlags.html">DBusCallFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4185,7 +4191,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when creating a new [`DBusConnection`][crate::DBusConnection].
+    <span class="doccomment">/// Flags used when creating a new #GDBusConnection.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusConnectionFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusConnectionFlags.html">DBusConnectionFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4208,7 +4214,7 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_CONNECTION_FLAGS_MESSAGE_BUS_CONNECTION"</span>)]
         </span><span class="kw">const </span>MESSAGE_BUS_CONNECTION = ffi::G_DBUS_CONNECTION_FLAGS_MESSAGE_BUS_CONNECTION <span class="kw">as _</span>;
         <span class="doccomment">/// If set, processing of D-Bus messages is
-        /// delayed until [`DBusConnection::start_message_processing()`][crate::DBusConnection::start_message_processing()] is called.
+        /// delayed until g_dbus_connection_start_message_processing() is called.
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_CONNECTION_FLAGS_DELAY_MESSAGE_PROCESSING"</span>)]
         </span><span class="kw">const </span>DELAY_MESSAGE_PROCESSING = ffi::G_DBUS_CONNECTION_FLAGS_DELAY_MESSAGE_PROCESSING <span class="kw">as _</span>;
         <span class="doccomment">/// When authenticating
@@ -4301,7 +4307,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags describing the behavior of a [`DBusInterfaceSkeleton`][crate::DBusInterfaceSkeleton] instance.
+    <span class="doccomment">/// Flags describing the behavior of a #GDBusInterfaceSkeleton instance.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusInterfaceSkeletonFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusInterfaceSkeletonFlags.html">DBusInterfaceSkeletonFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4309,9 +4315,9 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_INTERFACE_SKELETON_FLAGS_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_DBUS_INTERFACE_SKELETON_FLAGS_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// Each method invocation is handled in
-        ///  a thread dedicated to the invocation. This means that the method implementation can use blocking IO
-        ///  without blocking any other part of the process. It also means that the method implementation must
-        ///  use locking to access data structures used by other threads.
+        ///   a thread dedicated to the invocation. This means that the method implementation can use blocking IO
+        ///   without blocking any other part of the process. It also means that the method implementation must
+        ///   use locking to access data structures used by other threads.
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_INTERFACE_SKELETON_FLAGS_HANDLE_METHOD_INVOCATIONS_IN_THREAD"</span>)]
         </span><span class="kw">const </span>HANDLE_METHOD_INVOCATIONS_IN_THREAD = ffi::G_DBUS_INTERFACE_SKELETON_FLAGS_HANDLE_METHOD_INVOCATIONS_IN_THREAD <span class="kw">as _</span>;
     }
@@ -4390,7 +4396,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Message flags used in [`DBusMessage`][crate::DBusMessage].
+    <span class="doccomment">/// Message flags used in #GDBusMessage.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusMessageFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusMessageFlags.html">DBusMessageFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4485,7 +4491,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when constructing a `GDBusObjectManagerClient`.
+    <span class="doccomment">/// Flags used when constructing a #GDBusObjectManagerClient.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusObjectManagerClientFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusObjectManagerClientFlags.html">DBusObjectManagerClientFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4493,9 +4499,9 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// If not set and the
-        ///  manager is for a well-known name, then request the bus to launch
-        ///  an owner for the name if no-one owns the name. This flag can only
-        ///  be used in managers for well-known names.
+        ///   manager is for a well-known name, then request the bus to launch
+        ///   an owner for the name if no-one owns the name. This flag can only
+        ///   be used in managers for well-known names.
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_DO_NOT_AUTO_START"</span>)]
         </span><span class="kw">const </span>DO_NOT_AUTO_START = ffi::G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_DO_NOT_AUTO_START <span class="kw">as _</span>;
     }
@@ -4574,7 +4580,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when constructing an instance of a [`DBusProxy`][crate::DBusProxy] derived class.
+    <span class="doccomment">/// Flags used when constructing an instance of a #GDBusProxy derived class.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusProxyFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusProxyFlags.html">DBusProxyFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4592,7 +4598,7 @@
         /// This flag is only meaningful in proxies for well-known names.
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START"</span>)]
         </span><span class="kw">const </span>DO_NOT_AUTO_START = ffi::G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START <span class="kw">as _</span>;
-        <span class="doccomment">/// If set, the property value for any __invalidated property__ will be (asynchronously) retrieved upon receiving the [`PropertiesChanged`](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties) D-Bus signal and the property will not cause emission of the [`g-properties-changed`][struct@crate::DBusProxy#g-properties-changed] signal. When the value is received the [`g-properties-changed`][struct@crate::DBusProxy#g-properties-changed] signal is emitted for the property along with the retrieved value. Since 2.32.
+        <span class="doccomment">/// If set, the property value for any __invalidated property__ will be (asynchronously) retrieved upon receiving the [`PropertiesChanged`](http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties) D-Bus signal and the property will not cause emission of the #GDBusProxy::g-properties-changed signal. When the value is received the #GDBusProxy::g-properties-changed signal is emitted for the property along with the retrieved value. Since 2.32.
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_PROXY_FLAGS_GET_INVALIDATED_PROPERTIES"</span>)]
         </span><span class="kw">const </span>GET_INVALIDATED_PROPERTIES = ffi::G_DBUS_PROXY_FLAGS_GET_INVALIDATED_PROPERTIES <span class="kw">as _</span>;
         <span class="doccomment">/// If the proxy is for a well-known name,
@@ -4602,8 +4608,8 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START_AT_CONSTRUCTION"</span>)]
         </span><span class="kw">const </span>DO_NOT_AUTO_START_AT_CONSTRUCTION = ffi::G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START_AT_CONSTRUCTION <span class="kw">as _</span>;
         <span class="doccomment">/// Don't actually send the AddMatch D-Bus
-        ///  call for this signal subscription. This gives you more control
-        ///  over which match rules you add (but you must add them manually). (Since: 2.72)
+        ///    call for this signal subscription. This gives you more control
+        ///    over which match rules you add (but you must add them manually). (Since: 2.72)
         </span><span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
         #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
         #[doc(alias = <span class="string">"G_DBUS_PROXY_FLAGS_NO_MATCH_RULE"</span>)]
@@ -4684,7 +4690,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when sending `GDBusMessages` on a [`DBusConnection`][crate::DBusConnection].
+    <span class="doccomment">/// Flags used when sending #GDBusMessages on a #GDBusConnection.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusSendMessageFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusSendMessageFlags.html">DBusSendMessageFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4692,7 +4698,7 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_SEND_MESSAGE_FLAGS_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_DBUS_SEND_MESSAGE_FLAGS_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// Do not automatically
-        /// assign a serial number from the [`DBusConnection`][crate::DBusConnection] object when
+        /// assign a serial number from the #GDBusConnection object when
         /// sending a message.
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL"</span>)]
         </span><span class="kw">const </span>PRESERVE_SERIAL = ffi::G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL <span class="kw">as _</span>;
@@ -4772,14 +4778,14 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when creating a [`DBusServer`][crate::DBusServer].
+    <span class="doccomment">/// Flags used when creating a #GDBusServer.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusServerFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusServerFlags.html">DBusServerFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="doccomment">/// No flags set.
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_SERVER_FLAGS_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_DBUS_SERVER_FLAGS_NONE <span class="kw">as _</span>;
-        <span class="doccomment">/// All [`new-connection`][struct@crate::DBusServer#new-connection]
+        <span class="doccomment">/// All #GDBusServer::new-connection
         /// signals will run in separated dedicated threads (see signal for
         /// details).
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_SERVER_FLAGS_RUN_IN_THREAD"</span>)]
@@ -4868,7 +4874,7 @@
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when subscribing to signals via [`DBusConnection::signal_subscribe()`][crate::DBusConnection::signal_subscribe()].
+    <span class="doccomment">/// Flags used when subscribing to signals via g_dbus_connection_signal_subscribe().
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GDBusSignalFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusSignalFlags.html">DBusSignalFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -4876,7 +4882,7 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_SIGNAL_FLAGS_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_DBUS_SIGNAL_FLAGS_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// Don't actually send the AddMatch
-        /// D-Bus call for this signal subscription. This gives you more control
+        /// D-Bus call for this signal subscription.  This gives you more control
         /// over which match rules you add (but you must add them manually).
         </span><span class="attr">#[doc(alias = <span class="string">"G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE"</span>)]
         </span><span class="kw">const </span>NO_MATCH_RULE = ffi::G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE <span class="kw">as _</span>;
@@ -5153,7 +5159,7 @@
         <span class="doccomment">/// Don't follow symlinks.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_COPY_NOFOLLOW_SYMLINKS"</span>)]
         </span><span class="kw">const </span>NOFOLLOW_SYMLINKS = ffi::G_FILE_COPY_NOFOLLOW_SYMLINKS <span class="kw">as _</span>;
-        <span class="doccomment">/// Copy all file metadata instead of just default set used for copy (see [`FileInfo`][crate::FileInfo]).
+        <span class="doccomment">/// Copy all file metadata instead of just default set used for copy (see #GFileInfo).
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_COPY_ALL_METADATA"</span>)]
         </span><span class="kw">const </span>ALL_METADATA = ffi::G_FILE_COPY_ALL_METADATA <span class="kw">as _</span>;
         <span class="doccomment">/// Don't use copy and delete fallback if native move not supported.
@@ -5162,28 +5168,34 @@
         <span class="doccomment">/// Leaves target file with default perms, instead of setting the source file perms.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_COPY_TARGET_DEFAULT_PERMS"</span>)]
         </span><span class="kw">const </span>TARGET_DEFAULT_PERMS = ffi::G_FILE_COPY_TARGET_DEFAULT_PERMS <span class="kw">as _</span>;
+        <span class="doccomment">/// Use default modification
+        ///     timestamps instead of copying them from the source file. Since 2.80
+        </span><span class="attr">#[cfg(feature = <span class="string">"v2_80"</span>)]
+        #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_80"</span>)))]
+        #[doc(alias = <span class="string">"G_FILE_COPY_TARGET_DEFAULT_MODIFIED_TIME"</span>)]
+        </span><span class="kw">const </span>TARGET_DEFAULT_MODIFIED_TIME = ffi::G_FILE_COPY_TARGET_DEFAULT_MODIFIED_TIME <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#1739-1766">FileCopyFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#1739-1772">FileCopyFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GFileCopyFlags.html">ffi::GFileCopyFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GFileCopyFlags.html">ffi::GFileCopyFlags</a> {
-        <a class="self" href="#1773">self</a>.<a href="#1739-1766">bits</a>()
+        <a class="self" href="#1779">self</a>.<a href="#1739-1772">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileCopyFlags.html">ffi::GFileCopyFlags</a>&gt; <span class="kw">for </span><a href="#1739-1766">FileCopyFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileCopyFlags.html">ffi::GFileCopyFlags</a>&gt; <span class="kw">for </span><a href="#1739-1772">FileCopyFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GFileCopyFlags.html">ffi::GFileCopyFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#1739-1766"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#1781">value</a>)
+        <a href="#1739-1772"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#1787">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#1739-1766">FileCopyFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#1739-1772">FileCopyFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_file_copy_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5191,7 +5203,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#1739-1766">FileCopyFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#1739-1772">FileCopyFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5201,27 +5213,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#1739-1766">FileCopyFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#1739-1772">FileCopyFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#1739-1766">FileCopyFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#1739-1772">FileCopyFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#1812">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#1818">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#1739-1766">FileCopyFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#1739-1772">FileCopyFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#1820">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#1819">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#1826">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#1825">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#1820">value</a>
+        <a href="#1826">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5230,10 +5242,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#1739-1766">FileCopyFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#1739-1772">FileCopyFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#1739-1766">FileCopyFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#1835">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#1739-1772">FileCopyFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#1841">v</a>)
     }
 }
 
@@ -5246,43 +5258,43 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_CREATE_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_FILE_CREATE_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// Create a file that can only be
-        ///  accessed by the current user.
+        ///    accessed by the current user.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_CREATE_PRIVATE"</span>)]
         </span><span class="kw">const </span>PRIVATE = ffi::G_FILE_CREATE_PRIVATE <span class="kw">as _</span>;
         <span class="doccomment">/// Replace the destination
-        ///  as if it didn't exist before. Don't try to keep any old
-        ///  permissions, replace instead of following links. This
-        ///  is generally useful if you're doing a "copy over"
-        ///  rather than a "save new version of" replace operation.
-        ///  You can think of it as "unlink destination" before
-        ///  writing to it, although the implementation may not
-        ///  be exactly like that. This flag can only be used with
-        ///  [`FileExt::replace()`][crate::prelude::FileExt::replace()] and its variants, including [`FileExt::replace_contents()`][crate::prelude::FileExt::replace_contents()].
-        ///  Since 2.20
+        ///    as if it didn't exist before. Don't try to keep any old
+        ///    permissions, replace instead of following links. This
+        ///    is generally useful if you're doing a "copy over"
+        ///    rather than a "save new version of" replace operation.
+        ///    You can think of it as "unlink destination" before
+        ///    writing to it, although the implementation may not
+        ///    be exactly like that. This flag can only be used with
+        ///    g_file_replace() and its variants, including g_file_replace_contents().
+        ///    Since 2.20
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_CREATE_REPLACE_DESTINATION"</span>)]
         </span><span class="kw">const </span>REPLACE_DESTINATION = ffi::G_FILE_CREATE_REPLACE_DESTINATION <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#1840-1865">FileCreateFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#1846-1871">FileCreateFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GFileCreateFlags.html">ffi::GFileCreateFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GFileCreateFlags.html">ffi::GFileCreateFlags</a> {
-        <a class="self" href="#1872">self</a>.<a href="#1840-1865">bits</a>()
+        <a class="self" href="#1878">self</a>.<a href="#1846-1871">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileCreateFlags.html">ffi::GFileCreateFlags</a>&gt; <span class="kw">for </span><a href="#1840-1865">FileCreateFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileCreateFlags.html">ffi::GFileCreateFlags</a>&gt; <span class="kw">for </span><a href="#1846-1871">FileCreateFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GFileCreateFlags.html">ffi::GFileCreateFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#1840-1865"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#1880">value</a>)
+        <a href="#1846-1871"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#1886">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#1840-1865">FileCreateFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#1846-1871">FileCreateFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_file_create_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5290,7 +5302,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#1840-1865">FileCreateFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#1846-1871">FileCreateFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5300,27 +5312,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#1840-1865">FileCreateFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#1846-1871">FileCreateFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#1840-1865">FileCreateFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#1846-1871">FileCreateFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#1911">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#1917">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#1840-1865">FileCreateFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#1846-1871">FileCreateFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#1919">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#1918">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#1925">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#1924">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#1919">value</a>
+        <a href="#1925">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5329,15 +5341,15 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#1840-1865">FileCreateFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#1846-1871">FileCreateFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#1840-1865">FileCreateFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#1934">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#1846-1871">FileCreateFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#1940">v</a>)
     }
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags that can be used with [`FileExtManual::measure_disk_usage()`][crate::prelude::FileExtManual::measure_disk_usage()].
+    <span class="doccomment">/// Flags that can be used with g_file_measure_disk_usage().
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GFileMeasureFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.FileMeasureFlags.html">FileMeasureFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -5345,45 +5357,45 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_MEASURE_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_FILE_MEASURE_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// Report any error encountered
-        ///  while traversing the directory tree. Normally errors are only
-        ///  reported for the toplevel file.
+        ///   while traversing the directory tree.  Normally errors are only
+        ///   reported for the toplevel file.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_MEASURE_REPORT_ANY_ERROR"</span>)]
         </span><span class="kw">const </span>REPORT_ANY_ERROR = ffi::G_FILE_MEASURE_REPORT_ANY_ERROR <span class="kw">as _</span>;
         <span class="doccomment">/// Tally usage based on apparent file
-        ///  sizes. Normally, the block-size is used, if available, as this is a
-        ///  more accurate representation of disk space used.
-        ///  Compare with `du --apparent-size`.
-        ///  Since GLib 2.78. and similarly to `du` since GNU Coreutils 9.2, this will
-        ///  ignore the sizes of file types other than regular files and links, as the
-        ///  sizes of other file types are not specified in a standard way.
+        ///   sizes.  Normally, the block-size is used, if available, as this is a
+        ///   more accurate representation of disk space used.
+        ///   Compare with `du --apparent-size`.
+        ///   Since GLib 2.78. and similarly to `du` since GNU Coreutils 9.2, this will
+        ///   ignore the sizes of file types other than regular files and links, as the
+        ///   sizes of other file types are not specified in a standard way.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_MEASURE_APPARENT_SIZE"</span>)]
         </span><span class="kw">const </span>APPARENT_SIZE = ffi::G_FILE_MEASURE_APPARENT_SIZE <span class="kw">as _</span>;
         <span class="doccomment">/// Do not cross mount point boundaries.
-        ///  Compare with `du -x`.
+        ///   Compare with `du -x`.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_MEASURE_NO_XDEV"</span>)]
         </span><span class="kw">const </span>NO_XDEV = ffi::G_FILE_MEASURE_NO_XDEV <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#1939-1966">FileMeasureFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#1945-1972">FileMeasureFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GFileMeasureFlags.html">ffi::GFileMeasureFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GFileMeasureFlags.html">ffi::GFileMeasureFlags</a> {
-        <a class="self" href="#1973">self</a>.<a href="#1939-1966">bits</a>()
+        <a class="self" href="#1979">self</a>.<a href="#1945-1972">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileMeasureFlags.html">ffi::GFileMeasureFlags</a>&gt; <span class="kw">for </span><a href="#1939-1966">FileMeasureFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileMeasureFlags.html">ffi::GFileMeasureFlags</a>&gt; <span class="kw">for </span><a href="#1945-1972">FileMeasureFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GFileMeasureFlags.html">ffi::GFileMeasureFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#1939-1966"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#1981">value</a>)
+        <a href="#1945-1972"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#1987">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#1939-1966">FileMeasureFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#1945-1972">FileMeasureFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_file_measure_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5391,7 +5403,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#1939-1966">FileMeasureFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#1945-1972">FileMeasureFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5401,27 +5413,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#1939-1966">FileMeasureFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#1945-1972">FileMeasureFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#1939-1966">FileMeasureFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#1945-1972">FileMeasureFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2012">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2018">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#1939-1966">FileMeasureFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#1945-1972">FileMeasureFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2020">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2019">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2026">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2025">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2020">value</a>
+        <a href="#2026">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5430,15 +5442,15 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#1939-1966">FileMeasureFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#1945-1972">FileMeasureFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#1939-1966">FileMeasureFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2035">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#1945-1972">FileMeasureFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2041">v</a>)
     }
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used to set what a [`FileMonitor`][crate::FileMonitor] will watch for.
+    <span class="doccomment">/// Flags used to set what a #GFileMonitor will watch for.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GFileMonitorFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.FileMonitorFlags.html">FileMonitorFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -5449,45 +5461,45 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_MONITOR_WATCH_MOUNTS"</span>)]
         </span><span class="kw">const </span>WATCH_MOUNTS = ffi::G_FILE_MONITOR_WATCH_MOUNTS <span class="kw">as _</span>;
         <span class="doccomment">/// Pair DELETED and CREATED events caused
-        ///  by file renames (moves) and send a single G_FILE_MONITOR_EVENT_MOVED
-        ///  event instead (NB: not supported on all backends; the default
-        ///  behaviour -without specifying this flag- is to send single DELETED
-        ///  and CREATED events). Deprecated since 2.46: use
-        ///  [`WATCH_MOVES`][Self::WATCH_MOVES] instead.
+        ///   by file renames (moves) and send a single G_FILE_MONITOR_EVENT_MOVED
+        ///   event instead (NB: not supported on all backends; the default
+        ///   behaviour -without specifying this flag- is to send single DELETED
+        ///   and CREATED events).  Deprecated since 2.46: use
+        ///   [`WATCH_MOVES`][Self::WATCH_MOVES] instead.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_MONITOR_SEND_MOVED"</span>)]
         </span><span class="kw">const </span>SEND_MOVED = ffi::G_FILE_MONITOR_SEND_MOVED <span class="kw">as _</span>;
         <span class="doccomment">/// Watch for changes to the file made
-        ///  via another hard link. Since 2.36.
+        ///   via another hard link. Since 2.36.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_MONITOR_WATCH_HARD_LINKS"</span>)]
         </span><span class="kw">const </span>WATCH_HARD_LINKS = ffi::G_FILE_MONITOR_WATCH_HARD_LINKS <span class="kw">as _</span>;
         <span class="doccomment">/// Watch for rename operations on a
-        ///  monitored directory. This causes [`FileMonitorEvent::Renamed`][crate::FileMonitorEvent::Renamed],
-        ///  [`FileMonitorEvent::MovedIn`][crate::FileMonitorEvent::MovedIn] and [`FileMonitorEvent::MovedOut`][crate::FileMonitorEvent::MovedOut]
-        ///  events to be emitted when possible. Since: 2.46.
+        ///   monitored directory.  This causes [`FileMonitorEvent::Renamed`][crate::FileMonitorEvent::Renamed],
+        ///   [`FileMonitorEvent::MovedIn`][crate::FileMonitorEvent::MovedIn] and [`FileMonitorEvent::MovedOut`][crate::FileMonitorEvent::MovedOut]
+        ///   events to be emitted when possible.  Since: 2.46.
         </span><span class="attr">#[doc(alias = <span class="string">"G_FILE_MONITOR_WATCH_MOVES"</span>)]
         </span><span class="kw">const </span>WATCH_MOVES = ffi::G_FILE_MONITOR_WATCH_MOVES <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2040-2070">FileMonitorFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2046-2076">FileMonitorFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GFileMonitorFlags.html">ffi::GFileMonitorFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GFileMonitorFlags.html">ffi::GFileMonitorFlags</a> {
-        <a class="self" href="#2077">self</a>.<a href="#2040-2070">bits</a>()
+        <a class="self" href="#2083">self</a>.<a href="#2046-2076">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileMonitorFlags.html">ffi::GFileMonitorFlags</a>&gt; <span class="kw">for </span><a href="#2040-2070">FileMonitorFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileMonitorFlags.html">ffi::GFileMonitorFlags</a>&gt; <span class="kw">for </span><a href="#2046-2076">FileMonitorFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GFileMonitorFlags.html">ffi::GFileMonitorFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2040-2070"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2085">value</a>)
+        <a href="#2046-2076"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2091">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2040-2070">FileMonitorFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2046-2076">FileMonitorFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_file_monitor_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5495,7 +5507,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2040-2070">FileMonitorFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2046-2076">FileMonitorFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5505,27 +5517,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2040-2070">FileMonitorFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2046-2076">FileMonitorFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2040-2070">FileMonitorFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2046-2076">FileMonitorFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2116">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2122">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2040-2070">FileMonitorFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2046-2076">FileMonitorFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2124">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2123">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2130">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2129">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2124">value</a>
+        <a href="#2130">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5534,15 +5546,15 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2040-2070">FileMonitorFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2046-2076">FileMonitorFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2040-2070">FileMonitorFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2139">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2046-2076">FileMonitorFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2145">v</a>)
     }
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags used when querying a [`FileInfo`][crate::FileInfo].
+    <span class="doccomment">/// Flags used when querying a #GFileInfo.
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GFileQueryInfoFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.FileQueryInfoFlags.html">FileQueryInfoFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -5556,24 +5568,24 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2144-2156">FileQueryInfoFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2150-2162">FileQueryInfoFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GFileQueryInfoFlags.html">ffi::GFileQueryInfoFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GFileQueryInfoFlags.html">ffi::GFileQueryInfoFlags</a> {
-        <a class="self" href="#2163">self</a>.<a href="#2144-2156">bits</a>()
+        <a class="self" href="#2169">self</a>.<a href="#2150-2162">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileQueryInfoFlags.html">ffi::GFileQueryInfoFlags</a>&gt; <span class="kw">for </span><a href="#2144-2156">FileQueryInfoFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GFileQueryInfoFlags.html">ffi::GFileQueryInfoFlags</a>&gt; <span class="kw">for </span><a href="#2150-2162">FileQueryInfoFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GFileQueryInfoFlags.html">ffi::GFileQueryInfoFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2144-2156"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2171">value</a>)
+        <a href="#2150-2162"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2177">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2144-2156">FileQueryInfoFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2150-2162">FileQueryInfoFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_file_query_info_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5581,7 +5593,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2144-2156">FileQueryInfoFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2150-2162">FileQueryInfoFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5591,27 +5603,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2144-2156">FileQueryInfoFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2150-2162">FileQueryInfoFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2144-2156">FileQueryInfoFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2150-2162">FileQueryInfoFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2202">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2208">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2144-2156">FileQueryInfoFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2150-2162">FileQueryInfoFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2210">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2209">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2216">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2215">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2210">value</a>
+        <a href="#2216">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5620,10 +5632,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2144-2156">FileQueryInfoFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2150-2162">FileQueryInfoFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2144-2156">FileQueryInfoFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2225">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2150-2162">FileQueryInfoFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2231">v</a>)
     }
 }
 
@@ -5636,39 +5648,39 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_IO_STREAM_SPLICE_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_IO_STREAM_SPLICE_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// Close the first stream after
-        ///  the splice.
+        ///     the splice.
         </span><span class="attr">#[doc(alias = <span class="string">"G_IO_STREAM_SPLICE_CLOSE_STREAM1"</span>)]
         </span><span class="kw">const </span>CLOSE_STREAM1 = ffi::G_IO_STREAM_SPLICE_CLOSE_STREAM1 <span class="kw">as _</span>;
         <span class="doccomment">/// Close the second stream after
-        ///  the splice.
+        ///     the splice.
         </span><span class="attr">#[doc(alias = <span class="string">"G_IO_STREAM_SPLICE_CLOSE_STREAM2"</span>)]
         </span><span class="kw">const </span>CLOSE_STREAM2 = ffi::G_IO_STREAM_SPLICE_CLOSE_STREAM2 <span class="kw">as _</span>;
         <span class="doccomment">/// Wait for both splice operations to finish
-        ///  before calling the callback.
+        ///     before calling the callback.
         </span><span class="attr">#[doc(alias = <span class="string">"G_IO_STREAM_SPLICE_WAIT_FOR_BOTH"</span>)]
         </span><span class="kw">const </span>WAIT_FOR_BOTH = ffi::G_IO_STREAM_SPLICE_WAIT_FOR_BOTH <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2230-2251">IOStreamSpliceFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2236-2257">IOStreamSpliceFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GIOStreamSpliceFlags.html">ffi::GIOStreamSpliceFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GIOStreamSpliceFlags.html">ffi::GIOStreamSpliceFlags</a> {
-        <a class="self" href="#2258">self</a>.<a href="#2230-2251">bits</a>()
+        <a class="self" href="#2264">self</a>.<a href="#2236-2257">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GIOStreamSpliceFlags.html">ffi::GIOStreamSpliceFlags</a>&gt; <span class="kw">for </span><a href="#2230-2251">IOStreamSpliceFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GIOStreamSpliceFlags.html">ffi::GIOStreamSpliceFlags</a>&gt; <span class="kw">for </span><a href="#2236-2257">IOStreamSpliceFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GIOStreamSpliceFlags.html">ffi::GIOStreamSpliceFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2230-2251"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2266">value</a>)
+        <a href="#2236-2257"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2272">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2230-2251">IOStreamSpliceFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2236-2257">IOStreamSpliceFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_io_stream_splice_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5676,7 +5688,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2230-2251">IOStreamSpliceFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2236-2257">IOStreamSpliceFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5686,27 +5698,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2230-2251">IOStreamSpliceFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2236-2257">IOStreamSpliceFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2230-2251">IOStreamSpliceFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2236-2257">IOStreamSpliceFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2297">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2303">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2230-2251">IOStreamSpliceFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2236-2257">IOStreamSpliceFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2305">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2304">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2311">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2310">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2305">value</a>
+        <a href="#2311">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5715,10 +5727,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2230-2251">IOStreamSpliceFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2236-2257">IOStreamSpliceFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2230-2251">IOStreamSpliceFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2320">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2236-2257">IOStreamSpliceFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2326">v</a>)
     }
 }
 
@@ -5734,24 +5746,24 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2325-2334">MountMountFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2331-2340">MountMountFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GMountMountFlags.html">ffi::GMountMountFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GMountMountFlags.html">ffi::GMountMountFlags</a> {
-        <a class="self" href="#2341">self</a>.<a href="#2325-2334">bits</a>()
+        <a class="self" href="#2347">self</a>.<a href="#2331-2340">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GMountMountFlags.html">ffi::GMountMountFlags</a>&gt; <span class="kw">for </span><a href="#2325-2334">MountMountFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GMountMountFlags.html">ffi::GMountMountFlags</a>&gt; <span class="kw">for </span><a href="#2331-2340">MountMountFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GMountMountFlags.html">ffi::GMountMountFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2325-2334"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2349">value</a>)
+        <a href="#2331-2340"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2355">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2325-2334">MountMountFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2331-2340">MountMountFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_mount_mount_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5759,7 +5771,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2325-2334">MountMountFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2331-2340">MountMountFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5769,27 +5781,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2325-2334">MountMountFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2331-2340">MountMountFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2325-2334">MountMountFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2331-2340">MountMountFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2380">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2386">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2325-2334">MountMountFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2331-2340">MountMountFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2388">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2387">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2394">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2393">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2388">value</a>
+        <a href="#2394">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5798,10 +5810,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2325-2334">MountMountFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2331-2340">MountMountFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2325-2334">MountMountFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2403">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2331-2340">MountMountFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2409">v</a>)
     }
 }
 
@@ -5821,24 +5833,24 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2408-2421">MountUnmountFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2414-2427">MountUnmountFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GMountUnmountFlags.html">ffi::GMountUnmountFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GMountUnmountFlags.html">ffi::GMountUnmountFlags</a> {
-        <a class="self" href="#2428">self</a>.<a href="#2408-2421">bits</a>()
+        <a class="self" href="#2434">self</a>.<a href="#2414-2427">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GMountUnmountFlags.html">ffi::GMountUnmountFlags</a>&gt; <span class="kw">for </span><a href="#2408-2421">MountUnmountFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GMountUnmountFlags.html">ffi::GMountUnmountFlags</a>&gt; <span class="kw">for </span><a href="#2414-2427">MountUnmountFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GMountUnmountFlags.html">ffi::GMountUnmountFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2408-2421"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2436">value</a>)
+        <a href="#2414-2427"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2442">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2408-2421">MountUnmountFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2414-2427">MountUnmountFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_mount_unmount_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5846,7 +5858,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2408-2421">MountUnmountFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2414-2427">MountUnmountFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5856,27 +5868,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2408-2421">MountUnmountFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2414-2427">MountUnmountFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2408-2421">MountUnmountFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2414-2427">MountUnmountFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2467">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2473">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2408-2421">MountUnmountFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2414-2427">MountUnmountFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2475">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2474">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2481">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2480">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2475">value</a>
+        <a href="#2481">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5885,10 +5897,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2408-2421">MountUnmountFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2414-2427">MountUnmountFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2408-2421">MountUnmountFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2490">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2414-2427">MountUnmountFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2496">v</a>)
     }
 }
 
@@ -5901,35 +5913,35 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_OUTPUT_STREAM_SPLICE_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_OUTPUT_STREAM_SPLICE_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// Close the source stream after
-        ///  the splice.
+        ///     the splice.
         </span><span class="attr">#[doc(alias = <span class="string">"G_OUTPUT_STREAM_SPLICE_CLOSE_SOURCE"</span>)]
         </span><span class="kw">const </span>CLOSE_SOURCE = ffi::G_OUTPUT_STREAM_SPLICE_CLOSE_SOURCE <span class="kw">as _</span>;
         <span class="doccomment">/// Close the target stream after
-        ///  the splice.
+        ///     the splice.
         </span><span class="attr">#[doc(alias = <span class="string">"G_OUTPUT_STREAM_SPLICE_CLOSE_TARGET"</span>)]
         </span><span class="kw">const </span>CLOSE_TARGET = ffi::G_OUTPUT_STREAM_SPLICE_CLOSE_TARGET <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2495-2512">OutputStreamSpliceFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2501-2518">OutputStreamSpliceFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GOutputStreamSpliceFlags.html">ffi::GOutputStreamSpliceFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GOutputStreamSpliceFlags.html">ffi::GOutputStreamSpliceFlags</a> {
-        <a class="self" href="#2519">self</a>.<a href="#2495-2512">bits</a>()
+        <a class="self" href="#2525">self</a>.<a href="#2501-2518">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GOutputStreamSpliceFlags.html">ffi::GOutputStreamSpliceFlags</a>&gt; <span class="kw">for </span><a href="#2495-2512">OutputStreamSpliceFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GOutputStreamSpliceFlags.html">ffi::GOutputStreamSpliceFlags</a>&gt; <span class="kw">for </span><a href="#2501-2518">OutputStreamSpliceFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GOutputStreamSpliceFlags.html">ffi::GOutputStreamSpliceFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2495-2512"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2527">value</a>)
+        <a href="#2501-2518"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2533">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2495-2512">OutputStreamSpliceFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2501-2518">OutputStreamSpliceFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_output_stream_splice_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -5937,7 +5949,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2495-2512">OutputStreamSpliceFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2501-2518">OutputStreamSpliceFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -5947,27 +5959,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2495-2512">OutputStreamSpliceFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2501-2518">OutputStreamSpliceFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2495-2512">OutputStreamSpliceFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2501-2518">OutputStreamSpliceFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2558">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2564">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2495-2512">OutputStreamSpliceFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2501-2518">OutputStreamSpliceFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2566">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2565">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2572">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2571">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2566">value</a>
+        <a href="#2572">value</a>
     }
 
     <span class="attr">#[inline]
@@ -5976,10 +5988,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2495-2512">OutputStreamSpliceFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2501-2518">OutputStreamSpliceFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2495-2512">OutputStreamSpliceFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2581">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2501-2518">OutputStreamSpliceFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2587">v</a>)
     }
 }
 
@@ -5990,7 +6002,7 @@
     #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GResolverNameLookupFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.ResolverNameLookupFlags.html">ResolverNameLookupFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
-        <span class="doccomment">/// default behavior (same as [`ResolverExt::lookup_by_name()`][crate::prelude::ResolverExt::lookup_by_name()])
+        <span class="doccomment">/// default behavior (same as g_resolver_lookup_by_name())
         </span><span class="attr">#[doc(alias = <span class="string">"G_RESOLVER_NAME_LOOKUP_FLAGS_DEFAULT"</span>)]
         </span><span class="kw">const </span>DEFAULT = ffi::G_RESOLVER_NAME_LOOKUP_FLAGS_DEFAULT <span class="kw">as _</span>;
         <span class="doccomment">/// only resolve ipv4 addresses
@@ -6005,28 +6017,28 @@
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
 #[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2587-2603">ResolverNameLookupFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2593-2609">ResolverNameLookupFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GResolverNameLookupFlags.html">ffi::GResolverNameLookupFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GResolverNameLookupFlags.html">ffi::GResolverNameLookupFlags</a> {
-        <a class="self" href="#2612">self</a>.<a href="#2587-2603">bits</a>()
+        <a class="self" href="#2618">self</a>.<a href="#2593-2609">bits</a>()
     }
 }
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
 #[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GResolverNameLookupFlags.html">ffi::GResolverNameLookupFlags</a>&gt; <span class="kw">for </span><a href="#2587-2603">ResolverNameLookupFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GResolverNameLookupFlags.html">ffi::GResolverNameLookupFlags</a>&gt; <span class="kw">for </span><a href="#2593-2609">ResolverNameLookupFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GResolverNameLookupFlags.html">ffi::GResolverNameLookupFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2587-2603"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2622">value</a>)
+        <a href="#2593-2609"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2628">value</a>)
     }
 }
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
-</span><span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2587-2603">ResolverNameLookupFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2593-2609">ResolverNameLookupFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_resolver_name_lookup_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -6036,7 +6048,7 @@
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
-</span><span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2587-2603">ResolverNameLookupFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2593-2609">ResolverNameLookupFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -6048,31 +6060,31 @@
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
-</span><span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2587-2603">ResolverNameLookupFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2593-2609">ResolverNameLookupFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
-</span><span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2587-2603">ResolverNameLookupFlags</a> {
+</span><span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2593-2609">ResolverNameLookupFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2661">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2667">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
-</span><span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2587-2603">ResolverNameLookupFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2593-2609">ResolverNameLookupFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2671">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2670">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2677">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2676">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2671">value</a>
+        <a href="#2677">value</a>
     }
 
     <span class="attr">#[inline]
@@ -6083,10 +6095,10 @@
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
-</span><span class="kw">impl </span>From&lt;<a href="#2587-2603">ResolverNameLookupFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+</span><span class="kw">impl </span>From&lt;<a href="#2593-2609">ResolverNameLookupFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2587-2603">ResolverNameLookupFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2688">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2593-2609">ResolverNameLookupFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2694">v</a>)
     }
 }
 
@@ -6102,24 +6114,24 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2693-2702">ResourceLookupFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2699-2708">ResourceLookupFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GResourceLookupFlags.html">ffi::GResourceLookupFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GResourceLookupFlags.html">ffi::GResourceLookupFlags</a> {
-        <a class="self" href="#2709">self</a>.<a href="#2693-2702">bits</a>()
+        <a class="self" href="#2715">self</a>.<a href="#2699-2708">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GResourceLookupFlags.html">ffi::GResourceLookupFlags</a>&gt; <span class="kw">for </span><a href="#2693-2702">ResourceLookupFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GResourceLookupFlags.html">ffi::GResourceLookupFlags</a>&gt; <span class="kw">for </span><a href="#2699-2708">ResourceLookupFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GResourceLookupFlags.html">ffi::GResourceLookupFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2693-2702"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2717">value</a>)
+        <a href="#2699-2708"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2723">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2693-2702">ResourceLookupFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2699-2708">ResourceLookupFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_resource_lookup_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -6127,7 +6139,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2693-2702">ResourceLookupFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2699-2708">ResourceLookupFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -6137,27 +6149,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2693-2702">ResourceLookupFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2699-2708">ResourceLookupFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2693-2702">ResourceLookupFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2699-2708">ResourceLookupFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2748">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2754">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2693-2702">ResourceLookupFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2699-2708">ResourceLookupFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2756">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2755">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2762">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2761">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2756">value</a>
+        <a href="#2762">value</a>
     }
 
     <span class="attr">#[inline]
@@ -6166,10 +6178,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2693-2702">ResourceLookupFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2699-2708">ResourceLookupFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2693-2702">ResourceLookupFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2771">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2699-2708">ResourceLookupFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2777">v</a>)
     }
 }
 
@@ -6183,48 +6195,48 @@
         <span class="doccomment">/// Equivalent to `G_SETTINGS_BIND_GET|G_SETTINGS_BIND_SET`
         </span><span class="attr">#[doc(alias = <span class="string">"G_SETTINGS_BIND_DEFAULT"</span>)]
         </span><span class="kw">const </span>DEFAULT = ffi::G_SETTINGS_BIND_DEFAULT <span class="kw">as _</span>;
-        <span class="doccomment">/// Update the [`glib::Object`][crate::glib::Object] property when the setting changes.
-        ///  It is an error to use this flag if the property is not writable.
+        <span class="doccomment">/// Update the #GObject property when the setting changes.
+        ///     It is an error to use this flag if the property is not writable.
         </span><span class="attr">#[doc(alias = <span class="string">"G_SETTINGS_BIND_GET"</span>)]
         </span><span class="kw">const </span>GET = ffi::G_SETTINGS_BIND_GET <span class="kw">as _</span>;
-        <span class="doccomment">/// Update the setting when the [`glib::Object`][crate::glib::Object] property changes.
-        ///  It is an error to use this flag if the property is not readable.
+        <span class="doccomment">/// Update the setting when the #GObject property changes.
+        ///     It is an error to use this flag if the property is not readable.
         </span><span class="attr">#[doc(alias = <span class="string">"G_SETTINGS_BIND_SET"</span>)]
         </span><span class="kw">const </span>SET = ffi::G_SETTINGS_BIND_SET <span class="kw">as _</span>;
         <span class="doccomment">/// Do not try to bind a "sensitivity" property to the writability of the setting
         </span><span class="attr">#[doc(alias = <span class="string">"G_SETTINGS_BIND_NO_SENSITIVITY"</span>)]
         </span><span class="kw">const </span>NO_SENSITIVITY = ffi::G_SETTINGS_BIND_NO_SENSITIVITY <span class="kw">as _</span>;
-        <span class="doccomment">/// When set in addition to [`GET`][Self::GET], set the [`glib::Object`][crate::glib::Object] property
-        ///  value initially from the setting, but do not listen for changes of the setting
+        <span class="doccomment">/// When set in addition to [`GET`][Self::GET], set the #GObject property
+        ///     value initially from the setting, but do not listen for changes of the setting
         </span><span class="attr">#[doc(alias = <span class="string">"G_SETTINGS_BIND_GET_NO_CHANGES"</span>)]
         </span><span class="kw">const </span>GET_NO_CHANGES = ffi::G_SETTINGS_BIND_GET_NO_CHANGES <span class="kw">as _</span>;
-        <span class="doccomment">/// When passed to [`SettingsExtManual::bind()`][crate::prelude::SettingsExtManual::bind()], uses a pair of mapping functions that invert
-        ///  the boolean value when mapping between the setting and the property. The setting and property must both
-        ///  be booleans. You cannot pass this flag to [`SettingsExtManual::bind_with_mapping()`][crate::prelude::SettingsExtManual::bind_with_mapping()].
+        <span class="doccomment">/// When passed to g_settings_bind(), uses a pair of mapping functions that invert
+        ///     the boolean value when mapping between the setting and the property.  The setting and property must both
+        ///     be booleans.  You cannot pass this flag to g_settings_bind_with_mapping().
         </span><span class="attr">#[doc(alias = <span class="string">"G_SETTINGS_BIND_INVERT_BOOLEAN"</span>)]
         </span><span class="kw">const </span>INVERT_BOOLEAN = ffi::G_SETTINGS_BIND_INVERT_BOOLEAN <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2776-2807">SettingsBindFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2782-2813">SettingsBindFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GSettingsBindFlags.html">ffi::GSettingsBindFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GSettingsBindFlags.html">ffi::GSettingsBindFlags</a> {
-        <a class="self" href="#2814">self</a>.<a href="#2776-2807">bits</a>()
+        <a class="self" href="#2820">self</a>.<a href="#2782-2813">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GSettingsBindFlags.html">ffi::GSettingsBindFlags</a>&gt; <span class="kw">for </span><a href="#2776-2807">SettingsBindFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GSettingsBindFlags.html">ffi::GSettingsBindFlags</a>&gt; <span class="kw">for </span><a href="#2782-2813">SettingsBindFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GSettingsBindFlags.html">ffi::GSettingsBindFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2776-2807"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2822">value</a>)
+        <a href="#2782-2813"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2828">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2776-2807">SettingsBindFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2782-2813">SettingsBindFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_settings_bind_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -6232,7 +6244,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2776-2807">SettingsBindFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2782-2813">SettingsBindFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -6242,27 +6254,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2776-2807">SettingsBindFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2782-2813">SettingsBindFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2776-2807">SettingsBindFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2782-2813">SettingsBindFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2853">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2859">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2776-2807">SettingsBindFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2782-2813">SettingsBindFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2861">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2860">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#2867">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2866">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2861">value</a>
+        <a href="#2867">value</a>
     }
 
     <span class="attr">#[inline]
@@ -6271,21 +6283,21 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2776-2807">SettingsBindFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2782-2813">SettingsBindFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2776-2807">SettingsBindFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2876">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2782-2813">SettingsBindFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#2882">v</a>)
     }
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags to define the behaviour of a [`Subprocess`][crate::Subprocess].
+    <span class="doccomment">/// Flags to define the behaviour of a #GSubprocess.
     ///
-    /// Note that the default for stdin is to redirect from `/dev/null`. For
+    /// Note that the default for stdin is to redirect from `/dev/null`.  For
     /// stdout and stderr the default are for them to inherit the
     /// corresponding descriptor from the calling process.
     ///
-    /// Note that it is a programmer error to mix 'incompatible' flags. For
+    /// Note that it is a programmer error to mix 'incompatible' flags.  For
     /// example, you may not request both [`STDOUT_PIPE`][Self::STDOUT_PIPE] and
     /// [`STDOUT_SILENCE`][Self::STDOUT_SILENCE].
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
@@ -6295,46 +6307,46 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_NONE"</span>)]
         </span><span class="kw">const </span>NONE = ffi::G_SUBPROCESS_FLAGS_NONE <span class="kw">as _</span>;
         <span class="doccomment">/// create a pipe for the stdin of the
-        ///  spawned process that can be accessed with
-        ///  [`Subprocess::stdin_pipe()`][crate::Subprocess::stdin_pipe()].
+        ///   spawned process that can be accessed with
+        ///   g_subprocess_get_stdin_pipe().
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_STDIN_PIPE"</span>)]
         </span><span class="kw">const </span>STDIN_PIPE = ffi::G_SUBPROCESS_FLAGS_STDIN_PIPE <span class="kw">as _</span>;
         <span class="doccomment">/// stdin is inherited from the
-        ///  calling process.
+        ///   calling process.
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_STDIN_INHERIT"</span>)]
         </span><span class="kw">const </span>STDIN_INHERIT = ffi::G_SUBPROCESS_FLAGS_STDIN_INHERIT <span class="kw">as _</span>;
         <span class="doccomment">/// create a pipe for the stdout of the
-        ///  spawned process that can be accessed with
-        ///  [`Subprocess::stdout_pipe()`][crate::Subprocess::stdout_pipe()].
+        ///   spawned process that can be accessed with
+        ///   g_subprocess_get_stdout_pipe().
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_STDOUT_PIPE"</span>)]
         </span><span class="kw">const </span>STDOUT_PIPE = ffi::G_SUBPROCESS_FLAGS_STDOUT_PIPE <span class="kw">as _</span>;
         <span class="doccomment">/// silence the stdout of the spawned
-        ///  process (ie: redirect to `/dev/null`).
+        ///   process (ie: redirect to `/dev/null`).
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_STDOUT_SILENCE"</span>)]
         </span><span class="kw">const </span>STDOUT_SILENCE = ffi::G_SUBPROCESS_FLAGS_STDOUT_SILENCE <span class="kw">as _</span>;
         <span class="doccomment">/// create a pipe for the stderr of the
-        ///  spawned process that can be accessed with
-        ///  [`Subprocess::stderr_pipe()`][crate::Subprocess::stderr_pipe()].
+        ///   spawned process that can be accessed with
+        ///   g_subprocess_get_stderr_pipe().
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_STDERR_PIPE"</span>)]
         </span><span class="kw">const </span>STDERR_PIPE = ffi::G_SUBPROCESS_FLAGS_STDERR_PIPE <span class="kw">as _</span>;
         <span class="doccomment">/// silence the stderr of the spawned
-        ///  process (ie: redirect to `/dev/null`).
+        ///   process (ie: redirect to `/dev/null`).
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_STDERR_SILENCE"</span>)]
         </span><span class="kw">const </span>STDERR_SILENCE = ffi::G_SUBPROCESS_FLAGS_STDERR_SILENCE <span class="kw">as _</span>;
         <span class="doccomment">/// merge the stderr of the spawned
-        ///  process with whatever the stdout happens to be. This is a good way
-        ///  of directing both streams to a common log file, for example.
+        ///   process with whatever the stdout happens to be.  This is a good way
+        ///   of directing both streams to a common log file, for example.
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_STDERR_MERGE"</span>)]
         </span><span class="kw">const </span>STDERR_MERGE = ffi::G_SUBPROCESS_FLAGS_STDERR_MERGE <span class="kw">as _</span>;
         <span class="doccomment">/// spawned processes will inherit the
-        ///  file descriptors of their parent, unless those descriptors have
-        ///  been explicitly marked as close-on-exec. This flag has no effect
-        ///  over the "standard" file descriptors (stdin, stdout, stderr).
+        ///   file descriptors of their parent, unless those descriptors have
+        ///   been explicitly marked as close-on-exec.  This flag has no effect
+        ///   over the "standard" file descriptors (stdin, stdout, stderr).
         </span><span class="attr">#[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_INHERIT_FDS"</span>)]
         </span><span class="kw">const </span>INHERIT_FDS = ffi::G_SUBPROCESS_FLAGS_INHERIT_FDS <span class="kw">as _</span>;
         <span class="doccomment">/// if path searching is
-        ///  needed when spawning the subprocess, use the `PATH` in the launcher
-        ///  environment. (Since: 2.72)
+        ///   needed when spawning the subprocess, use the `PATH` in the launcher
+        ///   environment. (Since: 2.72)
         </span><span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
         #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
         #[doc(alias = <span class="string">"G_SUBPROCESS_FLAGS_SEARCH_PATH_FROM_ENVP"</span>)]
@@ -6343,24 +6355,24 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2881-2943">SubprocessFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#2887-2949">SubprocessFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GSubprocessFlags.html">ffi::GSubprocessFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GSubprocessFlags.html">ffi::GSubprocessFlags</a> {
-        <a class="self" href="#2950">self</a>.<a href="#2881-2943">bits</a>()
+        <a class="self" href="#2956">self</a>.<a href="#2887-2949">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GSubprocessFlags.html">ffi::GSubprocessFlags</a>&gt; <span class="kw">for </span><a href="#2881-2943">SubprocessFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GSubprocessFlags.html">ffi::GSubprocessFlags</a>&gt; <span class="kw">for </span><a href="#2887-2949">SubprocessFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GSubprocessFlags.html">ffi::GSubprocessFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#2881-2943"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2958">value</a>)
+        <a href="#2887-2949"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#2964">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2881-2943">SubprocessFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#2887-2949">SubprocessFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_subprocess_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -6368,7 +6380,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2881-2943">SubprocessFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#2887-2949">SubprocessFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -6378,27 +6390,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2881-2943">SubprocessFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#2887-2949">SubprocessFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2881-2943">SubprocessFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#2887-2949">SubprocessFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2989">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#2995">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2881-2943">SubprocessFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#2887-2949">SubprocessFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#2997">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#2996">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#3003">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#3002">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#2997">value</a>
+        <a href="#3003">value</a>
     }
 
     <span class="attr">#[inline]
@@ -6407,17 +6419,17 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#2881-2943">SubprocessFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#2887-2949">SubprocessFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#2881-2943">SubprocessFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#3012">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#2887-2949">SubprocessFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#3018">v</a>)
     }
 }
 
 <span class="macro">bitflags! </span>{
     <span class="doccomment">/// A set of flags describing TLS certification validation. This can be
     /// used to describe why a particular certificate was rejected (for
-    /// example, in [`accept-certificate`][struct@crate::TlsConnection#accept-certificate]).
+    /// example, in #GTlsConnection::accept-certificate).
     ///
     /// GLib guarantees that if certificate verification fails, at least one
     /// flag will be set, but it does not guarantee that all possible flags
@@ -6430,58 +6442,58 @@
     #[doc(alias = <span class="string">"GTlsCertificateFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.TlsCertificateFlags.html">TlsCertificateFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="doccomment">/// The signing certificate authority is
-        ///  not known.
+        ///   not known.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_CERTIFICATE_UNKNOWN_CA"</span>)]
         </span><span class="kw">const </span>UNKNOWN_CA = ffi::G_TLS_CERTIFICATE_UNKNOWN_CA <span class="kw">as _</span>;
         <span class="doccomment">/// The certificate does not match the
-        ///  expected identity of the site that it was retrieved from.
+        ///   expected identity of the site that it was retrieved from.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_CERTIFICATE_BAD_IDENTITY"</span>)]
         </span><span class="kw">const </span>BAD_IDENTITY = ffi::G_TLS_CERTIFICATE_BAD_IDENTITY <span class="kw">as _</span>;
         <span class="doccomment">/// The certificate's activation time
-        ///  is still in the future
+        ///   is still in the future
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_CERTIFICATE_NOT_ACTIVATED"</span>)]
         </span><span class="kw">const </span>NOT_ACTIVATED = ffi::G_TLS_CERTIFICATE_NOT_ACTIVATED <span class="kw">as _</span>;
         <span class="doccomment">/// The certificate has expired
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_CERTIFICATE_EXPIRED"</span>)]
         </span><span class="kw">const </span>EXPIRED = ffi::G_TLS_CERTIFICATE_EXPIRED <span class="kw">as _</span>;
         <span class="doccomment">/// The certificate has been revoked
-        ///  according to the [`TlsConnection`][crate::TlsConnection]'s certificate revocation list.
+        ///   according to the #GTlsConnection's certificate revocation list.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_CERTIFICATE_REVOKED"</span>)]
         </span><span class="kw">const </span>REVOKED = ffi::G_TLS_CERTIFICATE_REVOKED <span class="kw">as _</span>;
         <span class="doccomment">/// The certificate's algorithm is
-        ///  considered insecure.
+        ///   considered insecure.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_CERTIFICATE_INSECURE"</span>)]
         </span><span class="kw">const </span>INSECURE = ffi::G_TLS_CERTIFICATE_INSECURE <span class="kw">as _</span>;
         <span class="doccomment">/// Some other error occurred validating
-        ///  the certificate
+        ///   the certificate
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_CERTIFICATE_GENERIC_ERROR"</span>)]
         </span><span class="kw">const </span>GENERIC_ERROR = ffi::G_TLS_CERTIFICATE_GENERIC_ERROR <span class="kw">as _</span>;
         <span class="doccomment">/// the combination of all of the above
-        ///  flags
+        ///   flags
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_CERTIFICATE_VALIDATE_ALL"</span>)]
         </span><span class="kw">const </span>VALIDATE_ALL = ffi::G_TLS_CERTIFICATE_VALIDATE_ALL <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#3017-3064">TlsCertificateFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#3023-3070">TlsCertificateFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GTlsCertificateFlags.html">ffi::GTlsCertificateFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GTlsCertificateFlags.html">ffi::GTlsCertificateFlags</a> {
-        <a class="self" href="#3071">self</a>.<a href="#3017-3064">bits</a>()
+        <a class="self" href="#3077">self</a>.<a href="#3023-3070">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GTlsCertificateFlags.html">ffi::GTlsCertificateFlags</a>&gt; <span class="kw">for </span><a href="#3017-3064">TlsCertificateFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GTlsCertificateFlags.html">ffi::GTlsCertificateFlags</a>&gt; <span class="kw">for </span><a href="#3023-3070">TlsCertificateFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GTlsCertificateFlags.html">ffi::GTlsCertificateFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#3017-3064"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#3079">value</a>)
+        <a href="#3023-3070"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#3085">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#3017-3064">TlsCertificateFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#3023-3070">TlsCertificateFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_tls_certificate_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -6489,7 +6501,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#3017-3064">TlsCertificateFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#3023-3070">TlsCertificateFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -6499,27 +6511,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#3017-3064">TlsCertificateFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#3023-3070">TlsCertificateFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#3017-3064">TlsCertificateFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#3023-3070">TlsCertificateFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#3110">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#3116">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#3017-3064">TlsCertificateFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#3023-3070">TlsCertificateFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#3118">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#3117">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#3124">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#3123">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#3118">value</a>
+        <a href="#3124">value</a>
     }
 
     <span class="attr">#[inline]
@@ -6528,15 +6540,15 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#3017-3064">TlsCertificateFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#3023-3070">TlsCertificateFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#3017-3064">TlsCertificateFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#3133">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#3023-3070">TlsCertificateFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#3139">v</a>)
     }
 }
 
 <span class="macro">bitflags! </span>{
-    <span class="doccomment">/// Flags for [`TlsDatabaseExt::verify_chain()`][crate::prelude::TlsDatabaseExt::verify_chain()].
+    <span class="doccomment">/// Flags for g_tls_database_verify_chain().
     </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = <span class="string">"GTlsDatabaseVerifyFlags"</span>)]
     </span><span class="kw">pub struct </span><a href="../../../gio/struct.TlsDatabaseVerifyFlags.html">TlsDatabaseVerifyFlags</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
@@ -6547,24 +6559,24 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#3138-3147">TlsDatabaseVerifyFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#3144-3153">TlsDatabaseVerifyFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GTlsDatabaseVerifyFlags.html">ffi::GTlsDatabaseVerifyFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GTlsDatabaseVerifyFlags.html">ffi::GTlsDatabaseVerifyFlags</a> {
-        <a class="self" href="#3154">self</a>.<a href="#3138-3147">bits</a>()
+        <a class="self" href="#3160">self</a>.<a href="#3144-3153">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GTlsDatabaseVerifyFlags.html">ffi::GTlsDatabaseVerifyFlags</a>&gt; <span class="kw">for </span><a href="#3138-3147">TlsDatabaseVerifyFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GTlsDatabaseVerifyFlags.html">ffi::GTlsDatabaseVerifyFlags</a>&gt; <span class="kw">for </span><a href="#3144-3153">TlsDatabaseVerifyFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GTlsDatabaseVerifyFlags.html">ffi::GTlsDatabaseVerifyFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#3138-3147"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#3162">value</a>)
+        <a href="#3144-3153"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#3168">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#3138-3147">TlsDatabaseVerifyFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#3144-3153">TlsDatabaseVerifyFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_tls_database_verify_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -6572,7 +6584,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#3138-3147">TlsDatabaseVerifyFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#3144-3153">TlsDatabaseVerifyFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -6582,27 +6594,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#3138-3147">TlsDatabaseVerifyFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#3144-3153">TlsDatabaseVerifyFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#3138-3147">TlsDatabaseVerifyFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#3144-3153">TlsDatabaseVerifyFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#3193">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#3199">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#3138-3147">TlsDatabaseVerifyFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#3144-3153">TlsDatabaseVerifyFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#3201">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#3200">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#3207">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#3206">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#3201">value</a>
+        <a href="#3207">value</a>
     }
 
     <span class="attr">#[inline]
@@ -6611,10 +6623,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#3138-3147">TlsDatabaseVerifyFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#3144-3153">TlsDatabaseVerifyFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#3138-3147">TlsDatabaseVerifyFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#3216">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#3144-3153">TlsDatabaseVerifyFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#3222">v</a>)
     }
 }
 
@@ -6630,47 +6642,47 @@
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_PASSWORD_RETRY"</span>)]
         </span><span class="kw">const </span>RETRY = ffi::G_TLS_PASSWORD_RETRY <span class="kw">as _</span>;
         <span class="doccomment">/// Hint to the user that the password has been
-        ///  wrong many times, and the user may not have many chances left.
+        ///    wrong many times, and the user may not have many chances left.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_PASSWORD_MANY_TRIES"</span>)]
         </span><span class="kw">const </span>MANY_TRIES = ffi::G_TLS_PASSWORD_MANY_TRIES <span class="kw">as _</span>;
         <span class="doccomment">/// Hint to the user that this is the last try to get
-        ///  this password right.
+        ///    this password right.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_PASSWORD_FINAL_TRY"</span>)]
         </span><span class="kw">const </span>FINAL_TRY = ffi::G_TLS_PASSWORD_FINAL_TRY <span class="kw">as _</span>;
-        <span class="doccomment">/// For PKCS `11`, the user PIN is required.
-        ///  Since: 2.70.
+        <span class="doccomment">/// For PKCS #11, the user PIN is required.
+        ///    Since: 2.70.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_PASSWORD_PKCS11_USER"</span>)]
         </span><span class="kw">const </span>PKCS11_USER = ffi::G_TLS_PASSWORD_PKCS11_USER <span class="kw">as _</span>;
-        <span class="doccomment">/// For PKCS `11`, the security officer
-        ///  PIN is required. Since: 2.70.
+        <span class="doccomment">/// For PKCS #11, the security officer
+        ///    PIN is required. Since: 2.70.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_PASSWORD_PKCS11_SECURITY_OFFICER"</span>)]
         </span><span class="kw">const </span>PKCS11_SECURITY_OFFICER = ffi::G_TLS_PASSWORD_PKCS11_SECURITY_OFFICER <span class="kw">as _</span>;
-        <span class="doccomment">/// For PKCS `11`, the context-specific
-        ///  PIN is required. Since: 2.70.
+        <span class="doccomment">/// For PKCS #11, the context-specific
+        ///    PIN is required. Since: 2.70.
         </span><span class="attr">#[doc(alias = <span class="string">"G_TLS_PASSWORD_PKCS11_CONTEXT_SPECIFIC"</span>)]
         </span><span class="kw">const </span>PKCS11_CONTEXT_SPECIFIC = ffi::G_TLS_PASSWORD_PKCS11_CONTEXT_SPECIFIC <span class="kw">as _</span>;
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#3221-3253">TlsPasswordFlags</a> {
+</span><span class="kw">impl </span><a href="../../../glib/translate/trait.IntoGlib.html">IntoGlib</a> <span class="kw">for </span><a href="#3227-3259">TlsPasswordFlags</a> {
     <span class="kw">type </span>GlibType = <a href="../../../gio_sys/type.GTlsPasswordFlags.html">ffi::GTlsPasswordFlags</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="../../../gio_sys/type.GTlsPasswordFlags.html">ffi::GTlsPasswordFlags</a> {
-        <a class="self" href="#3260">self</a>.<a href="#3221-3253">bits</a>()
+        <a class="self" href="#3266">self</a>.<a href="#3227-3259">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GTlsPasswordFlags.html">ffi::GTlsPasswordFlags</a>&gt; <span class="kw">for </span><a href="#3221-3253">TlsPasswordFlags</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="../../../gio_sys/type.GTlsPasswordFlags.html">ffi::GTlsPasswordFlags</a>&gt; <span class="kw">for </span><a href="#3227-3259">TlsPasswordFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="../../../gio_sys/type.GTlsPasswordFlags.html">ffi::GTlsPasswordFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="#3221-3253"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#3268">value</a>)
+        <a href="#3227-3259"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#3274">value</a>)
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#3221-3253">TlsPasswordFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/types/trait.StaticType.html">StaticType</a> <span class="kw">for </span><a href="#3227-3259">TlsPasswordFlags</a> {
     <span class="attr">#[inline]
     #[doc(alias = <span class="string">"g_tls_password_flags_get_type"</span>)]
     </span><span class="kw">fn </span>static_type() -&gt; <a href="../../../glib/types/struct.Type.html">glib::Type</a> {
@@ -6678,7 +6690,7 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#3221-3253">TlsPasswordFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/param_spec/trait.HasParamSpec.html">glib::HasParamSpec</a> <span class="kw">for </span><a href="#3227-3259">TlsPasswordFlags</a> {
     <span class="kw">type </span>ParamSpec = <a href="../../../glib/param_spec/struct.ParamSpecFlags.html">glib::ParamSpecFlags</a>;
     <span class="kw">type </span>SetValue = <span class="self">Self</span>;
     <span class="kw">type </span>BuilderFn = <span class="kw">fn</span>(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; glib::ParamSpecFlagsBuilder&lt;<span class="self">Self</span>&gt;;
@@ -6688,27 +6700,27 @@
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#3221-3253">TlsPasswordFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="#3227-3259">TlsPasswordFlags</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#3221-3253">TlsPasswordFlags</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="#3227-3259">TlsPasswordFlags</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="../../../glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
-        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#3299">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        from_glib(glib::gobject_ffi::g_value_get_flags(<a href="#3305">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#3221-3253">TlsPasswordFlags</a> {
+<span class="kw">impl </span><a href="../../../glib/value/trait.ToValue.html">ToValue</a> <span class="kw">for </span><a href="#3227-3259">TlsPasswordFlags</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
         <span class="kw">unsafe </span>{
-            glib::gobject_ffi::g_value_set_flags(<a href="#3307">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#3306">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
+            glib::gobject_ffi::g_value_set_flags(<a href="#3313">value</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#3312">self</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
-        <a href="#3307">value</a>
+        <a href="#3313">value</a>
     }
 
     <span class="attr">#[inline]
@@ -6717,10 +6729,10 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="#3221-3253">TlsPasswordFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
+<span class="kw">impl </span>From&lt;<a href="#3227-3259">TlsPasswordFlags</a>&gt; <span class="kw">for </span><a href="../../../glib/value/struct.Value.html">glib::Value</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>from(v: <a href="#3221-3253">TlsPasswordFlags</a>) -&gt; <span class="self">Self </span>{
-        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#3322">v</a>)
+    </span><span class="kw">fn </span>from(v: <a href="#3227-3259">TlsPasswordFlags</a>) -&gt; <span class="self">Self </span>{
+        <a href="../../../glib/value/trait.ToValue.html">ToValue::to_value</a>(<span class="kw-2">&amp;</span><a href="#3328">v</a>)
     }
 }
 </code></pre></div></section></main></body></html>

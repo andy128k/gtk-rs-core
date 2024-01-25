@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/tcp_connection.rs`."><title>tcp_connection.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/tcp_connection.rs`."><title>tcp_connection.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -206,11 +206,21 @@
 <a href="#131" id="131">131</a>
 <a href="#132" id="132">132</a>
 <a href="#133" id="133">133</a>
+<a href="#134" id="134">134</a>
+<a href="#135" id="135">135</a>
+<a href="#136" id="136">136</a>
+<a href="#137" id="137">137</a>
+<a href="#138" id="138">138</a>
+<a href="#139" id="139">139</a>
+<a href="#140" id="140">140</a>
+<a href="#141" id="141">141</a>
+<a href="#142" id="142">142</a>
+<a href="#143" id="143">143</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="io_stream.rs.html#13-86">IOStream</a>, <a href="socket_connection.rs.html#9-56">SocketConnection</a>};
+</span><span class="kw">use crate</span>::{<a href="io_stream.rs.html#13-94">IOStream</a>, <a href="socket_connection.rs.html#9-64">SocketConnection</a>};
 <span class="kw">use </span>glib::{
     <a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
     signal::{<a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
@@ -226,46 +236,56 @@
     ///
     ///
     /// #### `graceful-disconnect`
-    ///  Readable | Writeable
+    ///  Whether [`IOStreamExt::close()`][crate::prelude::IOStreamExt::close()] does a graceful disconnect.
+    ///
+    /// Readable | Writeable
     /// &lt;details&gt;&lt;summary&gt;&lt;h4&gt;SocketConnection&lt;/h4&gt;&lt;/summary&gt;
     ///
     ///
     /// #### `socket`
-    ///  Readable | Writeable | Construct Only
+    ///  The underlying [`Socket`][crate::Socket].
+    ///
+    /// Readable | Writeable | Construct Only
     /// &lt;/details&gt;
     /// &lt;details&gt;&lt;summary&gt;&lt;h4&gt;IOStream&lt;/h4&gt;&lt;/summary&gt;
     ///
     ///
     /// #### `closed`
-    ///  Readable
+    ///  Whether the stream is closed.
+    ///
+    /// Readable
     ///
     ///
     /// #### `input-stream`
-    ///  Readable
+    ///  The [`InputStream`][crate::InputStream] to read from.
+    ///
+    /// Readable
     ///
     ///
     /// #### `output-stream`
-    ///  Readable
+    ///  The [`OutputStream`][crate::OutputStream] to write to.
+    ///
+    /// Readable
     /// &lt;/details&gt;
     ///
     /// # Implements
     ///
     /// [`TcpConnectionExt`][trait@crate::prelude::TcpConnectionExt], [`SocketConnectionExt`][trait@crate::prelude::SocketConnectionExt], [`IOStreamExt`][trait@crate::prelude::IOStreamExt], [`trait@glib::ObjectExt`], [`IOStreamExtManual`][trait@crate::prelude::IOStreamExtManual]
     </span><span class="attr">#[doc(alias = <span class="string">"GTcpConnection"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.TcpConnection.html">TcpConnection</a>(Object&lt;<a href="../../../gio_sys/struct.GTcpConnection.html">ffi::GTcpConnection</a>, <a href="../../../gio_sys/struct.GTcpConnectionClass.html">ffi::GTcpConnectionClass</a>&gt;) @extends <a href="socket_connection.rs.html#9-56">SocketConnection</a>, <a href="io_stream.rs.html#13-86">IOStream</a>;
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.TcpConnection.html">TcpConnection</a>(Object&lt;<a href="../../../gio_sys/struct.GTcpConnection.html">ffi::GTcpConnection</a>, <a href="../../../gio_sys/struct.GTcpConnectionClass.html">ffi::GTcpConnectionClass</a>&gt;) @extends <a href="socket_connection.rs.html#9-64">SocketConnection</a>, <a href="io_stream.rs.html#13-94">IOStream</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_tcp_connection_get_type(),
     }
 }
 
-<span class="kw">impl </span><a href="#13-52">TcpConnection</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#13-52">TcpConnection</a>&gt; = <span class="prelude-val">None</span>;
+<span class="kw">impl </span><a href="#13-62">TcpConnection</a> {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#13-62">TcpConnection</a>&gt; = <span class="prelude-val">None</span>;
 }
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="#13-52"><span class="kw">super</span>::TcpConnection</a>&gt;&gt; <a href="#59">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="#13-62"><span class="kw">super</span>::TcpConnection</a>&gt;&gt; <a href="#69">Sealed</a> <span class="kw">for </span>T {}
 }
 
 <span class="doccomment">/// Trait containing all [`struct@TcpConnection`] methods.
@@ -273,9 +293,9 @@
 /// # Implementors
 ///
 /// [`TcpConnection`][struct@crate::TcpConnection]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.TcpConnectionExt.html">TcpConnectionExt</a>: IsA&lt;<a href="#13-52">TcpConnection</a>&gt; + <a href="#59">sealed::Sealed</a> + <span class="lifetime">'static </span>{
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.TcpConnectionExt.html">TcpConnectionExt</a>: IsA&lt;<a href="#13-62">TcpConnection</a>&gt; + <a href="#69">sealed::Sealed</a> + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Checks if graceful disconnects are used. See
-    /// [`set_graceful_disconnect()`][Self::set_graceful_disconnect()].
+    /// g_tcp_connection_set_graceful_disconnect().
     ///
     /// # Returns
     ///
@@ -285,7 +305,7 @@
     </span><span class="kw">fn </span>is_graceful_disconnect(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tcp_connection_get_graceful_disconnect(
-                <a class="self" href="#77">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#87">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -305,8 +325,8 @@
     </span><span class="kw">fn </span>set_graceful_disconnect(<span class="kw-2">&amp;</span><span class="self">self</span>, graceful_disconnect: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_tcp_connection_set_graceful_disconnect(
-                <a class="self" href="#97">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#97">graceful_disconnect</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a class="self" href="#107">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#107">graceful_disconnect</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
             );
         }
     }
@@ -314,29 +334,29 @@
     <span class="attr">#[doc(alias = <span class="string">"graceful-disconnect"</span>)]
     </span><span class="kw">fn </span>connect_graceful_disconnect_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_graceful_disconnect_trampoline&lt;
-            P: IsA&lt;<a href="#13-52">TcpConnection</a>&gt;,
+            P: IsA&lt;<a href="#13-62">TcpConnection</a>&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GTcpConnection.html">ffi::GTcpConnection</a>,
             _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
             f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#114">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#116">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">TcpConnection::from_glib_borrow</a>(<a href="#112">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#124">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#126">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">TcpConnection::from_glib_borrow</a>(<a href="#122">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#107">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#117">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#107">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#117">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 <span class="string">b"notify::graceful-disconnect\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
                 <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_graceful_disconnect_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#120">f</a>),
+                Box_::into_raw(<a href="#130">f</a>),
             )
         }
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="#13-52">TcpConnection</a>&gt;&gt; <a href="#68-131">TcpConnectionExt</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="#13-62">TcpConnection</a>&gt;&gt; <a href="#78-141">TcpConnectionExt</a> <span class="kw">for </span>O {}
 </code></pre></div></section></main></body></html>

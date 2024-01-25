@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/menu_model.rs`."><title>menu_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/menu_model.rs`."><title>menu_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -502,7 +502,7 @@
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// [`MenuModel`][crate::MenuModel] represents the contents of a menu -- an ordered list of
+    <span class="doccomment">/// `GMenuModel` represents the contents of a menu — an ordered list of
     /// menu items. The items are associated with actions, which can be
     /// activated through them. Items can be grouped in sections, and may
     /// have submenus associated with them. Both items and sections usually
@@ -510,20 +510,20 @@
     /// the associated action (ie whether it is stateful, and what kind of
     /// state it has) can influence the representation of the item.
     ///
-    /// The conceptual model of menus in [`MenuModel`][crate::MenuModel] is hierarchical:
-    /// sections and submenus are again represented by `GMenuModels`.
+    /// The conceptual model of menus in `GMenuModel` is hierarchical:
+    /// sections and submenus are again represented by `GMenuModel`s.
     /// Menus themselves do not define their own roles. Rather, the role
-    /// of a particular [`MenuModel`][crate::MenuModel] is defined by the item that references
-    /// it (or, in the case of the 'root' menu, is defined by the context
+    /// of a particular `GMenuModel` is defined by the item that references
+    /// it (or, in the case of the ‘root’ menu, is defined by the context
     /// in which it is used).
     ///
     /// As an example, consider the visible portions of this menu:
     ///
-    /// ## An example menu # {`menu`-example}
+    /// ## An example menu
     ///
     /// ![](menu-example.png)
     ///
-    /// There are 8 "menus" visible in the screenshot: one menubar, two
+    /// There are 8 ‘menus’ visible in the screenshot: one menubar, two
     /// submenus and 5 sections:
     ///
     /// - the toplevel menubar (containing 4 items)
@@ -535,17 +535,17 @@
     /// - the Sources section (containing 2 items)
     /// - the Markup section (containing 2 items)
     ///
-    /// The [example][menu-model] illustrates the conceptual connection between
+    /// The [example](#a-menu-example) illustrates the conceptual connection between
     /// these 8 menus. Each large block in the figure represents a menu and the
     /// smaller blocks within the large block represent items in that menu. Some
     /// items contain references to other menus.
     ///
-    /// ## A menu example # {`menu`-model}
+    /// ## A menu example
     ///
     /// ![](menu-model.png)
     ///
-    /// Notice that the separators visible in the [example][menu-example]
-    /// appear nowhere in the [menu model][menu-model]. This is because
+    /// Notice that the separators visible in the [example](#an-example-menu)
+    /// appear nowhere in the [menu model](#a-menu-example). This is because
     /// separators are not explicitly represented in the menu model. Instead,
     /// a separator is inserted between any two non-empty sections of a menu.
     /// Section items can have labels just like any other item. In that case,
@@ -554,32 +554,32 @@
     /// The motivation for this abstract model of application controls is
     /// that modern user interfaces tend to make these controls available
     /// outside the application. Examples include global menus, jumplists,
-    /// dash boards, etc. To support such uses, it is necessary to 'export'
+    /// dash boards, etc. To support such uses, it is necessary to ‘export’
     /// information about actions and their representation in menus, which
-    /// is exactly what the [GActionGroup exporter][gio-GActionGroup-exporter]
-    /// and the [GMenuModel exporter][gio-GMenuModel-exporter] do for
-    /// [`ActionGroup`][crate::ActionGroup] and [`MenuModel`][crate::MenuModel]. The client-side counterparts to
-    /// make use of the exported information are [`DBusActionGroup`][crate::DBusActionGroup] and
-    /// [`DBusMenuModel`][crate::DBusMenuModel].
+    /// is exactly what the action group exporter and the menu model exporter do for
+    /// [`ActionGroup`][crate::ActionGroup] and [`MenuModel`][crate::MenuModel]. The client-side
+    /// counterparts to make use of the exported information are
+    /// [`DBusActionGroup`][crate::DBusActionGroup] and [`DBusMenuModel`][crate::DBusMenuModel].
     ///
-    /// The API of [`MenuModel`][crate::MenuModel] is very generic, with iterators for the
-    /// attributes and links of an item, see [`MenuModelExt::iterate_item_attributes()`][crate::prelude::MenuModelExt::iterate_item_attributes()]
-    /// and [`MenuModelExt::iterate_item_links()`][crate::prelude::MenuModelExt::iterate_item_links()]. The 'standard' attributes and
-    /// link types have predefined names: [`MENU_ATTRIBUTE_LABEL`][crate::MENU_ATTRIBUTE_LABEL],
-    /// [`MENU_ATTRIBUTE_ACTION`][crate::MENU_ATTRIBUTE_ACTION], [`MENU_ATTRIBUTE_TARGET`][crate::MENU_ATTRIBUTE_TARGET], [`MENU_LINK_SECTION`][crate::MENU_LINK_SECTION]
-    /// and [`MENU_LINK_SUBMENU`][crate::MENU_LINK_SUBMENU].
+    /// The API of `GMenuModel` is very generic, with iterators for the
+    /// attributes and links of an item, see
+    /// [`MenuModelExt::iterate_item_attributes()`][crate::prelude::MenuModelExt::iterate_item_attributes()] and
+    /// [`MenuModelExt::iterate_item_links()`][crate::prelude::MenuModelExt::iterate_item_links()]. The ‘standard’ attributes and
+    /// link types have predefined names: `G_MENU_ATTRIBUTE_LABEL`,
+    /// `G_MENU_ATTRIBUTE_ACTION`, `G_MENU_ATTRIBUTE_TARGET`, `G_MENU_LINK_SECTION`
+    /// and `G_MENU_LINK_SUBMENU`.
     ///
-    /// Items in a [`MenuModel`][crate::MenuModel] represent active controls if they refer to
+    /// Items in a `GMenuModel` represent active controls if they refer to
     /// an action that can get activated when the user interacts with the
-    /// menu item. The reference to the action is encoded by the string id
-    /// in the [`MENU_ATTRIBUTE_ACTION`][crate::MENU_ATTRIBUTE_ACTION] attribute. An action id uniquely
+    /// menu item. The reference to the action is encoded by the string ID
+    /// in the `G_MENU_ATTRIBUTE_ACTION` attribute. An action ID uniquely
     /// identifies an action in an action group. Which action group(s) provide
     /// actions depends on the context in which the menu model is used.
     /// E.g. when the model is exported as the application menu of a
-    /// `GtkApplication`, actions can be application-wide or window-specific
+    /// `Gtk::Application`, actions can be application-wide or window-specific
     /// (and thus come from two different action groups). By convention, the
-    /// application-wide actions have names that start with "app.", while the
-    /// names of window-specific actions start with "win.".
+    /// application-wide actions have names that start with `app.`, while the
+    /// names of window-specific actions start with `win.`.
     ///
     /// While a wide variety of stateful actions is possible, the following
     /// is the minimum that is expected to be supported by all users of exported
@@ -596,12 +596,12 @@
     ///
     /// ## Boolean State
     ///
-    /// An action with a boolean state will most typically be used with a "toggle"
-    /// or "switch" menu item. The state can be set directly, but activating the
+    /// An action with a boolean state will most typically be used with a ‘toggle’
+    /// or ‘switch’ menu item. The state can be set directly, but activating the
     /// action (with no parameter) results in the state being toggled.
     ///
     /// Selecting a toggle menu item will activate the action. The menu item should
-    /// be rendered as "checked" when the state is true.
+    /// be rendered as ‘checked’ when the state is true.
     ///
     /// ## String Parameter and State
     ///
@@ -613,7 +613,7 @@
     /// Radio menu items, in addition to being associated with the action, will
     /// have a target value. Selecting that menu item will result in activation
     /// of the action with the target value as the parameter. The menu item should
-    /// be rendered as "selected" when the state of the action is equal to the
+    /// be rendered as ‘selected’ when the state of the action is equal to the
     /// target value of the menu item.
     ///
     /// This is an Abstract Base Class, you cannot instantiate it.
@@ -625,13 +625,13 @@
     ///  Emitted when a change has occurred to the menu.
     ///
     /// The only changes that can occur to a menu is that items are removed
-    /// or added. Items may not change (except by being removed and added
-    /// back in the same location). This signal is capable of describing
+    /// or added.  Items may not change (except by being removed and added
+    /// back in the same location).  This signal is capable of describing
     /// both of those changes (at the same time).
     ///
-    /// The signal means that starting at the index `position`, `removed`
-    /// items were removed and `added` items were added in their place. If
-    /// `removed` is zero then only items were added. If `added` is zero
+    /// The signal means that starting at the index @position, @removed
+    /// items were removed and @added items were added in their place.  If
+    /// @removed is zero then only items were added.  If @added is zero
     /// then only items were removed.
     ///
     /// As an example, if the menu contains items a, b, c, d (in that
@@ -641,7 +641,7 @@
     ///
     /// Signal handlers may query the model (particularly the added items)
     /// and expect to see the results of the modification that is being
-    /// reported. The signal is emitted after the modification.
+    /// reported.  The signal is emitted after the modification.
     ///
     ///
     ///
@@ -677,13 +677,13 @@
     //    unsafe { TODO: call ffi:g_menu_model_get_item_attribute() }
     //}
 
-    </span><span class="doccomment">/// Queries the item at position `item_index` in `self` for the attribute
-    /// specified by `attribute`.
+    </span><span class="doccomment">/// Queries the item at position @item_index in @self for the attribute
+    /// specified by @attribute.
     ///
-    /// If `expected_type` is non-[`None`] then it specifies the expected type of
-    /// the attribute. If it is [`None`] then any type will be accepted.
+    /// If @expected_type is non-[`None`] then it specifies the expected type of
+    /// the attribute.  If it is [`None`] then any type will be accepted.
     ///
-    /// If the attribute exists and matches `expected_type` (or if the
+    /// If the attribute exists and matches @expected_type (or if the
     /// expected type is unspecified) then the value is returned.
     ///
     /// If the attribute does not exist, or does not match the expected type
@@ -694,7 +694,7 @@
     /// the attribute to query
     /// ## `expected_type`
     /// the expected type of the attribute, or
-    ///  [`None`]
+    ///     [`None`]
     ///
     /// # Returns
     ///
@@ -717,10 +717,10 @@
         }
     }
 
-    <span class="doccomment">/// Queries the item at position `item_index` in `self` for the link
-    /// specified by `link`.
+    <span class="doccomment">/// Queries the item at position @item_index in @self for the link
+    /// specified by @link.
     ///
-    /// If the link exists, the linked [`MenuModel`][crate::MenuModel] is returned. If the link
+    /// If the link exists, the linked #GMenuModel is returned.  If the link
     /// does not exist, [`None`] is returned.
     /// ## `item_index`
     /// the index of the item
@@ -729,7 +729,7 @@
     ///
     /// # Returns
     ///
-    /// the linked [`MenuModel`][crate::MenuModel], or [`None`]
+    /// the linked #GMenuModel, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_model_get_item_link"</span>)]
     #[doc(alias = <span class="string">"get_item_link"</span>)]
     #[must_use]
@@ -743,7 +743,7 @@
         }
     }
 
-    <span class="doccomment">/// Query the number of items in `self`.
+    <span class="doccomment">/// Query the number of items in @self.
     ///
     /// # Returns
     ///
@@ -754,34 +754,34 @@
         <span class="kw">unsafe </span>{ ffi::g_menu_model_get_n_items(<a class="self" href="#262">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Queries if `self` is mutable.
+    <span class="doccomment">/// Queries if @self is mutable.
     ///
-    /// An immutable [`MenuModel`][crate::MenuModel] will never emit the [`items-changed`][struct@crate::MenuModel#items-changed]
+    /// An immutable #GMenuModel will never emit the #GMenuModel::items-changed
     /// signal. Consumers of the model may make optimisations accordingly.
     ///
     /// # Returns
     ///
     /// [`true`] if the model is mutable (ie: "items-changed" may be
-    ///  emitted).
+    ///     emitted).
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_model_is_mutable"</span>)]
     </span><span class="kw">fn </span>is_mutable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_menu_model_is_mutable(<a class="self" href="#276">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Requests emission of the [`items-changed`][struct@crate::MenuModel#items-changed] signal on `self`.
+    <span class="doccomment">/// Requests emission of the #GMenuModel::items-changed signal on @self.
     ///
-    /// This function should never be called except by [`MenuModel`][crate::MenuModel]
-    /// subclasses. Any other calls to this function will very likely lead
+    /// This function should never be called except by #GMenuModel
+    /// subclasses.  Any other calls to this function will very likely lead
     /// to a violation of the interface of the model.
     ///
     /// The implementation should update its internal representation of the
-    /// menu before emitting the signal. The implementation should further
+    /// menu before emitting the signal.  The implementation should further
     /// expect to receive queries about the new state of the menu (and
     /// particularly added menu items) while signal handlers are running.
     ///
     /// The implementation must dispatch this call directly from a mainloop
     /// entry and not in response to calls -- particularly those from the
-    /// [`MenuModel`][crate::MenuModel] API. Said another way: the menu must not change while
+    /// #GMenuModel API.  Said another way: the menu must not change while
     /// user code is running without returning to the mainloop.
     /// ## `position`
     /// the position of the change
@@ -801,16 +801,16 @@
         }
     }
 
-    <span class="doccomment">/// Creates a [`MenuAttributeIter`][crate::MenuAttributeIter] to iterate over the attributes of
-    /// the item at position `item_index` in `self`.
+    <span class="doccomment">/// Creates a #GMenuAttributeIter to iterate over the attributes of
+    /// the item at position @item_index in @self.
     ///
-    /// You must free the iterator with `g_object_unref()` when you are done.
+    /// You must free the iterator with g_object_unref() when you are done.
     /// ## `item_index`
     /// the index of the item
     ///
     /// # Returns
     ///
-    /// a new [`MenuAttributeIter`][crate::MenuAttributeIter]
+    /// a new #GMenuAttributeIter
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_model_iterate_item_attributes"</span>)]
     </span><span class="kw">fn </span>iterate_item_attributes(<span class="kw-2">&amp;</span><span class="self">self</span>, item_index: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="menu_attribute_iter.rs.html#7-22">MenuAttributeIter</a> {
         <span class="kw">unsafe </span>{
@@ -821,16 +821,16 @@
         }
     }
 
-    <span class="doccomment">/// Creates a [`MenuLinkIter`][crate::MenuLinkIter] to iterate over the links of the item at
-    /// position `item_index` in `self`.
+    <span class="doccomment">/// Creates a #GMenuLinkIter to iterate over the links of the item at
+    /// position @item_index in @self.
     ///
-    /// You must free the iterator with `g_object_unref()` when you are done.
+    /// You must free the iterator with g_object_unref() when you are done.
     /// ## `item_index`
     /// the index of the item
     ///
     /// # Returns
     ///
-    /// a new [`MenuLinkIter`][crate::MenuLinkIter]
+    /// a new #GMenuLinkIter
     </span><span class="attr">#[doc(alias = <span class="string">"g_menu_model_iterate_item_links"</span>)]
     </span><span class="kw">fn </span>iterate_item_links(<span class="kw-2">&amp;</span><span class="self">self</span>, item_index: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="menu_link_iter.rs.html#8-23">MenuLinkIter</a> {
         <span class="kw">unsafe </span>{
@@ -844,13 +844,13 @@
     <span class="doccomment">/// Emitted when a change has occurred to the menu.
     ///
     /// The only changes that can occur to a menu is that items are removed
-    /// or added. Items may not change (except by being removed and added
-    /// back in the same location). This signal is capable of describing
+    /// or added.  Items may not change (except by being removed and added
+    /// back in the same location).  This signal is capable of describing
     /// both of those changes (at the same time).
     ///
-    /// The signal means that starting at the index `position`, `removed`
-    /// items were removed and `added` items were added in their place. If
-    /// `removed` is zero then only items were added. If `added` is zero
+    /// The signal means that starting at the index @position, @removed
+    /// items were removed and @added items were added in their place.  If
+    /// @removed is zero then only items were added.  If @added is zero
     /// then only items were removed.
     ///
     /// As an example, if the menu contains items a, b, c, d (in that
@@ -860,7 +860,7 @@
     ///
     /// Signal handlers may query the model (particularly the added items)
     /// and expect to see the results of the modification that is being
-    /// reported. The signal is emitted after the modification.
+    /// reported.  The signal is emitted after the modification.
     /// ## `position`
     /// the position of the change
     /// ## `removed`

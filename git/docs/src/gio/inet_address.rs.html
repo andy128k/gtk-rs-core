@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/inet_address.rs`."><title>inet_address.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/inet_address.rs`."><title>inet_address.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -194,7 +194,7 @@
 
 <span class="kw">use </span>glib::{<a href="../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#118">prelude</a>::<span class="kw-2">*</span>, <a href="auto/inet_address.rs.html#13-114">InetAddress</a>, <a href="auto/enums.rs.html#3223-3238">SocketFamily</a>};
+<span class="kw">use crate</span>::{<a href="lib.rs.html#118">prelude</a>::<span class="kw-2">*</span>, <a href="auto/inet_address.rs.html#13-118">InetAddress</a>, <a href="auto/enums.rs.html#3232-3247">SocketFamily</a>};
 
 <span class="attr">#[derive(Debug)]
 </span><span class="kw">pub enum </span><a href="../../gio/enum.InetAddressBytes.html">InetAddressBytes</a>&lt;<span class="lifetime">'a</span>&gt; {
@@ -214,26 +214,26 @@
     }
 }
 
-<span class="kw">impl </span><a href="auto/inet_address.rs.html#13-114">InetAddress</a> {
-    <span class="doccomment">/// Creates a new [`InetAddress`][crate::InetAddress] from the given `family` and `bytes`.
-    /// `bytes` should be 4 bytes for [`SocketFamily::Ipv4`][crate::SocketFamily::Ipv4] and 16 bytes for
+<span class="kw">impl </span><a href="auto/inet_address.rs.html#13-118">InetAddress</a> {
+    <span class="doccomment">/// Creates a new #GInetAddress from the given @family and @bytes.
+    /// @bytes should be 4 bytes for [`SocketFamily::Ipv4`][crate::SocketFamily::Ipv4] and 16 bytes for
     /// [`SocketFamily::Ipv6`][crate::SocketFamily::Ipv6].
     /// ## `bytes`
     /// raw address data
     /// ## `family`
-    /// the address family of `bytes`
+    /// the address family of @bytes
     ///
     /// # Returns
     ///
-    /// a new [`InetAddress`][crate::InetAddress] corresponding to `family` and `bytes`.
-    ///  Free the returned object with `g_object_unref()`.
+    /// a new #GInetAddress corresponding to @family and @bytes.
+    ///     Free the returned object with g_object_unref().
     </span><span class="attr">#[doc(alias = <span class="string">"g_inet_address_new_from_bytes"</span>)]
     </span><span class="kw">pub fn </span>from_bytes(inet_address_bytes: <a href="#10-13">InetAddressBytes</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">let </span>bytes = <a href="#41">inet_address_bytes</a>.<a href="#17-24">deref</a>();
 
         <span class="kw">let </span>family = <span class="kw">match </span><a href="#41">inet_address_bytes</a> {
-            <a href="#11">InetAddressBytes::V4</a>(<span class="kw">_</span>) =&gt; <a href="auto/enums.rs.html#3232">SocketFamily::Ipv4</a>,
-            <a href="#12">InetAddressBytes::V6</a>(<span class="kw">_</span>) =&gt; <a href="auto/enums.rs.html#3235">SocketFamily::Ipv6</a>,
+            <a href="#11">InetAddressBytes::V4</a>(<span class="kw">_</span>) =&gt; <a href="auto/enums.rs.html#3241">SocketFamily::Ipv4</a>,
+            <a href="#12">InetAddressBytes::V6</a>(<span class="kw">_</span>) =&gt; <a href="auto/enums.rs.html#3244">SocketFamily::Ipv6</a>,
         };
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_inet_address_new_from_bytes(
@@ -246,24 +246,24 @@
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/inet_address.rs.html#13-114"><span class="kw">super</span>::InetAddress</a>&gt;&gt; <a href="#58">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/inet_address.rs.html#13-118"><span class="kw">super</span>::InetAddress</a>&gt;&gt; <a href="#58">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">pub trait </span><a href="../../gio/prelude/trait.InetAddressExtManual.html">InetAddressExtManual</a>: <a href="#58">sealed::Sealed</a> + IsA&lt;<a href="auto/inet_address.rs.html#13-114">InetAddress</a>&gt; + <span class="lifetime">'static </span>{
+<span class="kw">pub trait </span><a href="../../gio/prelude/trait.InetAddressExtManual.html">InetAddressExtManual</a>: <a href="#58">sealed::Sealed</a> + IsA&lt;<a href="auto/inet_address.rs.html#13-118">InetAddress</a>&gt; + <span class="lifetime">'static </span>{
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns `None` in case the address has a native size different than 4 and 16.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Gets the raw binary address data from `self`.
+    </span><span class="doccomment">/// Gets the raw binary address data from @self.
     ///
     /// # Returns
     ///
-    /// a pointer to an internal array of the bytes in `self`,
+    /// a pointer to an internal array of the bytes in @self,
     /// which should not be modified, stored, or freed. The size of this
-    /// array can be gotten with [`InetAddressExt::native_size()`][crate::prelude::InetAddressExt::native_size()].
+    /// array can be gotten with g_inet_address_get_native_size().
     </span><span class="attr">#[doc(alias = <span class="string">"g_inet_address_to_bytes"</span>)]
     #[inline]
     </span><span class="kw">fn </span>to_bytes(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;InetAddressBytes&lt;<span class="lifetime">'_</span>&gt;&gt; {
-        <span class="kw">let </span>size = <a class="self" href="#75">self</a>.<a href="auto/inet_address.rs.html#373-375">native_size</a>();
+        <span class="kw">let </span>size = <a class="self" href="#75">self</a>.<a href="auto/inet_address.rs.html#377-379">native_size</a>();
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>bytes = ffi::g_inet_address_to_bytes(<a class="self" href="#75">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">if </span>size == <span class="number">4 </span>{
@@ -277,9 +277,9 @@
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/inet_address.rs.html#13-114">InetAddress</a>&gt;&gt; <a href="#62-88">InetAddressExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/inet_address.rs.html#13-118">InetAddress</a>&gt;&gt; <a href="#62-88">InetAddressExtManual</a> <span class="kw">for </span>O {}
 
-<span class="kw">impl </span>From&lt;<a href="https://doc.rust-lang.org/nightly/core/net/ip_addr/enum.IpAddr.html">IpAddr</a>&gt; <span class="kw">for </span><a href="auto/inet_address.rs.html#13-114">InetAddress</a> {
+<span class="kw">impl </span>From&lt;<a href="https://doc.rust-lang.org/nightly/core/net/ip_addr/enum.IpAddr.html">IpAddr</a>&gt; <span class="kw">for </span><a href="auto/inet_address.rs.html#13-118">InetAddress</a> {
     <span class="kw">fn </span>from(addr: <a href="https://doc.rust-lang.org/nightly/core/net/ip_addr/enum.IpAddr.html">IpAddr</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">match </span><a href="#93">addr</a> {
             IpAddr::V4(v4) =&gt; <a href="#41-54"><span class="self">Self</span>::from_bytes</a>(<a href="#11">InetAddressBytes::V4</a>(<span class="kw-2">&amp;</span><a href="#95">v4</a>.octets())),
@@ -288,9 +288,9 @@
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="auto/inet_address.rs.html#13-114">InetAddress</a>&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/core/net/ip_addr/enum.IpAddr.html">IpAddr</a> {
-    <span class="kw">fn </span>from(addr: <a href="auto/inet_address.rs.html#13-114">InetAddress</a>) -&gt; <span class="self">Self </span>{
-        <span class="kw">let </span>size = <a href="#102">addr</a>.<a href="auto/inet_address.rs.html#373-375">native_size</a>();
+<span class="kw">impl </span>From&lt;<a href="auto/inet_address.rs.html#13-118">InetAddress</a>&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/core/net/ip_addr/enum.IpAddr.html">IpAddr</a> {
+    <span class="kw">fn </span>from(addr: <a href="auto/inet_address.rs.html#13-118">InetAddress</a>) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>size = <a href="#102">addr</a>.<a href="auto/inet_address.rs.html#377-379">native_size</a>();
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>bytes = ffi::g_inet_address_to_bytes(<a href="#102">addr</a>.<a href="../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">if </span>size == <span class="number">4 </span>{

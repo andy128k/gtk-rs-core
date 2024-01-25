@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/input_stream.rs`."><title>input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/input_stream.rs`."><title>input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -896,37 +896,37 @@
 <span class="kw">use </span>futures_io::{AsyncBufRead, AsyncRead};
 <span class="kw">use </span>glib::{<a href="../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="../../glib/source/struct.Priority.html">Priority</a>};
 
-<span class="kw">use crate</span>::{<a href="error.rs.html#31-36">error::to_std_io_result</a>, <a href="lib.rs.html#118">prelude</a>::<span class="kw-2">*</span>, <a href="auto/cancellable.rs.html#7-83">Cancellable</a>, <a href="auto/input_stream.rs.html#9-33">InputStream</a>, <a href="auto/seekable.rs.html#8-33">Seekable</a>};
+<span class="kw">use crate</span>::{<a href="error.rs.html#31-36">error::to_std_io_result</a>, <a href="lib.rs.html#118">prelude</a>::<span class="kw-2">*</span>, <a href="auto/cancellable.rs.html#7-85">Cancellable</a>, <a href="auto/input_stream.rs.html#9-35">InputStream</a>, <a href="auto/seekable.rs.html#8-33">Seekable</a>};
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/input_stream.rs.html#9-33"><span class="kw">super</span>::InputStream</a>&gt;&gt; <a href="#12">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/input_stream.rs.html#9-35"><span class="kw">super</span>::InputStream</a>&gt;&gt; <a href="#12">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">pub trait </span><a href="../../gio/prelude/trait.InputStreamExtManual.html">InputStreamExtManual</a>: <a href="#12">sealed::Sealed</a> + IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> {
-    <span class="doccomment">/// Tries to read `count` bytes from the stream into the buffer starting at
-    /// `buffer`. Will block during this read.
+<span class="kw">pub trait </span><a href="../../gio/prelude/trait.InputStreamExtManual.html">InputStreamExtManual</a>: <a href="#12">sealed::Sealed</a> + IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> {
+    <span class="doccomment">/// Tries to read @count bytes from the stream into the buffer starting at
+    /// @buffer. Will block during this read.
     ///
-    /// If count is zero returns zero and does nothing. A value of `count`
+    /// If count is zero returns zero and does nothing. A value of @count
     /// larger than `G_MAXSSIZE` will cause a [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument] error.
     ///
     /// On success, the number of bytes read into the buffer is returned.
     /// It is not an error if this is not the same as the requested size, as it
     /// can happen e.g. near the end of a file. Zero is returned on end of file
-    /// (or if `count` is zero), but never otherwise.
+    /// (or if @count is zero),  but never otherwise.
     ///
-    /// The returned `buffer` is not a nul-terminated string, it can contain nul bytes
-    /// at any position, and this function doesn't nul-terminate the `buffer`.
+    /// The returned @buffer is not a nul-terminated string, it can contain nul bytes
+    /// at any position, and this function doesn't nul-terminate the @buffer.
     ///
-    /// If `cancellable` is not [`None`], then the operation can be cancelled by
+    /// If @cancellable is not [`None`], then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled] will be returned. If an
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
     ///
-    /// On error -1 is returned and `error` is set accordingly.
+    /// On error -1 is returned and @error is set accordingly.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
@@ -934,9 +934,9 @@
     ///
     /// ## `buffer`
     ///
-    ///  a buffer to read data into (which should be at least count bytes long).
+    ///     a buffer to read data into (which should be at least count bytes long).
     </span><span class="attr">#[doc(alias = <span class="string">"g_input_stream_read"</span>)]
-    </span><span class="kw">fn </span>read&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>read&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="kw-2">mut </span>buffer: B,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
@@ -963,27 +963,27 @@
         }
     }
 
-    <span class="doccomment">/// Tries to read `count` bytes from the stream into the buffer starting at
-    /// `buffer`. Will block during this read.
+    <span class="doccomment">/// Tries to read @count bytes from the stream into the buffer starting at
+    /// @buffer. Will block during this read.
     ///
-    /// This function is similar to [`InputStreamExtManual::read()`][crate::prelude::InputStreamExtManual::read()], except it tries to
+    /// This function is similar to g_input_stream_read(), except it tries to
     /// read as many bytes as requested, only stopping on an error or end of stream.
     ///
-    /// On a successful read of `count` bytes, or if we reached the end of the
-    /// stream, [`true`] is returned, and `bytes_read` is set to the number of bytes
-    /// read into `buffer`.
+    /// On a successful read of @count bytes, or if we reached the end of the
+    /// stream,  [`true`] is returned, and @bytes_read is set to the number of bytes
+    /// read into @buffer.
     ///
-    /// If there is an error during the operation [`false`] is returned and `error`
+    /// If there is an error during the operation [`false`] is returned and @error
     /// is set to indicate the error status.
     ///
     /// As a special exception to the normal conventions for functions that
-    /// use [`glib::Error`][crate::glib::Error], if this function returns [`false`] (and sets `error`) then
-    /// `bytes_read` will be set to the number of bytes that were successfully
-    /// read before the error was encountered. This functionality is only
-    /// available from C. If you need it from another language then you must
-    /// write your own loop around [`InputStreamExtManual::read()`][crate::prelude::InputStreamExtManual::read()].
+    /// use #GError, if this function returns [`false`] (and sets @error) then
+    /// @bytes_read will be set to the number of bytes that were successfully
+    /// read before the error was encountered.  This functionality is only
+    /// available from C.  If you need it from another language then you must
+    /// write your own loop around g_input_stream_read().
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
@@ -991,12 +991,12 @@
     ///
     /// ## `buffer`
     ///
-    ///  a buffer to read data into (which should be at least count bytes long).
+    ///     a buffer to read data into (which should be at least count bytes long).
     ///
     /// ## `bytes_read`
     /// location to store the number of bytes that was read from the stream
     </span><span class="attr">#[doc(alias = <span class="string">"g_input_stream_read_all"</span>)]
-    </span><span class="kw">fn </span>read_all&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>read_all&lt;B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="kw-2">mut </span>buffer: B,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
@@ -1029,12 +1029,12 @@
         }
     }
 
-    <span class="doccomment">/// Request an asynchronous read of `count` bytes from the stream into the
-    /// buffer starting at `buffer`.
+    <span class="doccomment">/// Request an asynchronous read of @count bytes from the stream into the
+    /// buffer starting at @buffer.
     ///
-    /// This is the asynchronous equivalent of [`InputStreamExtManual::read_all()`][crate::prelude::InputStreamExtManual::read_all()].
+    /// This is the asynchronous equivalent of g_input_stream_read_all().
     ///
-    /// Call `g_input_stream_read_all_finish()` to collect the result.
+    /// Call g_input_stream_read_all_finish() to collect the result.
     ///
     /// Any outstanding I/O request with higher priority (lower numerical
     /// value) will be executed before an outstanding request with lower
@@ -1042,22 +1042,22 @@
     /// ## `io_priority`
     /// the [I/O priority][io-priority] of the request
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
+    /// optional #GCancellable object, [`None`] to ignore
     /// ## `callback`
-    /// a `GAsyncReadyCallback`
-    ///  to call when the request is satisfied
+    /// a #GAsyncReadyCallback
+    ///   to call when the request is satisfied
     ///
     /// # Returns
     ///
     ///
     /// ## `buffer`
     ///
-    ///  a buffer to read data into (which should be at least count bytes long)
+    ///     a buffer to read data into (which should be at least count bytes long)
     </span><span class="attr">#[doc(alias = <span class="string">"g_input_stream_read_all_async"</span>)]
     </span><span class="kw">fn </span>read_all_async&lt;
         B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>,
         Q: FnOnce(<span class="prelude-ty">Result</span>&lt;(B, <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <span class="prelude-ty">Option</span>&lt;<a href="../../glib/error/struct.Error.html">glib::Error</a>&gt;), (B, <a href="../../glib/error/struct.Error.html">glib::Error</a>)&gt;) + <span class="lifetime">'static</span>,
-        C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         buffer: B,
@@ -1132,21 +1132,21 @@
         }
     }
 
-    <span class="doccomment">/// Request an asynchronous read of `count` bytes from the stream into the buffer
-    /// starting at `buffer`. When the operation is finished `callback` will be called.
-    /// You can then call `g_input_stream_read_finish()` to get the result of the
+    <span class="doccomment">/// Request an asynchronous read of @count bytes from the stream into the buffer
+    /// starting at @buffer. When the operation is finished @callback will be called.
+    /// You can then call g_input_stream_read_finish() to get the result of the
     /// operation.
     ///
-    /// During an async request no other sync and async calls are allowed on `self`, and will
+    /// During an async request no other sync and async calls are allowed on @self, and will
     /// result in [`IOErrorEnum::Pending`][crate::IOErrorEnum::Pending] errors.
     ///
-    /// A value of `count` larger than `G_MAXSSIZE` will cause a [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument] error.
+    /// A value of @count larger than `G_MAXSSIZE` will cause a [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument] error.
     ///
     /// On success, the number of bytes read into the buffer will be passed to the
     /// callback. It is not an error if this is not the same as the requested size, as it
     /// can happen e.g. near the end of a file, but generally we try to read
     /// as many bytes as requested. Zero is returned on end of file
-    /// (or if `count` is zero), but never otherwise.
+    /// (or if @count is zero),  but never otherwise.
     ///
     /// Any outstanding i/o request with higher priority (lower numerical value) will
     /// be executed before an outstanding request with lower priority. Default
@@ -1159,22 +1159,22 @@
     /// the [I/O priority][io-priority]
     /// of the request.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     /// ## `callback`
-    /// a `GAsyncReadyCallback`
-    ///  to call when the request is satisfied
+    /// a #GAsyncReadyCallback
+    ///   to call when the request is satisfied
     ///
     /// # Returns
     ///
     ///
     /// ## `buffer`
     ///
-    ///  a buffer to read data into (which should be at least count bytes long).
+    ///     a buffer to read data into (which should be at least count bytes long).
     </span><span class="attr">#[doc(alias = <span class="string">"g_input_stream_read_async"</span>)]
     </span><span class="kw">fn </span>read_async&lt;
         B: AsMut&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>,
         Q: FnOnce(<span class="prelude-ty">Result</span>&lt;(B, <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), (B, <a href="../../glib/error/struct.Error.html">glib::Error</a>)&gt;) + <span class="lifetime">'static</span>,
-        C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         buffer: B,
@@ -1279,25 +1279,25 @@
 
     <span class="kw">fn </span>into_read(<span class="self">self</span>) -&gt; InputStreamRead&lt;<span class="self">Self</span>&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;,
+        </span><span class="self">Self</span>: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;,
     {
         <a href="#408">InputStreamRead</a>(<a class="self" href="#390">self</a>)
     }
 
     <span class="kw">fn </span>into_async_buf_read(<span class="self">self</span>, buffer_size: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; InputStreamAsyncBufRead&lt;<span class="self">Self</span>&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;,
+        </span><span class="self">Self</span>: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;,
     {
         <a href="#499-506">InputStreamAsyncBufRead::new</a>(<a class="self" href="#397">self</a>, <a href="#397">buffer_size</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt; <a href="#16-403">InputStreamExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt; <a href="#16-403">InputStreamExtManual</a> <span class="kw">for </span>O {}
 
 <span class="attr">#[derive(Debug)]
-</span><span class="kw">pub struct </span><a href="../../gio/struct.InputStreamRead.html">InputStreamRead</a>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt;(T);
+</span><span class="kw">pub struct </span><a href="../../gio/struct.InputStreamRead.html">InputStreamRead</a>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt;(T);
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt; InputStreamRead&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt; InputStreamRead&lt;T&gt; {
     <span class="kw">pub fn </span>into_input_stream(<span class="self">self</span>) -&gt; T {
         <a class="self" href="#411">self</a>.<span class="number">0
     </span>}
@@ -1307,14 +1307,14 @@
     </span>}
 }
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">io::Read</a> <span class="kw">for </span>InputStreamRead&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">io::Read</a> <span class="kw">for </span>InputStreamRead&lt;T&gt; {
     <span class="kw">fn </span>read(<span class="kw-2">&amp;mut </span><span class="self">self</span>, buf: <span class="kw-2">&amp;mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]) -&gt; io::Result&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt; {
         <span class="kw">let </span>gio_result = <a class="self" href="#421">self</a>.<span class="number">0</span>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="#49-74">read</a>(<a href="#421">buf</a>, <span class="kw">crate</span>::Cancellable::NONE);
         <a href="error.rs.html#31-36">to_std_io_result</a>(<a href="#422">gio_result</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt; + IsA&lt;<a href="auto/seekable.rs.html#8-33">Seekable</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">io::Seek</a> <span class="kw">for </span>InputStreamRead&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt; + IsA&lt;<a href="auto/seekable.rs.html#8-33">Seekable</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">io::Seek</a> <span class="kw">for </span>InputStreamRead&lt;T&gt; {
     <span class="kw">fn </span>seek(<span class="kw-2">&amp;mut </span><span class="self">self</span>, pos: <a href="https://doc.rust-lang.org/nightly/std/io/enum.SeekFrom.html">io::SeekFrom</a>) -&gt; io::Result&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt; {
         <span class="kw">let </span>(pos, type_) = <span class="kw">match </span><a href="#428">pos</a> {
             io::SeekFrom::Start(pos) =&gt; (<a href="#430">pos</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>, glib::SeekType::Set),
@@ -1346,7 +1346,7 @@
         buffer: Vec&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;,
         valid: (<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), <span class="comment">// first index is inclusive, second is exclusive
     </span>},
-    Failed(<a href="auto/enums.rs.html#1654-1812"><span class="kw">crate</span>::IOErrorEnum</a>),
+    Failed(<a href="auto/enums.rs.html#1654-1817"><span class="kw">crate</span>::IOErrorEnum</a>),
 }
 
 <span class="kw">impl </span><a href="#442-460">State</a> {
@@ -1372,12 +1372,12 @@
         }
     }
 }
-<span class="kw">pub struct </span><a href="../../gio/struct.InputStreamAsyncBufRead.html">InputStreamAsyncBufRead</a>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt; {
+<span class="kw">pub struct </span><a href="../../gio/struct.InputStreamAsyncBufRead.html">InputStreamAsyncBufRead</a>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt; {
     stream: T,
     state: <a href="#442-460">State</a>,
 }
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt; InputStreamAsyncBufRead&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt; InputStreamAsyncBufRead&lt;T&gt; {
     <span class="kw">pub fn </span>into_input_stream(<span class="self">self</span>) -&gt; T {
         <a class="self" href="#491">self</a>.stream
     }
@@ -1466,7 +1466,7 @@
                     }
                     Poll::Ready(<span class="prelude-val">Err</span>((<span class="kw">_</span>, err))) =&gt; {
                         <span class="kw">let </span>kind = <a href="#577">err</a>
-                            .kind::&lt;<a href="auto/enums.rs.html#1654-1812"><span class="kw">crate</span>::IOErrorEnum</a>&gt;()
+                            .kind::&lt;<a href="auto/enums.rs.html#1654-1817"><span class="kw">crate</span>::IOErrorEnum</a>&gt;()
                             .unwrap_or(<a href="auto/enums.rs.html#1658"><span class="kw">crate</span>::IOErrorEnum::Failed</a>);
                         <a class="self" href="#557">self</a>.state = <a href="#459">State::Failed</a>(<a href="#578">kind</a>);
                         Poll::Ready(<span class="prelude-val">Err</span>(io::Error::new(<a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">io::ErrorKind::from</a>(<a href="#578">kind</a>), <a href="#577">err</a>)))
@@ -1512,7 +1512,7 @@
     </span>Failed,
 }
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt; AsyncRead <span class="kw">for </span>InputStreamAsyncBufRead&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt; AsyncRead <span class="kw">for </span>InputStreamAsyncBufRead&lt;T&gt; {
     <span class="kw">fn </span>poll_read(
         <span class="self">self</span>: Pin&lt;<span class="kw-2">&amp;mut </span><span class="self">Self</span>&gt;,
         cx: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/task/wake/struct.Context.html">Context</a>,
@@ -1534,7 +1534,7 @@
     }
 }
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt; AsyncBufRead <span class="kw">for </span>InputStreamAsyncBufRead&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt; AsyncBufRead <span class="kw">for </span>InputStreamAsyncBufRead&lt;T&gt; {
     <span class="kw">fn </span>poll_fill_buf(
         <span class="self">self</span>: Pin&lt;<span class="kw-2">&amp;mut </span><span class="self">Self</span>&gt;,
         cx: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/task/wake/struct.Context.html">Context</a>,
@@ -1547,7 +1547,7 @@
     }
 }
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-33">InputStream</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Unpin.html">Unpin</a> <span class="kw">for </span>InputStreamAsyncBufRead&lt;T&gt; {}
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/input_stream.rs.html#9-35">InputStream</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Unpin.html">Unpin</a> <span class="kw">for </span>InputStreamAsyncBufRead&lt;T&gt; {}
 
 <span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests {

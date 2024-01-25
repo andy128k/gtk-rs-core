@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/list_store.rs`."><title>list_store.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/list_store.rs`."><title>list_store.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -470,14 +470,14 @@
 <span class="kw">use crate</span>::{<a href="lib.rs.html#118">prelude</a>::<span class="kw-2">*</span>, <a href="auto/list_model.rs.html#12-102">ListModel</a>, <a href="auto/list_store.rs.html#8-39">ListStore</a>};
 
 <span class="kw">impl </span><a href="auto/list_store.rs.html#8-39">ListStore</a> {
-    <span class="doccomment">/// Creates a new [`ListStore`][crate::ListStore] with items of type `item_type`. `item_type`
-    /// must be a subclass of [`glib::Object`][crate::glib::Object].
+    <span class="doccomment">/// Creates a new #GListStore with items of type @item_type. @item_type
+    /// must be a subclass of #GObject.
     /// ## `item_type`
-    /// the `GType` of items in the list
+    /// the #GType of items in the list
     ///
     /// # Returns
     ///
-    /// a new [`ListStore`][crate::ListStore]
+    /// a new #GListStore
     </span><span class="attr">#[doc(alias = <span class="string">"g_list_store_new"</span>)]
     </span><span class="kw">pub fn </span>new&lt;T: IsA&lt;<a href="../../glib/object/struct.Object.html">Object</a>&gt;&gt;() -&gt; <span class="self">Self </span>{
         <a href="#24-26"><span class="self">Self</span>::with_type</a>(<a href="../../glib/types/trait.StaticType.html">T::static_type</a>())
@@ -488,14 +488,14 @@
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_list_store_new(<a href="#24">type_</a>.<a href="../../glib/translate/trait.IntoGlib.html">into_glib</a>())) }
     }
 
-    <span class="doccomment">/// Inserts `item` into `self` at a position to be determined by the
-    /// `compare_func`.
+    <span class="doccomment">/// Inserts @item into @self at a position to be determined by the
+    /// @compare_func.
     ///
     /// The list must already be sorted before calling this function or the
-    /// result is undefined. Usually you would approach this by only ever
+    /// result is undefined.  Usually you would approach this by only ever
     /// inserting items by way of this function.
     ///
-    /// This function takes a ref on `item`.
+    /// This function takes a ref on @item.
     /// ## `item`
     /// the new item
     /// ## `compare_func`
@@ -503,7 +503,7 @@
     ///
     /// # Returns
     ///
-    /// the position at which `item` was inserted
+    /// the position at which @item was inserted
     </span><span class="attr">#[doc(alias = <span class="string">"g_list_store_insert_sorted"</span>)]
     </span><span class="kw">pub fn </span>insert_sorted&lt;P: IsA&lt;<a href="../../glib/object/struct.Object.html">glib::Object</a>&gt;, F: FnMut(<span class="kw-2">&amp;</span><a href="../../glib/object/struct.Object.html">Object</a>, <span class="kw-2">&amp;</span><a href="../../glib/object/struct.Object.html">Object</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html">Ordering</a>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -525,7 +525,7 @@
         }
     }
 
-    <span class="doccomment">/// Sort the items in `self` according to `compare_func`.
+    <span class="doccomment">/// Sort the items in @self according to @compare_func.
     /// ## `compare_func`
     /// pairwise comparison function for sorting
     </span><span class="attr">#[doc(alias = <span class="string">"g_list_store_sort"</span>)]
@@ -544,18 +544,18 @@
         }
     }
 
-    <span class="doccomment">/// Changes `self` by removing `n_removals` items and adding `n_additions`
-    /// items to it. `additions` must contain `n_additions` items of type
-    /// [`item-type`][struct@crate::ListStore#item-type]. [`None`] is not permitted.
+    <span class="doccomment">/// Changes @self by removing @n_removals items and adding @n_additions
+    /// items to it. @additions must contain @n_additions items of type
+    /// #GListStore:item-type.  [`None`] is not permitted.
     ///
-    /// This function is more efficient than [`insert()`][Self::insert()] and
-    /// [`remove()`][Self::remove()], because it only emits
-    /// [`items-changed`][struct@crate::ListModel#items-changed] once for the change.
+    /// This function is more efficient than g_list_store_insert() and
+    /// g_list_store_remove(), because it only emits
+    /// #GListModel::items-changed once for the change.
     ///
-    /// This function takes a ref on each item in `additions`.
+    /// This function takes a ref on each item in @additions.
     ///
-    /// The parameters `position` and `n_removals` must be correct (ie:
-    /// `position` + `n_removals` must be less than or equal to the length of
+    /// The parameters @position and @n_removals must be correct (ie:
+    /// @position + @n_removals must be less than or equal to the length of
     /// the list at the time this function is called).
     /// ## `position`
     /// the position at which to make the change
@@ -639,14 +639,14 @@
         }
     }
 
-    <span class="doccomment">/// Looks up the given `item` in the list store by looping over the items and
-    /// comparing them with `equal_func` until the first occurrence of `item` which
-    /// matches. If `item` was not found, then `position` will not be set, and this
+    <span class="doccomment">/// Looks up the given @item in the list store by looping over the items and
+    /// comparing them with @equal_func until the first occurrence of @item which
+    /// matches. If @item was not found, then @position will not be set, and this
     /// method will return [`false`].
     ///
-    /// `item` is always passed as second parameter to `equal_func`.
+    /// @item is always passed as second parameter to @equal_func.
     ///
-    /// Since GLib 2.76 it is possible to pass `NULL` for `item`.
+    /// Since GLib 2.76 it is possible to pass `NULL` for @item.
     /// ## `item`
     /// an item
     /// ## `equal_func`
@@ -654,11 +654,11 @@
     ///
     /// # Returns
     ///
-    /// Whether `self` contains `item`. If it was found, `position` will be
-    /// set to the position where `item` occurred for the first time.
+    /// Whether @self contains @item. If it was found, @position will be
+    /// set to the position where @item occurred for the first time.
     ///
     /// ## `position`
-    /// the first position of `item`, if it was found.
+    /// the first position of @item, if it was found.
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
     #[doc(alias = <span class="string">"g_list_store_find_with_equal_func_full"</span>)]

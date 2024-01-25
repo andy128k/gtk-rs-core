@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/tls_connection.rs`."><title>tls_connection.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/tls_connection.rs`."><title>tls_connection.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -179,45 +179,45 @@
 </span><span class="kw">use </span>glib::{<a href="../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="../../glib/collections/strv/trait.IntoStrV.html">IntoStrV</a>};
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_66"</span>)]
-</span><span class="kw">use </span><a href="auto/enums.rs.html#3859-3876"><span class="kw">crate</span>::TlsChannelBindingType</a>;
-<span class="kw">use </span><a href="auto/tls_connection.rs.html#20-229"><span class="kw">crate</span>::TlsConnection</a>;
+</span><span class="kw">use </span><a href="auto/enums.rs.html#3868-3885"><span class="kw">crate</span>::TlsChannelBindingType</a>;
+<span class="kw">use </span><a href="auto/tls_connection.rs.html#20-236"><span class="kw">crate</span>::TlsConnection</a>;
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/tls_connection.rs.html#20-229"><span class="kw">super</span>::TlsConnection</a>&gt;&gt; <a href="#15">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/tls_connection.rs.html#20-236"><span class="kw">super</span>::TlsConnection</a>&gt;&gt; <a href="#15">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">pub trait </span><a href="../../gio/prelude/trait.TlsConnectionExtManual.html">TlsConnectionExtManual</a>: <a href="#15">sealed::Sealed</a> + IsA&lt;<a href="auto/tls_connection.rs.html#20-229">TlsConnection</a>&gt; {
-    <span class="doccomment">/// Query the TLS backend for TLS channel binding data of `type_` for `self`.
+<span class="kw">pub trait </span><a href="../../gio/prelude/trait.TlsConnectionExtManual.html">TlsConnectionExtManual</a>: <a href="#15">sealed::Sealed</a> + IsA&lt;<a href="auto/tls_connection.rs.html#20-236">TlsConnection</a>&gt; {
+    <span class="doccomment">/// Query the TLS backend for TLS channel binding data of @type_ for @self.
     ///
     /// This call retrieves TLS channel binding data as specified in RFC
     /// [5056](https://tools.ietf.org/html/rfc5056), RFC
-    /// [5929](https://tools.ietf.org/html/rfc5929), and related RFCs. The
-    /// binding data is returned in `data`. The `data` is resized by the callee
-    /// using [`glib::ByteArray`][crate::glib::ByteArray] buffer management and will be freed when the `data`
-    /// is destroyed by `g_byte_array_unref()`. If `data` is [`None`], it will only
-    /// check whether TLS backend is able to fetch the data (e.g. whether `type_`
+    /// [5929](https://tools.ietf.org/html/rfc5929), and related RFCs.  The
+    /// binding data is returned in @data.  The @data is resized by the callee
+    /// using #GByteArray buffer management and will be freed when the @data
+    /// is destroyed by g_byte_array_unref(). If @data is [`None`], it will only
+    /// check whether TLS backend is able to fetch the data (e.g. whether @type_
     /// is supported by the TLS backend). It does not guarantee that the data
-    /// will be available though. That could happen if TLS connection does not
-    /// support `type_` or the binding data is not available yet due to additional
+    /// will be available though.  That could happen if TLS connection does not
+    /// support @type_ or the binding data is not available yet due to additional
     /// negotiation or input required.
     /// ## `type_`
-    /// [`TlsChannelBindingType`][crate::TlsChannelBindingType] type of data to fetch
+    /// #GTlsChannelBindingType type of data to fetch
     ///
     /// # Returns
     ///
     /// [`true`] on success, [`false`] otherwise
     ///
     /// ## `data`
-    /// [`glib::ByteArray`][crate::glib::ByteArray] is
-    ///  filled with the binding data, or [`None`]
+    /// #GByteArray is
+    ///        filled with the binding data, or [`None`]
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_66"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_66"</span>)))]
     #[doc(alias = <span class="string">"g_tls_connection_get_channel_binding_data"</span>)]
     #[doc(alias = <span class="string">"get_channel_binding_data"</span>)]
     </span><span class="kw">fn </span>channel_binding_data(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        type_: <a href="auto/enums.rs.html#3859-3876">TlsChannelBindingType</a>,
+        type_: <a href="auto/enums.rs.html#3868-3885">TlsChannelBindingType</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="../../glib/byte_array/struct.ByteArray.html">glib::ByteArray</a>, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = ptr::null_mut();
@@ -240,15 +240,15 @@
     /// caller is willing to speak on this connection. The
     /// Application-Layer Protocol Negotiation (ALPN) extension will be
     /// used to negotiate a compatible protocol with the peer; use
-    /// [`TlsConnectionExt::negotiated_protocol()`][crate::prelude::TlsConnectionExt::negotiated_protocol()] to find the negotiated
-    /// protocol after the handshake. Specifying [`None`] for the the value
-    /// of `protocols` will disable ALPN negotiation.
+    /// g_tls_connection_get_negotiated_protocol() to find the negotiated
+    /// protocol after the handshake.  Specifying [`None`] for the the value
+    /// of @protocols will disable ALPN negotiation.
     ///
-    /// See [IANA TLS ALPN Protocol IDs](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml`alpn`-protocol-ids)
+    /// See [IANA TLS ALPN Protocol IDs](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids)
     /// for a list of registered protocol IDs.
     /// ## `protocols`
     /// a [`None`]-terminated
-    ///  array of ALPN protocol names (eg, "http/1.1", "h2"), or [`None`]
+    ///   array of ALPN protocol names (eg, "http/1.1", "h2"), or [`None`]
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     #[doc(alias = <span class="string">"g_tls_connection_set_advertised_protocols"</span>)]
@@ -264,5 +264,5 @@
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/tls_connection.rs.html#20-229">TlsConnection</a>&gt;&gt; <a href="#19-94">TlsConnectionExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/tls_connection.rs.html#20-236">TlsConnection</a>&gt;&gt; <a href="#19-94">TlsConnectionExtManual</a> <span class="kw">for </span>O {}
 </code></pre></div></section></main></body></html>

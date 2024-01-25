@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/checksum.rs`."><title>checksum.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/checksum.rs`."><title>checksum.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -169,14 +169,6 @@
 <a href="#94" id="94">94</a>
 <a href="#95" id="95">95</a>
 <a href="#96" id="96">96</a>
-<a href="#97" id="97">97</a>
-<a href="#98" id="98">98</a>
-<a href="#99" id="99">99</a>
-<a href="#100" id="100">100</a>
-<a href="#101" id="101">101</a>
-<a href="#102" id="102">102</a>
-<a href="#103" id="103">103</a>
-<a href="#104" id="104">104</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -184,15 +176,22 @@
 </span><span class="kw">use crate</span>::{<a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="enums.rs.html#15-33">ChecksumType</a>};
 
 <a class="macro" href="../wrapper.rs.html#277-445">crate::wrapper! </a>{
-    <span class="doccomment">/// An opaque structure representing a checksumming operation.
+    <span class="doccomment">/// GLib provides a generic API for computing checksums (or ‘digests’)
+    /// for a sequence of arbitrary bytes, using various hashing algorithms
+    /// like MD5, SHA-1 and SHA-256. Checksums are commonly used in various
+    /// environments and specifications.
     ///
-    /// To create a new GChecksum, use [`new()`][Self::new()]. To free
-    /// a GChecksum, use `g_checksum_free()`.
-    </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// An opaque structure representing a checksumming operation.
+    /// To create a new `GChecksum`, use `GLib::Checksum::new()`. To free
+    /// a `GChecksum`, use `GLib::Checksum::free()`.
     ///
-    /// To create a new GChecksum, use [`new()`][Self::new()]. To free
-    /// a GChecksum, use `g_checksum_free()`.
+    /// GLib supports incremental checksums using the `GChecksum` data
+    /// structure, by calling [`update()`][Self::update()] as long as there’s data
+    /// available and then using [`string()`][Self::string()] or
+    /// [`digest()`][Self::digest()] to compute the checksum and return it
+    /// either as a string in hexadecimal form, or as a raw sequence of bytes. To
+    /// compute the checksum for binary blobs and nul-terminated strings in
+    /// one go, use the convenience functions [`compute_checksum_for_data()`][crate::compute_checksum_for_data()]
+    /// and `compute_checksum_for_string()`, respectively.
     </span><span class="attr">#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
     </span><span class="kw">pub struct </span><a href="../../../glib/struct.Checksum.html">Checksum</a>(Boxed&lt;ffi::GChecksum&gt;);
 
@@ -203,82 +202,67 @@
     }
 }
 
-<span class="kw">impl </span><a href="#7-25">Checksum</a> {
-    <span class="doccomment">/// Creates a new [`Checksum`][crate::Checksum], using the checksum algorithm `checksum_type`.
-    /// If the `checksum_type` is not known, [`None`] is returned.
-    /// A [`Checksum`][crate::Checksum] can be used to compute the checksum, or digest, of an
+<span class="kw">impl </span><a href="#7-32">Checksum</a> {
+    <span class="doccomment">/// Creates a new #GChecksum, using the checksum algorithm @checksum_type.
+    /// If the @checksum_type is not known, [`None`] is returned.
+    /// A #GChecksum can be used to compute the checksum, or digest, of an
     /// arbitrary binary blob, using different hashing algorithms.
     ///
-    /// A [`Checksum`][crate::Checksum] works by feeding a binary blob through [`update()`][Self::update()]
+    /// A #GChecksum works by feeding a binary blob through g_checksum_update()
     /// until there is data to be checked; the digest can then be extracted
-    /// using [`string()`][Self::string()], which will return the checksum as a
-    /// hexadecimal string; or [`digest()`][Self::digest()], which will return a
-    /// vector of raw bytes. Once either [`string()`][Self::string()] or
-    /// [`digest()`][Self::digest()] have been called on a [`Checksum`][crate::Checksum], the checksum
-    /// will be closed and it won't be possible to call [`update()`][Self::update()]
-    /// on it anymore.
-    /// ## `
-    </span><span class="comment">// rustdoc-stripper-ignore-next-stop
-    </span><span class="doccomment">/// Creates a new [`Checksum`][crate::Checksum], using the checksum algorithm `checksum_type`.
-    /// If the `checksum_type` is not known, [`None`] is returned.
-    /// A [`Checksum`][crate::Checksum] can be used to compute the checksum, or digest, of an
-    /// arbitrary binary blob, using different hashing algorithms.
-    ///
-    /// A [`Checksum`][crate::Checksum] works by feeding a binary blob through [`update()`][Self::update()]
-    /// until there is data to be checked; the digest can then be extracted
-    /// using [`string()`][Self::string()], which will return the checksum as a
-    /// hexadecimal string; or [`digest()`][Self::digest()], which will return a
-    /// vector of raw bytes. Once either [`string()`][Self::string()] or
-    /// [`digest()`][Self::digest()] have been called on a [`Checksum`][crate::Checksum], the checksum
-    /// will be closed and it won't be possible to call [`update()`][Self::update()]
+    /// using g_checksum_get_string(), which will return the checksum as a
+    /// hexadecimal string; or g_checksum_get_digest(), which will return a
+    /// vector of raw bytes. Once either g_checksum_get_string() or
+    /// g_checksum_get_digest() have been called on a #GChecksum, the checksum
+    /// will be closed and it won't be possible to call g_checksum_update()
     /// on it anymore.
     /// ## `checksum_type`
     /// the desired type of checksum
     ///
     /// # Returns
     ///
-    /// the newly created [`Checksum`][crate::Checksum], or [`None`].
-    ///  Use `g_checksum_free()` to free the memory allocated by it.
+    /// the newly created #GChecksum, or [`None`].
+    ///   Use g_checksum_free() to free the memory allocated by it.
     </span><span class="attr">#[doc(alias = <span class="string">"g_checksum_new"</span>)]
-    </span><span class="kw">pub fn </span>new(checksum_type: <a href="enums.rs.html#15-33">ChecksumType</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#7-25">Checksum</a>&gt; {
-        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_checksum_new(<a href="#64">checksum_type</a>.<a href="../translate.rs.html#330">into_glib</a>())) }
+    </span><span class="kw">pub fn </span>new(checksum_type: <a href="enums.rs.html#15-33">ChecksumType</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#7-32">Checksum</a>&gt; {
+        <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_checksum_new(<a href="#56">checksum_type</a>.<a href="../translate.rs.html#330">into_glib</a>())) }
     }
 
-    <span class="doccomment">/// Resets the state of the `self` back to its initial state.
+    <span class="doccomment">/// Resets the state of the @self back to its initial state.
     </span><span class="attr">#[doc(alias = <span class="string">"g_checksum_reset"</span>)]
     </span><span class="kw">pub fn </span>reset(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            ffi::g_checksum_reset(<a class="self" href="#70">self</a>.<a href="../translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>);
+            ffi::g_checksum_reset(<a class="self" href="#62">self</a>.<a href="../translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Feeds `data` into an existing [`Checksum`][crate::Checksum]. The checksum must still be
-    /// open, that is [`string()`][Self::string()] or [`digest()`][Self::digest()] must
-    /// not have been called on `self`.
+    <span class="doccomment">/// Feeds @data into an existing #GChecksum. The checksum must still be
+    /// open, that is g_checksum_get_string() or g_checksum_get_digest() must
+    /// not have been called on @self.
     /// ## `data`
     /// buffer used to compute the checksum
     </span><span class="attr">#[doc(alias = <span class="string">"g_checksum_update"</span>)]
     </span><span class="kw">pub fn </span>update(<span class="kw-2">&amp;mut </span><span class="self">self</span>, data: <span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]) {
-        <span class="kw">let </span>length = <a href="#82">data</a>.len() <span class="kw">as _</span>;
+        <span class="kw">let </span>length = <a href="#74">data</a>.len() <span class="kw">as _</span>;
         <span class="kw">unsafe </span>{
-            ffi::g_checksum_update(<a class="self" href="#82">self</a>.<a href="../translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#82">data</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#83">length</a>);
+            ffi::g_checksum_update(<a class="self" href="#74">self</a>.<a href="../translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#74">data</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#75">length</a>);
         }
     }
 
-    <span class="doccomment">/// Gets the length in bytes of digests of type `checksum_type`
+    <span class="doccomment">/// Gets the length in bytes of digests of type @checksum_type
     /// ## `checksum_type`
-    /// a [`ChecksumType`][crate::ChecksumType]
+    /// a #GChecksumType
     ///
     /// # Returns
     ///
-    /// the checksum length, or -1 if `checksum_type` is
+    /// the checksum length, or -1 if @checksum_type is
     /// not supported.
     </span><span class="attr">#[doc(alias = <span class="string">"g_checksum_type_get_length"</span>)]
     </span><span class="kw">pub fn </span>type_get_length(checksum_type: <a href="enums.rs.html#15-33">ChecksumType</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a> {
-        <span class="kw">unsafe </span>{ ffi::g_checksum_type_get_length(<a href="#98">checksum_type</a>.<a href="../translate.rs.html#330">into_glib</a>()) }
+        <span class="kw">unsafe </span>{ ffi::g_checksum_type_get_length(<a href="#90">checksum_type</a>.<a href="../translate.rs.html#330">into_glib</a>()) }
     }
 }
 
-<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> <span class="kw">for </span><a href="#7-25">Checksum</a> {}
-<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> <span class="kw">for </span><a href="#7-25">Checksum</a> {}
+<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> <span class="kw">for </span><a href="#7-32">Checksum</a> {}
+<span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> <span class="kw">for </span><a href="#7-32">Checksum</a> {}
 </code></pre></div></section></main></body></html>

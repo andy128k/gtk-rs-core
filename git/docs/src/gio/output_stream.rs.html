@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/output_stream.rs`."><title>output_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/output_stream.rs`."><title>output_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -1090,32 +1090,32 @@
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 </span><span class="kw">use </span><a href="socket.rs.html#256-259"><span class="kw">crate</span>::OutputVector</a>;
-<span class="kw">use crate</span>::{<a href="error.rs.html#31-36">error::to_std_io_result</a>, <a href="lib.rs.html#118">prelude</a>::<span class="kw-2">*</span>, <a href="auto/cancellable.rs.html#7-83">Cancellable</a>, <a href="auto/output_stream.rs.html#9-33">OutputStream</a>, <a href="auto/seekable.rs.html#8-33">Seekable</a>};
+<span class="kw">use crate</span>::{<a href="error.rs.html#31-36">error::to_std_io_result</a>, <a href="lib.rs.html#118">prelude</a>::<span class="kw-2">*</span>, <a href="auto/cancellable.rs.html#7-85">Cancellable</a>, <a href="auto/output_stream.rs.html#9-39">OutputStream</a>, <a href="auto/seekable.rs.html#8-33">Seekable</a>};
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/output_stream.rs.html#9-33"><span class="kw">super</span>::OutputStream</a>&gt;&gt; <a href="#12">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/output_stream.rs.html#9-39"><span class="kw">super</span>::OutputStream</a>&gt;&gt; <a href="#12">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">pub trait </span><a href="../../gio/prelude/trait.OutputStreamExtManual.html">OutputStreamExtManual</a>: <a href="#12">sealed::Sealed</a> + IsA&lt;<a href="auto/output_stream.rs.html#9-33">OutputStream</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> {
-    <span class="doccomment">/// Request an asynchronous write of `count` bytes from `buffer` into
-    /// the stream. When the operation is finished `callback` will be called.
-    /// You can then call `g_output_stream_write_finish()` to get the result of the
+<span class="kw">pub trait </span><a href="../../gio/prelude/trait.OutputStreamExtManual.html">OutputStreamExtManual</a>: <a href="#12">sealed::Sealed</a> + IsA&lt;<a href="auto/output_stream.rs.html#9-39">OutputStream</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> {
+    <span class="doccomment">/// Request an asynchronous write of @count bytes from @buffer into
+    /// the stream. When the operation is finished @callback will be called.
+    /// You can then call g_output_stream_write_finish() to get the result of the
     /// operation.
     ///
     /// During an async request no other sync and async calls are allowed,
     /// and will result in [`IOErrorEnum::Pending`][crate::IOErrorEnum::Pending] errors.
     ///
-    /// A value of `count` larger than `G_MAXSSIZE` will cause a
+    /// A value of @count larger than `G_MAXSSIZE` will cause a
     /// [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument] error.
     ///
     /// On success, the number of bytes written will be passed to the
-    /// `callback`. It is not an error if this is not the same as the
+    /// @callback. It is not an error if this is not the same as the
     /// requested size, as it can happen e.g. on a partial I/O error,
     /// but generally we try to write as many bytes as requested.
     ///
     /// You are guaranteed that this method will never fail with
-    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] - if `self` can't accept more data, the
+    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] - if @self can't accept more data, the
     /// method will just wait until this changes.
     ///
     /// Any outstanding I/O request with higher priority (lower numerical
@@ -1127,26 +1127,26 @@
     /// classes. However, if you override one you must override all.
     ///
     /// For the synchronous, blocking version of this function, see
-    /// [`OutputStreamExt::write()`][crate::prelude::OutputStreamExt::write()].
+    /// g_output_stream_write().
     ///
-    /// Note that no copy of `buffer` will be made, so it must stay valid
-    /// until `callback` is called. See [`OutputStreamExt::write_bytes_async()`][crate::prelude::OutputStreamExt::write_bytes_async()]
-    /// for a [`glib::Bytes`][crate::glib::Bytes] version that will automatically hold a reference to
+    /// Note that no copy of @buffer will be made, so it must stay valid
+    /// until @callback is called. See g_output_stream_write_bytes_async()
+    /// for a #GBytes version that will automatically hold a reference to
     /// the contents (without copying) for the duration of the call.
     /// ## `buffer`
     /// the buffer containing the data to write.
     /// ## `io_priority`
     /// the io priority of the request.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     /// ## `callback`
-    /// a `GAsyncReadyCallback`
-    ///  to call when the request is satisfied
+    /// a #GAsyncReadyCallback
+    ///     to call when the request is satisfied
     </span><span class="attr">#[doc(alias = <span class="string">"g_output_stream_write_async"</span>)]
     </span><span class="kw">fn </span>write_async&lt;
         B: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>,
         Q: FnOnce(<span class="prelude-ty">Result</span>&lt;(B, <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>), (B, <a href="../../glib/error/struct.Error.html">glib::Error</a>)&gt;) + <span class="lifetime">'static</span>,
-        C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         buffer: B,
@@ -1210,29 +1210,29 @@
         }
     }
 
-    <span class="doccomment">/// Tries to write `count` bytes from `buffer` into the stream. Will block
+    <span class="doccomment">/// Tries to write @count bytes from @buffer into the stream. Will block
     /// during the operation.
     ///
-    /// This function is similar to [`OutputStreamExt::write()`][crate::prelude::OutputStreamExt::write()], except it tries to
+    /// This function is similar to g_output_stream_write(), except it tries to
     /// write as many bytes as requested, only stopping on an error.
     ///
-    /// On a successful write of `count` bytes, [`true`] is returned, and `bytes_written`
-    /// is set to `count`.
+    /// On a successful write of @count bytes, [`true`] is returned, and @bytes_written
+    /// is set to @count.
     ///
-    /// If there is an error during the operation [`false`] is returned and `error`
+    /// If there is an error during the operation [`false`] is returned and @error
     /// is set to indicate the error status.
     ///
     /// As a special exception to the normal conventions for functions that
-    /// use [`glib::Error`][crate::glib::Error], if this function returns [`false`] (and sets `error`) then
-    /// `bytes_written` will be set to the number of bytes that were
-    /// successfully written before the error was encountered. This
-    /// functionality is only available from C. If you need it from another
+    /// use #GError, if this function returns [`false`] (and sets @error) then
+    /// @bytes_written will be set to the number of bytes that were
+    /// successfully written before the error was encountered.  This
+    /// functionality is only available from C.  If you need it from another
     /// language then you must write your own loop around
-    /// [`OutputStreamExt::write()`][crate::prelude::OutputStreamExt::write()].
+    /// g_output_stream_write().
     /// ## `buffer`
     /// the buffer containing the data to write.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
@@ -1240,9 +1240,9 @@
     ///
     /// ## `bytes_written`
     /// location to store the number of bytes that was
-    ///  written to the stream
+    ///     written to the stream
     </span><span class="attr">#[doc(alias = <span class="string">"g_output_stream_write_all"</span>)]
-    </span><span class="kw">fn </span>write_all&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="kw">fn </span>write_all&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         buffer: <span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>],
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
@@ -1273,35 +1273,35 @@
         }
     }
 
-    <span class="doccomment">/// Request an asynchronous write of `count` bytes from `buffer` into
-    /// the stream. When the operation is finished `callback` will be called.
-    /// You can then call `g_output_stream_write_all_finish()` to get the result of the
+    <span class="doccomment">/// Request an asynchronous write of @count bytes from @buffer into
+    /// the stream. When the operation is finished @callback will be called.
+    /// You can then call g_output_stream_write_all_finish() to get the result of the
     /// operation.
     ///
-    /// This is the asynchronous version of [`OutputStreamExtManual::write_all()`][crate::prelude::OutputStreamExtManual::write_all()].
+    /// This is the asynchronous version of g_output_stream_write_all().
     ///
-    /// Call `g_output_stream_write_all_finish()` to collect the result.
+    /// Call g_output_stream_write_all_finish() to collect the result.
     ///
     /// Any outstanding I/O request with higher priority (lower numerical
     /// value) will be executed before an outstanding request with lower
     /// priority. Default priority is `G_PRIORITY_DEFAULT`.
     ///
-    /// Note that no copy of `buffer` will be made, so it must stay valid
-    /// until `callback` is called.
+    /// Note that no copy of @buffer will be made, so it must stay valid
+    /// until @callback is called.
     /// ## `buffer`
     /// the buffer containing the data to write
     /// ## `io_priority`
     /// the io priority of the request
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
+    /// optional #GCancellable object, [`None`] to ignore
     /// ## `callback`
-    /// a `GAsyncReadyCallback`
-    ///  to call when the request is satisfied
+    /// a #GAsyncReadyCallback
+    ///     to call when the request is satisfied
     </span><span class="attr">#[doc(alias = <span class="string">"g_output_stream_write_all_async"</span>)]
     </span><span class="kw">fn </span>write_all_async&lt;
         B: AsRef&lt;[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>,
         Q: FnOnce(<span class="prelude-ty">Result</span>&lt;(B, <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <span class="prelude-ty">Option</span>&lt;<a href="../../glib/error/struct.Error.html">glib::Error</a>&gt;), (B, <a href="../../glib/error/struct.Error.html">glib::Error</a>)&gt;) + <span class="lifetime">'static</span>,
-        C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
+        C: IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         buffer: B,
@@ -1411,10 +1411,10 @@
         ))
     }
 
-    <span class="doccomment">/// Tries to write the bytes contained in the `n_vectors` `vectors` into the
+    <span class="doccomment">/// Tries to write the bytes contained in the @n_vectors @vectors into the
     /// stream. Will block during the operation.
     ///
-    /// If `n_vectors` is 0 or the sum of all bytes in `vectors` is 0, returns 0 and
+    /// If @n_vectors is 0 or the sum of all bytes in @vectors is 0, returns 0 and
     /// does nothing.
     ///
     /// On success, the number of bytes written to the stream is returned.
@@ -1422,20 +1422,20 @@
     /// can happen e.g. on a partial I/O error, or if there is not enough
     /// storage in the stream. All writes block until at least one byte
     /// is written or an error occurs; 0 is never returned (unless
-    /// `n_vectors` is 0 or the sum of all bytes in `vectors` is 0).
+    /// @n_vectors is 0 or the sum of all bytes in @vectors is 0).
     ///
-    /// If `cancellable` is not [`None`], then the operation can be cancelled by
+    /// If @cancellable is not [`None`], then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error [`IOErrorEnum::Cancelled`][crate::IOErrorEnum::Cancelled] will be returned. If an
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
     ///
-    /// Some implementations of [`OutputStreamExtManual::writev()`][crate::prelude::OutputStreamExtManual::writev()] may have limitations on the
+    /// Some implementations of g_output_stream_writev() may have limitations on the
     /// aggregate buffer size, and will return [`IOErrorEnum::InvalidArgument`][crate::IOErrorEnum::InvalidArgument] if these
     /// are exceeded. For example, when writing to a local file on UNIX platforms,
     /// the aggregate buffer size must not exceed `G_MAXSSIZE` bytes.
     /// ## `vectors`
-    /// the buffer containing the `GOutputVectors` to write.
+    /// the buffer containing the #GOutputVectors to write.
     /// ## `cancellable`
     /// optional cancellable object
     ///
@@ -1445,14 +1445,14 @@
     ///
     /// ## `bytes_written`
     /// location to store the number of bytes that were
-    ///  written to the stream
+    ///     written to the stream
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     #[doc(alias = <span class="string">"g_output_stream_writev"</span>)]
     </span><span class="kw">fn </span>writev(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         vectors: <span class="kw-2">&amp;</span>[<a href="socket.rs.html#256-259">OutputVector</a>],
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
@@ -1474,21 +1474,21 @@
         }
     }
 
-    <span class="doccomment">/// Request an asynchronous write of the bytes contained in `n_vectors` `vectors` into
-    /// the stream. When the operation is finished `callback` will be called.
-    /// You can then call `g_output_stream_writev_finish()` to get the result of the
+    <span class="doccomment">/// Request an asynchronous write of the bytes contained in @n_vectors @vectors into
+    /// the stream. When the operation is finished @callback will be called.
+    /// You can then call g_output_stream_writev_finish() to get the result of the
     /// operation.
     ///
     /// During an async request no other sync and async calls are allowed,
     /// and will result in [`IOErrorEnum::Pending`][crate::IOErrorEnum::Pending] errors.
     ///
     /// On success, the number of bytes written will be passed to the
-    /// `callback`. It is not an error if this is not the same as the
+    /// @callback. It is not an error if this is not the same as the
     /// requested size, as it can happen e.g. on a partial I/O error,
     /// but generally we try to write as many bytes as requested.
     ///
     /// You are guaranteed that this method will never fail with
-    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] — if `self` can't accept more data, the
+    /// [`IOErrorEnum::WouldBlock`][crate::IOErrorEnum::WouldBlock] — if @self can't accept more data, the
     /// method will just wait until this changes.
     ///
     /// Any outstanding I/O request with higher priority (lower numerical
@@ -1500,19 +1500,19 @@
     /// classes. However, if you override one you must override all.
     ///
     /// For the synchronous, blocking version of this function, see
-    /// [`OutputStreamExtManual::writev()`][crate::prelude::OutputStreamExtManual::writev()].
+    /// g_output_stream_writev().
     ///
-    /// Note that no copy of `vectors` will be made, so it must stay valid
-    /// until `callback` is called.
+    /// Note that no copy of @vectors will be made, so it must stay valid
+    /// until @callback is called.
     /// ## `vectors`
-    /// the buffer containing the `GOutputVectors` to write.
+    /// the buffer containing the #GOutputVectors to write.
     /// ## `io_priority`
     /// the I/O priority of the request.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     /// ## `callback`
-    /// a `GAsyncReadyCallback`
-    ///  to call when the request is satisfied
+    /// a #GAsyncReadyCallback
+    ///     to call when the request is satisfied
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     #[doc(alias = <span class="string">"g_output_stream_writev_async"</span>)]
@@ -1523,7 +1523,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         vectors: <span class="kw">impl </span>IntoIterator&lt;Item = B&gt; + <span class="lifetime">'static</span>,
         io_priority: <a href="../../glib/source/struct.Priority.html">glib::Priority</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
@@ -1626,32 +1626,32 @@
         ))
     }
 
-    <span class="doccomment">/// Tries to write the bytes contained in the `n_vectors` `vectors` into the
+    <span class="doccomment">/// Tries to write the bytes contained in the @n_vectors @vectors into the
     /// stream. Will block during the operation.
     ///
-    /// This function is similar to [`OutputStreamExtManual::writev()`][crate::prelude::OutputStreamExtManual::writev()], except it tries to
+    /// This function is similar to g_output_stream_writev(), except it tries to
     /// write as many bytes as requested, only stopping on an error.
     ///
-    /// On a successful write of all `n_vectors` vectors, [`true`] is returned, and
-    /// `bytes_written` is set to the sum of all the sizes of `vectors`.
+    /// On a successful write of all @n_vectors vectors, [`true`] is returned, and
+    /// @bytes_written is set to the sum of all the sizes of @vectors.
     ///
-    /// If there is an error during the operation [`false`] is returned and `error`
+    /// If there is an error during the operation [`false`] is returned and @error
     /// is set to indicate the error status.
     ///
     /// As a special exception to the normal conventions for functions that
-    /// use [`glib::Error`][crate::glib::Error], if this function returns [`false`] (and sets `error`) then
-    /// `bytes_written` will be set to the number of bytes that were
-    /// successfully written before the error was encountered. This
+    /// use #GError, if this function returns [`false`] (and sets @error) then
+    /// @bytes_written will be set to the number of bytes that were
+    /// successfully written before the error was encountered.  This
     /// functionality is only available from C. If you need it from another
     /// language then you must write your own loop around
-    /// [`OutputStreamExt::write()`][crate::prelude::OutputStreamExt::write()].
+    /// g_output_stream_write().
     ///
-    /// The content of the individual elements of `vectors` might be changed by this
+    /// The content of the individual elements of @vectors might be changed by this
     /// function.
     /// ## `vectors`
-    /// the buffer containing the `GOutputVectors` to write.
+    /// the buffer containing the #GOutputVectors to write.
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// optional #GCancellable object, [`None`] to ignore.
     ///
     /// # Returns
     ///
@@ -1659,14 +1659,14 @@
     ///
     /// ## `bytes_written`
     /// location to store the number of bytes that were
-    ///  written to the stream
+    ///     written to the stream
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     #[doc(alias = <span class="string">"g_output_stream_writev_all"</span>)]
     </span><span class="kw">fn </span>writev_all(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         vectors: <span class="kw-2">&amp;</span>[<a href="socket.rs.html#256-259">OutputVector</a>],
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <span class="prelude-ty">Option</span>&lt;<a href="../../glib/error/struct.Error.html">glib::Error</a>&gt;), <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
@@ -1691,31 +1691,31 @@
         }
     }
 
-    <span class="doccomment">/// Request an asynchronous write of the bytes contained in the `n_vectors` `vectors` into
-    /// the stream. When the operation is finished `callback` will be called.
-    /// You can then call `g_output_stream_writev_all_finish()` to get the result of the
+    <span class="doccomment">/// Request an asynchronous write of the bytes contained in the @n_vectors @vectors into
+    /// the stream. When the operation is finished @callback will be called.
+    /// You can then call g_output_stream_writev_all_finish() to get the result of the
     /// operation.
     ///
-    /// This is the asynchronous version of [`OutputStreamExtManual::writev_all()`][crate::prelude::OutputStreamExtManual::writev_all()].
+    /// This is the asynchronous version of g_output_stream_writev_all().
     ///
-    /// Call `g_output_stream_writev_all_finish()` to collect the result.
+    /// Call g_output_stream_writev_all_finish() to collect the result.
     ///
     /// Any outstanding I/O request with higher priority (lower numerical
     /// value) will be executed before an outstanding request with lower
     /// priority. Default priority is `G_PRIORITY_DEFAULT`.
     ///
-    /// Note that no copy of `vectors` will be made, so it must stay valid
-    /// until `callback` is called. The content of the individual elements
-    /// of `vectors` might be changed by this function.
+    /// Note that no copy of @vectors will be made, so it must stay valid
+    /// until @callback is called. The content of the individual elements
+    /// of @vectors might be changed by this function.
     /// ## `vectors`
-    /// the buffer containing the `GOutputVectors` to write.
+    /// the buffer containing the #GOutputVectors to write.
     /// ## `io_priority`
     /// the I/O priority of the request
     /// ## `cancellable`
-    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
+    /// optional #GCancellable object, [`None`] to ignore
     /// ## `callback`
-    /// a `GAsyncReadyCallback`
-    ///  to call when the request is satisfied
+    /// a #GAsyncReadyCallback
+    ///     to call when the request is satisfied
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     #[doc(alias = <span class="string">"g_output_stream_writev_all_async"</span>)]
@@ -1726,7 +1726,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         vectors: <span class="kw">impl </span>IntoIterator&lt;Item = B&gt; + <span class="lifetime">'static</span>,
         io_priority: <a href="../../glib/source/struct.Priority.html">glib::Priority</a>,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/cancellable.rs.html#7-85">Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
@@ -1834,18 +1834,18 @@
 
     <span class="kw">fn </span>into_write(<span class="self">self</span>) -&gt; OutputStreamWrite&lt;<span class="self">Self</span>&gt;
     <span class="kw">where
-        </span><span class="self">Self</span>: IsA&lt;<a href="auto/output_stream.rs.html#9-33">OutputStream</a>&gt;,
+        </span><span class="self">Self</span>: IsA&lt;<a href="auto/output_stream.rs.html#9-39">OutputStream</a>&gt;,
     {
         <a href="#762">OutputStreamWrite</a>(<a class="self" href="#751">self</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/output_stream.rs.html#9-33">OutputStream</a>&gt;&gt; <a href="#16-757">OutputStreamExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/output_stream.rs.html#9-39">OutputStream</a>&gt;&gt; <a href="#16-757">OutputStreamExtManual</a> <span class="kw">for </span>O {}
 
 <span class="attr">#[derive(Debug)]
-</span><span class="kw">pub struct </span><a href="../../gio/struct.OutputStreamWrite.html">OutputStreamWrite</a>&lt;T: IsA&lt;<a href="auto/output_stream.rs.html#9-33">OutputStream</a>&gt;&gt;(T);
+</span><span class="kw">pub struct </span><a href="../../gio/struct.OutputStreamWrite.html">OutputStreamWrite</a>&lt;T: IsA&lt;<a href="auto/output_stream.rs.html#9-39">OutputStream</a>&gt;&gt;(T);
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/output_stream.rs.html#9-33">OutputStream</a>&gt;&gt; OutputStreamWrite&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/output_stream.rs.html#9-39">OutputStream</a>&gt;&gt; OutputStreamWrite&lt;T&gt; {
     <span class="kw">pub fn </span>into_output_stream(<span class="self">self</span>) -&gt; T {
         <a class="self" href="#765">self</a>.<span class="number">0
     </span>}
@@ -1855,12 +1855,12 @@
     </span>}
 }
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/output_stream.rs.html#9-33">OutputStream</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html">io::Write</a> <span class="kw">for </span>OutputStreamWrite&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/output_stream.rs.html#9-39">OutputStream</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html">io::Write</a> <span class="kw">for </span>OutputStreamWrite&lt;T&gt; {
     <span class="kw">fn </span>write(<span class="kw-2">&amp;mut </span><span class="self">self</span>, buf: <span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]) -&gt; io::Result&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt; {
         <span class="kw">let </span>result = <span class="self"><a href="#775">self</a>
             </span>.<span class="number">0
             </span>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()
-            .<a href="auto/output_stream.rs.html#537-558">write</a>(<a href="#775">buf</a>, <span class="kw">crate</span>::Cancellable::NONE)
+            .<a href="auto/output_stream.rs.html#543-564">write</a>(<a href="#775">buf</a>, <span class="kw">crate</span>::Cancellable::NONE)
             .map(|size| <a href="#780">size</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>);
         <a href="error.rs.html#31-36">to_std_io_result</a>(<a href="#776">result</a>)
     }
@@ -1886,12 +1886,12 @@
     }
 
     <span class="kw">fn </span>flush(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; io::Result&lt;()&gt; {
-        <span class="kw">let </span>gio_result = <a class="self" href="#804">self</a>.<span class="number">0</span>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="auto/output_stream.rs.html#208-223">flush</a>(<span class="kw">crate</span>::Cancellable::NONE);
+        <span class="kw">let </span>gio_result = <a class="self" href="#804">self</a>.<span class="number">0</span>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="auto/output_stream.rs.html#214-229">flush</a>(<span class="kw">crate</span>::Cancellable::NONE);
         <a href="error.rs.html#31-36">to_std_io_result</a>(<a href="#805">gio_result</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/output_stream.rs.html#9-33">OutputStream</a>&gt; + IsA&lt;<a href="auto/seekable.rs.html#8-33">Seekable</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">io::Seek</a> <span class="kw">for </span>OutputStreamWrite&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="auto/output_stream.rs.html#9-39">OutputStream</a>&gt; + IsA&lt;<a href="auto/seekable.rs.html#8-33">Seekable</a>&gt;&gt; <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">io::Seek</a> <span class="kw">for </span>OutputStreamWrite&lt;T&gt; {
     <span class="kw">fn </span>seek(<span class="kw-2">&amp;mut </span><span class="self">self</span>, pos: <a href="https://doc.rust-lang.org/nightly/std/io/enum.SeekFrom.html">io::SeekFrom</a>) -&gt; io::Result&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt; {
         <span class="kw">let </span>(pos, type_) = <span class="kw">match </span><a href="#811">pos</a> {
             io::SeekFrom::Start(pos) =&gt; (<a href="#813">pos</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>, glib::SeekType::Set),

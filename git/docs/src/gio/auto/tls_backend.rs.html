@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/tls_backend.rs`."><title>tls_backend.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/tls_backend.rs`."><title>tls_backend.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -287,6 +287,8 @@
 <a href="#212" id="212">212</a>
 <a href="#213" id="213">213</a>
 <a href="#214" id="214">214</a>
+<a href="#215" id="215">215</a>
+<a href="#216" id="216">216</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -295,7 +297,9 @@
 <span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
 <a class="macro" href="../../../glib/glib/macro.wrapper.html">glib::wrapper! </a>{
-    <span class="doccomment">/// TLS (Transport Layer Security, aka SSL) and DTLS backend.
+    <span class="doccomment">/// TLS (Transport Layer Security, aka SSL) and DTLS backend. This is an
+    /// internal type used to coordinate the different classes implemented
+    /// by a TLS backend.
     ///
     /// # Implements
     ///
@@ -308,26 +312,26 @@
     }
 }
 
-<span class="kw">impl </span><a href="#8-20">TlsBackend</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#8-20">TlsBackend</a>&gt; = <span class="prelude-val">None</span>;
+<span class="kw">impl </span><a href="#8-22">TlsBackend</a> {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#8-22">TlsBackend</a>&gt; = <span class="prelude-val">None</span>;
 
-    <span class="doccomment">/// Gets the default [`TlsBackend`][crate::TlsBackend] for the system.
+    <span class="doccomment">/// Gets the default #GTlsBackend for the system.
     ///
     /// # Returns
     ///
-    /// a [`TlsBackend`][crate::TlsBackend], which will be a
-    ///  dummy object if no TLS backend is available
+    /// a #GTlsBackend, which will be a
+    ///     dummy object if no TLS backend is available
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_backend_get_default"</span>)]
     #[doc(alias = <span class="string">"get_default"</span>)]
     #[allow(clippy::should_implement_trait)]
-    </span><span class="kw">pub fn </span>default() -&gt; <a href="#8-20">TlsBackend</a> {
+    </span><span class="kw">pub fn </span>default() -&gt; <a href="#8-22">TlsBackend</a> {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::g_tls_backend_get_default()) }
     }
 }
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="#8-20"><span class="kw">super</span>::TlsBackend</a>&gt;&gt; <a href="#40">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="#8-22"><span class="kw">super</span>::TlsBackend</a>&gt;&gt; <a href="#42">Sealed</a> <span class="kw">for </span>T {}
 }
 
 <span class="doccomment">/// Trait containing all [`struct@TlsBackend`] methods.
@@ -335,136 +339,136 @@
 /// # Implementors
 ///
 /// [`TlsBackend`][struct@crate::TlsBackend]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.TlsBackendExt.html">TlsBackendExt</a>: IsA&lt;<a href="#8-20">TlsBackend</a>&gt; + <a href="#40">sealed::Sealed</a> + <span class="lifetime">'static </span>{
-    <span class="doccomment">/// Gets the `GType` of `self`'s [`TlsCertificate`][crate::TlsCertificate] implementation.
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.TlsBackendExt.html">TlsBackendExt</a>: IsA&lt;<a href="#8-22">TlsBackend</a>&gt; + <a href="#42">sealed::Sealed</a> + <span class="lifetime">'static </span>{
+    <span class="doccomment">/// Gets the #GType of @self's #GTlsCertificate implementation.
     ///
     /// # Returns
     ///
-    /// the `GType` of `self`'s [`TlsCertificate`][crate::TlsCertificate]
-    ///  implementation.
+    /// the #GType of @self's #GTlsCertificate
+    ///   implementation.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_backend_get_certificate_type"</span>)]
     #[doc(alias = <span class="string">"get_certificate_type"</span>)]
     </span><span class="kw">fn </span>certificate_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/types/struct.Type.html">glib::types::Type</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tls_backend_get_certificate_type(
-                <a class="self" href="#58">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#60">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the `GType` of `self`'s [`TlsClientConnection`][crate::TlsClientConnection] implementation.
+    <span class="doccomment">/// Gets the #GType of @self's #GTlsClientConnection implementation.
     ///
     /// # Returns
     ///
-    /// the `GType` of `self`'s [`TlsClientConnection`][crate::TlsClientConnection]
-    ///  implementation.
+    /// the #GType of @self's #GTlsClientConnection
+    ///   implementation.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_backend_get_client_connection_type"</span>)]
     #[doc(alias = <span class="string">"get_client_connection_type"</span>)]
     </span><span class="kw">fn </span>client_connection_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/types/struct.Type.html">glib::types::Type</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tls_backend_get_client_connection_type(
-                <a class="self" href="#74">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#76">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the default [`TlsDatabase`][crate::TlsDatabase] used to verify TLS connections.
+    <span class="doccomment">/// Gets the default #GTlsDatabase used to verify TLS connections.
     ///
     /// # Returns
     ///
     /// the default database, which should be
-    ///  unreffed when done.
+    ///               unreffed when done.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_backend_get_default_database"</span>)]
     #[doc(alias = <span class="string">"get_default_database"</span>)]
     </span><span class="kw">fn </span>default_database(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="tls_database.rs.html#12-34">TlsDatabase</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_tls_backend_get_default_database(
-                <a class="self" href="#90">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#92">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the `GType` of `self`’s `GDtlsClientConnection` implementation.
+    <span class="doccomment">/// Gets the #GType of @self’s #GDtlsClientConnection implementation.
     ///
     /// # Returns
     ///
-    /// the `GType` of `self`’s `GDtlsClientConnection`
-    ///  implementation, or `G_TYPE_INVALID` if this backend doesn’t support DTLS.
+    /// the #GType of @self’s #GDtlsClientConnection
+    ///   implementation, or `G_TYPE_INVALID` if this backend doesn’t support DTLS.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_backend_get_dtls_client_connection_type"</span>)]
     #[doc(alias = <span class="string">"get_dtls_client_connection_type"</span>)]
     </span><span class="kw">fn </span>dtls_client_connection_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/types/struct.Type.html">glib::types::Type</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tls_backend_get_dtls_client_connection_type(
-                <a class="self" href="#106">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#108">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the `GType` of `self`’s `GDtlsServerConnection` implementation.
+    <span class="doccomment">/// Gets the #GType of @self’s #GDtlsServerConnection implementation.
     ///
     /// # Returns
     ///
-    /// the `GType` of `self`’s `GDtlsServerConnection`
-    ///  implementation, or `G_TYPE_INVALID` if this backend doesn’t support DTLS.
+    /// the #GType of @self’s #GDtlsServerConnection
+    ///   implementation, or `G_TYPE_INVALID` if this backend doesn’t support DTLS.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_backend_get_dtls_server_connection_type"</span>)]
     #[doc(alias = <span class="string">"get_dtls_server_connection_type"</span>)]
     </span><span class="kw">fn </span>dtls_server_connection_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/types/struct.Type.html">glib::types::Type</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tls_backend_get_dtls_server_connection_type(
-                <a class="self" href="#122">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#124">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the `GType` of `self`'s [`TlsFileDatabase`][crate::TlsFileDatabase] implementation.
+    <span class="doccomment">/// Gets the #GType of @self's #GTlsFileDatabase implementation.
     ///
     /// # Returns
     ///
-    /// the `GType` of backend's [`TlsFileDatabase`][crate::TlsFileDatabase] implementation.
+    /// the #GType of backend's #GTlsFileDatabase implementation.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_backend_get_file_database_type"</span>)]
     #[doc(alias = <span class="string">"get_file_database_type"</span>)]
     </span><span class="kw">fn </span>file_database_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/types/struct.Type.html">glib::types::Type</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tls_backend_get_file_database_type(
-                <a class="self" href="#137">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#139">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Gets the `GType` of `self`'s [`TlsServerConnection`][crate::TlsServerConnection] implementation.
+    <span class="doccomment">/// Gets the #GType of @self's #GTlsServerConnection implementation.
     ///
     /// # Returns
     ///
-    /// the `GType` of `self`'s [`TlsServerConnection`][crate::TlsServerConnection]
-    ///  implementation.
+    /// the #GType of @self's #GTlsServerConnection
+    ///   implementation.
     </span><span class="attr">#[doc(alias = <span class="string">"g_tls_backend_get_server_connection_type"</span>)]
     #[doc(alias = <span class="string">"get_server_connection_type"</span>)]
     </span><span class="kw">fn </span>server_connection_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/types/struct.Type.html">glib::types::Type</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tls_backend_get_server_connection_type(
-                <a class="self" href="#153">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#155">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Set the default [`TlsDatabase`][crate::TlsDatabase] used to verify TLS connections
+    <span class="doccomment">/// Set the default #GTlsDatabase used to verify TLS connections
     ///
-    /// Any subsequent call to [`default_database()`][Self::default_database()] will return
-    /// the database set in this call. Existing databases and connections are not
+    /// Any subsequent call to g_tls_backend_get_default_database() will return
+    /// the database set in this call.  Existing databases and connections are not
     /// modified.
     ///
     /// Setting a [`None`] default database will reset to using the system default
-    /// database as if [`set_default_database()`][Self::set_default_database()] had never been called.
+    /// database as if g_tls_backend_set_default_database() had never been called.
     /// ## `database`
-    /// the [`TlsDatabase`][crate::TlsDatabase]
+    /// the #GTlsDatabase
     </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     #[doc(alias = <span class="string">"g_tls_backend_set_default_database"</span>)]
     </span><span class="kw">fn </span>set_default_database(<span class="kw-2">&amp;</span><span class="self">self</span>, database: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="tls_database.rs.html#12-34">TlsDatabase</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_tls_backend_set_default_database(
-                <a class="self" href="#174">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#174">database</a>.map(|p| <a href="#178">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#176">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#176">database</a>.map(|p| <a href="#180">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -479,13 +483,13 @@
     </span><span class="kw">fn </span>supports_dtls(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tls_backend_supports_dtls(
-                <a class="self" href="#190">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#192">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
     <span class="doccomment">/// Checks if TLS is supported; if this returns [`false`] for the default
-    /// [`TlsBackend`][crate::TlsBackend], it means no "real" TLS backend is available.
+    /// #GTlsBackend, it means no "real" TLS backend is available.
     ///
     /// # Returns
     ///
@@ -494,11 +498,11 @@
     </span><span class="kw">fn </span>supports_tls(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_tls_backend_supports_tls(
-                <a class="self" href="#205">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#207">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="#8-20">TlsBackend</a>&gt;&gt; <a href="#49-212">TlsBackendExt</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="#8-22">TlsBackend</a>&gt;&gt; <a href="#51-214">TlsBackendExt</a> <span class="kw">for </span>O {}
 </code></pre></div></section></main></body></html>

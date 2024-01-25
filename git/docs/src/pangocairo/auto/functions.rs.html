@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pangocairo/src/auto/functions.rs`."><title>functions.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="pangocairo" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pangocairo/src/auto/functions.rs`."><title>functions.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="pangocairo" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (7ffc697ce 2024-01-24)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -434,14 +434,14 @@
 
 <span class="doccomment">/// Gets the resolution for the context.
 ///
-/// See [func`PangoCairo`]
+/// See [`context_set_resolution()`][crate::context_set_resolution()]
 /// ## `context`
 /// a [`pango::Context`][crate::pango::Context], from a pangocairo font map
 ///
 /// # Returns
 ///
 /// the resolution in "dots per inch". A negative value will
-///  be returned if no resolution has previously been set.
+///   be returned if no resolution has previously been set.
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_context_get_resolution"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.context_get_resolution.html">context_get_resolution</a>(context: <span class="kw-2">&amp;</span><a href="../../../pango/auto/context/struct.Context.html">pango::Context</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a> {
     <span class="kw">unsafe </span>{ ffi::pango_cairo_context_get_resolution(<a href="#18">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
@@ -454,13 +454,13 @@
 
 </span><span class="doccomment">/// Sets the font options used when rendering text with this context.
 ///
-/// These options override any options that [func`update_context`]
+/// These options override any options that [`update_context()`][crate::update_context()]
 /// derives from the target surface.
 /// ## `context`
 /// a [`pango::Context`][crate::pango::Context], from a pangocairo font map
 /// ## `options`
 /// a [`cairo::FontOptions`][crate::cairo::FontOptions], or [`None`] to unset
-///  any previously set options. A copy is made.
+///   any previously set options. A copy is made.
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_context_set_font_options"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.context_set_font_options.html">context_set_font_options</a>(context: <span class="kw-2">&amp;</span><a href="../../../pango/auto/context/struct.Context.html">pango::Context</a>, options: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../cairo/font/font_options/struct.FontOptions.html">cairo::FontOptions</a>&gt;) {
     <span class="kw">unsafe </span>{
@@ -480,8 +480,8 @@
 /// a [`pango::Context`][crate::pango::Context], from a pangocairo font map
 /// ## `dpi`
 /// the resolution in "dots per inch". (Physical inches aren't actually
-///  involved; the terminology is conventional.) A 0 or negative value
-///  means to use the resolution from the font map.
+///   involved; the terminology is conventional.) A 0 or negative value
+///   means to use the resolution from the font map.
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_context_set_resolution"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.context_set_resolution.html">context_set_resolution</a>(context: <span class="kw-2">&amp;</span><a href="../../../pango/auto/context/struct.Context.html">pango::Context</a>, dpi: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
     <span class="kw">unsafe </span>{
@@ -498,12 +498,12 @@
 /// and target surface of the Cairo context.
 ///
 /// This context can then be
-/// used to create a layout using [ctor`Pango`.new].
+/// used to create a layout using [`pango::Layout::new()`][crate::pango::Layout::new()].
 ///
 /// This function is a convenience function that creates a context using
-/// the default font map, then updates it to `cr`. If you just need to
-/// create a layout for use with `cr` and do not need to access [`pango::Context`][crate::pango::Context]
-/// directly, you can use [func`create_layout`] instead.
+/// the default font map, then updates it to @cr. If you just need to
+/// create a layout for use with @cr and do not need to access [`pango::Context`][crate::pango::Context]
+/// directly, you can use [`create_layout()`][crate::create_layout()] instead.
 /// ## `cr`
 /// a Cairo context
 ///
@@ -523,9 +523,9 @@
 /// and target surface of the Cairo context.
 ///
 /// This layout can then be used for text measurement with functions
-/// like [method`Pango`.get_size] or drawing with functions like
-/// [func`show_layout`]. If you change the transformation or target
-/// surface for `cr`, you need to call [func`update_layout`].
+/// like [`Layout::size()`][crate::pango::Layout::size()] or drawing with functions like
+/// [`show_layout()`][crate::show_layout()]. If you change the transformation or target
+/// surface for @cr, you need to call [`update_layout()`][crate::update_layout()].
 ///
 /// This function is the most convenient way to use Cairo with Pango,
 /// however it is slightly inefficient since it creates a separate
@@ -575,7 +575,7 @@
     }
 }
 
-<span class="doccomment">/// Adds the glyphs in `glyphs` to the current path in the specified
+<span class="doccomment">/// Adds the glyphs in @glyphs to the current path in the specified
 /// cairo context.
 ///
 /// The origin of the glyphs (the left edge of the baseline)
@@ -663,21 +663,21 @@
     }
 }
 
-<span class="doccomment">/// Draws the glyphs in `glyph_item` in the specified cairo context,
+<span class="doccomment">/// Draws the glyphs in @glyph_item in the specified cairo context,
 ///
 /// embedding the text associated with the glyphs in the output if the
 /// output format supports it (PDF for example), otherwise it acts
-/// similar to [func`show_glyph_string`].
+/// similar to [`show_glyph_string()`][crate::show_glyph_string()].
 ///
 /// The origin of the glyphs (the left edge of the baseline) will
 /// be drawn at the current point of the cairo context.
 ///
-/// Note that `text` is the start of the text for layout, which is then
+/// Note that @text is the start of the text for layout, which is then
 /// indexed by `glyph_item-&gt;item-&gt;offset`.
 /// ## `cr`
 /// a Cairo context
 /// ## `text`
-/// the UTF-8 text that `glyph_item` refers to
+/// the UTF-8 text that @glyph_item refers to
 /// ## `glyph_item`
 /// a [`pango::GlyphItem`][crate::pango::GlyphItem]
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_show_glyph_item"</span>)]
@@ -691,7 +691,7 @@
     }
 }
 
-<span class="doccomment">/// Draws the glyphs in `glyphs` in the specified cairo context.
+<span class="doccomment">/// Draws the glyphs in @glyphs in the specified cairo context.
 ///
 /// The origin of the glyphs (the left edge of the baseline) will
 /// be drawn at the current point of the cairo context.
@@ -751,7 +751,7 @@
 /// context.
 ///
 /// If any layouts have been created for the context, it's necessary
-/// to call [method`Pango`.context_changed] on those layouts.
+/// to call [`Layout::context_changed()`][crate::pango::Layout::context_changed()] on those layouts.
 /// ## `cr`
 /// a Cairo context
 /// ## `context`
@@ -767,12 +767,12 @@
 }
 
 <span class="doccomment">/// Updates the private [`pango::Context`][crate::pango::Context] of a [`pango::Layout`][crate::pango::Layout] created with
-/// [func`create_layout`] to match the current transformation and target
+/// [`create_layout()`][crate::create_layout()] to match the current transformation and target
 /// surface of a Cairo context.
 /// ## `cr`
 /// a Cairo context
 /// ## `layout`
-/// a [`pango::Layout`][crate::pango::Layout], from [func`create_layout`]
+/// a [`pango::Layout`][crate::pango::Layout], from [`create_layout()`][crate::create_layout()]
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_update_layout"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.update_layout.html">update_layout</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, layout: <span class="kw-2">&amp;</span><a href="../../../pango/auto/layout/struct.Layout.html">pango::Layout</a>) {
     <span class="kw">unsafe </span>{
