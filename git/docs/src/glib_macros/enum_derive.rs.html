@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib-macros/src/enum_derive.rs`."><title>enum_derive.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib-macros/src/enum_derive.rs`."><title>enum_derive.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -492,12 +492,6 @@
 <a href="#417" id="417">417</a>
 <a href="#418" id="418">418</a>
 <a href="#419" id="419">419</a>
-<a href="#420" id="420">420</a>
-<a href="#421" id="421">421</a>
-<a href="#422" id="422">422</a>
-<a href="#423" id="423">423</a>
-<a href="#424" id="424">424</a>
-<a href="#425" id="425">425</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span>heck::{ToKebabCase, ToShoutySnakeCase, ToUpperCamelCase};
@@ -601,7 +595,7 @@
     <span class="kw">let </span>crate_ident = <a href="utils.rs.html#188-215">crate_ident_new</a>();
 
     <span class="kw">let </span>register_enum = <span class="kw">match </span><a href="#95">found</a> {
-        <span class="prelude-val">None </span>=&gt; <a href="#226-266">register_enum_as_static</a>(
+        <span class="prelude-val">None </span>=&gt; <a href="#226-260">register_enum_as_static</a>(
             <span class="kw-2">&amp;</span><a href="#101">crate_ident</a>,
             <a href="#65">name</a>,
             <a href="#89">gtype_name</a>,
@@ -614,7 +608,7 @@
                 .map(|p| <a href="#114">p</a>.<a href="https://docs.rs/quote/1.0.35/quote/to_tokens/trait.ToTokens.html">into_token_stream</a>())
                 .unwrap_or(<a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a>(#crate_ident::TypeModule));
             <span class="kw">let </span>lazy_registration = <a href="#92">lazy_registration</a>.value.map(|b| <a href="#116">b</a>.value).unwrap_or_default();
-            <a href="#270-425">register_enum_as_dynamic</a>(
+            <a href="#264-419">register_enum_as_dynamic</a>(
                 <span class="kw-2">&amp;</span><a href="#101">crate_ident</a>,
                 <a href="#112">plugin_ty</a>,
                 <a href="#116">lazy_registration</a>,
@@ -736,10 +730,8 @@
             <span class="doccomment">/// Registers the enum only once.
             </span><span class="attr">#[inline]
             </span><span class="kw">fn </span>register_enum() -&gt; #crate_ident::Type {
-                <span class="kw">static </span>ONCE: ::std::sync::Once = ::std::sync::Once::new();
-                <span class="kw">static </span><span class="kw-2">mut </span>TYPE: #crate_ident::Type = #crate_ident::Type::INVALID;
-
-                ONCE.call_once(|| {
+                <span class="kw">static </span>TYPE: ::std::sync::OnceLock&lt;#crate_ident::Type&gt; = ::std::sync::OnceLock::new();
+                <span class="kw-2">*</span>TYPE.get_or_init(|| {
                     <span class="kw">static </span><span class="kw-2">mut </span>VALUES: [#crate_ident::gobject_ffi::GEnumValue; #nb_enum_values] = [
                         #g_enum_values
                         #crate_ident::gobject_ffi::GEnumValue {
@@ -753,13 +745,9 @@
                         <span class="kw">let </span>type_ = #crate_ident::gobject_ffi::g_enum_register_static(name.as_ptr(), VALUES.as_ptr());
                         <span class="kw">let </span>type_: #crate_ident::Type = #crate_ident::translate::from_glib(type_);
                         <span class="macro">assert!</span>(type_.is_valid());
-                        TYPE = type_;
+                        type_
                     }
-                });
-
-                <span class="kw">unsafe </span>{
-                    TYPE
-                }
+                })
             }
         }
     }
@@ -778,7 +766,7 @@
 ) -&gt; <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.TokenStream.html">TokenStream</a> {
     <span class="comment">// Wrap each GEnumValue to EnumValue
     </span><span class="kw">let </span>g_enum_values_expr: <a href="https://docs.rs/syn/2.0.48/syn/expr/struct.ExprArray.html">syn::ExprArray</a> = <a class="macro" href="https://docs.rs/syn/2.0.48/syn/macro.parse_quote.html">syn::parse_quote! </a>{ [#g_enum_values] };
-    <span class="kw">let </span>enum_values_iter = <a href="#280">g_enum_values_expr</a>.elems.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|v| {
+    <span class="kw">let </span>enum_values_iter = <a href="#274">g_enum_values_expr</a>.elems.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|v| {
         <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote_spanned.html">quote_spanned! </a>{syn::spanned::Spanned::span(<span class="kw-2">&amp;</span>v)=&gt;
             #crate_ident::EnumValue::unsafe_from(#v),
         }

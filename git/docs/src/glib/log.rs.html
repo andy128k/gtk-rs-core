@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/log.rs`."><title>log.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/log.rs`."><title>log.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -1142,37 +1142,41 @@
 <a href="#1067" id="1067">1067</a>
 <a href="#1068" id="1068">1068</a>
 <a href="#1069" id="1069">1069</a>
+<a href="#1070" id="1070">1070</a>
+<a href="#1071" id="1071">1071</a>
+<a href="#1072" id="1072">1072</a>
+<a href="#1073" id="1073">1073</a>
+<a href="#1074" id="1074">1074</a>
+<a href="#1075" id="1075">1075</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="attr">#[cfg(unix)]
 </span><span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">std::os::unix::io::AsRawFd</a>;
 <span class="kw">use </span>std::{
     <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">boxed::Box</a> <span class="kw">as </span>Box_,
-    sync::{<a href="https://doc.rust-lang.org/nightly/alloc/sync/struct.Arc.html">Arc</a>, <a href="https://doc.rust-lang.org/nightly/std/sync/mutex/struct.Mutex.html">Mutex</a>},
+    sync::{<a href="https://doc.rust-lang.org/nightly/alloc/sync/struct.Arc.html">Arc</a>, <a href="https://doc.rust-lang.org/nightly/std/sync/mutex/struct.Mutex.html">Mutex</a>, <a href="https://doc.rust-lang.org/nightly/std/sync/once_lock/struct.OnceLock.html">OnceLock</a>},
 };
 
-<span class="kw">use </span>once_cell::sync::Lazy;
-
-<span class="kw">use crate</span>::{<a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="gstring.rs.html#24">GStr</a>, <a href="gstring.rs.html#996">GString</a>, <a href="auto/enums.rs.html#650-659">LogWriterOutput</a>};
+<span class="kw">use crate</span>::{<a href="lib.rs.html#150">translate</a>::<span class="kw-2">*</span>, <a href="gstring.rs.html#24">GStr</a>, <a href="gstring.rs.html#996">GString</a>, <a href="auto/enums.rs.html#650-659">LogWriterOutput</a>};
 
 <span class="attr">#[derive(Debug)]
 </span><span class="kw">pub struct </span><a href="../../glib/struct.LogHandlerId.html">LogHandlerId</a>(<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>);
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt; <span class="kw">for </span><a href="#15">LogHandlerId</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt; <span class="kw">for </span><a href="#13">LogHandlerId</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>(<a href="#20">value</a>)
+        <span class="self">Self</span>(<a href="#18">value</a>)
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="translate.rs.html#327-331">IntoGlib</a> <span class="kw">for </span><a href="#15">LogHandlerId</a> {
+</span><span class="kw">impl </span><a href="translate.rs.html#327-331">IntoGlib</a> <span class="kw">for </span><a href="#13">LogHandlerId</a> {
     <span class="kw">type </span>GlibType = <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
-        <a class="self" href="#30">self</a>.<span class="number">0
+        <a class="self" href="#28">self</a>.<span class="number">0
     </span>}
 }
 
@@ -1193,12 +1197,12 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="translate.rs.html#327-331">IntoGlib</a> <span class="kw">for </span><a href="#36-49">LogLevel</a> {
+</span><span class="kw">impl </span><a href="translate.rs.html#327-331">IntoGlib</a> <span class="kw">for </span><a href="#34-47">LogLevel</a> {
     <span class="kw">type </span>GlibType = <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
-        <span class="kw">match </span><span class="self"><a href="#56">self</a> </span>{
+        <span class="kw">match </span><span class="self"><a href="#54">self</a> </span>{
             <span class="self">Self</span>::Error =&gt; ffi::G_LOG_LEVEL_ERROR,
             <span class="self">Self</span>::Critical =&gt; ffi::G_LOG_LEVEL_CRITICAL,
             <span class="self">Self</span>::Warning =&gt; ffi::G_LOG_LEVEL_WARNING,
@@ -1210,7 +1214,7 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt; <span class="kw">for </span><a href="#36-49">LogLevel</a> {
+</span><span class="kw">impl </span>FromGlib&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt; <span class="kw">for </span><a href="#34-47">LogLevel</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">if </span>value &amp; ffi::G_LOG_LEVEL_ERROR != <span class="number">0 </span>{
@@ -1231,10 +1235,10 @@
     }
 }
 
-<span class="kw">impl </span><a href="#36-49">LogLevel</a> {
+<span class="kw">impl </span><a href="#34-47">LogLevel</a> {
     <span class="attr">#[doc(hidden)]
     </span><span class="kw">pub fn </span>priority(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
-        <span class="kw">match </span><span class="self"><a href="#92">self</a> </span>{
+        <span class="kw">match </span><span class="self"><a href="#90">self</a> </span>{
             <span class="self">Self</span>::Error =&gt; <span class="string">"3"</span>,
             <span class="self">Self</span>::Critical =&gt; <span class="string">"4"</span>,
             <span class="self">Self</span>::Warning =&gt; <span class="string">"4"</span>,
@@ -1265,20 +1269,20 @@
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span><a href="translate.rs.html#327-331">IntoGlib</a> <span class="kw">for </span><a href="#104-121">LogLevels</a> {
+</span><span class="kw">impl </span><a href="translate.rs.html#327-331">IntoGlib</a> <span class="kw">for </span><a href="#102-119">LogLevels</a> {
     <span class="kw">type </span>GlibType = ffi::GLogLevelFlags;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_glib(<span class="self">self</span>) -&gt; ffi::GLogLevelFlags {
-        <a class="self" href="#128">self</a>.<a href="#104-121">bits</a>()
+        <a class="self" href="#126">self</a>.<a href="#102-119">bits</a>()
     }
 }
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>FromGlib&lt;ffi::GLogLevelFlags&gt; <span class="kw">for </span><a href="#104-121">LogLevels</a> {
+</span><span class="kw">impl </span>FromGlib&lt;ffi::GLogLevelFlags&gt; <span class="kw">for </span><a href="#102-119">LogLevels</a> {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(value: ffi::GLogLevelFlags) -&gt; <span class="self">Self </span>{
-        <a href="#104-121"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#136">value</a>)
+        <a href="#102-119"><span class="self">Self</span>::from_bits_truncate</a>(<a href="#134">value</a>)
     }
 }
 
@@ -1292,148 +1296,157 @@
 }
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_set_handler_full"</span>)]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_handler.html">log_set_handler</a>&lt;P: Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#36-49">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_handler.html">log_set_handler</a>&lt;P: Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#34-47">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(
     log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
-    log_levels: <a href="#104-121">LogLevels</a>,
+    log_levels: <a href="#102-119">LogLevels</a>,
     fatal: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
     recursion: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
     log_func: P,
-) -&gt; <a href="#15">LogHandlerId</a> {
-    <span class="kw">let </span>log_func_data: Box_&lt;P&gt; = Box_::new(<a href="#156">log_func</a>);
+) -&gt; <a href="#13">LogHandlerId</a> {
+    <span class="kw">let </span>log_func_data: Box_&lt;P&gt; = Box_::new(<a href="#154">log_func</a>);
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>log_func_func&lt;
-        P: Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#36-49">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
+        P: Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#34-47">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
     &gt;(
         log_domain: <span class="kw-2">*const </span>libc::c_char,
         log_level: ffi::GLogLevelFlags,
         message: <span class="kw-2">*const </span>libc::c_char,
         user_data: ffi::gpointer,
     ) {
-        <span class="kw">let </span>log_domain: Borrowed&lt;<span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#996">GString</a>&gt;&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#162">log_domain</a>);
-        <span class="kw">let </span>message: Borrowed&lt;<a href="gstring.rs.html#996">GString</a>&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#164">message</a>);
-        <span class="kw">let </span>callback: <span class="kw-2">&amp;</span>P = <span class="kw-2">&amp;*</span>(<a href="#165">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-        (<span class="kw-2">*</span><a href="#169">callback</a>)(
-            (<span class="kw-2">*</span><a href="#167">log_domain</a>).as_ref().map(|s| <a href="#171">s</a>.<a href="gstring.rs.html#1221-1235">as_str</a>()),
-            <a href="translate.rs.html#1413-1415">from_glib</a>(<a href="#163">log_level</a>),
-            <a href="#168">message</a>.<a href="gstring.rs.html#1221-1235">as_str</a>(),
+        <span class="kw">let </span>log_domain: Borrowed&lt;<span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#996">GString</a>&gt;&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#160">log_domain</a>);
+        <span class="kw">let </span>message: Borrowed&lt;<a href="gstring.rs.html#996">GString</a>&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#162">message</a>);
+        <span class="kw">let </span>callback: <span class="kw-2">&amp;</span>P = <span class="kw-2">&amp;*</span>(<a href="#163">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+        (<span class="kw-2">*</span><a href="#167">callback</a>)(
+            (<span class="kw-2">*</span><a href="#165">log_domain</a>).as_ref().map(|s| <a href="#169">s</a>.<a href="gstring.rs.html#1221-1235">as_str</a>()),
+            <a href="translate.rs.html#1413-1415">from_glib</a>(<a href="#161">log_level</a>),
+            <a href="#166">message</a>.<a href="gstring.rs.html#1221-1235">as_str</a>(),
         );
     }
     <span class="kw">let </span>log_func = <span class="prelude-val">Some</span>(log_func_func::&lt;P&gt; <span class="kw">as _</span>);
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>destroy_func&lt;
-        P: Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#36-49">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
+        P: Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#34-47">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
     &gt;(
         data: ffi::gpointer,
     ) {
-        <span class="kw">let </span>_callback: Box_&lt;P&gt; = Box_::from_raw(<a href="#180">data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+        <span class="kw">let </span>_callback: Box_&lt;P&gt; = Box_::from_raw(<a href="#178">data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
     }
     <span class="kw">let </span>destroy_call4 = <span class="prelude-val">Some</span>(destroy_func::&lt;P&gt; <span class="kw">as _</span>);
-    <span class="kw">let </span>super_callback0: Box_&lt;P&gt; = <a href="#158">log_func_data</a>;
+    <span class="kw">let </span>super_callback0: Box_&lt;P&gt; = <a href="#156">log_func_data</a>;
     <span class="kw">unsafe </span>{
         <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_set_handler_full(
-            <a href="#152">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-            <a href="#153">log_levels</a>.<a href="translate.rs.html#330">into_glib</a>() | <a href="#141-148">to_log_flags</a>(<a href="#154">fatal</a>, <a href="#155">recursion</a>),
-            <a href="#176">log_func</a>,
-            Box_::into_raw(<a href="#185">super_callback0</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-            <a href="#184">destroy_call4</a>,
+            <a href="#150">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#151">log_levels</a>.<a href="translate.rs.html#330">into_glib</a>() | <a href="#139-146">to_log_flags</a>(<a href="#152">fatal</a>, <a href="#153">recursion</a>),
+            <a href="#174">log_func</a>,
+            Box_::into_raw(<a href="#183">super_callback0</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+            <a href="#182">destroy_call4</a>,
         ))
     }
 }
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_remove_handler"</span>)]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_remove_handler.html">log_remove_handler</a>(log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, handler_id: <a href="#15">LogHandlerId</a>) {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_remove_handler.html">log_remove_handler</a>(log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, handler_id: <a href="#13">LogHandlerId</a>) {
     <span class="kw">unsafe </span>{
-        ffi::g_log_remove_handler(<a href="#198">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#198">handler_id</a>.<a href="translate.rs.html#330">into_glib</a>());
+        ffi::g_log_remove_handler(<a href="#196">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#196">handler_id</a>.<a href="translate.rs.html#330">into_glib</a>());
     }
 }
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_set_always_fatal"</span>)]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_always_fatal.html">log_set_always_fatal</a>(fatal_levels: <a href="#104-121">LogLevels</a>) -&gt; <a href="#104-121">LogLevels</a> {
-    <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_set_always_fatal(<a href="#205">fatal_levels</a>.<a href="translate.rs.html#330">into_glib</a>())) }
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_always_fatal.html">log_set_always_fatal</a>(fatal_levels: <a href="#102-119">LogLevels</a>) -&gt; <a href="#102-119">LogLevels</a> {
+    <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_set_always_fatal(<a href="#203">fatal_levels</a>.<a href="translate.rs.html#330">into_glib</a>())) }
 }
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_set_fatal_mask"</span>)]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_fatal_mask.html">log_set_fatal_mask</a>(log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, fatal_levels: <a href="#104-121">LogLevels</a>) -&gt; <a href="#104-121">LogLevels</a> {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_fatal_mask.html">log_set_fatal_mask</a>(log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, fatal_levels: <a href="#102-119">LogLevels</a>) -&gt; <a href="#102-119">LogLevels</a> {
     <span class="kw">unsafe </span>{
         <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_set_fatal_mask(
-            <a href="#210">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-            <a href="#210">fatal_levels</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#208">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#208">fatal_levels</a>.<a href="translate.rs.html#330">into_glib</a>(),
         ))
     }
 }
 
 <span class="kw">type </span>PrintCallback = <span class="kw">dyn </span>Fn(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>;
 
-<span class="kw">static </span>PRINT_HANDLER: Lazy&lt;Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#219">PrintCallback</a>&gt;&gt;&gt;&gt; = Lazy::new(|| Mutex::new(<span class="prelude-val">None</span>));
+<span class="kw">fn </span>print_handler() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#217">PrintCallback</a>&gt;&gt;&gt; {
+    <span class="kw">static </span>MUTEX: OnceLock&lt;Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#217">PrintCallback</a>&gt;&gt;&gt;&gt; = OnceLock::new();
+    <a href="#220">MUTEX</a>.get_or_init(|| Mutex::new(<span class="prelude-val">None</span>))
+}
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// To set back the default print handler, use the [`unset_print_handler`] function.
 </span><span class="attr">#[doc(alias = <span class="string">"g_set_print_handler"</span>)]
 </span><span class="kw">pub fn </span><a href="../../glib/fn.set_print_handler.html">set_print_handler</a>&lt;P: Fn(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(func: P) {
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>func_func(string: <span class="kw-2">*const </span>libc::c_char) {
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(callback) = <a href="#221">PRINT_HANDLER</a>
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(callback) = <a href="#219-222">print_handler</a>()
             .lock()
             .expect(<span class="string">"Failed to lock PRINT_HANDLER"</span>)
             .as_ref()
             .map(Arc::clone)
         {
-            <span class="kw">let </span>string: Borrowed&lt;<a href="gstring.rs.html#996">GString</a>&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#227">string</a>);
-            (<span class="kw-2">*</span><a href="#228">callback</a>)(<a href="#234">string</a>.<a href="gstring.rs.html#1221-1235">as_str</a>())
+            <span class="kw">let </span>string: Borrowed&lt;<a href="gstring.rs.html#996">GString</a>&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#228">string</a>);
+            (<span class="kw-2">*</span><a href="#229">callback</a>)(<a href="#235">string</a>.<a href="gstring.rs.html#1221-1235">as_str</a>())
         }
     }
-    <span class="kw-2">*</span><a href="#221">PRINT_HANDLER</a>
+    <span class="kw-2">*</span><a href="#219-222">print_handler</a>()
         .lock()
-        .expect(<span class="string">"Failed to lock PRINT_HANDLER to change callback"</span>) = <span class="prelude-val">Some</span>(Arc::new(<a href="#226">func</a>));
-    <span class="kw">unsafe </span>{ ffi::g_set_print_handler(<span class="prelude-val">Some</span>(<a href="#227-237">func_func</a> <span class="kw">as _</span>)) };
+        .expect(<span class="string">"Failed to lock PRINT_HANDLER to change callback"</span>) = <span class="prelude-val">Some</span>(Arc::new(<a href="#227">func</a>));
+    <span class="kw">unsafe </span>{ ffi::g_set_print_handler(<span class="prelude-val">Some</span>(<a href="#228-238">func_func</a> <span class="kw">as _</span>)) };
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// To set the default print handler, use the [`set_print_handler`] function.
 </span><span class="kw">pub fn </span><a href="../../glib/fn.unset_print_handler.html">unset_print_handler</a>() {
-    <span class="kw-2">*</span><a href="#221">PRINT_HANDLER</a>
+    <span class="kw-2">*</span><a href="#219-222">print_handler</a>()
         .lock()
         .expect(<span class="string">"Failed to lock PRINT_HANDLER to remove callback"</span>) = <span class="prelude-val">None</span>;
     <span class="kw">unsafe </span>{ ffi::g_set_print_handler(<span class="prelude-val">None</span>) };
 }
 
-<span class="kw">static </span>PRINTERR_HANDLER: Lazy&lt;Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#219">PrintCallback</a>&gt;&gt;&gt;&gt; = Lazy::new(|| Mutex::new(<span class="prelude-val">None</span>));
+<span class="kw">fn </span>printerr_handler() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#217">PrintCallback</a>&gt;&gt;&gt; {
+    <span class="kw">static </span>MUTEX: OnceLock&lt;Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#217">PrintCallback</a>&gt;&gt;&gt;&gt; = OnceLock::new();
+    <a href="#255">MUTEX</a>.get_or_init(|| Mutex::new(<span class="prelude-val">None</span>))
+}
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// To set back the default print handler, use the [`unset_printerr_handler`] function.
 </span><span class="attr">#[doc(alias = <span class="string">"g_set_printerr_handler"</span>)]
 </span><span class="kw">pub fn </span><a href="../../glib/fn.set_printerr_handler.html">set_printerr_handler</a>&lt;P: Fn(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(func: P) {
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>func_func(string: <span class="kw-2">*const </span>libc::c_char) {
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(callback) = <a href="#253">PRINTERR_HANDLER</a>
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(callback) = <a href="#254-257">printerr_handler</a>()
             .lock()
             .expect(<span class="string">"Failed to lock PRINTERR_HANDLER"</span>)
             .as_ref()
             .map(Arc::clone)
         {
-            <span class="kw">let </span>string: Borrowed&lt;<a href="gstring.rs.html#996">GString</a>&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#259">string</a>);
-            (<span class="kw-2">*</span><a href="#260">callback</a>)(<a href="#266">string</a>.<a href="gstring.rs.html#1221-1235">as_str</a>())
+            <span class="kw">let </span>string: Borrowed&lt;<a href="gstring.rs.html#996">GString</a>&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#263">string</a>);
+            (<span class="kw-2">*</span><a href="#264">callback</a>)(<a href="#270">string</a>.<a href="gstring.rs.html#1221-1235">as_str</a>())
         }
     }
-    <span class="kw-2">*</span><a href="#253">PRINTERR_HANDLER</a>
+    <span class="kw-2">*</span><a href="#254-257">printerr_handler</a>()
         .lock()
-        .expect(<span class="string">"Failed to lock PRINTERR_HANDLER to change callback"</span>) = <span class="prelude-val">Some</span>(Arc::new(<a href="#258">func</a>));
-    <span class="kw">unsafe </span>{ ffi::g_set_printerr_handler(<span class="prelude-val">Some</span>(<a href="#259-269">func_func</a> <span class="kw">as _</span>)) };
+        .expect(<span class="string">"Failed to lock PRINTERR_HANDLER to change callback"</span>) = <span class="prelude-val">Some</span>(Arc::new(<a href="#262">func</a>));
+    <span class="kw">unsafe </span>{ ffi::g_set_printerr_handler(<span class="prelude-val">Some</span>(<a href="#263-273">func_func</a> <span class="kw">as _</span>)) };
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// To set the default print handler, use the [`set_printerr_handler`] function.
 </span><span class="kw">pub fn </span><a href="../../glib/fn.unset_printerr_handler.html">unset_printerr_handler</a>() {
-    <span class="kw-2">*</span><a href="#253">PRINTERR_HANDLER</a>
+    <span class="kw-2">*</span><a href="#254-257">printerr_handler</a>()
         .lock()
         .expect(<span class="string">"Failed to lock PRINTERR_HANDLER to remove callback"</span>) = <span class="prelude-val">None</span>;
     <span class="kw">unsafe </span>{ ffi::g_set_printerr_handler(<span class="prelude-val">None</span>) };
 }
 
-<span class="kw">type </span>LogCallback = <span class="kw">dyn </span>Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#36-49">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>;
+<span class="kw">type </span>LogCallback = <span class="kw">dyn </span>Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#34-47">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>;
 
-<span class="kw">static </span>DEFAULT_HANDLER: Lazy&lt;Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#285">LogCallback</a>&gt;&gt;&gt;&gt; = Lazy::new(|| Mutex::new(<span class="prelude-val">None</span>));
+<span class="kw">fn </span>default_handler() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#289">LogCallback</a>&gt;&gt;&gt; {
+    <span class="kw">static </span>MUTEX: OnceLock&lt;Mutex&lt;<span class="prelude-ty">Option</span>&lt;Arc&lt;<a href="#289">LogCallback</a>&gt;&gt;&gt;&gt; = OnceLock::new();
+    <a href="#292">MUTEX</a>.get_or_init(|| Mutex::new(<span class="prelude-val">None</span>))
+}
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// To set back the default print handler, use the [`log_unset_default_handler`] function.
 </span><span class="attr">#[doc(alias = <span class="string">"g_log_set_default_handler"</span>)]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_default_handler.html">log_set_default_handler</a>&lt;P: Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#36-49">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_default_handler.html">log_set_default_handler</a>&lt;P: Fn(<span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, <a href="#34-47">LogLevel</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(
     log_func: P,
 ) {
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>func_func(
@@ -1442,32 +1455,32 @@
         message: <span class="kw-2">*const </span>libc::c_char,
         _user_data: ffi::gpointer,
     ) {
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(callback) = <a href="#287">DEFAULT_HANDLER</a>
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(callback) = <a href="#291-294">default_handler</a>()
             .lock()
             .expect(<span class="string">"Failed to lock DEFAULT_HANDLER"</span>)
             .as_ref()
             .map(Arc::clone)
         {
-            <span class="kw">let </span>log_domain: Borrowed&lt;<span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#996">GString</a>&gt;&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#296">log_domain</a>);
-            <span class="kw">let </span>message: Borrowed&lt;<a href="gstring.rs.html#996">GString</a>&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#298">message</a>);
-            (<span class="kw-2">*</span><a href="#301">callback</a>)(
-                (<span class="kw-2">*</span><a href="#307">log_domain</a>).as_ref().map(|s| <a href="#310">s</a>.<a href="gstring.rs.html#1221-1235">as_str</a>()),
-                <a href="translate.rs.html#1413-1415">from_glib</a>(<a href="#297">log_levels</a>),
-                <a href="#308">message</a>.<a href="gstring.rs.html#1221-1235">as_str</a>(),
+            <span class="kw">let </span>log_domain: Borrowed&lt;<span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#996">GString</a>&gt;&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#303">log_domain</a>);
+            <span class="kw">let </span>message: Borrowed&lt;<a href="gstring.rs.html#996">GString</a>&gt; = <a href="translate.rs.html#1639-1641">from_glib_borrow</a>(<a href="#305">message</a>);
+            (<span class="kw-2">*</span><a href="#308">callback</a>)(
+                (<span class="kw-2">*</span><a href="#314">log_domain</a>).as_ref().map(|s| <a href="#317">s</a>.<a href="gstring.rs.html#1221-1235">as_str</a>()),
+                <a href="translate.rs.html#1413-1415">from_glib</a>(<a href="#304">log_levels</a>),
+                <a href="#315">message</a>.<a href="gstring.rs.html#1221-1235">as_str</a>(),
             );
         }
     }
-    <span class="kw-2">*</span><a href="#287">DEFAULT_HANDLER</a>
+    <span class="kw-2">*</span><a href="#291-294">default_handler</a>()
         .lock()
-        .expect(<span class="string">"Failed to lock DEFAULT_HANDLER to change callback"</span>) = <span class="prelude-val">Some</span>(Arc::new(<a href="#293">log_func</a>));
-    <span class="kw">unsafe </span>{ ffi::g_log_set_default_handler(<span class="prelude-val">Some</span>(<a href="#295-315">func_func</a> <span class="kw">as _</span>), std::ptr::null_mut()) };
+        .expect(<span class="string">"Failed to lock DEFAULT_HANDLER to change callback"</span>) = <span class="prelude-val">Some</span>(Arc::new(<a href="#300">log_func</a>));
+    <span class="kw">unsafe </span>{ ffi::g_log_set_default_handler(<span class="prelude-val">Some</span>(<a href="#302-322">func_func</a> <span class="kw">as _</span>), std::ptr::null_mut()) };
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// To set the default print handler, use the [`log_set_default_handler`] function.
 </span><span class="attr">#[doc(alias = <span class="string">"g_log_set_default_handler"</span>)]
 </span><span class="kw">pub fn </span><a href="../../glib/fn.log_unset_default_handler.html">log_unset_default_handler</a>() {
-    <span class="kw-2">*</span><a href="#287">DEFAULT_HANDLER</a>
+    <span class="kw-2">*</span><a href="#291-294">default_handler</a>()
         .lock()
         .expect(<span class="string">"Failed to lock DEFAULT_HANDLER to remove callback"</span>) = <span class="prelude-val">None</span>;
     <span class="kw">unsafe </span>{
@@ -1476,12 +1489,12 @@
 }
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_default_handler"</span>)]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_default_handler.html">log_default_handler</a>(log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, log_level: <a href="#36-49">LogLevel</a>, message: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_default_handler.html">log_default_handler</a>(log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, log_level: <a href="#34-47">LogLevel</a>, message: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
     <span class="kw">unsafe </span>{
         ffi::g_log_default_handler(
-            <a href="#335">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-            <a href="#335">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
-            <a href="#335">message</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#342">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#342">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#342">message</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
             std::ptr::null_mut(),
         )
     }
@@ -1508,13 +1521,13 @@
             // data fields.
             </span>(<span class="kw-2">&amp;</span>[<span class="number">0u8</span>] <span class="kw">as </span><span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>], -<span class="number">1isize</span>)
         } <span class="kw">else </span>{
-            (<a href="#361">value</a>, <a href="#361">value</a>.len().<a href="https://doc.rust-lang.org/nightly/core/convert/trait.TryInto.html">try_into</a>().unwrap())
+            (<a href="#368">value</a>, <a href="#368">value</a>.len().<a href="https://doc.rust-lang.org/nightly/core/convert/trait.TryInto.html">try_into</a>().unwrap())
         };
         <span class="self">Self</span>(
             ffi::GLogField {
-                key: <a href="#361">key</a>.<a href="gstring.rs.html#207-209">as_ptr</a>(),
-                value: <a href="#362">value</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <a href="#362">length</a>,
+                key: <a href="#368">key</a>.<a href="gstring.rs.html#207-209">as_ptr</a>(),
+                value: <a href="#369">value</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <a href="#369">length</a>,
             },
             <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default::default</a>(),
         )
@@ -1531,8 +1544,8 @@
     </span><span class="kw">pub fn </span>new_user_data(key: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="gstring.rs.html#24">GStr</a>, data: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self</span>(
             ffi::GLogField {
-                key: <a href="#387">key</a>.<a href="gstring.rs.html#207-209">as_ptr</a>(),
-                value: <a href="#387">data</a> <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                key: <a href="#394">key</a>.<a href="gstring.rs.html#207-209">as_ptr</a>(),
+                value: <a href="#394">data</a> <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
                 length: <span class="number">0</span>,
             },
             <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default::default</a>(),
@@ -1541,7 +1554,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Retrieves the field key.
     </span><span class="kw">pub fn </span>key(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
-        <span class="kw">unsafe </span>{ std::ffi::CStr::from_ptr(<a class="self" href="#399">self</a>.<span class="number">0</span>.key <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>) }
+        <span class="kw">unsafe </span>{ std::ffi::CStr::from_ptr(<a class="self" href="#406">self</a>.<span class="number">0</span>.key <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>) }
             .to_str()
             .unwrap()
     }
@@ -1549,13 +1562,13 @@
     </span><span class="doccomment">/// Retrieves a byte array of the field value. Returns `None` if the field was created with
     /// [`Self::new_user_data`].
     </span><span class="kw">pub fn </span>value_bytes(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt; {
-        <span class="kw">match </span><a class="self" href="#407">self</a>.<span class="number">0</span>.length {
+        <span class="kw">match </span><a class="self" href="#414">self</a>.<span class="number">0</span>.length {
             <span class="number">0 </span>=&gt; <span class="prelude-val">None</span>,
-            n <span class="kw">if </span><a href="#410">n</a> &lt; <span class="number">0 </span>=&gt; {
-                <span class="prelude-val">Some</span>(<span class="kw">unsafe </span>{ std::ffi::CStr::from_ptr(<a class="self" href="#407">self</a>.<span class="number">0</span>.value <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>) }.to_bytes())
+            n <span class="kw">if </span><a href="#417">n</a> &lt; <span class="number">0 </span>=&gt; {
+                <span class="prelude-val">Some</span>(<span class="kw">unsafe </span>{ std::ffi::CStr::from_ptr(<a class="self" href="#414">self</a>.<span class="number">0</span>.value <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>) }.to_bytes())
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">Some</span>(<span class="kw">unsafe </span>{
-                <a href="https://doc.rust-lang.org/nightly/core/slice/raw/fn.from_raw_parts.html">std::slice::from_raw_parts</a>(<a class="self" href="#407">self</a>.<span class="number">0</span>.value <span class="kw">as </span><span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a class="self" href="#407">self</a>.<span class="number">0</span>.length <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)
+                <a href="https://doc.rust-lang.org/nightly/core/slice/raw/fn.from_raw_parts.html">std::slice::from_raw_parts</a>(<a class="self" href="#414">self</a>.<span class="number">0</span>.value <span class="kw">as </span><span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a class="self" href="#414">self</a>.<span class="number">0</span>.length <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)
             }),
         }
     }
@@ -1563,24 +1576,23 @@
     </span><span class="doccomment">/// Retrieves a string of the field value, or `None` if the string is not valid UTF-8. Also
     /// returns `None` if the field was created with [`Self::new_user_data`].
     </span><span class="kw">pub fn </span>value_str(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; {
-        <a href="https://doc.rust-lang.org/nightly/core/str/converts/fn.from_utf8.html">std::str::from_utf8</a>(<a class="self" href="#421">self</a>.<a href="#407-417">value_bytes</a>()<span class="question-mark">?</span>).ok()
+        <a href="https://doc.rust-lang.org/nightly/core/str/converts/fn.from_utf8.html">std::str::from_utf8</a>(<a class="self" href="#428">self</a>.<a href="#414-424">value_bytes</a>()<span class="question-mark">?</span>).ok()
     }
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Retrieves the the user data value from a field created with [`Self::new_user_data`].
     /// Returns `None` if the field was created with [`Self::new`].
     </span><span class="kw">pub fn </span>user_data(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt; {
-        (<a class="self" href="#427">self</a>.<span class="number">0</span>.length == <span class="number">0</span>).then_some(<a class="self" href="#427">self</a>.<span class="number">0</span>.value <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)
+        (<a class="self" href="#434">self</a>.<span class="number">0</span>.length == <span class="number">0</span>).then_some(<a class="self" href="#434">self</a>.<span class="number">0</span>.value <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)
     }
 }
 
-<span class="kw">type </span>WriterCallback = <span class="kw">dyn </span>Fn(<a href="#36-49">LogLevel</a>, <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>;
+<span class="kw">type </span>WriterCallback = <span class="kw">dyn </span>Fn(<a href="#34-47">LogLevel</a>, <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>;
 
-<span class="kw">static </span>WRITER_FUNC: once_cell::sync::OnceCell&lt;Box&lt;<a href="#432">WriterCallback</a>&gt;&gt; =
-    once_cell::sync::OnceCell::new();
+<span class="kw">static </span>WRITER_FUNC: OnceLock&lt;Box&lt;<a href="#439">WriterCallback</a>&gt;&gt; = OnceLock::new();
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_set_writer_func"</span>)]
 </span><span class="kw">pub fn </span><a href="../../glib/fn.log_set_writer_func.html">log_set_writer_func</a>&lt;
-    P: Fn(<a href="#36-49">LogLevel</a>, <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
+    P: Fn(<a href="#34-47">LogLevel</a>, <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
 &gt;(
     writer_func: P,
 ) {
@@ -1593,12 +1605,12 @@
         n_fields: libc::size_t,
         _user_data: ffi::gpointer,
     ) -&gt; ffi::GLogWriterOutput {
-        <span class="kw">let </span>writer_func = <a href="#434-435">WRITER_FUNC</a>.get().unwrap();
-        <span class="kw">let </span>fields = <a href="https://doc.rust-lang.org/nightly/core/slice/raw/fn.from_raw_parts.html">std::slice::from_raw_parts</a>(<a href="#448">fields</a> <span class="kw">as </span><span class="kw-2">*const </span>LogField&lt;<span class="lifetime">'_</span>&gt;, <a href="#449">n_fields</a>);
-        <a href="#452">writer_func</a>(<a href="translate.rs.html#1413-1415">from_glib</a>(<a href="#447">log_level</a>), <a href="#453">fields</a>).<a href="translate.rs.html#330">into_glib</a>()
+        <span class="kw">let </span>writer_func = <a href="#441">WRITER_FUNC</a>.get().unwrap();
+        <span class="kw">let </span>fields = <a href="https://doc.rust-lang.org/nightly/core/slice/raw/fn.from_raw_parts.html">std::slice::from_raw_parts</a>(<a href="#454">fields</a> <span class="kw">as </span><span class="kw-2">*const </span>LogField&lt;<span class="lifetime">'_</span>&gt;, <a href="#455">n_fields</a>);
+        <a href="#458">writer_func</a>(<a href="translate.rs.html#1413-1415">from_glib</a>(<a href="#453">log_level</a>), <a href="#459">fields</a>).<a href="translate.rs.html#330">into_glib</a>()
     }
     <span class="kw">unsafe </span>{
-        ffi::g_log_set_writer_func(<span class="prelude-val">Some</span>(<a href="#446-455">writer_trampoline</a>), std::ptr::null_mut(), <span class="prelude-val">None</span>);
+        ffi::g_log_set_writer_func(<span class="prelude-val">Some</span>(<a href="#452-461">writer_trampoline</a>), std::ptr::null_mut(), <span class="prelude-val">None</span>);
     }
 }
 
@@ -2084,24 +2096,24 @@
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_structured_array"</span>)]
 #[inline]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_structured_array.html">log_structured_array</a>(log_level: <a href="#36-49">LogLevel</a>, fields: <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_structured_array.html">log_structured_array</a>(log_level: <a href="#34-47">LogLevel</a>, fields: <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) {
     <span class="kw">unsafe </span>{
         ffi::g_log_structured_array(
-            <a href="#943">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
-            <a href="#943">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
-            <a href="#943">fields</a>.len(),
+            <a href="#949">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#949">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
+            <a href="#949">fields</a>.len(),
         )
     }
 }
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_variant"</span>)]
 #[inline]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_variant.html">log_variant</a>(log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, log_level: <a href="#36-49">LogLevel</a>, fields: <span class="kw-2">&amp;</span><a href="variant.rs.html#117-376"><span class="kw">crate</span>::Variant</a>) {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_variant.html">log_variant</a>(log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, log_level: <a href="#34-47">LogLevel</a>, fields: <span class="kw-2">&amp;</span><a href="variant.rs.html#117-376"><span class="kw">crate</span>::Variant</a>) {
     <span class="kw">unsafe </span>{
         ffi::g_log_variant(
-            <a href="#955">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-            <a href="#955">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
-            <a href="#955">fields</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#961">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#961">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#961">fields</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
         );
     }
 }
@@ -2111,7 +2123,7 @@
 #[doc(alias = <span class="string">"g_log_writer_supports_color"</span>)]
 #[inline]
 </span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_supports_color.html">log_writer_supports_color</a>&lt;T: <a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">AsRawFd</a>&gt;(output_fd: T) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-    <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_writer_supports_color(<a href="#969">output_fd</a>.<a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">as_raw_fd</a>())) }
+    <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_writer_supports_color(<a href="#975">output_fd</a>.<a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">as_raw_fd</a>())) }
 }
 
 <span class="attr">#[cfg(unix)]
@@ -2119,34 +2131,34 @@
 #[doc(alias = <span class="string">"g_log_writer_is_journald"</span>)]
 #[inline]
 </span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_is_journald.html">log_writer_is_journald</a>&lt;T: <a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">AsRawFd</a>&gt;(output_fd: T) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-    <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_writer_is_journald(<a href="#977">output_fd</a>.<a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">as_raw_fd</a>())) }
+    <span class="kw">unsafe </span>{ <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_writer_is_journald(<a href="#983">output_fd</a>.<a href="https://doc.rust-lang.org/nightly/std/os/fd/raw/trait.AsRawFd.html">as_raw_fd</a>())) }
 }
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_writer_format_fields"</span>)]
 #[inline]
 </span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_format_fields.html">log_writer_format_fields</a>(
-    log_level: <a href="#36-49">LogLevel</a>,
+    log_level: <a href="#34-47">LogLevel</a>,
     fields: <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;],
     use_color: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 ) -&gt; <a href="gstring.rs.html#996">GString</a> {
     <span class="kw">unsafe </span>{
         <a href="translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_log_writer_format_fields(
-            <a href="#984">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
-            <a href="#985">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
-            <a href="#985">fields</a>.len(),
-            <a href="#986">use_color</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#990">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#991">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
+            <a href="#991">fields</a>.len(),
+            <a href="#992">use_color</a>.<a href="translate.rs.html#330">into_glib</a>(),
         ))
     }
 }
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_writer_journald"</span>)]
 #[inline]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_journald.html">log_writer_journald</a>(log_level: <a href="#36-49">LogLevel</a>, fields: <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_journald.html">log_writer_journald</a>(log_level: <a href="#34-47">LogLevel</a>, fields: <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> {
     <span class="kw">unsafe </span>{
         <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_writer_journald(
-            <a href="#1000">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
-            <a href="#1000">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
-            <a href="#1000">fields</a>.len(),
+            <a href="#1006">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#1006">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
+            <a href="#1006">fields</a>.len(),
             std::ptr::null_mut(),
         ))
     }
@@ -2155,14 +2167,14 @@
 <span class="attr">#[doc(alias = <span class="string">"g_log_writer_standard_streams"</span>)]
 #[inline]
 </span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_standard_streams.html">log_writer_standard_streams</a>(
-    log_level: <a href="#36-49">LogLevel</a>,
+    log_level: <a href="#34-47">LogLevel</a>,
     fields: <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;],
 ) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> {
     <span class="kw">unsafe </span>{
         <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_writer_standard_streams(
-            <a href="#1014">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
-            <a href="#1015">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
-            <a href="#1015">fields</a>.len(),
+            <a href="#1020">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#1021">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
+            <a href="#1021">fields</a>.len(),
             std::ptr::null_mut(),
         ))
     }
@@ -2170,12 +2182,12 @@
 
 <span class="attr">#[doc(alias = <span class="string">"g_log_writer_default"</span>)]
 #[inline]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_default.html">log_writer_default</a>(log_level: <a href="#36-49">LogLevel</a>, fields: <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_default.html">log_writer_default</a>(log_level: <a href="#34-47">LogLevel</a>, fields: <span class="kw-2">&amp;</span>[LogField&lt;<span class="lifetime">'_</span>&gt;]) -&gt; <a href="auto/enums.rs.html#650-659">LogWriterOutput</a> {
     <span class="kw">unsafe </span>{
         <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_writer_default(
-            <a href="#1029">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
-            <a href="#1029">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
-            <a href="#1029">fields</a>.len(),
+            <a href="#1035">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#1035">fields</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>ffi::GLogField,
+            <a href="#1035">fields</a>.len(),
             std::ptr::null_mut(),
         ))
     }
@@ -2196,18 +2208,18 @@
 #[doc(alias = <span class="string">"g_log_writer_default_set_use_stderr"</span>)]
 #[inline]
 </span><span class="kw">pub unsafe fn </span><a href="../../glib/fn.log_writer_default_set_use_stderr.html">log_writer_default_set_use_stderr</a>(use_stderr: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
-    ffi::g_log_writer_default_set_use_stderr(<a href="#1054">use_stderr</a>.<a href="translate.rs.html#330">into_glib</a>());
+    ffi::g_log_writer_default_set_use_stderr(<a href="#1060">use_stderr</a>.<a href="translate.rs.html#330">into_glib</a>());
 }
 
 <span class="attr">#[cfg(feature = <span class="string">"v2_68"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_68"</span>)))]
 #[doc(alias = <span class="string">"g_log_writer_default_would_drop"</span>)]
 #[inline]
-</span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_default_would_drop.html">log_writer_default_would_drop</a>(log_level: <a href="#36-49">LogLevel</a>, log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.log_writer_default_would_drop.html">log_writer_default_would_drop</a>(log_level: <a href="#34-47">LogLevel</a>, log_domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
     <span class="kw">unsafe </span>{
         <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_log_writer_default_would_drop(
-            <a href="#1062">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
-            <a href="#1062">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#1068">log_level</a>.<a href="translate.rs.html#330">into_glib</a>(),
+            <a href="#1068">log_domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
         ))
     }
 }

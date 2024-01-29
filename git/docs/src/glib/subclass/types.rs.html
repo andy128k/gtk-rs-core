@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/subclass/types.rs`."><title>types.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/subclass/types.rs`."><title>types.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -1315,8 +1315,8 @@
 <span class="kw">use crate</span>::{
     <a href="../gobject/dynamic_object.rs.html#15-42">gobject::traits::DynamicObjectRegisterExt</a>,
     object::{<a href="../object.rs.html#4061">IsClass</a>, <a href="../object.rs.html#4293">IsInterface</a>, <a href="../object.rs.html#4033-4035">ObjectSubclassIs</a>, <a href="../object.rs.html#4026-4028">ParentClassIs</a>},
-    <a href="../lib.rs.html#146">prelude</a>::<span class="kw-2">*</span>,
-    <a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>,
+    <a href="../lib.rs.html#145">prelude</a>::<span class="kw-2">*</span>,
+    <a href="../lib.rs.html#150">translate</a>::<span class="kw-2">*</span>,
     <a href="../closure.rs.html#11-24">Closure</a>, <a href="../gobject/interface_info.rs.html#8">InterfaceInfo</a>, <a href="../object.rs.html#1351-1354">Object</a>, <a href="../types.rs.html#22">Type</a>, <a href="../gobject/auto/flags.rs.html#182-209">TypeFlags</a>, <a href="../gobject/type_info.rs.html#15">TypeInfo</a>, <a href="../value.rs.html#476-510">Value</a>,
 };
 
@@ -1367,7 +1367,7 @@
     </span><span class="attr">#[inline]
     </span><span class="kw">fn </span>instance_init(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>obj = from_glib_borrow::&lt;<span class="kw">_</span>, <a href="../object.rs.html#1351-1354">Object</a>&gt;(<span class="self"><a href="#62">self</a> </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_ as </span><span class="kw-2">*mut </span>gobject_ffi::GObject);
+            <span class="kw">let </span>obj = from_glib_borrow::&lt;<span class="kw">_</span>, <a href="../object.rs.html#1351-1354">Object</a>&gt;(<span class="self"><a href="#62">self</a> </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_ as </span><span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">gobject_ffi::GObject</a>);
             <span class="kw">let </span>obj = <a href="../translate.rs.html#279-281">Borrowed::new</a>(<a href="#64">obj</a>.<a href="../translate.rs.html#291-293">into_inner</a>().<a href="../object.rs.html#254-257">unsafe_cast</a>());
             <span class="kw">let </span><span class="kw-2">mut </span>obj = <a href="#817">InitializingObject</a>(<a href="#65">obj</a>);
 
@@ -2199,7 +2199,7 @@
 
     <span class="comment">// Set trampolines for the basic GObject virtual methods.
     </span>{
-        <span class="kw">let </span>gobject_klass = <span class="kw-2">&amp;mut *</span>(<a href="#883">klass</a> <span class="kw">as </span><span class="kw-2">*mut </span>gobject_ffi::GObjectClass);
+        <span class="kw">let </span>gobject_klass = <span class="kw-2">&amp;mut *</span>(<a href="#883">klass</a> <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObjectClass.html">gobject_ffi::GObjectClass</a>);
 
         <a href="#896">gobject_klass</a>.finalize = <span class="prelude-val">Some</span>(finalize::&lt;T&gt;);
     }
@@ -2221,14 +2221,14 @@
 }
 
 <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>instance_init&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(
-    obj: <span class="kw-2">*mut </span>gobject_ffi::GTypeInstance,
+    obj: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GTypeInstance.html">gobject_ffi::GTypeInstance</a>,
     klass: ffi::gpointer,
 ) {
     <span class="comment">// Get offset to the storage of our private struct, create it
     // and actually store it in that place.
     </span><span class="kw">let </span><span class="kw-2">mut </span>data = <a href="#554">T::type_data</a>();
     <span class="kw">let </span>private_offset = <a href="#923">data</a>.as_mut().private_offset;
-    <span class="kw">let </span>priv_ptr = offset_ptr_by_bytes_mut::&lt;gobject_ffi::GTypeInstance, PrivateStruct&lt;T&gt;&gt;(
+    <span class="kw">let </span>priv_ptr = offset_ptr_by_bytes_mut::&lt;<a href="../../../gobject_sys/struct.GTypeInstance.html">gobject_ffi::GTypeInstance</a>, PrivateStruct&lt;T&gt;&gt;(
         <a href="#918">obj</a>,
         <a href="#924">private_offset</a>,
     );
@@ -2264,17 +2264,17 @@
     <a href="#700">T::instance_init</a>(<span class="kw-2">&amp;</span><a href="#955">obj</a>);
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>finalize&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(obj: <span class="kw-2">*mut </span>gobject_ffi::GObject) {
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>finalize&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(obj: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">gobject_ffi::GObject</a>) {
     <span class="comment">// Retrieve the private struct and drop it for freeing all associated memory.
     </span><span class="kw">let </span><span class="kw-2">mut </span>data = <a href="#554">T::type_data</a>();
     <span class="kw">let </span>private_offset = <a href="#963">data</a>.as_mut().private_offset;
     <span class="kw">let </span>priv_ptr =
-        offset_ptr_by_bytes_mut::&lt;gobject_ffi::GObject, PrivateStruct&lt;T&gt;&gt;(<a href="#961">obj</a>, <a href="#964">private_offset</a>);
+        offset_ptr_by_bytes_mut::&lt;<a href="../../../gobject_sys/struct.GObject.html">gobject_ffi::GObject</a>, PrivateStruct&lt;T&gt;&gt;(<a href="#961">obj</a>, <a href="#964">private_offset</a>);
     <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.drop_in_place.html">ptr::drop_in_place</a>(<a class="macro" href="https://doc.rust-lang.org/nightly/core/ptr/macro.addr_of_mut.html">ptr::addr_of_mut!</a>((<span class="kw-2">*</span>priv_ptr).imp));
     <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.drop_in_place.html">ptr::drop_in_place</a>(<a class="macro" href="https://doc.rust-lang.org/nightly/core/ptr/macro.addr_of_mut.html">ptr::addr_of_mut!</a>((<span class="kw-2">*</span>priv_ptr).instance_data));
 
     <span class="comment">// Chain up to the parent class' finalize implementation, if any.
-    </span><span class="kw">let </span>parent_class = <span class="kw-2">&amp;*</span>(<a href="#963">data</a>.as_ref().<a href="#458-461">parent_class</a>() <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GObjectClass);
+    </span><span class="kw">let </span>parent_class = <span class="kw-2">&amp;*</span>(<a href="#963">data</a>.as_ref().<a href="#458-461">parent_class</a>() <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gobject_sys/struct.GObjectClass.html">gobject_ffi::GObjectClass</a>);
     <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>func) = <a href="#971">parent_class</a>.finalize {
         <a href="#972">func</a>(<a href="#961">obj</a>);
     }
@@ -2395,7 +2395,7 @@
         <span class="kw">let </span>already_registered =
             gobject_ffi::g_type_from_name(<a href="#1087">type_name</a>.as_ptr()) != gobject_ffi::G_TYPE_INVALID;
 
-        <span class="kw">let </span>type_info = <a href="../gobject/type_info.rs.html#15">TypeInfo</a>(gobject_ffi::GTypeInfo {
+        <span class="kw">let </span>type_info = <a href="../gobject/type_info.rs.html#15">TypeInfo</a>(<a href="../../../gobject_sys/struct.GTypeInfo.html">gobject_ffi::GTypeInfo</a> {
             class_size: mem::size_of::&lt;T::Class&gt;() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>,
             class_init: <span class="prelude-val">Some</span>(class_init::&lt;T&gt;),
             instance_size: mem::size_of::&lt;T::Instance&gt;() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>,
@@ -2517,7 +2517,7 @@
 }
 
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">unsafe fn </span>signal_chain_from_overridden(
-    instance: <span class="kw-2">*mut </span>gobject_ffi::GTypeInstance,
+    instance: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GTypeInstance.html">gobject_ffi::GTypeInstance</a>,
     token: <span class="kw-2">&amp;</span><a href="signal.rs.html#39-49"><span class="kw">super</span>::SignalClassHandlerToken</a>,
     values: <span class="kw-2">&amp;</span>[<a href="../value.rs.html#476-510">Value</a>],
 ) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../value.rs.html#476-510">Value</a>&gt; {
@@ -2530,7 +2530,7 @@
 
     <span class="kw">let </span><span class="kw-2">mut </span>result = <a href="../value.rs.html#536-542">Value::from_type_unchecked</a>(<a href="#1215">token</a>.<span class="number">1</span>);
     gobject_ffi::g_signal_chain_from_overridden(
-        <a href="#1216">values</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../value.rs.html#476-510">Value</a> <span class="kw">as </span><span class="kw-2">*mut </span>gobject_ffi::GValue,
+        <a href="#1216">values</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../value.rs.html#476-510">Value</a> <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>,
         <a href="#1225">result</a>.<a href="../translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>,
     );
     <span class="prelude-val">Some</span>(<a href="#1225">result</a>).filter(|r| <a href="#1230">r</a>.<a href="../value.rs.html#598-600">type_</a>().<a href="../types.rs.html#271-273">is_valid</a>() &amp;&amp; <a href="#1230">r</a>.<a href="../value.rs.html#598-600">type_</a>() != Type::UNIT)

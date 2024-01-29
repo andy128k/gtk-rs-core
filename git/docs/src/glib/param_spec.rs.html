@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/param_spec.rs`."><title>param_spec.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/param_spec.rs`."><title>param_spec.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -2318,8 +2318,8 @@
 
 <span class="kw">use crate</span>::{
     object::{<a href="object.rs.html#4066">Interface</a>, <a href="object.rs.html#4266">InterfaceRef</a>, <a href="object.rs.html#4061">IsClass</a>, <a href="object.rs.html#4293">IsInterface</a>, <a href="object.rs.html#1355">ObjectClass</a>},
-    <a href="lib.rs.html#146">prelude</a>::<span class="kw-2">*</span>,
-    <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>,
+    <a href="lib.rs.html#145">prelude</a>::<span class="kw-2">*</span>,
+    <a href="lib.rs.html#150">translate</a>::<span class="kw-2">*</span>,
     <a href="utils.rs.html#240-246">utils::is_canonical_pspec_name</a>,
     <a href="object.rs.html#1351-1354">Object</a>, <a href="gobject/flags.rs.html#5-54">ParamFlags</a>, <a href="types.rs.html#22">Type</a>, <a href="value.rs.html#476-510">Value</a>,
 };
@@ -2341,7 +2341,7 @@
     /// This is an Abstract Base Class, you cannot instantiate it.
     </span><span class="attr">#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
     #[doc(alias = <span class="string">"GParamSpec"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../glib/struct.ParamSpec.html">ParamSpec</a>(Shared&lt;gobject_ffi::GParamSpec&gt;);
+    </span><span class="kw">pub struct </span><a href="../../glib/struct.ParamSpec.html">ParamSpec</a>(Shared&lt;<a href="../../gobject_sys/struct.GParamSpec.html">gobject_ffi::GParamSpec</a>&gt;);
 
     <span class="kw">match fn </span>{
         <span class="kw-2">ref </span>=&gt; |ptr| gobject_ffi::g_param_spec_ref_sink(ptr),
@@ -2384,9 +2384,9 @@
             std::mem::size_of::&lt;<span class="self">Self</span>&gt;(),
             std::mem::size_of::&lt;<span class="kw">crate</span>::ffi::gpointer&gt;()
         );
-        <span class="kw">let </span>value = <span class="kw-2">&amp;*</span>(<a href="#74">value</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="value.rs.html#476-510"><span class="kw">crate</span>::Value</a> <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">crate</span>::gobject_ffi::GValue);
+        <span class="kw">let </span>value = <span class="kw-2">&amp;*</span>(<a href="#74">value</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="value.rs.html#476-510"><span class="kw">crate</span>::Value</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="../../gobject_sys/struct.GValue.html"><span class="kw">crate</span>::gobject_ffi::GValue</a>);
         <span class="kw">let </span>ptr = <span class="kw-2">&amp;</span><a href="#79">value</a>.data[<span class="number">0</span>].v_pointer <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">crate</span>::ffi::gpointer
-            <span class="kw">as </span><span class="kw-2">*const *const </span>gobject_ffi::GParamSpec;
+            <span class="kw">as </span><span class="kw-2">*const *const </span><a href="../../gobject_sys/struct.GParamSpec.html">gobject_ffi::GParamSpec</a>;
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!(<span class="kw-2">*</span>ptr).is_null());
         <span class="kw-2">&amp;*</span>(<a href="#80">ptr</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="#19-42">ParamSpec</a>)
     }
@@ -2669,7 +2669,7 @@
 }
 
 <span class="kw">pub unsafe trait </span><a href="../../glib/trait.ParamSpecType.html">ParamSpecType</a>:
-    <a href="types.rs.html#290-294">StaticType</a> + FromGlibPtrFull&lt;<span class="kw-2">*mut </span>gobject_ffi::GParamSpec&gt; + <span class="lifetime">'static
+    <a href="types.rs.html#290-294">StaticType</a> + FromGlibPtrFull&lt;<span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GParamSpec.html">gobject_ffi::GParamSpec</a>&gt; + <span class="lifetime">'static
 </span>{
 }
 
@@ -3162,7 +3162,7 @@
 }
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecChar.html">ParamSpecChar</a>,
-    gobject_ffi::GParamSpecChar,
+    <a href="../../gobject_sys/struct.GParamSpecChar.html">gobject_ffi::GParamSpecChar</a>,
     <a href="https://doc.rust-lang.org/nightly/std/primitive.i8.html">i8</a>,
     <span class="number">0</span>,
     g_param_spec_char
@@ -3172,7 +3172,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecUChar.html">ParamSpecUChar</a>,
-    gobject_ffi::GParamSpecUChar,
+    <a href="../../gobject_sys/struct.GParamSpecUChar.html">gobject_ffi::GParamSpecUChar</a>,
     <a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>,
     <span class="number">1</span>,
     g_param_spec_uchar
@@ -3185,7 +3185,7 @@
     <a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>
 );
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecBoolean.html">ParamSpecBoolean</a>, gobject_ffi::GParamSpecBoolean, <span class="number">2</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecBoolean.html">ParamSpecBoolean</a>, <a href="../../gobject_sys/struct.GParamSpecBoolean.html">gobject_ffi::GParamSpecBoolean</a>, <span class="number">2</span>);
 
 <a class="macro" href="#598-612">define_param_spec_default!</a>(
     ParamSpecBoolean,
@@ -3224,7 +3224,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecInt.html">ParamSpecInt</a>,
-    gobject_ffi::GParamSpecInt,
+    <a href="../../gobject_sys/struct.GParamSpecInt.html">gobject_ffi::GParamSpecInt</a>,
     <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     <span class="number">3</span>,
     g_param_spec_int
@@ -3234,7 +3234,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecUInt.html">ParamSpecUInt</a>,
-    gobject_ffi::GParamSpecUInt,
+    <a href="../../gobject_sys/struct.GParamSpecUInt.html">gobject_ffi::GParamSpecUInt</a>,
     <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
     <span class="number">4</span>,
     g_param_spec_uint
@@ -3249,7 +3249,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecLong.html">ParamSpecLong</a>,
-    gobject_ffi::GParamSpecLong,
+    <a href="../../gobject_sys/struct.GParamSpecLong.html">gobject_ffi::GParamSpecLong</a>,
     libc::c_long,
     <span class="number">5</span>,
     g_param_spec_long
@@ -3264,7 +3264,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecULong.html">ParamSpecULong</a>,
-    gobject_ffi::GParamSpecULong,
+    <a href="../../gobject_sys/struct.GParamSpecULong.html">gobject_ffi::GParamSpecULong</a>,
     libc::c_ulong,
     <span class="number">6</span>,
     g_param_spec_ulong
@@ -3279,7 +3279,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecInt64.html">ParamSpecInt64</a>,
-    gobject_ffi::GParamSpecInt64,
+    <a href="../../gobject_sys/struct.GParamSpecInt64.html">gobject_ffi::GParamSpecInt64</a>,
     <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
     <span class="number">7</span>,
     g_param_spec_int64
@@ -3294,7 +3294,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecUInt64.html">ParamSpecUInt64</a>,
-    gobject_ffi::GParamSpecUInt64,
+    <a href="../../gobject_sys/struct.GParamSpecUInt64.html">gobject_ffi::GParamSpecUInt64</a>,
     <a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>,
     <span class="number">8</span>,
     g_param_spec_uint64
@@ -3307,7 +3307,7 @@
     <a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>
 );
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecUnichar.html">ParamSpecUnichar</a>, gobject_ffi::GParamSpecUnichar, <span class="number">9</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecUnichar.html">ParamSpecUnichar</a>, <a href="../../gobject_sys/struct.GParamSpecUnichar.html">gobject_ffi::GParamSpecUnichar</a>, <span class="number">9</span>);
 <a class="macro" href="#598-612">define_param_spec_default!</a>(ParamSpecUnichar, gobject_ffi::GParamSpecUnichar, <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>, <a href="https://doc.rust-lang.org/nightly/core/char/convert/struct.CharTryFromError.html">CharTryFromError</a>&gt;, TryFrom::try_from);
 
 <span class="kw">impl </span><a href="#1002">ParamSpecUnichar</a> {
@@ -3339,7 +3339,7 @@
     requires (default_value: <a href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>,)
 );
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecEnum.html">ParamSpecEnum</a>, gobject_ffi::GParamSpecEnum, <span class="number">10</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecEnum.html">ParamSpecEnum</a>, <a href="../../gobject_sys/struct.GParamSpecEnum.html">gobject_ffi::GParamSpecEnum</a>, <span class="number">10</span>);
 
 <span class="kw">impl </span><a href="#1034">ParamSpecEnum</a> {
     <span class="kw">unsafe fn </span>new_unchecked&lt;<span class="lifetime">'a</span>&gt;(
@@ -3366,7 +3366,7 @@
     #[inline]
     </span><span class="kw">pub fn </span>enum_class(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#62"><span class="kw">crate</span>::EnumClass</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpecEnum&gt;::to_glib_none(<a class="self" href="#1059">self</a>).<span class="number">0</span>;
+            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gobject_sys/struct.GParamSpecEnum.html">gobject_ffi::GParamSpecEnum</a>&gt;::to_glib_none(<a class="self" href="#1059">self</a>).<span class="number">0</span>;
 
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!(<span class="kw-2">*</span>ptr).enum_class.is_null());
 
@@ -3392,7 +3392,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>default_value_as_i32(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpecEnum&gt;::to_glib_none(<a class="self" href="#1085">self</a>).<span class="number">0</span>;
+            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gobject_sys/struct.GParamSpecEnum.html">gobject_ffi::GParamSpecEnum</a>&gt;::to_glib_none(<a class="self" href="#1085">self</a>).<span class="number">0</span>;
             (<span class="kw-2">*</span><a href="#1087">ptr</a>).default_value
         }
     }
@@ -3473,7 +3473,7 @@
     }
 }
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecFlags.html">ParamSpecFlags</a>, gobject_ffi::GParamSpecFlags, <span class="number">11</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecFlags.html">ParamSpecFlags</a>, <a href="../../gobject_sys/struct.GParamSpecFlags.html">gobject_ffi::GParamSpecFlags</a>, <span class="number">11</span>);
 
 <span class="kw">impl </span><a href="#1168">ParamSpecFlags</a> {
     <span class="kw">unsafe fn </span>new_unchecked&lt;<span class="lifetime">'a</span>&gt;(
@@ -3500,7 +3500,7 @@
     #[inline]
     </span><span class="kw">pub fn </span>flags_class(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#416"><span class="kw">crate</span>::FlagsClass</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpecFlags&gt;::to_glib_none(<a class="self" href="#1193">self</a>).<span class="number">0</span>;
+            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gobject_sys/struct.GParamSpecFlags.html">gobject_ffi::GParamSpecFlags</a>&gt;::to_glib_none(<a class="self" href="#1193">self</a>).<span class="number">0</span>;
 
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!(<span class="kw-2">*</span>ptr).flags_class.is_null());
 
@@ -3526,7 +3526,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>default_value_as_u32(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpecFlags&gt;::to_glib_none(<a class="self" href="#1219">self</a>).<span class="number">0</span>;
+            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gobject_sys/struct.GParamSpecFlags.html">gobject_ffi::GParamSpecFlags</a>&gt;::to_glib_none(<a class="self" href="#1219">self</a>).<span class="number">0</span>;
             (<span class="kw-2">*</span><a href="#1221">ptr</a>).default_value
         }
     }
@@ -3604,7 +3604,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecFloat.html">ParamSpecFloat</a>,
-    gobject_ffi::GParamSpecFloat,
+    <a href="../../gobject_sys/struct.GParamSpecFloat.html">gobject_ffi::GParamSpecFloat</a>,
     <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>,
     <span class="number">12</span>,
     g_param_spec_float
@@ -3619,7 +3619,7 @@
 
 <a class="macro" href="#638-668">define_param_spec_numeric!</a>(
     <a href="../../glib/struct.ParamSpecDouble.html">ParamSpecDouble</a>,
-    gobject_ffi::GParamSpecDouble,
+    <a href="../../gobject_sys/struct.GParamSpecDouble.html">gobject_ffi::GParamSpecDouble</a>,
     <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>,
     <span class="number">13</span>,
     g_param_spec_double
@@ -3632,7 +3632,7 @@
     <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>
 );
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecString.html">ParamSpecString</a>, gobject_ffi::GParamSpecString, <span class="number">14</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecString.html">ParamSpecString</a>, <a href="../../gobject_sys/struct.GParamSpecString.html">gobject_ffi::GParamSpecString</a>, <span class="number">14</span>);
 
 <a class="macro" href="#598-612">define_param_spec_default!</a>(
     ParamSpecString,
@@ -3731,7 +3731,7 @@
     }
 }
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecParam.html">ParamSpecParam</a>, gobject_ffi::GParamSpecParam, <span class="number">15</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecParam.html">ParamSpecParam</a>, <a href="../../gobject_sys/struct.GParamSpecParam.html">gobject_ffi::GParamSpecParam</a>, <span class="number">15</span>);
 
 <span class="kw">impl </span><a href="#1426">ParamSpecParam</a> {
     <span class="kw">unsafe fn </span>new_unchecked&lt;<span class="lifetime">'a</span>&gt;(
@@ -3763,7 +3763,7 @@
     requires (param_type: <a href="types.rs.html#22"><span class="kw">crate</span>::Type</a>,)
 );
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecBoxed.html">ParamSpecBoxed</a>, gobject_ffi::GParamSpecBoxed, <span class="number">16</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecBoxed.html">ParamSpecBoxed</a>, <a href="../../gobject_sys/struct.GParamSpecBoxed.html">gobject_ffi::GParamSpecBoxed</a>, <span class="number">16</span>);
 
 <span class="kw">impl </span><a href="#1458">ParamSpecBoxed</a> {
     <span class="kw">unsafe fn </span>new_unchecked&lt;<span class="lifetime">'a</span>&gt;(
@@ -3841,7 +3841,7 @@
     }
 }
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecPointer.html">ParamSpecPointer</a>, gobject_ffi::GParamSpecPointer, <span class="number">17</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecPointer.html">ParamSpecPointer</a>, <a href="../../gobject_sys/struct.GParamSpecPointer.html">gobject_ffi::GParamSpecPointer</a>, <span class="number">17</span>);
 
 <span class="kw">impl </span><a href="#1536">ParamSpecPointer</a> {
     <span class="kw">unsafe fn </span>new_unchecked&lt;<span class="lifetime">'a</span>&gt;(
@@ -3867,7 +3867,7 @@
     <a href="../../glib/struct.ParamSpecPointerBuilder.html">ParamSpecPointerBuilder</a> {}
 );
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecValueArray.html">ParamSpecValueArray</a>, gobject_ffi::GParamSpecValueArray, <span class="number">18</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecValueArray.html">ParamSpecValueArray</a>, <a href="../../gobject_sys/struct.GParamSpecValueArray.html">gobject_ffi::GParamSpecValueArray</a>, <span class="number">18</span>);
 
 <span class="kw">impl </span><a href="#1562">ParamSpecValueArray</a> {
     <span class="kw">unsafe fn </span>new_unchecked&lt;<span class="lifetime">'a</span>&gt;(
@@ -3892,13 +3892,13 @@
     #[inline]
     </span><span class="kw">pub fn </span>element_spec(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="#19-42">ParamSpec</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpecValueArray&gt;::to_glib_none(<a class="self" href="#1585">self</a>).<span class="number">0</span>;
+            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gobject_sys/struct.GParamSpecValueArray.html">gobject_ffi::GParamSpecValueArray</a>&gt;::to_glib_none(<a class="self" href="#1585">self</a>).<span class="number">0</span>;
 
             <span class="kw">if </span>(<span class="kw-2">*</span>ptr).element_spec.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
                 <span class="prelude-val">Some</span>(
-                    <span class="kw-2">&amp;*</span>(<span class="kw-2">&amp;</span>(<span class="kw-2">*</span><a href="#1587">ptr</a>).element_spec <span class="kw">as </span><span class="kw-2">*const *mut </span>gobject_ffi::GParamSpec
+                    <span class="kw-2">&amp;*</span>(<span class="kw-2">&amp;</span>(<span class="kw-2">*</span><a href="#1587">ptr</a>).element_spec <span class="kw">as </span><span class="kw-2">*const *mut </span><a href="../../gobject_sys/struct.GParamSpec.html">gobject_ffi::GParamSpec</a>
                         <span class="kw">as </span><span class="kw-2">*const </span><a href="#19-42">ParamSpec</a>),
                 )
             }
@@ -3909,7 +3909,7 @@
     #[inline]
     </span><span class="kw">pub fn </span>fixed_n_elements(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpecValueArray&gt;::to_glib_none(<a class="self" href="#1602">self</a>).<span class="number">0</span>;
+            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gobject_sys/struct.GParamSpecValueArray.html">gobject_ffi::GParamSpecValueArray</a>&gt;::to_glib_none(<a class="self" href="#1602">self</a>).<span class="number">0</span>;
 
             (<span class="kw-2">*</span><a href="#1604">ptr</a>).fixed_n_elements
         }
@@ -3977,7 +3977,7 @@
     }
 }
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecObject.html">ParamSpecObject</a>, gobject_ffi::GParamSpecObject, <span class="number">19</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecObject.html">ParamSpecObject</a>, <a href="../../gobject_sys/struct.GParamSpecObject.html">gobject_ffi::GParamSpecObject</a>, <span class="number">19</span>);
 
 <span class="kw">impl </span><a href="#1672">ParamSpecObject</a> {
     <span class="kw">unsafe fn </span>new_unchecked&lt;<span class="lifetime">'a</span>&gt;(
@@ -4055,7 +4055,7 @@
     }
 }
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecOverride.html">ParamSpecOverride</a>, gobject_ffi::GParamSpecOverride, <span class="number">20</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecOverride.html">ParamSpecOverride</a>, <a href="../../gobject_sys/struct.GParamSpecOverride.html">gobject_ffi::GParamSpecOverride</a>, <span class="number">20</span>);
 
 <span class="kw">impl </span><a href="#1750">ParamSpecOverride</a> {
     <span class="kw">unsafe fn </span>new_unchecked(name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, overridden: <span class="kw">impl </span>AsRef&lt;<a href="#19-42">ParamSpec</a>&gt;) -&gt; <a href="#19-42">ParamSpec</a> {
@@ -4118,7 +4118,7 @@
     #[inline]
     </span><span class="kw">pub fn </span>overridden(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="#19-42">ParamSpec</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpecOverride&gt;::to_glib_none(<a class="self" href="#1811">self</a>).<span class="number">0</span>;
+            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gobject_sys/struct.GParamSpecOverride.html">gobject_ffi::GParamSpecOverride</a>&gt;::to_glib_none(<a class="self" href="#1811">self</a>).<span class="number">0</span>;
 
             <a href="translate.rs.html#1621-1623">from_glib_none</a>((<span class="kw-2">*</span><a href="#1813">ptr</a>).overridden)
         }
@@ -4153,7 +4153,7 @@
     }
 }
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecGType.html">ParamSpecGType</a>, gobject_ffi::GParamSpecGType, <span class="number">21</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecGType.html">ParamSpecGType</a>, <a href="../../gobject_sys/struct.GParamSpecGType.html">gobject_ffi::GParamSpecGType</a>, <span class="number">21</span>);
 
 <span class="kw">impl </span><a href="#1848">ParamSpecGType</a> {
     <span class="kw">unsafe fn </span>new_unchecked&lt;<span class="lifetime">'a</span>&gt;(
@@ -4183,7 +4183,7 @@
     }
 );
 
-<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecVariant.html">ParamSpecVariant</a>, gobject_ffi::GParamSpecVariant, <span class="number">22</span>);
+<a class="macro" href="#373-596">define_param_spec!</a>(<a href="../../glib/struct.ParamSpecVariant.html">ParamSpecVariant</a>, <a href="../../gobject_sys/struct.GParamSpecVariant.html">gobject_ffi::GParamSpecVariant</a>, <span class="number">22</span>);
 
 <a class="macro" href="#598-612">define_param_spec_default!</a>(
     ParamSpecVariant,
@@ -4217,7 +4217,7 @@
     #[inline]
     </span><span class="kw">pub fn </span>type_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="variant_type.rs.html#493-495"><span class="kw">crate</span>::VariantTy</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span>gobject_ffi::GParamSpecVariant&gt;::to_glib_none(<a class="self" href="#1910">self</a>).<span class="number">0</span>;
+            <span class="kw">let </span>ptr = ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="../../gobject_sys/struct.GParamSpecVariant.html">gobject_ffi::GParamSpecVariant</a>&gt;::to_glib_none(<a class="self" href="#1910">self</a>).<span class="number">0</span>;
 
             <span class="kw">if </span>(<span class="kw-2">*</span>ptr).type_.is_null() {
                 <span class="prelude-val">None

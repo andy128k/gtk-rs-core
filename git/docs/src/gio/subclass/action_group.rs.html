@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/subclass/action_group.rs`."><title>action_group.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/subclass/action_group.rs`."><title>action_group.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -751,67 +751,89 @@
 <a href="#676" id="676">676</a>
 <a href="#677" id="677">677</a>
 <a href="#678" id="678">678</a>
+<a href="#679" id="679">679</a>
+<a href="#680" id="680">680</a>
+<a href="#681" id="681">681</a>
+<a href="#682" id="682">682</a>
+<a href="#683" id="683">683</a>
+<a href="#684" id="684">684</a>
+<a href="#685" id="685">685</a>
+<a href="#686" id="686">686</a>
+<a href="#687" id="687">687</a>
+<a href="#688" id="688">688</a>
+<a href="#689" id="689">689</a>
+<a href="#690" id="690">690</a>
+<a href="#691" id="691">691</a>
+<a href="#692" id="692">692</a>
+<a href="#693" id="693">693</a>
+<a href="#694" id="694">694</a>
+<a href="#695" id="695">695</a>
+<a href="#696" id="696">696</a>
+<a href="#697" id="697">697</a>
+<a href="#698" id="698">698</a>
+<a href="#699" id="699">699</a>
+<a href="#700" id="700">700</a>
+<a href="#701" id="701">701</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/core/mem/index.html">mem</a>, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>};
+</span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/core/mem/index.html">mem</a>, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>, <a href="https://doc.rust-lang.org/nightly/std/sync/once_lock/struct.OnceLock.html">sync::OnceLock</a>};
 
 <span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/subclass/prelude/index.html">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="../../../glib/gstring/struct.GString.html">GString</a>, <a href="../../../glib/quark/struct.Quark.html">Quark</a>, <a href="../../../glib_macros/derive.Variant.html">Variant</a>, <a href="../../../glib/variant_type/struct.VariantType.html">VariantType</a>};
-<span class="kw">use </span>once_cell::sync::Lazy;
 
 <span class="kw">use </span><a href="../auto/action_group.rs.html#12-97"><span class="kw">crate</span>::ActionGroup</a>;
 
 <span class="kw">pub trait </span><a href="../../../gio/subclass/prelude/trait.ActionGroupImpl.html">ActionGroupImpl</a>: <a href="../../../glib/subclass/object/trait.ObjectImpl.html">ObjectImpl</a> {
     <span class="kw">fn </span>action_added(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
-        <a class="self" href="#11">self</a>.<a href="#83-96">parent_action_added</a>(<a href="#11">action_name</a>);
+        <a class="self" href="#10">self</a>.<a href="#82-95">parent_action_added</a>(<a href="#10">action_name</a>);
     }
 
     <span class="kw">fn </span>action_enabled_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, enabled: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
-        <a class="self" href="#15">self</a>.<a href="#98-112">parent_action_enabled_changed</a>(<a href="#15">action_name</a>, <a href="#15">enabled</a>);
+        <a class="self" href="#14">self</a>.<a href="#97-111">parent_action_enabled_changed</a>(<a href="#14">action_name</a>, <a href="#14">enabled</a>);
     }
 
     <span class="kw">fn </span>action_removed(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
-        <a class="self" href="#19">self</a>.<a href="#114-127">parent_action_removed</a>(<a href="#19">action_name</a>);
+        <a class="self" href="#18">self</a>.<a href="#113-126">parent_action_removed</a>(<a href="#18">action_name</a>);
     }
 
     <span class="kw">fn </span>action_state_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, state: <span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">Variant</a>) {
-        <a class="self" href="#23">self</a>.<a href="#129-143">parent_action_state_changed</a>(<a href="#23">action_name</a>, <a href="#23">state</a>);
+        <a class="self" href="#22">self</a>.<a href="#128-142">parent_action_state_changed</a>(<a href="#22">action_name</a>, <a href="#22">state</a>);
     }
 
     <span class="kw">fn </span>activate_action(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, parameter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">Variant</a>&gt;) {
-        <a class="self" href="#27">self</a>.<a href="#145-160">parent_activate_action</a>(<a href="#27">action_name</a>, <a href="#27">parameter</a>);
+        <a class="self" href="#26">self</a>.<a href="#144-159">parent_activate_action</a>(<a href="#26">action_name</a>, <a href="#26">parameter</a>);
     }
 
     <span class="kw">fn </span>change_action_state(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, value: <span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">Variant</a>) {
-        <a class="self" href="#31">self</a>.<a href="#162-177">parent_change_action_state</a>(<a href="#31">action_name</a>, <a href="#31">value</a>)
+        <a class="self" href="#30">self</a>.<a href="#161-176">parent_change_action_state</a>(<a href="#30">action_name</a>, <a href="#30">value</a>)
     }
 
     <span class="attr">#[doc(alias = <span class="string">"get_action_enabled"</span>)]
     </span><span class="kw">fn </span>action_is_enabled(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <a class="self" href="#36">self</a>.<a href="#179-194">parent_action_is_enabled</a>(<a href="#36">action_name</a>)
+        <a class="self" href="#35">self</a>.<a href="#178-193">parent_action_is_enabled</a>(<a href="#35">action_name</a>)
     }
 
     <span class="attr">#[doc(alias = <span class="string">"get_action_parameter_type"</span>)]
     </span><span class="kw">fn </span>action_parameter_type(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant_type/struct.VariantType.html">VariantType</a>&gt; {
-        <a class="self" href="#41">self</a>.<a href="#196-211">parent_action_parameter_type</a>(<a href="#41">action_name</a>)
+        <a class="self" href="#40">self</a>.<a href="#195-210">parent_action_parameter_type</a>(<a href="#40">action_name</a>)
     }
 
     <span class="attr">#[doc(alias = <span class="string">"get_action_state"</span>)]
     </span><span class="kw">fn </span>action_state(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant/struct.Variant.html">Variant</a>&gt; {
-        <a class="self" href="#46">self</a>.<a href="#213-228">parent_action_state</a>(<a href="#46">action_name</a>)
+        <a class="self" href="#45">self</a>.<a href="#212-227">parent_action_state</a>(<a href="#45">action_name</a>)
     }
 
     <span class="attr">#[doc(alias = <span class="string">"get_action_state_hint"</span>)]
     </span><span class="kw">fn </span>action_state_hint(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant/struct.Variant.html">Variant</a>&gt; {
-        <a class="self" href="#51">self</a>.<a href="#230-245">parent_action_state_hint</a>(<a href="#51">action_name</a>)
+        <a class="self" href="#50">self</a>.<a href="#229-244">parent_action_state_hint</a>(<a href="#50">action_name</a>)
     }
 
     <span class="attr">#[doc(alias = <span class="string">"get_action_state_type"</span>)]
     </span><span class="kw">fn </span>action_state_type(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant_type/struct.VariantType.html">VariantType</a>&gt; {
-        <a class="self" href="#56">self</a>.<a href="#247-262">parent_action_state_type</a>(<a href="#56">action_name</a>)
+        <a class="self" href="#55">self</a>.<a href="#246-261">parent_action_state_type</a>(<a href="#55">action_name</a>)
     }
 
     <span class="kw">fn </span>has_action(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <a class="self" href="#60">self</a>.<a href="#264-279">parent_has_action</a>(<a href="#60">action_name</a>)
+        <a class="self" href="#59">self</a>.<a href="#263-278">parent_has_action</a>(<a href="#59">action_name</a>)
     }
 
     <span class="kw">fn </span>list_actions(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt;;
@@ -829,20 +851,20 @@
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <a href="#82-343"><span class="kw">super</span>::ActionGroupImplExt</a>&gt; <a href="#78">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <a href="#81-342"><span class="kw">super</span>::ActionGroupImplExt</a>&gt; <a href="#77">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">pub trait </span><a href="../../../gio/subclass/prelude/trait.ActionGroupImplExt.html">ActionGroupImplExt</a>: <a href="#78">sealed::Sealed</a> + <a href="../../../glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a> {
+<span class="kw">pub trait </span><a href="../../../gio/subclass/prelude/trait.ActionGroupImplExt.html">ActionGroupImplExt</a>: <a href="#77">sealed::Sealed</a> + <a href="../../../glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a> {
     <span class="kw">fn </span>parent_action_added(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#85">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#84">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span><a href="#86">parent_iface</a>).action_added {
-                <a href="#89">func</a>(
-                    <a class="self" href="#83">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#83">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span><a href="#85">parent_iface</a>).action_added {
+                <a href="#88">func</a>(
+                    <a class="self" href="#82">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#82">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 );
             }
         }
@@ -851,14 +873,14 @@
     <span class="kw">fn </span>parent_action_enabled_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, enabled: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#100">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#99">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span><a href="#101">parent_iface</a>).action_enabled_changed {
-                <a href="#104">func</a>(
-                    <a class="self" href="#98">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#98">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#98">enabled</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span><a href="#100">parent_iface</a>).action_enabled_changed {
+                <a href="#103">func</a>(
+                    <a class="self" href="#97">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#97">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#97">enabled</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
                 );
             }
         }
@@ -867,13 +889,13 @@
     <span class="kw">fn </span>parent_action_removed(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#116">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#115">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span><a href="#117">parent_iface</a>).action_removed {
-                <a href="#120">func</a>(
-                    <a class="self" href="#114">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#114">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span><a href="#116">parent_iface</a>).action_removed {
+                <a href="#119">func</a>(
+                    <a class="self" href="#113">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#113">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 );
             }
         }
@@ -882,14 +904,14 @@
     <span class="kw">fn </span>parent_action_state_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, state: <span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">Variant</a>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#131">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#130">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span><a href="#132">parent_iface</a>).action_state_changed {
-                <a href="#135">func</a>(
-                    <a class="self" href="#129">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#129">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#129">state</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span><a href="#131">parent_iface</a>).action_state_changed {
+                <a href="#134">func</a>(
+                    <a class="self" href="#128">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#128">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#128">state</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 );
             }
         }
@@ -898,16 +920,16 @@
     <span class="kw">fn </span>parent_activate_action(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, parameter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">Variant</a>&gt;) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#147">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#146">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#148">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#147">parent_iface</a>)
                 .activate_action
                 .expect(<span class="string">"no parent \"activate_action\" implementation"</span>);
-            <a href="#151">func</a>(
-                <a class="self" href="#145">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#145">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#145">parameter</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#150">func</a>(
+                <a class="self" href="#144">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#144">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#144">parameter</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -915,16 +937,16 @@
     <span class="kw">fn </span>parent_change_action_state(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, value: <span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">Variant</a>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#164">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#163">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#165">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#164">parent_iface</a>)
                 .change_action_state
                 .expect(<span class="string">"no parent \"change_action_state\" implementation"</span>);
-            <a href="#168">func</a>(
-                <a class="self" href="#162">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#162">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#162">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#167">func</a>(
+                <a class="self" href="#161">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#161">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#161">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -932,116 +954,116 @@
     <span class="kw">fn </span>parent_action_is_enabled(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#181">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#180">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#182">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#181">parent_iface</a>)
                 .get_action_enabled
                 .expect(<span class="string">"no parent \"action_is_enabled\" implementation"</span>);
-            <span class="kw">let </span>ret = <a href="#185">func</a>(
-                <a class="self" href="#179">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#179">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">let </span>ret = <a href="#184">func</a>(
+                <a class="self" href="#178">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#178">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
-            from_glib(<a href="#188">ret</a>)
+            from_glib(<a href="#187">ret</a>)
         }
     }
 
     <span class="kw">fn </span>parent_action_parameter_type(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant_type/struct.VariantType.html">VariantType</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#198">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#197">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#199">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#198">parent_iface</a>)
                 .get_action_parameter_type
                 .expect(<span class="string">"no parent \"get_action_parameter_type\" implementation"</span>);
-            <span class="kw">let </span>ret = <a href="#202">func</a>(
-                <a class="self" href="#196">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#196">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">let </span>ret = <a href="#201">func</a>(
+                <a class="self" href="#195">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#195">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
-            from_glib_none(<a href="#205">ret</a>)
+            from_glib_none(<a href="#204">ret</a>)
         }
     }
 
     <span class="kw">fn </span>parent_action_state(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant/struct.Variant.html">Variant</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#215">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#214">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#216">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#215">parent_iface</a>)
                 .get_action_state
                 .expect(<span class="string">"no parent \"get_action_state\" implementation"</span>);
-            <span class="kw">let </span>ret = <a href="#219">func</a>(
-                <a class="self" href="#213">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#213">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">let </span>ret = <a href="#218">func</a>(
+                <a class="self" href="#212">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#212">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
-            from_glib_none(<a href="#222">ret</a>)
+            from_glib_none(<a href="#221">ret</a>)
         }
     }
 
     <span class="kw">fn </span>parent_action_state_hint(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant/struct.Variant.html">Variant</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#232">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#231">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#233">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#232">parent_iface</a>)
                 .get_action_state_hint
                 .expect(<span class="string">"no parent \"get_action_state_hint\" implementation"</span>);
-            <span class="kw">let </span>ret = <a href="#236">func</a>(
-                <a class="self" href="#230">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#230">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">let </span>ret = <a href="#235">func</a>(
+                <a class="self" href="#229">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#229">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
-            from_glib_none(<a href="#239">ret</a>)
+            from_glib_none(<a href="#238">ret</a>)
         }
     }
 
     <span class="kw">fn </span>parent_action_state_type(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant_type/struct.VariantType.html">VariantType</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#249">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#248">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#250">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#249">parent_iface</a>)
                 .get_action_state_type
                 .expect(<span class="string">"no parent \"get_action_state_type\" implementation"</span>);
-            <span class="kw">let </span>ret = <a href="#253">func</a>(
-                <a class="self" href="#247">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#247">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">let </span>ret = <a href="#252">func</a>(
+                <a class="self" href="#246">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#246">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
-            from_glib_none(<a href="#256">ret</a>)
+            from_glib_none(<a href="#255">ret</a>)
         }
     }
 
     <span class="kw">fn </span>parent_has_action(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#266">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#265">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#267">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#266">parent_iface</a>)
                 .has_action
                 .expect(<span class="string">"no parent \"has_action\" implementation"</span>);
-            <span class="kw">let </span>ret = <a href="#270">func</a>(
-                <a class="self" href="#264">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#264">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">let </span>ret = <a href="#269">func</a>(
+                <a class="self" href="#263">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#263">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
-            from_glib(<a href="#273">ret</a>)
+            from_glib(<a href="#272">ret</a>)
         }
     }
 
     <span class="kw">fn </span>parent_list_actions(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#283">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#282">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#284">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#283">parent_iface</a>)
                 .list_actions
                 .expect(<span class="string">"no parent \"list_actions\" implementation"</span>);
-            <span class="kw">let </span>ret = <a href="#287">func</a>(<a class="self" href="#281">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
-            <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_none</a>(<a href="#290">ret</a>)
+            <span class="kw">let </span>ret = <a href="#286">func</a>(<a class="self" href="#280">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_none</a>(<a href="#289">ret</a>)
         }
     }
 
@@ -1057,10 +1079,10 @@
     )&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <a href="../../../glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_iface = <a href="#306">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
+            <span class="kw">let </span>parent_iface = <a href="#305">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gio_sys/struct.GActionGroupInterface.html">ffi::GActionGroupInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#307">parent_iface</a>)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#306">parent_iface</a>)
                 .query_action
                 .expect(<span class="string">"no parent \"query_action\" implementation"</span>);
 
@@ -1070,74 +1092,74 @@
             <span class="kw">let </span><span class="kw-2">mut </span>state_hint = ptr::null_mut();
             <span class="kw">let </span><span class="kw-2">mut </span>state = ptr::null_mut();
 
-            <span class="kw">let </span>ret: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> = from_glib(<a href="#310">func</a>(
-                <a class="self" href="#296">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#297">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#314">enabled</a>.as_mut_ptr(),
-                <span class="kw-2">&amp;mut </span><a href="#315">parameter_type</a>,
-                <span class="kw-2">&amp;mut </span><a href="#316">state_type</a>,
-                <span class="kw-2">&amp;mut </span><a href="#317">state_hint</a>,
-                <span class="kw-2">&amp;mut </span><a href="#318">state</a>,
+            <span class="kw">let </span>ret: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> = from_glib(<a href="#309">func</a>(
+                <a class="self" href="#295">self</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#296">action_name</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#313">enabled</a>.as_mut_ptr(),
+                <span class="kw-2">&amp;mut </span><a href="#314">parameter_type</a>,
+                <span class="kw-2">&amp;mut </span><a href="#315">state_type</a>,
+                <span class="kw-2">&amp;mut </span><a href="#316">state_hint</a>,
+                <span class="kw-2">&amp;mut </span><a href="#317">state</a>,
             ));
 
             <span class="kw">if </span>!ret {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
                 <span class="prelude-val">Some</span>((
-                    from_glib(<a href="#314">enabled</a>.assume_init()),
-                    from_glib_none(<a href="#315">parameter_type</a>),
-                    from_glib_none(<a href="#316">state_type</a>),
-                    from_glib_none(<a href="#317">state_hint</a>),
-                    from_glib_none(<a href="#318">state</a>),
+                    from_glib(<a href="#313">enabled</a>.assume_init()),
+                    from_glib_none(<a href="#314">parameter_type</a>),
+                    from_glib_none(<a href="#315">state_type</a>),
+                    from_glib_none(<a href="#316">state_hint</a>),
+                    from_glib_none(<a href="#317">state</a>),
                 ))
             }
         }
     }
 }
 
-<span class="kw">impl</span>&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt; <a href="#82-343">ActionGroupImplExt</a> <span class="kw">for </span>T {}
+<span class="kw">impl</span>&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt; <a href="#81-342">ActionGroupImplExt</a> <span class="kw">for </span>T {}
 
-<span class="kw">unsafe impl</span>&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt; IsImplementable&lt;T&gt; <span class="kw">for </span><a href="../auto/action_group.rs.html#12-97">ActionGroup</a> {
+<span class="kw">unsafe impl</span>&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt; IsImplementable&lt;T&gt; <span class="kw">for </span><a href="../auto/action_group.rs.html#12-97">ActionGroup</a> {
     <span class="kw">fn </span>interface_init(iface: <span class="kw-2">&amp;mut </span>glib::Interface&lt;<span class="self">Self</span>&gt;) {
-        <span class="kw">let </span>iface = <a href="#348">iface</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
+        <span class="kw">let </span>iface = <a href="#347">iface</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
 
-        <a href="#349">iface</a>.action_added = <span class="prelude-val">Some</span>(action_group_action_added::&lt;T&gt;);
-        <a href="#349">iface</a>.action_enabled_changed = <span class="prelude-val">Some</span>(action_group_action_enabled_changed::&lt;T&gt;);
-        <a href="#349">iface</a>.action_removed = <span class="prelude-val">Some</span>(action_group_action_removed::&lt;T&gt;);
-        <a href="#349">iface</a>.action_state_changed = <span class="prelude-val">Some</span>(action_group_action_state_changed::&lt;T&gt;);
-        <a href="#349">iface</a>.activate_action = <span class="prelude-val">Some</span>(action_group_activate_action::&lt;T&gt;);
-        <a href="#349">iface</a>.change_action_state = <span class="prelude-val">Some</span>(action_group_change_action_state::&lt;T&gt;);
-        <a href="#349">iface</a>.get_action_enabled = <span class="prelude-val">Some</span>(action_group_get_action_enabled::&lt;T&gt;);
-        <a href="#349">iface</a>.get_action_parameter_type = <span class="prelude-val">Some</span>(action_group_get_action_parameter_type::&lt;T&gt;);
-        <a href="#349">iface</a>.get_action_state = <span class="prelude-val">Some</span>(action_group_get_action_state::&lt;T&gt;);
-        <a href="#349">iface</a>.get_action_state_hint = <span class="prelude-val">Some</span>(action_group_get_action_state_hint::&lt;T&gt;);
-        <a href="#349">iface</a>.get_action_state_type = <span class="prelude-val">Some</span>(action_group_get_action_state_type::&lt;T&gt;);
-        <a href="#349">iface</a>.has_action = <span class="prelude-val">Some</span>(action_group_has_action::&lt;T&gt;);
-        <a href="#349">iface</a>.list_actions = <span class="prelude-val">Some</span>(action_group_list_actions::&lt;T&gt;);
-        <a href="#349">iface</a>.query_action = <span class="prelude-val">Some</span>(action_group_query_action::&lt;T&gt;);
+        <a href="#348">iface</a>.action_added = <span class="prelude-val">Some</span>(action_group_action_added::&lt;T&gt;);
+        <a href="#348">iface</a>.action_enabled_changed = <span class="prelude-val">Some</span>(action_group_action_enabled_changed::&lt;T&gt;);
+        <a href="#348">iface</a>.action_removed = <span class="prelude-val">Some</span>(action_group_action_removed::&lt;T&gt;);
+        <a href="#348">iface</a>.action_state_changed = <span class="prelude-val">Some</span>(action_group_action_state_changed::&lt;T&gt;);
+        <a href="#348">iface</a>.activate_action = <span class="prelude-val">Some</span>(action_group_activate_action::&lt;T&gt;);
+        <a href="#348">iface</a>.change_action_state = <span class="prelude-val">Some</span>(action_group_change_action_state::&lt;T&gt;);
+        <a href="#348">iface</a>.get_action_enabled = <span class="prelude-val">Some</span>(action_group_get_action_enabled::&lt;T&gt;);
+        <a href="#348">iface</a>.get_action_parameter_type = <span class="prelude-val">Some</span>(action_group_get_action_parameter_type::&lt;T&gt;);
+        <a href="#348">iface</a>.get_action_state = <span class="prelude-val">Some</span>(action_group_get_action_state::&lt;T&gt;);
+        <a href="#348">iface</a>.get_action_state_hint = <span class="prelude-val">Some</span>(action_group_get_action_state_hint::&lt;T&gt;);
+        <a href="#348">iface</a>.get_action_state_type = <span class="prelude-val">Some</span>(action_group_get_action_state_type::&lt;T&gt;);
+        <a href="#348">iface</a>.has_action = <span class="prelude-val">Some</span>(action_group_has_action::&lt;T&gt;);
+        <a href="#348">iface</a>.list_actions = <span class="prelude-val">Some</span>(action_group_list_actions::&lt;T&gt;);
+        <a href="#348">iface</a>.query_action = <span class="prelude-val">Some</span>(action_group_query_action::&lt;T&gt;);
     }
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_has_action&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_has_action&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
 ) -&gt; <a href="../../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a> {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#369">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#370">action_nameptr</a>);
-    <span class="kw">let </span>imp = <a href="#372">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#368">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#369">action_nameptr</a>);
+    <span class="kw">let </span>imp = <a href="#371">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    <a href="#374">imp</a>.<a href="#60-62">has_action</a>(<span class="kw-2">&amp;</span><a href="#373">action_name</a>).<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>()
+    <a href="#373">imp</a>.<a href="#59-61">has_action</a>(<span class="kw-2">&amp;</span><a href="#372">action_name</a>).<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_enabled&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_enabled&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
 ) -&gt; <a href="../../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a> {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#380">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#383">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#381">action_nameptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#379">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#382">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#380">action_nameptr</a>);
 
-    <a href="#384">imp</a>.<a href="#36-38">action_is_enabled</a>(<span class="kw-2">&amp;</span><a href="#385">action_name</a>).<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>()
+    <a href="#383">imp</a>.<a href="#35-37">action_is_enabled</a>(<span class="kw-2">&amp;</span><a href="#384">action_name</a>).<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>()
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -1146,216 +1168,216 @@
 
 <span class="kw">impl</span>&lt;T, F: Fn(<span class="kw-2">*mut </span>T) + <span class="lifetime">'static</span>&gt; <a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span>PtrHolder&lt;T, F&gt; {
     <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
-        (<a class="self" href="#395">self</a>.<span class="number">1</span>)(<a class="self" href="#395">self</a>.<span class="number">0</span>)
+        (<a class="self" href="#394">self</a>.<span class="number">1</span>)(<a class="self" href="#394">self</a>.<span class="number">0</span>)
     }
 }
 
-<span class="kw">static </span>ACTION_GROUP_GET_ACTION_PARAMETER_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-get-action-parameter"</span>));
-
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_parameter_type&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_parameter_type&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
 ) -&gt; <span class="kw-2">*const </span><a href="../../../glib_sys/struct.GVariantType.html">glib::ffi::GVariantType</a> {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#404">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#407">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#405">action_nameptr</a>);
-    <span class="kw">let </span>wrap = from_glib_borrow::&lt;<span class="kw">_</span>, <a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;(<a href="#404">action_group</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#400">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#403">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#401">action_nameptr</a>);
+    <span class="kw">let </span>wrap = from_glib_borrow::&lt;<span class="kw">_</span>, <a href="../auto/action_group.rs.html#12-97">ActionGroup</a>&gt;(<a href="#400">action_group</a>);
 
-    <span class="kw">let </span>ret = <a href="#408">imp</a>.<a href="#41-43">action_parameter_type</a>(<span class="kw-2">&amp;</span><a href="#409">action_name</a>);
+    <span class="kw">let </span>ret = <a href="#404">imp</a>.<a href="#40-42">action_parameter_type</a>(<span class="kw-2">&amp;</span><a href="#405">action_name</a>);
 
-    <span class="kw">if let </span><span class="prelude-val">Some</span>(param_type) = <a href="#412">ret</a> {
-        <span class="kw">let </span>param_type = <a href="#414">param_type</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
-        <a href="#410">wrap</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
-            <span class="kw-2">*</span><a href="#400-401">ACTION_GROUP_GET_ACTION_PARAMETER_QUARK</a>,
-            <a href="#392">PtrHolder</a>(<a href="#415">param_type</a>, |ptr| glib::ffi::g_free(<a href="#418">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)),
+    <span class="kw">if let </span><span class="prelude-val">Some</span>(param_type) = <a href="#408">ret</a> {
+        <span class="kw">let </span>parameter_type_quark = {
+            <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+            <span class="kw-2">*</span><a href="#412">QUARK</a>.get_or_init(|| {
+                Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-get-action-parameter"</span>)
+            })
+        };
+        <span class="kw">let </span>param_type = <a href="#410">param_type</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
+        <a href="#406">wrap</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
+            <a href="#411">parameter_type_quark</a>,
+            <a href="#391">PtrHolder</a>(<a href="#417">param_type</a>, |ptr| glib::ffi::g_free(<a href="#420">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)),
         );
-        <a href="#415">param_type</a>
+        <a href="#417">param_type</a>
     } <span class="kw">else </span>{
         ptr::null()
     }
 }
 
-<span class="kw">static </span>ACTION_GROUP_GET_ACTION_STATE_TYPE_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-get-action-state-type"</span>));
-
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_state_type&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_state_type&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
 ) -&gt; <span class="kw-2">*const </span><a href="../../../glib_sys/struct.GVariantType.html">glib::ffi::GVariantType</a> {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#430">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#433">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#431">action_nameptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#429">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#432">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#430">action_nameptr</a>);
 
-    <span class="kw">let </span>ret = <a href="#434">imp</a>.<a href="#56-58">action_state_type</a>(<span class="kw-2">&amp;</span><a href="#435">action_name</a>);
+    <span class="kw">let </span>ret = <a href="#433">imp</a>.<a href="#55-57">action_state_type</a>(<span class="kw-2">&amp;</span><a href="#434">action_name</a>);
 
-    <span class="kw">if let </span><span class="prelude-val">Some</span>(state_type) = <a href="#437">ret</a> {
-        <span class="kw">let </span>instance = <a href="#434">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
-        <span class="kw">let </span>state_type = <a href="#439">state_type</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
-        <a href="#440">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
-            <span class="kw-2">*</span><a href="#426-427">ACTION_GROUP_GET_ACTION_STATE_TYPE_QUARK</a>,
-            <a href="#392">PtrHolder</a>(<a href="#441">state_type</a>, |ptr| glib::ffi::g_free(<a href="#444">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)),
+    <span class="kw">if let </span><span class="prelude-val">Some</span>(state_type) = <a href="#436">ret</a> {
+        <span class="kw">let </span>instance = <a href="#433">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
+        <span class="kw">let </span>state_type_quark = {
+            <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+            <span class="kw-2">*</span><a href="#441">QUARK</a>.get_or_init(|| {
+                Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-get-action-state-type"</span>)
+            })
+        };
+        <span class="kw">let </span>state_type = <a href="#438">state_type</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
+        <a href="#439">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
+            <a href="#440">state_type_quark</a>,
+            <a href="#391">PtrHolder</a>(<a href="#446">state_type</a>, |ptr| glib::ffi::g_free(<a href="#449">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)),
         );
-        <a href="#441">state_type</a>
+        <a href="#446">state_type</a>
     } <span class="kw">else </span>{
         ptr::null()
     }
 }
 
-<span class="kw">static </span>ACTION_GROUP_GET_ACTION_STATE_HINT_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-get-action-state-hint"</span>));
-
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_state_hint&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_state_hint&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
 ) -&gt; <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a> {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#456">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#459">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#457">action_nameptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#458">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#461">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#459">action_nameptr</a>);
 
-    <span class="kw">let </span>ret = <a href="#460">imp</a>.<a href="#51-53">action_state_hint</a>(<span class="kw-2">&amp;</span><a href="#461">action_name</a>);
-    <span class="kw">if let </span><span class="prelude-val">Some</span>(state_hint) = <a href="#463">ret</a> {
-        <span class="kw">let </span>instance = <a href="#460">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
-        <span class="kw">let </span>state_hint_ptr = <a href="#464">state_hint</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
-        <a href="#465">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
-            <span class="kw-2">*</span><a href="#452-453">ACTION_GROUP_GET_ACTION_STATE_HINT_QUARK</a>,
-            <a href="#392">PtrHolder</a>(<a href="#466">state_hint_ptr</a>, |ptr| glib::ffi::g_variant_unref(<a href="#469">ptr</a>)),
+    <span class="kw">let </span>ret = <a href="#462">imp</a>.<a href="#50-52">action_state_hint</a>(<span class="kw-2">&amp;</span><a href="#463">action_name</a>);
+    <span class="kw">if let </span><span class="prelude-val">Some</span>(state_hint) = <a href="#465">ret</a> {
+        <span class="kw">let </span>instance = <a href="#462">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
+        <span class="kw">let </span>state_hint_quark = {
+            <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+            <span class="kw-2">*</span><a href="#469">QUARK</a>.get_or_init(|| {
+                Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-get-action-state-hint"</span>)
+            })
+        };
+        <span class="kw">let </span>state_hint_ptr = <a href="#466">state_hint</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
+        <a href="#467">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
+            <a href="#468">state_hint_quark</a>,
+            <a href="#391">PtrHolder</a>(<a href="#474">state_hint_ptr</a>, |ptr| glib::ffi::g_variant_unref(<a href="#477">ptr</a>)),
         );
-        <a href="#466">state_hint_ptr</a>
-    } <span class="kw">else </span>{
-        ptr::null_mut()
-    }
-}
-<span class="kw">static </span>ACTION_GROUP_GET_ACTION_STATE_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-get-action-state"</span>));
-
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_state&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
-    action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
-    action_nameptr: <span class="kw-2">*const </span>libc::c_char,
-) -&gt; <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a> {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#480">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#483">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#481">action_nameptr</a>);
-
-    <span class="kw">let </span>ret = <a href="#484">imp</a>.<a href="#46-48">action_state</a>(<span class="kw-2">&amp;</span><a href="#485">action_name</a>);
-    <span class="kw">if let </span><span class="prelude-val">Some</span>(state) = <a href="#487">ret</a> {
-        <span class="kw">let </span>instance = <a href="#484">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
-        <span class="kw">let </span>state_ptr = <a href="#488">state</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
-        <a href="#489">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
-            <span class="kw-2">*</span><a href="#476-477">ACTION_GROUP_GET_ACTION_STATE_QUARK</a>,
-            <a href="#392">PtrHolder</a>(<a href="#490">state_ptr</a>, |ptr| glib::ffi::g_variant_unref(<a href="#493">ptr</a>)),
-        );
-        <a href="#490">state_ptr</a>
+        <a href="#474">state_hint_ptr</a>
     } <span class="kw">else </span>{
         ptr::null_mut()
     }
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_change_action_state&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_get_action_state&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
+    action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
+    action_nameptr: <span class="kw-2">*const </span>libc::c_char,
+) -&gt; <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a> {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#486">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#489">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#487">action_nameptr</a>);
+
+    <span class="kw">let </span>ret = <a href="#490">imp</a>.<a href="#45-47">action_state</a>(<span class="kw-2">&amp;</span><a href="#491">action_name</a>);
+    <span class="kw">if let </span><span class="prelude-val">Some</span>(state) = <a href="#493">ret</a> {
+        <span class="kw">let </span>instance = <a href="#490">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
+        <span class="kw">let </span>state_quark = {
+            <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+            <span class="kw-2">*</span><a href="#497">QUARK</a>.get_or_init(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-get-action-state"</span>))
+        };
+        <span class="kw">let </span>state_ptr = <a href="#494">state</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
+        <a href="#495">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
+            <a href="#496">state_quark</a>,
+            <a href="#391">PtrHolder</a>(<a href="#500">state_ptr</a>, |ptr| glib::ffi::g_variant_unref(<a href="#503">ptr</a>)),
+        );
+        <a href="#500">state_ptr</a>
+    } <span class="kw">else </span>{
+        ptr::null_mut()
+    }
+}
+
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_change_action_state&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
     stateptr: <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a>,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#502">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#506">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#503">action_nameptr</a>);
-    <span class="kw">let </span>state = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Variant::from_glib_borrow</a>(<a href="#504">stateptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#512">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#516">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#513">action_nameptr</a>);
+    <span class="kw">let </span>state = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Variant::from_glib_borrow</a>(<a href="#514">stateptr</a>);
 
-    <a href="#507">imp</a>.<a href="#31-33">change_action_state</a>(<span class="kw-2">&amp;</span><a href="#508">action_name</a>, <span class="kw-2">&amp;</span><a href="#509">state</a>)
+    <a href="#517">imp</a>.<a href="#30-32">change_action_state</a>(<span class="kw-2">&amp;</span><a href="#518">action_name</a>, <span class="kw-2">&amp;</span><a href="#519">state</a>)
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_activate_action&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_activate_action&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
     parameterptr: <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a>,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#515">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#519">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#516">action_nameptr</a>);
-    <span class="kw">let </span>param: Borrowed&lt;<span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant/struct.Variant.html">Variant</a>&gt;&gt; = from_glib_borrow(<a href="#517">parameterptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#525">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#529">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#526">action_nameptr</a>);
+    <span class="kw">let </span>param: Borrowed&lt;<span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant/struct.Variant.html">Variant</a>&gt;&gt; = from_glib_borrow(<a href="#527">parameterptr</a>);
 
-    <a href="#520">imp</a>.<a href="#27-29">activate_action</a>(<span class="kw-2">&amp;</span><a href="#521">action_name</a>, <a href="#522">param</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().as_ref())
+    <a href="#530">imp</a>.<a href="#26-28">activate_action</a>(<span class="kw-2">&amp;</span><a href="#531">action_name</a>, <a href="#532">param</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().as_ref())
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_action_added&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_action_added&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#528">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#531">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#529">action_nameptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#538">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#541">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#539">action_nameptr</a>);
 
-    <a href="#532">imp</a>.<a href="#11-13">action_added</a>(<span class="kw-2">&amp;</span><a href="#533">action_name</a>)
+    <a href="#542">imp</a>.<a href="#10-12">action_added</a>(<span class="kw-2">&amp;</span><a href="#543">action_name</a>)
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_action_removed&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_action_removed&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#539">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#542">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#540">action_nameptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#549">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#552">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#550">action_nameptr</a>);
 
-    <a href="#543">imp</a>.<a href="#19-21">action_removed</a>(<span class="kw-2">&amp;</span><a href="#544">action_name</a>)
+    <a href="#553">imp</a>.<a href="#18-20">action_removed</a>(<span class="kw-2">&amp;</span><a href="#554">action_name</a>)
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_action_enabled_changed&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_action_enabled_changed&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
     enabled: <a href="../../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a>,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#550">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#554">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#551">action_nameptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#560">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#564">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#561">action_nameptr</a>);
 
-    <a href="#555">imp</a>.<a href="#15-17">action_enabled_changed</a>(<span class="kw-2">&amp;</span><a href="#556">action_name</a>, from_glib(<a href="#552">enabled</a>))
+    <a href="#565">imp</a>.<a href="#14-16">action_enabled_changed</a>(<span class="kw-2">&amp;</span><a href="#566">action_name</a>, from_glib(<a href="#562">enabled</a>))
 }
 
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_action_state_changed&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_action_state_changed&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
     stateptr: <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a>,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#562">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#566">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#563">action_nameptr</a>);
-    <span class="kw">let </span>state = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Variant::from_glib_borrow</a>(<a href="#564">stateptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#572">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#576">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#573">action_nameptr</a>);
+    <span class="kw">let </span>state = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Variant::from_glib_borrow</a>(<a href="#574">stateptr</a>);
 
-    <a href="#567">imp</a>.<a href="#23-25">action_state_changed</a>(<span class="kw-2">&amp;</span><a href="#568">action_name</a>, <span class="kw-2">&amp;</span><a href="#569">state</a>)
+    <a href="#577">imp</a>.<a href="#22-24">action_state_changed</a>(<span class="kw-2">&amp;</span><a href="#578">action_name</a>, <span class="kw-2">&amp;</span><a href="#579">state</a>)
 }
 
-<span class="kw">static </span>ACTION_GROUP_LIST_ACTIONS_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-list-actions"</span>));
-
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_list_actions&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_list_actions&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
 ) -&gt; <span class="kw-2">*mut *mut </span>libc::c_char {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#578">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#580">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#585">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#587">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    <span class="kw">let </span>actions = <a href="#581">imp</a>.<a href="#64">list_actions</a>();
+    <span class="kw">let </span>actions = <a href="#588">imp</a>.<a href="#63">list_actions</a>();
 
     {
-        <span class="kw">let </span>instance = <a href="#581">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
-        <span class="kw">let </span>actionsptr = <a href="#583">actions</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_full</a>();
-        <a href="#586">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(<span class="kw-2">*</span><a href="#574-575">ACTION_GROUP_LIST_ACTIONS_QUARK</a>, <a href="#587">actionsptr</a>);
-        <a href="#587">actionsptr</a>
+        <span class="kw">let </span>instance = <a href="#588">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
+        <span class="kw">let </span>actions_quark = {
+            <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+            <span class="kw-2">*</span><a href="#595">QUARK</a>.get_or_init(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-list-actions"</span>))
+        };
+        <span class="kw">let </span>actionsptr = <a href="#590">actions</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_full</a>();
+        <a href="#593">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(<a href="#594">actions_quark</a>, <a href="#598">actionsptr</a>);
+        <a href="#598">actionsptr</a>
     }
 }
 
-<span class="kw">static </span>ACTION_GROUP_QUERY_ACTION_PARAM_TYPE_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-query-action-parameter-type"</span>));
-
-<span class="kw">static </span>ACTION_GROUP_QUERY_ACTION_STATE_TYPE_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-query-action-state-type"</span>));
-
-<span class="kw">static </span>ACTION_GROUP_QUERY_ACTION_STATE_HINT_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-query-action-state-hint"</span>));
-
-<span class="kw">static </span>ACTION_GROUP_QUERY_ACTION_STATE_QUARK: Lazy&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-query-action-state"</span>));
-
-<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_query_action&lt;T: <a href="#10-75">ActionGroupImpl</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>action_group_query_action&lt;T: <a href="#9-74">ActionGroupImpl</a>&gt;(
     action_group: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GActionGroup.html">ffi::GActionGroup</a>,
     action_nameptr: <span class="kw-2">*const </span>libc::c_char,
     enabled: <span class="kw-2">*mut </span><a href="../../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a>,
@@ -1364,63 +1386,87 @@
     state_hint: <span class="kw-2">*mut *mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a>,
     state: <span class="kw-2">*mut *mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a>,
 ) -&gt; <a href="../../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a> {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#606">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#614">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#607">action_nameptr</a>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#605">action_group</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#613">instance</a>.<a href="../../../glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>action_name = <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#606">action_nameptr</a>);
 
-    <span class="kw">let </span>ret = <a href="#615">imp</a>.<a href="#65-74">query_action</a>(<span class="kw-2">&amp;</span><a href="#616">action_name</a>);
-    <span class="kw">if let </span><span class="prelude-val">Some</span>((rs_enabled, rs_parameter_type, rs_state_type, rs_state_hint, rs_state)) = <a href="#618">ret</a> {
-        <span class="kw">let </span>instance = <a href="#615">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
+    <span class="kw">let </span>ret = <a href="#614">imp</a>.<a href="#64-73">query_action</a>(<span class="kw-2">&amp;</span><a href="#615">action_name</a>);
+    <span class="kw">if let </span><span class="prelude-val">Some</span>((rs_enabled, rs_parameter_type, rs_state_type, rs_state_hint, rs_state)) = <a href="#617">ret</a> {
+        <span class="kw">let </span>instance = <a href="#614">imp</a>.<a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>();
 
         <span class="kw">if </span>!enabled.is_null() {
-            <span class="kw-2">*</span><a href="#608">enabled</a> = <a href="#619">rs_enabled</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>();
+            <span class="kw-2">*</span><a href="#607">enabled</a> = <a href="#618">rs_enabled</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>();
         }
         <span class="kw">if </span>!parameter_type.is_null() {
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(rs_parameter_type) = <a href="#619">rs_parameter_type</a> {
-                <span class="kw">let </span>ret = <a href="#626">rs_parameter_type</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
-                <a href="#620">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
-                    <span class="kw-2">*</span><a href="#593-594">ACTION_GROUP_QUERY_ACTION_PARAM_TYPE_QUARK</a>,
-                    <a href="#392">PtrHolder</a>(<a href="#627">ret</a>, |ptr| glib::ffi::g_free(<a href="#630">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)),
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(rs_parameter_type) = <a href="#618">rs_parameter_type</a> {
+                <span class="kw">let </span>param_type_quark = {
+                    <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+                    <span class="kw-2">*</span><a href="#627">QUARK</a>.get_or_init(|| {
+                        Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-query-action-parameter-type"</span>)
+                    })
+                };
+                <span class="kw">let </span>ret = <a href="#625">rs_parameter_type</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
+                <a href="#619">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
+                    <a href="#626">param_type_quark</a>,
+                    <a href="#391">PtrHolder</a>(<a href="#632">ret</a>, |ptr| glib::ffi::g_free(<a href="#635">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)),
                 );
-                <span class="kw-2">*</span><a href="#609">parameter_type</a> = <a href="#627">ret</a>;
+                <span class="kw-2">*</span><a href="#608">parameter_type</a> = <a href="#632">ret</a>;
             } <span class="kw">else </span>{
-                <span class="kw-2">*</span><a href="#609">parameter_type</a> = ptr::null_mut();
+                <span class="kw-2">*</span><a href="#608">parameter_type</a> = ptr::null_mut();
             }
         }
         <span class="kw">if </span>!state_type.is_null() {
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(rs_state_type) = <a href="#619">rs_state_type</a> {
-                <span class="kw">let </span>ret = <a href="#638">rs_state_type</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
-                <a href="#620">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
-                    <span class="kw-2">*</span><a href="#596-597">ACTION_GROUP_QUERY_ACTION_STATE_TYPE_QUARK</a>,
-                    <a href="#392">PtrHolder</a>(<a href="#639">ret</a>, |ptr| glib::ffi::g_free(<a href="#642">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)),
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(rs_state_type) = <a href="#618">rs_state_type</a> {
+                <span class="kw">let </span>state_type_quark = {
+                    <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+                    <span class="kw-2">*</span><a href="#645">QUARK</a>.get_or_init(|| {
+                        Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-query-action-state-type"</span>)
+                    })
+                };
+                <span class="kw">let </span>ret = <a href="#643">rs_state_type</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
+                <a href="#619">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
+                    <a href="#644">state_type_quark</a>,
+                    <a href="#391">PtrHolder</a>(<a href="#650">ret</a>, |ptr| glib::ffi::g_free(<a href="#653">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)),
                 );
-                <span class="kw-2">*</span><a href="#610">state_type</a> = <a href="#639">ret</a>;
+                <span class="kw-2">*</span><a href="#609">state_type</a> = <a href="#650">ret</a>;
             } <span class="kw">else </span>{
-                <span class="kw-2">*</span><a href="#610">state_type</a> = ptr::null_mut();
+                <span class="kw-2">*</span><a href="#609">state_type</a> = ptr::null_mut();
             }
         }
         <span class="kw">if </span>!state_hint.is_null() {
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(rs_state_hint) = <a href="#619">rs_state_hint</a> {
-                <span class="kw">let </span>ret = <a href="#650">rs_state_hint</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
-                <a href="#620">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
-                    <span class="kw-2">*</span><a href="#599-600">ACTION_GROUP_QUERY_ACTION_STATE_HINT_QUARK</a>,
-                    <a href="#392">PtrHolder</a>(<a href="#651">ret</a>, |ptr| glib::ffi::g_variant_unref(<a href="#654">ptr</a>)),
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(rs_state_hint) = <a href="#618">rs_state_hint</a> {
+                <span class="kw">let </span>state_hint_quark = {
+                    <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+                    <span class="kw-2">*</span><a href="#663">QUARK</a>.get_or_init(|| {
+                        Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-query-action-state-hint"</span>)
+                    })
+                };
+                <span class="kw">let </span>ret = <a href="#661">rs_state_hint</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
+                <a href="#619">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
+                    <a href="#662">state_hint_quark</a>,
+                    <a href="#391">PtrHolder</a>(<a href="#668">ret</a>, |ptr| glib::ffi::g_variant_unref(<a href="#671">ptr</a>)),
                 );
-                <span class="kw-2">*</span><a href="#611">state_hint</a> = <a href="#651">ret</a>;
+                <span class="kw-2">*</span><a href="#610">state_hint</a> = <a href="#668">ret</a>;
             } <span class="kw">else </span>{
-                <span class="kw-2">*</span><a href="#611">state_hint</a> = ptr::null_mut();
+                <span class="kw-2">*</span><a href="#610">state_hint</a> = ptr::null_mut();
             }
         }
         <span class="kw">if </span>!state.is_null() {
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(rs_state) = <a href="#619">rs_state</a> {
-                <span class="kw">let </span>ret = <a href="#662">rs_state</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
-                <a href="#620">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
-                    <span class="kw-2">*</span><a href="#602-603">ACTION_GROUP_QUERY_ACTION_STATE_QUARK</a>,
-                    <a href="#392">PtrHolder</a>(<a href="#663">ret</a>, |ptr| glib::ffi::g_variant_unref(<a href="#666">ptr</a>)),
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(rs_state) = <a href="#618">rs_state</a> {
+                <span class="kw">let </span>state_quark = {
+                    <span class="kw">static </span>QUARK: OnceLock&lt;<a href="../../../glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+                    <span class="kw-2">*</span><a href="#681">QUARK</a>.get_or_init(|| {
+                        Quark::from_str(<span class="string">"gtk-rs-subclass-action-group-query-action-state"</span>)
+                    })
+                };
+                <span class="kw">let </span>ret = <a href="#679">rs_state</a>.<a href="../../../glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>();
+                <a href="#619">instance</a>.<a href="../../../glib/object/trait.ObjectExt.html">set_qdata</a>(
+                    <a href="#680">state_quark</a>,
+                    <a href="#391">PtrHolder</a>(<a href="#686">ret</a>, |ptr| glib::ffi::g_variant_unref(<a href="#689">ptr</a>)),
                 );
-                <span class="kw-2">*</span><a href="#612">state</a> = <a href="#663">ret</a>;
+                <span class="kw-2">*</span><a href="#611">state</a> = <a href="#686">ret</a>;
             } <span class="kw">else </span>{
-                <span class="kw-2">*</span><a href="#612">state</a> = ptr::null_mut();
+                <span class="kw-2">*</span><a href="#611">state</a> = ptr::null_mut();
             }
         }
         <span class="bool-val">true

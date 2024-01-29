@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/value_array.rs`."><title>value_array.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/value_array.rs`."><title>value_array.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -329,8 +329,8 @@
 </span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html">cmp::Ordering</a>, <a href="https://doc.rust-lang.org/nightly/core/ops/index.html">ops</a>, <a href="https://doc.rust-lang.org/nightly/alloc/slice/index.html">slice</a>};
 
 <span class="kw">use crate</span>::{
-    <a href="lib.rs.html#146">prelude</a>::<span class="kw-2">*</span>,
-    <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>,
+    <a href="lib.rs.html#145">prelude</a>::<span class="kw-2">*</span>,
+    <a href="lib.rs.html#150">translate</a>::<span class="kw-2">*</span>,
     value::{
         <a href="value.rs.html#270-281">FromValue</a>, <a href="value.rs.html#244">GenericValueTypeOrNoneChecker</a>, <a href="value.rs.html#397-402">ToValueOptional</a>, <a href="value.rs.html#65-73">ValueType</a>, <a href="value.rs.html#79-82">ValueTypeOptional</a>,
     },
@@ -340,7 +340,7 @@
 <a class="macro" href="wrapper.rs.html#277-445">wrapper! </a>{
     <span class="attr">#[derive(Debug)]
     #[doc(alias = <span class="string">"GValueArray"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../glib/struct.ValueArray.html">ValueArray</a>(Boxed&lt;gobject_ffi::GValueArray&gt;);
+    </span><span class="kw">pub struct </span><a href="../../glib/struct.ValueArray.html">ValueArray</a>(Boxed&lt;<a href="../../gobject_sys/struct.GValueArray.html">gobject_ffi::GValueArray</a>&gt;);
 
     <span class="kw">match fn </span>{
         copy =&gt; |ptr| gobject_ffi::g_value_array_copy(mut_override(ptr)),
@@ -493,7 +493,7 @@
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="value.rs.html#476-510">Value</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">let </span>ptr = gobject_ffi::g_value_dup_boxed(<a href="#167">value</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!ptr.is_null());
-        <a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#168">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>gobject_ffi::GValueArray)
+        <a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#168">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValueArray.html">gobject_ffi::GValueArray</a>)
     }
 }
 
@@ -507,11 +507,11 @@
             std::mem::size_of::&lt;<span class="self">Self</span>&gt;(),
             std::mem::size_of::&lt;ffi::gpointer&gt;()
         );
-        <span class="kw">let </span>value = <span class="kw-2">&amp;*</span>(<a href="#179">value</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="value.rs.html#476-510">Value</a> <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GValue);
+        <span class="kw">let </span>value = <span class="kw-2">&amp;*</span>(<a href="#179">value</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="value.rs.html#476-510">Value</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>);
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!value.data[<span class="number">0</span>].v_pointer.is_null());
         &lt;<a href="#14-23">ValueArray</a>&gt;::from_glib_ptr_borrow(
             <span class="kw-2">&amp;</span><a href="#184">value</a>.data[<span class="number">0</span>].v_pointer <span class="kw">as </span><span class="kw-2">*const </span>ffi::gpointer
-                <span class="kw">as </span><span class="kw-2">*const *const </span>gobject_ffi::GValueArray,
+                <span class="kw">as </span><span class="kw-2">*const *const </span><a href="../../gobject_sys/struct.GValueArray.html">gobject_ffi::GValueArray</a>,
         )
     }
 }
@@ -524,7 +524,7 @@
             <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="value.rs.html#536-542">Value::from_type_unchecked</a>(&lt;<span class="self">Self </span><span class="kw">as </span>StaticType&gt;::static_type());
             gobject_ffi::g_value_take_boxed(
                 <a href="#198">value</a>.<a href="translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>,
-                ToGlibPtr::&lt;<span class="kw-2">*mut </span>gobject_ffi::GValueArray&gt;::to_glib_full(<a class="self" href="#196">self</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                ToGlibPtr::&lt;<span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValueArray.html">gobject_ffi::GValueArray</a>&gt;::to_glib_full(<a class="self" href="#196">self</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
             <a href="#198">value</a>
         }
@@ -543,7 +543,7 @@
             <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="value.rs.html#536-542">Value::from_type_unchecked</a>(&lt;<a href="#14-23">ValueArray</a> <span class="kw">as </span>StaticType&gt;::static_type());
             gobject_ffi::g_value_take_boxed(
                 <a href="#217">value</a>.<a href="translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>,
-                IntoGlibPtr::&lt;<span class="kw-2">*mut </span>gobject_ffi::GValueArray&gt;::into_glib_ptr(<a href="#215">o</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                IntoGlibPtr::&lt;<span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValueArray.html">gobject_ffi::GValueArray</a>&gt;::into_glib_ptr(<a href="#215">o</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
             <a href="#217">value</a>
         }
@@ -558,7 +558,7 @@
         <span class="kw">unsafe </span>{
             gobject_ffi::g_value_take_boxed(
                 <a href="#231">value</a>.<a href="translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>,
-                ToGlibPtr::&lt;<span class="kw-2">*mut </span>gobject_ffi::GValueArray&gt;::to_glib_full(<span class="kw-2">&amp;</span><a href="#230">s</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                ToGlibPtr::&lt;<span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValueArray.html">gobject_ffi::GValueArray</a>&gt;::to_glib_full(<span class="kw-2">&amp;</span><a href="#230">s</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
 

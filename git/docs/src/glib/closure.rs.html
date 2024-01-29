@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/closure.rs`."><title>closure.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/closure.rs`."><title>closure.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -528,12 +528,12 @@
 
 <span class="kw">use </span>libc::{c_uint, <a href="https://doc.rust-lang.org/nightly/core/ffi/enum.c_void.html">c_void</a>};
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#146">prelude</a>::<span class="kw-2">*</span>, <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="value.rs.html#270-281">value::FromValue</a>, <a href="types.rs.html#22">Type</a>, <a href="value.rs.html#476-510">Value</a>};
+<span class="kw">use crate</span>::{<a href="lib.rs.html#145">prelude</a>::<span class="kw-2">*</span>, <a href="lib.rs.html#150">translate</a>::<span class="kw-2">*</span>, <a href="value.rs.html#270-281">value::FromValue</a>, <a href="types.rs.html#22">Type</a>, <a href="value.rs.html#476-510">Value</a>};
 
 <a class="macro" href="wrapper.rs.html#277-445">wrapper! </a>{
     <span class="attr">#[derive(PartialEq, Eq, PartialOrd, Ord, Debug, Hash)]
     #[doc(alias = <span class="string">"GClosure"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../glib/closure/struct.Closure.html">Closure</a>(Shared&lt;gobject_ffi::GClosure&gt;);
+    </span><span class="kw">pub struct </span><a href="../../glib/closure/struct.Closure.html">Closure</a>(Shared&lt;<a href="../../gobject_sys/struct.GClosure.html">gobject_ffi::GClosure</a>&gt;);
 
     <span class="kw">match fn </span>{
         <span class="kw-2">ref </span>=&gt; |ptr| {
@@ -734,10 +734,10 @@
     </span><span class="attr">#[doc(alias = <span class="string">"g_closure_new"</span>)]
     </span><span class="kw">pub unsafe fn </span>new_unsafe&lt;F: Fn(<span class="kw-2">&amp;</span>[<a href="value.rs.html#476-510">Value</a>]) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="value.rs.html#476-510">Value</a>&gt;&gt;(callback: F) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>marshal&lt;F&gt;(
-            _closure: <span class="kw-2">*mut </span>gobject_ffi::GClosure,
-            return_value: <span class="kw-2">*mut </span>gobject_ffi::GValue,
+            _closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject_ffi::GClosure</a>,
+            return_value: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>,
             n_param_values: c_uint,
-            param_values: <span class="kw-2">*const </span>gobject_ffi::GValue,
+            param_values: <span class="kw-2">*const </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>,
             _invocation_hint: <span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/core/ffi/enum.c_void.html">c_void</a>,
             marshal_data: <span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/core/ffi/enum.c_void.html">c_void</a>,
         ) <span class="kw">where
@@ -781,7 +781,7 @@
 
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>finalize&lt;F&gt;(
             notify_data: <span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/core/ffi/enum.c_void.html">c_void</a>,
-            _closure: <span class="kw-2">*mut </span>gobject_ffi::GClosure,
+            _closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject_ffi::GClosure</a>,
         ) <span class="kw">where
             </span>F: Fn(<span class="kw-2">&amp;</span>[<a href="value.rs.html#476-510">Value</a>]) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="value.rs.html#476-510">Value</a>&gt;,
         {
@@ -834,7 +834,7 @@
             <a class="self" href="#299">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
             <a href="#305">result_ptr</a>,
             <a href="#299">values</a>.len() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
-            <a href="translate.rs.html#198-200">mut_override</a>(<a href="#299">values</a>.as_ptr()) <span class="kw">as </span><span class="kw-2">*mut </span>gobject_ffi::GValue,
+            <a href="translate.rs.html#198-200">mut_override</a>(<a href="#299">values</a>.as_ptr()) <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>,
             ptr::null_mut(),
         );
 

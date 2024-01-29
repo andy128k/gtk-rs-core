@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/value.rs`."><title>value.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/value.rs`."><title>value.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -1834,8 +1834,8 @@
 
 <span class="kw">use crate</span>::{
     <a href="gstring.rs.html#996">gstring::GString</a>,
-    <a href="lib.rs.html#146">prelude</a>::<span class="kw-2">*</span>,
-    <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>,
+    <a href="lib.rs.html#145">prelude</a>::<span class="kw-2">*</span>,
+    <a href="lib.rs.html#150">translate</a>::<span class="kw-2">*</span>,
     types::{<a href="types.rs.html#404">Pointee</a>, <a href="types.rs.html#387">Pointer</a>, <a href="types.rs.html#22">Type</a>},
 };
 
@@ -2219,31 +2219,31 @@
 }
 
 <span class="attr">#[inline]
-</span><span class="kw">unsafe fn </span>copy_value(value: <span class="kw-2">*const </span>gobject_ffi::GValue) -&gt; <span class="kw-2">*mut </span>gobject_ffi::GValue {
-    <span class="kw">let </span>copy = ffi::g_malloc0(mem::size_of::&lt;gobject_ffi::GValue&gt;()) <span class="kw">as </span><span class="kw-2">*mut </span>gobject_ffi::GValue;
+</span><span class="kw">unsafe fn </span>copy_value(value: <span class="kw-2">*const </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a> {
+    <span class="kw">let </span>copy = ffi::g_malloc0(mem::size_of::&lt;<a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>&gt;()) <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>;
     <a href="#461-464">copy_into_value</a>(<a href="#444">copy</a>, <a href="#443">value</a>);
     <a href="#444">copy</a>
 }
 
 <span class="attr">#[inline]
-</span><span class="kw">unsafe fn </span>free_value(value: <span class="kw-2">*mut </span>gobject_ffi::GValue) {
+</span><span class="kw">unsafe fn </span>free_value(value: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>) {
     <a href="#467-473">clear_value</a>(<a href="#450">value</a>);
     ffi::g_free(<a href="#450">value</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
 }
 
 <span class="attr">#[inline]
-</span><span class="kw">unsafe fn </span>init_value(value: <span class="kw-2">*mut </span>gobject_ffi::GValue) {
+</span><span class="kw">unsafe fn </span>init_value(value: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>) {
     ptr::write(<a href="#456">value</a>, mem::zeroed());
 }
 
 <span class="attr">#[inline]
-</span><span class="kw">unsafe fn </span>copy_into_value(dest: <span class="kw-2">*mut </span>gobject_ffi::GValue, src: <span class="kw-2">*const </span>gobject_ffi::GValue) {
+</span><span class="kw">unsafe fn </span>copy_into_value(dest: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>, src: <span class="kw-2">*const </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>) {
     gobject_ffi::g_value_init(<a href="#461">dest</a>, (<span class="kw-2">*</span><a href="#461">src</a>).g_type);
     gobject_ffi::g_value_copy(<a href="#461">src</a>, <a href="#461">dest</a>);
 }
 
 <span class="attr">#[inline]
-</span><span class="kw">unsafe fn </span>clear_value(value: <span class="kw-2">*mut </span>gobject_ffi::GValue) {
+</span><span class="kw">unsafe fn </span>clear_value(value: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>) {
     <span class="comment">// Before GLib 2.48, unsetting a zeroed GValue would give critical warnings
     // https://bugzilla.gnome.org/show_bug.cgi?id=755766
     </span><span class="kw">if </span>(<span class="kw-2">*</span>value).g_type != gobject_ffi::G_TYPE_INVALID {
@@ -2277,7 +2277,7 @@
     /// within the 2 element `data` union, and the `g_type` member should
     /// only be accessed through the G_VALUE_TYPE() macro.
     </span><span class="attr">#[doc(alias = <span class="string">"GValue"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../glib/value/struct.Value.html">Value</a>(BoxedInline&lt;gobject_ffi::GValue&gt;);
+    </span><span class="kw">pub struct </span><a href="../../glib/value/struct.Value.html">Value</a>(BoxedInline&lt;<a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>&gt;);
 
     <span class="kw">match fn </span>{
         copy =&gt; |ptr| copy_value(ptr),
@@ -2449,7 +2449,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Consumes `Value` and returns the corresponding `GValue`.
     </span><span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>into_raw(<span class="self">self</span>) -&gt; gobject_ffi::GValue {
+    </span><span class="kw">pub fn </span>into_raw(<span class="self">self</span>) -&gt; <a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a> {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>s = mem::ManuallyDrop::new(<a class="self" href="#673">self</a>);
             ptr::read(<span class="kw-2">&amp;</span><a href="#675">s</a>.inner)
@@ -2581,7 +2581,7 @@
     ///
     /// See the [module documentation](index.html) for more details.
     </span><span class="attr">#[doc(alias = <span class="string">"GValue"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../glib/value/struct.SendValue.html">SendValue</a>(BoxedInline&lt;gobject_ffi::GValue&gt;);
+    </span><span class="kw">pub struct </span><a href="../../glib/value/struct.SendValue.html">SendValue</a>(BoxedInline&lt;<a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>&gt;);
 
     <span class="kw">match fn </span>{
         copy =&gt; |ptr| copy_value(ptr),
@@ -2598,7 +2598,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Consumes `SendValue` and returns the corresponding `GValue`.
     </span><span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>into_raw(<span class="self">self</span>) -&gt; gobject_ffi::GValue {
+    </span><span class="kw">pub fn </span>into_raw(<span class="self">self</span>) -&gt; <a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a> {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>s = mem::ManuallyDrop::new(<a class="self" href="#822">self</a>);
             ptr::read(<span class="kw-2">&amp;</span><a href="#824">s</a>.inner)
@@ -3233,7 +3233,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="#476-510">Value</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">let </span>ptr = gobject_ffi::g_value_get_boxed(<a href="#1455">value</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
-        <a href="#1434">BoxedValue</a>(<a href="translate.rs.html#1621-1623">from_glib_none</a>(<a href="#1456">ptr</a> <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GValue))
+        <a href="#1434">BoxedValue</a>(<a href="translate.rs.html#1621-1623">from_glib_none</a>(<a href="#1456">ptr</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="../../gobject_sys/struct.GValue.html">gobject_ffi::GValue</a>))
     }
 }
 

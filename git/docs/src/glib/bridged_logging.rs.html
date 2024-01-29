@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/bridged_logging.rs`."><title>bridged_logging.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/bridged_logging.rs`."><title>bridged_logging.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -460,7 +460,7 @@
 <a href="#385" id="385">385</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use crate</span>::{<a href="lib.rs.html#188">log</a> <span class="kw">as </span>glib_log, <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>};
+</span><span class="kw">use crate</span>::{<a href="lib.rs.html#187">log</a> <span class="kw">as </span>glib_log, <a href="lib.rs.html#150">translate</a>::<span class="kw-2">*</span>};
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Enumeration of the possible formatting behaviours for a
@@ -561,15 +561,15 @@
         <span class="self">Self </span>{ <a href="#100">format</a>, <a href="#100">domain</a> }
     }
 
-    <span class="kw">fn </span>level_to_glib(level: <a href="https://docs.rs/log/0.4.20/log/enum.Level.html">rs_log::Level</a>) -&gt; <a href="log.rs.html#36-49"><span class="kw">crate</span>::LogLevel</a> {
+    <span class="kw">fn </span>level_to_glib(level: <a href="https://docs.rs/log/0.4.20/log/enum.Level.html">rs_log::Level</a>) -&gt; <a href="log.rs.html#34-47"><span class="kw">crate</span>::LogLevel</a> {
         <span class="kw">match </span><a href="#104">level</a> {
             <span class="comment">// Errors are mapped to critical to avoid automatic termination
-            </span>rs_log::Level::Error =&gt; <a href="log.rs.html#40"><span class="kw">crate</span>::LogLevel::Critical</a>,
-            rs_log::Level::Warn =&gt; <a href="log.rs.html#42"><span class="kw">crate</span>::LogLevel::Warning</a>,
-            rs_log::Level::Info =&gt; <a href="log.rs.html#46"><span class="kw">crate</span>::LogLevel::Info</a>,
-            rs_log::Level::Debug =&gt; <a href="log.rs.html#48"><span class="kw">crate</span>::LogLevel::Debug</a>,
+            </span>rs_log::Level::Error =&gt; <a href="log.rs.html#38"><span class="kw">crate</span>::LogLevel::Critical</a>,
+            rs_log::Level::Warn =&gt; <a href="log.rs.html#40"><span class="kw">crate</span>::LogLevel::Warning</a>,
+            rs_log::Level::Info =&gt; <a href="log.rs.html#44"><span class="kw">crate</span>::LogLevel::Info</a>,
+            rs_log::Level::Debug =&gt; <a href="log.rs.html#46"><span class="kw">crate</span>::LogLevel::Debug</a>,
             <span class="comment">// There is no equivalent to trace level in glib
-            </span>rs_log::Level::Trace =&gt; <a href="log.rs.html#48"><span class="kw">crate</span>::LogLevel::Debug</a>,
+            </span>rs_log::Level::Trace =&gt; <a href="log.rs.html#46"><span class="kw">crate</span>::LogLevel::Debug</a>,
         }
     }
 
@@ -604,7 +604,7 @@
         <span class="kw">let </span>line = <a href="#140">line</a>.map(|l| <a href="#144">l</a>.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html">to_string</a>());
         <span class="kw">let </span>line = <a href="#144">line</a>.as_deref();
 
-        <a class="macro" href="log.rs.html#869-921">crate::log_structured!</a>(
+        <a class="macro" href="log.rs.html#875-927">crate::log_structured!</a>(
             domain.unwrap_or(<span class="string">"default"</span>),
             GlibLogger::level_to_glib(level),
             {
@@ -703,12 +703,12 @@
 /// ```no_run
 /// glib::log_set_default_handler(glib::rust_log_handler);
 /// ```
-</span><span class="kw">pub fn </span><a href="../../glib/fn.rust_log_handler.html">rust_log_handler</a>(domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, level: <a href="log.rs.html#36-49">glib_log::LogLevel</a>, message: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
+</span><span class="kw">pub fn </span><a href="../../glib/fn.rust_log_handler.html">rust_log_handler</a>(domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, level: <a href="log.rs.html#34-47">glib_log::LogLevel</a>, message: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
     <span class="kw">let </span>level = <span class="kw">match </span><a href="#246">level</a> {
-        <a href="log.rs.html#38">glib_log::LogLevel::Error</a> | <a href="log.rs.html#40">glib_log::LogLevel::Critical</a> =&gt; rs_log::Level::Error,
-        <a href="log.rs.html#42">glib_log::LogLevel::Warning</a> =&gt; rs_log::Level::Warn,
-        <a href="log.rs.html#44">glib_log::LogLevel::Message</a> | <a href="log.rs.html#46">glib_log::LogLevel::Info</a> =&gt; rs_log::Level::Info,
-        <a href="log.rs.html#48">glib_log::LogLevel::Debug</a> =&gt; rs_log::Level::Debug,
+        <a href="log.rs.html#36">glib_log::LogLevel::Error</a> | <a href="log.rs.html#38">glib_log::LogLevel::Critical</a> =&gt; rs_log::Level::Error,
+        <a href="log.rs.html#40">glib_log::LogLevel::Warning</a> =&gt; rs_log::Level::Warn,
+        <a href="log.rs.html#42">glib_log::LogLevel::Message</a> | <a href="log.rs.html#44">glib_log::LogLevel::Info</a> =&gt; rs_log::Level::Info,
+        <a href="log.rs.html#46">glib_log::LogLevel::Debug</a> =&gt; rs_log::Level::Debug,
     };
 
     <a class="macro" href="https://docs.rs/log/0.4.20/log/macro.log.html">rs_log::log!</a>(target: domain.unwrap_or(<span class="string">"&lt;null&gt;"</span>), level, <span class="string">"{}"</span>, message);

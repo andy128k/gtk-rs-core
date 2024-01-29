@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/sys/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio_sys" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/sys/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio_sys" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -17922,7 +17922,7 @@
 
 <span class="comment">// Callbacks
 </span><span class="kw">pub type </span><a href="../../gio_sys/type.GAsyncReadyCallback.html">GAsyncReadyCallback</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>gobject::GObject, <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>, gpointer)&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>, <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>, gpointer)&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GBusAcquiredCallback.html">GBusAcquiredCallback</a> =
     <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7367-7370">GDBusConnection</a>, <span class="kw-2">*const </span>c_char, gpointer)&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GBusNameAcquiredCallback.html">GBusNameAcquiredCallback</a> =
@@ -18037,13 +18037,13 @@
 <span class="kw">pub type </span><a href="../../gio_sys/type.GIOSchedulerJobFunc.html">GIOSchedulerJobFunc</a> =
     <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#3838">GIOSchedulerJob</a>, <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>, gpointer) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GPollableSourceFunc.html">GPollableSourceFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>gobject::GObject, gpointer) -&gt; gboolean&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>, gpointer) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GReallocFunc.html">GReallocFunc</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(gpointer, size_t) -&gt; gpointer&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GSettingsBindGetMapping.html">GSettingsBindGetMapping</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>gobject::GValue, <span class="kw-2">*mut </span>glib::GVariant, gpointer) -&gt; gboolean&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject::GValue</a>, <span class="kw-2">*mut </span>glib::GVariant, gpointer) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GSettingsBindSetMapping.html">GSettingsBindSetMapping</a> = <span class="prelude-ty">Option</span>&lt;
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
-        <span class="kw-2">*const </span>gobject::GValue,
+        <span class="kw-2">*const </span><a href="../../gobject_sys/struct.GValue.html">gobject::GValue</a>,
         <span class="kw-2">*const </span>glib::GVariantType,
         gpointer,
     ) -&gt; <span class="kw-2">*mut </span>glib::GVariant,
@@ -18051,11 +18051,11 @@
 <span class="kw">pub type </span><a href="../../gio_sys/type.GSettingsGetMapping.html">GSettingsGetMapping</a> =
     <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>glib::GVariant, <span class="kw-2">*mut </span>gpointer, gpointer) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GSimpleAsyncThreadFunc.html">GSimpleAsyncThreadFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8176-8179">GSimpleAsyncResult</a>, <span class="kw-2">*mut </span>gobject::GObject, <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>)&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8176-8179">GSimpleAsyncResult</a>, <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>, <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>)&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GSocketSourceFunc.html">GSocketSourceFunc</a> =
     <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8231-8234">GSocket</a>, glib::GIOCondition, gpointer) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GTaskThreadFunc.html">GTaskThreadFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>, <span class="kw-2">*mut </span>gobject::GObject, gpointer, <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>)&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>, <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>, gpointer, <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>)&gt;;
 <span class="kw">pub type </span><a href="../../gio_sys/type.GVfsFileLookupFunc.html">GVfsFileLookupFunc</a> =
     <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8676-8678">GVfs</a>, <span class="kw-2">*const </span>c_char, gpointer) -&gt; <span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>&gt;;
 
@@ -18087,7 +18087,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GActionGroupInterface.html">GActionGroupInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>has_action: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8743-8746">GActionGroup</a>, <span class="kw-2">*const </span>c_char) -&gt; gboolean&gt;,
     <span class="kw">pub </span>list_actions: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8743-8746">GActionGroup</a>) -&gt; <span class="kw-2">*mut *mut </span>c_char&gt;,
     <span class="kw">pub </span>get_action_enabled:
@@ -18148,7 +18148,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GActionInterface.html">GActionInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>get_name: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8731-8734">GAction</a>) -&gt; <span class="kw-2">*const </span>c_char&gt;,
     <span class="kw">pub </span>get_parameter_type: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8731-8734">GAction</a>) -&gt; <span class="kw-2">*const </span>glib::GVariantType&gt;,
     <span class="kw">pub </span>get_state_type: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8731-8734">GAction</a>) -&gt; <span class="kw-2">*const </span>glib::GVariantType&gt;,
@@ -18178,7 +18178,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GActionMapInterface.html">GActionMapInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>lookup_action: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8755-8758">GActionMap</a>, <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#8731-8734">GAction</a>&gt;,
     <span class="kw">pub </span>add_action: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8755-8758">GActionMap</a>, <span class="kw-2">*mut </span><a href="#8731-8734">GAction</a>)&gt;,
     <span class="kw">pub </span>remove_action: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8755-8758">GActionMap</a>, <span class="kw-2">*const </span>c_char)&gt;,
@@ -18198,7 +18198,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GAppInfoIface.html">GAppInfoIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>dup: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8767-8770">GAppInfo</a>) -&gt; <span class="kw-2">*mut </span><a href="#8767-8770">GAppInfo</a>&gt;,
     <span class="kw">pub </span>equal: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8767-8770">GAppInfo</a>, <span class="kw-2">*mut </span><a href="#8767-8770">GAppInfo</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>get_id: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8767-8770">GAppInfo</a>) -&gt; <span class="kw-2">*const </span>c_char&gt;,
@@ -18300,7 +18300,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GAppLaunchContextClass.html">GAppLaunchContextClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>get_display: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#7187-7190">GAppLaunchContext</a>,
@@ -18352,7 +18352,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GApplicationClass.html">GApplicationClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>startup: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7202-7205">GApplication</a>)&gt;,
     <span class="kw">pub </span>activate: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7202-7205">GApplication</a>)&gt;,
     <span class="kw">pub </span>open:
@@ -18410,7 +18410,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GApplicationCommandLineClass.html">GApplicationCommandLineClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>print_literal: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7215-7218">GApplicationCommandLine</a>, <span class="kw-2">*const </span>c_char)&gt;,
     <span class="kw">pub </span>printerr_literal: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7215-7218">GApplicationCommandLine</a>, <span class="kw-2">*const </span>c_char)&gt;,
     <span class="kw">pub </span>get_stdin: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7215-7218">GApplicationCommandLine</a>) -&gt; <span class="kw-2">*mut </span><a href="#7814-7817">GInputStream</a>&gt;,
@@ -18448,7 +18448,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GAsyncInitableIface.html">GAsyncInitableIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>init_async: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8779-8782">GAsyncInitable</a>,
@@ -18480,9 +18480,9 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GAsyncResultIface.html">GAsyncResultIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>get_user_data: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>) -&gt; gpointer&gt;,
-    <span class="kw">pub </span>get_source_object: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>) -&gt; <span class="kw-2">*mut </span>gobject::GObject&gt;,
+    <span class="kw">pub </span>get_source_object: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>&gt;,
     <span class="kw">pub </span>is_tagged: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>, gpointer) -&gt; gboolean&gt;,
 }
 
@@ -18586,7 +18586,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GCancellableClass.html">GCancellableClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>cancelled: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>)&gt;,
     <span class="kw">pub </span>_g_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_g_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -18620,7 +18620,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GCharsetConverterClass.html">GCharsetConverterClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#1448-1450">GCharsetConverterClass</a> {
@@ -18634,7 +18634,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GConverterIface.html">GConverterIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>convert: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8803-8806">GConverter</a>,
@@ -18792,7 +18792,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusInterfaceIface.html">GDBusInterfaceIface</a> {
-    <span class="kw">pub </span>parent_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>parent_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>get_info: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8815-8818">GDBusInterface</a>) -&gt; <span class="kw-2">*mut </span><a href="#1642-1649">GDBusInterfaceInfo</a>&gt;,
     <span class="kw">pub </span>get_object: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8815-8818">GDBusInterface</a>) -&gt; <span class="kw-2">*mut </span><a href="#8827-8830">GDBusObject</a>&gt;,
     <span class="kw">pub </span>set_object: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8815-8818">GDBusInterface</a>, <span class="kw-2">*mut </span><a href="#8827-8830">GDBusObject</a>)&gt;,
@@ -18838,7 +18838,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusInterfaceSkeletonClass.html">GDBusInterfaceSkeletonClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>get_info:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7381-7384">GDBusInterfaceSkeleton</a>) -&gt; <span class="kw-2">*mut </span><a href="#1642-1649">GDBusInterfaceInfo</a>&gt;,
     <span class="kw">pub </span>get_vtable:
@@ -18940,7 +18940,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectIface.html">GDBusObjectIface</a> {
-    <span class="kw">pub </span>parent_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>parent_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>get_object_path: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8827-8830">GDBusObject</a>) -&gt; <span class="kw-2">*const </span>c_char&gt;,
     <span class="kw">pub </span>get_interfaces: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8827-8830">GDBusObject</a>) -&gt; <span class="kw-2">*mut </span>glib::GList&gt;,
     <span class="kw">pub </span>get_interface:
@@ -18965,7 +18965,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectManagerClientClass.html">GDBusObjectManagerClientClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>interface_proxy_signal: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#7433-7436">GDBusObjectManagerClient</a>,
@@ -19012,7 +19012,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectManagerIface.html">GDBusObjectManagerIface</a> {
-    <span class="kw">pub </span>parent_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>parent_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>get_object_path: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8839-8842">GDBusObjectManager</a>) -&gt; <span class="kw-2">*const </span>c_char&gt;,
     <span class="kw">pub </span>get_objects: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8839-8842">GDBusObjectManager</a>) -&gt; <span class="kw-2">*mut </span>glib::GList&gt;,
     <span class="kw">pub </span>get_object:
@@ -19053,7 +19053,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectManagerServerClass.html">GDBusObjectManagerServerClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>padding: [gpointer; <span class="number">8</span>],
 }
 
@@ -19076,7 +19076,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectProxyClass.html">GDBusObjectProxyClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>padding: [gpointer; <span class="number">8</span>],
 }
 
@@ -19099,7 +19099,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectSkeletonClass.html">GDBusObjectSkeletonClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>authorize_method: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#7475-7478">GDBusObjectSkeleton</a>,
@@ -19152,7 +19152,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusProxyClass.html">GDBusProxyClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>g_properties_changed:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7489-7492">GDBusProxy</a>, <span class="kw-2">*mut </span>glib::GVariant, <span class="kw-2">*const *const </span>c_char)&gt;,
     <span class="kw">pub </span>g_signal: <span class="prelude-ty">Option</span>&lt;
@@ -19284,7 +19284,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDatagramBasedInterface.html">GDatagramBasedInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>receive_messages: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8851-8854">GDatagramBased</a>,
@@ -19343,7 +19343,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDebugControllerDBusClass.html">GDebugControllerDBusClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>authorize: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7544-7546">GDebugControllerDBus</a>, <span class="kw-2">*mut </span><a href="#7419-7422">GDBusMethodInvocation</a>) -&gt; gboolean,
     &gt;,
@@ -19363,7 +19363,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDebugControllerInterface.html">GDebugControllerInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#2191-2193">GDebugControllerInterface</a> {
@@ -19376,7 +19376,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDesktopAppInfoClass.html">GDesktopAppInfoClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#2204-2206">GDesktopAppInfoClass</a> {
@@ -19390,7 +19390,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDesktopAppInfoLookupIface.html">GDesktopAppInfoLookupIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>get_default_for_uri_scheme:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8875-8878">GDesktopAppInfoLookup</a>, <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#8767-8770">GAppInfo</a>&gt;,
 }
@@ -19410,7 +19410,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDriveIface.html">GDriveIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>changed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8887-8890">GDrive</a>)&gt;,
     <span class="kw">pub </span>disconnected: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8887-8890">GDrive</a>)&gt;,
     <span class="kw">pub </span>eject_button: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8887-8890">GDrive</a>)&gt;,
@@ -19537,7 +19537,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDtlsClientConnectionInterface.html">GDtlsClientConnectionInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#2365-2367">GDtlsClientConnectionInterface</a> {
@@ -19551,7 +19551,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDtlsConnectionInterface.html">GDtlsConnectionInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>accept_certificate: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8911-8914">GDtlsConnection</a>,
@@ -19644,7 +19644,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDtlsServerConnectionInterface.html">GDtlsServerConnectionInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#2472-2474">GDtlsServerConnectionInterface</a> {
@@ -19666,7 +19666,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GEmblemedIconClass.html">GEmblemedIconClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#2494-2496">GEmblemedIconClass</a> {
@@ -19735,7 +19735,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GFileDescriptorBasedIface.html">GFileDescriptorBasedIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>get_fd: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8947-8950">GFileDescriptorBased</a>) -&gt; c_int&gt;,
 }
 
@@ -19751,7 +19751,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GFileEnumeratorClass.html">GFileEnumeratorClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>next_file: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#7598-7601">GFileEnumerator</a>,
@@ -19935,7 +19935,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GFileIface.html">GFileIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>dup: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>) -&gt; <span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>&gt;,
     <span class="kw">pub </span>hash: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>) -&gt; c_uint&gt;,
     <span class="kw">pub </span>equal: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>, <span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>) -&gt; gboolean&gt;,
@@ -20788,7 +20788,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GFileMonitorClass.html">GFileMonitorClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>changed:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7667-7670">GFileMonitor</a>, <span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>, <span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>, <a href="#161">GFileMonitorEvent</a>)&gt;,
     <span class="kw">pub </span>cancel: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7667-7670">GFileMonitor</a>) -&gt; gboolean&gt;,
@@ -20912,7 +20912,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GFilenameCompleterClass.html">GFilenameCompleterClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>got_completion_data: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7696-7699">GFilenameCompleter</a>)&gt;,
     <span class="kw">pub </span>_g_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_g_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -21022,7 +21022,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GIOStreamClass.html">GIOStreamClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>get_input_stream: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7754-7757">GIOStream</a>) -&gt; <span class="kw-2">*mut </span><a href="#7814-7817">GInputStream</a>&gt;,
     <span class="kw">pub </span>get_output_stream: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7754-7757">GIOStream</a>) -&gt; <span class="kw-2">*mut </span><a href="#8031-8034">GOutputStream</a>&gt;,
     <span class="kw">pub </span>close_fn: <span class="prelude-ty">Option</span>&lt;
@@ -21086,7 +21086,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GIconIface.html">GIconIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>hash: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8959-8962">GIcon</a>) -&gt; c_uint&gt;,
     <span class="kw">pub </span>equal: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8959-8962">GIcon</a>, <span class="kw-2">*mut </span><a href="#8959-8962">GIcon</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>to_tokens:
@@ -21113,7 +21113,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GInetAddressClass.html">GInetAddressClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>to_string: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7769-7772">GInetAddress</a>) -&gt; <span class="kw-2">*mut </span>c_char&gt;,
     <span class="kw">pub </span>to_bytes: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7769-7772">GInetAddress</a>) -&gt; <span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;,
 }
@@ -21131,7 +21131,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GInetAddressMaskClass.html">GInetAddressMaskClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#3959-3961">GInetAddressMaskClass</a> {
@@ -21183,7 +21183,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GInitableIface.html">GInitableIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>init: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8971-8974">GInitable</a>, <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; gboolean,
     &gt;,
@@ -21227,7 +21227,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GInputStreamClass.html">GInputStreamClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>read_fn: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#7814-7817">GInputStream</a>,
@@ -21359,10 +21359,10 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GListModelInterface.html">GListModelInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>get_item_type: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8983-8986">GListModel</a>) -&gt; GType&gt;,
     <span class="kw">pub </span>get_n_items: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8983-8986">GListModel</a>) -&gt; c_uint&gt;,
-    <span class="kw">pub </span>get_item: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8983-8986">GListModel</a>, c_uint) -&gt; <span class="kw-2">*mut </span>gobject::GObject&gt;,
+    <span class="kw">pub </span>get_item: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8983-8986">GListModel</a>, c_uint) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>&gt;,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#4187-4192">GListModelInterface</a> {
@@ -21379,7 +21379,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GListStoreClass.html">GListStoreClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#4207-4209">GListStoreClass</a> {
@@ -21393,7 +21393,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GLoadableIconIface.html">GLoadableIconIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>load: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8995-8998">GLoadableIcon</a>,
@@ -21468,7 +21468,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMemoryMonitorInterface.html">GMemoryMonitorInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>low_memory_warning:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9007-9010">GMemoryMonitor</a>, <a href="#244">GMemoryMonitorWarningLevel</a>)&gt;,
 }
@@ -21516,7 +21516,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMenuAttributeIterClass.html">GMenuAttributeIterClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>get_next: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#7883-7886">GMenuAttributeIter</a>,
@@ -21546,7 +21546,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMenuLinkIterClass.html">GMenuLinkIterClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>get_next: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#7911-7914">GMenuLinkIter</a>,
@@ -21576,7 +21576,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMenuModelClass.html">GMenuModelClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>is_mutable: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7927-7930">GMenuModel</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>get_n_items: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#7927-7930">GMenuModel</a>) -&gt; c_int&gt;,
     <span class="kw">pub </span>get_item_attributes:
@@ -21626,7 +21626,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMountIface.html">GMountIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>changed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9019-9022">GMount</a>)&gt;,
     <span class="kw">pub </span>unmounted: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9019-9022">GMount</a>)&gt;,
     <span class="kw">pub </span>get_root: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9019-9022">GMount</a>) -&gt; <span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>&gt;,
@@ -21774,7 +21774,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMountOperationClass.html">GMountOperationClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>ask_password: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#7943-7946">GMountOperation</a>,
@@ -21882,7 +21882,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GNetworkAddressClass.html">GNetworkAddressClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#4710-4712">GNetworkAddressClass</a> {
@@ -21904,7 +21904,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GNetworkMonitorInterface.html">GNetworkMonitorInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>network_changed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9031-9034">GNetworkMonitor</a>, gboolean)&gt;,
     <span class="kw">pub </span>can_reach: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
@@ -21947,7 +21947,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GNetworkServiceClass.html">GNetworkServiceClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#4775-4777">GNetworkServiceClass</a> {
@@ -21993,7 +21993,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GOutputStreamClass.html">GOutputStreamClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>write_fn: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8031-8034">GOutputStream</a>,
@@ -22185,7 +22185,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GPermissionClass.html">GPermissionClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>acquire: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8046-8049">GPermission</a>,
@@ -22249,7 +22249,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GPollableInputStreamInterface.html">GPollableInputStreamInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>can_poll: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9043-9046">GPollableInputStream</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>is_readable: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9043-9046">GPollableInputStream</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>create_source: <span class="prelude-ty">Option</span>&lt;
@@ -22280,7 +22280,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GPollableOutputStreamInterface.html">GPollableOutputStreamInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>can_poll: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9055-9058">GPollableOutputStream</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>is_writable: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9055-9058">GPollableOutputStream</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>create_source: <span class="prelude-ty">Option</span>&lt;
@@ -22321,7 +22321,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GPowerProfileMonitorInterface.html">GPowerProfileMonitorInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#5149-5151">GPowerProfileMonitorInterface</a> {
@@ -22391,7 +22391,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GProxyInterface.html">GProxyInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>connect: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#9079-9082">GProxy</a>,
@@ -22436,7 +22436,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GProxyResolverInterface.html">GProxyResolverInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>is_supported: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9091-9094">GProxyResolver</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>lookup: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
@@ -22479,7 +22479,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GRemoteActionGroupInterface.html">GRemoteActionGroupInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>activate_action_full: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#9103-9106">GRemoteActionGroup</a>,
@@ -22511,7 +22511,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GResolverClass.html">GResolverClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>reload: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8103-8106">GResolver</a>)&gt;,
     <span class="kw">pub </span>lookup_by_name: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
@@ -22692,7 +22692,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSeekableIface.html">GSeekableIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>tell: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9115-9118">GSeekable</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>&gt;,
     <span class="kw">pub </span>can_seek: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9115-9118">GSeekable</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>seek: <span class="prelude-ty">Option</span>&lt;
@@ -22731,7 +22731,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSettingsBackendClass.html">GSettingsBackendClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>read: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8135-8138">GSettingsBackend</a>,
@@ -22797,7 +22797,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSettingsClass.html">GSettingsClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>writable_changed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8119-8122">GSettings</a>, <span class="kw-2">*const </span>c_char)&gt;,
     <span class="kw">pub </span>changed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8119-8122">GSettings</a>, <span class="kw-2">*const </span>c_char)&gt;,
     <span class="kw">pub </span>writable_change_event:
@@ -22870,7 +22870,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSimpleActionGroupClass.html">GSimpleActionGroupClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>padding: [gpointer; <span class="number">12</span>],
 }
 
@@ -22900,7 +22900,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSimpleProxyResolverClass.html">GSimpleProxyResolverClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>_g_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_g_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_g_reserved3: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -22932,7 +22932,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketAddressClass.html">GSocketAddressClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>get_family: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8247-8249">GSocketAddress</a>) -&gt; <a href="manual.rs.html#8">GSocketFamily</a>&gt;,
     <span class="kw">pub </span>get_native_size: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8247-8249">GSocketAddress</a>) -&gt; ssize_t&gt;,
     <span class="kw">pub </span>to_native: <span class="prelude-ty">Option</span>&lt;
@@ -22959,7 +22959,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketAddressEnumeratorClass.html">GSocketAddressEnumeratorClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>next: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8261-8263">GSocketAddressEnumerator</a>,
@@ -22997,7 +22997,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketClass.html">GSocketClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>_g_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_g_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_g_reserved3: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -23031,7 +23031,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketClientClass.html">GSocketClientClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>event: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8274-8277">GSocketClient</a>,
@@ -23070,7 +23070,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketConnectableIface.html">GSocketConnectableIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>enumerate:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9127-9130">GSocketConnectable</a>) -&gt; <span class="kw-2">*mut </span><a href="#8261-8263">GSocketAddressEnumerator</a>&gt;,
     <span class="kw">pub </span>proxy_enumerate:
@@ -23126,7 +23126,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketControlMessageClass.html">GSocketControlMessageClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>get_size: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8306-8309">GSocketControlMessage</a>) -&gt; size_t&gt;,
     <span class="kw">pub </span>get_level: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8306-8309">GSocketControlMessage</a>) -&gt; c_int&gt;,
     <span class="kw">pub </span>get_type: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8306-8309">GSocketControlMessage</a>) -&gt; c_int&gt;,
@@ -23169,7 +23169,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketListenerClass.html">GSocketListenerClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>changed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>)&gt;,
     <span class="kw">pub </span>event:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>, <a href="#303">GSocketListenerEvent</a>, <span class="kw-2">*mut </span><a href="#8231-8234">GSocket</a>)&gt;,
@@ -23219,7 +23219,7 @@
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8338-8341">GSocketService</a>,
             <span class="kw-2">*mut </span><a href="#8290-8293">GSocketConnection</a>,
-            <span class="kw-2">*mut </span>gobject::GObject,
+            <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         ) -&gt; gboolean,
     &gt;,
     <span class="kw">pub </span>_g_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -23350,7 +23350,7 @@
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8460-8463">GThreadedSocketService</a>,
             <span class="kw-2">*mut </span><a href="#8290-8293">GSocketConnection</a>,
-            <span class="kw-2">*mut </span>gobject::GObject,
+            <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         ) -&gt; gboolean,
     &gt;,
     <span class="kw">pub </span>_g_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -23385,7 +23385,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsBackendInterface.html">GTlsBackendInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>supports_tls: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9139-9142">GTlsBackend</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>get_certificate_type: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>() -&gt; GType&gt;,
     <span class="kw">pub </span>get_client_connection_type: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>() -&gt; GType&gt;,
@@ -23429,7 +23429,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsCertificateClass.html">GTlsCertificateClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>verify: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8476-8479">GTlsCertificate</a>,
@@ -23460,7 +23460,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsClientConnectionInterface.html">GTlsClientConnectionInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>copy_session_state:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9151-9154">GTlsClientConnection</a>, <span class="kw-2">*mut </span><a href="#9151-9154">GTlsClientConnection</a>)&gt;,
 }
@@ -23545,7 +23545,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsDatabaseClass.html">GTlsDatabaseClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>verify_chain: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8508-8511">GTlsDatabase</a>,
@@ -23723,7 +23723,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsFileDatabaseInterface.html">GTlsFileDatabaseInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>padding: [gpointer; <span class="number">8</span>],
 }
 
@@ -23738,7 +23738,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsInteractionClass.html">GTlsInteractionClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>ask_password: <span class="prelude-ty">Option</span>&lt;
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#8524-8527">GTlsInteraction</a>,
@@ -23819,7 +23819,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsPasswordClass.html">GTlsPasswordClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>get_value: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8538-8541">GTlsPassword</a>, <span class="kw-2">*mut </span>size_t) -&gt; <span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;,
     <span class="kw">pub </span>set_value:
         <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8538-8541">GTlsPassword</a>, <span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, ssize_t, glib::GDestroyNotify)&gt;,
@@ -23849,7 +23849,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsServerConnectionInterface.html">GTlsServerConnectionInterface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#6677-6679">GTlsServerConnectionInterface</a> {
@@ -23911,7 +23911,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GUnixFDListClass.html">GUnixFDListClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>_g_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_g_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
     <span class="kw">pub </span>_g_reserved3: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
@@ -24089,7 +24089,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GVfsClass.html">GVfsClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>is_active: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8676-8678">GVfs</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>get_file_for_path: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8676-8678">GVfs</a>, <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>&gt;,
     <span class="kw">pub </span>get_file_for_uri: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8676-8678">GVfs</a>, <span class="kw-2">*const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#8935-8938">GFile</a>&gt;,
@@ -24159,7 +24159,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GVolumeIface.html">GVolumeIface</a> {
-    <span class="kw">pub </span>g_iface: gobject::GTypeInterface,
+    <span class="kw">pub </span>g_iface: <a href="../../gobject_sys/struct.GTypeInterface.html">gobject::GTypeInterface</a>,
     <span class="kw">pub </span>changed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9187-9190">GVolume</a>)&gt;,
     <span class="kw">pub </span>removed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9187-9190">GVolume</a>)&gt;,
     <span class="kw">pub </span>get_name: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#9187-9190">GVolume</a>) -&gt; <span class="kw-2">*const </span>c_char&gt;,
@@ -24250,7 +24250,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GVolumeMonitorClass.html">GVolumeMonitorClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
     <span class="kw">pub </span>volume_added: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8690-8693">GVolumeMonitor</a>, <span class="kw-2">*mut </span><a href="#9187-9190">GVolume</a>)&gt;,
     <span class="kw">pub </span>volume_removed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8690-8693">GVolumeMonitor</a>, <span class="kw-2">*mut </span><a href="#9187-9190">GVolume</a>)&gt;,
     <span class="kw">pub </span>volume_changed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#8690-8693">GVolumeMonitor</a>, <span class="kw-2">*mut </span><a href="#9187-9190">GVolume</a>)&gt;,
@@ -24317,7 +24317,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GZlibCompressorClass.html">GZlibCompressorClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#7145-7147">GZlibCompressorClass</a> {
@@ -24331,7 +24331,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GZlibDecompressorClass.html">GZlibDecompressorClass</a> {
-    <span class="kw">pub </span>parent_class: gobject::GObjectClass,
+    <span class="kw">pub </span>parent_class: <a href="../../gobject_sys/struct.GObjectClass.html">gobject::GObjectClass</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#7159-7161">GZlibDecompressorClass</a> {
@@ -24359,7 +24359,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GAppLaunchContext.html">GAppLaunchContext</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1176">GAppLaunchContextPrivate</a>,
 }
 
@@ -24374,7 +24374,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GApplication.html">GApplication</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1272">GApplicationPrivate</a>,
 }
 
@@ -24387,7 +24387,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GApplicationCommandLine.html">GApplicationCommandLine</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1264">GApplicationCommandLinePrivate</a>,
 }
 
@@ -24444,7 +24444,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GCancellable.html">GCancellable</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1444">GCancellablePrivate</a>,
 }
 
@@ -24553,7 +24553,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusInterfaceSkeleton.html">GDBusInterfaceSkeleton</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1701">GDBusInterfaceSkeletonPrivate</a>,
 }
 
@@ -24605,7 +24605,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectManagerClient.html">GDBusObjectManagerClient</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1836">GDBusObjectManagerClientPrivate</a>,
 }
 
@@ -24619,7 +24619,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectManagerServer.html">GDBusObjectManagerServer</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1900">GDBusObjectManagerServerPrivate</a>,
 }
 
@@ -24633,7 +24633,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectProxy.html">GDBusObjectProxy</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1923">GDBusObjectProxyPrivate</a>,
 }
 
@@ -24647,7 +24647,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusObjectSkeleton.html">GDBusObjectSkeleton</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#1954">GDBusObjectSkeletonPrivate</a>,
 }
 
@@ -24661,7 +24661,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDBusProxy.html">GDBusProxy</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#2005">GDBusProxyPrivate</a>,
 }
 
@@ -24716,7 +24716,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GDebugControllerDBus.html">GDebugControllerDBus</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#7544-7546">GDebugControllerDBus</a> {
@@ -24755,7 +24755,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GEmblemedIcon.html">GEmblemedIcon</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#2512">GEmblemedIconPrivate</a>,
 }
 
@@ -24770,7 +24770,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GFileEnumerator.html">GFileEnumerator</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#2664">GFileEnumeratorPrivate</a>,
 }
 
@@ -24839,7 +24839,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GFileMonitor.html">GFileMonitor</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#3649">GFileMonitorPrivate</a>,
 }
 
@@ -24926,7 +24926,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GIOStream.html">GIOStream</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#3910">GIOStreamPrivate</a>,
 }
 
@@ -24941,7 +24941,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GInetAddress.html">GInetAddress</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#3985">GInetAddressPrivate</a>,
 }
 
@@ -24956,7 +24956,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GInetAddressMask.html">GInetAddressMask</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#3977">GInetAddressMaskPrivate</a>,
 }
 
@@ -24986,7 +24986,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GInputStream.html">GInputStream</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#4167">GInputStreamPrivate</a>,
 }
 
@@ -25055,7 +25055,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMenuAttributeIter.html">GMenuAttributeIter</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#4370">GMenuAttributeIterPrivate</a>,
 }
 
@@ -25083,7 +25083,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMenuLinkIter.html">GMenuLinkIter</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#4400">GMenuLinkIterPrivate</a>,
 }
 
@@ -25099,7 +25099,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMenuModel.html">GMenuModel</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#4450">GMenuModelPrivate</a>,
 }
 
@@ -25115,7 +25115,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GMountOperation.html">GMountOperation</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#4667">GMountOperationPrivate</a>,
 }
 
@@ -25160,7 +25160,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GNetworkAddress.html">GNetworkAddress</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#4728">GNetworkAddressPrivate</a>,
 }
 
@@ -25175,7 +25175,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GNetworkService.html">GNetworkService</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#4793">GNetworkServicePrivate</a>,
 }
 
@@ -25203,7 +25203,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GOutputStream.html">GOutputStream</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#4993">GOutputStreamPrivate</a>,
 }
 
@@ -25218,7 +25218,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GPermission.html">GPermission</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#5073">GPermissionPrivate</a>,
 }
 
@@ -25275,7 +25275,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GResolver.html">GResolver</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#5504">GResolverPrivate</a>,
 }
 
@@ -25291,7 +25291,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSettings.html">GSettings</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#5655">GSettingsPrivate</a>,
 }
 
@@ -25307,7 +25307,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSettingsBackend.html">GSettingsBackend</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#5621">GSettingsBackendPrivate</a>,
 }
 
@@ -25335,7 +25335,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSimpleActionGroup.html">GSimpleActionGroup</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#5716">GSimpleActionGroupPrivate</a>,
 }
 
@@ -25388,7 +25388,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSimpleProxyResolver.html">GSimpleProxyResolver</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#5756">GSimpleProxyResolverPrivate</a>,
 }
 
@@ -25403,7 +25403,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocket.html">GSocket</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#6038">GSocketPrivate</a>,
 }
 
@@ -25419,7 +25419,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketAddress.html">GSocketAddress</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#8247-8249">GSocketAddress</a> {
@@ -25433,7 +25433,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketAddressEnumerator.html">GSocketAddressEnumerator</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#8261-8263">GSocketAddressEnumerator</a> {
@@ -25446,7 +25446,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketClient.html">GSocketClient</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#5894">GSocketClientPrivate</a>,
 }
 
@@ -25478,7 +25478,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketControlMessage.html">GSocketControlMessage</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#5993">GSocketControlMessagePrivate</a>,
 }
 
@@ -25494,7 +25494,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GSocketListener.html">GSocketListener</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#6030">GSocketListenerPrivate</a>,
 }
 
@@ -25648,7 +25648,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsCertificate.html">GTlsCertificate</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#6284">GTlsCertificatePrivate</a>,
 }
 
@@ -25680,7 +25680,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsDatabase.html">GTlsDatabase</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#6547">GTlsDatabasePrivate</a>,
 }
 
@@ -25696,7 +25696,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsInteraction.html">GTlsInteraction</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#6643">GTlsInteractionPrivate</a>,
 }
 
@@ -25710,7 +25710,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GTlsPassword.html">GTlsPassword</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#6673">GTlsPasswordPrivate</a>,
 }
 
@@ -25758,7 +25758,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GUnixFDList.html">GUnixFDList</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: <span class="kw-2">*mut </span><a href="#6767">GUnixFDListPrivate</a>,
 }
 
@@ -25848,7 +25848,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GVfs.html">GVfs</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#8676-8678">GVfs</a> {
@@ -25862,7 +25862,7 @@
 <span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gio_sys/struct.GVolumeMonitor.html">GVolumeMonitor</a> {
-    <span class="kw">pub </span>parent_instance: gobject::GObject,
+    <span class="kw">pub </span>parent_instance: <a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     <span class="kw">pub </span>priv_: gpointer,
 }
 
@@ -26977,7 +26977,7 @@
     </span><span class="kw">pub fn </span>g_io_extension_get_name(extension: <span class="kw-2">*mut </span><a href="#3806">GIOExtension</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>g_io_extension_get_priority(extension: <span class="kw-2">*mut </span><a href="#3806">GIOExtension</a>) -&gt; c_int;
     <span class="kw">pub fn </span>g_io_extension_get_type(extension: <span class="kw-2">*mut </span><a href="#3806">GIOExtension</a>) -&gt; GType;
-    <span class="kw">pub fn </span>g_io_extension_ref_class(extension: <span class="kw-2">*mut </span><a href="#3806">GIOExtension</a>) -&gt; <span class="kw-2">*mut </span>gobject::GTypeClass;
+    <span class="kw">pub fn </span>g_io_extension_ref_class(extension: <span class="kw-2">*mut </span><a href="#3806">GIOExtension</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GTypeClass.html">gobject::GTypeClass</a>;
 
     <span class="comment">//=========================================================================
     // GIOExtensionPoint
@@ -27256,7 +27256,7 @@
     );
     <span class="kw">pub fn </span>g_application_bind_busy_property(
         application: <span class="kw-2">*mut </span><a href="#7202-7205">GApplication</a>,
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         property: <span class="kw-2">*const </span>c_char,
     );
     <span class="kw">pub fn </span>g_application_get_application_id(application: <span class="kw-2">*mut </span><a href="#7202-7205">GApplication</a>) -&gt; <span class="kw-2">*const </span>c_char;
@@ -27327,7 +27327,7 @@
     );
     <span class="kw">pub fn </span>g_application_unbind_busy_property(
         application: <span class="kw-2">*mut </span><a href="#7202-7205">GApplication</a>,
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         property: <span class="kw-2">*const </span>c_char,
     );
     <span class="kw">pub fn </span>g_application_unmark_busy(application: <span class="kw-2">*mut </span><a href="#7202-7205">GApplication</a>);
@@ -27483,7 +27483,7 @@
     <span class="kw">pub fn </span>g_cancellable_cancel(cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>);
     <span class="kw">pub fn </span>g_cancellable_connect(
         cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>,
-        callback: gobject::GCallback,
+        callback: <a href="../../gobject_sys/type.GCallback.html">gobject::GCallback</a>,
         data: gpointer,
         data_destroy_func: glib::GDestroyNotify,
     ) -&gt; c_ulong;
@@ -27802,9 +27802,9 @@
         connection: <span class="kw-2">*mut </span><a href="#7367-7370">GDBusConnection</a>,
         object_path: <span class="kw-2">*const </span>c_char,
         interface_info: <span class="kw-2">*mut </span><a href="#1642-1649">GDBusInterfaceInfo</a>,
-        method_call_closure: <span class="kw-2">*mut </span>gobject::GClosure,
-        get_property_closure: <span class="kw-2">*mut </span>gobject::GClosure,
-        set_property_closure: <span class="kw-2">*mut </span>gobject::GClosure,
+        method_call_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
+        get_property_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
+        set_property_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; c_uint;
     <span class="kw">pub fn </span>g_dbus_connection_register_subtree(
@@ -28838,7 +28838,7 @@
     <span class="kw">pub fn </span>g_file_info_get_attribute_object(
         info: <span class="kw-2">*mut </span><a href="#7639-7642">GFileInfo</a>,
         attribute: <span class="kw-2">*const </span>c_char,
-    ) -&gt; <span class="kw-2">*mut </span>gobject::GObject;
+    ) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>;
     <span class="kw">pub fn </span>g_file_info_get_attribute_status(
         info: <span class="kw-2">*mut </span><a href="#7639-7642">GFileInfo</a>,
         attribute: <span class="kw-2">*const </span>c_char,
@@ -28926,7 +28926,7 @@
     <span class="kw">pub fn </span>g_file_info_set_attribute_object(
         info: <span class="kw-2">*mut </span><a href="#7639-7642">GFileInfo</a>,
         attribute: <span class="kw-2">*const </span>c_char,
-        attr_value: <span class="kw-2">*mut </span>gobject::GObject,
+        attr_value: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     );
     <span class="kw">pub fn </span>g_file_info_set_attribute_status(
         info: <span class="kw-2">*mut </span><a href="#7639-7642">GFileInfo</a>,
@@ -29330,19 +29330,19 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>g_list_store_get_type() -&gt; GType;
     <span class="kw">pub fn </span>g_list_store_new(item_type: GType) -&gt; <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>;
-    <span class="kw">pub fn </span>g_list_store_append(store: <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>, item: <span class="kw-2">*mut </span>gobject::GObject);
+    <span class="kw">pub fn </span>g_list_store_append(store: <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>, item: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>);
     <span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
     </span><span class="kw">pub fn </span>g_list_store_find(
         store: <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>,
-        item: <span class="kw-2">*mut </span>gobject::GObject,
+        item: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         position: <span class="kw-2">*mut </span>c_uint,
     ) -&gt; gboolean;
     <span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
     </span><span class="kw">pub fn </span>g_list_store_find_with_equal_func(
         store: <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>,
-        item: <span class="kw-2">*mut </span>gobject::GObject,
+        item: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         equal_func: glib::GEqualFunc,
         position: <span class="kw-2">*mut </span>c_uint,
     ) -&gt; gboolean;
@@ -29350,7 +29350,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
     </span><span class="kw">pub fn </span>g_list_store_find_with_equal_func_full(
         store: <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>,
-        item: <span class="kw-2">*mut </span>gobject::GObject,
+        item: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         equal_func: glib::GEqualFuncFull,
         user_data: gpointer,
         position: <span class="kw-2">*mut </span>c_uint,
@@ -29358,11 +29358,11 @@
     <span class="kw">pub fn </span>g_list_store_insert(
         store: <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>,
         position: c_uint,
-        item: <span class="kw-2">*mut </span>gobject::GObject,
+        item: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     );
     <span class="kw">pub fn </span>g_list_store_insert_sorted(
         store: <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>,
-        item: <span class="kw-2">*mut </span>gobject::GObject,
+        item: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         compare_func: glib::GCompareDataFunc,
         user_data: gpointer,
     ) -&gt; c_uint;
@@ -29377,7 +29377,7 @@
         store: <span class="kw-2">*mut </span><a href="#7828-7831">GListStore</a>,
         position: c_uint,
         n_removals: c_uint,
-        additions: <span class="kw-2">*mut *mut </span>gobject::GObject,
+        additions: <span class="kw-2">*mut *mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         n_additions: c_uint,
     );
 
@@ -29974,7 +29974,7 @@
     </span><span class="kw">pub fn </span>g_property_action_get_type() -&gt; GType;
     <span class="kw">pub fn </span>g_property_action_new(
         name: <span class="kw-2">*const </span>c_char,
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         property_name: <span class="kw-2">*const </span>c_char,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8060-8063">GPropertyAction</a>;
 
@@ -30149,19 +30149,19 @@
     <span class="kw">pub fn </span>g_settings_list_relocatable_schemas() -&gt; <span class="kw-2">*const *const </span>c_char;
     <span class="kw">pub fn </span>g_settings_list_schemas() -&gt; <span class="kw-2">*const *const </span>c_char;
     <span class="kw">pub fn </span>g_settings_sync();
-    <span class="kw">pub fn </span>g_settings_unbind(object: <span class="kw-2">*mut </span>gobject::GObject, property: <span class="kw-2">*const </span>c_char);
+    <span class="kw">pub fn </span>g_settings_unbind(object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>, property: <span class="kw-2">*const </span>c_char);
     <span class="kw">pub fn </span>g_settings_apply(settings: <span class="kw-2">*mut </span><a href="#8119-8122">GSettings</a>);
     <span class="kw">pub fn </span>g_settings_bind(
         settings: <span class="kw-2">*mut </span><a href="#8119-8122">GSettings</a>,
         key: <span class="kw-2">*const </span>c_char,
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         property: <span class="kw-2">*const </span>c_char,
         flags: <a href="#703">GSettingsBindFlags</a>,
     );
     <span class="kw">pub fn </span>g_settings_bind_with_mapping(
         settings: <span class="kw-2">*mut </span><a href="#8119-8122">GSettings</a>,
         key: <span class="kw-2">*const </span>c_char,
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         property: <span class="kw-2">*const </span>c_char,
         flags: <a href="#703">GSettingsBindFlags</a>,
         get_mapping: <a href="#868-869">GSettingsBindGetMapping</a>,
@@ -30172,7 +30172,7 @@
     <span class="kw">pub fn </span>g_settings_bind_writable(
         settings: <span class="kw-2">*mut </span><a href="#8119-8122">GSettings</a>,
         key: <span class="kw-2">*const </span>c_char,
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         property: <span class="kw-2">*const </span>c_char,
         inverted: gboolean,
     );
@@ -30369,13 +30369,13 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>g_simple_async_result_get_type() -&gt; GType;
     <span class="kw">pub fn </span>g_simple_async_result_new(
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         user_data: gpointer,
         source_tag: gpointer,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8176-8179">GSimpleAsyncResult</a>;
     <span class="kw">pub fn </span>g_simple_async_result_new_error(
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         user_data: gpointer,
         domain: glib::GQuark,
@@ -30384,20 +30384,20 @@
         ...
     ) -&gt; <span class="kw-2">*mut </span><a href="#8176-8179">GSimpleAsyncResult</a>;
     <span class="kw">pub fn </span>g_simple_async_result_new_from_error(
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         user_data: gpointer,
         error: <span class="kw-2">*const </span>glib::GError,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8176-8179">GSimpleAsyncResult</a>;
     <span class="kw">pub fn </span>g_simple_async_result_new_take_error(
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         user_data: gpointer,
         error: <span class="kw-2">*mut </span>glib::GError,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8176-8179">GSimpleAsyncResult</a>;
     <span class="kw">pub fn </span>g_simple_async_result_is_valid(
         result: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>,
-        source: <span class="kw-2">*mut </span>gobject::GObject,
+        source: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         source_tag: gpointer,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>g_simple_async_result_complete(simple: <span class="kw-2">*mut </span><a href="#8176-8179">GSimpleAsyncResult</a>);
@@ -30971,7 +30971,7 @@
     <span class="kw">pub fn </span>g_socket_listener_new() -&gt; <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>;
     <span class="kw">pub fn </span>g_socket_listener_accept(
         listener: <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>,
-        source_object: <span class="kw-2">*mut *mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut *mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8290-8293">GSocketConnection</a>;
@@ -30984,12 +30984,12 @@
     <span class="kw">pub fn </span>g_socket_listener_accept_finish(
         listener: <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>,
         result: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>,
-        source_object: <span class="kw-2">*mut *mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut *mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8290-8293">GSocketConnection</a>;
     <span class="kw">pub fn </span>g_socket_listener_accept_socket(
         listener: <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>,
-        source_object: <span class="kw-2">*mut *mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut *mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8231-8234">GSocket</a>;
@@ -31002,7 +31002,7 @@
     <span class="kw">pub fn </span>g_socket_listener_accept_socket_finish(
         listener: <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>,
         result: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>,
-        source_object: <span class="kw-2">*mut *mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut *mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8231-8234">GSocket</a>;
     <span class="kw">pub fn </span>g_socket_listener_add_address(
@@ -31010,25 +31010,25 @@
         address: <span class="kw-2">*mut </span><a href="#8247-8249">GSocketAddress</a>,
         type_: <a href="#316">GSocketType</a>,
         protocol: <a href="#309">GSocketProtocol</a>,
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         effective_address: <span class="kw-2">*mut *mut </span><a href="#8247-8249">GSocketAddress</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>g_socket_listener_add_any_inet_port(
         listener: <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>,
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>;
     <span class="kw">pub fn </span>g_socket_listener_add_inet_port(
         listener: <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>,
         port: <a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>,
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>g_socket_listener_add_socket(
         listener: <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>,
         socket: <span class="kw-2">*mut </span><a href="#8231-8234">GSocket</a>,
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>g_socket_listener_close(listener: <span class="kw-2">*mut </span><a href="#8322-8325">GSocketListener</a>);
@@ -31236,24 +31236,24 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>g_task_get_type() -&gt; GType;
     <span class="kw">pub fn </span>g_task_new(
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         callback_data: gpointer,
     ) -&gt; <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>;
     <span class="kw">pub fn </span>g_task_is_valid(
         result: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>,
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>g_task_report_error(
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         callback_data: gpointer,
         source_tag: gpointer,
         error: <span class="kw-2">*mut </span>glib::GError,
     );
     <span class="kw">pub fn </span>g_task_report_new_error(
-        source_object: <span class="kw-2">*mut </span>gobject::GObject,
+        source_object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         callback_data: gpointer,
         source_tag: gpointer,
@@ -31276,7 +31276,7 @@
     </span><span class="kw">pub fn </span>g_task_get_name(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>) -&gt; <span class="kw-2">*const </span>c_char;
     <span class="kw">pub fn </span>g_task_get_priority(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>) -&gt; c_int;
     <span class="kw">pub fn </span>g_task_get_return_on_cancel(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>) -&gt; gboolean;
-    <span class="kw">pub fn </span>g_task_get_source_object(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>) -&gt; <span class="kw-2">*mut </span>gobject::GObject;
+    <span class="kw">pub fn </span>g_task_get_source_object(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>;
     <span class="kw">pub fn </span>g_task_get_source_tag(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>) -&gt; gpointer;
     <span class="kw">pub fn </span>g_task_get_task_data(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>) -&gt; gpointer;
     <span class="kw">pub fn </span>g_task_had_error(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>) -&gt; gboolean;
@@ -31287,7 +31287,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
     </span><span class="kw">pub fn </span>g_task_propagate_value(
         task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>,
-        value: <span class="kw-2">*mut </span>gobject::GValue,
+        value: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject::GValue</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>g_task_return_boolean(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>, result: gboolean);
@@ -31324,7 +31324,7 @@
     );
     <span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
-    </span><span class="kw">pub fn </span>g_task_return_value(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>, result: <span class="kw-2">*mut </span>gobject::GValue);
+    </span><span class="kw">pub fn </span>g_task_return_value(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>, result: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject::GValue</a>);
     <span class="kw">pub fn </span>g_task_run_in_thread(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>, task_func: <a href="#883-884">GTaskThreadFunc</a>);
     <span class="kw">pub fn </span>g_task_run_in_thread_sync(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>, task_func: <a href="#883-884">GTaskThreadFunc</a>);
     <span class="kw">pub fn </span>g_task_set_check_cancellable(task: <span class="kw-2">*mut </span><a href="#8378-8381">GTask</a>, check_cancellable: gboolean);
@@ -32224,7 +32224,7 @@
     </span><span class="kw">pub fn </span>g_async_initable_newv_async(
         object_type: GType,
         n_parameters: c_uint,
-        parameters: <span class="kw-2">*mut </span>gobject::GParameter,
+        parameters: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GParameter.html">gobject::GParameter</a>,
         io_priority: c_int,
         cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
@@ -32246,13 +32246,13 @@
         initable: <span class="kw-2">*mut </span><a href="#8779-8782">GAsyncInitable</a>,
         res: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
-    ) -&gt; <span class="kw-2">*mut </span>gobject::GObject;
+    ) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>;
 
     <span class="comment">//=========================================================================
     // GAsyncResult
     //=========================================================================
     </span><span class="kw">pub fn </span>g_async_result_get_type() -&gt; GType;
-    <span class="kw">pub fn </span>g_async_result_get_source_object(res: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>) -&gt; <span class="kw-2">*mut </span>gobject::GObject;
+    <span class="kw">pub fn </span>g_async_result_get_source_object(res: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>;
     <span class="kw">pub fn </span>g_async_result_get_user_data(res: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>) -&gt; gpointer;
     <span class="kw">pub fn </span>g_async_result_is_tagged(res: <span class="kw-2">*mut </span><a href="#8791-8794">GAsyncResult</a>, source_tag: gpointer) -&gt; gboolean;
     <span class="kw">pub fn </span>g_async_result_legacy_propagate_error(
@@ -33477,15 +33477,15 @@
         error: <span class="kw-2">*mut *mut </span>glib::GError,
         first_property_name: <span class="kw-2">*const </span>c_char,
         ...
-    ) -&gt; <span class="kw-2">*mut </span>gobject::GObject;
+    ) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>;
     <span class="comment">//pub fn g_initable_new_valist(object_type: GType, first_property_name: *const c_char, var_args: /*Unimplemented*/va_list, cancellable: *mut GCancellable, error: *mut *mut glib::GError) -&gt; *mut gobject::GObject;
     </span><span class="kw">pub fn </span>g_initable_newv(
         object_type: GType,
         n_parameters: c_uint,
-        parameters: <span class="kw-2">*mut </span>gobject::GParameter,
+        parameters: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GParameter.html">gobject::GParameter</a>,
         cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>,
         error: <span class="kw-2">*mut *mut </span>glib::GError,
-    ) -&gt; <span class="kw-2">*mut </span>gobject::GObject;
+    ) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>;
     <span class="kw">pub fn </span>g_initable_init(
         initable: <span class="kw-2">*mut </span><a href="#8971-8974">GInitable</a>,
         cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>,
@@ -33502,7 +33502,7 @@
     <span class="kw">pub fn </span>g_list_model_get_object(
         list: <span class="kw-2">*mut </span><a href="#8983-8986">GListModel</a>,
         position: c_uint,
-    ) -&gt; <span class="kw-2">*mut </span>gobject::GObject;
+    ) -&gt; <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>;
     <span class="kw">pub fn </span>g_list_model_items_changed(
         list: <span class="kw-2">*mut </span><a href="#8983-8986">GListModel</a>,
         position: c_uint,
@@ -34010,16 +34010,16 @@
         connection: <span class="kw-2">*mut </span><a href="#7367-7370">GDBusConnection</a>,
         name: <span class="kw-2">*const </span>c_char,
         flags: <a href="#550">GBusNameOwnerFlags</a>,
-        name_acquired_closure: <span class="kw-2">*mut </span>gobject::GClosure,
-        name_lost_closure: <span class="kw-2">*mut </span>gobject::GClosure,
+        name_acquired_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
+        name_lost_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
     ) -&gt; c_uint;
     <span class="kw">pub fn </span>g_bus_own_name_with_closures(
         bus_type: <a href="#28">GBusType</a>,
         name: <span class="kw-2">*const </span>c_char,
         flags: <a href="#550">GBusNameOwnerFlags</a>,
-        bus_acquired_closure: <span class="kw-2">*mut </span>gobject::GClosure,
-        name_acquired_closure: <span class="kw-2">*mut </span>gobject::GClosure,
-        name_lost_closure: <span class="kw-2">*mut </span>gobject::GClosure,
+        bus_acquired_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
+        name_acquired_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
+        name_lost_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
     ) -&gt; c_uint;
     <span class="kw">pub fn </span>g_bus_unown_name(owner_id: c_uint);
     <span class="kw">pub fn </span>g_bus_unwatch_name(watcher_id: c_uint);
@@ -34045,15 +34045,15 @@
         connection: <span class="kw-2">*mut </span><a href="#7367-7370">GDBusConnection</a>,
         name: <span class="kw-2">*const </span>c_char,
         flags: <a href="#556">GBusNameWatcherFlags</a>,
-        name_appeared_closure: <span class="kw-2">*mut </span>gobject::GClosure,
-        name_vanished_closure: <span class="kw-2">*mut </span>gobject::GClosure,
+        name_appeared_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
+        name_vanished_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
     ) -&gt; c_uint;
     <span class="kw">pub fn </span>g_bus_watch_name_with_closures(
         bus_type: <a href="#28">GBusType</a>,
         name: <span class="kw-2">*const </span>c_char,
         flags: <a href="#556">GBusNameWatcherFlags</a>,
-        name_appeared_closure: <span class="kw-2">*mut </span>gobject::GClosure,
-        name_vanished_closure: <span class="kw-2">*mut </span>gobject::GClosure,
+        name_appeared_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
+        name_vanished_closure: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GClosure.html">gobject::GClosure</a>,
     ) -&gt; c_uint;
     <span class="kw">pub fn </span>g_content_type_can_be_executable(type_: <span class="kw-2">*const </span>c_char) -&gt; gboolean;
     <span class="kw">pub fn </span>g_content_type_equals(type1: <span class="kw-2">*const </span>c_char, type2: <span class="kw-2">*const </span>c_char) -&gt; gboolean;
@@ -34111,10 +34111,10 @@
     </span><span class="kw">pub fn </span>g_dbus_escape_object_path_bytestring(bytes: <span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>) -&gt; <span class="kw-2">*mut </span>c_char;
     <span class="kw">pub fn </span>g_dbus_generate_guid() -&gt; <span class="kw-2">*mut </span>c_char;
     <span class="kw">pub fn </span>g_dbus_gvalue_to_gvariant(
-        gvalue: <span class="kw-2">*const </span>gobject::GValue,
+        gvalue: <span class="kw-2">*const </span><a href="../../gobject_sys/struct.GValue.html">gobject::GValue</a>,
         type_: <span class="kw-2">*const </span>glib::GVariantType,
     ) -&gt; <span class="kw-2">*mut </span>glib::GVariant;
-    <span class="kw">pub fn </span>g_dbus_gvariant_to_gvalue(value: <span class="kw-2">*mut </span>glib::GVariant, out_gvalue: <span class="kw-2">*mut </span>gobject::GValue);
+    <span class="kw">pub fn </span>g_dbus_gvariant_to_gvalue(value: <span class="kw-2">*mut </span>glib::GVariant, out_gvalue: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GValue.html">gobject::GValue</a>);
     <span class="kw">pub fn </span>g_dbus_is_address(string: <span class="kw-2">*const </span>c_char) -&gt; gboolean;
     <span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
@@ -34162,9 +34162,9 @@
     <span class="kw">pub fn </span>g_memory_settings_backend_new() -&gt; <span class="kw-2">*mut </span><a href="#8135-8138">GSettingsBackend</a>;
     <span class="kw">pub fn </span>g_networking_init();
     <span class="kw">pub fn </span>g_null_settings_backend_new() -&gt; <span class="kw-2">*mut </span><a href="#8135-8138">GSettingsBackend</a>;
-    <span class="kw">pub fn </span>g_pollable_source_new(pollable_stream: <span class="kw-2">*mut </span>gobject::GObject) -&gt; <span class="kw-2">*mut </span>glib::GSource;
+    <span class="kw">pub fn </span>g_pollable_source_new(pollable_stream: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>) -&gt; <span class="kw-2">*mut </span>glib::GSource;
     <span class="kw">pub fn </span>g_pollable_source_new_full(
-        pollable_stream: <span class="kw-2">*mut </span>gobject::GObject,
+        pollable_stream: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         child_source: <span class="kw-2">*mut </span>glib::GSource,
         cancellable: <span class="kw-2">*mut </span><a href="#7272-7275">GCancellable</a>,
     ) -&gt; <span class="kw-2">*mut </span>glib::GSource;
@@ -34218,7 +34218,7 @@
     <span class="kw">pub fn </span>g_resources_register(resource: <span class="kw-2">*mut </span><a href="#5507-5510">GResource</a>);
     <span class="kw">pub fn </span>g_resources_unregister(resource: <span class="kw-2">*mut </span><a href="#5507-5510">GResource</a>);
     <span class="kw">pub fn </span>g_simple_async_report_error_in_idle(
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         user_data: gpointer,
         domain: glib::GQuark,
@@ -34227,13 +34227,13 @@
         ...
     );
     <span class="kw">pub fn </span>g_simple_async_report_gerror_in_idle(
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         user_data: gpointer,
         error: <span class="kw-2">*const </span>glib::GError,
     );
     <span class="kw">pub fn </span>g_simple_async_report_take_gerror_in_idle(
-        object: <span class="kw-2">*mut </span>gobject::GObject,
+        object: <span class="kw-2">*mut </span><a href="../../gobject_sys/struct.GObject.html">gobject::GObject</a>,
         callback: <a href="#750-751">GAsyncReadyCallback</a>,
         user_data: gpointer,
         error: <span class="kw-2">*mut </span>glib::GError,

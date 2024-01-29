@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/property.rs`."><title>property.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/property.rs`."><title>property.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -339,43 +339,6 @@
 <a href="#264" id="264">264</a>
 <a href="#265" id="265">265</a>
 <a href="#266" id="266">266</a>
-<a href="#267" id="267">267</a>
-<a href="#268" id="268">268</a>
-<a href="#269" id="269">269</a>
-<a href="#270" id="270">270</a>
-<a href="#271" id="271">271</a>
-<a href="#272" id="272">272</a>
-<a href="#273" id="273">273</a>
-<a href="#274" id="274">274</a>
-<a href="#275" id="275">275</a>
-<a href="#276" id="276">276</a>
-<a href="#277" id="277">277</a>
-<a href="#278" id="278">278</a>
-<a href="#279" id="279">279</a>
-<a href="#280" id="280">280</a>
-<a href="#281" id="281">281</a>
-<a href="#282" id="282">282</a>
-<a href="#283" id="283">283</a>
-<a href="#284" id="284">284</a>
-<a href="#285" id="285">285</a>
-<a href="#286" id="286">286</a>
-<a href="#287" id="287">287</a>
-<a href="#288" id="288">288</a>
-<a href="#289" id="289">289</a>
-<a href="#290" id="290">290</a>
-<a href="#291" id="291">291</a>
-<a href="#292" id="292">292</a>
-<a href="#293" id="293">293</a>
-<a href="#294" id="294">294</a>
-<a href="#295" id="295">295</a>
-<a href="#296" id="296">296</a>
-<a href="#297" id="297">297</a>
-<a href="#298" id="298">298</a>
-<a href="#299" id="299">299</a>
-<a href="#300" id="300">300</a>
-<a href="#301" id="301">301</a>
-<a href="#302" id="302">302</a>
-<a href="#303" id="303">303</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/core/cell/struct.Cell.html">std::cell::Cell</a>;
@@ -417,12 +380,6 @@
     <span class="kw">type </span>Value = T::Value;
 }
 <span class="kw">impl</span>&lt;T: <a href="#23-25">Property</a>&gt; <a href="#23-25">Property</a> <span class="kw">for </span>RwLock&lt;T&gt; {
-    <span class="kw">type </span>Value = T::Value;
-}
-<span class="kw">impl</span>&lt;T: <a href="#23-25">Property</a>&gt; <a href="#23-25">Property</a> <span class="kw">for </span>once_cell::sync::OnceCell&lt;T&gt; {
-    <span class="kw">type </span>Value = T::Value;
-}
-<span class="kw">impl</span>&lt;T: <a href="#23-25">Property</a>&gt; <a href="#23-25">Property</a> <span class="kw">for </span>once_cell::unsync::OnceCell&lt;T&gt; {
     <span class="kw">type </span>Value = T::Value;
 }
 <span class="kw">impl</span>&lt;T: <a href="#23-25">Property</a>&gt; <a href="#23-25">Property</a> <span class="kw">for </span>std::cell::OnceCell&lt;T&gt; {
@@ -467,186 +424,155 @@
     <span class="kw">type </span>SetValue;
     <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue);
 }
-<span class="kw">impl</span>&lt;T: <a href="#81-84">PropertySetNested</a>&gt; <a href="#88-91">PropertySet</a> <span class="kw">for </span>T {
+<span class="kw">impl</span>&lt;T: <a href="#75-78">PropertySetNested</a>&gt; <a href="#82-85">PropertySet</a> <span class="kw">for </span>T {
     <span class="kw">type </span>SetValue = T::SetNestedValue;
     <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue) {
-        <a class="self" href="#94">self</a>.<a href="#83">set_nested</a>(|x| <span class="kw-2">*</span><a href="#95">x</a> = <a href="#94">v</a>);
+        <a class="self" href="#88">self</a>.<a href="#77">set_nested</a>(|x| <span class="kw-2">*</span><a href="#89">x</a> = <a href="#88">v</a>);
     }
 }
 
-<span class="kw">impl</span>&lt;T: <a href="param_spec.rs.html#1987-1995">HasParamSpec</a>&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>T {
+<span class="kw">impl</span>&lt;T: <a href="param_spec.rs.html#1987-1995">HasParamSpec</a>&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>T {
     <span class="kw">type </span>Value = T;
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#101">f</a>(<a class="self" href="#101">self</a>)
+        <a href="#95">f</a>(<a class="self" href="#95">self</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;T: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>Cell&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>Cell&lt;T&gt; {
     <span class="kw">type </span>Value = T;
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#108">f</a>(<span class="kw-2">&amp;</span>Cell::get(<a class="self" href="#108">self</a>))
+        <a href="#102">f</a>(<span class="kw-2">&amp;</span>Cell::get(<a class="self" href="#102">self</a>))
     }
 }
-<span class="kw">impl</span>&lt;T&gt; <a href="#88-91">PropertySet</a> <span class="kw">for </span>Cell&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#82-85">PropertySet</a> <span class="kw">for </span>Cell&lt;T&gt; {
     <span class="kw">type </span>SetValue = T;
     <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue) {
-        <a class="self" href="#114">self</a>.set(<a href="#114">v</a>);
+        <a class="self" href="#108">self</a>.set(<a href="#108">v</a>);
     }
 }
-<span class="kw">impl</span>&lt;T&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>RefCell&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>RefCell&lt;T&gt; {
     <span class="kw">type </span>Value = T;
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#120">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#120">self</a>.borrow())
+        <a href="#114">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#114">self</a>.borrow())
     }
 }
-<span class="kw">impl</span>&lt;T&gt; <a href="#81-84">PropertySetNested</a> <span class="kw">for </span>RefCell&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#75-78">PropertySetNested</a> <span class="kw">for </span>RefCell&lt;T&gt; {
     <span class="kw">type </span>SetNestedValue = T;
     <span class="kw">fn </span>set_nested&lt;F: FnOnce(<span class="kw-2">&amp;mut </span><span class="self">Self</span>::SetNestedValue)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) {
-        <a href="#126">f</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#126">self</a>.borrow_mut());
+        <a href="#120">f</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#120">self</a>.borrow_mut());
     }
 }
 
-<span class="kw">impl</span>&lt;T&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>Mutex&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>Mutex&lt;T&gt; {
     <span class="kw">type </span>Value = T;
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#133">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#133">self</a>.lock().unwrap())
+        <a href="#127">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#127">self</a>.lock().unwrap())
     }
 }
-<span class="kw">impl</span>&lt;T&gt; <a href="#81-84">PropertySetNested</a> <span class="kw">for </span>Mutex&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#75-78">PropertySetNested</a> <span class="kw">for </span>Mutex&lt;T&gt; {
     <span class="kw">type </span>SetNestedValue = T;
     <span class="kw">fn </span>set_nested&lt;F: FnOnce(<span class="kw-2">&amp;mut </span><span class="self">Self</span>::SetNestedValue)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) {
-        <a href="#139">f</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#139">self</a>.lock().unwrap());
+        <a href="#133">f</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#133">self</a>.lock().unwrap());
     }
 }
 
-<span class="kw">impl</span>&lt;T&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>RwLock&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>RwLock&lt;T&gt; {
     <span class="kw">type </span>Value = T;
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#146">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#146">self</a>.read().unwrap())
+        <a href="#140">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#140">self</a>.read().unwrap())
     }
 }
-<span class="kw">impl</span>&lt;T&gt; <a href="#81-84">PropertySetNested</a> <span class="kw">for </span>RwLock&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#75-78">PropertySetNested</a> <span class="kw">for </span>RwLock&lt;T&gt; {
     <span class="kw">type </span>SetNestedValue = T;
     <span class="kw">fn </span>set_nested&lt;F: FnOnce(<span class="kw-2">&amp;mut </span><span class="self">Self</span>::SetNestedValue)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) {
-        <a href="#152">f</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#152">self</a>.write().unwrap());
+        <a href="#146">f</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#146">self</a>.write().unwrap());
     }
 }
 
-<span class="kw">impl</span>&lt;T&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>once_cell::sync::OnceCell&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>std::cell::OnceCell&lt;T&gt; {
+    <span class="kw">type </span>Value = T;
+    <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
+        <a href="#153">f</a>(<a class="self" href="#153">self</a>.get().unwrap())
+    }
+}
+<span class="kw">impl</span>&lt;T&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>std::sync::OnceLock&lt;T&gt; {
     <span class="kw">type </span>Value = T;
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
         <a href="#159">f</a>(<a class="self" href="#159">self</a>.get().unwrap())
     }
 }
-<span class="kw">impl</span>&lt;T&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>once_cell::unsync::OnceCell&lt;T&gt; {
-    <span class="kw">type </span>Value = T;
-    <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#165">f</a>(<a class="self" href="#165">self</a>.get().unwrap())
-    }
-}
-<span class="kw">impl</span>&lt;T&gt; <a href="#88-91">PropertySet</a> <span class="kw">for </span>once_cell::sync::OnceCell&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#82-85">PropertySet</a> <span class="kw">for </span>std::cell::OnceCell&lt;T&gt; {
     <span class="kw">type </span>SetValue = T;
     <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue) {
         <span class="comment">// I can't use `unwrap` because I would have to add a `Debug` bound to _v
-        </span><span class="kw">if let </span><span class="prelude-val">Err</span>(_v) = <a class="self" href="#171">self</a>.set(<a href="#171">v</a>) {
+        </span><span class="kw">if let </span><span class="prelude-val">Err</span>(_v) = <a class="self" href="#165">self</a>.set(<a href="#165">v</a>) {
             <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"can't set value of OnceCell multiple times"</span>)
         };
     }
 }
-<span class="kw">impl</span>&lt;T&gt; <a href="#88-91">PropertySet</a> <span class="kw">for </span>once_cell::unsync::OnceCell&lt;T&gt; {
+<span class="kw">impl</span>&lt;T&gt; <a href="#82-85">PropertySet</a> <span class="kw">for </span>std::sync::OnceLock&lt;T&gt; {
     <span class="kw">type </span>SetValue = T;
     <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue) {
         <span class="comment">// I can't use `unwrap` because I would have to add a `Debug` bound to _v
-        </span><span class="kw">if let </span><span class="prelude-val">Err</span>(_v) = <a class="self" href="#180">self</a>.set(<a href="#180">v</a>) {
+        </span><span class="kw">if let </span><span class="prelude-val">Err</span>(_v) = <a class="self" href="#174">self</a>.set(<a href="#174">v</a>) {
             <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"can't set value of OnceCell multiple times"</span>)
         };
     }
 }
 
-<span class="kw">impl</span>&lt;T&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>std::cell::OnceCell&lt;T&gt; {
-    <span class="kw">type </span>Value = T;
-    <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#190">f</a>(<a class="self" href="#190">self</a>.get().unwrap())
-    }
-}
-<span class="kw">impl</span>&lt;T&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>std::sync::OnceLock&lt;T&gt; {
-    <span class="kw">type </span>Value = T;
-    <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#196">f</a>(<a class="self" href="#196">self</a>.get().unwrap())
-    }
-}
-<span class="kw">impl</span>&lt;T&gt; <a href="#88-91">PropertySet</a> <span class="kw">for </span>std::cell::OnceCell&lt;T&gt; {
-    <span class="kw">type </span>SetValue = T;
-    <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue) {
-        <span class="comment">// I can't use `unwrap` because I would have to add a `Debug` bound to _v
-        </span><span class="kw">if let </span><span class="prelude-val">Err</span>(_v) = <a class="self" href="#202">self</a>.set(<a href="#202">v</a>) {
-            <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"can't set value of OnceCell multiple times"</span>)
-        };
-    }
-}
-<span class="kw">impl</span>&lt;T&gt; <a href="#88-91">PropertySet</a> <span class="kw">for </span>std::sync::OnceLock&lt;T&gt; {
-    <span class="kw">type </span>SetValue = T;
-    <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue) {
-        <span class="comment">// I can't use `unwrap` because I would have to add a `Debug` bound to _v
-        </span><span class="kw">if let </span><span class="prelude-val">Err</span>(_v) = <a class="self" href="#211">self</a>.set(<a href="#211">v</a>) {
-            <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"can't set value of OnceCell multiple times"</span>)
-        };
-    }
-}
-
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="object.rs.html#1351-1354">Object</a>&gt;&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>WeakRef&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="object.rs.html#1351-1354">Object</a>&gt;&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>WeakRef&lt;T&gt; {
     <span class="kw">type </span>Value = <span class="prelude-ty">Option</span>&lt;T&gt;;
 
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#222">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#222">self</a>.<a href="object.rs.html#3421-3431">upgrade</a>())
+        <a href="#185">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#185">self</a>.<a href="object.rs.html#3421-3431">upgrade</a>())
     }
 }
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="object.rs.html#1351-1354">Object</a>&gt;&gt; <a href="#88-91">PropertySet</a> <span class="kw">for </span>WeakRef&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="object.rs.html#1351-1354">Object</a>&gt;&gt; <a href="#82-85">PropertySet</a> <span class="kw">for </span>WeakRef&lt;T&gt; {
     <span class="kw">type </span>SetValue = <span class="prelude-ty">Option</span>&lt;T&gt;;
 
     <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue) {
-        <a class="self" href="#229">self</a>.<a href="object.rs.html#3404-3413">set</a>(<a href="#229">v</a>.as_ref())
+        <a class="self" href="#192">self</a>.<a href="object.rs.html#3404-3413">set</a>(<a href="#192">v</a>.as_ref())
     }
 }
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="object.rs.html#1351-1354">Object</a>&gt;&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>SendWeakRef&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="object.rs.html#1351-1354">Object</a>&gt;&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>SendWeakRef&lt;T&gt; {
     <span class="kw">type </span>Value = <span class="prelude-ty">Option</span>&lt;T&gt;;
 
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        <a href="#236">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#236">self</a>.<a href="object.rs.html#3421-3431">upgrade</a>())
+        <a href="#199">f</a>(<span class="kw-2">&amp;</span><a class="self" href="#199">self</a>.<a href="object.rs.html#3421-3431">upgrade</a>())
     }
 }
-<span class="kw">impl</span>&lt;T: IsA&lt;<a href="object.rs.html#1351-1354">Object</a>&gt;&gt; <a href="#88-91">PropertySet</a> <span class="kw">for </span>SendWeakRef&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: IsA&lt;<a href="object.rs.html#1351-1354">Object</a>&gt;&gt; <a href="#82-85">PropertySet</a> <span class="kw">for </span>SendWeakRef&lt;T&gt; {
     <span class="kw">type </span>SetValue = <span class="prelude-ty">Option</span>&lt;T&gt;;
 
     <span class="kw">fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, v: <span class="self">Self</span>::SetValue) {
-        <a href="object.rs.html#3404-3413">WeakRef::set</a>(<a class="self" href="#243">self</a>, <a href="#243">v</a>.as_ref());
+        <a href="object.rs.html#3404-3413">WeakRef::set</a>(<a class="self" href="#206">self</a>, <a href="#206">v</a>.as_ref());
     }
 }
 
 <span class="comment">// Smart pointers wrapping a `PropertyRead`/`PropertyWrite`
-</span><span class="kw">impl</span>&lt;T: <a href="#72-75">PropertyGet</a>&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>Rc&lt;T&gt; {
+</span><span class="kw">impl</span>&lt;T: <a href="#66-69">PropertyGet</a>&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>Rc&lt;T&gt; {
     <span class="kw">type </span>Value = T::Value;
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        (<span class="kw-2">**</span><a class="self" href="#251">self</a>).<a href="#74">get</a>(<a href="#251">f</a>)
+        (<span class="kw-2">**</span><a class="self" href="#214">self</a>).<a href="#68">get</a>(<a href="#214">f</a>)
     }
 }
-<span class="kw">impl</span>&lt;T: <a href="#81-84">PropertySetNested</a>&gt; <a href="#81-84">PropertySetNested</a> <span class="kw">for </span>Rc&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: <a href="#75-78">PropertySetNested</a>&gt; <a href="#75-78">PropertySetNested</a> <span class="kw">for </span>Rc&lt;T&gt; {
     <span class="kw">type </span>SetNestedValue = T::SetNestedValue;
     <span class="kw">fn </span>set_nested&lt;F: FnOnce(<span class="kw-2">&amp;mut </span><span class="self">Self</span>::SetNestedValue)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) {
-        (<span class="kw-2">**</span><a class="self" href="#257">self</a>).<a href="#83">set_nested</a>(<a href="#257">f</a>)
+        (<span class="kw-2">**</span><a class="self" href="#220">self</a>).<a href="#77">set_nested</a>(<a href="#220">f</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;T: <a href="#72-75">PropertyGet</a>&gt; <a href="#72-75">PropertyGet</a> <span class="kw">for </span>Arc&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: <a href="#66-69">PropertyGet</a>&gt; <a href="#66-69">PropertyGet</a> <span class="kw">for </span>Arc&lt;T&gt; {
     <span class="kw">type </span>Value = T::Value;
     <span class="kw">fn </span>get&lt;R, F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>::Value) -&gt; R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; R {
-        (<span class="kw-2">**</span><a class="self" href="#264">self</a>).<a href="#74">get</a>(<a href="#264">f</a>)
+        (<span class="kw-2">**</span><a class="self" href="#227">self</a>).<a href="#68">get</a>(<a href="#227">f</a>)
     }
 }
-<span class="kw">impl</span>&lt;T: <a href="#81-84">PropertySetNested</a>&gt; <a href="#81-84">PropertySetNested</a> <span class="kw">for </span>Arc&lt;T&gt; {
+<span class="kw">impl</span>&lt;T: <a href="#75-78">PropertySetNested</a>&gt; <a href="#75-78">PropertySetNested</a> <span class="kw">for </span>Arc&lt;T&gt; {
     <span class="kw">type </span>SetNestedValue = T::SetNestedValue;
     <span class="kw">fn </span>set_nested&lt;F: FnOnce(<span class="kw-2">&amp;mut </span><span class="self">Self</span>::SetNestedValue)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) {
-        (<span class="kw-2">**</span><a class="self" href="#270">self</a>).<a href="#83">set_nested</a>(<a href="#270">f</a>)
+        (<span class="kw-2">**</span><a class="self" href="#233">self</a>).<a href="#77">set_nested</a>(<a href="#233">f</a>)
     }
 }
 
@@ -670,13 +596,13 @@
     };
 }
 
-<a class="macro" href="#275-293">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicBool.html">std::sync::atomic::AtomicBool</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>);
-<a class="macro" href="#275-293">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicI8.html">std::sync::atomic::AtomicI8</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i8.html">i8</a>);
-<a class="macro" href="#275-293">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicI32.html">std::sync::atomic::AtomicI32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>);
+<a class="macro" href="#238-256">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicBool.html">std::sync::atomic::AtomicBool</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>);
+<a class="macro" href="#238-256">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicI8.html">std::sync::atomic::AtomicI8</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i8.html">i8</a>);
+<a class="macro" href="#238-256">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicI32.html">std::sync::atomic::AtomicI32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>);
 <span class="attr">#[cfg(target_has_atomic = <span class="string">"64"</span>)]
-</span><a class="macro" href="#275-293">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicI64.html">std::sync::atomic::AtomicI64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>);
-<a class="macro" href="#275-293">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicU8.html">std::sync::atomic::AtomicU8</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>);
-<a class="macro" href="#275-293">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicU32.html">std::sync::atomic::AtomicU32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>);
+</span><a class="macro" href="#238-256">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicI64.html">std::sync::atomic::AtomicI64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>);
+<a class="macro" href="#238-256">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicU8.html">std::sync::atomic::AtomicU8</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>);
+<a class="macro" href="#238-256">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicU32.html">std::sync::atomic::AtomicU32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>);
 <span class="attr">#[cfg(target_has_atomic = <span class="string">"64"</span>)]
-</span><a class="macro" href="#275-293">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicU64.html">std::sync::atomic::AtomicU64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>);
+</span><a class="macro" href="#238-256">impl_atomic!</a>(<a href="https://doc.rust-lang.org/nightly/core/sync/atomic/struct.AtomicU64.html">std::sync::atomic::AtomicU64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>);
 </code></pre></div></section></main></body></html>

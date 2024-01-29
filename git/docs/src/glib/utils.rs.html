@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/utils.rs`."><title>utils.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (5bd5d214e 2024-01-25)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/utils.rs`."><title>utils.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (635124704 2024-01-27)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -464,6 +464,9 @@
 <a href="#389" id="389">389</a>
 <a href="#390" id="390">390</a>
 <a href="#391" id="391">391</a>
+<a href="#392" id="392">392</a>
+<a href="#393" id="393">393</a>
+<a href="#394" id="394">394</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span>std::{
@@ -471,7 +474,7 @@
     <a href="https://doc.rust-lang.org/nightly/core/mem/index.html">mem</a>, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>,
 };
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="gstring.rs.html#996">GString</a>, <a href="gstring.rs.html#2301-2303">IntoGStr</a>, <a href="gstring.rs.html#2377-2379">IntoOptionalGStr</a>};
+<span class="kw">use crate</span>::{<a href="lib.rs.html#150">translate</a>::<span class="kw-2">*</span>, <a href="gstring.rs.html#996">GString</a>, <a href="gstring.rs.html#2301-2303">IntoGStr</a>, <a href="gstring.rs.html#2377-2379">IntoOptionalGStr</a>};
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Same as [`get_prgname()`].
@@ -771,15 +774,18 @@
 
 <span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests {
-    <span class="kw">use </span>std::{env, sync::Mutex};
+    <span class="kw">use </span>std::{env, sync::Mutex, sync::OnceLock};
 
     <span class="comment">//Mutex to prevent run environment tests parallel
-    </span><span class="kw">static </span>LOCK: once_cell::sync::Lazy&lt;Mutex&lt;()&gt;&gt; = once_cell::sync::Lazy::new(|| Mutex::new(()));
+    </span><span class="kw">fn </span>lock() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>Mutex&lt;()&gt; {
+        <span class="kw">static </span>LOCK: OnceLock&lt;Mutex&lt;()&gt;&gt; = OnceLock::new();
+        LOCK.get_or_init(|| Mutex::new(()))
+    }
 
     <span class="kw">const </span>VAR_NAME: <span class="kw-2">&amp;</span>str = <span class="string">"function_environment_test"</span>;
 
     <span class="kw">fn </span>check_getenv(val: <span class="kw-2">&amp;</span>str) {
-        <span class="kw">let </span>_data = LOCK.lock().unwrap();
+        <span class="kw">let </span>_data = lock().lock().unwrap();
 
         env::set_var(VAR_NAME, val);
         <span class="macro">assert_eq!</span>(env::var_os(VAR_NAME), <span class="prelude-val">Some</span>(val.into()));
@@ -790,7 +796,7 @@
     }
 
     <span class="kw">fn </span>check_setenv(val: <span class="kw-2">&amp;</span>str) {
-        <span class="kw">let </span>_data = LOCK.lock().unwrap();
+        <span class="kw">let </span>_data = lock().lock().unwrap();
 
         <span class="kw">crate</span>::setenv(VAR_NAME, val, <span class="bool-val">true</span>).unwrap();
         <span class="macro">assert_eq!</span>(env::var_os(VAR_NAME), <span class="prelude-val">Some</span>(val.into()));
