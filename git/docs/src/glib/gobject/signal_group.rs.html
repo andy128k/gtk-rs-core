@@ -367,12 +367,12 @@
     <a href="../lib.rs.html#157">prelude</a>::<span class="kw-2">*</span>,
     signal::{<a href="../signal.rs.html#67-89">connect_raw</a>, <a href="../signal.rs.html#49">SignalHandlerId</a>},
     <a href="../lib.rs.html#162">translate</a>::<span class="kw-2">*</span>,
-    <a href="../object.rs.html#1370-1373">Object</a>, <a href="../closure.rs.html#27">RustClosure</a>, <a href="auto/signal_group.rs.html#7-72">SignalGroup</a>, <a href="../value.rs.html#478-512">Value</a>,
+    <a href="../object.rs.html#1371-1374">Object</a>, <a href="../closure.rs.html#27">RustClosure</a>, <a href="auto/signal_group.rs.html#7-72">SignalGroup</a>, <a href="../value.rs.html#478-512">Value</a>,
 };
 
 <span class="kw">impl </span><a href="auto/signal_group.rs.html#7-72">SignalGroup</a> {
     <span class="attr">#[doc(alias = <span class="string">"g_signal_group_new"</span>)]
-    </span><span class="kw">pub fn </span>new&lt;T: IsA&lt;<a href="../object.rs.html#1370-1373">Object</a>&gt;&gt;() -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>new&lt;T: IsA&lt;<a href="../object.rs.html#1371-1374">Object</a>&gt;&gt;() -&gt; <span class="self">Self </span>{
         <a href="auto/signal_group.rs.html#84-90"><span class="self">Self</span>::with_type</a>(<a href="../types.rs.html#293">T::static_type</a>())
     }
     <span class="doccomment">/// Connects `closure` to the signal `detailed_signal` on [`target`][struct@crate::SignalGroup#target].
@@ -429,7 +429,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>connect_notify&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, callback: F)
     <span class="kw">where
-        </span>F: Fn(<span class="kw-2">&amp;</span><a href="../object.rs.html#1370-1373"><span class="kw">crate</span>::Object</a>, <span class="kw-2">&amp;</span><a href="../param_spec.rs.html#19-42"><span class="kw">crate</span>::ParamSpec</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
+        </span>F: Fn(<span class="kw-2">&amp;</span><a href="../object.rs.html#1371-1374"><span class="kw">crate</span>::Object</a>, <span class="kw-2">&amp;</span><a href="../param_spec.rs.html#19-42"><span class="kw">crate</span>::ParamSpec</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
     {
         <span class="kw">let </span>signal_name = <span class="kw">if let </span><span class="prelude-val">Some</span>(name) = <a href="#70">name</a> {
             <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"notify::{name}"</span>)
@@ -451,7 +451,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>connect_notify_local&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, callback: F)
     <span class="kw">where
-        </span>F: Fn(<span class="kw-2">&amp;</span><a href="../object.rs.html#1370-1373"><span class="kw">crate</span>::Object</a>, <span class="kw-2">&amp;</span><a href="../param_spec.rs.html#19-42"><span class="kw">crate</span>::ParamSpec</a>) + <span class="lifetime">'static</span>,
+        </span>F: Fn(<span class="kw-2">&amp;</span><a href="../object.rs.html#1371-1374"><span class="kw">crate</span>::Object</a>, <span class="kw-2">&amp;</span><a href="../param_spec.rs.html#19-42"><span class="kw">crate</span>::ParamSpec</a>) + <span class="lifetime">'static</span>,
     {
         <span class="kw">let </span>signal_name = <span class="kw">if let </span><span class="prelude-val">Some</span>(name) = <a href="#92">name</a> {
             <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"notify::{name}"</span>)
@@ -470,8 +470,8 @@
         <a class="self" href="#92">self</a>.<a href="#29-38">connect_closure</a>(<span class="kw-2">&amp;</span><a href="#96">signal_name</a>, <span class="bool-val">false</span>, <a href="#102">closure</a>);
     }
 
-    <span class="kw">unsafe fn </span>connect_bind_unsafe&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="../object.rs.html#1370-1373">Object</a>)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../signal.rs.html#49">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>bind_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/signal_group.rs.html#7-72">SignalGroup</a>, <span class="kw-2">&amp;</span><a href="../object.rs.html#1370-1373">Object</a>)&gt;(
+    <span class="kw">unsafe fn </span>connect_bind_unsafe&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="../object.rs.html#1371-1374">Object</a>)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../signal.rs.html#49">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>bind_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/signal_group.rs.html#7-72">SignalGroup</a>, <span class="kw-2">&amp;</span><a href="../object.rs.html#1371-1374">Object</a>)&gt;(
             this: <span class="kw-2">*mut </span><span class="kw">crate</span>::gobject_ffi::GSignalGroup,
             instance: <span class="kw-2">*mut </span><span class="kw">crate</span>::gobject_ffi::GObject,
             f: ffi::gpointer,
@@ -516,7 +516,7 @@
     /// ## `instance`
     /// a [`Object`][crate::Object] containing the new value for [`target`][struct@crate::SignalGroup#target]
     </span><span class="attr">#[doc(alias = <span class="string">"bind"</span>)]
-    </span><span class="kw">pub fn </span>connect_bind&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="../object.rs.html#1370-1373">Object</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">pub fn </span>connect_bind&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="../object.rs.html#1371-1374">Object</a>) + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../signal.rs.html#49">SignalHandlerId</a> {
@@ -527,7 +527,7 @@
     </span><span class="doccomment">/// Like [`Self::connect_bind`] but doesn't require a `Send+Sync` closure. Signal emission will
     /// panic if the signal is emitted from a different thread from the thread that connected the
     /// signal.
-    </span><span class="kw">pub fn </span>connect_bind_local&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="../object.rs.html#1370-1373">Object</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../signal.rs.html#49">SignalHandlerId</a> {
+    </span><span class="kw">pub fn </span>connect_bind_local&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="../object.rs.html#1371-1374">Object</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../signal.rs.html#49">SignalHandlerId</a> {
         <span class="kw">let </span>f = <a href="../thread_guard.rs.html#38-43"><span class="kw">crate</span>::thread_guard::ThreadGuard::new</a>(<a href="#170">f</a>);
 
         <span class="kw">unsafe </span>{

@@ -737,12 +737,12 @@
 
 <span class="kw">impl</span>&lt;<span class="lifetime">'input</span>&gt; MatchInfo&lt;<span class="lifetime">'input</span>&gt; {
     <span class="attr">#[doc(alias = <span class="string">"g_match_info_fetch"</span>)]
-    </span><span class="kw">pub fn </span>fetch(<span class="kw-2">&amp;</span><span class="self">self</span>, match_num: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
+    </span><span class="kw">pub fn </span>fetch(<span class="kw-2">&amp;</span><span class="self">self</span>, match_num: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#1036"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="translate.rs.html#1634-1636">from_glib_full</a>(ffi::g_match_info_fetch(<a class="self" href="#274">self</a>.<a href="translate.rs.html#441">to_glib_none</a>().<span class="number">0</span>, <a href="#274">match_num</a>)) }
     }
 
     <span class="attr">#[doc(alias = <span class="string">"g_match_info_fetch_all"</span>)]
-    </span><span class="kw">pub fn </span>fetch_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
+    </span><span class="kw">pub fn </span>fetch_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="gstring.rs.html#1036"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="translate.rs.html#1938">FromGlibPtrContainer::from_glib_full</a>(ffi::g_match_info_fetch_all(<a class="self" href="#279">self</a>.<a href="translate.rs.html#441">to_glib_none</a>().<span class="number">0</span>))
         }
@@ -811,9 +811,9 @@
     <span class="attr">#[doc(alias = <span class="string">"g_match_info_expand_references"</span>)]
     </span><span class="kw">pub fn </span>expand_references(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        string_to_expand: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
-        <a href="#348">string_to_expand</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string_to_expand| <span class="kw">unsafe </span>{
+        string_to_expand: <span class="kw">impl </span><a href="gstring.rs.html#2401-2403">IntoGStr</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#1036"><span class="kw">crate</span>::GString</a>&gt;, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+        <a href="#348">string_to_expand</a>.<a href="gstring.rs.html#2402">run_with_gstr</a>(|string_to_expand| <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.null_mut.html">ptr::null_mut</a>();
             <span class="kw">let </span>ret = ffi::g_match_info_expand_references(
                 <a class="self" href="#347">self</a>.<a href="translate.rs.html#441">to_glib_none</a>().<span class="number">0</span>,
@@ -829,8 +829,8 @@
     }
 
     <span class="attr">#[doc(alias = <span class="string">"g_match_info_fetch_named"</span>)]
-    </span><span class="kw">pub fn </span>fetch_named(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
-        <a href="#366">name</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
+    </span><span class="kw">pub fn </span>fetch_named(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span><a href="gstring.rs.html#2401-2403">IntoGStr</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="gstring.rs.html#1036"><span class="kw">crate</span>::GString</a>&gt; {
+        <a href="#366">name</a>.<a href="gstring.rs.html#2402">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
             <a href="translate.rs.html#1634-1636">from_glib_full</a>(ffi::g_match_info_fetch_named(
                 <a class="self" href="#366">self</a>.<a href="translate.rs.html#441">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#367">name</a>.<a href="translate.rs.html#441">to_glib_none</a>().<span class="number">0</span>,
@@ -839,8 +839,8 @@
     }
 
     <span class="attr">#[doc(alias = <span class="string">"g_match_info_fetch_named_pos"</span>)]
-    </span><span class="kw">pub fn </span>fetch_named_pos(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <span class="prelude-ty">Option</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>)&gt; {
-        <a href="#376">name</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
+    </span><span class="kw">pub fn </span>fetch_named_pos(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span><a href="gstring.rs.html#2401-2403">IntoGStr</a>) -&gt; <span class="prelude-ty">Option</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>)&gt; {
+        <a href="#376">name</a>.<a href="gstring.rs.html#2402">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>start_pos = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">mem::MaybeUninit::uninit</a>();
             <span class="kw">let </span><span class="kw-2">mut </span>end_pos = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">mem::MaybeUninit::uninit</a>();
             <span class="kw">let </span>ret = <a href="translate.rs.html#1417-1419">from_glib</a>(ffi::g_match_info_fetch_named_pos(
