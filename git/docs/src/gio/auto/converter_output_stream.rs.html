@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/converter_output_stream.rs`."><title>converter_output_stream.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-d10b2a06af903387.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (176e54520 2024-08-04)" data-channel="nightly" data-search-js="search-ef54e092fea9c776.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9345f17bf569ecba.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/converter_output_stream.rs`."><title>converter_output_stream.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-e7950ecc.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.86.0-nightly (f85c6de55 2025-01-26)" data-channel="nightly" data-search-js="search-ccb196c1.js" data-settings-js="settings-0f613d39.js" ><script src="../../../static.files/storage-59e33391.js"></script><script defer src="../../../static.files/src-script-56102188.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -50,7 +50,7 @@
             </section>
         ` };
 
-        if ("master" == "master") {
+        if ("main" == "main") {
             document.body.insertAdjacentHTML(
                 'beforeend',
                 popup("This is the development version. Go to latest stable version.", "stable/latest")
@@ -59,7 +59,7 @@
             fetch('https://gtk-rs.org/gtk-rs-core/LATEST_RELEASE_BRANCH')
                 .then(response => response.text())
                 .then(latest_branch => {
-                    if (latest_branch.trim() != "master") {
+                    if (latest_branch.trim() != "main") {
                         document.body.insertAdjacentHTML(
                             'beforeend',
                             popup("This version is outdated. Go to latest version.", "stable/latest")
@@ -71,7 +71,8 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1><div class="sub-heading">gio/auto/</div>converter_output_stream.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers">
+<a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -229,13 +230,7 @@
 <a href="#156" id="156">156</a>
 <a href="#157" id="157">157</a>
 <a href="#158" id="158">158</a>
-<a href="#159" id="159">159</a>
-<a href="#160" id="160">160</a>
-<a href="#161" id="161">161</a>
-<a href="#162" id="162">162</a>
-<a href="#163" id="163">163</a>
-<a href="#164" id="164">164</a>
-</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+<a href="#159" id="159">159</a></pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
@@ -281,7 +276,7 @@
 }
 
 <span class="kw">impl </span><a href="#8-44">ConverterOutputStream</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#8-44">ConverterOutputStream</a>&gt; = <span class="prelude-val">None</span>;
+    <span class="kw">pub const </span>NONE: <a class="prelude-ty" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html">Option</a>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#8-44">ConverterOutputStream</a>&gt; = <a class="prelude-val" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#variant.None">None</a>;
 
     <span class="doccomment">/// Creates a new converter output stream for the @base_stream.
     /// ## `base_stream`
@@ -294,8 +289,8 @@
     /// a new #GOutputStream.
     </span><span class="attr">#[doc(alias = <span class="string">"g_converter_output_stream_new"</span>)]
     </span><span class="kw">pub fn </span>new(
-        base_stream: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="output_stream.rs.html#9-39">OutputStream</a>&gt;,
-        converter: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="converter.rs.html#8-28">Converter</a>&gt;,
+        base_stream: <span class="kw-2">&amp;</span><span class="kw">impl </span><a href="../../../glib/object/trait.IsA.html">IsA</a>&lt;<a href="output_stream.rs.html#9-39">OutputStream</a>&gt;,
+        converter: <span class="kw-2">&amp;</span><span class="kw">impl </span><a href="../../../glib/object/trait.IsA.html">IsA</a>&lt;<a href="converter.rs.html#8-28">Converter</a>&gt;,
     ) -&gt; <a href="#8-44">ConverterOutputStream</a> {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrFull.html#tymethod.from_glib_full">OutputStream::from_glib_full</a>(<a href="../../../gio_sys/fn.g_converter_output_stream_new.html">ffi::g_converter_output_stream_new</a>(
@@ -327,7 +322,7 @@
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
 </span><span class="attr">#[must_use = <span class="string">"The builder must be built to be used"</span>]
 </span><span class="kw">pub struct </span><a href="../../../gio/builders/struct.ConverterOutputStreamBuilder.html">ConverterOutputStreamBuilder</a> {
-    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">'static</span>, <a href="#8-44">ConverterOutputStream</a>&gt;,
+    builder: <a href="../../../glib/object/struct.ObjectBuilder.html">glib::object::ObjectBuilder</a>&lt;<span class="lifetime">'static</span>, <a href="#8-44">ConverterOutputStream</a>&gt;,
 }
 
 <span class="kw">impl </span><a href="#92-94">ConverterOutputStreamBuilder</a> {
@@ -338,7 +333,7 @@
     }
 
     <span class="doccomment">/// The converter object.
-    </span><span class="kw">pub fn </span>converter(<span class="self">self</span>, converter: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="converter.rs.html#8-28">Converter</a>&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>converter(<span class="self">self</span>, converter: <span class="kw-2">&amp;</span><span class="kw">impl </span><a href="../../../glib/object/trait.IsA.html">IsA</a>&lt;<a href="converter.rs.html#8-28">Converter</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#104">self</a>
                 </span>.builder
@@ -346,7 +341,7 @@
         }
     }
 
-    <span class="kw">pub fn </span>base_stream(<span class="self">self</span>, base_stream: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="output_stream.rs.html#9-39">OutputStream</a>&gt;) -&gt; <span class="self">Self </span>{
+    <span class="kw">pub fn </span>base_stream(<span class="self">self</span>, base_stream: <span class="kw-2">&amp;</span><span class="kw">impl </span><a href="../../../glib/object/trait.IsA.html">IsA</a>&lt;<a href="output_stream.rs.html#9-39">OutputStream</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#112">self</a>
                 </span>.builder
@@ -371,17 +366,12 @@
     }
 }
 
-<span class="kw">mod </span>sealed {
-    <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="#8-44"><span class="kw">super</span>::ConverterOutputStream</a>&gt;&gt; <a href="#138">Sealed</a> <span class="kw">for </span>T {}
-}
-
 <span class="doccomment">/// Trait containing all [`struct@ConverterOutputStream`] methods.
 ///
 /// # Implementors
 ///
 /// [`ConverterOutputStream`][struct@crate::ConverterOutputStream]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ConverterOutputStreamExt.html">ConverterOutputStreamExt</a>: IsA&lt;<a href="#8-44">ConverterOutputStream</a>&gt; + <a href="#138">sealed::Sealed</a> + <span class="lifetime">'static </span>{
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ConverterOutputStreamExt.html">ConverterOutputStreamExt</a>: <a href="../../../glib/object/trait.IsA.html">IsA</a>&lt;<a href="#8-44">ConverterOutputStream</a>&gt; + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Gets the #GConverter that is used by @self.
     ///
     /// # Returns
@@ -392,11 +382,11 @@
     </span><span class="kw">fn </span>converter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="converter.rs.html#8-28">Converter</a> {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/fn.from_glib_none.html">from_glib_none</a>(<a href="../../../gio_sys/fn.g_converter_output_stream_get_converter.html">ffi::g_converter_output_stream_get_converter</a>(
-                <a class="self" href="#155">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#150">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="#8-44">ConverterOutputStream</a>&gt;&gt; <a href="#147-162">ConverterOutputStreamExt</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: <a href="../../../glib/object/trait.IsA.html">IsA</a>&lt;<a href="#8-44">ConverterOutputStream</a>&gt;&gt; <a href="#142-157">ConverterOutputStreamExt</a> <span class="kw">for </span>O {}
 </code></pre></div></section></main></body></html>
